@@ -3,7 +3,6 @@ import { DurableObject } from "cloudflare:workers";
 const DISCORD_API = "https://discord.com/api/v10";
 const DISCORD_GATEWAY = "wss://gateway.discord.gg/?v=10&encoding=json";
 
-// GUILDS + GUILD_MESSAGES + MESSAGE_CONTENT
 const INTENTS = 1 | 512 | 32768;
 
 const WOW_AI_URL = "https://totik-ai-test.totikch.workers.dev/";
@@ -15,12 +14,8 @@ const QUESTION_CHANNEL_ID = "1548811398069489744";
 const QUESTION_COMMAND = /^!soru(?:\s|$)/i;
 
 const MAX_DISCORD_MESSAGE = 1900;
-
-// Cevapları hâlâ detaylı tutuyoruz,
-// sadece gereksiz derecede uzamasını engelliyoruz.
 const TARGET_ANSWER_LENGTH = 1400;
 
-// Her kullanıcı 10 dakikada 1 başarılı soru.
 const USER_COOLDOWN_MS = 10 * 60 * 1000;
 
 const COOLDOWN_MESSAGE =
@@ -32,9 +27,14 @@ const IDENTITY_MESSAGE =
 const CHANNEL_RECOMMENDATION_MESSAGE =
   "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum. Türkçe World of Warcraft içerikleri için Totik Channel'ı izleyebilirsin.";
 
-// Discord bağlantısı watchdog
 const WATCHDOG_INTERVAL_MS = 60 * 1000;
 const CONNECT_TIMEOUT_MS = 30 * 1000;
+
+// AI backend artık 90 saniye bekleniyor.
+// İlk deneme 502/503/504 veya timeout olursa 1 kez daha deneniyor.
+const AI_BACKEND_TIMEOUT_MS = 90 * 1000;
+const AI_BACKEND_MAX_ATTEMPTS = 2;
+const RETRYABLE_BACKEND_STATUSES = new Set([502, 503, 504]);
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data, null, 2), {
@@ -227,17 +227,9 @@ function guessMimeTypeFromFilename(name) {
     return "image/jpeg";
   }
 
-  if (name.endsWith(".webp")) {
-    return "image/webp";
-  }
-
-  if (name.endsWith(".gif")) {
-    return "image/gif";
-  }
-
-  if (name.endsWith(".bmp")) {
-    return "image/bmp";
-  }
+  if (name.endsWith(".webp")) return "image/webp";
+  if (name.endsWith(".gif")) return "image/gif";
+  if (name.endsWith(".bmp")) return "image/bmp";
 
   return "image/png";
 }
@@ -313,7 +305,9 @@ export default {
         backend: WOW_AI_URL,
         watchdogSeconds: WATCHDOG_INTERVAL_MS / 1000,
         cooldownMinutes: USER_COOLDOWN_MS / 60000,
-        replySupport: true
+        replySupport: true,
+        backendTimeoutSeconds: AI_BACKEND_TIMEOUT_MS / 1000,
+        backendAttempts: AI_BACKEND_MAX_ATTEMPTS
       });
     }
 
@@ -420,6 +414,12 @@ export class DiscordGateway extends DurableObject {
 
         replySupport: true,
 
+        backendTimeoutSeconds:
+          AI_BACKEND_TIMEOUT_MS / 1000,
+
+        backendAttempts:
+          AI_BACKEND_MAX_ATTEMPTS,
+
         lastError:
           this.lastError
       });
@@ -500,7 +500,6 @@ export class DiscordGateway extends DurableObject {
       await this.recordError(
         "DISCORD_BOT_TOKEN secret bulunamadı."
       );
-
       return;
     }
 
@@ -508,8 +507,7 @@ export class DiscordGateway extends DurableObject {
 
     if (
       this.ws &&
-      this.ws.readyState ===
-        WebSocket.CONNECTING
+      this.ws.readyState === WebSocket.CONNECTING
     ) {
       if (
         this.connectStartedAt &&
@@ -530,14 +528,12 @@ export class DiscordGateway extends DurableObject {
 
     if (
       this.ws &&
-      this.ws.readyState ===
-        WebSocket.OPEN
+      this.ws.readyState === WebSocket.OPEN
     ) {
       const ackTooOld =
         this.heartbeatAwaitingAck &&
         this.lastHeartbeatSentAt &&
-        now -
-          this.lastHeartbeatSentAt >
+        now - this.lastHeartbeatSentAt >
           Math.max(
             45000,
             (this.heartbeatIntervalMs || 45000) * 2
@@ -1022,7 +1018,6 @@ export class DiscordGateway extends DurableObject {
       await this.clearLastError();
 
     } catch (error) {
-      // Teknik hata cooldown sayılmaz.
       await this.releaseCooldown(
         userId
       );
@@ -1053,8 +1048,7 @@ export class DiscordGateway extends DurableObject {
     const now = Date.now();
 
     if (
-      typeof existing ===
-        "number" &&
+      typeof existing === "number" &&
       now - existing <
         USER_COOLDOWN_MS
     ) {
@@ -1112,9 +1106,7 @@ export class DiscordGateway extends DurableObject {
         arrayBuffer
       );
 
-    if (
-      bytes.byteLength === 0
-    ) {
+    if (bytes.byteLength === 0) {
       throw new Error(
         "Görsel boş geldi."
       );
@@ -1278,76 +1270,136 @@ Ek bağlam: ...
       question
     );
 
-    const controller =
-      new AbortController();
+    let lastError = null;
 
-    const timer =
-      setTimeout(
-        () =>
-          controller.abort(),
-        45000
-      );
+    for (
+      let attempt = 1;
+      attempt <= AI_BACKEND_MAX_ATTEMPTS;
+      attempt++
+    ) {
+      const controller =
+        new AbortController();
 
-    try {
-      const response =
-        await fetch(
-          url.toString(),
-          {
-            method: "GET",
-
-            signal:
-              controller.signal,
-
-            headers: {
-              accept:
-                "application/json"
-            }
-          }
+      const timer =
+        setTimeout(
+          () =>
+            controller.abort(),
+          AI_BACKEND_TIMEOUT_MS
         );
-
-      const raw =
-        await response.text();
-
-      let data;
 
       try {
-        data =
-          raw
-            ? JSON.parse(raw)
-            : {};
-      } catch {
-        throw new Error(
-          `totik-ai-test geçersiz JSON döndürdü: ${raw.slice(
+        const response =
+          await fetch(
+            url.toString(),
+            {
+              method: "GET",
+
+              signal:
+                controller.signal,
+
+              headers: {
+                accept:
+                  "application/json"
+              }
+            }
+          );
+
+        const raw =
+          await response.text();
+
+        let data;
+
+        try {
+          data =
+            raw
+              ? JSON.parse(raw)
+              : {};
+        } catch {
+          data = null;
+        }
+
+        if (response.ok) {
+          if (!data?.answer) {
+            throw new Error(
+              "totik-ai-test answer alanı döndürmedi."
+            );
+          }
+
+          return data;
+        }
+
+        const detail =
+          data?.error ||
+          raw.slice(
             0,
-            300
-          )}`
-        );
-      }
+            500
+          ) ||
+          `HTTP ${response.status}`;
 
-      if (!response.ok) {
-        throw new Error(
-          `totik-ai-test HTTP ${
+        lastError =
+          new Error(
+            `totik-ai-test HTTP ${response.status}: ${detail}`
+          );
+
+        const canRetry =
+          RETRYABLE_BACKEND_STATUSES.has(
             response.status
-          }: ${
-            data?.error ||
-            raw.slice(
-              0,
-              300
+          ) &&
+          attempt <
+            AI_BACKEND_MAX_ATTEMPTS;
+
+        if (canRetry) {
+          await sleep(1200);
+          continue;
+        }
+
+        throw lastError;
+
+      } catch (error) {
+        const isAbort =
+          error?.name ===
+          "AbortError";
+
+        lastError =
+          isAbort
+            ? new Error(
+                `totik-ai-test ${AI_BACKEND_TIMEOUT_MS / 1000} saniyede cevap vermedi.`
+              )
+            : error;
+
+        const canRetry =
+          attempt <
+            AI_BACKEND_MAX_ATTEMPTS &&
+          (
+            isAbort ||
+            /HTTP 502|HTTP 503|HTTP 504/i.test(
+              String(
+                error?.message ||
+                ""
+              )
             )
-          }`
+          );
+
+        if (canRetry) {
+          await sleep(1200);
+          continue;
+        }
+
+        throw lastError;
+
+      } finally {
+        clearTimeout(
+          timer
         );
       }
-
-      if (!data?.answer) {
-        throw new Error(
-          "totik-ai-test answer alanı döndürmedi."
-        );
-      }
-
-      return data;
-    } finally {
-      clearTimeout(timer);
     }
+
+    throw (
+      lastError ||
+      new Error(
+        "totik-ai-test bilinmeyen bir hata verdi."
+      )
+    );
   }
 
   async replyToMessage(
@@ -1835,8 +1887,7 @@ Ek bağlam: ...
       }
 
       if (
-        response.status >=
-          500 &&
+        response.status >= 500 &&
         attempt < 3
       ) {
         await sleep(
@@ -1849,8 +1900,7 @@ Ek bağlam: ...
 
       if (!response.ok) {
         const detail =
-          typeof data ===
-          "string"
+          typeof data === "string"
             ? data
             : JSON.stringify(
                 data
