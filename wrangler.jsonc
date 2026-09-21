@@ -7,10 +7,6 @@
 
   "keep_vars": true,
 
-  "triggers": {
-    "crons": ["*/5 * * * *"]
-  },
-
   "durable_objects": {
     "bindings": [
       {
