@@ -5,36 +5,33 @@ const DISCORD_GATEWAY = "wss://gateway.discord.gg/?v=10&encoding=json";
 
 const INTENTS = 1 | 512 | 32768;
 
+const QUESTION_CHANNEL_ID = "1548811398069489744";
+const QUESTION_COMMAND = /^!soru(?:\s|$)/i;
+
 const WOW_AI_URL = "https://totik-ai-test.totikch.workers.dev/";
 
 const GEMINI_VISION_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent";
 
-const QUESTION_CHANNEL_ID = "1548811398069489744";
-const QUESTION_COMMAND = /^!soru(?:\s|$)/i;
+const WATCHDOG_INTERVAL_MS = 60_000;
+const CONNECT_TIMEOUT_MS = 30_000;
+
+const USER_COOLDOWN_MS = 10 * 60_000;
+
+const AI_TIMEOUT_MS = 70_000;
+const AI_MAX_ATTEMPTS = 2;
 
 const MAX_DISCORD_MESSAGE = 1900;
-const TARGET_ANSWER_LENGTH = 1400;
-
-const USER_COOLDOWN_MS = 10 * 60 * 1000;
+const MAX_ANSWER_CHARS = 1200;
 
 const COOLDOWN_MESSAGE =
   "Totik WoW Yardım Botu olarak her kullanıcı için 10 dakikada 1 soru cevaplayacak şekilde ayarlandım. Biraz sonra tekrar sorabilirsin.";
 
 const IDENTITY_MESSAGE =
-  "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum. World of Warcraft görevleri, class'lar, meslekler, item'lar, dungeon'lar ve genel oyun bilgileri konusunda yardımcı olmak için buradayım.";
+  "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum. World of Warcraft görevleri, class'lar, meslekler, item'lar, dungeon'lar ve genel oyun bilgileri konusunda yardımcı oluyorum.";
 
 const CHANNEL_RECOMMENDATION_MESSAGE =
   "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum. Türkçe World of Warcraft içerikleri için Totik Channel'ı izleyebilirsin.";
-
-const WATCHDOG_INTERVAL_MS = 60 * 1000;
-const CONNECT_TIMEOUT_MS = 30 * 1000;
-
-// AI backend artık 90 saniye bekleniyor.
-// İlk deneme 502/503/504 veya timeout olursa 1 kez daha deneniyor.
-const AI_BACKEND_TIMEOUT_MS = 90 * 1000;
-const AI_BACKEND_MAX_ATTEMPTS = 2;
-const RETRYABLE_BACKEND_STATUSES = new Set([502, 503, 504]);
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data, null, 2), {
@@ -50,77 +47,78 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function cleanQuestion(value, maxLength = 1800) {
+function cleanText(value, maxLength = 2200) {
   return String(value || "")
-    .replace(/\s+/g, " ")
+    .replace(/\r/g, "")
+    .replace(/[ \t]+/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
     .trim()
     .slice(0, maxLength);
 }
 
-function cleanReferencedText(value) {
-  return String(value || "")
-    .replace(QUESTION_COMMAND, "")
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, 1400);
-}
+function splitDiscordMessage(value) {
+  let text = String(value || "").trim();
 
-function splitDiscordMessage(text) {
-  const value = String(text || "").trim();
+  if (!text) return [];
+  if (text.length <= MAX_DISCORD_MESSAGE) return [text];
 
-  if (!value) return [];
-  if (value.length <= MAX_DISCORD_MESSAGE) return [value];
+  const result = [];
 
-  const chunks = [];
-  let remaining = value;
+  while (text.length > MAX_DISCORD_MESSAGE) {
+    let cut = text.lastIndexOf("\n", MAX_DISCORD_MESSAGE);
 
-  while (remaining.length > MAX_DISCORD_MESSAGE) {
-    let cut = remaining.lastIndexOf("\n", MAX_DISCORD_MESSAGE);
-
-    if (cut < 1000) {
-      cut = remaining.lastIndexOf(" ", MAX_DISCORD_MESSAGE);
+    if (cut < 900) {
+      cut = text.lastIndexOf(" ", MAX_DISCORD_MESSAGE);
     }
 
-    if (cut < 1000) {
+    if (cut < 900) {
       cut = MAX_DISCORD_MESSAGE;
     }
 
-    chunks.push(remaining.slice(0, cut).trim());
-    remaining = remaining.slice(cut).trim();
+    result.push(text.slice(0, cut).trim());
+    text = text.slice(cut).trim();
   }
 
-  if (remaining) {
-    chunks.push(remaining);
-  }
+  if (text) result.push(text);
 
-  return chunks;
+  return result;
 }
 
-function compactDiscordAnswer(value) {
+function tidyAnswer(value) {
   let text = String(value || "")
     .replace(/\r/g, "")
     .replace(/[ \t]+\n/g, "\n")
-    .replace(/\n[ \t]*\n+/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
     .replace(/[ \t]{2,}/g, " ")
     .trim();
 
-  if (text.length <= TARGET_ANSWER_LENGTH) {
+  text = text
+    .replace(
+      /Ben bir World of Warcraft yardım botuyum/gi,
+      "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum"
+    )
+    .replace(
+      /Ben bir WoW yardım botuyum/gi,
+      "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum"
+    );
+
+  if (text.length <= MAX_ANSWER_CHARS) {
     return text;
   }
 
-  const sample = text.slice(0, TARGET_ANSWER_LENGTH);
+  const sample = text.slice(0, MAX_ANSWER_CHARS);
 
-  const sentenceCuts = [
+  const cuts = [
     sample.lastIndexOf(". "),
     sample.lastIndexOf("! "),
     sample.lastIndexOf("? "),
     sample.lastIndexOf("\n")
   ];
 
-  let cut = Math.max(...sentenceCuts);
+  let cut = Math.max(...cuts);
 
-  if (cut < 950) {
-    cut = TARGET_ANSWER_LENGTH;
+  if (cut < 800) {
+    cut = MAX_ANSWER_CHARS;
   } else {
     cut += 1;
   }
@@ -128,88 +126,69 @@ function compactDiscordAnswer(value) {
   return `${text.slice(0, cut).trim()}…`;
 }
 
-function applyTotikIdentity(value) {
-  let text = String(value || "").trim();
-
-  if (!text) {
-    return text;
-  }
-
-  if (!/Totik Channel/i.test(text)) {
-    text = text
-      .replace(
-        /Ben bir World of Warcraft yardım botuyum/gi,
-        "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum"
-      )
-      .replace(
-        /Ben bir WoW yardım botuyum/gi,
-        "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum"
-      )
-      .replace(
-        /World of Warcraft yardım botu olarak/gi,
-        "Totik Channel için geliştirilmiş Totik WoW Yardım Botu olarak"
-      );
-  }
-
-  return text;
-}
-
 function isIdentityQuestion(question) {
-  const text = String(question || "").toLocaleLowerCase("tr-TR");
+  const q = String(question || "").toLocaleLowerCase("tr-TR");
 
   return (
-    /sen kimsin/.test(text) ||
-    /sen nesin/.test(text) ||
-    /kimin botusun/.test(text) ||
-    /kim geliştirdi/.test(text) ||
-    /kim yaptı seni/.test(text) ||
-    /hangi kanal için geliştirildin/.test(text)
+    q.includes("sen kimsin") ||
+    q.includes("sen nesin") ||
+    q.includes("kimin botusun") ||
+    q.includes("kim geliştirdi") ||
+    q.includes("kim yaptı seni")
   );
 }
 
 function isChannelRecommendationQuestion(question) {
-  const text = String(question || "").toLocaleLowerCase("tr-TR");
+  const q = String(question || "").toLocaleLowerCase("tr-TR");
 
-  const asksRecommendation =
-    /(öner|öneri|tavsiye|izleyeyim|izlemeliyim|takip edeyim|takip etmeliyim)/i.test(
-      text
-    );
+  const channel =
+    q.includes("kanal") ||
+    q.includes("youtube") ||
+    q.includes("youtuber") ||
+    q.includes("yayıncı") ||
+    q.includes("streamer") ||
+    q.includes("içerik üretici");
 
-  const asksChannel =
-    /(kanal|youtube|youtuber|içerik üretici|yayıncı|streamer)/i.test(
-      text
-    );
+  const recommendation =
+    q.includes("öner") ||
+    q.includes("tavsiye") ||
+    q.includes("izleyeyim") ||
+    q.includes("izlemeliyim") ||
+    q.includes("takip edeyim");
 
-  return asksRecommendation && asksChannel;
+  return channel && recommendation;
 }
 
-function getFirstImageAttachment(message) {
+function guessMimeType(filename) {
+  const name = String(filename || "").toLowerCase();
+
+  if (name.endsWith(".jpg") || name.endsWith(".jpeg")) {
+    return "image/jpeg";
+  }
+
+  if (name.endsWith(".webp")) return "image/webp";
+  if (name.endsWith(".gif")) return "image/gif";
+
+  return "image/png";
+}
+
+function getImageAttachment(message) {
   const attachments = Array.isArray(message?.attachments)
     ? message.attachments
     : [];
 
   for (const attachment of attachments) {
-    const contentType = String(
-      attachment?.content_type || ""
-    ).toLowerCase();
+    const type = String(attachment?.content_type || "").toLowerCase();
+    const name = String(attachment?.filename || "").toLowerCase();
 
-    const name = String(
-      attachment?.filename || ""
-    ).toLowerCase();
+    const image =
+      type.startsWith("image/") ||
+      /\.(png|jpe?g|webp|gif)$/i.test(name);
 
-    const url = attachment?.url;
-
-    const isImage =
-      contentType.startsWith("image/") ||
-      /\.(png|jpe?g|webp|gif|bmp)$/i.test(name);
-
-    if (isImage && url) {
+    if (image && attachment?.url) {
       return {
-        url,
-        contentType:
-          contentType ||
-          guessMimeTypeFromFilename(name),
-        filename: attachment.filename || "image"
+        url: attachment.url,
+        contentType: type || guessMimeType(name)
       };
     }
   }
@@ -217,98 +196,89 @@ function getFirstImageAttachment(message) {
   return null;
 }
 
-function guessMimeTypeFromFilename(name) {
-  if (name.endsWith(".png")) return "image/png";
-
-  if (
-    name.endsWith(".jpg") ||
-    name.endsWith(".jpeg")
-  ) {
-    return "image/jpeg";
-  }
-
-  if (name.endsWith(".webp")) return "image/webp";
-  if (name.endsWith(".gif")) return "image/gif";
-  if (name.endsWith(".bmp")) return "image/bmp";
-
-  return "image/png";
-}
-
 function bytesToBase64(bytes) {
   let binary = "";
-  const chunkSize = 0x8000;
+  const size = 0x8000;
 
-  for (let i = 0; i < bytes.length; i += chunkSize) {
-    const chunk = bytes.subarray(i, i + chunkSize);
-    binary += String.fromCharCode(...chunk);
+  for (let i = 0; i < bytes.length; i += size) {
+    binary += String.fromCharCode(
+      ...bytes.subarray(i, i + size)
+    );
   }
 
   return btoa(binary);
 }
 
-function buildAiQuestion(userQuestion, imageContext) {
-  const questionText = cleanQuestion(userQuestion, 2200);
+function backendRetryable(status) {
+  return status === 502 || status === 503 || status === 504;
+}
 
-  if (imageContext) {
-    const effectiveQuestion =
-      questionText || "Bu görev/quest nasıl yapılır?";
-
-    return [
-      effectiveQuestion,
-      "",
-      "Ekran görüntüsünden çıkarılan bağlam:",
-      String(imageContext).slice(0, 1200),
-      "",
-      "Yukarıdaki görsel bağlamı dikkate alarak kullanıcının sorusunu cevapla."
-    ].join("\n");
+async function forwardToGateway(env, path) {
+  if (!env.GATEWAY) {
+    return json(
+      {
+        ok: false,
+        error: "GATEWAY binding bulunamadı."
+      },
+      500
+    );
   }
 
-  return questionText;
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      const id = env.GATEWAY.idFromName("totik-ai-main");
+      const stub = env.GATEWAY.get(id);
+
+      return await stub.fetch(
+        new Request(`https://internal${path}`)
+      );
+    } catch (error) {
+      lastError = error;
+
+      if (attempt < 2) {
+        await sleep(300);
+      }
+    }
+  }
+
+  // Durable Object patlasa bile artık kullanıcı 1101 HTML sayfası görmesin.
+  return json(
+    {
+      ok: false,
+      error: "gateway_exception",
+      detail:
+        lastError?.message ||
+        String(lastError || "Unknown Durable Object error")
+    },
+    503
+  );
 }
 
 export default {
   async fetch(request, env) {
-    if (!env.GATEWAY) {
-      return json(
-        {
-          ok: false,
-          error: "GATEWAY Durable Object binding bulunamadı."
-        },
-        500
-      );
-    }
-
     const url = new URL(request.url);
 
-    const stub = env.GATEWAY.get(
-      env.GATEWAY.idFromName("totik-ai-main")
-    );
-
-    if (url.pathname === "/" || url.pathname === "/start") {
-      return stub.fetch(
-        new Request("https://internal/start")
-      );
-    }
-
-    if (url.pathname === "/status") {
-      return stub.fetch(
-        new Request("https://internal/status")
-      );
-    }
-
+    // Bu endpoint Durable Object'a hiç dokunmaz.
     if (url.pathname === "/health") {
       return json({
         ok: true,
-        service: "totik-ai-discord",
-        command: "!soru",
+        service: "totik-ai",
         channelId: QUESTION_CHANNEL_ID,
-        backend: WOW_AI_URL,
-        watchdogSeconds: WATCHDOG_INTERVAL_MS / 1000,
-        cooldownMinutes: USER_COOLDOWN_MS / 60000,
+        cooldownMinutes: 10,
         replySupport: true,
-        backendTimeoutSeconds: AI_BACKEND_TIMEOUT_MS / 1000,
-        backendAttempts: AI_BACKEND_MAX_ATTEMPTS
+        imageSupport: true,
+        backendAttempts: AI_MAX_ATTEMPTS
       });
+    }
+
+    if (url.pathname === "/" || url.pathname === "/start") {
+      return forwardToGateway(env, "/start");
+    }
+
+    if (url.pathname === "/status") {
+      return forwardToGateway(env, "/status");
     }
 
     return new Response("Not found", {
@@ -324,132 +294,103 @@ export class DiscordGateway extends DurableObject {
     this.ctx = ctx;
     this.env = env;
 
+    // Constructor'da async storage işi YOK.
     this.ws = null;
 
-    this.sequence = null;
-    this.sessionId = null;
-    this.resumeGatewayUrl = null;
+    this.state = "offline";
     this.botUserId = null;
 
-    this.connectionState = "offline";
+    this.sequence = null;
+
     this.connectStartedAt = null;
+
+    this.heartbeatInterval = null;
+    this.heartbeatStartTimer = null;
+    this.heartbeatTimer = null;
+    this.awaitingHeartbeatAck = false;
 
     this.lastGatewayEventAt = null;
     this.lastQuestionAt = null;
-    this.lastError = null;
-
-    this.heartbeatTimer = null;
-    this.heartbeatStartTimer = null;
-    this.heartbeatIntervalMs = null;
-    this.heartbeatAwaitingAck = false;
     this.lastHeartbeatSentAt = null;
     this.lastHeartbeatAckAt = null;
+    this.lastError = null;
+
+    this.lastBackendAttemptCount = 0;
+    this.lastBackendStatus = null;
+    this.lastBackendDurationMs = null;
 
     this.reconnectTimer = null;
-
-    this.ctx.blockConcurrencyWhile(async () => {
-      this.sequence =
-        (await this.ctx.storage.get("discord_sequence")) ?? null;
-
-      this.sessionId =
-        (await this.ctx.storage.get("discord_session_id")) ?? null;
-
-      this.resumeGatewayUrl =
-        (await this.ctx.storage.get("discord_resume_gateway_url")) ?? null;
-
-      this.botUserId =
-        (await this.ctx.storage.get("discord_bot_user_id")) ?? null;
-
-      this.lastGatewayEventAt =
-        (await this.ctx.storage.get("last_gateway_event_at")) ?? null;
-
-      this.lastQuestionAt =
-        (await this.ctx.storage.get("last_question_at")) ?? null;
-
-      this.lastError =
-        (await this.ctx.storage.get("last_error")) ?? null;
-
-      await this.ensureAlarmScheduled();
-    });
   }
 
   async fetch(request) {
     const url = new URL(request.url);
-
-    if (url.pathname === "/status") {
-      return json({
-        state: this.connectionState,
-
-        connected:
-          this.ws?.readyState === WebSocket.OPEN,
-
-        botUserId: this.botUserId,
-
-        channelId: QUESTION_CHANNEL_ID,
-
-        lastGatewayEventAt:
-          this.lastGatewayEventAt,
-
-        lastQuestionAt:
-          this.lastQuestionAt,
-
-        lastHeartbeatSentAt:
-          this.lastHeartbeatSentAt
-            ? new Date(this.lastHeartbeatSentAt).toISOString()
-            : null,
-
-        lastHeartbeatAckAt:
-          this.lastHeartbeatAckAt
-            ? new Date(this.lastHeartbeatAckAt).toISOString()
-            : null,
-
-        heartbeatAwaitingAck:
-          this.heartbeatAwaitingAck,
-
-        watchdogSeconds:
-          WATCHDOG_INTERVAL_MS / 1000,
-
-        cooldownMinutes:
-          USER_COOLDOWN_MS / 60000,
-
-        replySupport: true,
-
-        backendTimeoutSeconds:
-          AI_BACKEND_TIMEOUT_MS / 1000,
-
-        backendAttempts:
-          AI_BACKEND_MAX_ATTEMPTS,
-
-        lastError:
-          this.lastError
-      });
-    }
 
     if (url.pathname === "/start") {
       if (!this.env.DISCORD_BOT_TOKEN) {
         return json(
           {
             ok: false,
-            error:
-              "DISCORD_BOT_TOKEN secret bulunamadı."
+            error: "DISCORD_BOT_TOKEN bulunamadı."
           },
           500
         );
       }
 
-      await this.ensureAlarmScheduled(true);
-      await this.watchdog();
+      await this.safeScheduleAlarm();
+
+      try {
+        await this.ensureConnected();
+      } catch (error) {
+        await this.setError(
+          `Gateway start: ${error?.message || String(error)}`
+        );
+      }
 
       return json({
         ok: true,
-        state: this.connectionState,
-        connected:
-          this.ws?.readyState === WebSocket.OPEN,
+        state: this.state,
+        connected: this.isConnected(),
+        channelId: QUESTION_CHANNEL_ID
+      });
+    }
+
+    if (url.pathname === "/status") {
+      await this.safeScheduleAlarm();
+
+      // Status ekranına bakmak bile offline ise yeniden bağlanmayı tetikler.
+      if (!this.isConnected()) {
+        this.ensureConnected().catch((error) => {
+          this.setError(
+            `Status reconnect: ${error?.message || String(error)}`
+          );
+        });
+      }
+
+      return json({
+        state: this.state,
+        connected: this.isConnected(),
+
+        botUserId: this.botUserId,
         channelId: QUESTION_CHANNEL_ID,
-        watchdogSeconds:
-          WATCHDOG_INTERVAL_MS / 1000,
-        cooldownMinutes:
-          USER_COOLDOWN_MS / 60000
+
+        lastGatewayEventAt: this.lastGatewayEventAt,
+        lastQuestionAt: this.lastQuestionAt,
+
+        lastHeartbeatSentAt: this.lastHeartbeatSentAt,
+        lastHeartbeatAckAt: this.lastHeartbeatAckAt,
+        heartbeatAwaitingAck: this.awaitingHeartbeatAck,
+
+        watchdogSeconds: WATCHDOG_INTERVAL_MS / 1000,
+        cooldownMinutes: USER_COOLDOWN_MS / 60000,
+        replySupport: true,
+        imageSupport: true,
+
+        backendAttempts: AI_MAX_ATTEMPTS,
+        lastBackendAttemptCount: this.lastBackendAttemptCount,
+        lastBackendStatus: this.lastBackendStatus,
+        lastBackendDurationMs: this.lastBackendDurationMs,
+
+        lastError: this.lastError
       });
     }
 
@@ -458,103 +399,44 @@ export class DiscordGateway extends DurableObject {
     });
   }
 
+  isConnected() {
+    return (
+      this.ws &&
+      this.ws.readyState === WebSocket.OPEN
+    );
+  }
+
   async alarm() {
     try {
-      await this.watchdog();
+      if (
+        this.ws &&
+        this.ws.readyState === WebSocket.CONNECTING &&
+        this.connectStartedAt &&
+        Date.now() - this.connectStartedAt > CONNECT_TIMEOUT_MS
+      ) {
+        this.forceReconnect("Connect timeout");
+      } else if (!this.isConnected()) {
+        await this.ensureConnected();
+      }
     } catch (error) {
-      await this.recordError(
-        `Watchdog failed: ${
-          error?.message ||
-          String(error)
-        }`
+      await this.setError(
+        `Watchdog: ${error?.message || String(error)}`
       );
-    } finally {
+    }
+
+    await this.safeScheduleAlarm();
+  }
+
+  async safeScheduleAlarm() {
+    try {
       await this.ctx.storage.setAlarm(
         Date.now() + WATCHDOG_INTERVAL_MS
       );
+    } catch (error) {
+      // Alarm storage hatası botun tamamını çökertmesin.
+      this.lastError =
+        `Alarm: ${error?.message || String(error)}`;
     }
-  }
-
-  async ensureAlarmScheduled(force = false) {
-    const current =
-      await this.ctx.storage.getAlarm();
-
-    const now = Date.now();
-
-    if (
-      force ||
-      current == null ||
-      current >
-        now +
-          WATCHDOG_INTERVAL_MS +
-          10000
-    ) {
-      await this.ctx.storage.setAlarm(
-        now + WATCHDOG_INTERVAL_MS
-      );
-    }
-  }
-
-  async watchdog() {
-    if (!this.env.DISCORD_BOT_TOKEN) {
-      await this.recordError(
-        "DISCORD_BOT_TOKEN secret bulunamadı."
-      );
-      return;
-    }
-
-    const now = Date.now();
-
-    if (
-      this.ws &&
-      this.ws.readyState === WebSocket.CONNECTING
-    ) {
-      if (
-        this.connectStartedAt &&
-        now - this.connectStartedAt >
-          CONNECT_TIMEOUT_MS
-      ) {
-        await this.recordError(
-          "Discord Gateway bağlantısı CONNECTING durumunda takıldı. Yeniden bağlanılıyor."
-        );
-
-        this.reconnectNow(
-          "Gateway connect timeout"
-        );
-      }
-
-      return;
-    }
-
-    if (
-      this.ws &&
-      this.ws.readyState === WebSocket.OPEN
-    ) {
-      const ackTooOld =
-        this.heartbeatAwaitingAck &&
-        this.lastHeartbeatSentAt &&
-        now - this.lastHeartbeatSentAt >
-          Math.max(
-            45000,
-            (this.heartbeatIntervalMs || 45000) * 2
-          );
-
-      if (ackTooOld) {
-        await this.recordError(
-          "Heartbeat ACK çok gecikti. Yeniden bağlanılıyor."
-        );
-
-        this.reconnectNow(
-          "Missed heartbeat ACK"
-        );
-
-        return;
-      }
-
-      return;
-    }
-
-    await this.ensureConnected();
   }
 
   async ensureConnected() {
@@ -571,56 +453,36 @@ export class DiscordGateway extends DurableObject {
     this.clearReconnectTimer();
     this.clearHeartbeat();
 
-    this.connectionState = "connecting";
+    this.state = "connecting";
     this.connectStartedAt = Date.now();
 
-    const gatewayUrl =
-      this.resumeGatewayUrl
-        ? `${this.resumeGatewayUrl}?v=10&encoding=json`
-        : DISCORD_GATEWAY;
+    const ws = new WebSocket(DISCORD_GATEWAY);
 
-    try {
-      const ws = new WebSocket(gatewayUrl);
+    this.ws = ws;
 
-      this.ws = ws;
+    ws.addEventListener("open", () => {
+      this.state = "connecting";
+    });
 
-      ws.addEventListener("open", () => {
-        this.connectionState = "connecting";
-      });
-
-      ws.addEventListener("message", (event) => {
-        this.ctx.waitUntil(
-          this.handleGatewayMessage(event.data)
+    ws.addEventListener("message", (event) => {
+      // Timer/event callback'lerinden ctx.waitUntil kullanmıyoruz.
+      this.handleGatewayPacket(event.data).catch((error) => {
+        this.setError(
+          `Gateway packet: ${error?.message || String(error)}`
         );
       });
+    });
 
-      ws.addEventListener("close", (event) => {
-        this.handleSocketClose(event);
-      });
+    ws.addEventListener("close", (event) => {
+      this.handleSocketClose(event);
+    });
 
-      ws.addEventListener("error", () => {
-        this.ctx.waitUntil(
-          this.recordError(
-            "Discord Gateway WebSocket error"
-          )
-        );
-      });
-    } catch (error) {
-      this.ws = null;
-      this.connectionState = "offline";
-
-      await this.recordError(
-        `Gateway connection failed: ${
-          error?.message ||
-          String(error)
-        }`
-      );
-
-      this.scheduleReconnect();
-    }
+    ws.addEventListener("error", () => {
+      this.setError("Discord Gateway WebSocket error");
+    });
   }
 
-  async handleGatewayMessage(raw) {
+  async handleGatewayPacket(raw) {
     let packet;
 
     try {
@@ -631,66 +493,45 @@ export class DiscordGateway extends DurableObject {
 
     if (typeof packet.s === "number") {
       this.sequence = packet.s;
-
-      await this.ctx.storage.put(
-        "discord_sequence",
-        this.sequence
-      );
     }
 
+    // Discord HELLO
     if (packet.op === 10) {
       const interval = Number(
         packet.d?.heartbeat_interval
       );
 
-      if (
-        Number.isFinite(interval) &&
-        interval > 0
-      ) {
+      if (Number.isFinite(interval) && interval > 0) {
         this.startHeartbeat(interval);
       }
 
-      if (
-        this.sessionId &&
-        this.sequence != null
-      ) {
-        this.sendResume();
-      } else {
-        this.sendIdentify();
-      }
-
+      this.sendIdentify();
       return;
     }
 
+    // Heartbeat ACK
     if (packet.op === 11) {
-      this.heartbeatAwaitingAck = false;
-      this.lastHeartbeatAckAt = Date.now();
+      this.awaitingHeartbeatAck = false;
+      this.lastHeartbeatAckAt = new Date().toISOString();
       return;
     }
 
+    // Discord heartbeat talebi
     if (packet.op === 1) {
       this.sendHeartbeat();
       return;
     }
 
+    // Discord reconnect talebi
     if (packet.op === 7) {
-      this.reconnectNow(
-        "Discord op 7 reconnect"
-      );
+      this.forceReconnect("Discord requested reconnect");
       return;
     }
 
+    // Invalid session
     if (packet.op === 9) {
-      if (!packet.d) {
-        await this.clearSession();
-      }
-
       await sleep(1000);
-
-      this.reconnectNow(
-        "Invalid session"
-      );
-
+      this.forceReconnect("Invalid Discord session");
       return;
     }
 
@@ -698,69 +539,17 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    await this.handleDispatch(
-      packet.t,
-      packet.d
-    );
+    await this.handleDispatch(packet.t, packet.d);
   }
 
-  async handleDispatch(
-    eventName,
-    data
-  ) {
-    this.lastGatewayEventAt =
-      new Date().toISOString();
-
-    await this.ctx.storage.put(
-      "last_gateway_event_at",
-      this.lastGatewayEventAt
-    );
+  async handleDispatch(eventName, data) {
+    this.lastGatewayEventAt = new Date().toISOString();
 
     if (eventName === "READY") {
-      this.sessionId =
-        data?.session_id ?? null;
-
-      this.resumeGatewayUrl =
-        data?.resume_gateway_url ?? null;
-
-      this.botUserId =
-        data?.user?.id ?? null;
-
-      this.connectionState = "ready";
+      this.botUserId = data?.user?.id || null;
+      this.state = "ready";
+      this.connectStartedAt = null;
       this.lastError = null;
-
-      await Promise.all([
-        this.ctx.storage.put(
-          "discord_session_id",
-          this.sessionId
-        ),
-
-        this.ctx.storage.put(
-          "discord_resume_gateway_url",
-          this.resumeGatewayUrl
-        ),
-
-        this.ctx.storage.put(
-          "discord_bot_user_id",
-          this.botUserId
-        ),
-
-        this.ctx.storage.delete(
-          "last_error"
-        )
-      ]);
-
-      return;
-    }
-
-    if (eventName === "RESUMED") {
-      this.connectionState = "ready";
-      this.lastError = null;
-
-      await this.ctx.storage.delete(
-        "last_error"
-      );
-
       return;
     }
 
@@ -768,25 +557,19 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    await this.handleDiscordMessage(
-      data
-    );
+    await this.handleDiscordMessage(data);
   }
 
   async handleDiscordMessage(message) {
     if (
-      !message ||
-      !message.id ||
-      !message.channel_id ||
-      !message.author
+      !message?.id ||
+      !message?.channel_id ||
+      !message?.author
     ) {
       return;
     }
 
-    if (
-      message.author.bot ||
-      message.webhook_id
-    ) {
+    if (message.author.bot || message.webhook_id) {
       return;
     }
 
@@ -797,462 +580,285 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    const content =
-      String(
-        message.content || ""
-      ).trim();
+    const content = String(
+      message.content || ""
+    ).trim();
 
-    if (
-      !QUESTION_COMMAND.test(
-        content
-      )
-    ) {
+    if (!QUESTION_COMMAND.test(content)) {
       return;
     }
 
-    const currentQuestion =
-      cleanQuestion(
-        content.replace(
-          QUESTION_COMMAND,
-          ""
-        )
-      );
+    let currentQuestion = cleanText(
+      content.replace(QUESTION_COMMAND, ""),
+      1800
+    );
 
     let referencedMessage =
-      message.referenced_message ||
-      null;
+      message.referenced_message || null;
 
-    const referencedMessageId =
-      message.message_reference
-        ?.message_id;
+    const referencedId =
+      message.message_reference?.message_id;
 
-    if (
-      !referencedMessage &&
-      referencedMessageId
-    ) {
+    if (!referencedMessage && referencedId) {
       try {
         referencedMessage =
           await this.discordRequest(
-            `/channels/${message.channel_id}/messages/${referencedMessageId}`,
-            {
-              method: "GET"
-            }
+            `/channels/${message.channel_id}/messages/${referencedId}`
           );
       } catch {
         referencedMessage = null;
       }
     }
 
-    const referencedText =
-      cleanReferencedText(
-        referencedMessage?.content
-      );
+    const referencedText = cleanText(
+      referencedMessage?.content || "",
+      1600
+    );
 
-    const currentImage =
-      getFirstImageAttachment(
-        message
-      );
-
-    const referencedImage =
-      getFirstImageAttachment(
-        referencedMessage
-      );
-
-    const imageAttachment =
-      currentImage ||
-      referencedImage;
+    const image =
+      getImageAttachment(message) ||
+      getImageAttachment(referencedMessage);
 
     let effectiveQuestion = "";
 
-    if (
-      referencedText &&
-      currentQuestion
-    ) {
-      effectiveQuestion = [
-        `Önceki mesaj: ${referencedText}`,
-        `Kullanıcının ek sorusu: ${currentQuestion}`
-      ].join("\n");
+    if (referencedText && currentQuestion) {
+      effectiveQuestion =
+        `Önceki mesaj: ${referencedText}\n` +
+        `Ek soru: ${currentQuestion}`;
     } else if (currentQuestion) {
-      effectiveQuestion =
-        currentQuestion;
+      effectiveQuestion = currentQuestion;
     } else if (referencedText) {
+      effectiveQuestion = referencedText;
+    } else if (image) {
       effectiveQuestion =
-        referencedText;
-    } else if (imageAttachment) {
-      effectiveQuestion =
-        "Bu görseldeki konu veya quest hakkında yardımcı ol.";
+        "Bu görseldeki World of Warcraft konusu veya görevi hakkında yardımcı ol.";
     }
 
-    if (
-      !effectiveQuestion &&
-      !imageAttachment
-    ) {
-      await this.replyToMessage(
+    if (!effectiveQuestion && !image) {
+      await this.reply(
         message,
-        "Sorunu `!soru` komutundan sonra yazabilir veya cevaplamak istediğin mesaja reply atıp sadece `!soru` yazabilirsin."
+        "Sorunu `!soru` komutundan sonra yazabilir veya bir mesaja cevap verip sadece `!soru` yazabilirsin."
       );
-
       return;
     }
 
-    const userId =
-      String(message.author.id);
+    const userId = String(message.author.id);
 
-    const cooldownAcquired =
-      await this.acquireCooldown(
-        userId
-      );
-
-    if (!cooldownAcquired) {
-      await this.replyToMessage(
+    if (!(await this.acquireCooldown(userId))) {
+      await this.reply(
         message,
         COOLDOWN_MESSAGE
       );
-
       return;
     }
 
-    this.lastQuestionAt =
-      new Date().toISOString();
-
-    await this.ctx.storage.put(
-      "last_question_at",
-      this.lastQuestionAt
-    );
+    this.lastQuestionAt = new Date().toISOString();
 
     try {
-      if (
-        isChannelRecommendationQuestion(
-          effectiveQuestion
-        )
-      ) {
-        await this.replyToMessage(
+      if (isChannelRecommendationQuestion(effectiveQuestion)) {
+        await this.reply(
           message,
           CHANNEL_RECOMMENDATION_MESSAGE
         );
 
-        await this.clearLastError();
-
+        this.lastError = null;
         return;
       }
 
-      if (
-        isIdentityQuestion(
-          effectiveQuestion
-        )
-      ) {
-        await this.replyToMessage(
+      if (isIdentityQuestion(effectiveQuestion)) {
+        await this.reply(
           message,
           IDENTITY_MESSAGE
         );
 
-        await this.clearLastError();
-
+        this.lastError = null;
         return;
       }
 
-      await this.safeTyping(
-        message.channel_id
-      );
+      await this.safeTyping(message.channel_id);
 
       let imageContext = "";
 
-      if (imageAttachment) {
-        imageContext =
-          await this.extractImageContext(
-            imageAttachment,
-            effectiveQuestion
-          );
+      if (image) {
+        imageContext = await this.analyzeImage(
+          image,
+          effectiveQuestion
+        );
       }
 
-      const finalQuestion =
-        buildAiQuestion(
-          effectiveQuestion,
-          imageContext
-        );
+      let finalQuestion = effectiveQuestion;
 
-      if (!finalQuestion) {
-        await this.releaseCooldown(
-          userId
-        );
-
-        await this.replyToMessage(
-          message,
-          "Görseli veya soruyu anlayamadım. Biraz daha açık yazabilir ya da daha net bir ekran görüntüsü gönderebilirsin."
-        );
-
-        return;
+      if (imageContext) {
+        finalQuestion +=
+          `\n\nEkran görüntüsünden okunan bilgiler:\n${imageContext}`;
       }
 
-      const result =
-        await this.askWowAi(
-          finalQuestion
-        );
+      const result = await this.askWowAi(finalQuestion);
 
-      let answer =
-        String(
-          result?.answer || ""
-        ).trim();
+      const answer = tidyAnswer(
+        result?.answer || ""
+      );
 
       if (!answer) {
-        throw new Error(
-          "totik-ai-test boş cevap döndürdü."
-        );
+        throw new Error("AI boş cevap döndürdü.");
       }
 
-      answer =
-        applyTotikIdentity(
-          answer
-        );
+      await this.reply(message, answer);
 
-      answer =
-        compactDiscordAnswer(
-          answer
-        );
-
-      await this.replyToMessage(
-        message,
-        answer
-      );
-
-      await this.clearLastError();
-
+      this.lastError = null;
     } catch (error) {
-      await this.releaseCooldown(
-        userId
+      // Teknik hata kullanıcının 10 dakikalık hakkını YEMEZ.
+      await this.releaseCooldown(userId);
+
+      await this.setError(
+        `Question failed: ${error?.message || String(error)}`
       );
 
-      await this.recordError(
-        `Question failed: ${
-          error?.message ||
-          String(error)
-        }`
-      );
-
-      await this.replyToMessage(
+      await this.reply(
         message,
-        "Soruyu cevaplandırırken teknik bir sorun oluştu. Biraz sonra tekrar deneyebilirsin."
+        "Şu an araştırma servislerinden biri kısa süreli cevap veremedi. Bu soru 10 dakikalık hakkından düşmedi; biraz sonra tekrar deneyebilirsin."
       );
     }
   }
 
   async acquireCooldown(userId) {
-    const key =
-      `cooldown:${userId}`;
-
-    const existing =
-      await this.ctx.storage.get(
-        key
-      );
-
+    const key = `cooldown:${userId}`;
     const now = Date.now();
 
-    if (
-      typeof existing === "number" &&
-      now - existing <
-        USER_COOLDOWN_MS
-    ) {
-      return false;
+    try {
+      const previous =
+        await this.ctx.storage.get(key);
+
+      if (
+        typeof previous === "number" &&
+        now - previous < USER_COOLDOWN_MS
+      ) {
+        return false;
+      }
+
+      await this.ctx.storage.put(key, now);
+      return true;
+    } catch (error) {
+      // Storage sorunu yüzünden kullanıcıyı engelleme.
+      this.lastError =
+        `Cooldown storage: ${error?.message || String(error)}`;
+
+      return true;
     }
-
-    await this.ctx.storage.put(
-      key,
-      now
-    );
-
-    return true;
   }
 
   async releaseCooldown(userId) {
-    await this.ctx.storage.delete(
-      `cooldown:${userId}`
-    );
+    try {
+      await this.ctx.storage.delete(
+        `cooldown:${userId}`
+      );
+    } catch {
+      // ignore
+    }
   }
 
-  async clearLastError() {
-    this.lastError = null;
-
-    await this.ctx.storage.delete(
-      "last_error"
-    );
-  }
-
-  async extractImageContext(
-    imageAttachment,
-    userQuestion
-  ) {
+  async analyzeImage(image, question) {
     if (!this.env.GEMINI_API_KEY) {
+      throw new Error("GEMINI_API_KEY bulunamadı.");
+    }
+
+    const response = await fetch(image.url);
+
+    if (!response.ok) {
       throw new Error(
-        "GEMINI_API_KEY secret bulunamadı."
+        `Discord görseli indirilemedi: ${response.status}`
       );
     }
 
-    const imageResponse =
-      await fetch(
-        imageAttachment.url
-      );
+    const buffer = await response.arrayBuffer();
 
-    if (!imageResponse.ok) {
-      throw new Error(
-        `Görsel indirilemedi: HTTP ${imageResponse.status}`
-      );
+    if (buffer.byteLength > 7 * 1024 * 1024) {
+      throw new Error("Görsel 7 MB sınırını aşıyor.");
     }
 
-    const arrayBuffer =
-      await imageResponse.arrayBuffer();
-
-    const bytes =
-      new Uint8Array(
-        arrayBuffer
-      );
-
-    if (bytes.byteLength === 0) {
-      throw new Error(
-        "Görsel boş geldi."
-      );
-    }
-
-    if (
-      bytes.byteLength >
-      7 * 1024 * 1024
-    ) {
-      throw new Error(
-        "Görsel çok büyük, lütfen biraz daha küçük bir ekran görüntüsü gönder."
-      );
-    }
-
-    const base64Image =
-      bytesToBase64(
-        bytes
-      );
+    const base64 = bytesToBase64(
+      new Uint8Array(buffer)
+    );
 
     const prompt = `
-Sen bir World of Warcraft destek botuna yardımcı olan görsel analiz asistanısın.
+World of Warcraft ekran görüntüsünü incele.
 
 Kullanıcının sorusu:
-${userQuestion || "Bu quest nasıl yapılır?"}
+${question}
 
-Ekran görüntüsünü dikkatlice incele.
-
-Şunları tespit et:
+Sadece araştırma için gerekli bilgileri çıkar:
 - Quest/görev adı
-- Objective / görev amacı
-- NPC, item veya hedef isimleri
-- Bölge / zone
-- Haritada görünen önemli konum
-- Quest açıklamasında görevi çözmeye yarayan bilgi
+- Objective
+- NPC / item / hedef
+- Bölge
+- Haritada görünen konum
+- Görevi çözmeye yardımcı önemli quest metni
 
-Kurallar:
-- Görseldeki metni mümkün olduğunca doğru oku.
-- Emin olmadığın şeyi kesinmiş gibi yazma.
-- Gereksiz açıklama yapma.
-- Sadece daha sonra WoW bilgi sisteminin doğru görevi araştırabilmesi için gerekli bağlamı çıkar.
-- Türkçe ve kısa yaz.
+Emin olmadığın bilgiyi kesinmiş gibi yazma.
+Türkçe ve kısa cevap ver.
+`.trim();
 
-Çıktı biçimi:
-Görev: ...
-Amaç: ...
-Bölge: ...
-NPC/Item/Hedef: ...
-Ek bağlam: ...
-    `.trim();
-
-    const visionResponse =
-      await fetch(
-        `${GEMINI_VISION_URL}?key=${encodeURIComponent(
-          this.env.GEMINI_API_KEY
-        )}`,
-        {
-          method: "POST",
-
-          headers: {
-            "content-type":
-              "application/json"
-          },
-
-          body:
-            JSON.stringify({
-              contents: [
+    const gemini = await fetch(
+      GEMINI_VISION_URL,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-goog-api-key": this.env.GEMINI_API_KEY
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [
                 {
-                  parts: [
-                    {
-                      text: prompt
-                    },
-
-                    {
-                      inlineData: {
-                        mimeType:
-                          imageAttachment.contentType ||
-                          "image/png",
-
-                        data:
-                          base64Image
-                      }
-                    }
-                  ]
+                  text: prompt
+                },
+                {
+                  inlineData: {
+                    mimeType:
+                      image.contentType || "image/png",
+                    data: base64
+                  }
                 }
-              ],
+              ]
+            }
+          ],
+          generationConfig: {
+            temperature: 0.1,
+            maxOutputTokens: 350
+          }
+        })
+      }
+    );
 
-              generationConfig: {
-                temperature: 0.1,
-                maxOutputTokens: 350
-              }
-            })
-        }
-      );
+    const raw = await gemini.text();
 
-    const raw =
-      await visionResponse.text();
-
-    let data = {};
+    let data;
 
     try {
-      data =
-        raw
-          ? JSON.parse(raw)
-          : {};
+      data = JSON.parse(raw);
     } catch {
       throw new Error(
-        `Gemini vision geçersiz JSON döndürdü: ${raw.slice(
-          0,
-          300
-        )}`
+        "Gemini görsel cevabı okunamadı."
       );
     }
 
-    if (!visionResponse.ok) {
+    if (!gemini.ok) {
       throw new Error(
-        `Gemini vision HTTP ${
-          visionResponse.status
-        }: ${raw.slice(
-          0,
-          500
-        )}`
+        `Gemini Vision ${gemini.status}: ${raw.slice(0, 300)}`
       );
     }
 
-    const parts =
-      data?.candidates?.[0]
-        ?.content?.parts ||
-      [];
-
-    const text =
-      parts
-        .map(
-          (part) =>
-            part?.text || ""
-        )
-        .join("\n")
-        .replace(/\r/g, "")
-        .replace(
-          /\n{3,}/g,
-          "\n\n"
-        )
-        .trim();
+    const text = (
+      data?.candidates?.[0]?.content?.parts || []
+    )
+      .map((part) => part?.text || "")
+      .join("\n")
+      .trim();
 
     if (!text) {
       throw new Error(
-        "Gemini görselden okunabilir bağlam döndürmedi."
+        "Gemini görselden bilgi çıkaramadı."
       );
     }
 
@@ -1260,169 +866,121 @@ Ek bağlam: ...
   }
 
   async askWowAi(question) {
-    const url =
-      new URL(
-        WOW_AI_URL
-      );
-
-    url.searchParams.set(
-      "q",
-      question
-    );
+    const url = new URL(WOW_AI_URL);
+    url.searchParams.set("q", question);
 
     let lastError = null;
 
     for (
       let attempt = 1;
-      attempt <= AI_BACKEND_MAX_ATTEMPTS;
+      attempt <= AI_MAX_ATTEMPTS;
       attempt++
     ) {
+      this.lastBackendAttemptCount = attempt;
+
+      const startedAt = Date.now();
+
       const controller =
         new AbortController();
 
-      const timer =
-        setTimeout(
-          () =>
-            controller.abort(),
-          AI_BACKEND_TIMEOUT_MS
-        );
+      const timer = setTimeout(
+        () => controller.abort(),
+        AI_TIMEOUT_MS
+      );
 
       try {
-        const response =
-          await fetch(
-            url.toString(),
-            {
-              method: "GET",
+        const response = await fetch(
+          url.toString(),
+          {
+            method: "GET",
+            headers: {
+              accept: "application/json"
+            },
+            signal: controller.signal
+          }
+        );
 
-              signal:
-                controller.signal,
+        this.lastBackendStatus = response.status;
+        this.lastBackendDurationMs =
+          Date.now() - startedAt;
 
-              headers: {
-                accept:
-                  "application/json"
-              }
-            }
-          );
+        const raw = await response.text();
 
-        const raw =
-          await response.text();
-
-        let data;
+        let data = null;
 
         try {
-          data =
-            raw
-              ? JSON.parse(raw)
-              : {};
+          data = raw ? JSON.parse(raw) : {};
         } catch {
-          data = null;
+          // handled below
         }
 
-        if (response.ok) {
-          if (!data?.answer) {
-            throw new Error(
-              "totik-ai-test answer alanı döndürmedi."
-            );
-          }
-
+        if (response.ok && data?.answer) {
           return data;
         }
 
         const detail =
           data?.error ||
-          raw.slice(
-            0,
-            500
-          ) ||
+          raw.slice(0, 400) ||
           `HTTP ${response.status}`;
 
-        lastError =
-          new Error(
-            `totik-ai-test HTTP ${response.status}: ${detail}`
-          );
+        lastError = new Error(
+          `totik-ai-test HTTP ${response.status}: ${detail}`
+        );
 
-        const canRetry =
-          RETRYABLE_BACKEND_STATUSES.has(
-            response.status
-          ) &&
-          attempt <
-            AI_BACKEND_MAX_ATTEMPTS;
-
-        if (canRetry) {
-          await sleep(1200);
+        if (
+          backendRetryable(response.status) &&
+          attempt < AI_MAX_ATTEMPTS
+        ) {
+          await sleep(1500);
           continue;
         }
 
         throw lastError;
-
       } catch (error) {
-        const isAbort =
-          error?.name ===
-          "AbortError";
+        this.lastBackendDurationMs =
+          Date.now() - startedAt;
 
-        lastError =
-          isAbort
-            ? new Error(
-                `totik-ai-test ${AI_BACKEND_TIMEOUT_MS / 1000} saniyede cevap vermedi.`
-              )
-            : error;
+        const aborted =
+          error?.name === "AbortError";
 
-        const canRetry =
-          attempt <
-            AI_BACKEND_MAX_ATTEMPTS &&
+        lastError = aborted
+          ? new Error(
+              `totik-ai-test ${AI_TIMEOUT_MS / 1000} saniyede cevap vermedi.`
+            )
+          : error;
+
+        const retry =
+          attempt < AI_MAX_ATTEMPTS &&
           (
-            isAbort ||
+            aborted ||
             /HTTP 502|HTTP 503|HTTP 504/i.test(
-              String(
-                error?.message ||
-                ""
-              )
+              String(error?.message || "")
             )
           );
 
-        if (canRetry) {
-          await sleep(1200);
+        if (retry) {
+          await sleep(1500);
           continue;
         }
 
         throw lastError;
-
       } finally {
-        clearTimeout(
-          timer
-        );
+        clearTimeout(timer);
       }
     }
 
     throw (
       lastError ||
-      new Error(
-        "totik-ai-test bilinmeyen bir hata verdi."
-      )
+      new Error("AI backend bilinmeyen hata verdi.")
     );
   }
 
-  async replyToMessage(
-    originalMessage,
-    answer
-  ) {
-    const chunks =
-      splitDiscordMessage(
-        answer
-      );
+  async reply(originalMessage, answer) {
+    const chunks = splitDiscordMessage(answer);
 
-    if (!chunks.length) {
-      return;
-    }
-
-    for (
-      let i = 0;
-      i < chunks.length;
-      i++
-    ) {
+    for (let i = 0; i < chunks.length; i++) {
       const body = {
-        content:
-          chunks[i],
+        content: chunks[i],
 
         allowed_mentions: {
           parse: [],
@@ -1432,18 +990,9 @@ Ek bağlam: ...
 
       if (i === 0) {
         body.message_reference = {
-          message_id:
-            String(
-              originalMessage.id
-            ),
-
-          channel_id:
-            String(
-              originalMessage.channel_id
-            ),
-
-          fail_if_not_exists:
-            false
+          message_id: String(originalMessage.id),
+          channel_id: String(originalMessage.channel_id),
+          fail_if_not_exists: false
         };
       }
 
@@ -1465,339 +1014,15 @@ Ek bağlam: ...
           method: "POST"
         }
       );
-    } catch {}
-  }
-
-  sendIdentify() {
-    if (
-      !this.ws ||
-      this.ws.readyState !==
-        WebSocket.OPEN
-    ) {
-      return;
+    } catch {
+      // typing kritik değil
     }
-
-    this.ws.send(
-      JSON.stringify({
-        op: 2,
-
-        d: {
-          token:
-            this.env
-              .DISCORD_BOT_TOKEN,
-
-          intents:
-            INTENTS,
-
-          properties: {
-            os: "cloudflare",
-            browser:
-              "totik-ai",
-            device:
-              "totik-ai"
-          }
-        }
-      })
-    );
   }
 
-  sendResume() {
-    if (
-      !this.ws ||
-      this.ws.readyState !==
-        WebSocket.OPEN ||
-      !this.sessionId ||
-      this.sequence == null
-    ) {
-      this.sendIdentify();
-      return;
-    }
+  async discordRequest(path, options = {}) {
+    const method = options.method || "GET";
 
-    this.ws.send(
-      JSON.stringify({
-        op: 6,
-
-        d: {
-          token:
-            this.env
-              .DISCORD_BOT_TOKEN,
-
-          session_id:
-            this.sessionId,
-
-          seq:
-            this.sequence
-        }
-      })
-    );
-  }
-
-  startHeartbeat(interval) {
-    this.clearHeartbeat();
-
-    this.heartbeatIntervalMs =
-      interval;
-
-    this.heartbeatAwaitingAck =
-      false;
-
-    const initialDelay =
-      Math.floor(
-        Math.random() *
-          interval
-      );
-
-    this.heartbeatStartTimer =
-      setTimeout(
-        () => {
-          this.heartbeatStartTimer =
-            null;
-
-          if (
-            !this.ws ||
-            this.ws.readyState !==
-              WebSocket.OPEN
-          ) {
-            return;
-          }
-
-          this.sendHeartbeat();
-
-          this.heartbeatTimer =
-            setInterval(
-              () => {
-                this.sendHeartbeat();
-              },
-              interval
-            );
-        },
-        initialDelay
-      );
-  }
-
-  sendHeartbeat() {
-    if (
-      !this.ws ||
-      this.ws.readyState !==
-        WebSocket.OPEN
-    ) {
-      return;
-    }
-
-    if (
-      this.heartbeatAwaitingAck
-    ) {
-      this.ctx.waitUntil(
-        this.recordError(
-          "Heartbeat ACK gelmedi. Yeniden bağlanılıyor."
-        )
-      );
-
-      this.reconnectNow(
-        "Missed heartbeat ACK"
-      );
-
-      return;
-    }
-
-    this.heartbeatAwaitingAck =
-      true;
-
-    this.lastHeartbeatSentAt =
-      Date.now();
-
-    this.ws.send(
-      JSON.stringify({
-        op: 1,
-        d: this.sequence
-      })
-    );
-  }
-
-  clearHeartbeat() {
-    if (
-      this.heartbeatStartTimer
-    ) {
-      clearTimeout(
-        this.heartbeatStartTimer
-      );
-    }
-
-    if (
-      this.heartbeatTimer
-    ) {
-      clearInterval(
-        this.heartbeatTimer
-      );
-    }
-
-    this.heartbeatStartTimer =
-      null;
-
-    this.heartbeatTimer =
-      null;
-
-    this.heartbeatIntervalMs =
-      null;
-
-    this.heartbeatAwaitingAck =
-      false;
-  }
-
-  handleSocketClose(event) {
-    this.clearHeartbeat();
-
-    this.ws = null;
-    this.connectionState =
-      "offline";
-
-    this.connectStartedAt =
-      null;
-
-    const code =
-      Number(
-        event?.code || 0
-      );
-
-    if (
-      [
-        4004,
-        4010,
-        4011,
-        4013,
-        4014
-      ].includes(code)
-    ) {
-      this.ctx.waitUntil(
-        this.recordError(
-          `Discord Gateway fatal close code ${code}`
-        )
-      );
-
-      return;
-    }
-
-    if (
-      [4007, 4009].includes(
-        code
-      )
-    ) {
-      this.ctx.waitUntil(
-        this.clearSession()
-      );
-    }
-
-    this.scheduleReconnect();
-  }
-
-  reconnectNow(
-    reason = "Reconnect requested"
-  ) {
-    try {
-      this.ws?.close(
-        4000,
-        reason
-      );
-    } catch {}
-
-    this.ws = null;
-
-    this.connectionState =
-      "offline";
-
-    this.connectStartedAt =
-      null;
-
-    this.clearHeartbeat();
-
-    this.scheduleReconnect(
-      500
-    );
-  }
-
-  scheduleReconnect(
-    delay = 2000
-  ) {
-    if (
-      this.reconnectTimer
-    ) {
-      return;
-    }
-
-    this.reconnectTimer =
-      setTimeout(
-        () => {
-          this.reconnectTimer =
-            null;
-
-          this.ctx.waitUntil(
-            this.ensureConnected()
-          );
-        },
-        delay
-      );
-  }
-
-  clearReconnectTimer() {
-    if (
-      this.reconnectTimer
-    ) {
-      clearTimeout(
-        this.reconnectTimer
-      );
-    }
-
-    this.reconnectTimer =
-      null;
-  }
-
-  async clearSession() {
-    this.sessionId = null;
-    this.resumeGatewayUrl =
-      null;
-    this.sequence = null;
-
-    await Promise.all([
-      this.ctx.storage.delete(
-        "discord_session_id"
-      ),
-
-      this.ctx.storage.delete(
-        "discord_resume_gateway_url"
-      ),
-
-      this.ctx.storage.delete(
-        "discord_sequence"
-      )
-    ]);
-  }
-
-  async recordError(message) {
-    this.lastError =
-      String(
-        message ||
-        "Unknown error"
-      );
-
-    await this.ctx.storage.put(
-      "last_error",
-      this.lastError
-    );
-  }
-
-  async discordRequest(
-    path,
-    options = {}
-  ) {
-    const method =
-      options.method ||
-      "GET";
-
-    for (
-      let attempt = 0;
-      attempt < 4;
-      attempt++
-    ) {
+    for (let attempt = 1; attempt <= 4; attempt++) {
       const headers = {
         Authorization:
           `Bot ${this.env.DISCORD_BOT_TOKEN}`
@@ -1808,106 +1033,61 @@ Ek bağlam: ...
         headers
       };
 
-      if (
-        options.body !==
-        undefined
-      ) {
-        headers[
-          "Content-Type"
-        ] =
+      if (options.body !== undefined) {
+        headers["content-type"] =
           "application/json";
 
         init.body =
-          JSON.stringify(
-            options.body
-          );
+          JSON.stringify(options.body);
       }
 
-      const response =
-        await fetch(
-          `${DISCORD_API}${path}`,
-          init
-        );
+      const response = await fetch(
+        `${DISCORD_API}${path}`,
+        init
+      );
 
-      if (
-        response.status ===
-        204
-      ) {
+      if (response.status === 204) {
         return null;
       }
 
-      const text =
-        await response.text();
+      const raw = await response.text();
 
       let data = null;
 
-      if (text) {
-        try {
-          data =
-            JSON.parse(
-              text
-            );
-        } catch {
-          data = text;
-        }
+      try {
+        data = raw ? JSON.parse(raw) : null;
+      } catch {
+        data = raw;
       }
 
-      if (
-        response.status ===
-        429
-      ) {
-        let retryAfter =
-          Number(
-            data?.retry_after
-          );
-
-        if (
-          !Number.isFinite(
-            retryAfter
-          )
-        ) {
-          retryAfter = 1;
-        }
-
-        if (
-          retryAfter < 100
-        ) {
-          retryAfter *=
-            1000;
-        }
-
-        await sleep(
-          Math.max(
-            500,
-            retryAfter
-          )
+      if (response.status === 429) {
+        let delay = Number(
+          data?.retry_after || 1
         );
 
+        if (delay < 100) {
+          delay *= 1000;
+        }
+
+        await sleep(Math.max(500, delay));
         continue;
       }
 
       if (
         response.status >= 500 &&
-        attempt < 3
+        attempt < 4
       ) {
-        await sleep(
-          1000 *
-            (attempt + 1)
-        );
-
+        await sleep(attempt * 750);
         continue;
       }
 
       if (!response.ok) {
-        const detail =
-          typeof data === "string"
-            ? data
-            : JSON.stringify(
-                data
-              );
-
         throw new Error(
-          `Discord API ${method} ${path} -> ${response.status}: ${detail}`
+          `Discord API ${response.status}: ${
+            typeof data === "string"
+              ? data
+              : JSON.stringify(data)
+          }`
         );
       }
 
@@ -1915,7 +1095,183 @@ Ek bağlam: ...
     }
 
     throw new Error(
-      `Discord API ${method} ${path} maksimum retry sayısına ulaştı.`
+      "Discord API maksimum retry sayısına ulaştı."
     );
+  }
+
+  sendIdentify() {
+    if (!this.isConnected()) {
+      return;
+    }
+
+    this.ws.send(
+      JSON.stringify({
+        op: 2,
+        d: {
+          token: this.env.DISCORD_BOT_TOKEN,
+          intents: INTENTS,
+          properties: {
+            os: "cloudflare",
+            browser: "totik-ai",
+            device: "totik-ai"
+          }
+        }
+      })
+    );
+  }
+
+  startHeartbeat(interval) {
+    this.clearHeartbeat();
+
+    this.heartbeatInterval = interval;
+    this.awaitingHeartbeatAck = false;
+
+    const delay = Math.floor(
+      Math.random() * interval
+    );
+
+    this.heartbeatStartTimer =
+      setTimeout(() => {
+        this.heartbeatStartTimer = null;
+
+        if (!this.isConnected()) {
+          return;
+        }
+
+        this.sendHeartbeat();
+
+        this.heartbeatTimer =
+          setInterval(() => {
+            this.sendHeartbeat();
+          }, interval);
+      }, delay);
+  }
+
+  sendHeartbeat() {
+    if (!this.isConnected()) {
+      return;
+    }
+
+    if (this.awaitingHeartbeatAck) {
+      this.setError(
+        "Discord heartbeat ACK gelmedi."
+      );
+
+      this.forceReconnect(
+        "Missed heartbeat ACK"
+      );
+
+      return;
+    }
+
+    this.awaitingHeartbeatAck = true;
+    this.lastHeartbeatSentAt =
+      new Date().toISOString();
+
+    try {
+      this.ws.send(
+        JSON.stringify({
+          op: 1,
+          d: this.sequence
+        })
+      );
+    } catch (error) {
+      this.setError(
+        `Heartbeat send: ${
+          error?.message || String(error)
+        }`
+      );
+
+      this.forceReconnect(
+        "Heartbeat send failed"
+      );
+    }
+  }
+
+  clearHeartbeat() {
+    if (this.heartbeatStartTimer) {
+      clearTimeout(this.heartbeatStartTimer);
+    }
+
+    if (this.heartbeatTimer) {
+      clearInterval(this.heartbeatTimer);
+    }
+
+    this.heartbeatStartTimer = null;
+    this.heartbeatTimer = null;
+    this.heartbeatInterval = null;
+    this.awaitingHeartbeatAck = false;
+  }
+
+  handleSocketClose(event) {
+    this.clearHeartbeat();
+
+    this.ws = null;
+    this.state = "offline";
+    this.connectStartedAt = null;
+
+    const code = Number(event?.code || 0);
+
+    if (
+      [4004, 4010, 4011, 4013, 4014].includes(code)
+    ) {
+      this.setError(
+        `Discord Gateway fatal close code ${code}`
+      );
+      return;
+    }
+
+    this.scheduleReconnect();
+  }
+
+  forceReconnect(reason) {
+    this.clearHeartbeat();
+
+    const socket = this.ws;
+
+    this.ws = null;
+    this.state = "offline";
+    this.connectStartedAt = null;
+
+    try {
+      socket?.close(4000, reason);
+    } catch {
+      // ignore
+    }
+
+    this.scheduleReconnect(1000);
+  }
+
+  scheduleReconnect(delay = 2000) {
+    if (this.reconnectTimer) {
+      return;
+    }
+
+    this.reconnectTimer =
+      setTimeout(() => {
+        this.reconnectTimer = null;
+
+        // ctx.waitUntil YOK.
+        this.ensureConnected().catch((error) => {
+          this.setError(
+            `Reconnect: ${error?.message || String(error)}`
+          );
+
+          this.scheduleReconnect(3000);
+        });
+      }, delay);
+  }
+
+  clearReconnectTimer() {
+    if (this.reconnectTimer) {
+      clearTimeout(this.reconnectTimer);
+    }
+
+    this.reconnectTimer = null;
+  }
+
+  async setError(value) {
+    this.lastError =
+      String(value || "Unknown error");
   }
 }
