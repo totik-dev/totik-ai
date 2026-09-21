@@ -6,8 +6,11 @@ const DISCORD_GATEWAY = "wss://gateway.discord.gg/?v=10&encoding=json";
 // GUILDS + GUILD_MESSAGES + MESSAGE_CONTENT
 const INTENTS = 1 | 512 | 32768;
 
-// Çalışan WoW AI Worker'ımız.
+// Çalışan WoW AI Worker
 const WOW_AI_URL = "https://totik-ai-test.totikch.workers.dev/";
+
+// SADECE BU KANALDA ÇALIŞACAK
+const QUESTION_CHANNEL_ID = "1548811398069489744";
 
 const QUESTION_COMMAND = /^!soru(?:\s|$)/i;
 const MAX_DISCORD_MESSAGE = 1900;
@@ -57,7 +60,9 @@ function splitDiscordMessage(text) {
     remaining = remaining.slice(cut).trim();
   }
 
-  if (remaining) chunks.push(remaining);
+  if (remaining) {
+    chunks.push(remaining);
+  }
 
   return chunks;
 }
@@ -100,6 +105,7 @@ export default {
         ok: true,
         service: "totik-ai-discord",
         command: "!soru",
+        channelId: QUESTION_CHANNEL_ID,
         backend: WOW_AI_URL
       });
     }
@@ -107,20 +113,6 @@ export default {
     return new Response("Not found", {
       status: 404
     });
-  },
-
-  async scheduled(controller, env, ctx) {
-    if (!env.GATEWAY) return;
-
-    const stub = env.GATEWAY.get(
-      env.GATEWAY.idFromName("totik-ai-main")
-    );
-
-    ctx.waitUntil(
-      stub.fetch(
-        new Request("https://internal/start")
-      )
-    );
   }
 };
 
@@ -181,6 +173,7 @@ export class DiscordGateway extends DurableObject {
         state: this.connectionState,
         connected: this.ws?.readyState === WebSocket.OPEN,
         botUserId: this.botUserId,
+        channelId: QUESTION_CHANNEL_ID,
         lastGatewayEventAt: this.lastGatewayEventAt,
         lastQuestionAt: this.lastQuestionAt,
         lastError: this.lastError
@@ -203,7 +196,8 @@ export class DiscordGateway extends DurableObject {
 
       return json({
         ok: true,
-        state: this.connectionState
+        state: this.connectionState,
+        channelId: QUESTION_CHANNEL_ID
       });
     }
 
@@ -227,7 +221,8 @@ export class DiscordGateway extends DurableObject {
   }
 
   async ensureAlarm() {
-    const current = await this.ctx.storage.getAlarm();
+    const current =
+      await this.ctx.storage.getAlarm();
 
     if (current == null) {
       await this.ctx.storage.setAlarm(
@@ -252,12 +247,14 @@ export class DiscordGateway extends DurableObject {
 
     this.connectionState = "connecting";
 
-    const gatewayUrl = this.resumeGatewayUrl
-      ? `${this.resumeGatewayUrl}?v=10&encoding=json`
-      : DISCORD_GATEWAY;
+    const gatewayUrl =
+      this.resumeGatewayUrl
+        ? `${this.resumeGatewayUrl}?v=10&encoding=json`
+        : DISCORD_GATEWAY;
 
     try {
-      const ws = new WebSocket(gatewayUrl);
+      const ws =
+        new WebSocket(gatewayUrl);
 
       this.ws = ws;
 
@@ -282,6 +279,7 @@ export class DiscordGateway extends DurableObject {
           )
         );
       });
+
     } catch (error) {
       this.ws = null;
       this.connectionState = "offline";
@@ -298,12 +296,16 @@ export class DiscordGateway extends DurableObject {
     let packet;
 
     try {
-      packet = JSON.parse(String(raw));
+      packet =
+        JSON.parse(String(raw));
     } catch {
       return;
     }
 
-    if (typeof packet.s === "number") {
+    if (
+      typeof packet.s ===
+      "number"
+    ) {
       this.sequence = packet.s;
 
       await this.ctx.storage.put(
@@ -312,11 +314,11 @@ export class DiscordGateway extends DurableObject {
       );
     }
 
-    // HELLO
     if (packet.op === 10) {
-      const interval = Number(
-        packet.d?.heartbeat_interval
-      );
+      const interval =
+        Number(
+          packet.d?.heartbeat_interval
+        );
 
       if (
         Number.isFinite(interval) &&
@@ -337,36 +339,31 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    // HEARTBEAT ACK
     if (packet.op === 11) {
       return;
     }
 
-    // HEARTBEAT REQUEST
     if (packet.op === 1) {
       this.sendHeartbeat();
       return;
     }
 
-    // RECONNECT
     if (packet.op === 7) {
       this.reconnectNow();
       return;
     }
 
-    // INVALID SESSION
     if (packet.op === 9) {
       if (!packet.d) {
         await this.clearSession();
       }
 
       await sleep(1000);
-
       this.reconnectNow();
+
       return;
     }
 
-    // DISPATCH
     if (packet.op !== 0) {
       return;
     }
@@ -377,7 +374,10 @@ export class DiscordGateway extends DurableObject {
     );
   }
 
-  async handleDispatch(eventName, data) {
+  async handleDispatch(
+    eventName,
+    data
+  ) {
     this.lastGatewayEventAt =
       new Date().toISOString();
 
@@ -396,8 +396,11 @@ export class DiscordGateway extends DurableObject {
       this.botUserId =
         data?.user?.id ?? null;
 
-      this.connectionState = "ready";
-      this.lastError = null;
+      this.connectionState =
+        "ready";
+
+      this.lastError =
+        null;
 
       await Promise.all([
         this.ctx.storage.put(
@@ -424,8 +427,11 @@ export class DiscordGateway extends DurableObject {
     }
 
     if (eventName === "RESUMED") {
-      this.connectionState = "ready";
-      this.lastError = null;
+      this.connectionState =
+        "ready";
+
+      this.lastError =
+        null;
 
       await this.ctx.storage.delete(
         "last_error"
@@ -434,15 +440,21 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    // Sadece yeni mesaj.
-    if (eventName !== "MESSAGE_CREATE") {
+    if (
+      eventName !==
+      "MESSAGE_CREATE"
+    ) {
       return;
     }
 
-    await this.handleDiscordMessage(data);
+    await this.handleDiscordMessage(
+      data
+    );
   }
 
-  async handleDiscordMessage(message) {
+  async handleDiscordMessage(
+    message
+  ) {
     if (
       !message ||
       !message.id ||
@@ -452,7 +464,6 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    // Botların mesajlarını tamamen yok say.
     if (
       message.author.bot ||
       message.webhook_id
@@ -460,27 +471,37 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    const content =
-      String(message.content || "").trim();
-
-    // ========================================================
-    // !soru YOKSA BURADA BİTER.
-    //
-    // Gemini çağrısı YOK.
-    // Tavily çağrısı YOK.
-    // totik-ai-test çağrısı YOK.
-    // ========================================================
-
-    if (!QUESTION_COMMAND.test(content)) {
+    // SADECE SORU ODASINDA ÇALIŞIR
+    if (
+      String(message.channel_id) !==
+      QUESTION_CHANNEL_ID
+    ) {
       return;
     }
 
-    const question = cleanQuestion(
-      content.replace(
-        QUESTION_COMMAND,
+    const content =
+      String(
+        message.content ||
         ""
+      ).trim();
+
+    // !soru yoksa burada biter.
+    // AI / Tavily / backend çağrısı yapılmaz.
+    if (
+      !QUESTION_COMMAND.test(
+        content
       )
-    );
+    ) {
+      return;
+    }
+
+    const question =
+      cleanQuestion(
+        content.replace(
+          QUESTION_COMMAND,
+          ""
+        )
+      );
 
     if (!question) {
       await this.replyToMessage(
@@ -505,10 +526,15 @@ export class DiscordGateway extends DurableObject {
 
     try {
       const result =
-        await this.askWowAi(question);
+        await this.askWowAi(
+          question
+        );
 
       const answer =
-        String(result?.answer || "").trim();
+        String(
+          result?.answer ||
+          ""
+        ).trim();
 
       if (!answer) {
         throw new Error(
@@ -520,6 +546,7 @@ export class DiscordGateway extends DurableObject {
         message,
         answer
       );
+
     } catch (error) {
       await this.recordError(
         `Question failed: ${error?.message || String(error)}`
@@ -532,9 +559,13 @@ export class DiscordGateway extends DurableObject {
     }
   }
 
-  async askWowAi(question) {
+  async askWowAi(
+    question
+  ) {
     const url =
-      new URL(WOW_AI_URL);
+      new URL(
+        WOW_AI_URL
+      );
 
     url.searchParams.set(
       "q",
@@ -546,7 +577,8 @@ export class DiscordGateway extends DurableObject {
 
     const timer =
       setTimeout(
-        () => controller.abort(),
+        () =>
+          controller.abort(),
         45000
       );
 
@@ -556,10 +588,8 @@ export class DiscordGateway extends DurableObject {
           url.toString(),
           {
             method: "GET",
-
             signal:
               controller.signal,
-
             headers: {
               accept:
                 "application/json"
@@ -599,6 +629,7 @@ export class DiscordGateway extends DurableObject {
       }
 
       return data;
+
     } finally {
       clearTimeout(timer);
     }
@@ -609,9 +640,13 @@ export class DiscordGateway extends DurableObject {
     answer
   ) {
     const chunks =
-      splitDiscordMessage(answer);
+      splitDiscordMessage(
+        answer
+      );
 
-    if (!chunks.length) return;
+    if (!chunks.length) {
+      return;
+    }
 
     for (
       let i = 0;
@@ -619,7 +654,8 @@ export class DiscordGateway extends DurableObject {
       i++
     ) {
       const body = {
-        content: chunks[i],
+        content:
+          chunks[i],
 
         allowed_mentions: {
           parse: [],
@@ -630,10 +666,14 @@ export class DiscordGateway extends DurableObject {
       if (i === 0) {
         body.message_reference = {
           message_id:
-            String(originalMessage.id),
+            String(
+              originalMessage.id
+            ),
 
           channel_id:
-            String(originalMessage.channel_id),
+            String(
+              originalMessage.channel_id
+            ),
 
           fail_if_not_exists:
             false
@@ -650,7 +690,9 @@ export class DiscordGateway extends DurableObject {
     }
   }
 
-  async safeTyping(channelId) {
+  async safeTyping(
+    channelId
+  ) {
     try {
       await this.discordRequest(
         `/channels/${channelId}/typing`,
@@ -665,7 +707,7 @@ export class DiscordGateway extends DurableObject {
     if (
       !this.ws ||
       this.ws.readyState !==
-        WebSocket.OPEN
+      WebSocket.OPEN
     ) {
       return;
     }
@@ -721,23 +763,27 @@ export class DiscordGateway extends DurableObject {
     );
   }
 
-  startHeartbeat(interval) {
+  startHeartbeat(
+    interval
+  ) {
     this.clearHeartbeat();
 
     const initialDelay =
       Math.floor(
-        Math.random() * interval
+        Math.random() *
+        interval
       );
 
     this.heartbeatStartTimer =
       setTimeout(
         () => {
-          this.heartbeatStartTimer = null;
+          this.heartbeatStartTimer =
+            null;
 
           if (
             !this.ws ||
             this.ws.readyState !==
-              WebSocket.OPEN
+            WebSocket.OPEN
           ) {
             return;
           }
@@ -746,7 +792,8 @@ export class DiscordGateway extends DurableObject {
 
           this.heartbeatTimer =
             setInterval(
-              () => this.sendHeartbeat(),
+              () =>
+                this.sendHeartbeat(),
               interval
             );
         },
@@ -759,7 +806,7 @@ export class DiscordGateway extends DurableObject {
     if (
       !this.ws ||
       this.ws.readyState !==
-        WebSocket.OPEN
+      WebSocket.OPEN
     ) {
       return;
     }
@@ -773,30 +820,45 @@ export class DiscordGateway extends DurableObject {
   }
 
   clearHeartbeat() {
-    if (this.heartbeatStartTimer) {
+    if (
+      this.heartbeatStartTimer
+    ) {
       clearTimeout(
         this.heartbeatStartTimer
       );
     }
 
-    if (this.heartbeatTimer) {
+    if (
+      this.heartbeatTimer
+    ) {
       clearInterval(
         this.heartbeatTimer
       );
     }
 
-    this.heartbeatStartTimer = null;
-    this.heartbeatTimer = null;
+    this.heartbeatStartTimer =
+      null;
+
+    this.heartbeatTimer =
+      null;
   }
 
-  handleSocketClose(event) {
+  handleSocketClose(
+    event
+  ) {
     this.clearHeartbeat();
 
-    this.ws = null;
-    this.connectionState = "offline";
+    this.ws =
+      null;
+
+    this.connectionState =
+      "offline";
 
     const code =
-      Number(event?.code || 0);
+      Number(
+        event?.code ||
+        0
+      );
 
     if (
       [
@@ -835,21 +897,31 @@ export class DiscordGateway extends DurableObject {
       );
     } catch {}
 
-    this.ws = null;
-    this.connectionState = "offline";
+    this.ws =
+      null;
 
-    this.scheduleReconnect(500);
+    this.connectionState =
+      "offline";
+
+    this.scheduleReconnect(
+      500
+    );
   }
 
-  scheduleReconnect(delay = 2000) {
-    if (this.reconnectTimer) {
+  scheduleReconnect(
+    delay = 2000
+  ) {
+    if (
+      this.reconnectTimer
+    ) {
       return;
     }
 
     this.reconnectTimer =
       setTimeout(
         () => {
-          this.reconnectTimer = null;
+          this.reconnectTimer =
+            null;
 
           this.ctx.waitUntil(
             this.ensureConnected()
@@ -861,19 +933,27 @@ export class DiscordGateway extends DurableObject {
   }
 
   clearReconnectTimer() {
-    if (this.reconnectTimer) {
+    if (
+      this.reconnectTimer
+    ) {
       clearTimeout(
         this.reconnectTimer
       );
     }
 
-    this.reconnectTimer = null;
+    this.reconnectTimer =
+      null;
   }
 
   async clearSession() {
-    this.sessionId = null;
-    this.resumeGatewayUrl = null;
-    this.sequence = null;
+    this.sessionId =
+      null;
+
+    this.resumeGatewayUrl =
+      null;
+
+    this.sequence =
+      null;
 
     await Promise.all([
       this.ctx.storage.delete(
@@ -890,9 +970,14 @@ export class DiscordGateway extends DurableObject {
     ]);
   }
 
-  async recordError(message) {
+  async recordError(
+    message
+  ) {
     this.lastError =
-      String(message || "Unknown error");
+      String(
+        message ||
+        "Unknown error"
+      );
 
     await this.ctx.storage.put(
       "last_error",
@@ -905,7 +990,8 @@ export class DiscordGateway extends DurableObject {
     options = {}
   ) {
     const method =
-      options.method || "GET";
+      options.method ||
+      "GET";
 
     for (
       let attempt = 0;
@@ -923,9 +1009,12 @@ export class DiscordGateway extends DurableObject {
       };
 
       if (
-        options.body !== undefined
+        options.body !==
+        undefined
       ) {
-        headers["Content-Type"] =
+        headers[
+          "Content-Type"
+        ] =
           "application/json";
 
         init.body =
@@ -940,35 +1029,49 @@ export class DiscordGateway extends DurableObject {
           init
         );
 
-      if (response.status === 204) {
+      if (
+        response.status ===
+        204
+      ) {
         return null;
       }
 
       const text =
         await response.text();
 
-      let data = null;
+      let data =
+        null;
 
       if (text) {
         try {
           data =
             JSON.parse(text);
         } catch {
-          data = text;
+          data =
+            text;
         }
       }
 
-      if (response.status === 429) {
+      if (
+        response.status ===
+        429
+      ) {
         let retryAfter =
-          Number(data?.retry_after);
+          Number(
+            data?.retry_after
+          );
 
         if (
-          !Number.isFinite(retryAfter)
+          !Number.isFinite(
+            retryAfter
+          )
         ) {
           retryAfter = 1;
         }
 
-        if (retryAfter < 100) {
+        if (
+          retryAfter < 100
+        ) {
           retryAfter *= 1000;
         }
 
@@ -987,7 +1090,8 @@ export class DiscordGateway extends DurableObject {
         attempt < 3
       ) {
         await sleep(
-          1000 * (attempt + 1)
+          1000 *
+          (attempt + 1)
         );
 
         continue;
@@ -995,9 +1099,12 @@ export class DiscordGateway extends DurableObject {
 
       if (!response.ok) {
         const detail =
-          typeof data === "string"
+          typeof data ===
+          "string"
             ? data
-            : JSON.stringify(data);
+            : JSON.stringify(
+                data
+              );
 
         throw new Error(
           `Discord API ${method} ${path} -> ${response.status}: ${detail}`
