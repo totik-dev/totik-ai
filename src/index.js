@@ -16,6 +16,23 @@ const QUESTION_COMMAND = /^!soru(?:\s|$)/i;
 
 const MAX_DISCORD_MESSAGE = 1900;
 
+// Cevapları hâlâ detaylı tutuyoruz,
+// sadece gereksiz derecede uzamasını engelliyoruz.
+const TARGET_ANSWER_LENGTH = 1400;
+
+// Her kullanıcı 10 dakikada 1 başarılı soru.
+const USER_COOLDOWN_MS = 10 * 60 * 1000;
+
+const COOLDOWN_MESSAGE =
+  "Totik WoW Yardım Botu olarak her kullanıcı için 10 dakikada 1 soru cevaplayacak şekilde ayarlandım. Biraz sonra tekrar sorabilirsin.";
+
+const IDENTITY_MESSAGE =
+  "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum. World of Warcraft görevleri, class'lar, meslekler, item'lar, dungeon'lar ve genel oyun bilgileri konusunda yardımcı olmak için buradayım.";
+
+const CHANNEL_RECOMMENDATION_MESSAGE =
+  "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum. Türkçe World of Warcraft içerikleri için Totik Channel'ı izleyebilirsin.";
+
+// Discord bağlantısı watchdog
 const WATCHDOG_INTERVAL_MS = 60 * 1000;
 const CONNECT_TIMEOUT_MS = 30 * 1000;
 
@@ -33,11 +50,19 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function cleanQuestion(value) {
+function cleanQuestion(value, maxLength = 1800) {
   return String(value || "")
     .replace(/\s+/g, " ")
     .trim()
-    .slice(0, 1800);
+    .slice(0, maxLength);
+}
+
+function cleanReferencedText(value) {
+  return String(value || "")
+    .replace(QUESTION_COMMAND, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 1400);
 }
 
 function splitDiscordMessage(text) {
@@ -71,6 +96,93 @@ function splitDiscordMessage(text) {
   return chunks;
 }
 
+function compactDiscordAnswer(value) {
+  let text = String(value || "")
+    .replace(/\r/g, "")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n[ \t]*\n+/g, "\n")
+    .replace(/[ \t]{2,}/g, " ")
+    .trim();
+
+  if (text.length <= TARGET_ANSWER_LENGTH) {
+    return text;
+  }
+
+  const sample = text.slice(0, TARGET_ANSWER_LENGTH);
+
+  const sentenceCuts = [
+    sample.lastIndexOf(". "),
+    sample.lastIndexOf("! "),
+    sample.lastIndexOf("? "),
+    sample.lastIndexOf("\n")
+  ];
+
+  let cut = Math.max(...sentenceCuts);
+
+  if (cut < 950) {
+    cut = TARGET_ANSWER_LENGTH;
+  } else {
+    cut += 1;
+  }
+
+  return `${text.slice(0, cut).trim()}…`;
+}
+
+function applyTotikIdentity(value) {
+  let text = String(value || "").trim();
+
+  if (!text) {
+    return text;
+  }
+
+  if (!/Totik Channel/i.test(text)) {
+    text = text
+      .replace(
+        /Ben bir World of Warcraft yardım botuyum/gi,
+        "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum"
+      )
+      .replace(
+        /Ben bir WoW yardım botuyum/gi,
+        "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum"
+      )
+      .replace(
+        /World of Warcraft yardım botu olarak/gi,
+        "Totik Channel için geliştirilmiş Totik WoW Yardım Botu olarak"
+      );
+  }
+
+  return text;
+}
+
+function isIdentityQuestion(question) {
+  const text = String(question || "").toLocaleLowerCase("tr-TR");
+
+  return (
+    /sen kimsin/.test(text) ||
+    /sen nesin/.test(text) ||
+    /kimin botusun/.test(text) ||
+    /kim geliştirdi/.test(text) ||
+    /kim yaptı seni/.test(text) ||
+    /hangi kanal için geliştirildin/.test(text)
+  );
+}
+
+function isChannelRecommendationQuestion(question) {
+  const text = String(question || "").toLocaleLowerCase("tr-TR");
+
+  const asksRecommendation =
+    /(öner|öneri|tavsiye|izleyeyim|izlemeliyim|takip edeyim|takip etmeliyim)/i.test(
+      text
+    );
+
+  const asksChannel =
+    /(kanal|youtube|youtuber|içerik üretici|yayıncı|streamer)/i.test(
+      text
+    );
+
+  return asksRecommendation && asksChannel;
+}
+
 function getFirstImageAttachment(message) {
   const attachments = Array.isArray(message?.attachments)
     ? message.attachments
@@ -97,8 +209,7 @@ function getFirstImageAttachment(message) {
         contentType:
           contentType ||
           guessMimeTypeFromFilename(name),
-        filename:
-          attachment.filename || "image"
+        filename: attachment.filename || "image"
       };
     }
   }
@@ -135,45 +246,26 @@ function bytesToBase64(bytes) {
   let binary = "";
   const chunkSize = 0x8000;
 
-  for (
-    let i = 0;
-    i < bytes.length;
-    i += chunkSize
-  ) {
-    const chunk =
-      bytes.subarray(
-        i,
-        i + chunkSize
-      );
-
-    binary +=
-      String.fromCharCode(
-        ...chunk
-      );
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    const chunk = bytes.subarray(i, i + chunkSize);
+    binary += String.fromCharCode(...chunk);
   }
 
   return btoa(binary);
 }
 
-function buildAiQuestion(
-  userQuestion,
-  imageContext
-) {
-  const questionText =
-    cleanQuestion(
-      userQuestion
-    );
+function buildAiQuestion(userQuestion, imageContext) {
+  const questionText = cleanQuestion(userQuestion, 2200);
 
   if (imageContext) {
     const effectiveQuestion =
-      questionText ||
-      "Bu görev/quest nasıl yapılır?";
+      questionText || "Bu görev/quest nasıl yapılır?";
 
     return [
       effectiveQuestion,
       "",
       "Ekran görüntüsünden çıkarılan bağlam:",
-      imageContext,
+      String(imageContext).slice(0, 1200),
       "",
       "Yukarıdaki görsel bağlamı dikkate alarak kullanıcının sorusunu cevapla."
     ].join("\n");
@@ -188,68 +280,46 @@ export default {
       return json(
         {
           ok: false,
-          error:
-            "GATEWAY Durable Object binding bulunamadı."
+          error: "GATEWAY Durable Object binding bulunamadı."
         },
         500
       );
     }
 
-    const url =
-      new URL(request.url);
+    const url = new URL(request.url);
 
-    const stub =
-      env.GATEWAY.get(
-        env.GATEWAY.idFromName(
-          "totik-ai-main"
-        )
-      );
+    const stub = env.GATEWAY.get(
+      env.GATEWAY.idFromName("totik-ai-main")
+    );
 
-    if (
-      url.pathname === "/" ||
-      url.pathname === "/start"
-    ) {
+    if (url.pathname === "/" || url.pathname === "/start") {
       return stub.fetch(
-        new Request(
-          "https://internal/start"
-        )
+        new Request("https://internal/start")
       );
     }
 
-    if (
-      url.pathname === "/status"
-    ) {
+    if (url.pathname === "/status") {
       return stub.fetch(
-        new Request(
-          "https://internal/status"
-        )
+        new Request("https://internal/status")
       );
     }
 
-    if (
-      url.pathname === "/health"
-    ) {
+    if (url.pathname === "/health") {
       return json({
         ok: true,
-        service:
-          "totik-ai-discord",
+        service: "totik-ai-discord",
         command: "!soru",
-        channelId:
-          QUESTION_CHANNEL_ID,
-        backend:
-          WOW_AI_URL,
-        watchdogSeconds:
-          WATCHDOG_INTERVAL_MS /
-          1000
+        channelId: QUESTION_CHANNEL_ID,
+        backend: WOW_AI_URL,
+        watchdogSeconds: WATCHDOG_INTERVAL_MS / 1000,
+        cooldownMinutes: USER_COOLDOWN_MS / 60000,
+        replySupport: true
       });
     }
 
-    return new Response(
-      "Not found",
-      {
-        status: 404
-      }
-    );
+    return new Response("Not found", {
+      status: 404
+    });
   }
 };
 
@@ -267,104 +337,61 @@ export class DiscordGateway extends DurableObject {
     this.resumeGatewayUrl = null;
     this.botUserId = null;
 
-    this.connectionState =
-      "offline";
+    this.connectionState = "offline";
+    this.connectStartedAt = null;
 
-    this.connectStartedAt =
-      null;
+    this.lastGatewayEventAt = null;
+    this.lastQuestionAt = null;
+    this.lastError = null;
 
-    this.lastGatewayEventAt =
-      null;
+    this.heartbeatTimer = null;
+    this.heartbeatStartTimer = null;
+    this.heartbeatIntervalMs = null;
+    this.heartbeatAwaitingAck = false;
+    this.lastHeartbeatSentAt = null;
+    this.lastHeartbeatAckAt = null;
 
-    this.lastQuestionAt =
-      null;
+    this.reconnectTimer = null;
 
-    this.lastError =
-      null;
+    this.ctx.blockConcurrencyWhile(async () => {
+      this.sequence =
+        (await this.ctx.storage.get("discord_sequence")) ?? null;
 
-    this.heartbeatTimer =
-      null;
+      this.sessionId =
+        (await this.ctx.storage.get("discord_session_id")) ?? null;
 
-    this.heartbeatStartTimer =
-      null;
+      this.resumeGatewayUrl =
+        (await this.ctx.storage.get("discord_resume_gateway_url")) ?? null;
 
-    this.heartbeatIntervalMs =
-      null;
+      this.botUserId =
+        (await this.ctx.storage.get("discord_bot_user_id")) ?? null;
 
-    this.heartbeatAwaitingAck =
-      false;
+      this.lastGatewayEventAt =
+        (await this.ctx.storage.get("last_gateway_event_at")) ?? null;
 
-    this.lastHeartbeatSentAt =
-      null;
+      this.lastQuestionAt =
+        (await this.ctx.storage.get("last_question_at")) ?? null;
 
-    this.lastHeartbeatAckAt =
-      null;
+      this.lastError =
+        (await this.ctx.storage.get("last_error")) ?? null;
 
-    this.reconnectTimer =
-      null;
-
-    this.ctx.blockConcurrencyWhile(
-      async () => {
-        this.sequence =
-          (await this.ctx.storage.get(
-            "discord_sequence"
-          )) ?? null;
-
-        this.sessionId =
-          (await this.ctx.storage.get(
-            "discord_session_id"
-          )) ?? null;
-
-        this.resumeGatewayUrl =
-          (await this.ctx.storage.get(
-            "discord_resume_gateway_url"
-          )) ?? null;
-
-        this.botUserId =
-          (await this.ctx.storage.get(
-            "discord_bot_user_id"
-          )) ?? null;
-
-        this.lastGatewayEventAt =
-          (await this.ctx.storage.get(
-            "last_gateway_event_at"
-          )) ?? null;
-
-        this.lastQuestionAt =
-          (await this.ctx.storage.get(
-            "last_question_at"
-          )) ?? null;
-
-        this.lastError =
-          (await this.ctx.storage.get(
-            "last_error"
-          )) ?? null;
-
-        await this.ensureAlarmScheduled();
-      }
-    );
+      await this.ensureAlarmScheduled();
+    });
   }
 
   async fetch(request) {
-    const url =
-      new URL(request.url);
+    const url = new URL(request.url);
 
-    if (
-      url.pathname === "/status"
-    ) {
+    if (url.pathname === "/status") {
       return json({
-        state:
-          this.connectionState,
+        state: this.connectionState,
 
         connected:
-          this.ws?.readyState ===
-          WebSocket.OPEN,
+          this.ws?.readyState === WebSocket.OPEN,
 
-        botUserId:
-          this.botUserId,
+        botUserId: this.botUserId,
 
-        channelId:
-          QUESTION_CHANNEL_ID,
+        channelId: QUESTION_CHANNEL_ID,
 
         lastGatewayEventAt:
           this.lastGatewayEventAt,
@@ -374,37 +401,32 @@ export class DiscordGateway extends DurableObject {
 
         lastHeartbeatSentAt:
           this.lastHeartbeatSentAt
-            ? new Date(
-                this.lastHeartbeatSentAt
-              ).toISOString()
+            ? new Date(this.lastHeartbeatSentAt).toISOString()
             : null,
 
         lastHeartbeatAckAt:
           this.lastHeartbeatAckAt
-            ? new Date(
-                this.lastHeartbeatAckAt
-              ).toISOString()
+            ? new Date(this.lastHeartbeatAckAt).toISOString()
             : null,
 
         heartbeatAwaitingAck:
           this.heartbeatAwaitingAck,
 
         watchdogSeconds:
-          WATCHDOG_INTERVAL_MS /
-          1000,
+          WATCHDOG_INTERVAL_MS / 1000,
+
+        cooldownMinutes:
+          USER_COOLDOWN_MS / 60000,
+
+        replySupport: true,
 
         lastError:
           this.lastError
       });
     }
 
-    if (
-      url.pathname === "/start"
-    ) {
-      if (
-        !this.env
-          .DISCORD_BOT_TOKEN
-      ) {
+    if (url.pathname === "/start") {
+      if (!this.env.DISCORD_BOT_TOKEN) {
         return json(
           {
             ok: false,
@@ -415,33 +437,25 @@ export class DiscordGateway extends DurableObject {
         );
       }
 
-      await this.ensureAlarmScheduled(
-        true
-      );
-
+      await this.ensureAlarmScheduled(true);
       await this.watchdog();
 
       return json({
         ok: true,
-        state:
-          this.connectionState,
+        state: this.connectionState,
         connected:
-          this.ws?.readyState ===
-          WebSocket.OPEN,
-        channelId:
-          QUESTION_CHANNEL_ID,
+          this.ws?.readyState === WebSocket.OPEN,
+        channelId: QUESTION_CHANNEL_ID,
         watchdogSeconds:
-          WATCHDOG_INTERVAL_MS /
-          1000
+          WATCHDOG_INTERVAL_MS / 1000,
+        cooldownMinutes:
+          USER_COOLDOWN_MS / 60000
       });
     }
 
-    return new Response(
-      "Not found",
-      {
-        status: 404
-      }
-    );
+    return new Response("Not found", {
+      status: 404
+    });
   }
 
   async alarm() {
@@ -456,20 +470,16 @@ export class DiscordGateway extends DurableObject {
       );
     } finally {
       await this.ctx.storage.setAlarm(
-        Date.now() +
-          WATCHDOG_INTERVAL_MS
+        Date.now() + WATCHDOG_INTERVAL_MS
       );
     }
   }
 
-  async ensureAlarmScheduled(
-    force = false
-  ) {
+  async ensureAlarmScheduled(force = false) {
     const current =
       await this.ctx.storage.getAlarm();
 
-    const now =
-      Date.now();
+    const now = Date.now();
 
     if (
       force ||
@@ -480,17 +490,13 @@ export class DiscordGateway extends DurableObject {
           10000
     ) {
       await this.ctx.storage.setAlarm(
-        now +
-          WATCHDOG_INTERVAL_MS
+        now + WATCHDOG_INTERVAL_MS
       );
     }
   }
 
   async watchdog() {
-    if (
-      !this.env
-        .DISCORD_BOT_TOKEN
-    ) {
+    if (!this.env.DISCORD_BOT_TOKEN) {
       await this.recordError(
         "DISCORD_BOT_TOKEN secret bulunamadı."
       );
@@ -498,8 +504,7 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    const now =
-      Date.now();
+    const now = Date.now();
 
     if (
       this.ws &&
@@ -508,8 +513,7 @@ export class DiscordGateway extends DurableObject {
     ) {
       if (
         this.connectStartedAt &&
-        now -
-          this.connectStartedAt >
+        now - this.connectStartedAt >
           CONNECT_TIMEOUT_MS
       ) {
         await this.recordError(
@@ -536,11 +540,7 @@ export class DiscordGateway extends DurableObject {
           this.lastHeartbeatSentAt >
           Math.max(
             45000,
-            (
-              this
-                .heartbeatIntervalMs ||
-              45000
-            ) * 2
+            (this.heartbeatIntervalMs || 45000) * 2
           );
 
       if (ackTooOld) {
@@ -565,10 +565,8 @@ export class DiscordGateway extends DurableObject {
     if (
       this.ws &&
       (
-        this.ws.readyState ===
-          WebSocket.OPEN ||
-        this.ws.readyState ===
-          WebSocket.CONNECTING
+        this.ws.readyState === WebSocket.OPEN ||
+        this.ws.readyState === WebSocket.CONNECTING
       )
     ) {
       return;
@@ -577,11 +575,8 @@ export class DiscordGateway extends DurableObject {
     this.clearReconnectTimer();
     this.clearHeartbeat();
 
-    this.connectionState =
-      "connecting";
-
-    this.connectStartedAt =
-      Date.now();
+    this.connectionState = "connecting";
+    this.connectStartedAt = Date.now();
 
     const gatewayUrl =
       this.resumeGatewayUrl
@@ -589,57 +584,34 @@ export class DiscordGateway extends DurableObject {
         : DISCORD_GATEWAY;
 
     try {
-      const ws =
-        new WebSocket(
-          gatewayUrl
+      const ws = new WebSocket(gatewayUrl);
+
+      this.ws = ws;
+
+      ws.addEventListener("open", () => {
+        this.connectionState = "connecting";
+      });
+
+      ws.addEventListener("message", (event) => {
+        this.ctx.waitUntil(
+          this.handleGatewayMessage(event.data)
         );
+      });
 
-      this.ws =
-        ws;
+      ws.addEventListener("close", (event) => {
+        this.handleSocketClose(event);
+      });
 
-      ws.addEventListener(
-        "open",
-        () => {
-          this.connectionState =
-            "connecting";
-        }
-      );
-
-      ws.addEventListener(
-        "message",
-        (event) => {
-          this.ctx.waitUntil(
-            this.handleGatewayMessage(
-              event.data
-            )
-          );
-        }
-      );
-
-      ws.addEventListener(
-        "close",
-        (event) => {
-          this.handleSocketClose(
-            event
-          );
-        }
-      );
-
-      ws.addEventListener(
-        "error",
-        () => {
-          this.ctx.waitUntil(
-            this.recordError(
-              "Discord Gateway WebSocket error"
-            )
-          );
-        }
-      );
+      ws.addEventListener("error", () => {
+        this.ctx.waitUntil(
+          this.recordError(
+            "Discord Gateway WebSocket error"
+          )
+        );
+      });
     } catch (error) {
       this.ws = null;
-
-      this.connectionState =
-        "offline";
+      this.connectionState = "offline";
 
       await this.recordError(
         `Gateway connection failed: ${
@@ -652,26 +624,17 @@ export class DiscordGateway extends DurableObject {
     }
   }
 
-  async handleGatewayMessage(
-    raw
-  ) {
+  async handleGatewayMessage(raw) {
     let packet;
 
     try {
-      packet =
-        JSON.parse(
-          String(raw)
-        );
+      packet = JSON.parse(String(raw));
     } catch {
       return;
     }
 
-    if (
-      typeof packet.s ===
-      "number"
-    ) {
-      this.sequence =
-        packet.s;
+    if (typeof packet.s === "number") {
+      this.sequence = packet.s;
 
       await this.ctx.storage.put(
         "discord_sequence",
@@ -679,24 +642,16 @@ export class DiscordGateway extends DurableObject {
       );
     }
 
-    if (
-      packet.op === 10
-    ) {
-      const interval =
-        Number(
-          packet.d
-            ?.heartbeat_interval
-        );
+    if (packet.op === 10) {
+      const interval = Number(
+        packet.d?.heartbeat_interval
+      );
 
       if (
-        Number.isFinite(
-          interval
-        ) &&
+        Number.isFinite(interval) &&
         interval > 0
       ) {
-        this.startHeartbeat(
-          interval
-        );
+        this.startHeartbeat(interval);
       }
 
       if (
@@ -711,38 +666,25 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    if (
-      packet.op === 11
-    ) {
-      this.heartbeatAwaitingAck =
-        false;
-
-      this.lastHeartbeatAckAt =
-        Date.now();
-
+    if (packet.op === 11) {
+      this.heartbeatAwaitingAck = false;
+      this.lastHeartbeatAckAt = Date.now();
       return;
     }
 
-    if (
-      packet.op === 1
-    ) {
+    if (packet.op === 1) {
       this.sendHeartbeat();
       return;
     }
 
-    if (
-      packet.op === 7
-    ) {
+    if (packet.op === 7) {
       this.reconnectNow(
         "Discord op 7 reconnect"
       );
-
       return;
     }
 
-    if (
-      packet.op === 9
-    ) {
+    if (packet.op === 9) {
       if (!packet.d) {
         await this.clearSession();
       }
@@ -756,9 +698,7 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    if (
-      packet.op !== 0
-    ) {
+    if (packet.op !== 0) {
       return;
     }
 
@@ -780,26 +720,18 @@ export class DiscordGateway extends DurableObject {
       this.lastGatewayEventAt
     );
 
-    if (
-      eventName === "READY"
-    ) {
+    if (eventName === "READY") {
       this.sessionId =
-        data?.session_id ??
-        null;
+        data?.session_id ?? null;
 
       this.resumeGatewayUrl =
-        data?.resume_gateway_url ??
-        null;
+        data?.resume_gateway_url ?? null;
 
       this.botUserId =
-        data?.user?.id ??
-        null;
+        data?.user?.id ?? null;
 
-      this.connectionState =
-        "ready";
-
-      this.lastError =
-        null;
+      this.connectionState = "ready";
+      this.lastError = null;
 
       await Promise.all([
         this.ctx.storage.put(
@@ -825,14 +757,9 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    if (
-      eventName === "RESUMED"
-    ) {
-      this.connectionState =
-        "ready";
-
-      this.lastError =
-        null;
+    if (eventName === "RESUMED") {
+      this.connectionState = "ready";
+      this.lastError = null;
 
       await this.ctx.storage.delete(
         "last_error"
@@ -841,10 +768,7 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    if (
-      eventName !==
-      "MESSAGE_CREATE"
-    ) {
+    if (eventName !== "MESSAGE_CREATE") {
       return;
     }
 
@@ -853,9 +777,7 @@ export class DiscordGateway extends DurableObject {
     );
   }
 
-  async handleDiscordMessage(
-    message
-  ) {
+  async handleDiscordMessage(message) {
     if (
       !message ||
       !message.id ||
@@ -873,9 +795,7 @@ export class DiscordGateway extends DurableObject {
     }
 
     if (
-      String(
-        message.channel_id
-      ) !==
+      String(message.channel_id) !==
       QUESTION_CHANNEL_ID
     ) {
       return;
@@ -894,12 +814,7 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    const imageAttachment =
-      getFirstImageAttachment(
-        message
-      );
-
-    let question =
+    const currentQuestion =
       cleanQuestion(
         content.replace(
           QUESTION_COMMAND,
@@ -907,13 +822,95 @@ export class DiscordGateway extends DurableObject {
         )
       );
 
+    let referencedMessage =
+      message.referenced_message ||
+      null;
+
+    const referencedMessageId =
+      message.message_reference
+        ?.message_id;
+
     if (
-      !question &&
+      !referencedMessage &&
+      referencedMessageId
+    ) {
+      try {
+        referencedMessage =
+          await this.discordRequest(
+            `/channels/${message.channel_id}/messages/${referencedMessageId}`,
+            {
+              method: "GET"
+            }
+          );
+      } catch {
+        referencedMessage = null;
+      }
+    }
+
+    const referencedText =
+      cleanReferencedText(
+        referencedMessage?.content
+      );
+
+    const currentImage =
+      getFirstImageAttachment(
+        message
+      );
+
+    const referencedImage =
+      getFirstImageAttachment(
+        referencedMessage
+      );
+
+    const imageAttachment =
+      currentImage ||
+      referencedImage;
+
+    let effectiveQuestion = "";
+
+    if (
+      referencedText &&
+      currentQuestion
+    ) {
+      effectiveQuestion = [
+        `Önceki mesaj: ${referencedText}`,
+        `Kullanıcının ek sorusu: ${currentQuestion}`
+      ].join("\n");
+    } else if (currentQuestion) {
+      effectiveQuestion =
+        currentQuestion;
+    } else if (referencedText) {
+      effectiveQuestion =
+        referencedText;
+    } else if (imageAttachment) {
+      effectiveQuestion =
+        "Bu görseldeki konu veya quest hakkında yardımcı ol.";
+    }
+
+    if (
+      !effectiveQuestion &&
       !imageAttachment
     ) {
       await this.replyToMessage(
         message,
-        "Sorunu `!soru` komutundan sonra yaz. İstersen quest ekran görüntüsü de ekleyebilirsin."
+        "Sorunu `!soru` komutundan sonra yazabilir veya cevaplamak istediğin mesaja reply atıp sadece `!soru` yazabilirsin."
+      );
+
+      return;
+    }
+
+    const userId =
+      String(message.author.id);
+
+    const cooldownAcquired =
+      await this.acquireCooldown(
+        userId
+      );
+
+    if (!cooldownAcquired) {
+      await this.replyToMessage(
+        message,
+        COOLDOWN_MESSAGE
       );
 
       return;
@@ -927,28 +924,62 @@ export class DiscordGateway extends DurableObject {
       this.lastQuestionAt
     );
 
-    await this.safeTyping(
-      message.channel_id
-    );
-
     try {
+      if (
+        isChannelRecommendationQuestion(
+          effectiveQuestion
+        )
+      ) {
+        await this.replyToMessage(
+          message,
+          CHANNEL_RECOMMENDATION_MESSAGE
+        );
+
+        await this.clearLastError();
+
+        return;
+      }
+
+      if (
+        isIdentityQuestion(
+          effectiveQuestion
+        )
+      ) {
+        await this.replyToMessage(
+          message,
+          IDENTITY_MESSAGE
+        );
+
+        await this.clearLastError();
+
+        return;
+      }
+
+      await this.safeTyping(
+        message.channel_id
+      );
+
       let imageContext = "";
 
       if (imageAttachment) {
         imageContext =
           await this.extractImageContext(
             imageAttachment,
-            question
+            effectiveQuestion
           );
       }
 
       const finalQuestion =
         buildAiQuestion(
-          question,
+          effectiveQuestion,
           imageContext
         );
 
       if (!finalQuestion) {
+        await this.releaseCooldown(
+          userId
+        );
+
         await this.replyToMessage(
           message,
           "Görseli veya soruyu anlayamadım. Biraz daha açık yazabilir ya da daha net bir ekran görüntüsü gönderebilirsin."
@@ -962,7 +993,7 @@ export class DiscordGateway extends DurableObject {
           finalQuestion
         );
 
-      const answer =
+      let answer =
         String(
           result?.answer || ""
         ).trim();
@@ -973,11 +1004,29 @@ export class DiscordGateway extends DurableObject {
         );
       }
 
+      answer =
+        applyTotikIdentity(
+          answer
+        );
+
+      answer =
+        compactDiscordAnswer(
+          answer
+        );
+
       await this.replyToMessage(
         message,
         answer
       );
+
+      await this.clearLastError();
+
     } catch (error) {
+      // Teknik hata cooldown sayılmaz.
+      await this.releaseCooldown(
+        userId
+      );
+
       await this.recordError(
         `Question failed: ${
           error?.message ||
@@ -992,13 +1041,53 @@ export class DiscordGateway extends DurableObject {
     }
   }
 
+  async acquireCooldown(userId) {
+    const key =
+      `cooldown:${userId}`;
+
+    const existing =
+      await this.ctx.storage.get(
+        key
+      );
+
+    const now = Date.now();
+
+    if (
+      typeof existing ===
+        "number" &&
+      now - existing <
+        USER_COOLDOWN_MS
+    ) {
+      return false;
+    }
+
+    await this.ctx.storage.put(
+      key,
+      now
+    );
+
+    return true;
+  }
+
+  async releaseCooldown(userId) {
+    await this.ctx.storage.delete(
+      `cooldown:${userId}`
+    );
+  }
+
+  async clearLastError() {
+    this.lastError = null;
+
+    await this.ctx.storage.delete(
+      "last_error"
+    );
+  }
+
   async extractImageContext(
     imageAttachment,
     userQuestion
   ) {
-    if (
-      !this.env.GEMINI_API_KEY
-    ) {
+    if (!this.env.GEMINI_API_KEY) {
       throw new Error(
         "GEMINI_API_KEY secret bulunamadı."
       );
@@ -1095,8 +1184,7 @@ Ek bağlam: ...
                 {
                   parts: [
                     {
-                      text:
-                        prompt
+                      text: prompt
                     },
 
                     {
@@ -1114,11 +1202,8 @@ Ek bağlam: ...
               ],
 
               generationConfig: {
-                temperature:
-                  0.1,
-
-                maxOutputTokens:
-                  350
+                temperature: 0.1,
+                maxOutputTokens: 350
               }
             })
         }
@@ -1143,9 +1228,7 @@ Ek bağlam: ...
       );
     }
 
-    if (
-      !visionResponse.ok
-    ) {
+    if (!visionResponse.ok) {
       throw new Error(
         `Gemini vision HTTP ${
           visionResponse.status
@@ -1184,9 +1267,7 @@ Ek bağlam: ...
     return text;
   }
 
-  async askWowAi(
-    question
-  ) {
+  async askWowAi(question) {
     const url =
       new URL(
         WOW_AI_URL
@@ -1265,9 +1346,7 @@ Ek bağlam: ...
 
       return data;
     } finally {
-      clearTimeout(
-        timer
-      );
+      clearTimeout(timer);
     }
   }
 
@@ -1295,8 +1374,7 @@ Ek bağlam: ...
 
         allowed_mentions: {
           parse: [],
-          replied_user:
-            false
+          replied_user: false
         }
       };
 
@@ -1327,9 +1405,7 @@ Ek bağlam: ...
     }
   }
 
-  async safeTyping(
-    channelId
-  ) {
+  async safeTyping(channelId) {
     try {
       await this.discordRequest(
         `/channels/${channelId}/typing`,
@@ -1362,8 +1438,7 @@ Ek bağlam: ...
             INTENTS,
 
           properties: {
-            os:
-              "cloudflare",
+            os: "cloudflare",
             browser:
               "totik-ai",
             device:
@@ -1405,9 +1480,7 @@ Ek bağlam: ...
     );
   }
 
-  startHeartbeat(
-    interval
-  ) {
+  startHeartbeat(interval) {
     this.clearHeartbeat();
 
     this.heartbeatIntervalMs =
@@ -1484,8 +1557,7 @@ Ek bağlam: ...
     this.ws.send(
       JSON.stringify({
         op: 1,
-        d:
-          this.sequence
+        d: this.sequence
       })
     );
   }
@@ -1520,13 +1592,10 @@ Ek bağlam: ...
       false;
   }
 
-  handleSocketClose(
-    event
-  ) {
+  handleSocketClose(event) {
     this.clearHeartbeat();
 
     this.ws = null;
-
     this.connectionState =
       "offline";
 
@@ -1631,14 +1700,10 @@ Ek bağlam: ...
   }
 
   async clearSession() {
-    this.sessionId =
-      null;
-
+    this.sessionId = null;
     this.resumeGatewayUrl =
       null;
-
-    this.sequence =
-      null;
+    this.sequence = null;
 
     await Promise.all([
       this.ctx.storage.delete(
@@ -1655,9 +1720,7 @@ Ek bağlam: ...
     ]);
   }
 
-  async recordError(
-    message
-  ) {
+  async recordError(message) {
     this.lastError =
       String(
         message ||
