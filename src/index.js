@@ -10,29 +10,52 @@ const WOW_AI_URL = "https://totik-ai-test.totikch.workers.dev/";
 const GEMINI_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent";
 
-// 30 saniyede bir Discord kanalını kontrol eder.
-// Sürekli Gateway/WebSocket YOK.
-const POLL_INTERVAL_MS = 30_000;
+// ============================================================
+// POLLING
+// ============================================================
 
-// Kullanıcı başına 10 dakika.
-const USER_COOLDOWN_MS = 10 * 60_000;
+// Gateway/WebSocket YOK.
+// Her 60 saniyede sadece yeni mesaj var mı diye Discord REST'e bakar.
+const POLL_INTERVAL_MS = 60 * 1000;
 
-// Backend geçici hata koruması.
-const AI_TIMEOUT_MS = 60_000;
-const AI_MAX_ATTEMPTS = 2;
+// ============================================================
+// COOLDOWN
+// ============================================================
 
-// Discord cevabını biraz daha derli toplu tutuyoruz.
-const MAX_ANSWER_CHARS = 1100;
-const MAX_DISCORD_MESSAGE = 1900;
+const USER_COOLDOWN_MS = 10 * 60 * 1000;
 
 const COOLDOWN_MESSAGE =
   "Totik WoW Yardım Botu olarak her kullanıcı için 10 dakikada 1 soru cevaplayacak şekilde ayarlandım. Biraz sonra tekrar sorabilirsin.";
+
+// ============================================================
+// AI
+// ============================================================
+
+const AI_TIMEOUT_MS = 75 * 1000;
+const AI_MAX_ATTEMPTS = 2;
+
+// ============================================================
+// DISCORD OUTPUT
+// ============================================================
+
+const MAX_DISCORD_MESSAGE = 1900;
+
+// Eskisi kadar roman değil ama gerekli bilgiyi de kesmeyelim.
+const MAX_ANSWER_CHARS = 1250;
+
+// ============================================================
+// TOTIK KİMLİĞİ
+// ============================================================
 
 const IDENTITY_MESSAGE =
   "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum. World of Warcraft görevleri, class'lar, meslekler, item'lar, dungeon'lar ve genel oyun bilgileri konusunda yardımcı oluyorum.";
 
 const CHANNEL_RECOMMENDATION_MESSAGE =
   "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum. Türkçe World of Warcraft içerikleri için Totik Channel'ı izleyebilirsin.";
+
+// ============================================================
+// HELPERS
+// ============================================================
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data, null, 2), {
@@ -64,6 +87,7 @@ function compareSnowflakes(a, b) {
 
     if (aa < bb) return -1;
     if (aa > bb) return 1;
+
     return 0;
   } catch {
     return String(a?.id || "").localeCompare(
@@ -75,7 +99,9 @@ function compareSnowflakes(a, b) {
 function splitDiscordMessage(value) {
   let text = String(value || "").trim();
 
-  if (!text) return [];
+  if (!text) {
+    return [];
+  }
 
   if (text.length <= MAX_DISCORD_MESSAGE) {
     return [text];
@@ -119,11 +145,10 @@ function tidyAnswer(value) {
   let text = String(value || "")
     .replace(/\r/g, "")
     .replace(/[ \t]+\n/g, "\n")
-    .replace(/\n{3,}/g, "\n\n")
+    .replace(/\n[ \t]*\n+/g, "\n")
     .replace(/[ \t]{2,}/g, " ")
     .trim();
 
-  // Jenerik bot kimliğini Totik kimliğine çevir.
   text = text
     .replace(
       /Ben bir World of Warcraft yardım botuyum/gi,
@@ -132,6 +157,10 @@ function tidyAnswer(value) {
     .replace(
       /Ben bir WoW yardım botuyum/gi,
       "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum"
+    )
+    .replace(
+      /World of Warcraft yardım botu olarak/gi,
+      "Totik Channel için geliştirilmiş Totik WoW Yardım Botu olarak"
     );
 
   if (text.length <= MAX_ANSWER_CHARS) {
@@ -139,9 +168,12 @@ function tidyAnswer(value) {
   }
 
   const sample =
-    text.slice(0, MAX_ANSWER_CHARS);
+    text.slice(
+      0,
+      MAX_ANSWER_CHARS
+    );
 
-  const cuts = [
+  const possibleCuts = [
     sample.lastIndexOf(". "),
     sample.lastIndexOf("! "),
     sample.lastIndexOf("? "),
@@ -149,21 +181,31 @@ function tidyAnswer(value) {
   ];
 
   let cut =
-    Math.max(...cuts);
+    Math.max(
+      ...possibleCuts
+    );
 
-  if (cut < 700) {
-    cut = MAX_ANSWER_CHARS;
+  if (cut < 800) {
+    cut =
+      MAX_ANSWER_CHARS;
   } else {
     cut += 1;
   }
 
-  return `${text.slice(0, cut).trim()}…`;
+  return (
+    text
+      .slice(0, cut)
+      .trim() +
+    "…"
+  );
 }
 
 function isIdentityQuestion(question) {
   const q =
     String(question || "")
-      .toLocaleLowerCase("tr-TR");
+      .toLocaleLowerCase(
+        "tr-TR"
+      );
 
   return (
     q.includes("sen kimsin") ||
@@ -178,9 +220,11 @@ function isIdentityQuestion(question) {
 function isChannelRecommendationQuestion(question) {
   const q =
     String(question || "")
-      .toLocaleLowerCase("tr-TR");
+      .toLocaleLowerCase(
+        "tr-TR"
+      );
 
-  const channel =
+  const asksChannel =
     q.includes("kanal") ||
     q.includes("youtube") ||
     q.includes("youtuber") ||
@@ -188,15 +232,19 @@ function isChannelRecommendationQuestion(question) {
     q.includes("streamer") ||
     q.includes("içerik üretici");
 
-  const recommendation =
+  const asksRecommendation =
     q.includes("öner") ||
+    q.includes("öneri") ||
     q.includes("tavsiye") ||
     q.includes("izleyeyim") ||
     q.includes("izlemeliyim") ||
     q.includes("takip edeyim") ||
     q.includes("takip etmeliyim");
 
-  return channel && recommendation;
+  return (
+    asksChannel &&
+    asksRecommendation
+  );
 }
 
 function guessMimeType(filename) {
@@ -224,23 +272,32 @@ function guessMimeType(filename) {
 
 function getImageAttachment(message) {
   const attachments =
-    Array.isArray(message?.attachments)
+    Array.isArray(
+      message?.attachments
+    )
       ? message.attachments
       : [];
 
-  for (const attachment of attachments) {
+  for (
+    const attachment
+    of attachments
+  ) {
     const contentType =
       String(
-        attachment?.content_type || ""
+        attachment?.content_type ||
+        ""
       ).toLowerCase();
 
     const filename =
       String(
-        attachment?.filename || ""
+        attachment?.filename ||
+        ""
       ).toLowerCase();
 
     const isImage =
-      contentType.startsWith("image/") ||
+      contentType.startsWith(
+        "image/"
+      ) ||
       /\.(png|jpe?g|webp|gif)$/i.test(
         filename
       );
@@ -250,10 +307,14 @@ function getImageAttachment(message) {
       attachment?.url
     ) {
       return {
-        url: attachment.url,
+        url:
+          attachment.url,
+
         contentType:
           contentType ||
-          guessMimeType(filename)
+          guessMimeType(
+            filename
+          )
       };
     }
   }
@@ -263,7 +324,9 @@ function getImageAttachment(message) {
 
 function bytesToBase64(bytes) {
   let binary = "";
-  const chunkSize = 0x8000;
+
+  const chunkSize =
+    0x8000;
 
   for (
     let i = 0;
@@ -290,24 +353,53 @@ function retryableBackendStatus(status) {
   );
 }
 
+// ============================================================
+// WORKER
+// ============================================================
+
 export default {
   async fetch(request, env) {
     const url =
-      new URL(request.url);
+      new URL(
+        request.url
+      );
 
-    // DO kotası bitmiş olsa bile health çalışır.
-    if (url.pathname === "/health") {
+    // DO kotası dolsa bile bu endpoint DO'ya dokunmaz.
+    if (
+      url.pathname ===
+      "/health"
+    ) {
       return json({
         ok: true,
-        service: "totik-ai",
-        mode: "polling",
+
+        service:
+          "totik-ai",
+
+        mode:
+          "low-usage-polling",
+
+        gatewayWebSocket:
+          false,
+
         pollIntervalSeconds:
-          POLL_INTERVAL_MS / 1000,
+          POLL_INTERVAL_MS /
+          1000,
+
+        channelId:
+          QUESTION_CHANNEL_ID,
+
         cooldownMinutes:
-          USER_COOLDOWN_MS / 60000,
-        gatewayWebSocket: false,
-        replySupport: true,
-        imageSupport: true
+          USER_COOLDOWN_MS /
+          60000,
+
+        replySupport:
+          true,
+
+        imageSupport:
+          true,
+
+        backendAttempts:
+          AI_MAX_ATTEMPTS
       });
     }
 
@@ -315,6 +407,7 @@ export default {
       return json(
         {
           ok: false,
+
           error:
             "GATEWAY Durable Object binding bulunamadı."
         },
@@ -322,17 +415,19 @@ export default {
       );
     }
 
-    const stub =
-      env.GATEWAY.get(
-        env.GATEWAY.idFromName(
-          "totik-ai-main"
-        )
+    const id =
+      env.GATEWAY.idFromName(
+        "totik-ai-main"
       );
+
+    const stub =
+      env.GATEWAY.get(id);
 
     try {
       if (
         url.pathname === "/" ||
-        url.pathname === "/start"
+        url.pathname ===
+          "/start"
       ) {
         return await stub.fetch(
           new Request(
@@ -342,7 +437,8 @@ export default {
       }
 
       if (
-        url.pathname === "/status"
+        url.pathname ===
+        "/status"
       ) {
         return await stub.fetch(
           new Request(
@@ -352,17 +448,8 @@ export default {
       }
 
       if (
-        url.pathname === "/stop"
-      ) {
-        return await stub.fetch(
-          new Request(
-            "https://internal/stop"
-          )
-        );
-      }
-
-      if (
-        url.pathname === "/run"
+        url.pathname ===
+        "/run"
       ) {
         return await stub.fetch(
           new Request(
@@ -370,12 +457,25 @@ export default {
           )
         );
       }
+
+      if (
+        url.pathname ===
+        "/stop"
+      ) {
+        return await stub.fetch(
+          new Request(
+            "https://internal/stop"
+          )
+        );
+      }
     } catch (error) {
       return json(
         {
           ok: false,
+
           error:
             "durable_object_unavailable",
+
           detail:
             error?.message ||
             String(error)
@@ -393,9 +493,16 @@ export default {
   }
 };
 
-// İsim aynı bırakıldı.
-// Böylece wrangler.jsonc ve mevcut DO namespace değişmiyor.
-// Artık Discord Gateway DEĞİL; polling motoru.
+// ============================================================
+// DURABLE OBJECT
+//
+// İsmi bilerek DiscordGateway bırakıldı.
+// wrangler.jsonc'yi değiştirmiyoruz.
+//
+// Artık Gateway değil.
+// Sadece kısa süre uyanan polling motoru.
+// ============================================================
+
 export class DiscordGateway extends DurableObject {
   constructor(ctx, env) {
     super(ctx, env);
@@ -404,60 +511,98 @@ export class DiscordGateway extends DurableObject {
     this.env = env;
   }
 
+  // ----------------------------------------------------------
+  // ROUTES
+  // ----------------------------------------------------------
+
   async fetch(request) {
     const url =
-      new URL(request.url);
+      new URL(
+        request.url
+      );
 
     if (
-      url.pathname === "/start"
+      url.pathname ===
+      "/start"
     ) {
       if (
-        !this.env.DISCORD_BOT_TOKEN
+        !this.env
+          .DISCORD_BOT_TOKEN
       ) {
         return json(
           {
             ok: false,
+
             error:
-              "DISCORD_BOT_TOKEN bulunamadı."
+              "DISCORD_BOT_TOKEN secret bulunamadı."
           },
           500
         );
       }
 
-      // İlk kullanımda mevcut son Discord mesajını
-      // cursor olarak kaydet. Eski mesajlara cevap verme.
+      await this.ctx.storage.put(
+        "polling_enabled",
+        true
+      );
+
       await this.ensureInitialized();
 
+      // İlk kontrolü hemen yap.
       await this.ctx.storage.setAlarm(
         Date.now() + 1000
       );
 
       return json({
         ok: true,
-        state: "polling",
-        running: true,
+
+        state:
+          "polling",
+
+        running:
+          true,
+
+        gatewayWebSocket:
+          false,
+
         pollIntervalSeconds:
-          POLL_INTERVAL_MS / 1000,
+          POLL_INTERVAL_MS /
+          1000,
+
         channelId:
           QUESTION_CHANNEL_ID
       });
     }
 
     if (
-      url.pathname === "/stop"
+      url.pathname ===
+      "/stop"
     ) {
+      await this.ctx.storage.put(
+        "polling_enabled",
+        false
+      );
+
       await this.ctx.storage.deleteAlarm();
 
       return json({
         ok: true,
-        state: "stopped"
+
+        state:
+          "stopped"
       });
     }
 
     if (
-      url.pathname === "/run"
+      url.pathname ===
+      "/run"
     ) {
+      await this.ctx.storage.put(
+        "polling_enabled",
+        true
+      );
+
       await this.ensureInitialized();
+
       await this.pollOnce();
 
       await this.ctx.storage.setAlarm(
@@ -467,15 +612,21 @@ export class DiscordGateway extends DurableObject {
 
       return json({
         ok: true,
-        state: "polling",
-        manualRun: true
+
+        manualRun:
+          true,
+
+        state:
+          "polling"
       });
     }
 
     if (
-      url.pathname === "/status"
+      url.pathname ===
+      "/status"
     ) {
       const [
+        enabled,
         initialized,
         lastMessageId,
         lastPollAt,
@@ -489,32 +640,45 @@ export class DiscordGateway extends DurableObject {
       ] =
         await Promise.all([
           this.ctx.storage.get(
+            "polling_enabled"
+          ),
+
+          this.ctx.storage.get(
             "initialized"
           ),
+
           this.ctx.storage.get(
             "last_message_id"
           ),
+
           this.ctx.storage.get(
             "last_poll_at"
           ),
+
           this.ctx.storage.get(
             "last_question_at"
           ),
+
           this.ctx.storage.get(
             "last_error"
           ),
+
           this.ctx.storage.get(
             "last_backend_status"
           ),
+
           this.ctx.storage.get(
             "last_backend_attempts"
           ),
+
           this.ctx.storage.get(
             "last_backend_duration_ms"
           ),
+
           this.ctx.storage.get(
             "answered_count"
           ),
+
           this.ctx.storage.get(
             "technical_failure_count"
           )
@@ -525,32 +689,45 @@ export class DiscordGateway extends DurableObject {
 
       return json({
         state:
-          alarmAt
-            ? "polling"
-            : "stopped",
+          enabled === false
+            ? "stopped"
+            : "polling",
 
         running:
+          enabled !== false &&
           alarmAt != null,
 
-        mode: "polling",
+        mode:
+          "low-usage-polling",
+
+        gatewayWebSocket:
+          false,
 
         initialized:
           initialized === true,
 
         pollIntervalSeconds:
-          POLL_INTERVAL_MS / 1000,
+          POLL_INTERVAL_MS /
+          1000,
+
+        cooldownMinutes:
+          USER_COOLDOWN_MS /
+          60000,
 
         channelId:
           QUESTION_CHANNEL_ID,
 
         lastMessageId:
-          lastMessageId || null,
+          lastMessageId ||
+          null,
 
         lastPollAt:
-          lastPollAt || null,
+          lastPollAt ||
+          null,
 
         lastQuestionAt:
-          lastQuestionAt || null,
+          lastQuestionAt ||
+          null,
 
         nextPollAt:
           alarmAt
@@ -560,22 +737,28 @@ export class DiscordGateway extends DurableObject {
             : null,
 
         lastBackendStatus:
-          lastBackendStatus ?? null,
+          lastBackendStatus ??
+          null,
 
         lastBackendAttempts:
-          lastBackendAttempts ?? null,
+          lastBackendAttempts ??
+          null,
 
         lastBackendDurationMs:
-          lastBackendDurationMs ?? null,
+          lastBackendDurationMs ??
+          null,
 
         answeredCount:
-          answeredCount ?? 0,
+          answeredCount ??
+          0,
 
         technicalFailureCount:
-          technicalFailureCount ?? 0,
+          technicalFailureCount ??
+          0,
 
         lastError:
-          lastError || null
+          lastError ||
+          null
       });
     }
 
@@ -587,12 +770,28 @@ export class DiscordGateway extends DurableObject {
     );
   }
 
+  // ----------------------------------------------------------
+  // ALARM
+  // ----------------------------------------------------------
+
   async alarm() {
+    const enabled =
+      await this.ctx.storage.get(
+        "polling_enabled"
+      );
+
+    // Varsayılan true.
+    // Eski alarm deploy sonrası çalışırsa polling'e geçebilsin.
+    if (enabled === false) {
+      return;
+    }
+
     const startedAt =
       Date.now();
 
     try {
       await this.ensureInitialized();
+
       await this.pollOnce();
     } catch (error) {
       await this.setLastError(
@@ -602,23 +801,35 @@ export class DiscordGateway extends DurableObject {
         }`
       );
     } finally {
-      // Sorunun cevabı uzun sürdüyse fazladan
-      // 30 saniye beklemeyelim.
-      const target =
-        startedAt +
-        POLL_INTERVAL_MS;
-
-      const nextAlarm =
-        Math.max(
-          Date.now() + 1000,
-          target
+      const stillEnabled =
+        await this.ctx.storage.get(
+          "polling_enabled"
         );
 
-      await this.ctx.storage.setAlarm(
-        nextAlarm
-      );
+      if (
+        stillEnabled !== false
+      ) {
+        // İş uzun sürdüyse boşuna bir 60 saniye daha ekleme.
+        const scheduled =
+          startedAt +
+          POLL_INTERVAL_MS;
+
+        const nextAlarm =
+          Math.max(
+            Date.now() + 1000,
+            scheduled
+          );
+
+        await this.ctx.storage.setAlarm(
+          nextAlarm
+        );
+      }
     }
   }
+
+  // ----------------------------------------------------------
+  // INITIALIZATION
+  // ----------------------------------------------------------
 
   async ensureInitialized() {
     const initialized =
@@ -626,12 +837,14 @@ export class DiscordGateway extends DurableObject {
         "initialized"
       );
 
-    if (initialized === true) {
+    if (
+      initialized === true
+    ) {
       return;
     }
 
-    // İlk başlangıçta kanalın en son mesajını al.
-    // Böylece geçmişteki !soru mesajlarını topluca cevaplamaz.
+    // İlk çalıştırmada sadece en son mesajı cursor yap.
+    // Bot eski !soru mesajlarını topluca cevaplamasın.
     const messages =
       await this.discordRequest(
         `/channels/${QUESTION_CHANNEL_ID}/messages?limit=1`
@@ -639,24 +852,37 @@ export class DiscordGateway extends DurableObject {
 
     if (
       Array.isArray(messages) &&
-      messages.length
+      messages.length > 0
     ) {
       await this.ctx.storage.put(
         "last_message_id",
-        String(messages[0].id)
+        String(
+          messages[0].id
+        )
       );
     }
 
-    await this.ctx.storage.put(
-      "initialized",
-      true
-    );
+    await Promise.all([
+      this.ctx.storage.put(
+        "initialized",
+        true
+      ),
 
-    await this.ctx.storage.put(
-      "last_poll_at",
-      new Date().toISOString()
-    );
+      this.ctx.storage.put(
+        "polling_enabled",
+        true
+      ),
+
+      this.ctx.storage.put(
+        "last_poll_at",
+        new Date().toISOString()
+      )
+    ]);
   }
+
+  // ----------------------------------------------------------
+  // POLLING
+  // ----------------------------------------------------------
 
   async pollOnce() {
     let cursor =
@@ -664,11 +890,11 @@ export class DiscordGateway extends DurableObject {
         "last_message_id"
       );
 
-    // En fazla 5 sayfa.
-    // 30 saniyede 500+ mesaj gelmedikçe hiçbir şey kaçmaz.
+    // 60 saniyede 300+ yeni mesaj gelmeyeceğini varsayıyoruz.
+    // Yine de üç sayfa güvenlik payı.
     for (
       let page = 0;
-      page < 5;
+      page < 3;
       page++
     ) {
       const query =
@@ -684,21 +910,27 @@ export class DiscordGateway extends DurableObject {
         );
 
       if (
-        !Array.isArray(messages) ||
+        !Array.isArray(
+          messages
+        ) ||
         messages.length === 0
       ) {
         break;
       }
 
+      // Discord'un döndürdüğü sıraya güvenmeyelim.
       messages.sort(
         compareSnowflakes
       );
 
       for (
-        const message of messages
+        const message
+        of messages
       ) {
         const messageId =
-          String(message.id);
+          String(
+            message.id
+          );
 
         try {
           await this.processMessage(
@@ -713,9 +945,10 @@ export class DiscordGateway extends DurableObject {
           );
         }
 
-        // Bu mesaj işlendi/atlandı.
-        // Sonraki poll'da tekrar dönmeyelim.
-        cursor = messageId;
+        // Mesaj normal mesaj olsa da cursor ilerler.
+        // Aynı mesajı tekrar kontrol etmeyiz.
+        cursor =
+          messageId;
 
         await this.ctx.storage.put(
           "last_message_id",
@@ -724,7 +957,8 @@ export class DiscordGateway extends DurableObject {
       }
 
       if (
-        messages.length < 100
+        messages.length <
+        100
       ) {
         break;
       }
@@ -736,6 +970,10 @@ export class DiscordGateway extends DurableObject {
     );
   }
 
+  // ----------------------------------------------------------
+  // MESSAGE HANDLER
+  // ----------------------------------------------------------
+
   async processMessage(message) {
     if (
       !message?.id ||
@@ -744,7 +982,7 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
-    // Kendi cevaplarımızı ve diğer botları tekrar işleme.
+    // Botların cevaplarını tekrar işleme.
     if (
       message.author.bot ||
       message.webhook_id
@@ -754,9 +992,12 @@ export class DiscordGateway extends DurableObject {
 
     const content =
       String(
-        message.content || ""
+        message.content ||
+        ""
       ).trim();
 
+    // EN ÖNEMLİ SATIR:
+    // !soru yoksa hiçbir AI/Gemini/Tavily işlemi yok.
     if (
       !QUESTION_COMMAND.test(
         content
@@ -773,6 +1014,10 @@ export class DiscordGateway extends DurableObject {
         ),
         1800
       );
+
+    // --------------------------------------------------------
+    // REPLY DESTEĞİ
+    // --------------------------------------------------------
 
     let referencedMessage =
       message.referenced_message ||
@@ -799,10 +1044,15 @@ export class DiscordGateway extends DurableObject {
 
     const referencedText =
       cleanText(
-        referencedMessage?.content ||
+        referencedMessage
+          ?.content ||
         "",
         1600
       );
+
+    // --------------------------------------------------------
+    // IMAGE
+    // --------------------------------------------------------
 
     const image =
       getImageAttachment(
@@ -812,7 +1062,12 @@ export class DiscordGateway extends DurableObject {
         referencedMessage
       );
 
-    let effectiveQuestion = "";
+    // --------------------------------------------------------
+    // QUESTION BUILD
+    // --------------------------------------------------------
+
+    let effectiveQuestion =
+      "";
 
     if (
       referencedText &&
@@ -848,17 +1103,21 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
+    // --------------------------------------------------------
+    // COOLDOWN
+    // --------------------------------------------------------
+
     const userId =
       String(
         message.author.id
       );
 
-    const cooldownAllowed =
+    const allowed =
       await this.acquireCooldown(
         userId
       );
 
-    if (!cooldownAllowed) {
+    if (!allowed) {
       await this.reply(
         message,
         COOLDOWN_MESSAGE
@@ -872,7 +1131,11 @@ export class DiscordGateway extends DurableObject {
       new Date().toISOString()
     );
 
-    // Bunlar AI/Tavily çağrısı yapmaz.
+    // --------------------------------------------------------
+    // TOTIK CHANNEL LOCAL RESPONSES
+    // AI KULLANMAZ
+    // --------------------------------------------------------
+
     if (
       isChannelRecommendationQuestion(
         effectiveQuestion
@@ -905,12 +1168,17 @@ export class DiscordGateway extends DurableObject {
       return;
     }
 
+    // --------------------------------------------------------
+    // REAL QUESTION
+    // --------------------------------------------------------
+
     try {
       await this.safeTyping(
         QUESTION_CHANNEL_ID
       );
 
-      let imageContext = "";
+      let imageContext =
+        "";
 
       if (image) {
         imageContext =
@@ -930,15 +1198,16 @@ export class DiscordGateway extends DurableObject {
 
       let result;
 
+      // Önce mevcut güvenilir WoW backend.
       try {
         result =
           await this.askWowAi(
             finalQuestion
           );
       } catch (backendError) {
-        // Backend iki denemede de başarısız olduysa,
-        // kullanıcıya direkt "teknik hata" demeden
-        // Gemini ile son bir genel bilgi fallback'i dene.
+        // Backend iki kez de geçici hata verirse,
+        // kullanıcıya direkt teknik hata basmak yerine
+        // kontrollü Gemini fallback.
         result =
           await this.askGeminiFallback(
             finalQuestion,
@@ -948,7 +1217,8 @@ export class DiscordGateway extends DurableObject {
 
       const answer =
         tidyAnswer(
-          result?.answer || ""
+          result?.answer ||
+          ""
         );
 
       if (!answer) {
@@ -966,7 +1236,7 @@ export class DiscordGateway extends DurableObject {
       await this.clearLastError();
 
     } catch (error) {
-      // Teknik hata kullanıcının 10 dakika hakkını YEMEZ.
+      // Teknik hata kullanıcı hakkını tüketmez.
       await this.releaseCooldown(
         userId
       );
@@ -982,10 +1252,14 @@ export class DiscordGateway extends DurableObject {
 
       await this.reply(
         message,
-        "Şu an bilgi kaynaklarından biri yanıt vermedi. Bu soru 10 dakikalık hakkından düşmedi; biraz sonra tekrar deneyebilirsin."
+        "Şu an bilgi kaynaklarından birine ulaşamadım. Bu soru 10 dakikalık hakkından düşmedi; biraz sonra tekrar deneyebilirsin."
       );
     }
   }
+
+  // ----------------------------------------------------------
+  // COOLDOWN
+  // ----------------------------------------------------------
 
   async acquireCooldown(userId) {
     const key =
@@ -1000,7 +1274,8 @@ export class DiscordGateway extends DurableObject {
       Date.now();
 
     if (
-      typeof previous === "number" &&
+      typeof previous ===
+        "number" &&
       now - previous <
         USER_COOLDOWN_MS
     ) {
@@ -1016,17 +1291,26 @@ export class DiscordGateway extends DurableObject {
   }
 
   async releaseCooldown(userId) {
-    await this.ctx.storage.delete(
-      `cooldown:${userId}`
-    );
+    try {
+      await this.ctx.storage.delete(
+        `cooldown:${userId}`
+      );
+    } catch {
+      // ignore
+    }
   }
+
+  // ----------------------------------------------------------
+  // IMAGE ANALYSIS
+  // ----------------------------------------------------------
 
   async analyzeImage(
     image,
     question
   ) {
     if (
-      !this.env.GEMINI_API_KEY
+      !this.env
+        .GEMINI_API_KEY
     ) {
       throw new Error(
         "GEMINI_API_KEY bulunamadı."
@@ -1034,7 +1318,9 @@ export class DiscordGateway extends DurableObject {
     }
 
     const imageResponse =
-      await fetch(image.url);
+      await fetch(
+        image.url
+      );
 
     if (
       !imageResponse.ok
@@ -1069,24 +1355,25 @@ World of Warcraft ekran görüntüsünü dikkatlice incele.
 Kullanıcının sorusu:
 ${question}
 
-Araştırma için gerekli bilgileri çıkar:
+Sadece soruyu doğru araştırmak için gerekli bilgileri çıkar:
 - Quest/görev adı
 - Objective
 - NPC, item veya hedef
 - Bölge / zone
-- Haritada görünen konum
-- Görev açıklamasındaki önemli ipuçları
+- Haritada görünen önemli konum
+- Quest açıklamasındaki önemli ipuçları
 
-Görselde olmayan bir bilgiyi uydurma.
-Emin değilsen belirt.
-Türkçe, kısa ve bilgi odaklı yaz.
-`.trim();
+Görselde olmayan bilgiyi uydurma.
+Emin olmadığın şeyi kesinmiş gibi yazma.
+Türkçe, kısa ve bilgi odaklı cevap ver.
+    `.trim();
 
     const response =
       await fetch(
         GEMINI_URL,
         {
-          method: "POST",
+          method:
+            "POST",
 
           headers: {
             "content-type":
@@ -1140,7 +1427,9 @@ Türkçe, kısa ve bilgi odaklı yaz.
     try {
       data =
         raw
-          ? JSON.parse(raw)
+          ? JSON.parse(
+              raw
+            )
           : {};
     } catch {
       throw new Error(
@@ -1161,13 +1450,15 @@ Türkçe, kısa ve bilgi odaklı yaz.
 
     const text =
       (
-        data?.candidates?.[0]
+        data
+          ?.candidates?.[0]
           ?.content?.parts ||
         []
       )
         .map(
           (part) =>
-            part?.text || ""
+            part?.text ||
+            ""
         )
         .join("\n")
         .trim();
@@ -1181,6 +1472,10 @@ Türkçe, kısa ve bilgi odaklı yaz.
     return text;
   }
 
+  // ----------------------------------------------------------
+  // MAIN WOW AI
+  // ----------------------------------------------------------
+
   async askWowAi(question) {
     const url =
       new URL(
@@ -1192,11 +1487,13 @@ Türkçe, kısa ve bilgi odaklı yaz.
       question
     );
 
-    let lastError = null;
+    let lastError =
+      null;
 
     for (
       let attempt = 1;
-      attempt <= AI_MAX_ATTEMPTS;
+      attempt <=
+        AI_MAX_ATTEMPTS;
       attempt++
     ) {
       const startedAt =
@@ -1217,7 +1514,8 @@ Türkçe, kısa ve bilgi odaklı yaz.
           await fetch(
             url.toString(),
             {
-              method: "GET",
+              method:
+                "GET",
 
               headers: {
                 accept:
@@ -1232,32 +1530,38 @@ Türkçe, kısa ve bilgi odaklı yaz.
         const raw =
           await response.text();
 
-        let data = null;
+        let data =
+          null;
 
         try {
           data =
             raw
-              ? JSON.parse(raw)
+              ? JSON.parse(
+                  raw
+                )
               : {};
         } catch {
-          data = null;
+          data =
+            null;
         }
 
-        await this.ctx.storage.put(
-          "last_backend_status",
-          response.status
-        );
+        await Promise.all([
+          this.ctx.storage.put(
+            "last_backend_status",
+            response.status
+          ),
 
-        await this.ctx.storage.put(
-          "last_backend_attempts",
-          attempt
-        );
+          this.ctx.storage.put(
+            "last_backend_attempts",
+            attempt
+          ),
 
-        await this.ctx.storage.put(
-          "last_backend_duration_ms",
-          Date.now() -
-            startedAt
-        );
+          this.ctx.storage.put(
+            "last_backend_duration_ms",
+            Date.now() -
+              startedAt
+          )
+        ]);
 
         if (
           response.ok &&
@@ -1268,7 +1572,10 @@ Türkçe, kısa ve bilgi odaklı yaz.
 
         const detail =
           data?.error ||
-          raw.slice(0, 400) ||
+          raw.slice(
+            0,
+            400
+          ) ||
           `HTTP ${response.status}`;
 
         lastError =
@@ -1283,23 +1590,28 @@ Türkçe, kısa ve bilgi odaklı yaz.
           attempt <
             AI_MAX_ATTEMPTS
         ) {
-          await sleep(1200);
+          await sleep(
+            1500
+          );
+
           continue;
         }
 
         throw lastError;
 
       } catch (error) {
-        await this.ctx.storage.put(
-          "last_backend_attempts",
-          attempt
-        );
+        await Promise.all([
+          this.ctx.storage.put(
+            "last_backend_attempts",
+            attempt
+          ),
 
-        await this.ctx.storage.put(
-          "last_backend_duration_ms",
-          Date.now() -
-            startedAt
-        );
+          this.ctx.storage.put(
+            "last_backend_duration_ms",
+            Date.now() -
+              startedAt
+          )
+        ]);
 
         const aborted =
           error?.name ===
@@ -1319,13 +1631,17 @@ Türkçe, kısa ve bilgi odaklı yaz.
             aborted ||
             /HTTP 502|HTTP 503|HTTP 504/i.test(
               String(
-                error?.message || ""
+                error?.message ||
+                ""
               )
             )
           );
 
         if (retry) {
-          await sleep(1200);
+          await sleep(
+            1500
+          );
+
           continue;
         }
 
@@ -1346,33 +1662,40 @@ Türkçe, kısa ve bilgi odaklı yaz.
     );
   }
 
+  // ----------------------------------------------------------
+  // GEMINI FALLBACK
+  // ----------------------------------------------------------
+
   async askGeminiFallback(
     question,
     backendError
   ) {
     if (
-      !this.env.GEMINI_API_KEY
+      !this.env
+        .GEMINI_API_KEY
     ) {
       throw backendError;
     }
 
     const prompt = `
-Sen Totik Channel için geliştirilmiş bir World of Warcraft yardım botunun yedek cevap sistemisin.
+Sen Totik Channel için geliştirilmiş Totik WoW Yardım Botunun yedek cevap sistemisin.
 
-Soru:
+Kullanıcının sorusu:
 ${question}
 
-Ana araştırma sistemi şu anda geçici olarak yanıt veremedi.
+Ana araştırma sistemi geçici olarak yanıt veremedi.
 
 Kurallar:
-- Yalnızca bildiğin bilgilerle cevap ver.
-- Bilmediğin veya güncel doğrulama gerektiren şeyi uydurma.
-- Özellikle WoW Forever, yeni patch, beta veya güncel değişikliklerde emin değilsen bunu açıkça belirt.
-- Genel ve stabil World of Warcraft bilgisinde doğrudan yardımcı ol.
+- World of Warcraft konusunda yardımcı ol.
+- Yalnızca gerçekten bildiğin bilgiyi söyle.
+- Güncel WoW Forever, yeni patch, beta veya değişebilecek bilgilerde emin değilsen uydurma.
+- Emin olmadığın güncel bilgiyi açıkça belirt.
+- Genel ve stabil WoW bilgisinde doğrudan yardımcı ol.
 - Türkçe cevap ver.
-- Gereksiz giriş yapma.
-- Derli toplu, mümkünse 2-5 kısa paragraf veya kısa maddeler kullan.
-`.trim();
+- Gereksiz giriş ve tekrar kullanma.
+- Derli toplu ve mümkün olduğunca kısa cevap ver.
+- Genellikle 3-6 cümle veya kısa maddeler yeterli.
+    `.trim();
 
     const controller =
       new AbortController();
@@ -1381,7 +1704,7 @@ Kurallar:
       setTimeout(
         () =>
           controller.abort(),
-        35_000
+        40 * 1000
       );
 
     try {
@@ -1389,7 +1712,8 @@ Kurallar:
         await fetch(
           GEMINI_URL,
           {
-            method: "POST",
+            method:
+              "POST",
 
             signal:
               controller.signal,
@@ -1421,7 +1745,7 @@ Kurallar:
                     0.2,
 
                   maxOutputTokens:
-                    700
+                    650
                 }
               })
           }
@@ -1435,7 +1759,9 @@ Kurallar:
       try {
         data =
           raw
-            ? JSON.parse(raw)
+            ? JSON.parse(
+                raw
+              )
             : {};
       } catch {
         throw backendError;
@@ -1449,13 +1775,15 @@ Kurallar:
 
       const answer =
         (
-          data?.candidates?.[0]
+          data
+            ?.candidates?.[0]
             ?.content?.parts ||
           []
         )
           .map(
             (part) =>
-              part?.text || ""
+              part?.text ||
+              ""
           )
           .join("\n")
           .trim();
@@ -1466,7 +1794,8 @@ Kurallar:
 
       return {
         answer,
-        fallback: "gemini"
+        fallback:
+          "gemini"
       };
 
     } finally {
@@ -1475,6 +1804,10 @@ Kurallar:
       );
     }
   }
+
+  // ----------------------------------------------------------
+  // STATS
+  // ----------------------------------------------------------
 
   async markAnswered() {
     const current =
@@ -1520,6 +1853,10 @@ Kurallar:
     );
   }
 
+  // ----------------------------------------------------------
+  // DISCORD REPLY
+  // ----------------------------------------------------------
+
   async reply(
     originalMessage,
     answer
@@ -1563,25 +1900,34 @@ Kurallar:
       await this.discordRequest(
         `/channels/${QUESTION_CHANNEL_ID}/messages`,
         {
-          method: "POST",
+          method:
+            "POST",
+
           body
         }
       );
     }
   }
 
-  async safeTyping(channelId) {
+  async safeTyping(
+    channelId
+  ) {
     try {
       await this.discordRequest(
         `/channels/${channelId}/typing`,
         {
-          method: "POST"
+          method:
+            "POST"
         }
       );
     } catch {
-      // Typing kritik değil.
+      // Typing başarısız olsa bile soruyu cevapla.
     }
   }
+
+  // ----------------------------------------------------------
+  // DISCORD REST
+  // ----------------------------------------------------------
 
   async discordRequest(
     path,
@@ -1628,7 +1974,8 @@ Kurallar:
         );
 
       if (
-        response.status === 204
+        response.status ===
+        204
       ) {
         return null;
       }
@@ -1636,19 +1983,24 @@ Kurallar:
       const raw =
         await response.text();
 
-      let data = null;
+      let data =
+        null;
 
       try {
         data =
           raw
-            ? JSON.parse(raw)
+            ? JSON.parse(
+                raw
+              )
             : null;
       } catch {
-        data = raw;
+        data =
+          raw;
       }
 
       if (
-        response.status === 429
+        response.status ===
+        429
       ) {
         let retryAfter =
           Number(
@@ -1656,7 +2008,6 @@ Kurallar:
             1
           );
 
-        // Discord retry_after genelde saniye.
         if (
           retryAfter < 100
         ) {
@@ -1675,11 +2026,13 @@ Kurallar:
       }
 
       if (
-        response.status >= 500 &&
+        response.status >=
+          500 &&
         attempt < 4
       ) {
         await sleep(
-          attempt * 750
+          attempt *
+            750
         );
 
         continue;
