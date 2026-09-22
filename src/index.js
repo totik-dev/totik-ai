@@ -15,8 +15,8 @@ const GEMINI_URL =
 // ============================================================
 
 // Gateway/WebSocket YOK.
-// Her 60 saniyede sadece yeni mesaj var mı diye Discord REST'e bakar.
-const POLL_INTERVAL_MS = 60 * 1000;
+// Her 10 saniyede sadece yeni mesaj var mı diye Discord REST'e bakar.
+const POLL_INTERVAL_MS = 10 * 1000;
 
 // ============================================================
 // COOLDOWN
