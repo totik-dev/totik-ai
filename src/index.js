@@ -53,6 +53,34 @@ const IDENTITY_MESSAGE =
 const CHANNEL_RECOMMENDATION_MESSAGE =
   "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum. Türkçe World of Warcraft içerikleri için Totik Channel'ı izleyebilirsin.";
 
+
+// ============================================================
+// TOTIK GUIDE / GUILD ROUTING
+// ============================================================
+
+const GUIDE_CHANNEL_ID =
+  "1549395522689966190";
+
+const GUILD_INFO_CHANNEL_ID =
+  "1549847008406143157";
+
+// Görsellerin bulunduğu sabit kaynak mesajları.
+// Bot eski mesajı forward etmez; yalnızca o mesajdaki güncel attachment URL'sini alır.
+const GUIDE_IMAGE_MESSAGE_IDS = {
+  profession:
+    "1553090607482798253",
+  camping:
+    "1553095278234701906",
+  legacy:
+    "1553095337416335400"
+};
+
+const GUIDE_REMINDER_MESSAGE =
+  `Bu konu hakkında Totik Channel'da rehber video var, <#${GUIDE_CHANNEL_ID}> kanalından detaylı bakabilirsin.`;
+
+const GUILD_INFO_MESSAGE =
+  `Totik Channel ekibi WoW Forever'da Normal ruleset'te Alliance tarafında oynuyor. Guild katılımı, şartlar ve güncel detaylar için <#${GUILD_INFO_CHANNEL_ID}> kanalına bakabilirsin.`;
+
 // ============================================================
 // HELPERS
 // ============================================================
@@ -247,6 +275,107 @@ function isChannelRecommendationQuestion(question) {
   );
 }
 
+
+function normalizeLocal(value) {
+  return String(value || "")
+    .toLocaleLowerCase("tr-TR")
+    .replace(/[’‘`´]/g, "'")
+    .replace(/ı/g, "i")
+    .replace(/ğ/g, "g")
+    .replace(/ü/g, "u")
+    .replace(/ş/g, "s")
+    .replace(/ö/g, "o")
+    .replace(/ç/g, "c")
+    .replace(/[^a-z0-9'\-\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function isGuildInfoQuestion(question) {
+  const q =
+    normalizeLocal(question);
+
+  const guildSignal =
+    /\b(guild[a-z]*|lonca[a-z]*)\b/.test(q);
+
+  const totikTeamSignal =
+    /totik channel|totik ekibi|totik team|siz hangi|siz nerede|hangi ruleset|hangi faction|hangi tarafta/.test(q) &&
+    /alliance|horde|ruleset|faction|taraf|oynuyor|oynuyorsunuz/.test(q);
+
+  if (!guildSignal && !totikTeamSignal) {
+    return false;
+  }
+
+  return (
+    totikTeamSignal ||
+    /nasil gir|nasil katil|katilmak|basvuru|alim|sart|requirements|hangi taraf|alliance|horde|ruleset|isim oner|guild isim|nereden bilgi|detay/.test(q)
+  );
+}
+
+function isGuideTopicQuestion(question) {
+  const q =
+    normalizeLocal(question);
+
+  return (
+    /ruleset/.test(q) ||
+    /horde|alliance/.test(q) ||
+    /level kas|leveling|levelleme/.test(q) ||
+    /\b(race|racial|irk)\b/.test(q) ||
+    /hit rating|zar mant/.test(q) ||
+    /\b(class|sinif)\b/.test(q) ||
+    /\b(mana|energy|focus|rage)\b/.test(q) ||
+    /zirh|armor|melee|ranged|healer|tank|ilk karakter/.test(q) ||
+    /\b(addon|add on)\b|turkce yap|action bar|auto loot|otomatik.*topla|cooldown manager|swing timer|dps metre|dps meter|nameplate|tus ata|keybind|fps|sesli betimleme|gamepad/.test(q) ||
+    /\b(meslek|profession|professions|crafting|gathering|tracking)\b/.test(q) ||
+    /\b(kamp|camp|camping|legacy)\b/.test(q) ||
+    /oyun.*(nereden|nerden|nasil al|satin al)|wow forever.*(nereden|nerden|nasil al)|ne almam lazim|hangi paket/.test(q)
+  );
+}
+
+function likelyCuratedTopic(question) {
+  const q =
+    normalizeLocal(question);
+
+  if (
+    /\blegacy\b|working overtime|bountiful harvest|master chef|bartering|performance bonus|luremaster|dedicated study|well rested|thrill of adventure|high alert|talented|field guide|field medicine|frequent flier|quick and the dead|reinforce|gourmand|great honor|permanence|diplomat|reagent economy/.test(q)
+  ) {
+    return "legacy";
+  }
+
+  if (
+    /\b(kamp|camp|camping)\b|mana well|sharpening wheel|enchanted lute|reagent bot|incense candle|camp tent|lodestone|camp chair|faction banner|first aid kit|fish bowl|basic campfire/.test(q)
+  ) {
+    return "camping";
+  }
+
+  if (
+    /\b(meslek|profession|professions)\b/.test(q) &&
+    /hangi|sec|oner|tavsiye|kombin|leveling|fresh|lategame|late game|warrior|hunter|mage|rogue|priest|warlock|paladin|druid|shaman/.test(q)
+  ) {
+    return "profession";
+  }
+
+  return null;
+}
+
+function appendGuideReminder(answer, question, result) {
+  const text =
+    String(answer || "").trim();
+
+  const shouldAdd =
+    Boolean(result?.curatedTopic) ||
+    isGuideTopicQuestion(question);
+
+  if (
+    !shouldAdd ||
+    text.includes(`<#${GUIDE_CHANNEL_ID}>`)
+  ) {
+    return text;
+  }
+
+  return `${text}\n\n${GUIDE_REMINDER_MESSAGE}`;
+}
+
 function guessMimeType(filename) {
   const name =
     String(filename || "")
@@ -396,6 +525,12 @@ export default {
           true,
 
         imageSupport:
+          true,
+
+        curatedGuideSupport:
+          true,
+
+        guildRoutingSupport:
           true,
 
         backendAttempts:
@@ -1137,6 +1272,22 @@ export class DiscordGateway extends DurableObject {
     // --------------------------------------------------------
 
     if (
+      isGuildInfoQuestion(
+        effectiveQuestion
+      )
+    ) {
+      await this.reply(
+        message,
+        GUILD_INFO_MESSAGE
+      );
+
+      await this.markAnswered();
+      await this.clearLastError();
+
+      return;
+    }
+
+    if (
       isChannelRecommendationQuestion(
         effectiveQuestion
       )
@@ -1180,7 +1331,12 @@ export class DiscordGateway extends DurableObject {
       let imageContext =
         "";
 
-      if (image) {
+      if (
+        image &&
+        !likelyCuratedTopic(
+          effectiveQuestion
+        )
+      ) {
         imageContext =
           await this.analyzeImage(
             image,
@@ -1227,9 +1383,27 @@ export class DiscordGateway extends DurableObject {
         );
       }
 
+      const finalAnswer =
+        appendGuideReminder(
+          answer,
+          effectiveQuestion,
+          result
+        );
+
+      const guideImageUrl =
+        result?.curatedTopic
+          ? await this.getGuideImageUrl(
+              result.curatedTopic
+            )
+          : null;
+
       await this.reply(
         message,
-        answer
+        finalAnswer,
+        {
+          imageUrl:
+            guideImageUrl
+        }
       );
 
       await this.markAnswered();
@@ -1859,7 +2033,8 @@ Kurallar:
 
   async reply(
     originalMessage,
-    answer
+    answer,
+    options = {}
   ) {
     const chunks =
       splitDiscordMessage(
@@ -1881,6 +2056,20 @@ Kurallar:
             false
         }
       };
+
+      if (
+        i === 0 &&
+        options.imageUrl
+      ) {
+        body.embeds = [
+          {
+            image: {
+              url:
+                options.imageUrl
+            }
+          }
+        ];
+      }
 
       if (i === 0) {
         body.message_reference = {
@@ -1906,6 +2095,43 @@ Kurallar:
           body
         }
       );
+    }
+  }
+
+  async getGuideImageUrl(topic) {
+    const messageId =
+      GUIDE_IMAGE_MESSAGE_IDS[
+        String(topic || "")
+      ];
+
+    if (!messageId) {
+      return null;
+    }
+
+    try {
+      const sourceMessage =
+        await this.discordRequest(
+          `/channels/${QUESTION_CHANNEL_ID}/messages/${messageId}`
+        );
+
+      const attachment =
+        getImageAttachment(
+          sourceMessage
+        );
+
+      return attachment?.url ||
+        null;
+
+    } catch (error) {
+      // Görsel alınamazsa cevap yine gönderilsin.
+      await this.setLastError(
+        `Guide image ${topic}: ${
+          error?.message ||
+          String(error)
+        }`
+      );
+
+      return null;
     }
   }
 
