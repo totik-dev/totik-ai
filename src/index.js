@@ -14,6 +14,8 @@ const GEMINI_URL =
 // POLLING
 // ============================================================
 
+// Gateway/WebSocket YOK.
+// Her 10 saniyede sadece yeni mesaj var mı diye Discord REST'e bakar.
 const POLL_INTERVAL_MS = 10 * 1000;
 
 // ============================================================
@@ -37,6 +39,8 @@ const AI_MAX_ATTEMPTS = 2;
 // ============================================================
 
 const MAX_DISCORD_MESSAGE = 1900;
+
+// Eskisi kadar roman değil ama gerekli bilgiyi de kesmeyelim.
 const MAX_ANSWER_CHARS = 1250;
 
 // ============================================================
@@ -64,6 +68,11 @@ const ADMIN_COOLDOWN_BYPASS_USER_IDS =
     "194062355460653056"
   ]);
 
+const TOTIK_GUIDE_BUILD =
+  "2026-09-25-guides-v2";
+
+// Görsellerin bulunduğu sabit kaynak mesajları.
+// Bot eski mesajı forward etmez; yalnızca o mesajdaki attachment'ı alır.
 const GUIDE_IMAGE_MESSAGE_IDS = {
   profession:
     "1553090607482798253",
@@ -86,24 +95,13 @@ const GUILD_INFO_MESSAGE =
 // ============================================================
 
 function json(data, status = 200) {
-  return new Response(
-    JSON.stringify(
-      data,
-      null,
-      2
-    ),
-    {
-      status,
-
-      headers: {
-        "content-type":
-          "application/json; charset=utf-8",
-
-        "cache-control":
-          "no-store"
-      }
+  return new Response(JSON.stringify(data, null, 2), {
+    status,
+    headers: {
+      "content-type": "application/json; charset=utf-8",
+      "cache-control": "no-store"
     }
-  );
+  });
 }
 
 function sleep(ms) {
@@ -359,57 +357,6 @@ function tidyAnswer(value) {
   );
 }
 
-function normalizeLocal(value) {
-  return String(
-    value ||
-    ""
-  )
-    .toLocaleLowerCase(
-      "tr-TR"
-    )
-    .replace(
-      /[’‘`´]/g,
-      "'"
-    )
-    .replace(
-      /ı/g,
-      "i"
-    )
-    .replace(
-      /ğ/g,
-      "g"
-    )
-    .replace(
-      /ü/g,
-      "u"
-    )
-    .replace(
-      /ş/g,
-      "s"
-    )
-    .replace(
-      /ö/g,
-      "o"
-    )
-    .replace(
-      /ç/g,
-      "c"
-    )
-    .replace(
-      /[^a-z0-9'\-\s]/g,
-      " "
-    )
-    .replace(
-      /\s+/g,
-      " "
-    )
-    .trim();
-}
-
-// ============================================================
-// IDENTITY / CHANNEL
-// ============================================================
-
 function isIdentityQuestion(question) {
   const q =
     String(
@@ -519,8 +466,59 @@ function isChannelRecommendationQuestion(
   );
 }
 
+function normalizeLocal(value) {
+  return String(
+    value ||
+    ""
+  )
+    .toLocaleLowerCase(
+      "tr-TR"
+    )
+    .replace(
+      /[’‘`´]/g,
+      "'"
+    )
+    .replace(
+      /ı/g,
+      "i"
+    )
+    .replace(
+      /ğ/g,
+      "g"
+    )
+    .replace(
+      /ü/g,
+      "u"
+    )
+    .replace(
+      /ş/g,
+      "s"
+    )
+    .replace(
+      /ö/g,
+      "o"
+    )
+    .replace(
+      /ç/g,
+      "c"
+    )
+    .replace(
+      /[^a-z0-9'\-\s]/g,
+      " "
+    )
+    .replace(
+      /\s+/g,
+      " "
+    )
+    .trim();
+}
+
 // ============================================================
-// CURATED PROFESSION DATA
+// TOTIK CHANNEL CURATED FOREVER GUIDE DATA
+//
+// Bu üç rehber verisi runtime'da lokal ve ücretsiz.
+// Cevap burada varsa Tavily/Gemini ÇALIŞMAZ.
+// Burada yoksa mevcut normal araştırma sistemi devam eder.
 // ============================================================
 
 const CURATED_PROFESSION_ROADMAP = {
@@ -755,10 +753,6 @@ const CURATED_PROFESSION_ROADMAP = {
     }
   }
 };
-
-// ============================================================
-// CURATED CAMP DATA
-// ============================================================
 
 const CURATED_CAMPING = [
   {
@@ -1045,10 +1039,6 @@ const CURATED_CAMPING = [
   }
 ];
 
-// ============================================================
-// CURATED LEGACY DATA
-// ============================================================
-
 const CURATED_LEGACY = {
   totals: {
     obtainable:
@@ -1284,10 +1274,6 @@ const CURATED_LEGACY = {
     ]
   ]
 };
-
-// ============================================================
-// CLASS / SPEC ALIASES
-// ============================================================
 
 const CLASS_ALIASES = {
   warrior: [
@@ -1567,6 +1553,7 @@ function buildCuratedProfessionAnswer(q) {
     return null;
   }
 
+  // Yol haritasında trainer / tarif / konum / materyal yok.
   if (
     /trainer|egitmen|recipe|tarif|material|materyal|nerede|nerden|nereden|nasil alinir|nasil alirim|nasil ogren/.test(
       q
@@ -1717,6 +1704,7 @@ function buildCuratedCampingAnswer(q) {
     return null;
   }
 
+  // Exact acquisition/location/trainer bilgisi tabloda yok.
   if (
     /nerede|nerden|nereden|trainer|egitmen|kimden|hangi npc|nasil alinir|nasil ogren|recipe nerede|tarif nerede/.test(
       q
@@ -1798,6 +1786,7 @@ function buildCuratedLegacyAnswer(q) {
     return null;
   }
 
+  // Exact quest walkthrough / konum tabloda yok.
   if (
     /koordinat|konum|location|\bnerede\b|\bnerde\b|npc|walkthrough|adim adim|quest step/.test(
       q
@@ -1807,7 +1796,6 @@ function buildCuratedLegacyAnswer(q) {
       /gorev|quest/.test(
         q
       ) &&
-
       /nasil yap|nasil tamam|basliyor|baslar/.test(
         q
       )
@@ -2496,7 +2484,10 @@ export default {
           USER_COOLDOWN_MS /
           60000,
 
-        adminCooldownBypass:
+        replySupport:
+          true,
+
+        imageSupport:
           true,
 
         curatedGuideSupport:
@@ -2505,7 +2496,13 @@ export default {
         guildRoutingSupport:
           true,
 
-        imageSupport:
+        localCuratedGuideFastPath:
+          true,
+
+        guideBuild:
+          TOTIK_GUIDE_BUILD,
+
+        adminCooldownBypass:
           true,
 
         backendAttempts:
@@ -2619,6 +2616,12 @@ export default {
 
 // ============================================================
 // DURABLE OBJECT
+//
+// İsmi bilerek DiscordGateway bırakıldı.
+// wrangler.jsonc'yi değiştirmiyoruz.
+//
+// Artık Gateway değil.
+// Sadece kısa süre uyanan polling motoru.
 // ============================================================
 
 export class DiscordGateway extends DurableObject {
@@ -3386,9 +3389,9 @@ export class DiscordGateway extends DurableObject {
           QUESTION_CHANNEL_ID
         );
 
-      const guideImageUrl =
+      const guideImageFile =
         await this
-          .getGuideImageUrl(
+          .getGuideImageFile(
             localCurated.topic
           );
 
@@ -3407,8 +3410,8 @@ export class DiscordGateway extends DurableObject {
           message,
           localAnswer,
           {
-            imageUrl:
-              guideImageUrl
+            imageFile:
+              guideImageFile
           }
         );
 
@@ -3478,7 +3481,12 @@ export class DiscordGateway extends DurableObject {
       let imageContext =
         "";
 
-      if (image) {
+      if (
+        image &&
+        !likelyCuratedTopic(
+          effectiveQuestion
+        )
+      ) {
         imageContext =
           await this
             .analyzeImage(
@@ -3544,11 +3552,11 @@ export class DiscordGateway extends DurableObject {
           effectiveQuestion
         );
 
-      const guideImageUrl =
+      const guideImageFile =
         detectedGuideTopic
 
           ? await this
-              .getGuideImageUrl(
+              .getGuideImageFile(
                 detectedGuideTopic
               )
 
@@ -3559,8 +3567,8 @@ export class DiscordGateway extends DurableObject {
           message,
           finalAnswer,
           {
-            imageUrl:
-              guideImageUrl
+            imageFile:
+              guideImageFile
           }
         );
 
@@ -4333,22 +4341,6 @@ Kurallar:
 
       if (
         i ===
-          0 &&
-
-        options.imageUrl
-      ) {
-        body.embeds = [
-          {
-            image: {
-              url:
-                options.imageUrl
-            }
-          }
-        ];
-      }
-
-      if (
-        i ===
         0
       ) {
         body.message_reference = {
@@ -4365,6 +4357,36 @@ Kurallar:
         };
       }
 
+      if (
+        i ===
+          0 &&
+
+        options.imageFile
+      ) {
+        try {
+          await this
+            .discordMultipartRequest(
+              `/channels/${QUESTION_CHANNEL_ID}/messages`,
+              body,
+              options.imageFile
+            );
+
+          continue;
+
+        } catch (error) {
+          // Görsel yüklenemezse cevap yine metin olarak gönder.
+          await this
+            .setLastError(
+              `Guide image upload: ${
+                error?.message ||
+                String(
+                  error
+                )
+              }`
+            );
+        }
+      }
+
       await this
         .discordRequest(
           `/channels/${QUESTION_CHANNEL_ID}/messages`,
@@ -4378,7 +4400,7 @@ Kurallar:
     }
   }
 
-  async getGuideImageUrl(topic) {
+  async getGuideImageFile(topic) {
     const messageId =
       GUIDE_IMAGE_MESSAGE_IDS[
         String(
@@ -4405,12 +4427,75 @@ Kurallar:
           sourceMessage
         );
 
-      return (
-        attachment?.url ||
-        null
-      );
+      if (
+        !attachment?.url
+      ) {
+        throw new Error(
+          "Kaynak mesajda görsel attachment bulunamadı."
+        );
+      }
+
+      const imageResponse =
+        await fetch(
+          attachment.url
+        );
+
+      if (
+        !imageResponse.ok
+      ) {
+        throw new Error(
+          `Kaynak görsel indirilemedi: ${imageResponse.status}`
+        );
+      }
+
+      const buffer =
+        await imageResponse
+          .arrayBuffer();
+
+      if (
+        buffer.byteLength >
+        8 *
+        1024 *
+        1024
+      ) {
+        throw new Error(
+          "Rehber görseli 8 MB sınırını aşıyor."
+        );
+      }
+
+      const sourceAttachment =
+        Array.isArray(
+          sourceMessage?.attachments
+        )
+
+          ? sourceMessage
+              .attachments
+              .find(
+                item =>
+                  item?.url ===
+                  attachment.url
+              )
+
+          : null;
+
+      return {
+        bytes:
+          buffer,
+
+        contentType:
+          attachment.contentType ||
+          "image/png",
+
+        filename:
+          String(
+            sourceAttachment
+              ?.filename ||
+            `${topic}.png`
+          )
+      };
 
     } catch (error) {
+      // Görsel alınamazsa cevap yine gönderilsin.
       await this
         .setLastError(
           `Guide image ${topic}: ${
@@ -4423,6 +4508,159 @@ Kurallar:
 
       return null;
     }
+  }
+
+  async discordMultipartRequest(
+    path,
+    body,
+    imageFile
+  ) {
+    for (
+      let attempt = 1;
+
+      attempt <=
+      4;
+
+      attempt++
+    ) {
+      const form =
+        new FormData();
+
+      form.append(
+        "payload_json",
+        JSON.stringify(
+          body
+        )
+      );
+
+      form.append(
+        "files[0]",
+        new Blob(
+          [
+            imageFile.bytes
+          ],
+          {
+            type:
+              imageFile.contentType ||
+              "image/png"
+          }
+        ),
+        imageFile.filename ||
+        "guide.png"
+      );
+
+      const response =
+        await fetch(
+          `${DISCORD_API}${path}`,
+          {
+            method:
+              "POST",
+
+            headers: {
+              Authorization:
+                `Bot ${this.env.DISCORD_BOT_TOKEN}`
+            },
+
+            body:
+              form
+          }
+        );
+
+      if (
+        response.status ===
+        204
+      ) {
+        return null;
+      }
+
+      const raw =
+        await response
+          .text();
+
+      let data =
+        null;
+
+      try {
+        data =
+          raw
+
+            ? JSON.parse(
+                raw
+              )
+
+            : null;
+
+      } catch {
+        data =
+          raw;
+      }
+
+      if (
+        response.status ===
+        429
+      ) {
+        let retryAfter =
+          Number(
+            data?.retry_after ||
+            1
+          );
+
+        if (
+          retryAfter <
+          100
+        ) {
+          retryAfter *=
+            1000;
+        }
+
+        await sleep(
+          Math.max(
+            500,
+            retryAfter
+          )
+        );
+
+        continue;
+      }
+
+      if (
+        response.status >=
+          500 &&
+
+        attempt <
+          4
+      ) {
+        await sleep(
+          attempt *
+          750
+        );
+
+        continue;
+      }
+
+      if (
+        !response.ok
+      ) {
+        throw new Error(
+          `Discord multipart ${response.status}: ${
+            typeof data ===
+            "string"
+
+              ? data
+
+              : JSON.stringify(
+                  data
+                )
+          }`
+        );
+      }
+
+      return data;
+    }
+
+    throw new Error(
+      "Discord multipart maksimum retry sayısına ulaştı."
+    );
   }
 
   async safeTyping(channelId) {
