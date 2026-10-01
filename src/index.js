@@ -1,106 +1,56 @@
 import { DurableObject } from "cloudflare:workers";
-
 import {
   GUIDE_IMAGE_CHANNEL_ID,
   GUIDE_BATCH_MESSAGE_IDS,
   CLASS_GUIDE_PAGES,
   resolveClassGuide,
   buildStructuredGuideContext,
-  buildKeywordFallbackContext,
   findAttachmentForPage,
   expectedBatchMessageIds,
   catalogDiagnostics,
   normalizeGuideText
 } from "./class-guide-runtime.js";
 
-const DISCORD_API =
-  "https://discord.com/api/v10";
+const DISCORD_API = "https://discord.com/api/v10";
+const QUESTION_CHANNEL_ID = "1548811398069489744";
+const GUIDE_CHANNEL_ID = "1549395522689966190";
+const GUILD_INFO_CHANNEL_ID = "1549847008406143157";
+const QUESTION_COMMAND = /^!soru(?:\s|$)/i;
+const DEBUG_COMMAND = /^!soru-debug(?:\s|$)/i;
+const WOW_AI_URL = "https://totik-ai-test.totikch.workers.dev/";
 
-const QUESTION_CHANNEL_ID =
-  "1548811398069489744";
-
-const GUIDE_CHANNEL_ID =
-  "1549395522689966190";
-
-const GUILD_INFO_CHANNEL_ID =
-  "1549847008406143157";
-
-const QUESTION_COMMAND =
-  /^!soru(?:\s|$)/i;
-
-const DEBUG_COMMAND =
-  /^!soru-debug(?:\s|$)/i;
-
-const WOW_AI_URL =
-  "https://totik-ai-test.totikch.workers.dev/";
-
-const GEMINI_TEXT_MODEL =
-  "gemini-3.5-flash-lite";
-
+const GEMINI_TEXT_MODEL = "gemini-3.5-flash-lite";
 const GEMINI_INTERACTIONS_ENDPOINT =
   "https://generativelanguage.googleapis.com/v1beta/interactions";
 
-const GEMINI_VISION_MODEL =
-  "gemini-3.6-flash";
-
+const GEMINI_VISION_MODEL = "gemini-3.6-flash";
 const GEMINI_VISION_ENDPOINT =
   `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_VISION_MODEL}:generateContent`;
 
-const POLL_INTERVAL_MS =
-  10 * 1000;
+const POLL_INTERVAL_MS = 10_000;
+const NORMAL_COOLDOWN_MS = 15 * 60_000;
+const PREMIUM_COOLDOWN_MS = 60_000;
+const PREMIUM_ROLE_CACHE_MS = 10 * 60_000;
+const GUIDE_ATTACHMENT_CACHE_MS = 5 * 60_000;
+const BACKEND_TIMEOUT_MS = 75_000;
+const GEMINI_TIMEOUT_MS = 35_000;
+const VISION_TIMEOUT_MS = 45_000;
+const MAX_DISCORD_MESSAGE = 1900;
+const MAX_ANSWER_CHARS = 1550;
+const MAX_GUIDE_FILES = 10;
+const MAX_SINGLE_GUIDE_FILE_BYTES = 9 * 1024 * 1024;
+const MAX_TOTAL_GUIDE_FILE_BYTES = 23 * 1024 * 1024;
+const MAX_VISION_IMAGE_BYTES = 8 * 1024 * 1024;
 
-const NORMAL_COOLDOWN_MS =
-  15 * 60 * 1000;
+const ADMIN_COOLDOWN_BYPASS_USER_IDS = new Set([
+  "194062355460653056"
+]);
 
-const PREMIUM_COOLDOWN_MS =
-  1 * 60 * 1000;
-
-const ADMIN_COOLDOWN_BYPASS_USER_IDS =
-  new Set([
-    "194062355460653056"
-  ]);
-
-const PREMIUM_ROLE_CACHE_MS =
-  10 * 60 * 1000;
-
-const MAX_DISCORD_MESSAGE =
-  1900;
-
-const MAX_ANSWER_CHARS =
-  1450;
-
-const BACKEND_TIMEOUT_MS =
-  75 * 1000;
-
-const BACKEND_ATTEMPTS =
-  2;
-
-const GEMINI_TIMEOUT_MS =
-  35 * 1000;
-
-const VISION_TIMEOUT_MS =
-  40 * 1000;
-
-const MAX_GUIDE_FILES =
-  10;
-
-const MAX_SINGLE_GUIDE_FILE_BYTES =
-  9 * 1024 * 1024;
-
-const MAX_TOTAL_GUIDE_FILE_BYTES =
-  23 * 1024 * 1024;
-
-const MAX_VISION_IMAGE_BYTES =
-  7 * 1024 * 1024;
-
-const GUIDE_ATTACHMENT_CACHE_MS =
-  5 * 60 * 1000;
-
-const IDENTITY_MESSAGE =
-  "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum. World of Warcraft ve özellikle WoW Forever konusunda yardımcı oluyorum.";
-
-const CHANNEL_RECOMMENDATION_MESSAGE =
-  "Türkçe World of Warcraft rehberleri için Totik Channel içeriklerine bakabilirsin.";
+const SPECIAL_GUIDE_IMAGE_MESSAGE_IDS = {
+  profession: "1553090607482798253",
+  camping: "1553095278234701906",
+  legacy: "1553095337416335400"
+};
 
 const GUIDE_REMINDER_MESSAGE =
   `Bu konu hakkında Totik Channel'da rehber içerik var, <#${GUIDE_CHANNEL_ID}> kanalından detaylı bakabilirsin.`;
@@ -108,36 +58,17 @@ const GUIDE_REMINDER_MESSAGE =
 const GUILD_INFO_MESSAGE =
   `Totik Channel ekibi WoW Forever'da Normal ruleset'te Alliance tarafında oynuyor. Guild katılımı, şartlar ve güncel detaylar için <#${GUILD_INFO_CHANNEL_ID}> kanalına bakabilirsin.`;
 
-const SPECIAL_GUIDE_IMAGE_MESSAGE_IDS = {
-  profession:
-    "1553090607482798253",
+const IDENTITY_MESSAGE =
+  "Ben Totik Channel için geliştirilmiş WoW yardım botuyum.";
 
-  camping:
-    "1553095278234701906",
-
-  legacy:
-    "1553095337416335400"
-};
-
-function json(
-  data,
-  status = 200
-) {
+function json(data, status = 200) {
   return new Response(
-    JSON.stringify(
-      data,
-      null,
-      2
-    ),
+    JSON.stringify(data, null, 2),
     {
       status,
-
       headers: {
-        "content-type":
-          "application/json; charset=utf-8",
-
-        "cache-control":
-          "no-store"
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store"
       }
     }
   );
@@ -145,58 +76,81 @@ function json(
 
 function sleep(ms) {
   return new Promise(
-    (resolve) =>
-      setTimeout(
-        resolve,
-        ms
-      )
+    resolve =>
+      setTimeout(resolve, ms)
   );
 }
 
 function cleanText(
   value,
-  maxLength = 2200
+  max = 2200
 ) {
-  return String(
-    value || ""
-  )
+  return String(value || "")
     .replace(/\r/g, "")
-    .replace(
-      /[ \t]+/g,
-      " "
-    )
-    .replace(
-      /\n{3,}/g,
-      "\n\n"
-    )
+    .replace(/[ \t]+/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
     .trim()
-    .slice(
-      0,
-      maxLength
-    );
+    .slice(0, max);
 }
 
-function tidyAnswer(value) {
+function sanitizeGuideAnswer(value) {
   let text =
-    String(
-      value || ""
-    )
+    String(value || "")
+      .replace(/\r/g, "")
+
       .replace(
-        /\r/g,
+        /^\s*(selam|merhaba)[!,. :;-]*\s*/i,
         ""
       )
+
       .replace(
-        /[ \t]+\n/g,
-        "\n"
+        /^\s*(ben\s+)?totik channel(?:'ın|'in|in)?\s+wow\s+(yardım|yardim)\s+botu(?:yum|dur|yım|yim)?[!,. :;-]*\s*/i,
+        ""
       )
+
       .replace(
-        /\n[ \t]*\n+/g,
-        "\n"
+        /^\s*totik channel wow (yardım|yardim) botu(?:yum|dur)?[!,. :;-]*\s*/i,
+        ""
       )
+
       .replace(
-        /[ \t]{2,}/g,
-        " "
+        /`?\b\d{1,2}-[a-z0-9._-]+\.(?:png|jpe?g|webp)\b`?/gi,
+        ""
       )
+
+      .replace(
+        /^\s*(PAGE|FILE|DOSYA|SAYFA)\s*:\s*.*$/gim,
+        ""
+      )
+
+      .replace(/\(\s*\)/g, "")
+      .replace(/[ \t]+\n/g, "\n")
+      .replace(/\n{3,}/g, "\n\n")
+      .replace(/[ \t]{2,}/g, " ")
+      .trim();
+
+  text =
+    text
+      .replace(
+        /rehber görsellerinin tamamı ekte yer almaktadır\.?/gi,
+        ""
+      )
+
+      .replace(
+        /rehber gorsellerinin tamami ekte yer almaktadir\.?/gi,
+        ""
+      )
+
+      .replace(
+        /ekte yer alan görsellerde/gi,
+        "rehberde"
+      )
+
+      .replace(
+        /ekte yer alan gorsellerde/gi,
+        "rehberde"
+      )
+
       .trim();
 
   if (
@@ -212,63 +166,33 @@ function tidyAnswer(value) {
       MAX_ANSWER_CHARS
     );
 
-  const cuts = [
-    sample.lastIndexOf(
-      ". "
-    ),
-
-    sample.lastIndexOf(
-      "! "
-    ),
-
-    sample.lastIndexOf(
-      "? "
-    ),
-
-    sample.lastIndexOf(
-      "\n"
-    )
-  ];
-
-  let cut =
+  const cut =
     Math.max(
-      ...cuts
+      sample.lastIndexOf(". "),
+      sample.lastIndexOf("! "),
+      sample.lastIndexOf("? "),
+      sample.lastIndexOf("\n")
     );
-
-  if (cut < 800) {
-    cut =
-      MAX_ANSWER_CHARS;
-  } else {
-    cut += 1;
-  }
 
   return (
     `${text
       .slice(
         0,
-        cut
+        cut > 800
+          ? cut + 1
+          : MAX_ANSWER_CHARS
       )
       .trim()}…`
   );
 }
 
-function splitDiscordMessage(
-  value
-) {
+function splitDiscordMessage(value) {
   let text =
-    String(
-      value || ""
-    ).trim();
+    String(value || "")
+      .trim();
 
   if (!text) {
     return [];
-  }
-
-  if (
-    text.length <=
-    MAX_DISCORD_MESSAGE
-  ) {
-    return [text];
   }
 
   const chunks = [];
@@ -298,10 +222,7 @@ function splitDiscordMessage(
 
     chunks.push(
       text
-        .slice(
-          0,
-          cut
-        )
+        .slice(0, cut)
         .trim()
     );
 
@@ -312,18 +233,13 @@ function splitDiscordMessage(
   }
 
   if (text) {
-    chunks.push(
-      text
-    );
+    chunks.push(text);
   }
 
   return chunks;
 }
 
-function compareSnowflakes(
-  a,
-  b
-) {
+function compareSnowflakes(a, b) {
   try {
     const aa =
       BigInt(
@@ -339,15 +255,13 @@ function compareSnowflakes(
         )
       );
 
-    if (aa < bb) {
-      return -1;
-    }
-
-    if (aa > bb) {
-      return 1;
-    }
-
-    return 0;
+    return (
+      aa < bb
+        ? -1
+        : aa > bb
+          ? 1
+          : 0
+    );
 
   } catch {
     return String(
@@ -358,50 +272,6 @@ function compareSnowflakes(
       )
     );
   }
-}
-
-function getImageAttachment(
-  message
-) {
-  const attachments =
-    Array.isArray(
-      message?.attachments
-    )
-      ? message.attachments
-      : [];
-
-  return (
-    attachments.find(
-      (attachment) => {
-        const type =
-          String(
-            attachment
-              ?.content_type ||
-            ""
-          )
-            .toLowerCase();
-
-        const filename =
-          String(
-            attachment
-              ?.filename ||
-            ""
-          )
-            .toLowerCase();
-
-        return (
-          type.startsWith(
-            "image/"
-          ) ||
-          /\.(png|jpe?g|webp)$/i
-            .test(
-              filename
-            )
-        );
-      }
-    ) ||
-    null
-  );
 }
 
 function isImageAttachment(
@@ -428,20 +298,32 @@ function isImageAttachment(
       "image/"
     ) ||
     /\.(png|jpe?g|webp)$/i
-      .test(
-        filename
-      )
+      .test(filename)
+  );
+}
+
+function getImageAttachment(
+  message
+) {
+  return (
+    (
+      message
+        ?.attachments ||
+      []
+    )
+      .find(
+        isImageAttachment
+      ) ||
+    null
   );
 }
 
 function parseCsvIds(value) {
   return new Set(
-    String(
-      value || ""
-    )
+    String(value || "")
       .split(",")
       .map(
-        (x) =>
+        x =>
           x.trim()
       )
       .filter(Boolean)
@@ -449,7 +331,7 @@ function parseCsvIds(value) {
 }
 
 function formatRemaining(ms) {
-  const totalSeconds =
+  const total =
     Math.max(
       1,
       Math.ceil(
@@ -461,60 +343,43 @@ function formatRemaining(ms) {
 
   const minutes =
     Math.floor(
-      totalSeconds / 60
+      total / 60
     );
 
   const seconds =
-    totalSeconds % 60;
+    total % 60;
 
   if (
-    minutes > 0 &&
-    seconds > 0
+    minutes &&
+    seconds
   ) {
-    return `${minutes} dakika ${seconds} saniye`;
+    return (
+      `${minutes} dakika ${seconds} saniye`
+    );
   }
 
-  if (minutes > 0) {
-    return `${minutes} dakika`;
+  if (minutes) {
+    return (
+      `${minutes} dakika`
+    );
   }
 
-  return `${seconds} saniye`;
-}
-
-function retryableBackendStatus(
-  status
-) {
   return (
-    status === 502 ||
-    status === 503 ||
-    status === 504
+    `${seconds} saniye`
   );
 }
 
 function appendGuideReminder(
   answer,
-  question,
   force = false
 ) {
   const text =
-    String(
-      answer || ""
-    ).trim();
-
-  if (!text) {
-    return text;
-  }
+    String(answer || "")
+      .trim();
 
   if (
-    !force &&
-    !isGuideTopicQuestion(
-      question
-    )
-  ) {
-    return text;
-  }
-
-  if (
+    !text ||
+    !force ||
     text.includes(
       `<#${GUIDE_CHANNEL_ID}>`
     )
@@ -536,43 +401,8 @@ function isIdentityQuestion(
     );
 
   return (
-    q.includes(
-      "sen kimsin"
-    ) ||
-    q.includes(
-      "sen nesin"
-    ) ||
-    q.includes(
-      "kimin botusun"
-    ) ||
-    q.includes(
-      "kim gelistirdi"
-    ) ||
-    q.includes(
-      "kim yapti seni"
-    )
-  );
-}
-
-function isChannelRecommendationQuestion(
-  question
-) {
-  const q =
-    normalizeGuideText(
-      question
-    );
-
-  const asksChannel =
-    /kanal|youtube|youtuber|yayinci|streamer|icerik uretici/
-      .test(q);
-
-  const asksRecommendation =
-    /oner|tavsiye|izley|takip et/
-      .test(q);
-
-  return (
-    asksChannel &&
-    asksRecommendation
+    /sen kimsin|sen nesin|kimin botusun|kim gelistirdi|kim yapti seni/
+      .test(q)
   );
 }
 
@@ -584,48 +414,10 @@ function isGuildInfoQuestion(
       question
     );
 
-  const guild =
+  return (
     /guild|lonca/
-      .test(q);
-
-  const intent =
-    /katil|basvur|alim|hangi taraf|alliance|horde|ruleset|sunucu|server/
-      .test(q);
-
-  return (
-    guild &&
-    intent
-  );
-}
-
-function isGuideTopicQuestion(
-  question
-) {
-  const q =
-    normalizeGuideText(
-      question
-    );
-
-  return (
-    /ruleset|horde|alliance/
-      .test(q) ||
-
-    /level[a-z]*|kasma/
-      .test(q) ||
-
-    /race|racial|irk[a-z]*/
-      .test(q) ||
-
-    /class|sinif|warrior|hunter|mage|rogue|priest|warlock|paladin|druid|shaman/
-      .test(q) ||
-
-    /mana|energy|focus|rage|zirh|armor|healer|tank/
-      .test(q) ||
-
-    /addon|action bar|cooldown manager|swing timer|dps metre|nameplate|keybind|fps|gamepad/
-      .test(q) ||
-
-    /meslek|profession|crafting|gathering|tracking|kamp|camping|legacy/
+      .test(q) &&
+    /katil|basvur|alim|alliance|horde|ruleset|sunucu|server/
       .test(q)
   );
 }
@@ -633,26 +425,21 @@ function isGuideTopicQuestion(
 function bytesToBase64(bytes) {
   let binary = "";
 
-  const chunkSize =
-    0x8000;
-
   for (
     let i = 0;
     i < bytes.length;
-    i += chunkSize
+    i += 0x8000
   ) {
     binary +=
       String.fromCharCode(
         ...bytes.subarray(
           i,
-          i + chunkSize
+          i + 0x8000
         )
       );
   }
 
-  return btoa(
-    binary
-  );
+  return btoa(binary);
 }
 
 function extractInteractionText(
@@ -703,16 +490,18 @@ function extractInteractionText(
     const text =
       content
         .filter(
-          (part) =>
+          part =>
             part?.type ===
               "text" &&
             typeof part?.text ===
               "string"
         )
+
         .map(
-          (part) =>
+          part =>
             part.text
         )
+
         .join("\n")
         .trim();
 
@@ -740,29 +529,16 @@ export default {
     ) {
       return json({
         ok: true,
-
         service:
           "totik-ai",
-
         mode:
-          "source-aware-class-guides",
-
-        questionChannelId:
-          QUESTION_CHANNEL_ID,
-
-        classGuideImageChannelId:
-          GUIDE_IMAGE_CHANNEL_ID,
-
-        normalCooldownMinutes:
-          NORMAL_COOLDOWN_MS /
-          60000,
-
-        premiumCooldownMinutes:
-          PREMIUM_COOLDOWN_MS /
-          60000,
-
+          "class-guide-grounded-v2",
         guideCatalog:
-          catalogDiagnostics()
+          catalogDiagnostics(),
+        normalCooldownMinutes:
+          15,
+        premiumCooldownMinutes:
+          1
       });
     }
 
@@ -770,7 +546,6 @@ export default {
       return json(
         {
           ok: false,
-
           error:
             "GATEWAY Durable Object binding bulunamadı."
         },
@@ -778,13 +553,12 @@ export default {
       );
     }
 
-    const id =
-      env.GATEWAY.idFromName(
-        "totik-ai-main"
-      );
-
     const stub =
-      env.GATEWAY.get(id);
+      env.GATEWAY.get(
+        env.GATEWAY.idFromName(
+          "totik-ai-main"
+        )
+      );
 
     const routeMap = {
       "/":
@@ -806,12 +580,12 @@ export default {
         "/guide-check"
     };
 
-    const internalPath =
+    const target =
       routeMap[
         url.pathname
       ];
 
-    if (!internalPath) {
+    if (!target) {
       return new Response(
         "Not found",
         {
@@ -820,28 +594,11 @@ export default {
       );
     }
 
-    try {
-      return await stub.fetch(
-        new Request(
-          `https://internal${internalPath}`
-        )
-      );
-
-    } catch (error) {
-      return json(
-        {
-          ok: false,
-
-          error:
-            "durable_object_unavailable",
-
-          detail:
-            error?.message ||
-            String(error)
-        },
-        503
-      );
-    }
+    return stub.fetch(
+      new Request(
+        `https://internal${target}`
+      )
+    );
   }
 };
 
@@ -909,19 +666,7 @@ export class DiscordGateway
 
       return json({
         ok: true,
-
-        state:
-          "polling",
-
-        running:
-          true,
-
-        pollIntervalSeconds:
-          POLL_INTERVAL_MS /
-          1000,
-
-        classGuideImageChannelId:
-          GUIDE_IMAGE_CHANNEL_ID
+        state: "polling"
       });
     }
 
@@ -962,12 +707,8 @@ export class DiscordGateway
 
       return json({
         ok: true,
-
-        manualRun:
-          true,
-
-        state:
-          "polling"
+        state: "polling",
+        manualRun: true
       });
     }
 
@@ -997,9 +738,7 @@ export class DiscordGateway
         lastPollAt,
         lastQuestionAt,
         lastError,
-        lastTrace,
-        answeredCount,
-        technicalFailureCount
+        lastTrace
       ] =
         await Promise.all([
           this.ctx.storage.get(
@@ -1028,14 +767,6 @@ export class DiscordGateway
 
           this.ctx.storage.get(
             "last_trace"
-          ),
-
-          this.ctx.storage.get(
-            "answered_count"
-          ),
-
-          this.ctx.storage.get(
-            "technical_failure_count"
           )
         ]);
 
@@ -1055,24 +786,6 @@ export class DiscordGateway
         initialized:
           initialized === true,
 
-        pollIntervalSeconds:
-          POLL_INTERVAL_MS /
-          1000,
-
-        normalCooldownMinutes:
-          NORMAL_COOLDOWN_MS /
-          60000,
-
-        premiumCooldownMinutes:
-          PREMIUM_COOLDOWN_MS /
-          60000,
-
-        questionChannelId:
-          QUESTION_CHANNEL_ID,
-
-        guideImageChannelId:
-          GUIDE_IMAGE_CHANNEL_ID,
-
         lastMessageId:
           lastMessageId ||
           null,
@@ -1091,14 +804,6 @@ export class DiscordGateway
                 alarmAt
               ).toISOString()
             : null,
-
-        answeredCount:
-          answeredCount ??
-          0,
-
-        technicalFailureCount:
-          technicalFailureCount ??
-          0,
 
         lastTrace:
           lastTrace ||
@@ -1122,19 +827,15 @@ export class DiscordGateway
   }
 
   async alarm() {
-    const enabled =
-      await this.ctx.storage.get(
-        "polling_enabled"
-      );
-
     if (
-      enabled === false
+      (
+        await this.ctx.storage.get(
+          "polling_enabled"
+        )
+      ) === false
     ) {
       return;
     }
-
-    const startedAt =
-      Date.now();
 
     try {
       await this.ensureInitialized();
@@ -1149,38 +850,28 @@ export class DiscordGateway
       );
 
     } finally {
-      const stillEnabled =
-        await this.ctx.storage.get(
-          "polling_enabled"
-        );
-
       if (
-        stillEnabled !== false
-      ) {
-        const scheduled =
-          startedAt +
-          POLL_INTERVAL_MS;
-
-        await this.ctx.storage.setAlarm(
-          Math.max(
-            Date.now() +
-            1000,
-
-            scheduled
+        (
+          await this.ctx.storage.get(
+            "polling_enabled"
           )
+        ) !== false
+      ) {
+        await this.ctx.storage.setAlarm(
+          Date.now() +
+          POLL_INTERVAL_MS
         );
       }
     }
   }
 
   async ensureInitialized() {
-    const initialized =
-      await this.ctx.storage.get(
-        "initialized"
-      );
-
     if (
-      initialized === true
+      (
+        await this.ctx.storage.get(
+          "initialized"
+        )
+      ) === true
     ) {
       return;
     }
@@ -1194,7 +885,7 @@ export class DiscordGateway
       Array.isArray(
         messages
       ) &&
-      messages.length > 0
+      messages.length
     ) {
       await this.ctx.storage.put(
         "last_message_id",
@@ -1204,23 +895,15 @@ export class DiscordGateway
       );
     }
 
-    await Promise.all([
-      this.ctx.storage.put(
-        "initialized",
-        true
-      ),
+    await this.ctx.storage.put(
+      "initialized",
+      true
+    );
 
-      this.ctx.storage.put(
-        "polling_enabled",
-        true
-      ),
-
-      this.ctx.storage.put(
-        "last_poll_at",
-        new Date()
-          .toISOString()
-      )
-    ]);
+    await this.ctx.storage.put(
+      "polling_enabled",
+      true
+    );
   }
 
   async pollOnce() {
@@ -1248,7 +931,7 @@ export class DiscordGateway
         !Array.isArray(
           messages
         ) ||
-        messages.length === 0
+        !messages.length
       ) {
         break;
       }
@@ -1272,19 +955,17 @@ export class DiscordGateway
         );
 
         if (
-          message
-            ?.author
-            ?.bot
+          message?.author?.bot
         ) {
           continue;
         }
 
         const content =
           String(
-            message
-              ?.content ||
+            message?.content ||
             ""
-          ).trim();
+          )
+            .trim();
 
         if (
           !QUESTION_COMMAND
@@ -1301,8 +982,6 @@ export class DiscordGateway
           );
 
         } catch (error) {
-          await this.markTechnicalFailure();
-
           await this.setLastError(
             `Handle command: ${
               error?.message ||
@@ -1313,7 +992,8 @@ export class DiscordGateway
       }
 
       if (
-        messages.length < 100
+        messages.length <
+        100
       ) {
         break;
       }
@@ -1327,6 +1007,9 @@ export class DiscordGateway
   }
 
   async buildGuideCheck() {
+    const diag =
+      catalogDiagnostics();
+
     const report = {
       ok: true,
 
@@ -1334,7 +1017,7 @@ export class DiscordGateway
         GUIDE_IMAGE_CHANNEL_ID,
 
       totalExpectedPages:
-        0,
+        CLASS_GUIDE_PAGES.length,
 
       totalMatchedPages:
         0,
@@ -1345,25 +1028,12 @@ export class DiscordGateway
       classes: {}
     };
 
-    const diag =
-      catalogDiagnostics();
-
     for (
       const classKey
       of Object.keys(
         GUIDE_BATCH_MESSAGE_IDS
       )
     ) {
-      const expectedPages =
-        Number(
-          diag.pageCounts
-            ?.[classKey] ||
-          0
-        );
-
-      report.totalExpectedPages +=
-        expectedPages;
-
       try {
         const attachments =
           await this.getClassAttachmentIndex(
@@ -1371,20 +1041,22 @@ export class DiscordGateway
             true
           );
 
-        const classPages =
+        const pages =
           CLASS_GUIDE_PAGES
             .filter(
-              (page) =>
+              page =>
                 page.classKey ===
                 classKey
             );
 
-        const matched = [];
         const missing = [];
+
+        let matchedPages =
+          0;
 
         for (
           const page
-          of classPages
+          of pages
         ) {
           const found =
             findAttachmentForPage(
@@ -1395,27 +1067,7 @@ export class DiscordGateway
           if (
             found.attachment
           ) {
-            matched.push({
-              key:
-                page.key,
-
-              filename:
-                page.filename,
-
-              attachmentFilename:
-                found
-                  .attachment
-                  .filename,
-
-              messageId:
-                found
-                  .attachment
-                  .__sourceMessageId ||
-                null,
-
-              matchMode:
-                found.matchMode
-            });
+            matchedPages++;
 
           } else {
             missing.push({
@@ -1429,7 +1081,7 @@ export class DiscordGateway
         }
 
         report.totalMatchedPages +=
-          matched.length;
+          matchedPages;
 
         report.totalImageAttachments +=
           attachments.length;
@@ -1438,26 +1090,32 @@ export class DiscordGateway
           classKey
         ] = {
           ok:
-            missing.length === 0,
+            missing.length ===
+            0,
 
           messageIds:
-            GUIDE_BATCH_MESSAGE_IDS[
+            expectedBatchMessageIds(
               classKey
-            ],
+            ),
 
-          expectedPages,
+          expectedPages:
+            Number(
+              diag
+                .pageCounts
+                ?.[classKey] ||
+              pages.length
+            ),
 
           attachmentCount:
             attachments.length,
 
-          matchedPages:
-            matched.length,
+          matchedPages,
 
           missing
         };
 
         if (
-          missing.length > 0
+          missing.length
         ) {
           report.ok =
             false;
@@ -1473,11 +1131,17 @@ export class DiscordGateway
           ok: false,
 
           messageIds:
-            GUIDE_BATCH_MESSAGE_IDS[
+            expectedBatchMessageIds(
               classKey
-            ],
+            ),
 
-          expectedPages,
+          expectedPages:
+            Number(
+              diag
+                .pageCounts
+                ?.[classKey] ||
+              0
+            ),
 
           error:
             error?.message ||
@@ -1492,10 +1156,10 @@ export class DiscordGateway
   async handleCommand(message) {
     const content =
       String(
-        message
-          ?.content ||
+        message?.content ||
         ""
-      ).trim();
+      )
+        .trim();
 
     if (
       DEBUG_COMMAND
@@ -1504,6 +1168,48 @@ export class DiscordGateway
       await this.handleDebugCommand(
         message
       );
+
+      return;
+    }
+
+    const userId =
+      String(
+        message.author.id
+      );
+
+    const premiumInfo =
+      await this.getMemberCooldownClass(
+        message
+      );
+
+    const cooldown =
+      await this.acquireCooldown(
+        userId,
+        premiumInfo.durationMs
+      );
+
+    if (
+      !cooldown.allowed
+    ) {
+      await this.reply(
+        message,
+
+        `⏱️ Tekrar soru sorabilmek için **${formatRemaining(cooldown.remainingMs)}** beklemelisin. YouTube Katıl ve Twitch Sub üyelerinde bekleme süresi 1 dakika, normal üyelerde 15 dakikadır.`
+      );
+
+      await this.recordTrace({
+        route:
+          "cooldown_reject",
+
+        tier:
+          premiumInfo.reason,
+
+        remainingMs:
+          cooldown.remainingMs,
+
+        tavilyUsed:
+          false
+      });
 
       return;
     }
@@ -1559,95 +1265,43 @@ export class DiscordGateway
         referencedMessage
       );
 
-    let effectiveQuestion =
-      "";
+    let question =
+      currentQuestion;
 
     if (
       referencedText &&
       currentQuestion
     ) {
-      effectiveQuestion =
+      question =
         `Önceki mesaj: ${referencedText}\nEk soru: ${currentQuestion}`;
 
     } else if (
-      currentQuestion
-    ) {
-      effectiveQuestion =
-        currentQuestion;
-
-    } else if (
+      !currentQuestion &&
       referencedText
     ) {
-      effectiveQuestion =
+      question =
         referencedText;
 
     } else if (
+      !currentQuestion &&
       userImage
     ) {
-      effectiveQuestion =
+      question =
         "Bu World of Warcraft görselindeki konu hakkında yardımcı ol.";
     }
 
     if (
-      !effectiveQuestion &&
+      !question &&
       !userImage
     ) {
-      await this.reply(
-        message,
-
-        "Sorunu `!soru` komutundan sonra yazabilir veya cevaplamak istediğin mesaja reply atıp sadece `!soru` yazabilirsin."
+      await this.releaseCooldown(
+        userId
       );
-
-      return;
-    }
-
-    const userId =
-      String(
-        message.author.id
-      );
-
-    const premiumInfo =
-      await this.getMemberCooldownClass(
-        message
-      );
-
-    const cooldown =
-      await this.acquireCooldown(
-        userId,
-        premiumInfo.durationMs
-      );
-
-    if (!cooldown.allowed) {
-      const cooldownMessage =
-        `⏱️ Tekrar soru sorabilmek için **${formatRemaining(cooldown.remainingMs)}** beklemelisin. ` +
-        "YouTube Katıl ve Twitch Sub üyelerinde bekleme süresi 1 dakika, normal üyelerde 15 dakikadır.";
 
       await this.reply(
         message,
-        cooldownMessage
+        "Sorunu `!soru` komutundan sonra yazabilirsin."
       );
-
-      await this.recordTrace({
-        route:
-          "cooldown_reject",
-
-        userId,
-
-        premium:
-          premiumInfo.premium,
-
-        premiumReason:
-          premiumInfo.reason,
-
-        remainingMs:
-          cooldown.remainingMs,
-
-        tavilyUsed:
-          false,
-
-        imageSent:
-          false
-      });
 
       return;
     }
@@ -1660,35 +1314,8 @@ export class DiscordGateway
 
     try {
       if (
-        isGuildInfoQuestion(
-          effectiveQuestion
-        )
-      ) {
-        await this.reply(
-          message,
-          GUILD_INFO_MESSAGE
-        );
-
-        await this.finishSuccessfulAnswer({
-          route:
-            "local_guild",
-
-          source:
-            "local_constant",
-
-          tavilyUsed:
-            false,
-
-          imageSent:
-            false
-        });
-
-        return;
-      }
-
-      if (
         isIdentityQuestion(
-          effectiveQuestion
+          question
         )
       ) {
         await this.reply(
@@ -1696,7 +1323,7 @@ export class DiscordGateway
           IDENTITY_MESSAGE
         );
 
-        await this.finishSuccessfulAnswer({
+        await this.recordTrace({
           route:
             "local_identity",
 
@@ -1704,9 +1331,6 @@ export class DiscordGateway
             "local_constant",
 
           tavilyUsed:
-            false,
-
-          imageSent:
             false
         });
 
@@ -1714,26 +1338,23 @@ export class DiscordGateway
       }
 
       if (
-        isChannelRecommendationQuestion(
-          effectiveQuestion
+        isGuildInfoQuestion(
+          question
         )
       ) {
         await this.reply(
           message,
-          CHANNEL_RECOMMENDATION_MESSAGE
+          GUILD_INFO_MESSAGE
         );
 
-        await this.finishSuccessfulAnswer({
+        await this.recordTrace({
           route:
-            "local_channel_recommendation",
+            "local_guild",
 
           source:
             "local_constant",
 
           tavilyUsed:
-            false,
-
-          imageSent:
             false
         });
 
@@ -1744,50 +1365,60 @@ export class DiscordGateway
         QUESTION_CHANNEL_ID
       );
 
-      const classResolution =
+      let classFallbackMedia =
+        [];
+
+      const resolution =
         resolveClassGuide(
-          effectiveQuestion
+          question
         );
 
       if (
-        classResolution.matched &&
-        classResolution.pages.length > 0
+        resolution.matched &&
+        resolution.pages?.length
       ) {
-        const classResult =
+        const guideResult =
           await this.answerFromClassGuide(
             message,
-            effectiveQuestion,
-            classResolution
+            question,
+            resolution
           );
 
         if (
-          classResult.handled
+          guideResult.handled
         ) {
-          await this.finishSuccessfulAnswer(
-            classResult.trace
+          await this.recordTrace(
+            guideResult.trace
           );
+
+          await this.clearLastError();
 
           return;
         }
+
+        classFallbackMedia =
+          guideResult.media ||
+          [];
       }
 
       let finalQuestion =
-        effectiveQuestion;
+        question;
 
       if (userImage) {
         const imageContext =
           await this.analyzeUserImage(
             userImage,
-            effectiveQuestion
+            question
           );
 
         if (imageContext) {
           finalQuestion +=
-            `\n\nEkran görüntüsünden okunan bilgiler:\n${imageContext}`;
+            `\n\nKullanıcı görselinden okunan bilgi:\n${imageContext}`;
         }
       }
 
       let result;
+
       let listenerFallback =
         false;
 
@@ -1797,7 +1428,9 @@ export class DiscordGateway
             finalQuestion
           );
 
-      } catch (backendError) {
+      } catch (
+        backendError
+      ) {
         listenerFallback =
           true;
 
@@ -1808,8 +1441,8 @@ export class DiscordGateway
           );
       }
 
-      const answer =
-        tidyAnswer(
+      let answer =
+        sanitizeGuideAnswer(
           result?.answer ||
           ""
         );
@@ -1820,16 +1453,8 @@ export class DiscordGateway
         );
       }
 
-      const finalAnswer =
-        appendGuideReminder(
-          answer,
-          effectiveQuestion,
-          Boolean(
-            result?.curatedTopic
-          )
-        );
-
-      const specialFiles = [];
+      const specialMedia =
+        [];
 
       if (
         result?.curatedTopic &&
@@ -1837,78 +1462,102 @@ export class DiscordGateway
           result.curatedTopic
         ]
       ) {
-        const specialMedia =
+        const item =
           await this.getSpecialGuideMedia(
             result.curatedTopic
           );
 
-        if (specialMedia) {
-          specialFiles.push(
-            specialMedia
+        if (item) {
+          specialMedia.push(
+            item
           );
         }
       }
 
-      const preparedFiles =
+      const allMedia = [
+        ...classFallbackMedia,
+        ...specialMedia
+      ];
+
+      const files =
         await this.prepareOutgoingFiles(
-          specialFiles
+          allMedia
+        );
+
+      const shouldRemind =
+        Boolean(
+          resolution.matched ||
+          result?.curatedTopic
+        );
+
+      answer =
+        appendGuideReminder(
+          answer,
+          shouldRemind
         );
 
       await this.reply(
         message,
-        finalAnswer,
+        answer,
         {
-          files:
-            preparedFiles
+          files
         }
       );
 
-      const source =
-        listenerFallback
-          ? "listener_gemini_fallback"
-          : result?.curated
-            ? `backend_curated:${result.curatedTopic || "unknown"}`
-            : Array.isArray(
-                result?.sources
-              ) &&
-              result.sources.length > 0
-                ? `backend_tavily_grounded:${result.mode || "unknown"}`
-                : `backend_model_or_fallback:${result?.mode || result?.fallback || "unknown"}`;
-
-      await this.finishSuccessfulAnswer({
+      await this.recordTrace({
         route:
-          "normal_backend",
+          resolution.matched
+            ? "class_guide_backend_fallback"
+            : "normal_backend",
 
-        source,
+        source:
+          listenerFallback
+            ? "listener_gemini_fallback"
+            : result?.curated
+              ? `backend_curated:${result.curatedTopic || "unknown"}`
+              : Array.isArray(
+                  result?.sources
+                ) &&
+                result.sources.length
+                ? `backend_tavily_grounded:${result.mode || "unknown"}`
+                : `backend_model:${result?.mode || "unknown"}`,
 
-        backendMode:
-          result?.mode ||
+        classKey:
+          resolution.classKey ||
           null,
 
-        curatedTopic:
-          result?.curatedTopic ||
+        treeKey:
+          resolution.treeKey ||
           null,
+
+        pages:
+          (
+            resolution.pages ||
+            []
+          )
+            .map(
+              p =>
+                p.key
+            ),
+
+        imagesSent:
+          files.length,
 
         tavilyUsed:
           !listenerFallback &&
           Array.isArray(
             result?.sources
           ) &&
-          result.sources.length > 0,
-
-        imageSent:
-          preparedFiles.length > 0,
-
-        imageCount:
-          preparedFiles.length
+          result.sources.length >
+          0
       });
+
+      await this.clearLastError();
 
     } catch (error) {
       await this.releaseCooldown(
         userId
       );
-
-      await this.markTechnicalFailure();
 
       await this.setLastError(
         `Question: ${
@@ -1925,7 +1574,9 @@ export class DiscordGateway
     }
   }
 
-  async handleDebugCommand(message) {
+  async handleDebugCommand(
+    message
+  ) {
     const userId =
       String(
         message
@@ -1946,25 +1597,30 @@ export class DiscordGateway
         "last_trace"
       );
 
-    const lastError =
+    const error =
       await this.ctx.storage.get(
         "last_error"
       );
 
-    const payload = {
-      lastTrace:
-        trace ||
-        null,
-
-      lastError:
-        lastError ||
-        null
-    };
-
     await this.reply(
       message,
 
-      `\`\`\`json\n${JSON.stringify(payload, null, 2).slice(0, 1700)}\n\`\`\``
+      `\`\`\`json\n${JSON.stringify(
+        {
+          lastTrace:
+            trace ||
+            null,
+
+          lastError:
+            error ||
+            null
+        },
+        null,
+        2
+      ).slice(
+        0,
+        1700
+      )}\n\`\`\``
     );
   }
 
@@ -1981,20 +1637,26 @@ export class DiscordGateway
         resolution
       );
 
-    const pageContexts = [];
+    const contexts =
+      [];
 
-    const contextSources =
+    const sourceKinds =
       new Set();
+
+    let allPagesGrounded =
+      true;
 
     for (
       const page
       of resolution.pages
     ) {
       if (
-        (page.talents || [])
-          .length > 0
+        (
+          page.talents ||
+          []
+        ).length
       ) {
-        pageContexts.push(
+        contexts.push(
           buildStructuredGuideContext({
             pages: [
               page
@@ -2002,7 +1664,7 @@ export class DiscordGateway
           })
         );
 
-        contextSources.add(
+        sourceKinds.add(
           "catalog_structured"
         );
 
@@ -2011,92 +1673,85 @@ export class DiscordGateway
 
       const mediaItem =
         media.find(
-          (item) =>
+          item =>
             item.page.key ===
             page.key
-        ) ||
-        null;
-
-      if (mediaItem) {
-        try {
-          const visionText =
-            await this.getCachedGuideVisionText(
-              page,
-              mediaItem
-            );
-
-          if (visionText) {
-            pageContexts.push(
-              `PAGE: ${page.key}\nFILE: ${page.filename}\nVISION_TRANSCRIPT:\n${visionText}`
-            );
-
-            contextSources.add(
-              "guide_image_vision_cache"
-            );
-
-            continue;
-          }
-
-        } catch (error) {
-          await this.setLastError(
-            `Guide vision ${page.key}: ${
-              error?.message ||
-              String(error)
-            }`
-          );
-        }
-      }
-
-      pageContexts.push(
-        buildKeywordFallbackContext(
-          page
-        )
-      );
-
-      contextSources.add(
-        "catalog_keywords_fallback"
-      );
-    }
-
-    const context =
-      pageContexts
-        .filter(Boolean)
-        .join(
-          "\n\n---\n\n"
-        )
-        .slice(
-          0,
-          30000
         );
 
+      if (!mediaItem) {
+        allPagesGrounded =
+          false;
+
+        continue;
+      }
+
+      try {
+        const vision =
+          await this.getCachedGuideVisionText(
+            page,
+            mediaItem
+          );
+
+        if (!vision) {
+          allPagesGrounded =
+            false;
+
+          continue;
+        }
+
+        contexts.push(
+          `KAYNAK ${contexts.length + 1}:\n${vision}`
+        );
+
+        sourceKinds.add(
+          "guide_image_vision"
+        );
+
+      } catch (error) {
+        allPagesGrounded =
+          false;
+
+        await this.setLastError(
+          `Guide vision ${page.key}: ${
+            error?.message ||
+            String(error)
+          }`
+        );
+      }
+    }
+
     if (
-      !context.trim()
+      !contexts.length ||
+      !allPagesGrounded
     ) {
       return {
         handled:
           false,
+
+        media,
 
         trace: {
           route:
             "class_guide",
 
           source:
-            "no_context",
+            "guide_grounding_incomplete",
 
           classKey:
             resolution.classKey,
 
+          treeKey:
+            resolution.treeKey ||
+            null,
+
           pages:
             resolution.pages
               .map(
-                (p) =>
+                p =>
                   p.key
               ),
 
           tavilyUsed:
-            false,
-
-          imageSent:
             false
         }
       };
@@ -2106,143 +1761,113 @@ export class DiscordGateway
       await this.askGuideGrounded(
         question,
         resolution,
-        context
+        contexts.join(
+          "\n\n---\n\n"
+        )
       );
 
-    if (!answer) {
+    const cleanAnswer =
+      sanitizeGuideAnswer(
+        answer
+      );
+
+    if (!cleanAnswer) {
       return {
         handled:
           false,
+
+        media,
 
         trace: {
           route:
             "class_guide",
 
           source:
-            "guide_model_empty",
-
-          classKey:
-            resolution.classKey,
-
-          pages:
-            resolution.pages
-              .map(
-                (p) =>
-                  p.key
-              ),
-
-          tavilyUsed:
-            false,
-
-          imageSent:
-            false
+            "empty_guide_answer"
         }
       };
     }
 
-    const finalAnswer =
-      appendGuideReminder(
-        tidyAnswer(
-          answer
-        ),
-        question,
-        true
-      );
-
-    const preparedFiles =
+    const files =
       await this.prepareOutgoingFiles(
         media
+      );
+
+    const finalAnswer =
+      appendGuideReminder(
+        cleanAnswer,
+        true
       );
 
     await this.reply(
       message,
       finalAnswer,
       {
-        files:
-          preparedFiles
+        files
       }
     );
-
-    const trace = {
-      route:
-        "class_guide",
-
-      source:
-        [...contextSources]
-          .join("+"),
-
-      classKey:
-        resolution.classKey,
-
-      treeKey:
-        resolution.treeKey ||
-        null,
-
-      intents:
-        resolution.intents,
-
-      reason:
-        resolution.reason,
-
-      confidence:
-        resolution.confidence,
-
-      pages:
-        resolution.pages
-          .map(
-            (page) =>
-              page.key
-          ),
-
-      filenames:
-        resolution.pages
-          .map(
-            (page) =>
-              page.filename
-          ),
-
-      batchMessageIds:
-        expectedBatchMessageIds(
-          resolution.classKey
-        ),
-
-      imageChannelId:
-        GUIDE_IMAGE_CHANNEL_ID,
-
-      imagesMatched:
-        media.length,
-
-      imagesSent:
-        preparedFiles.length,
-
-      imageSent:
-        preparedFiles.length > 0,
-
-      tavilyUsed:
-        false,
-
-      elapsedMs:
-        Date.now() -
-        startedAt
-    };
 
     return {
       handled:
         true,
 
-      trace
+      trace: {
+        route:
+          "class_guide",
+
+        source:
+          [
+            ...sourceKinds
+          ].join("+"),
+
+        classKey:
+          resolution.classKey,
+
+        treeKey:
+          resolution.treeKey ||
+          null,
+
+        intents:
+          resolution.intents ||
+          [],
+
+        reason:
+          resolution.reason,
+
+        pages:
+          resolution.pages
+            .map(
+              p =>
+                p.key
+            ),
+
+        batchMessageIds:
+          expectedBatchMessageIds(
+            resolution.classKey
+          ),
+
+        imagesMatched:
+          media.length,
+
+        imagesSent:
+          files.length,
+
+        tavilyUsed:
+          false,
+
+        elapsedMs:
+          Date.now() -
+          startedAt
+      }
     };
   }
 
   async loadClassGuideMedia(
     resolution
   ) {
-    const classKey =
-      resolution.classKey;
-
     const attachments =
       await this.getClassAttachmentIndex(
-        classKey
+        resolution.classKey
       );
 
     const results = [];
@@ -2260,27 +1885,6 @@ export class DiscordGateway
       if (
         !match.attachment
       ) {
-        console.log(
-          JSON.stringify({
-            event:
-              "guide_attachment_missing",
-
-            classKey,
-
-            pageKey:
-              page.key,
-
-            filename:
-              page.filename,
-
-            batchMessageIds:
-              GUIDE_BATCH_MESSAGE_IDS[
-                classKey
-              ] ||
-              []
-          })
-        );
-
         continue;
       }
 
@@ -2289,12 +1893,6 @@ export class DiscordGateway
 
         attachment:
           match.attachment,
-
-        matchMode:
-          match.matchMode,
-
-        sourceChannelId:
-          GUIDE_IMAGE_CHANNEL_ID,
 
         sourceMessageId:
           match
@@ -2314,9 +1912,6 @@ export class DiscordGateway
     classKey,
     forceRefresh = false
   ) {
-    const now =
-      Date.now();
-
     const cached =
       this.classAttachmentCache.get(
         classKey
@@ -2325,7 +1920,8 @@ export class DiscordGateway
     if (
       !forceRefresh &&
       cached &&
-      now - cached.at <
+      Date.now() -
+      cached.at <
       GUIDE_ATTACHMENT_CACHE_MS
     ) {
       return (
@@ -2333,17 +1929,15 @@ export class DiscordGateway
       );
     }
 
-    const messageIds =
-      GUIDE_BATCH_MESSAGE_IDS[
-        classKey
-      ] ||
+    const attachments =
       [];
-
-    const attachments = [];
 
     for (
       const messageId
-      of messageIds
+      of GUIDE_BATCH_MESSAGE_IDS[
+        classKey
+      ] ||
+      []
     ) {
       const sourceMessage =
         await this.discordRequest(
@@ -2377,7 +1971,7 @@ export class DiscordGateway
       classKey,
       {
         at:
-          now,
+          Date.now(),
 
         attachments
       }
@@ -2407,12 +2001,8 @@ export class DiscordGateway
       );
 
     if (!response.ok) {
-      this.classAttachmentCache.delete(
-        mediaItem.page.classKey
-      );
-
       throw new Error(
-        `Guide image download ${response.status}: ${mediaItem.page.key}`
+        `Guide image download ${response.status}`
       );
     }
 
@@ -2440,12 +2030,12 @@ export class DiscordGateway
         "unknown"
       );
 
-    const key =
-      `guidevision:v3:${page.key}:${attachmentId}`;
+    const cacheKey =
+      `guidevision:v4:${page.key}:${attachmentId}`;
 
     const cached =
       await this.ctx.storage.get(
-        key
+        cacheKey
       );
 
     if (
@@ -2454,15 +2044,6 @@ export class DiscordGateway
       cached.trim()
     ) {
       return cached;
-    }
-
-    if (
-      !this.env
-        .GEMINI_API_KEY
-    ) {
-      throw new Error(
-        "GEMINI_API_KEY bulunamadı."
-      );
     }
 
     const bytes =
@@ -2475,184 +2056,56 @@ export class DiscordGateway
       MAX_VISION_IMAGE_BYTES
     ) {
       throw new Error(
-        `Guide image Vision sınırını aşıyor: ${bytes.byteLength}`
+        `Vision görsel boyutu fazla: ${bytes.byteLength}`
       );
     }
-
-    const base64 =
-      bytesToBase64(
-        bytes
-      );
-
-    const mimeType =
-      mediaItem
-        .attachment
-        .content_type ||
-      "image/png";
 
     const prompt = `
-Bu görsel Totik Channel'ın WoW Forever class rehberi sayfasıdır.
-
-Sayfa anahtarı: ${page.key}
-Dosya adı: ${page.filename}
-Catalog anahtar kelimeleri: ${(page.keywords || []).join(" | ")}
+Bu görsel Totik Channel'ın WoW Forever rehber sayfasıdır.
 
 GÖREV:
-Görselde yazan bilgiyi dış bilgi eklemeden Türkçe ve yapılandırılmış şekilde çıkar.
+Görseldeki içerikleri eksiksiz biçimde kaynak verisine dönüştür.
 
-Mutlaka yakala:
-- başlık / konu
-- ana maddeler
-- sayı, yüzde, süre, cooldown, seviye gibi değerler
-- öneri / öncelik / sıra varsa aynen anlamını koruyarak
-- uyarı / istisna / not varsa
-- spell, talent, stat, rotation, race veya leveling isimleri
+Kurallar:
+- Görselde yazmayan hiçbir WoW bilgisi ekleme.
+- Dosya adı, PNG/JPG adı, sayfa anahtarı, katalog veya teknik bilgi yazma.
+- Başlıkları, spell/talent/buff/aura/seal isimlerini ve açıklamalarını koru.
+- Sayı, yüzde, süre, cooldown, menzil, seviye ve istisnaları atlama.
+- Görselde bir liste varsa listedeki maddeleri tek tek çıkar.
+- Görselde öneri veya öncelik varsa aynen anlamını koru.
+- Türkçe metni olduğu gibi anlamlandır; bozuk OCR üretme.
+- Yalnızca cevap üretmekte kullanılacak temiz kaynak özeti döndür.
+`.trim();
 
-KURALLAR:
-- Görselde olmayan bilgiyi ekleme.
-- WoW genel bilgisiyle boşluk doldurma.
-- Emin olmadığın metni kesinleştirme.
-- Reklam veya kanal çağrısı üretme.
-- Sonuç yalnızca rehber sayfasının içeriği olsun.
-- Kısa ama eksiksiz bir kaynak özeti üret.
-    `.trim();
-
-    const controller =
-      new AbortController();
-
-    const timer =
-      setTimeout(
-        () =>
-          controller.abort(),
-        VISION_TIMEOUT_MS
+    const result =
+      await this.callGeminiVision(
+        prompt,
+        bytes,
+        mediaItem
+          .attachment
+          .content_type ||
+        "image/png",
+        1200
       );
 
-    try {
-      const response =
-        await fetch(
-          GEMINI_VISION_ENDPOINT,
-          {
-            method:
-              "POST",
-
-            signal:
-              controller.signal,
-
-            headers: {
-              "content-type":
-                "application/json",
-
-              "x-goog-api-key":
-                this.env
-                  .GEMINI_API_KEY
-            },
-
-            body:
-              JSON.stringify({
-                contents: [
-                  {
-                    parts: [
-                      {
-                        text:
-                          prompt
-                      },
-
-                      {
-                        inlineData: {
-                          mimeType,
-                          data:
-                            base64
-                        }
-                      }
-                    ]
-                  }
-                ],
-
-                generationConfig: {
-                  temperature:
-                    0.05,
-
-                  maxOutputTokens:
-                    900
-                }
-              })
-          }
-        );
-
-      const raw =
-        await response.text();
-
-      let data = {};
-
-      try {
-        data =
-          raw
-            ? JSON.parse(
-                raw
-              )
-            : {};
-
-      } catch {
-        throw new Error(
-          "Guide Vision geçersiz JSON döndürdü."
-        );
-      }
-
-      if (!response.ok) {
-        throw new Error(
-          `Guide Vision HTTP ${response.status}: ${
-            data
-              ?.error
-              ?.message ||
-            raw.slice(
-              0,
-              400
-            )
-          }`
-        );
-      }
-
-      const text =
-        (
-          data
-            ?.candidates
-            ?.[0]
-            ?.content
-            ?.parts ||
-          []
-        )
-          .map(
-            (part) =>
-              part?.text ||
-              ""
-          )
-          .join("\n")
-          .trim();
-
-      if (!text) {
-        throw new Error(
-          "Guide Vision boş sonuç döndürdü."
-        );
-      }
-
-      const cleaned =
-        cleanText(
-          text,
-          6000
-        );
-
-      await this.ctx.storage.put(
-        key,
-        cleaned
+    const cleaned =
+      cleanText(
+        result,
+        7000
       );
 
-      return cleaned;
-
-    } finally {
-      clearTimeout(
-        timer
+    if (!cleaned) {
+      throw new Error(
+        "Guide Vision boş döndü."
       );
     }
+
+    await this.ctx.storage.put(
+      cacheKey,
+      cleaned
+    );
+
+    return cleaned;
   }
 
   async askGuideGrounded(
@@ -2661,44 +2114,37 @@ KURALLAR:
     context
   ) {
     const prompt = `
-Sen Totik Channel WoW Yardım Botusun.
-
 KULLANICI SORUSU:
 ${question}
 
-EŞLEŞEN TOTIK CLASS REHBERİ:
-- class: ${resolution.classKey}
-- spec/tree: ${resolution.treeKey || "belirtilmedi"}
-- konu: ${(resolution.intents || []).join(", ") || "genel"}
-- sayfalar: ${(resolution.pages || []).map((p) => p.filename).join(", ")}
+EŞLEŞEN REHBER BAĞLAMI:
+class=${resolution.classKey}
+spec/tree=${resolution.treeKey || "belirtilmedi"}
+konu=${(resolution.intents || []).join(", ") || "genel"}
 
-AŞAĞIDAKİ VERİ TOTIK CHANNEL REHBER GÖRSELLERİNDEN GELİR:
-
+TOTIK CHANNEL REHBER KAYNAĞI:
 ---
 ${context}
 ---
 
 CEVAP KURALLARI:
-1. Bu soruda birincil ve bağlayıcı kaynak yalnızca yukarıdaki rehber verisidir.
-2. Tavily, web, başka WoW sürümleri veya genel model bilgisi EKLEME.
-3. Rehberde olmayan bir build sırası / öneri / sayı uydurma.
-4. Kullanıcı belirli bir talent soruyorsa doğrudan o talentı açıkla.
-5. Kullanıcı "Holy Priest talentleri neler" gibi bir tree soruyorsa o tree'nin rehberde bulunan talentlarını derli toplu anlat; diğer tree'leri karıştırma.
-6. Eğer soru leveling + spec ise hem leveling sayfasındaki bilgi hem de eşleşen talent sayfaları kullanılabilir.
-7. Rehber verisinde Türkçe açıklama yok ama İngilizce effect varsa anlamını doğal Türkçeyle aktarabilirsin; yeni mekanik ekleme.
-8. Cevap Türkçe, net, Discord'da rahat okunur olsun. Gereksiz giriş yapma.
-9. Normalde 5-10 kısa madde yeterli. Çok uzun talent listesinde en önemli ayrımı özetle ve rehber görsellerinin tamamının ekte olduğunu belirt.
-10. Cooldown, üyelik, reklam veya kaynak motorundan bahsetme.
-    `.trim();
+1. Direkt cevaba gir. Selam verme ve kendini tanıtma.
+2. Yalnızca yukarıdaki rehber içeriğine dayan. Tavily, web, başka WoW sürümü veya genel model bilgisi ekleme.
+3. Kullanıcının sorduğu şeyi gerçekten açıkla; sadece "Blessings / Auras / Seals var" diye başlık saymakla yetinme.
+4. Buff soruluyorsa rehberde geçen buffların adlarını ve ne yaptıklarını anlat.
+5. Talent soruluyorsa yalnızca istenen tree/spec talentlarını anlat; başka tree karıştırma.
+6. Rotation/stat/race/leveling sorusunda ilgili rehber maddelerini doğal bir cevap halinde aktar.
+7. Dosya adı, .png, .jpg, sayfa adı, katalog anahtarı, kaynak numarası, "ekteki dosya" veya teknik sistem bilgisi ASLA yazma.
+8. "Totik Channel WoW Yardım Botuyum" gibi bir tanıtım ASLA yapma.
+9. Rehberde olmayan build, sayı veya tavsiye uydurma.
+10. Türkçe, doğal ve Discord'da rahat okunur cevap ver. Gereksiz giriş ve sonuç cümlesi kullanma.
+`.trim();
 
-    const text =
-      await this.callGeminiText(
-        prompt,
-        900,
-        0.1
-      );
-
-    return text;
+    return this.callGeminiText(
+      prompt,
+      1000,
+      0.08
+    );
   }
 
   async getSpecialGuideMedia(
@@ -2715,56 +2161,41 @@ CEVAP KURALLARI:
       return null;
     }
 
-    try {
-      const sourceMessage =
-        await this.discordRequest(
-          `/channels/${QUESTION_CHANNEL_ID}/messages/${messageId}`
-        );
-
-      const attachment =
-        getImageAttachment(
-          sourceMessage
-        );
-
-      if (!attachment) {
-        return null;
-      }
-
-      return {
-        page: {
-          key:
-            `special.${topic}`,
-
-          classKey:
-            "special",
-
-          filename:
-            attachment.filename ||
-            `${topic}.png`
-        },
-
-        attachment,
-
-        sourceChannelId:
-          QUESTION_CHANNEL_ID,
-
-        sourceMessageId:
-          messageId,
-
-        bytes:
-          null
-      };
-
-    } catch (error) {
-      await this.setLastError(
-        `Special guide image ${topic}: ${
-          error?.message ||
-          String(error)
-        }`
+    const sourceMessage =
+      await this.discordRequest(
+        `/channels/${QUESTION_CHANNEL_ID}/messages/${messageId}`
       );
 
+    const attachment =
+      getImageAttachment(
+        sourceMessage
+      );
+
+    if (!attachment) {
       return null;
     }
+
+    return {
+      page: {
+        key:
+          `special.${topic}`,
+
+        classKey:
+          "special",
+
+        filename:
+          attachment.filename ||
+          `${topic}.png`
+      },
+
+      attachment,
+
+      sourceMessageId:
+        messageId,
+
+      bytes:
+        null
+    };
   }
 
   async prepareOutgoingFiles(
@@ -2772,11 +2203,13 @@ CEVAP KURALLARI:
   ) {
     const files = [];
 
-    let totalBytes = 0;
+    let totalBytes =
+      0;
 
     for (
       const mediaItem
-      of mediaItems || []
+      of mediaItems ||
+      []
     ) {
       if (
         files.length >=
@@ -2795,21 +2228,6 @@ CEVAP KURALLARI:
           bytes.byteLength >
           MAX_SINGLE_GUIDE_FILE_BYTES
         ) {
-          console.log(
-            JSON.stringify({
-              event:
-                "guide_file_too_large",
-
-              pageKey:
-                mediaItem
-                  .page
-                  ?.key,
-
-              bytes:
-                bytes.byteLength
-            })
-          );
-
           continue;
         }
 
@@ -2821,17 +2239,15 @@ CEVAP KURALLARI:
           break;
         }
 
-        const filename =
-          mediaItem
-            .page
-            ?.filename ||
-          mediaItem
-            .attachment
-            ?.filename ||
-          "guide.png";
-
         files.push({
-          filename,
+          filename:
+            mediaItem
+              .page
+              ?.filename ||
+            mediaItem
+              .attachment
+              ?.filename ||
+            "guide.png",
 
           contentType:
             mediaItem
@@ -2842,12 +2258,7 @@ CEVAP KURALLARI:
           bytes,
 
           description:
-            `Totik guide: ${
-              mediaItem
-                .page
-                ?.key ||
-              filename
-            }`
+            "Totik Channel WoW Forever rehberi"
         });
 
         totalBytes +=
@@ -2855,12 +2266,7 @@ CEVAP KURALLARI:
 
       } catch (error) {
         await this.setLastError(
-          `Guide file ${
-            mediaItem
-              .page
-              ?.key ||
-            "unknown"
-          }: ${
+          `Guide file: ${
             error?.message ||
             String(error)
           }`
@@ -2887,13 +2293,11 @@ CEVAP KURALLARI:
         .has(userId)
     ) {
       return {
-        premium: true,
+        durationMs:
+          0,
 
         reason:
-          "admin_bypass",
-
-        durationMs:
-          0
+          "admin_bypass"
       };
     }
 
@@ -2921,38 +2325,30 @@ CEVAP KURALLARI:
       );
 
     for (
-      const roleId
+      const id
       of memberRoleIds
     ) {
       if (
-        youtubeIds.has(
-          roleId
-        )
+        youtubeIds.has(id)
       ) {
         return {
-          premium: true,
+          durationMs:
+            PREMIUM_COOLDOWN_MS,
 
           reason:
-            "youtube_role_id",
-
-          durationMs:
-            PREMIUM_COOLDOWN_MS
+            "youtube_role_id"
         };
       }
 
       if (
-        twitchIds.has(
-          roleId
-        )
+        twitchIds.has(id)
       ) {
         return {
-          premium: true,
+          durationMs:
+            PREMIUM_COOLDOWN_MS,
 
           reason:
-            "twitch_role_id",
-
-          durationMs:
-            PREMIUM_COOLDOWN_MS
+            "twitch_role_id"
         };
       }
     }
@@ -2966,7 +2362,7 @@ CEVAP KURALLARI:
 
     if (
       guildId &&
-      memberRoleIds.size > 0
+      memberRoleIds.size
     ) {
       try {
         const roles =
@@ -2993,72 +2389,51 @@ CEVAP KURALLARI:
               role.name
             );
 
-          const youtubeMember =
+          const youtube =
             name.includes(
               "youtube"
             ) &&
             /katil|abone|member|uyelik/
               .test(name);
 
-          const twitchSub =
+          const twitch =
             name.includes(
               "twitch"
             ) &&
             /sub|subscriber|abone/
               .test(name);
 
-          if (youtubeMember) {
+          if (youtube) {
             return {
-              premium:
-                true,
+              durationMs:
+                PREMIUM_COOLDOWN_MS,
 
               reason:
-                `role_name:${role.name}`,
-
-              durationMs:
-                PREMIUM_COOLDOWN_MS
+                `role_name:${role.name}`
             };
           }
 
-          if (twitchSub) {
+          if (twitch) {
             return {
-              premium:
-                true,
+              durationMs:
+                PREMIUM_COOLDOWN_MS,
 
               reason:
-                `role_name:${role.name}`,
-
-              durationMs:
-                PREMIUM_COOLDOWN_MS
+                `role_name:${role.name}`
             };
           }
         }
 
-      } catch (error) {
-        console.log(
-          JSON.stringify({
-            event:
-              "premium_role_lookup_failed",
-
-            guildId,
-
-            error:
-              error?.message ||
-              String(error)
-          })
-        );
+      } catch {
       }
     }
 
     return {
-      premium:
-        false,
+      durationMs:
+        NORMAL_COOLDOWN_MS,
 
       reason:
-        "normal_member",
-
-      durationMs:
-        NORMAL_COOLDOWN_MS
+        "normal_member"
     };
   }
 
@@ -3076,7 +2451,9 @@ CEVAP KURALLARI:
       cached.at <
       PREMIUM_ROLE_CACHE_MS
     ) {
-      return cached.roles;
+      return (
+        cached.roles
+      );
     }
 
     const roles =
@@ -3084,7 +2461,7 @@ CEVAP KURALLARI:
         `/guilds/${guildId}/roles`
       );
 
-    const safeRoles =
+    const safe =
       Array.isArray(
         roles
       )
@@ -3098,11 +2475,11 @@ CEVAP KURALLARI:
           Date.now(),
 
         roles:
-          safeRoles
+          safe
       }
     );
 
-    return safeRoles;
+    return safe;
   }
 
   async acquireCooldown(
@@ -3110,22 +2487,20 @@ CEVAP KURALLARI:
     durationMs
   ) {
     if (
+      durationMs <= 0 ||
       ADMIN_COOLDOWN_BYPASS_USER_IDS
         .has(
           String(
             userId
           )
-        ) ||
-      durationMs <= 0
+        )
     ) {
       return {
         allowed:
           true,
 
         remainingMs:
-          0,
-
-        durationMs
+          0
       };
     }
 
@@ -3142,27 +2517,22 @@ CEVAP KURALLARI:
 
     if (
       typeof previous ===
-      "number"
+        "number" &&
+      now -
+      previous <
+      durationMs
     ) {
-      const elapsed =
-        now -
-        previous;
+      return {
+        allowed:
+          false,
 
-      if (
-        elapsed <
-        durationMs
-      ) {
-        return {
-          allowed:
-            false,
-
-          remainingMs:
-            durationMs -
-            elapsed,
-
-          durationMs
-        };
-      }
+        remainingMs:
+          durationMs -
+          (
+            now -
+            previous
+          )
+      };
     }
 
     await this.ctx.storage.put(
@@ -3175,9 +2545,7 @@ CEVAP KURALLARI:
         true,
 
       remainingMs:
-        0,
-
-      durationMs
+        0
     };
   }
 
@@ -3195,13 +2563,9 @@ CEVAP KURALLARI:
       return;
     }
 
-    try {
-      await this.ctx.storage.delete(
-        `cooldown:${userId}`
-      );
-
-    } catch {
-    }
+    await this.ctx.storage.delete(
+      `cooldown:${userId}`
+    );
   }
 
   async analyzeUserImage(
@@ -3221,9 +2585,7 @@ CEVAP KURALLARI:
       );
 
     if (!response.ok) {
-      throw new Error(
-        `Discord görseli indirilemedi: ${response.status}`
-      );
+      return "";
     }
 
     const bytes =
@@ -3236,131 +2598,19 @@ CEVAP KURALLARI:
       bytes.byteLength >
       MAX_VISION_IMAGE_BYTES
     ) {
-      throw new Error(
-        "Görsel Vision sınırını aşıyor."
-      );
+      return "";
     }
 
-    const base64 =
-      bytesToBase64(
-        bytes
-      );
+    return this.callGeminiVision(
+      `World of Warcraft ekran görüntüsünü incele. Kullanıcı sorusu: ${question}\nYalnızca görselde gerçekten görülen bilgileri kısa ve Türkçe çıkar.`,
 
-    const prompt = `
-World of Warcraft ekran görüntüsünü incele.
+      bytes,
 
-Kullanıcının sorusu:
-${question}
+      image.content_type ||
+      "image/png",
 
-Sadece soruyu araştırmak/yanıtlamak için görselde gerçekten görülen bilgileri çıkar.
-
-Görselde olmayan bilgiyi uydurma.
-Türkçe ve kısa yaz.
-    `.trim();
-
-    const controller =
-      new AbortController();
-
-    const timer =
-      setTimeout(
-        () =>
-          controller.abort(),
-        VISION_TIMEOUT_MS
-      );
-
-    try {
-      const result =
-        await fetch(
-          GEMINI_VISION_ENDPOINT,
-          {
-            method:
-              "POST",
-
-            signal:
-              controller.signal,
-
-            headers: {
-              "content-type":
-                "application/json",
-
-              "x-goog-api-key":
-                this.env
-                  .GEMINI_API_KEY
-            },
-
-            body:
-              JSON.stringify({
-                contents: [
-                  {
-                    parts: [
-                      {
-                        text:
-                          prompt
-                      },
-
-                      {
-                        inlineData: {
-                          mimeType:
-                            image
-                              .content_type ||
-                            "image/png",
-
-                          data:
-                            base64
-                        }
-                      }
-                    ]
-                  }
-                ],
-
-                generationConfig: {
-                  temperature:
-                    0.05,
-
-                  maxOutputTokens:
-                    450
-                }
-              })
-          }
-        );
-
-      const raw =
-        await result.text();
-
-      const data =
-        raw
-          ? JSON.parse(
-              raw
-            )
-          : {};
-
-      if (!result.ok) {
-        throw new Error(
-          `Gemini Vision ${result.status}`
-        );
-      }
-
-      return (
-        data
-          ?.candidates
-          ?.[0]
-          ?.content
-          ?.parts ||
-        []
-      )
-        .map(
-          (part) =>
-            part?.text ||
-            ""
-        )
-        .join("\n")
-        .trim();
-
-    } finally {
-      clearTimeout(
-        timer
-      );
-    }
+      500
+    );
   }
 
   async askWowAi(question) {
@@ -3374,13 +2624,11 @@ Türkçe ve kısa yaz.
       question
     );
 
-    let lastError =
-      null;
+    let lastError;
 
     for (
       let attempt = 1;
-      attempt <=
-      BACKEND_ATTEMPTS;
+      attempt <= 2;
       attempt++
     ) {
       const controller =
@@ -3398,9 +2646,6 @@ Türkçe ve kısa yaz.
           await fetch(
             url.toString(),
             {
-              method:
-                "GET",
-
               headers: {
                 accept:
                   "application/json"
@@ -3414,20 +2659,15 @@ Türkçe ve kısa yaz.
         const raw =
           await response.text();
 
-        let data =
-          null;
+        let data = {};
 
         try {
           data =
             raw
-              ? JSON.parse(
-                  raw
-                )
+              ? JSON.parse(raw)
               : {};
 
         } catch {
-          data =
-            null;
         }
 
         if (
@@ -3437,25 +2677,26 @@ Türkçe ve kısa yaz.
           return data;
         }
 
-        const detail =
-          data?.error ||
-          raw.slice(
-            0,
-            400
-          ) ||
-          `HTTP ${response.status}`;
-
         lastError =
           new Error(
-            `totik-ai-test HTTP ${response.status}: ${detail}`
+            `totik-ai-test HTTP ${response.status}: ${
+              data?.error ||
+              raw.slice(
+                0,
+                400
+              )
+            }`
           );
 
         if (
-          retryableBackendStatus(
+          [
+            502,
+            503,
+            504
+          ].includes(
             response.status
           ) &&
-          attempt <
-          BACKEND_ATTEMPTS
+          attempt < 2
         ) {
           await sleep(
             1200
@@ -3467,32 +2708,17 @@ Türkçe ve kısa yaz.
         throw lastError;
 
       } catch (error) {
-        const aborted =
-          error?.name ===
-          "AbortError";
-
         lastError =
-          aborted
+          error?.name ===
+          "AbortError"
             ? new Error(
-                `totik-ai-test ${BACKEND_TIMEOUT_MS / 1000} saniyede cevap vermedi.`
+                "totik-ai-test timeout"
               )
             : error;
 
-        const retry =
-          attempt <
-          BACKEND_ATTEMPTS &&
-          (
-            aborted ||
-            /HTTP 502|HTTP 503|HTTP 504/i
-              .test(
-                String(
-                  error?.message ||
-                  ""
-                )
-              )
-          );
-
-        if (retry) {
+        if (
+          attempt < 2
+        ) {
           await sleep(
             1200
           );
@@ -3512,14 +2738,14 @@ Türkçe ve kısa yaz.
     throw (
       lastError ||
       new Error(
-        "AI backend bilinmeyen hata verdi."
+        "AI backend hatası"
       )
     );
   }
 
   async callGeminiText(
     prompt,
-    maxOutputTokens = 800,
+    maxOutputTokens = 900,
     temperature = 0.1
   ) {
     if (
@@ -3585,21 +2811,12 @@ Türkçe ve kısa yaz.
       const raw =
         await response.text();
 
-      let data = {};
-
-      try {
-        data =
-          raw
-            ? JSON.parse(
-                raw
-              )
-            : {};
-
-      } catch {
-        throw new Error(
-          `Gemini geçersiz JSON döndürdü: ${raw.slice(0, 400)}`
-        );
-      }
+      const data =
+        raw
+          ? JSON.parse(
+              raw
+            )
+          : {};
 
       if (!response.ok) {
         throw new Error(
@@ -3609,7 +2826,7 @@ Türkçe ve kısa yaz.
               ?.message ||
             raw.slice(
               0,
-              500
+              400
             )
           }`
         );
@@ -3622,11 +2839,138 @@ Türkçe ve kısa yaz.
 
       if (!text) {
         throw new Error(
-          "Gemini Interactions boş metin döndürdü."
+          "Gemini boş metin döndürdü."
         );
       }
 
       return text;
+
+    } finally {
+      clearTimeout(
+        timer
+      );
+    }
+  }
+
+  async callGeminiVision(
+    prompt,
+    bytes,
+    mimeType,
+    maxOutputTokens = 1000
+  ) {
+    if (
+      !this.env
+        .GEMINI_API_KEY
+    ) {
+      throw new Error(
+        "GEMINI_API_KEY bulunamadı."
+      );
+    }
+
+    const controller =
+      new AbortController();
+
+    const timer =
+      setTimeout(
+        () =>
+          controller.abort(),
+        VISION_TIMEOUT_MS
+      );
+
+    try {
+      const response =
+        await fetch(
+          GEMINI_VISION_ENDPOINT,
+          {
+            method:
+              "POST",
+
+            signal:
+              controller.signal,
+
+            headers: {
+              "content-type":
+                "application/json",
+
+              "x-goog-api-key":
+                this.env
+                  .GEMINI_API_KEY
+            },
+
+            body:
+              JSON.stringify({
+                contents: [
+                  {
+                    parts: [
+                      {
+                        text:
+                          prompt
+                      },
+
+                      {
+                        inlineData: {
+                          mimeType,
+
+                          data:
+                            bytesToBase64(
+                              bytes
+                            )
+                        }
+                      }
+                    ]
+                  }
+                ],
+
+                generationConfig: {
+                  temperature:
+                    0.02,
+
+                  maxOutputTokens
+                }
+              })
+          }
+        );
+
+      const raw =
+        await response.text();
+
+      const data =
+        raw
+          ? JSON.parse(
+              raw
+            )
+          : {};
+
+      if (!response.ok) {
+        throw new Error(
+          `Gemini Vision HTTP ${response.status}: ${
+            data
+              ?.error
+              ?.message ||
+            raw.slice(
+              0,
+              400
+            )
+          }`
+        );
+      }
+
+      return (
+        data
+          ?.candidates
+          ?.[0]
+          ?.content
+          ?.parts ||
+        []
+      )
+        .map(
+          part =>
+            part?.text ||
+            ""
+        )
+
+        .join("\n")
+        .trim();
 
     } finally {
       clearTimeout(
@@ -3640,41 +2984,28 @@ Türkçe ve kısa yaz.
     backendError
   ) {
     const prompt = `
-Sen Totik Channel için geliştirilmiş WoW Yardım Botunun yedek cevap sistemisin.
-
-Kullanıcının sorusu:
+Kullanıcının World of Warcraft sorusu:
 ${question}
 
 Ana araştırma sistemi geçici olarak yanıt veremedi.
 
-Kurallar:
-- World of Warcraft konusunda yardımcı ol.
-- Yalnızca gerçekten bildiğin stabil bilgiyi söyle.
-- WoW Forever beta / güncel / değişebilecek bilgi konusunda emin değilsen bunu açıkça belirt ve uydurma.
-- Türkçe, kısa, derli toplu cevap ver.
-- Cooldown veya üyelik reklamı yazma.
-    `.trim();
+Türkçe, kısa ve doğal cevap ver.
+WoW Forever'a özgü güncel bilgiden emin değilsen uydurma.
+Kendini tanıtma.
+Cooldown/üyelik/reklam yazma.
+`.trim();
 
     try {
-      const answer =
-        await this.callGeminiText(
-          prompt,
-          700,
-          0.15
-        );
-
       return {
-        answer,
+        answer:
+          await this.callGeminiText(
+            prompt,
+            700,
+            0.15
+          ),
 
         fallback:
-          "gemini_interactions",
-
-        backendError:
-          String(
-            backendError
-              ?.message ||
-            ""
-          )
+          "gemini_interactions"
       };
 
     } catch {
@@ -3698,6 +3029,12 @@ Kurallar:
       )
         ? options.files
         : [];
+
+    if (
+      !chunks.length
+    ) {
+      return;
+    }
 
     for (
       let i = 0;
@@ -3733,7 +3070,7 @@ Kurallar:
 
       if (
         i === 0 &&
-        files.length > 0
+        files.length
       ) {
         await this.discordMultipartRequest(
           `/channels/${QUESTION_CHANNEL_ID}/messages`,
@@ -3788,7 +3125,10 @@ Kurallar:
 
       attachments:
         safeFiles.map(
-          (file, index) => ({
+          (
+            file,
+            index
+          ) => ({
             id:
               index,
 
@@ -3818,8 +3158,13 @@ Kurallar:
       );
 
       safeFiles.forEach(
-        (file, index) => {
-          const blob =
+        (
+          file,
+          index
+        ) => {
+          form.append(
+            `files[${index}]`,
+
             new Blob(
               [
                 file.bytes
@@ -3829,11 +3174,8 @@ Kurallar:
                   file.contentType ||
                   "application/octet-stream"
               }
-            );
+            ),
 
-          form.append(
-            `files[${index}]`,
-            blob,
             file.filename
           );
         }
@@ -3856,13 +3198,6 @@ Kurallar:
           }
         );
 
-      if (
-        response.status ===
-        204
-      ) {
-        return null;
-      }
-
       const raw =
         await response.text();
 
@@ -3872,9 +3207,7 @@ Kurallar:
       try {
         data =
           raw
-            ? JSON.parse(
-                raw
-              )
+            ? JSON.parse(raw)
             : null;
 
       } catch {
@@ -3886,25 +3219,17 @@ Kurallar:
         response.status ===
         429
       ) {
-        let retryAfter =
+        const wait =
           Number(
             data
               ?.retry_after ||
             1
           );
 
-        if (
-          retryAfter < 100
-        ) {
-          retryAfter *=
-            1000;
-        }
-
         await sleep(
-          Math.max(
-            500,
-            retryAfter
-          )
+          wait < 100
+            ? wait * 1000
+            : wait
         );
 
         continue;
@@ -3912,7 +3237,7 @@ Kurallar:
 
       if (
         response.status >=
-        500 &&
+          500 &&
         attempt < 4
       ) {
         await sleep(
@@ -3925,14 +3250,7 @@ Kurallar:
 
       if (!response.ok) {
         throw new Error(
-          `Discord multipart ${response.status}: ${
-            typeof data ===
-            "string"
-              ? data
-              : JSON.stringify(
-                  data
-                )
-          }`
+          `Discord multipart ${response.status}: ${raw.slice(0, 500)}`
         );
       }
 
@@ -3940,7 +3258,7 @@ Kurallar:
     }
 
     throw new Error(
-      "Discord multipart maksimum retry sayısına ulaştı."
+      "Discord multipart retry limiti aşıldı."
     );
   }
 
@@ -3948,10 +3266,6 @@ Kurallar:
     path,
     options = {}
   ) {
-    const method =
-      options.method ||
-      "GET";
-
     for (
       let attempt = 1;
       attempt <= 4;
@@ -3963,7 +3277,10 @@ Kurallar:
       };
 
       const init = {
-        method,
+        method:
+          options.method ||
+          "GET",
+
         headers
       };
 
@@ -4004,9 +3321,7 @@ Kurallar:
       try {
         data =
           raw
-            ? JSON.parse(
-                raw
-              )
+            ? JSON.parse(raw)
             : null;
 
       } catch {
@@ -4018,25 +3333,17 @@ Kurallar:
         response.status ===
         429
       ) {
-        let retryAfter =
+        const wait =
           Number(
             data
               ?.retry_after ||
             1
           );
 
-        if (
-          retryAfter < 100
-        ) {
-          retryAfter *=
-            1000;
-        }
-
         await sleep(
-          Math.max(
-            500,
-            retryAfter
-          )
+          wait < 100
+            ? wait * 1000
+            : wait
         );
 
         continue;
@@ -4044,7 +3351,7 @@ Kurallar:
 
       if (
         response.status >=
-        500 &&
+          500 &&
         attempt < 4
       ) {
         await sleep(
@@ -4057,14 +3364,7 @@ Kurallar:
 
       if (!response.ok) {
         throw new Error(
-          `Discord API ${response.status}: ${
-            typeof data ===
-            "string"
-              ? data
-              : JSON.stringify(
-                  data
-                )
-          }`
+          `Discord API ${response.status}: ${raw.slice(0, 500)}`
         );
       }
 
@@ -4072,17 +3372,7 @@ Kurallar:
     }
 
     throw new Error(
-      "Discord API maksimum retry sayısına ulaştı."
-    );
-  }
-
-  async finishSuccessfulAnswer(
-    trace
-  ) {
-    await this.markAnswered();
-    await this.clearLastError();
-    await this.recordTrace(
-      trace
+      "Discord API retry limiti aşıldı."
     );
   }
 
@@ -4107,36 +3397,6 @@ Kurallar:
 
         ...value
       })
-    );
-  }
-
-  async markAnswered() {
-    const current =
-      Number(
-        await this.ctx.storage.get(
-          "answered_count"
-        )
-      ) ||
-      0;
-
-    await this.ctx.storage.put(
-      "answered_count",
-      current + 1
-    );
-  }
-
-  async markTechnicalFailure() {
-    const current =
-      Number(
-        await this.ctx.storage.get(
-          "technical_failure_count"
-        )
-      ) ||
-      0;
-
-    await this.ctx.storage.put(
-      "technical_failure_count",
-      current + 1
     );
   }
 
