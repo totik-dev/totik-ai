@@ -1766,10 +1766,24 @@ export class DiscordGateway
         )
       );
 
-    const cleanAnswer =
-      sanitizeGuideAnswer(
-        answer
-      );
+const rawGuideAnswer =
+  String(answer || "").trim();
+
+let cleanAnswer =
+  sanitizeGuideAnswer(
+    rawGuideAnswer
+  );
+
+if (
+  rawGuideAnswer.length >
+  MAX_ANSWER_CHARS
+) {
+  cleanAnswer =
+    cleanAnswer
+      .replace(/…$/, "")
+      .trimEnd() +
+    "…\n\nDevamı için rehber görsellerini inceleyebilirsin.";
+}
 
     if (!cleanAnswer) {
       return {
