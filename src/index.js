@@ -1,68 +1,23 @@
 import { DurableObject } from "cloudflare:workers";
+
 import {
   GUIDE_IMAGE_CHANNEL_ID,
   GUIDE_BATCH_MESSAGE_IDS,
-  CLASS_GUIDE_PAGES
-} from "./class-guide-catalog.js";
+  CLASS_GUIDE_PAGES,
+  resolveClassGuide,
+  buildStructuredGuideContext,
+  buildKeywordFallbackContext,
+  findAttachmentForPage,
+  expectedBatchMessageIds,
+  catalogDiagnostics,
+  normalizeGuideText
+} from "./class-guide-runtime.js";
 
-const DISCORD_API = "https://discord.com/api/v10";
+const DISCORD_API =
+  "https://discord.com/api/v10";
 
-const QUESTION_CHANNEL_ID = "1548811398069489744";
-const QUESTION_COMMAND = /^!soru(?:\s|$)/i;
-
-const WOW_AI_URL = "https://totik-ai-test.totikch.workers.dev/";
-
-const GEMINI_URL =
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent";
-
-// ============================================================
-// POLLING
-// ============================================================
-
-// Gateway/WebSocket YOK.
-// Her 10 saniyede sadece yeni mesaj var mı diye Discord REST'e bakar.
-const POLL_INTERVAL_MS = 10 * 1000;
-
-// ============================================================
-// COOLDOWN
-// ============================================================
-
-const SUPPORTER_COOLDOWN_MS = 1 * 60 * 1000;
-const NORMAL_COOLDOWN_MS = 15 * 60 * 1000;
-const YOUTUBE_MEMBER_ROLE_ID = "690918966348087346";
-const TWITCH_SUB_ROLE_ID = "1047102585141727342";
-const ACCESS_FOOTER =
-  "⏱️ YouTube Katıl ve Twitch Sub üyeleri 1 dakika, normal üyeler 15 dakika bekleme süresine sahiptir.";
-
-// ============================================================
-// AI
-// ============================================================
-
-const AI_TIMEOUT_MS = 75 * 1000;
-const AI_MAX_ATTEMPTS = 2;
-
-// ============================================================
-// DISCORD OUTPUT
-// ============================================================
-
-const MAX_DISCORD_MESSAGE = 1900;
-
-// Eskisi kadar roman değil ama gerekli bilgiyi de kesmeyelim.
-const MAX_ANSWER_CHARS = 1250;
-
-// ============================================================
-// TOTIK KİMLİĞİ
-// ============================================================
-
-const IDENTITY_MESSAGE =
-  "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum. World of Warcraft görevleri, class'lar, meslekler, item'lar, dungeon'lar ve genel oyun bilgileri konusunda yardımcı oluyorum.";
-
-const CHANNEL_RECOMMENDATION_MESSAGE =
-  "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum. Türkçe World of Warcraft içerikleri için Totik Channel'ı izleyebilirsin.";
-
-// ============================================================
-// TOTIK GUIDE / GUILD ROUTING
-// ============================================================
+const QUESTION_CHANNEL_ID =
+  "1548811398069489744";
 
 const GUIDE_CHANNEL_ID =
   "1549395522689966190";
@@ -70,17 +25,90 @@ const GUIDE_CHANNEL_ID =
 const GUILD_INFO_CHANNEL_ID =
   "1549847008406143157";
 
+const QUESTION_COMMAND =
+  /^!soru(?:\s|$)/i;
+
+const DEBUG_COMMAND =
+  /^!soru-debug(?:\s|$)/i;
+
+const WOW_AI_URL =
+  "https://totik-ai-test.totikch.workers.dev/";
+
+const GEMINI_TEXT_MODEL =
+  "gemini-3.5-flash-lite";
+
+const GEMINI_INTERACTIONS_ENDPOINT =
+  "https://generativelanguage.googleapis.com/v1beta/interactions";
+
+const GEMINI_VISION_MODEL =
+  "gemini-3.6-flash";
+
+const GEMINI_VISION_ENDPOINT =
+  `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_VISION_MODEL}:generateContent`;
+
+const POLL_INTERVAL_MS =
+  10 * 1000;
+
+const NORMAL_COOLDOWN_MS =
+  15 * 60 * 1000;
+
+const PREMIUM_COOLDOWN_MS =
+  1 * 60 * 1000;
+
 const ADMIN_COOLDOWN_BYPASS_USER_IDS =
   new Set([
     "194062355460653056"
   ]);
 
-const TOTIK_GUIDE_BUILD =
-  "2026-09-25-guides-v2";
+const PREMIUM_ROLE_CACHE_MS =
+  10 * 60 * 1000;
 
-// Görsellerin bulunduğu sabit kaynak mesajları.
-// Bot eski mesajı forward etmez; yalnızca o mesajdaki attachment'ı alır.
-const GUIDE_IMAGE_MESSAGE_IDS = {
+const MAX_DISCORD_MESSAGE =
+  1900;
+
+const MAX_ANSWER_CHARS =
+  1450;
+
+const BACKEND_TIMEOUT_MS =
+  75 * 1000;
+
+const BACKEND_ATTEMPTS =
+  2;
+
+const GEMINI_TIMEOUT_MS =
+  35 * 1000;
+
+const VISION_TIMEOUT_MS =
+  40 * 1000;
+
+const MAX_GUIDE_FILES =
+  10;
+
+const MAX_SINGLE_GUIDE_FILE_BYTES =
+  9 * 1024 * 1024;
+
+const MAX_TOTAL_GUIDE_FILE_BYTES =
+  23 * 1024 * 1024;
+
+const MAX_VISION_IMAGE_BYTES =
+  7 * 1024 * 1024;
+
+const GUIDE_ATTACHMENT_CACHE_MS =
+  5 * 60 * 1000;
+
+const IDENTITY_MESSAGE =
+  "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum. World of Warcraft ve özellikle WoW Forever konusunda yardımcı oluyorum.";
+
+const CHANNEL_RECOMMENDATION_MESSAGE =
+  "Türkçe World of Warcraft rehberleri için Totik Channel içeriklerine bakabilirsin.";
+
+const GUIDE_REMINDER_MESSAGE =
+  `Bu konu hakkında Totik Channel'da rehber içerik var, <#${GUIDE_CHANNEL_ID}> kanalından detaylı bakabilirsin.`;
+
+const GUILD_INFO_MESSAGE =
+  `Totik Channel ekibi WoW Forever'da Normal ruleset'te Alliance tarafında oynuyor. Guild katılımı, şartlar ve güncel detaylar için <#${GUILD_INFO_CHANNEL_ID}> kanalına bakabilirsin.`;
+
+const SPECIAL_GUIDE_IMAGE_MESSAGE_IDS = {
   profession:
     "1553090607482798253",
 
@@ -91,29 +119,33 @@ const GUIDE_IMAGE_MESSAGE_IDS = {
     "1553095337416335400"
 };
 
-const GUIDE_REMINDER_MESSAGE =
-  `Bu konu hakkında Totik Channel'da rehber video var, <#${GUIDE_CHANNEL_ID}> kanalından detaylı bakabilirsin.`;
+function json(
+  data,
+  status = 200
+) {
+  return new Response(
+    JSON.stringify(
+      data,
+      null,
+      2
+    ),
+    {
+      status,
 
-const GUILD_INFO_MESSAGE =
-  `Totik Channel ekibi WoW Forever'da Normal ruleset'te Alliance tarafında oynuyor. Guild katılımı, şartlar ve güncel detaylar için <#${GUILD_INFO_CHANNEL_ID}> kanalına bakabilirsin.`;
+      headers: {
+        "content-type":
+          "application/json; charset=utf-8",
 
-// ============================================================
-// HELPERS
-// ============================================================
-
-function json(data, status = 200) {
-  return new Response(JSON.stringify(data, null, 2), {
-    status,
-    headers: {
-      "content-type": "application/json; charset=utf-8",
-      "cache-control": "no-store"
+        "cache-control":
+          "no-store"
+      }
     }
-  });
+  );
 }
 
 function sleep(ms) {
   return new Promise(
-    resolve =>
+    (resolve) =>
       setTimeout(
         resolve,
         ms
@@ -126,13 +158,9 @@ function cleanText(
   maxLength = 2200
 ) {
   return String(
-    value ||
-    ""
+    value || ""
   )
-    .replace(
-      /\r/g,
-      ""
-    )
+    .replace(/\r/g, "")
     .replace(
       /[ \t]+/g,
       " "
@@ -148,129 +176,10 @@ function cleanText(
     );
 }
 
-function compareSnowflakes(a, b) {
-  try {
-    const aa =
-      BigInt(
-        String(
-          a?.id ||
-          "0"
-        )
-      );
-
-    const bb =
-      BigInt(
-        String(
-          b?.id ||
-          "0"
-        )
-      );
-
-    if (aa < bb) {
-      return -1;
-    }
-
-    if (aa > bb) {
-      return 1;
-    }
-
-    return 0;
-
-  } catch {
-    return String(
-      a?.id ||
-      ""
-    ).localeCompare(
-      String(
-        b?.id ||
-        ""
-      )
-    );
-  }
-}
-
-function splitDiscordMessage(value) {
-  let text =
-    String(
-      value ||
-      ""
-    ).trim();
-
-  if (!text) {
-    return [];
-  }
-
-  if (
-    text.length <=
-    MAX_DISCORD_MESSAGE
-  ) {
-    return [
-      text
-    ];
-  }
-
-  const chunks = [];
-
-  while (
-    text.length >
-    MAX_DISCORD_MESSAGE
-  ) {
-    let cut =
-      text.lastIndexOf(
-        "\n",
-        MAX_DISCORD_MESSAGE
-      );
-
-    if (
-      cut <
-      800
-    ) {
-      cut =
-        text.lastIndexOf(
-          " ",
-          MAX_DISCORD_MESSAGE
-        );
-    }
-
-    if (
-      cut <
-      800
-    ) {
-      cut =
-        MAX_DISCORD_MESSAGE;
-    }
-
-    chunks.push(
-      text
-        .slice(
-          0,
-          cut
-        )
-        .trim()
-    );
-
-    text =
-      text
-        .slice(
-          cut
-        )
-        .trim();
-  }
-
-  if (text) {
-    chunks.push(
-      text
-    );
-  }
-
-  return chunks;
-}
-
 function tidyAnswer(value) {
   let text =
     String(
-      value ||
-      ""
+      value || ""
     )
       .replace(
         /\r/g,
@@ -290,21 +199,6 @@ function tidyAnswer(value) {
       )
       .trim();
 
-  text =
-    text
-      .replace(
-        /Ben bir World of Warcraft yardım botuyum/gi,
-        "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum"
-      )
-      .replace(
-        /Ben bir WoW yardım botuyum/gi,
-        "Ben Totik Channel için geliştirilmiş Totik WoW Yardım Botuyum"
-      )
-      .replace(
-        /World of Warcraft yardım botu olarak/gi,
-        "Totik Channel için geliştirilmiş Totik WoW Yardım Botu olarak"
-      );
-
   if (
     text.length <=
     MAX_ANSWER_CHARS
@@ -318,7 +212,7 @@ function tidyAnswer(value) {
       MAX_ANSWER_CHARS
     );
 
-  const possibleCuts = [
+  const cuts = [
     sample.lastIndexOf(
       ". "
     ),
@@ -338,2067 +232,289 @@ function tidyAnswer(value) {
 
   let cut =
     Math.max(
-      ...possibleCuts
+      ...cuts
     );
 
-  if (
-    cut <
-    800
-  ) {
+  if (cut < 800) {
     cut =
       MAX_ANSWER_CHARS;
-
   } else {
-    cut +=
-      1;
+    cut += 1;
   }
 
   return (
-    text
+    `${text
       .slice(
         0,
         cut
       )
-      .trim() +
-    "…"
+      .trim()}…`
   );
 }
 
-function isIdentityQuestion(question) {
-  const q =
-    String(
-      question ||
-      ""
-    )
-      .toLocaleLowerCase(
-        "tr-TR"
-      );
-
-  return (
-    q.includes(
-      "sen kimsin"
-    ) ||
-
-    q.includes(
-      "sen nesin"
-    ) ||
-
-    q.includes(
-      "kimin botusun"
-    ) ||
-
-    q.includes(
-      "kim geliştirdi"
-    ) ||
-
-    q.includes(
-      "kim yaptı seni"
-    ) ||
-
-    q.includes(
-      "hangi kanal için geliştirildin"
-    )
-  );
-}
-
-function isChannelRecommendationQuestion(
-  question
+function splitDiscordMessage(
+  value
 ) {
-  const q =
+  let text =
     String(
-      question ||
-      ""
-    )
-      .toLocaleLowerCase(
-        "tr-TR"
+      value || ""
+    ).trim();
+
+  if (!text) {
+    return [];
+  }
+
+  if (
+    text.length <=
+    MAX_DISCORD_MESSAGE
+  ) {
+    return [text];
+  }
+
+  const chunks = [];
+
+  while (
+    text.length >
+    MAX_DISCORD_MESSAGE
+  ) {
+    let cut =
+      text.lastIndexOf(
+        "\n",
+        MAX_DISCORD_MESSAGE
       );
 
-  const asksChannel =
-    q.includes(
-      "kanal"
-    ) ||
-
-    q.includes(
-      "youtube"
-    ) ||
-
-    q.includes(
-      "youtuber"
-    ) ||
-
-    q.includes(
-      "yayıncı"
-    ) ||
-
-    q.includes(
-      "streamer"
-    ) ||
-
-    q.includes(
-      "içerik üretici"
-    );
-
-  const asksRecommendation =
-    q.includes(
-      "öner"
-    ) ||
-
-    q.includes(
-      "öneri"
-    ) ||
-
-    q.includes(
-      "tavsiye"
-    ) ||
-
-    q.includes(
-      "izleyeyim"
-    ) ||
-
-    q.includes(
-      "izlemeliyim"
-    ) ||
-
-    q.includes(
-      "takip edeyim"
-    ) ||
-
-    q.includes(
-      "takip etmeliyim"
-    );
-
-  return (
-    asksChannel &&
-    asksRecommendation
-  );
-}
-
-function normalizeLocal(value) {
-  return String(
-    value ||
-    ""
-  )
-    .toLocaleLowerCase(
-      "tr-TR"
-    )
-    .replace(
-      /[’‘`´]/g,
-      "'"
-    )
-    .replace(
-      /ı/g,
-      "i"
-    )
-    .replace(
-      /ğ/g,
-      "g"
-    )
-    .replace(
-      /ü/g,
-      "u"
-    )
-    .replace(
-      /ş/g,
-      "s"
-    )
-    .replace(
-      /ö/g,
-      "o"
-    )
-    .replace(
-      /ç/g,
-      "c"
-    )
-    .replace(
-      /[^a-z0-9'\-\s]/g,
-      " "
-    )
-    .replace(
-      /\s+/g,
-      " "
-    )
-    .trim();
-}
-
-// ============================================================
-// TOTIK CHANNEL CURATED FOREVER GUIDE DATA
-//
-// Bu üç rehber verisi runtime'da lokal ve ücretsiz.
-// Cevap burada varsa Tavily/Gemini ÇALIŞMAZ.
-// Burada yoksa mevcut normal araştırma sistemi devam eder.
-// ============================================================
-
-const CURATED_PROFESSION_ROADMAP = {
-  warrior: {
-    label:
-      "Warrior",
-
-    specs: {
-      arms: [
-        "Arms",
-        "Mining + Blacksmithing",
-        "Blacksmithing + Engineering"
-      ],
-
-      fury: [
-        "Fury",
-        "Mining + Blacksmithing",
-        "Blacksmithing + Engineering"
-      ],
-
-      protection: [
-        "Protection",
-        "Mining + Engineering",
-        "Blacksmithing + Engineering"
-      ]
-    }
-  },
-
-  hunter: {
-    label:
-      "Hunter",
-
-    specs: {
-      beast_mastery: [
-        "Beast Mastery",
-        "Skinning + Leatherworking",
-        "Leatherworking + Engineering"
-      ],
-
-      marksmanship: [
-        "Marksmanship",
-        "Skinning + Leatherworking",
-        "Leatherworking + Engineering"
-      ],
-
-      survival: [
-        "Survival",
-        "Skinning + Leatherworking",
-        "Leatherworking + Engineering"
-      ]
-    }
-  },
-
-  mage: {
-    label:
-      "Mage",
-
-    specs: {
-      arcane: [
-        "Arcane",
-        "Tailoring + Enchanting",
-        "Tailoring + Engineering"
-      ],
-
-      fire: [
-        "Fire",
-        "Tailoring + Enchanting",
-        "Tailoring + Engineering"
-      ],
-
-      frost: [
-        "Frost",
-        "Tailoring + Enchanting",
-        "Tailoring + Engineering"
-      ]
-    }
-  },
-
-  rogue: {
-    label:
-      "Rogue",
-
-    specs: {
-      assassination: [
-        "Assassination",
-        "Skinning + Leatherworking",
-        "Leatherworking + Engineering"
-      ],
-
-      combat: [
-        "Combat",
-        "Skinning + Leatherworking",
-        "Leatherworking + Engineering"
-      ],
-
-      subtlety: [
-        "Subtlety",
-        "Skinning + Leatherworking",
-        "Leatherworking + Engineering"
-      ]
-    }
-  },
-
-  priest: {
-    label:
-      "Priest",
-
-    specs: {
-      discipline: [
-        "Discipline",
-        "Herbalism + Alchemy",
-        "Alchemy + Enchanting"
-      ],
-
-      holy: [
-        "Holy",
-        "Herbalism + Alchemy",
-        "Alchemy + Enchanting"
-      ],
-
-      shadow: [
-        "Shadow",
-        "Herbalism + Alchemy",
-        "Alchemy + Engineering"
-      ]
-    }
-  },
-
-  warlock: {
-    label:
-      "Warlock",
-
-    specs: {
-      affliction: [
-        "Affliction",
-        "Tailoring + Enchanting",
-        "Tailoring + Engineering"
-      ],
-
-      demonology: [
-        "Demonology",
-        "Tailoring + Enchanting",
-        "Tailoring + Engineering"
-      ],
-
-      destruction: [
-        "Destruction",
-        "Tailoring + Enchanting",
-        "Tailoring + Engineering"
-      ]
-    }
-  },
-
-  paladin: {
-    label:
-      "Paladin",
-
-    specs: {
-      holy: [
-        "Holy",
-        "Herbalism + Alchemy",
-        "Alchemy + Engineering"
-      ],
-
-      protection: [
-        "Protection",
-        "Mining + Engineering",
-        "Blacksmithing + Engineering"
-      ],
-
-      retribution: [
-        "Retribution",
-        "Mining + Blacksmithing",
-        "Blacksmithing + Engineering"
-      ]
-    }
-  },
-
-  druid: {
-    label:
-      "Druid",
-
-    specs: {
-      balance: [
-        "Balance",
-        "Herbalism + Alchemy",
-        "Alchemy + Leatherworking"
-      ],
-
-      feral_dps: [
-        "Feral DPS",
-        "Mining + Engineering",
-        "Engineering + Alchemy"
-      ],
-
-      feral_tank: [
-        "Feral Tank",
-        "Mining + Engineering",
-        "Engineering + Leatherworking"
-      ],
-
-      restoration: [
-        "Restoration",
-        "Herbalism + Alchemy",
-        "Alchemy + Engineering"
-      ]
-    }
-  },
-
-  shaman: {
-    label:
-      "Shaman",
-
-    specs: {
-      elemental: [
-        "Elemental",
-        "Skinning + Leatherworking",
-        "Leatherworking + Enchanting"
-      ],
-
-      enhancement: [
-        "Enhancement",
-        "Skinning + Leatherworking",
-        "Leatherworking + Alchemy"
-      ],
-
-      restoration: [
-        "Restoration",
-        "Skinning + Leatherworking",
-        "Leatherworking + Enchanting"
-      ]
-    }
-  }
-};
-
-const CURATED_CAMPING = [
-  {
-    profession:
-      "Alchemy",
-
-    aliases: [
-      "alchemy",
-      "simya",
-      "mana well"
-    ],
-
-    object:
-      "Mana Well",
-
-    benefit:
-      "+29 Mana / 5 sn",
-
-    conflict:
-      "Blessing of Wisdom",
-
-    advanced:
-      "Fermenter → özel reagent üretimi; Alchemy Laboratory → özel tarifler."
-  },
-
-  {
-    profession:
-      "Blacksmithing",
-
-    aliases: [
-      "blacksmithing",
-      "demircilik",
-      "sharpening wheel"
-    ],
-
-    object:
-      "Sharpening Wheel",
-
-    benefit:
-      "+34 Strength",
-
-    conflict:
-      "Strength of Earth Totem",
-
-    advanced:
-      "Anvil → kullanılabilir örs; Master Forge → özel forge tarifleri."
-  },
-
-  {
-    profession:
-      "Enchanting",
-
-    aliases: [
-      "enchanting",
-      "enchant",
-      "enchanted lute"
-    ],
-
-    object:
-      "Enchanted Lute",
-
-    benefit:
-      "+308 Armor, +13 tüm statlar, +22 tüm resistance",
-
-    conflict:
-      "Mark of the Wild",
-
-    advanced:
-      "Arcane Salvager → verimli disenchant; Arcane Forge → özel tarifler."
-  },
-
-  {
-    profession:
-      "Engineering",
-
-    aliases: [
-      "engineering",
-      "muhendislik",
-      "reagent bot"
-    ],
-
-    object:
-      "Reagent Bot",
-
-    benefit:
-      "Reagent vendor açar; stat buff vermez",
-
-    conflict:
-      "Yok",
-
-    advanced:
-      "Repair Bot → vendor + repair; Anarchist's Workbench → özel tarifler."
-  },
-
-  {
-    profession:
-      "Herbalism",
-
-    aliases: [
-      "herbalism",
-      "herb",
-      "bitkicilik",
-      "incense candle"
-    ],
-
-    object:
-      "Incense Candle",
-
-    benefit:
-      "+25 Intellect",
-
-    conflict:
-      "Arcane Intellect",
-
-    advanced:
-      "Greenhouse → seed ek, zamanla herb yetiştirir; Seed Hybridizer → seed çoğaltır / birleştirir."
-  },
-
-  {
-    profession:
-      "Leatherworking",
-
-    aliases: [
-      "leatherworking",
-      "lw",
-      "dericilik",
-      "camp tent",
-      "tent"
-    ],
-
-    object:
-      "Camp Tent",
-
-    benefit:
-      "Rested XP bonusu vermez; mevcut rested XP'yi level'in %5'ine kadar doldurur",
-
-    conflict:
-      "Yok",
-
-    advanced:
-      "Tanning Rack → özel reagent; Sewing Machine → özel Leatherworking tarifleri."
-  },
-
-  {
-    profession:
-      "Mining",
-
-    aliases: [
-      "mining",
-      "madencilik",
-      "lodestone"
-    ],
-
-    object:
-      "Lodestone",
-
-    benefit:
-      "+90 melee Attack Power",
-
-    conflict:
-      "Blessing of Might",
-
-    advanced:
-      "Rock Garden → zamanla common mining node; Molten Foundry → özel tarifler."
-  },
-
-  {
-    profession:
-      "Skinning",
-
-    aliases: [
-      "skinning",
-      "deri yuzme",
-      "camp chair",
-      "chair"
-    ],
-
-    object:
-      "Camp Chair",
-
-    benefit:
-      "+2% kritik vuruş (melee + spell crit)",
-
-    conflict:
-      "Moonkin Aura",
-
-    advanced:
-      "Field Guide → Track Beasts; Trapper's Workbench → 1 trap."
-  },
-
-  {
-    profession:
-      "Tailoring",
-
-    aliases: [
-      "tailoring",
-      "terzilik",
-      "faction banner",
-      "banner"
-    ],
-
-    object:
-      "Faction Banner",
-
-    benefit:
-      "+32 Spirit",
-
-    conflict:
-      "Divine Spirit",
-
-    advanced:
-      "Spinning Wheel → özel reagent; Loom → özel Tailoring tarifleri."
-  },
-
-  {
-    profession:
-      "First Aid",
-
-    aliases: [
-      "first aid",
-      "ilkyardim",
-      "ilk yardim",
-      "first aid kit"
-    ],
-
-    object:
-      "First Aid Kit",
-
-    benefit:
-      "+56 Stamina",
-
-    conflict:
-      "Power Word: Fortitude",
-
-    advanced:
-      "Toxin Study → healing potion + antivenom; Plague Doctor's Lab → healing potion + poultice."
-  },
-
-  {
-    profession:
-      "Fishing",
-
-    aliases: [
-      "fishing",
-      "balikcilik",
-      "fish bowl"
-    ],
-
-    object:
-      "Fish Bowl",
-
-    benefit:
-      "+8% tüm statlar",
-
-    conflict:
-      "Blessing of Kings",
-
-    advanced:
-      "Fishing Rack → 1 saat uncommon fish + lure; Fishing Hut → 1 saat rare fish + lure."
-  },
-
-  {
-    profession:
-      "Cooking",
-
-    aliases: [
-      "cooking",
-      "ascilik",
-      "basic campfire",
-      "campfire"
-    ],
-
-    object:
-      "Basic Campfire",
-
-    benefit:
-      "Kampı kurar; 3 özellik slotu açar",
-
-    conflict:
-      "Yok",
-
-    advanced:
-      "Journeyman Campfire → 5 özellik; Expert Campfire → 10 özellik; Iron Oven → ileri tarifler."
-  }
-];
-
-const CURATED_LEGACY = {
-  totals: {
-    obtainable:
-      65,
-
-    perCharacterSpend:
-      16,
-
-    trees:
-      3,
-
-    knownPerks:
-      21
-  },
-
-  sources: [
-    [
-      "Class Leveling",
-      27,
-      "9 class için Lv25 / Lv45 / Lv60 ilk kez"
-    ],
-
-    [
-      "Crafting Meslekleri",
-      18,
-      "6 crafting mesleği için 150 / 225 / 300: Alchemy, Blacksmithing, Enchanting, Engineering, Leatherworking, Tailoring"
-    ],
-
-    [
-      "PvP / BG",
-      12,
-      "Rank 3 / 7 / 10 / 13 / 14 + 4 BG Exalted + Fields of Glory 4 / 7 / 10"
-    ],
-
-    [
-      "Adventure",
-      2,
-      "Explore Azeroth + Lord Valthalak görev zinciri"
-    ],
-
-    [
-      "Dungeonlar",
-      3,
-      "15–25 / 26–45 / 46–60 dungeon setlerini tamamlama"
-    ],
-
-    [
-      "Raidler",
-      3,
-      "Onyxia + Hyjal Summit + Barrow Deeps"
-    ]
-  ],
-
-  milestones: [
-    [
-      15,
-      "Replica Ironforge Air Rifle"
-    ],
-
-    [
-      25,
-      "Spectral Bear Cub"
-    ],
-
-    [
-      40,
-      "Spectral Bear Tabard"
-    ],
-
-    [
-      55,
-      "Reins of the Spectral Bear"
-    ]
-  ],
-
-  trees: {
-    professions:
-      "Meslek ilerlemesi, gathering verimi, crafting ekonomisi ve fishing/cooking desteği.",
-
-    adventure:
-      "Leveling, kamp, keşif, seyahat ve açık dünya utility perkleri.",
-
-    resourcefulness:
-      "Honor, reputation, bakım, buff süresi ve reagent/ölüm ekonomisi avantajları."
-  },
-
-  perks: [
-    [
-      "Working Overtime",
-      5,
-      "Professions",
-      "Primary, secondary ve class tradeskill'lerde skill-up şansını artırır."
-    ],
-
-    [
-      "Bountiful Harvest",
-      5,
-      "Professions",
-      "Mining / Herbalism / Skinning'den gelen scarce material miktarını artırır."
-    ],
-
-    [
-      "Master Chef",
-      5,
-      "Professions",
-      "Cooking tariflerinde ekstra ürün çıkarma şansı verir."
-    ],
-
-    [
-      "Bartering",
-      2,
-      "Professions",
-      "Vendor fiyatlarını düşürür."
-    ],
-
-    [
-      "Performance Bonus",
-      3,
-      "Professions",
-      "Supply crate turn-in'lerinde ekstra Merchant's Favor şansı verir."
-    ],
-
-    [
-      "Luremaster",
-      2,
-      "Professions",
-      "Fishing lure kullanırken ekstra balık yakalama şansını artırır."
-    ],
-
-    [
-      "Dedicated Study",
-      1,
-      "Professions",
-      "En düşük primary/secondary tradeskill'i yükselten günlük etki."
-    ],
-
-    [
-      "Well Rested",
-      5,
-      "Adventure",
-      "Rested XP birikimini ve rested cap'i artırır."
-    ],
-
-    [
-      "Thrill of Adventure",
-      5,
-      "Adventure",
-      "Killing blow sonrası kısa süre HP/Mana yeniler."
-    ],
-
-    [
-      "High Alert",
-      2,
-      "Adventure",
-      "Stealth tespitini karakter seviyesi +1 / +2 yükselmiş gibi artırır; battleground'da çalışmaz."
-    ],
-
-    [
-      "Talented",
-      1,
-      "Adventure",
-      "Talent point kazanımını daha erken başlatır."
-    ],
-
-    [
-      "Field Guide",
-      3,
-      "Adventure",
-      "Camp feature ekleme cooldown'unu azaltır."
-    ],
-
-    [
-      "Field Medicine",
-      2,
-      "Adventure",
-      "Recently Bandaged süresini azaltır."
-    ],
-
-    [
-      "Frequent Flier",
-      1,
-      "Adventure",
-      "Flight path'leri daha ucuz ve daha hızlı yapar."
-    ],
-
-    [
-      "The Quick and the Dead",
-      2,
-      "Resourcefulness",
-      "Ölüyken hareket hızını artırır; dirilince kısa süre kaynak harcamazsın."
-    ],
-
-    [
-      "Reinforce",
-      5,
-      "Resourcefulness",
-      "Ölümde durability kaybını azaltır."
-    ],
-
-    [
-      "Gourmand",
-      3,
-      "Resourcefulness",
-      "Food bufflarının süresini artırır."
-    ],
-
-    [
-      "For Great Honor",
-      5,
-      "Resourcefulness",
-      "Honor kazanımını artırır."
-    ],
-
-    [
-      "Permanence",
-      2,
-      "Resourcefulness",
-      "Uzun süreli stat bufflarını ve camp faydalarını daha uzun sürdürür."
-    ],
-
-    [
-      "Diplomat",
-      5,
-      "Resourcefulness",
-      "Rep süreli kazanımını artırır."
-    ],
-
-    [
-      "Reagent Economy",
-      1,
-      "Resourcefulness",
-      "Vendor reagent gerektiren class yetenekleri ve Tier 1 camp reagent maliyetlerini kaldırır."
-    ]
-  ]
-};
-
-const CLASS_ALIASES = {
-  warrior: [
-    "warrior",
-    "savasci"
-  ],
-
-  hunter: [
-    "hunter",
-    "avci"
-  ],
-
-  mage: [
-    "mage",
-    "buyucu"
-  ],
-
-  rogue: [
-    "rogue",
-    "haydut"
-  ],
-
-  priest: [
-    "priest",
-    "rahip"
-  ],
-
-  warlock: [
-    "warlock"
-  ],
-
-  paladin: [
-    "paladin",
-    "pala"
-  ],
-
-  druid: [
-    "druid"
-  ],
-
-  shaman: [
-    "shaman",
-    "saman"
-  ]
-};
-
-const SPEC_ALIASES = {
-  warrior: {
-    arms: [
-      "arms"
-    ],
-
-    fury: [
-      "fury"
-    ],
-
-    protection: [
-      "protection",
-      "prot",
-      "tank"
-    ]
-  },
-
-  hunter: {
-    beast_mastery: [
-      "beast mastery",
-      "beastmastery",
-      "bm"
-    ],
-
-    marksmanship: [
-      "marksmanship",
-      "marksman",
-      "mm"
-    ],
-
-    survival: [
-      "survival",
-      "surv"
-    ]
-  },
-
-  mage: {
-    arcane: [
-      "arcane"
-    ],
-
-    fire: [
-      "fire"
-    ],
-
-    frost: [
-      "frost"
-    ]
-  },
-
-  rogue: {
-    assassination: [
-      "assassination",
-      "assa"
-    ],
-
-    combat: [
-      "combat"
-    ],
-
-    subtlety: [
-      "subtlety",
-      "sub"
-    ]
-  },
-
-  priest: {
-    discipline: [
-      "discipline",
-      "disc"
-    ],
-
-    holy: [
-      "holy"
-    ],
-
-    shadow: [
-      "shadow"
-    ]
-  },
-
-  warlock: {
-    affliction: [
-      "affliction",
-      "affli"
-    ],
-
-    demonology: [
-      "demonology",
-      "demo"
-    ],
-
-    destruction: [
-      "destruction",
-      "destro"
-    ]
-  },
-
-  paladin: {
-    holy: [
-      "holy"
-    ],
-
-    protection: [
-      "protection",
-      "prot",
-      "tank"
-    ],
-
-    retribution: [
-      "retribution",
-      "retri",
-      "ret"
-    ]
-  },
-
-  druid: {
-    balance: [
-      "balance",
-      "boomkin",
-      "moonkin"
-    ],
-
-    feral_dps: [
-      "feral dps",
-      "cat",
-      "kedi"
-    ],
-
-    feral_tank: [
-      "feral tank",
-      "bear",
-      "ayi"
-    ],
-
-    restoration: [
-      "restoration",
-      "resto"
-    ]
-  },
-
-  shaman: {
-    elemental: [
-      "elemental",
-      "ele"
-    ],
-
-    enhancement: [
-      "enhancement",
-      "enh"
-    ],
-
-    restoration: [
-      "restoration",
-      "resto"
-    ]
-  }
-};
-
-// ============================================================
-// CURATED ANSWER ROUTER
-// ============================================================
-
-function tryCuratedForeverAnswer(question) {
-  const q =
-    normalizeLocal(
-      question
-    );
-
-  const legacy =
-    buildCuratedLegacyAnswer(
-      q
-    );
-
-  if (legacy) {
-    return {
-      topic:
-        "legacy",
-
-      answer:
-        legacy
-    };
-  }
-
-  const camping =
-    buildCuratedCampingAnswer(
-      q
-    );
-
-  if (camping) {
-    return {
-      topic:
-        "camping",
-
-      answer:
-        camping
-    };
-  }
-
-  const profession =
-    buildCuratedProfessionAnswer(
-      q
-    );
-
-  if (profession) {
-    return {
-      topic:
-        "profession",
-
-      answer:
-        profession
-    };
-  }
-
-  return null;
-}
-
-// ============================================================
-// PROFESSION ANSWER
-// ============================================================
-
-function buildCuratedProfessionAnswer(q) {
-  const hasProfessionWord =
-    /(\bmesle(?:k|g)[a-z]*\b|\bprofession[a-z]*\b)/.test(
-      q
-    );
-
-  if (
-    !hasProfessionWord
-  ) {
-    return null;
-  }
-
-  // Yol haritasında trainer / tarif / konum / materyal yok.
-  if (
-    /trainer|egitmen|recipe|tarif|material|materyal|nerede|nerden|nereden|nasil alinir|nasil alirim|nasil ogren/.test(
-      q
-    )
-  ) {
-    return null;
-  }
-
-  const choiceIntent =
-    /hangi meslek|meslek sec|meslek oner|meslek tavsiye|meslek kombin|profession choice|best profession|leveling|fresh|lategame|late game/.test(
-      q
-    );
-
-  const classKey =
-    findClassKey(
-      q
-    );
-
-  if (
-    !choiceIntent &&
-    !classKey
-  ) {
-    return null;
-  }
-
-  if (
-    !classKey
-  ) {
-    return [
-      "Totik Channel meslek yol haritasında seçim class/spec'e göre yapılıyor.",
-      "Class ve spec'ini yazarsan tablodaki net Leveling/Fresh → Lategame kombinasyonunu söyleyebilirim.",
-      "Lategame geçişi 60 olur olmaz değil, 60 sonrası yeterli ekonomiye sahip olduktan sonra öneriliyor."
-    ].join(
-      "\n"
-    );
-  }
-
-  const classData =
-    CURATED_PROFESSION_ROADMAP[
-      classKey
-    ];
-
-  const specKey =
-    findSpecKey(
-      q,
-      classKey
-    );
-
-  if (
-    specKey &&
-    classData
-      .specs[
-        specKey
-      ]
-  ) {
-    const [
-      label,
-      fresh,
-      late
-    ] =
-      classData
-        .specs[
-          specKey
-        ];
-
-    return (
-      `**${classData.label} – ${label}** için öneri:\n` +
-      `• Leveling / Fresh: **${fresh}**\n` +
-      `• Lategame: **${late}**\n\n` +
-      "Lategame geçişini 60 olur olmaz değil, 60 sonrası yeterli ekonomiye sahip olduktan sonra yapmak öneriliyor."
-    );
-  }
-
-  const rows =
-    Object.values(
-      classData.specs
-    );
-
-  const uniquePaths =
-    new Set(
-      rows.map(
-        row =>
-          `${row[1]}|||${row[2]}`
-      )
-    );
-
-  if (
-    uniquePaths.size ===
-    1
-  ) {
-    const [
-      ,
-      fresh,
-      late
-    ] =
-      rows[0];
-
-    return (
-      `**${classData.label}** için tüm spec'lerde öneri aynı:\n` +
-      `• Leveling / Fresh: **${fresh}**\n` +
-      `• Lategame: **${late}**\n\n` +
-      "Lategame geçişini 60 olur olmaz değil, 60 sonrası yeterli ekonomiye sahip olduktan sonra yapmak öneriliyor."
-    );
-  }
-
-  const lines =
-    rows.map(
-      (
-        [
-          label,
-          fresh,
-          late
-        ]
-      ) =>
-        `• ${label}: **${fresh}** → **${late}**`
-    );
-
-  return (
-    `**${classData.label}** için spec'e göre meslek yol haritası:\n` +
-    lines.join(
-      "\n"
-    ) +
-    "\n\nOk işaretinin solu Leveling/Fresh, sağı Lategame. Lategame geçişi 60 olur olmaz değil, ekonomi oturduktan sonra öneriliyor."
-  );
-}
-
-// ============================================================
-// CAMP ANSWER
-// ============================================================
-
-function buildCuratedCampingAnswer(q) {
-  const row =
-    findCampingRow(
-      q
-    );
-
-  const hasCampSignal =
-    /\b(kamp|camp|camping)\b/.test(
-      q
-    ) ||
-    Boolean(
-      row
-    );
-
-  if (
-    !hasCampSignal
-  ) {
-    return null;
-  }
-
-  // Exact acquisition/location/trainer bilgisi tabloda yok.
-  if (
-    /nerede|nerden|nereden|trainer|egitmen|kimden|hangi npc|nasil alinir|nasil ogren|recipe nerede|tarif nerede/.test(
-      q
-    )
-  ) {
-    return null;
-  }
-
-  if (row) {
-    return (
-      `**${row.profession} – ${row.object}**\n` +
-      `• Buff / avantaj: **${row.benefit}**\n` +
-      `• Birlikte çalışmadığı buff: **${row.conflict}**\n` +
-      `• İleri kamp objeleri: ${row.advanced}\n\n` +
-      "Kamp buffları ilgili class bufflarıyla stack olmaz; onların yerine geçer. Değerler Lv60 beta tooltip değerleridir ve karakter seviyesiyle ölçeklenir."
-    );
-  }
-
-  if (
-    /buff|avantaj|stack|stat|ne ver|ne saglar|ne ise yarar|tablo|liste/.test(
-      q
-    )
-  ) {
-    const compact =
-      CURATED_CAMPING
-        .map(
-          item =>
-            `${item.profession}: ${item.benefit}`
-        )
-        .join(
-          " • "
+    if (cut < 700) {
+      cut =
+        text.lastIndexOf(
+          " ",
+          MAX_DISCORD_MESSAGE
         );
-
-    return (
-      "WoW Forever kamp tablosundaki Lv60 beta değerleri:\n" +
-      compact +
-      "\n\nKamp buffları ilgili class bufflarıyla stack olmaz; onların yerine geçer. Leatherworking Camp Tent XP bonusu vermez, mevcut rested XP'yi level'in %5'ine kadar doldurur."
-    );
-  }
-
-  return null;
-}
-
-// ============================================================
-// LEGACY ANSWER
-// ============================================================
-
-function buildCuratedLegacyAnswer(q) {
-  const perk =
-    findLegacyPerk(
-      q
-    );
-
-  const looksLegacy =
-    /\blegacy\b/.test(
-      q
-    ) ||
-
-    Boolean(
-      perk
-    ) ||
-
-    /spectral bear|ironforge air rifle/.test(
-      q
-    ) ||
-
-    (
-      /agac|tree/.test(
-        q
-      ) &&
-      /professions|adventure|resourcefulness/.test(
-        q
-      )
-    );
-
-  if (
-    !looksLegacy
-  ) {
-    return null;
-  }
-
-  // Exact quest walkthrough / konum tabloda yok.
-  if (
-    /koordinat|konum|location|\bnerede\b|\bnerde\b|npc|walkthrough|adim adim|quest step/.test(
-      q
-    ) ||
-
-    (
-      /gorev|quest/.test(
-        q
-      ) &&
-      /nasil yap|nasil tamam|basliyor|baslar/.test(
-        q
-      )
-    )
-  ) {
-    return null;
-  }
-
-  if (perk) {
-    return (
-      `**${perk[0]}** – ${perk[2]} ağacı, Rank **${perk[1]}**\n` +
-      `${perk[3]}`
-    );
-  }
-
-  if (
-    /kozmetik|milestone|mil tasi|odul|reward|spectral bear|air rifle/.test(
-      q
-    )
-  ) {
-    return (
-      "Legacy kozmetik mil taşları:\n" +
-      CURATED_LEGACY
-        .milestones
-        .map(
-          (
-            [
-              points,
-              reward
-            ]
-          ) =>
-            `• ${points} puan: ${reward}`
-        )
-        .join(
-          "\n"
-        )
-    );
-  }
-
-  if (
-    /agac|tree|perk/.test(
-      q
-    )
-  ) {
-    return (
-      "Legacy sisteminde **3 ağaç** ve görselde **21 bilinen aktif perk** var:\n" +
-      `• Professions: ${CURATED_LEGACY.trees.professions}\n` +
-      `• Adventure: ${CURATED_LEGACY.trees.adventure}\n` +
-      `• Resourcefulness: ${CURATED_LEGACY.trees.resourcefulness}`
-    );
-  }
-
-  const source =
-    findLegacySource(
-      q
-    );
-
-  if (source) {
-    return (
-      `**${source[0]}** kategorisinden toplam **${source[1]} Legacy Point** kazanılabilir.\n` +
-      `${source[2]}`
-    );
-  }
-
-  if (
-    /nasil kazan|nereden kazan|kaynak|point|puan|toplam|kac puan/.test(
-      q
-    )
-  ) {
-    return (
-      `Toplam kazanılabilir Legacy Point: **${CURATED_LEGACY.totals.obtainable}**. ` +
-      `Her karakter bu account-wide havuzdan en fazla **${CURATED_LEGACY.totals.perCharacterSpend}** puan harcayabilir.\n` +
-
-      CURATED_LEGACY
-        .sources
-        .map(
-          (
-            [
-              name,
-              points,
-              how
-            ]
-          ) =>
-            `• ${name}: **${points}** — ${how}`
-        )
-        .join(
-          "\n"
-        )
-    );
-  }
-
-  return (
-    `WoW Forever Legacy sistemi account-wide çalışıyor: toplam **${CURATED_LEGACY.totals.obtainable}** puan kazanılabiliyor; ` +
-    `her karakter bu havuzdan ayrı dağıtım yapıyor ve karakter başına **${CURATED_LEGACY.totals.perCharacterSpend} puan** harcama sınırı var. ` +
-    `Sistemde **${CURATED_LEGACY.totals.trees} Legacy ağacı** ve görselde **${CURATED_LEGACY.totals.knownPerks} bilinen aktif perk** bulunuyor.`
-  );
-}
-
-// ============================================================
-// FIND HELPERS
-// ============================================================
-
-function containsNormalizedPhrase(
-  normalizedText,
-  phrase
-) {
-  const p =
-    normalizeLocal(
-      phrase
-    );
-
-  if (!p) {
-    return false;
-  }
-
-  const haystack =
-    ` ${normalizedText.replace(
-      /'/g,
-      " "
-    )} `;
-
-  const needle =
-    ` ${p.replace(
-      /'/g,
-      " "
-    )} `;
-
-  return haystack.includes(
-    needle
-  );
-}
-
-function findClassKey(q) {
-  for (
-    const [
-      key,
-      aliases
-    ]
-    of Object.entries(
-      CLASS_ALIASES
-    )
-  ) {
-    if (
-      aliases.some(
-        alias =>
-          containsNormalizedPhrase(
-            q,
-            alias
-          )
-      )
-    ) {
-      return key;
     }
-  }
 
-  return null;
-}
-
-function findSpecKey(
-  q,
-  classKey
-) {
-  const specs =
-    SPEC_ALIASES[
-      classKey
-    ] ||
-    {};
-
-  for (
-    const [
-      key,
-      aliases
-    ]
-    of Object.entries(
-      specs
-    )
-  ) {
-    if (
-      aliases.some(
-        alias =>
-          containsNormalizedPhrase(
-            q,
-            alias
-          )
-      )
-    ) {
-      return key;
+    if (cut < 700) {
+      cut =
+        MAX_DISCORD_MESSAGE;
     }
+
+    chunks.push(
+      text
+        .slice(
+          0,
+          cut
+        )
+        .trim()
+    );
+
+    text =
+      text
+        .slice(cut)
+        .trim();
   }
 
-  return null;
+  if (text) {
+    chunks.push(
+      text
+    );
+  }
+
+  return chunks;
 }
 
-function findCampingRow(q) {
-  return (
-    CURATED_CAMPING
-      .find(
-        row =>
-          row
-            .aliases
-            .some(
-              alias =>
-                containsNormalizedPhrase(
-                  q,
-                  alias
-                )
-            ) ||
-
-          containsNormalizedPhrase(
-            q,
-            row.object
-          )
-      ) ||
-    null
-  );
-}
-
-function findLegacyPerk(q) {
-  return (
-    CURATED_LEGACY
-      .perks
-      .find(
-        perk =>
-          containsNormalizedPhrase(
-            q,
-            perk[0]
-          )
-      ) ||
-    null
-  );
-}
-
-function findLegacySource(q) {
-  const rules = [
-    [
-      0,
-      [
-        "class leveling",
-        "class level",
-        "sinif level"
-      ]
-    ],
-
-    [
-      1,
-      [
-        "crafting meslek",
-        "crafting profession",
-        "meslek 150",
-        "meslek 225",
-        "meslek 300"
-      ]
-    ],
-
-    [
-      2,
-      [
-        "pvp",
-        "bg",
-        "battleground",
-        "fields of glory",
-        "honor rank"
-      ]
-    ],
-
-    [
-      3,
-      [
-        "adventure",
-        "explore azeroth",
-        "valthalak"
-      ]
-    ],
-
-    [
-      4,
-      [
-        "dungeon",
-        "dungeonlar"
-      ]
-    ],
-
-    [
-      5,
-      [
-        "raid",
-        "onyxia",
-        "hyjal summit",
-        "barrow deeps"
-      ]
-    ]
-  ];
-
-  for (
-    const [
-      index,
-      aliases
-    ]
-    of rules
-  ) {
-    if (
-      aliases.some(
-        alias =>
-          containsNormalizedPhrase(
-            q,
-            alias
-          )
-      )
-    ) {
-      return (
-        CURATED_LEGACY
-          .sources[
-            index
-          ]
+function compareSnowflakes(
+  a,
+  b
+) {
+  try {
+    const aa =
+      BigInt(
+        String(
+          a?.id || "0"
+        )
       );
+
+    const bb =
+      BigInt(
+        String(
+          b?.id || "0"
+        )
+      );
+
+    if (aa < bb) {
+      return -1;
     }
-  }
 
-  return null;
+    if (aa > bb) {
+      return 1;
+    }
+
+    return 0;
+
+  } catch {
+    return String(
+      a?.id || ""
+    ).localeCompare(
+      String(
+        b?.id || ""
+      )
+    );
+  }
 }
 
-// ============================================================
-// GUILD / GUIDE DETECTION
-// ============================================================
-
-function isGuildInfoQuestion(
-  question
+function getImageAttachment(
+  message
 ) {
-  const q =
-    normalizeLocal(
-      question
-    );
-
-  const guildSignal =
-    /\b(guild[a-z]*|lonca[a-z]*)\b/.test(
-      q
-    );
-
-  const totikTeamSignal =
-    /totik channel|totik ekibi|totik team|siz hangi|siz nerede|hangi ruleset|hangi faction|hangi tarafta/.test(
-      q
-    ) &&
-
-    /alliance|horde|ruleset|faction|taraf|oynuyor|oynuyorsunuz/.test(
-      q
-    );
-
-  if (
-    !guildSignal &&
-    !totikTeamSignal
-  ) {
-    return false;
-  }
+  const attachments =
+    Array.isArray(
+      message?.attachments
+    )
+      ? message.attachments
+      : [];
 
   return (
-    totikTeamSignal ||
+    attachments.find(
+      (attachment) => {
+        const type =
+          String(
+            attachment
+              ?.content_type ||
+            ""
+          )
+            .toLowerCase();
 
-    /nasil gir|nasil katil|katilmak|basvuru|alim|sart|requirements|hangi taraf|alliance|horde|ruleset|isim oner|guild isim|nereden bilgi|detay/.test(
-      q
-    )
-  );
-}
+        const filename =
+          String(
+            attachment
+              ?.filename ||
+            ""
+          )
+            .toLowerCase();
 
-function isGuideTopicQuestion(
-  question
-) {
-  const q =
-    normalizeLocal(
-      question
-    );
-
-  return (
-    /ruleset/.test(
-      q
-    ) ||
-
-    /horde|alliance/.test(
-      q
-    ) ||
-
-    /level kas|leveling|levelleme/.test(
-      q
-    ) ||
-
-    /\b(race|racial|irk)\b/.test(
-      q
-    ) ||
-
-    /hit rating|zar mant/.test(
-      q
-    ) ||
-
-    /\b(class|sinif)\b/.test(
-      q
-    ) ||
-
-    /\b(mana|energy|focus|rage)\b/.test(
-      q
-    ) ||
-
-    /zirh|armor|melee|ranged|healer|tank|ilk karakter/.test(
-      q
-    ) ||
-
-    /\b(addon|add on)\b|turkce yap|action bar|auto loot|otomatik.*topla|cooldown manager|swing timer|dps metre|dps meter|nameplate|tus ata|keybind|fps|sesli betimleme|gamepad/.test(
-      q
-    ) ||
-
-    /\bmesle(?:k|g)[a-z]*\b|\bprofession[a-z]*\b|\b(crafting|gathering|tracking)\b/.test(
-      q
-    ) ||
-
-    /\b(kamp|camp|camping|legacy)\b/.test(
-      q
-    ) ||
-
-    /oyun.*(nereden|nerden|nasil al|satin al)|wow forever.*(nereden|nerden|nasil al)|ne almam lazim|hangi paket/.test(
-      q
-    )
-  );
-}
-
-function likelyCuratedTopic(
-  question
-) {
-  const q =
-    normalizeLocal(
-      question
-    );
-
-  if (
-    /\blegacy\b|working overtime|bountiful harvest|master chef|bartering|performance bonus|luremaster|dedicated study|well rested|thrill of adventure|high alert|talented|field guide|field medicine|frequent flier|quick and the dead|reinforce|gourmand|great honor|permanence|diplomat|reagent economy/.test(
-      q
-    )
-  ) {
-    return "legacy";
-  }
-
-  if (
-    /\b(kamp|camp|camping)\b|mana well|sharpening wheel|enchanted lute|reagent bot|incense candle|camp tent|lodestone|camp chair|faction banner|first aid kit|fish bowl|basic campfire/.test(
-      q
-    )
-  ) {
-    return "camping";
-  }
-
-  if (
-    /(\bmesle(?:k|g)[a-z]*\b|\bprofession[a-z]*\b)/.test(
-      q
-    ) &&
-
-    /hangi|sec|oner|tavsiye|kombin|leveling|fresh|lategame|late game|warrior|hunter|mage|rogue|priest|warlock|paladin|druid|shaman/.test(
-      q
-    )
-  ) {
-    return "profession";
-  }
-
-  return null;
-}
-
-function classFromQuestion(question) {
-  const q = normalizeLocal(question);
-  const aliases = {
-    paladin: ["paladin", "pala"], warrior: ["warrior", "savasci"],
-    priest: ["priest", "rahip"], hunter: ["hunter", "avci"],
-    warlock: ["warlock"], shaman: ["shaman", "saman"],
-    druid: ["druid"], mage: ["mage", "buyucu"], rogue: ["rogue", "haydut"]
-  };
-  for (const [classKey, words] of Object.entries(aliases)) {
-    if (words.some(word => new RegExp(`(^|\\s)${word}(\\s|$)`).test(q))) return classKey;
-  }
-  return null;
-}
-
-function findClassGuideMatch(question) {
-  const q = normalizeLocal(question);
-  if (!q) return null;
-  const requestedClass = classFromQuestion(q);
-
-  // "Holy Priest talentleri", "Frost Mage talent", "Prot Warrior build" gibi
-  // ağaç/genel talent sorularını doğrudan ilgili ilk talent sayfasına bağla.
-  if (requestedClass && /\b(talent|talentler|talentleri|build|agac|agaci)\b/.test(q)) {
-    const treeAliases = {
-      discipline: ["discipline", "disc"], holy: ["holy"], shadow: ["shadow"],
-      beast: ["beast mastery", "beast", "bm"], marksmanship: ["marksmanship", "marksman", "mm"], survival: ["survival"],
-      arcane: ["arcane"], fire: ["fire"], frost: ["frost"],
-      assassination: ["assassination", "assa"], combat: ["combat"], subtlety: ["subtlety", "sub"],
-      elemental: ["elemental", "ele"], enhancement: ["enhancement", "enh"], restoration: ["restoration", "resto"],
-      affliction: ["affliction", "affli"], demonology: ["demonology", "demo"], destruction: ["destruction", "destro"],
-      balance: ["balance", "moonkin", "boomkin"], "feral-combat": ["feral combat", "feral", "cat", "bear"],
-      arms: ["arms"], fury: ["fury"], protection: ["protection", "prot", "tank"],
-      retribution: ["retribution", "retri", "ret"]
-    };
-    let requestedTree = null;
-    for (const [tree, aliases] of Object.entries(treeAliases)) {
-      if (aliases.some(alias => new RegExp(`(^|\\s)${alias.replace(/[.*+?^${}()|[\\]\\]/g, "\\$&")}(\\s|$)`).test(q))) {
-        requestedTree = tree;
-        break;
+        return (
+          type.startsWith(
+            "image/"
+          ) ||
+          /\.(png|jpe?g|webp)$/i
+            .test(
+              filename
+            )
+        );
       }
-    }
-    const candidates = CLASS_GUIDE_PAGES.filter(page =>
-      page.classKey === requestedClass &&
-      /-talent-1\.png$/i.test(page.filename) &&
-      (!requestedTree || page.filename.toLowerCase().includes(`-${requestedTree}-talent-1.png`))
-    );
-    if (candidates.length) return { page: candidates[0], talent: null, score: 900 };
-  }
-
-  // Talent adları sınıf yazılmasa bile benzersiz ve yüksek önceliklidir.
-  const talentMatches = [];
-  for (const page of CLASS_GUIDE_PAGES) {
-    if (requestedClass && page.classKey !== requestedClass) continue;
-    for (const talent of page.talents || []) {
-      const name = normalizeLocal(talent.name);
-      if (name.length >= 4 && q.includes(name)) talentMatches.push({ page, talent, score: 1000 + name.length });
-    }
-  }
-  talentMatches.sort((a, b) => b.score - a.score);
-  if (talentMatches.length) return talentMatches[0];
-
-  const scored = [];
-  for (const page of CLASS_GUIDE_PAGES) {
-    if (requestedClass && page.classKey !== requestedClass) continue;
-    let score = requestedClass === page.classKey ? 30 : 0;
-    let strongest = 0;
-    for (const keyword of page.keywords || []) {
-      const key = normalizeLocal(keyword);
-      if (key.length < 3 || !q.includes(key)) continue;
-      const points = Math.min(40, key.length + (key.includes(" ") ? 8 : 0));
-      score += points;
-      strongest = Math.max(strongest, points);
-    }
-    if (strongest) scored.push({ page, talent: null, score });
-  }
-  scored.sort((a, b) => b.score - a.score);
-  if (!scored.length) return null;
-  if (!requestedClass && (scored.length > 1 && scored[0].score === scored[1].score)) return null;
-  return scored[0];
+    ) ||
+    null
+  );
 }
 
-function buildTalentAnswer(match) {
-  if (!match?.talent) return null;
-  const talent = match.talent;
-  const className = match.page.classKey.charAt(0).toUpperCase() + match.page.classKey.slice(1);
-  const description = String(talent.tr || talent.effect || "").trim();
-  return `**${talent.name}** — ${className} / ${talent.tree}\n` +
-    `${description}\n\n` +
-    `Talent bilgisi WoW Forever rehber verisinden eşleştirildi. İlgili talent sayfası aşağıdadır.`;
+function isImageAttachment(
+  attachment
+) {
+  const type =
+    String(
+      attachment
+        ?.content_type ||
+      ""
+    )
+      .toLowerCase();
+
+  const filename =
+    String(
+      attachment
+        ?.filename ||
+      ""
+    )
+      .toLowerCase();
+
+  return (
+    type.startsWith(
+      "image/"
+    ) ||
+    /\.(png|jpe?g|webp)$/i
+      .test(
+        filename
+      )
+  );
 }
 
-function memberCooldownMs(message) {
-  const roles = Array.isArray(message?.member?.roles) ? message.member.roles.map(String) : [];
-  return roles.includes(YOUTUBE_MEMBER_ROLE_ID) || roles.includes(TWITCH_SUB_ROLE_ID)
-    ? SUPPORTER_COOLDOWN_MS
-    : NORMAL_COOLDOWN_MS;
+function parseCsvIds(value) {
+  return new Set(
+    String(
+      value || ""
+    )
+      .split(",")
+      .map(
+        (x) =>
+          x.trim()
+      )
+      .filter(Boolean)
+  );
 }
 
 function formatRemaining(ms) {
-  const totalSeconds = Math.max(1, Math.ceil(Number(ms || 0) / 1000));
-  const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
-  return minutes ? `${minutes} dakika ${seconds} saniye` : `${seconds} saniye`;
+  const totalSeconds =
+    Math.max(
+      1,
+      Math.ceil(
+        Number(
+          ms || 0
+        ) / 1000
+      )
+    );
+
+  const minutes =
+    Math.floor(
+      totalSeconds / 60
+    );
+
+  const seconds =
+    totalSeconds % 60;
+
+  if (
+    minutes > 0 &&
+    seconds > 0
+  ) {
+    return `${minutes} dakika ${seconds} saniye`;
+  }
+
+  if (minutes > 0) {
+    return `${minutes} dakika`;
+  }
+
+  return `${seconds} saniye`;
 }
 
-function withAccessFooter(value) {
-  const text = String(value || "").trim();
-  if (!text || text.includes(ACCESS_FOOTER)) return text;
-  return `${text}\n\n${ACCESS_FOOTER}`;
+function retryableBackendStatus(
+  status
+) {
+  return (
+    status === 502 ||
+    status === 503 ||
+    status === 504
+  );
 }
 
 function appendGuideReminder(
   answer,
   question,
-  result
+  force = false
 ) {
   const text =
     String(
-      answer ||
-      ""
-    )
-      .trim();
+      answer || ""
+    ).trim();
 
-  const shouldAdd =
-    Boolean(
-      result
-        ?.curatedTopic
-    ) ||
-
-    isGuideTopicQuestion(
-      question
-    );
+  if (!text) {
+    return text;
+  }
 
   if (
-    !shouldAdd ||
+    !force &&
+    !isGuideTopicQuestion(
+      question
+    )
+  ) {
+    return text;
+  }
 
+  if (
     text.includes(
       `<#${GUIDE_CHANNEL_ID}>`
     )
@@ -2407,136 +523,129 @@ function appendGuideReminder(
   }
 
   return (
-    `${text}\n\n` +
-    GUIDE_REMINDER_MESSAGE
+    `${text}\n\n${GUIDE_REMINDER_MESSAGE}`
   );
 }
 
-// ============================================================
-// IMAGE HELPERS
-// ============================================================
+function isIdentityQuestion(
+  question
+) {
+  const q =
+    normalizeGuideText(
+      question
+    );
 
-function guessMimeType(filename) {
-  const name =
-    String(
-      filename ||
-      ""
-    )
-      .toLowerCase();
-
-  if (
-    name.endsWith(
-      ".jpg"
+  return (
+    q.includes(
+      "sen kimsin"
     ) ||
-
-    name.endsWith(
-      ".jpeg"
+    q.includes(
+      "sen nesin"
+    ) ||
+    q.includes(
+      "kimin botusun"
+    ) ||
+    q.includes(
+      "kim gelistirdi"
+    ) ||
+    q.includes(
+      "kim yapti seni"
     )
-  ) {
-    return "image/jpeg";
-  }
-
-  if (
-    name.endsWith(
-      ".webp"
-    )
-  ) {
-    return "image/webp";
-  }
-
-  if (
-    name.endsWith(
-      ".gif"
-    )
-  ) {
-    return "image/gif";
-  }
-
-  return "image/png";
+  );
 }
 
-function getImageAttachment(message) {
-  const attachments =
-    Array.isArray(
-      message
-        ?.attachments
-    )
+function isChannelRecommendationQuestion(
+  question
+) {
+  const q =
+    normalizeGuideText(
+      question
+    );
 
-      ? message.attachments
+  const asksChannel =
+    /kanal|youtube|youtuber|yayinci|streamer|icerik uretici/
+      .test(q);
 
-      : [];
+  const asksRecommendation =
+    /oner|tavsiye|izley|takip et/
+      .test(q);
 
-  for (
-    const attachment
-    of attachments
-  ) {
-    const contentType =
-      String(
-        attachment
-          ?.content_type ||
-        ""
-      )
-        .toLowerCase();
+  return (
+    asksChannel &&
+    asksRecommendation
+  );
+}
 
-    const filename =
-      String(
-        attachment
-          ?.filename ||
-        ""
-      )
-        .toLowerCase();
+function isGuildInfoQuestion(
+  question
+) {
+  const q =
+    normalizeGuideText(
+      question
+    );
 
-    const isImage =
-      contentType.startsWith(
-        "image/"
-      ) ||
+  const guild =
+    /guild|lonca/
+      .test(q);
 
-      /\.(png|jpe?g|webp|gif)$/i.test(
-        filename
-      );
+  const intent =
+    /katil|basvur|alim|hangi taraf|alliance|horde|ruleset|sunucu|server/
+      .test(q);
 
-    if (
-      isImage &&
-      attachment?.url
-    ) {
-      return {
-        url:
-          attachment.url,
+  return (
+    guild &&
+    intent
+  );
+}
 
-        contentType:
-          contentType ||
-          guessMimeType(
-            filename
-          )
-      };
-    }
-  }
+function isGuideTopicQuestion(
+  question
+) {
+  const q =
+    normalizeGuideText(
+      question
+    );
 
-  return null;
+  return (
+    /ruleset|horde|alliance/
+      .test(q) ||
+
+    /level[a-z]*|kasma/
+      .test(q) ||
+
+    /race|racial|irk[a-z]*/
+      .test(q) ||
+
+    /class|sinif|warrior|hunter|mage|rogue|priest|warlock|paladin|druid|shaman/
+      .test(q) ||
+
+    /mana|energy|focus|rage|zirh|armor|healer|tank/
+      .test(q) ||
+
+    /addon|action bar|cooldown manager|swing timer|dps metre|nameplate|keybind|fps|gamepad/
+      .test(q) ||
+
+    /meslek|profession|crafting|gathering|tracking|kamp|camping|legacy/
+      .test(q)
+  );
 }
 
 function bytesToBase64(bytes) {
-  let binary =
-    "";
+  let binary = "";
 
   const chunkSize =
     0x8000;
 
   for (
     let i = 0;
-
-    i <
-    bytes.length;
-
-    i +=
-    chunkSize
+    i < bytes.length;
+    i += chunkSize
   ) {
     binary +=
       String.fromCharCode(
         ...bytes.subarray(
           i,
-          i +
-          chunkSize
+          i + chunkSize
         )
       );
   }
@@ -2546,22 +655,74 @@ function bytesToBase64(bytes) {
   );
 }
 
-function retryableBackendStatus(status) {
-  return (
-    status ===
-      502 ||
+function extractInteractionText(
+  data
+) {
+  if (
+    typeof data?.output_text ===
+      "string" &&
+    data.output_text.trim()
+  ) {
+    return (
+      data.output_text.trim()
+    );
+  }
 
-    status ===
-      503 ||
+  const steps =
+    Array.isArray(
+      data?.steps
+    )
+      ? data.steps
+      : [];
 
-    status ===
-      504
-  );
+  for (
+    let i =
+      steps.length - 1;
+
+    i >= 0;
+
+    i--
+  ) {
+    const step =
+      steps[i];
+
+    if (
+      step?.type !==
+      "model_output"
+    ) {
+      continue;
+    }
+
+    const content =
+      Array.isArray(
+        step?.content
+      )
+        ? step.content
+        : [];
+
+    const text =
+      content
+        .filter(
+          (part) =>
+            part?.type ===
+              "text" &&
+            typeof part?.text ===
+              "string"
+        )
+        .map(
+          (part) =>
+            part.text
+        )
+        .join("\n")
+        .trim();
+
+    if (text) {
+      return text;
+    }
+  }
+
+  return "";
 }
-
-// ============================================================
-// WORKER
-// ============================================================
 
 export default {
   async fetch(
@@ -2578,62 +739,37 @@ export default {
       "/health"
     ) {
       return json({
-        ok:
-          true,
+        ok: true,
 
         service:
           "totik-ai",
 
         mode:
-          "low-usage-polling",
+          "source-aware-class-guides",
 
-        gatewayWebSocket:
-          false,
-
-        pollIntervalSeconds:
-          POLL_INTERVAL_MS /
-          1000,
-
-        channelId:
+        questionChannelId:
           QUESTION_CHANNEL_ID,
 
-        cooldownMinutes:
+        classGuideImageChannelId:
+          GUIDE_IMAGE_CHANNEL_ID,
+
+        normalCooldownMinutes:
           NORMAL_COOLDOWN_MS /
           60000,
 
-        replySupport:
-          true,
+        premiumCooldownMinutes:
+          PREMIUM_COOLDOWN_MS /
+          60000,
 
-        imageSupport:
-          true,
-
-        curatedGuideSupport:
-          true,
-
-        guildRoutingSupport:
-          true,
-
-        localCuratedGuideFastPath:
-          true,
-
-        guideBuild:
-          TOTIK_GUIDE_BUILD,
-
-        adminCooldownBypass:
-          true,
-
-        backendAttempts:
-          AI_MAX_ATTEMPTS
+        guideCatalog:
+          catalogDiagnostics()
       });
     }
 
-    if (
-      !env.GATEWAY
-    ) {
+    if (!env.GATEWAY) {
       return json(
         {
-          ok:
-            false,
+          ok: false,
 
           error:
             "GATEWAY Durable Object binding bulunamadı."
@@ -2643,105 +779,75 @@ export default {
     }
 
     const id =
-      env.GATEWAY
-        .idFromName(
-          "totik-ai-main"
-        );
+      env.GATEWAY.idFromName(
+        "totik-ai-main"
+      );
 
     const stub =
-      env.GATEWAY
-        .get(
-          id
-        );
+      env.GATEWAY.get(id);
+
+    const routeMap = {
+      "/":
+        "/start",
+
+      "/start":
+        "/start",
+
+      "/stop":
+        "/stop",
+
+      "/run":
+        "/run",
+
+      "/status":
+        "/status",
+
+      "/guide-check":
+        "/guide-check"
+    };
+
+    const internalPath =
+      routeMap[
+        url.pathname
+      ];
+
+    if (!internalPath) {
+      return new Response(
+        "Not found",
+        {
+          status: 404
+        }
+      );
+    }
 
     try {
-      if (
-        url.pathname ===
-          "/" ||
-
-        url.pathname ===
-          "/start"
-      ) {
-        return await stub.fetch(
-          new Request(
-            "https://internal/start"
-          )
-        );
-      }
-
-      if (
-        url.pathname ===
-        "/status"
-      ) {
-        return await stub.fetch(
-          new Request(
-            "https://internal/status"
-          )
-        );
-      }
-
-      if (
-        url.pathname ===
-        "/run"
-      ) {
-        return await stub.fetch(
-          new Request(
-            "https://internal/run"
-          )
-        );
-      }
-
-      if (
-        url.pathname ===
-        "/stop"
-      ) {
-        return await stub.fetch(
-          new Request(
-            "https://internal/stop"
-          )
-        );
-      }
+      return await stub.fetch(
+        new Request(
+          `https://internal${internalPath}`
+        )
+      );
 
     } catch (error) {
       return json(
         {
-          ok:
-            false,
+          ok: false,
 
           error:
             "durable_object_unavailable",
 
           detail:
             error?.message ||
-            String(
-              error
-            )
+            String(error)
         },
         503
       );
     }
-
-    return new Response(
-      "Not found",
-      {
-        status:
-          404
-      }
-    );
   }
 };
 
-// ============================================================
-// DURABLE OBJECT
-//
-// İsmi bilerek DiscordGateway bırakıldı.
-// wrangler.jsonc'yi değiştirmiyoruz.
-//
-// Artık Gateway değil.
-// Sadece kısa süre uyanan polling motoru.
-// ============================================================
+export class DiscordGateway
+  extends DurableObject {
 
-export class DiscordGateway extends DurableObject {
   constructor(
     ctx,
     env
@@ -2756,11 +862,13 @@ export class DiscordGateway extends DurableObject {
 
     this.env =
       env;
-  }
 
-  // ----------------------------------------------------------
-  // ROUTES
-  // ----------------------------------------------------------
+    this.guildRoleCache =
+      new Map();
+
+    this.classAttachmentCache =
+      new Map();
+  }
 
   async fetch(request) {
     const url =
@@ -2773,14 +881,12 @@ export class DiscordGateway extends DurableObject {
       "/start"
     ) {
       if (
-        !this
-          .env
+        !this.env
           .DISCORD_BOT_TOKEN
       ) {
         return json(
           {
-            ok:
-              false,
+            ok: false,
 
             error:
               "DISCORD_BOT_TOKEN secret bulunamadı."
@@ -2789,28 +895,20 @@ export class DiscordGateway extends DurableObject {
         );
       }
 
-      await this
-        .ctx
-        .storage
-        .put(
-          "polling_enabled",
-          true
-        );
+      await this.ctx.storage.put(
+        "polling_enabled",
+        true
+      );
 
-      await this
-        .ensureInitialized();
+      await this.ensureInitialized();
 
-      await this
-        .ctx
-        .storage
-        .setAlarm(
-          Date.now() +
-          1000
-        );
+      await this.ctx.storage.setAlarm(
+        Date.now() +
+        1000
+      );
 
       return json({
-        ok:
-          true,
+        ok: true,
 
         state:
           "polling",
@@ -2818,15 +916,12 @@ export class DiscordGateway extends DurableObject {
         running:
           true,
 
-        gatewayWebSocket:
-          false,
-
         pollIntervalSeconds:
           POLL_INTERVAL_MS /
           1000,
 
-        channelId:
-          QUESTION_CHANNEL_ID
+        classGuideImageChannelId:
+          GUIDE_IMAGE_CHANNEL_ID
       });
     }
 
@@ -2834,25 +929,16 @@ export class DiscordGateway extends DurableObject {
       url.pathname ===
       "/stop"
     ) {
-      await this
-        .ctx
-        .storage
-        .put(
-          "polling_enabled",
-          false
-        );
+      await this.ctx.storage.put(
+        "polling_enabled",
+        false
+      );
 
-      await this
-        .ctx
-        .storage
-        .deleteAlarm();
+      await this.ctx.storage.deleteAlarm();
 
       return json({
-        ok:
-          true,
-
-        state:
-          "stopped"
+        ok: true,
+        state: "stopped"
       });
     }
 
@@ -2860,31 +946,22 @@ export class DiscordGateway extends DurableObject {
       url.pathname ===
       "/run"
     ) {
-      await this
-        .ctx
-        .storage
-        .put(
-          "polling_enabled",
-          true
-        );
+      await this.ctx.storage.put(
+        "polling_enabled",
+        true
+      );
 
-      await this
-        .ensureInitialized();
+      await this.ensureInitialized();
 
-      await this
-        .pollOnce();
+      await this.pollOnce();
 
-      await this
-        .ctx
-        .storage
-        .setAlarm(
-          Date.now() +
-          POLL_INTERVAL_MS
-        );
+      await this.ctx.storage.setAlarm(
+        Date.now() +
+        POLL_INTERVAL_MS
+      );
 
       return json({
-        ok:
-          true,
+        ok: true,
 
         manualRun:
           true,
@@ -2892,6 +969,21 @@ export class DiscordGateway extends DurableObject {
         state:
           "polling"
       });
+    }
+
+    if (
+      url.pathname ===
+      "/guide-check"
+    ) {
+      const report =
+        await this.buildGuideCheck();
+
+      return json(
+        report,
+        report.ok
+          ? 200
+          : 502
+      );
     }
 
     if (
@@ -2905,9 +997,7 @@ export class DiscordGateway extends DurableObject {
         lastPollAt,
         lastQuestionAt,
         lastError,
-        lastBackendStatus,
-        lastBackendAttempts,
-        lastBackendDurationMs,
+        lastTrace,
         answeredCount,
         technicalFailureCount
       ] =
@@ -2937,15 +1027,7 @@ export class DiscordGateway extends DurableObject {
           ),
 
           this.ctx.storage.get(
-            "last_backend_status"
-          ),
-
-          this.ctx.storage.get(
-            "last_backend_attempts"
-          ),
-
-          this.ctx.storage.get(
-            "last_backend_duration_ms"
+            "last_trace"
           ),
 
           this.ctx.storage.get(
@@ -2958,46 +1040,38 @@ export class DiscordGateway extends DurableObject {
         ]);
 
       const alarmAt =
-        await this
-          .ctx
-          .storage
-          .getAlarm();
+        await this.ctx.storage.getAlarm();
 
       return json({
         state:
-          enabled ===
-          false
-
+          enabled === false
             ? "stopped"
-
             : "polling",
 
         running:
-          enabled !==
-            false &&
-          alarmAt !=
-            null,
-
-        mode:
-          "low-usage-polling",
-
-        gatewayWebSocket:
-          false,
+          enabled !== false &&
+          alarmAt != null,
 
         initialized:
-          initialized ===
-          true,
+          initialized === true,
 
         pollIntervalSeconds:
           POLL_INTERVAL_MS /
           1000,
 
-        cooldownMinutes:
+        normalCooldownMinutes:
           NORMAL_COOLDOWN_MS /
           60000,
 
-        channelId:
+        premiumCooldownMinutes:
+          PREMIUM_COOLDOWN_MS /
+          60000,
+
+        questionChannelId:
           QUESTION_CHANNEL_ID,
+
+        guideImageChannelId:
+          GUIDE_IMAGE_CHANNEL_ID,
 
         lastMessageId:
           lastMessageId ||
@@ -3013,25 +1087,10 @@ export class DiscordGateway extends DurableObject {
 
         nextPollAt:
           alarmAt
-
             ? new Date(
                 alarmAt
-              )
-                .toISOString()
-
+              ).toISOString()
             : null,
-
-        lastBackendStatus:
-          lastBackendStatus ??
-          null,
-
-        lastBackendAttempts:
-          lastBackendAttempts ??
-          null,
-
-        lastBackendDurationMs:
-          lastBackendDurationMs ??
-          null,
 
         answeredCount:
           answeredCount ??
@@ -3041,37 +1100,35 @@ export class DiscordGateway extends DurableObject {
           technicalFailureCount ??
           0,
 
+        lastTrace:
+          lastTrace ||
+          null,
+
         lastError:
           lastError ||
-          null
+          null,
+
+        guideCatalog:
+          catalogDiagnostics()
       });
     }
 
     return new Response(
       "Not found",
       {
-        status:
-          404
+        status: 404
       }
     );
   }
 
-  // ----------------------------------------------------------
-  // ALARM
-  // ----------------------------------------------------------
-
   async alarm() {
     const enabled =
-      await this
-        .ctx
-        .storage
-        .get(
-          "polling_enabled"
-        );
+      await this.ctx.storage.get(
+        "polling_enabled"
+      );
 
     if (
-      enabled ===
-      false
+      enabled === false
     ) {
       return;
     }
@@ -3080,99 +1137,71 @@ export class DiscordGateway extends DurableObject {
       Date.now();
 
     try {
-      await this
-        .ensureInitialized();
-
-      await this
-        .pollOnce();
+      await this.ensureInitialized();
+      await this.pollOnce();
 
     } catch (error) {
-      await this
-        .setLastError(
-          `Polling: ${
-            error?.message ||
-            String(
-              error
-            )
-          }`
-        );
+      await this.setLastError(
+        `Polling: ${
+          error?.message ||
+          String(error)
+        }`
+      );
 
     } finally {
       const stillEnabled =
-        await this
-          .ctx
-          .storage
-          .get(
-            "polling_enabled"
-          );
+        await this.ctx.storage.get(
+          "polling_enabled"
+        );
 
       if (
-        stillEnabled !==
-        false
+        stillEnabled !== false
       ) {
         const scheduled =
           startedAt +
           POLL_INTERVAL_MS;
 
-        const nextAlarm =
+        await this.ctx.storage.setAlarm(
           Math.max(
             Date.now() +
             1000,
-            scheduled
-          );
 
-        await this
-          .ctx
-          .storage
-          .setAlarm(
-            nextAlarm
-          );
+            scheduled
+          )
+        );
       }
     }
   }
 
-  // ----------------------------------------------------------
-  // INITIALIZATION
-  // ----------------------------------------------------------
-
   async ensureInitialized() {
     const initialized =
-      await this
-        .ctx
-        .storage
-        .get(
-          "initialized"
-        );
+      await this.ctx.storage.get(
+        "initialized"
+      );
 
     if (
-      initialized ===
-      true
+      initialized === true
     ) {
       return;
     }
 
     const messages =
-      await this
-        .discordRequest(
-          `/channels/${QUESTION_CHANNEL_ID}/messages?limit=1`
-        );
+      await this.discordRequest(
+        `/channels/${QUESTION_CHANNEL_ID}/messages?limit=1`
+      );
 
     if (
       Array.isArray(
         messages
       ) &&
-      messages.length >
-      0
+      messages.length > 0
     ) {
-      await this
-        .ctx
-        .storage
-        .put(
-          "last_message_id",
-          String(
-            messages[0].id
-          )
-        );
+      await this.ctx.storage.put(
+        "last_message_id",
+        String(
+          messages[0].id
+        )
+      );
     }
 
     await Promise.all([
@@ -3194,49 +1223,32 @@ export class DiscordGateway extends DurableObject {
     ]);
   }
 
-  // ----------------------------------------------------------
-  // POLLING
-  // ----------------------------------------------------------
-
   async pollOnce() {
     let cursor =
-      await this
-        .ctx
-        .storage
-        .get(
-          "last_message_id"
-        );
+      await this.ctx.storage.get(
+        "last_message_id"
+      );
 
     for (
       let page = 0;
-
-      page <
-      3;
-
+      page < 3;
       page++
     ) {
       const query =
         cursor
-
-          ? `?after=${encodeURIComponent(
-              cursor
-            )}&limit=100`
-
+          ? `?after=${encodeURIComponent(cursor)}&limit=100`
           : "?limit=1";
 
       const messages =
-        await this
-          .discordRequest(
-            `/channels/${QUESTION_CHANNEL_ID}/messages${query}`
-          );
+        await this.discordRequest(
+          `/channels/${QUESTION_CHANNEL_ID}/messages${query}`
+        );
 
       if (
         !Array.isArray(
           messages
         ) ||
-
-        messages.length ===
-        0
+        messages.length === 0
       ) {
         break;
       }
@@ -3249,95 +1261,254 @@ export class DiscordGateway extends DurableObject {
         const message
         of messages
       ) {
-        const messageId =
+        cursor =
           String(
             message.id
           );
 
-        try {
-          await this
-            .processMessage(
-              message
-            );
+        await this.ctx.storage.put(
+          "last_message_id",
+          cursor
+        );
 
-        } catch (error) {
-          await this
-            .setLastError(
-              `Message ${messageId}: ${
-                error?.message ||
-                String(
-                  error
-                )
-              }`
-            );
+        if (
+          message
+            ?.author
+            ?.bot
+        ) {
+          continue;
         }
 
-        cursor =
-          messageId;
+        const content =
+          String(
+            message
+              ?.content ||
+            ""
+          ).trim();
 
-        await this
-          .ctx
-          .storage
-          .put(
-            "last_message_id",
-            cursor
+        if (
+          !QUESTION_COMMAND
+            .test(content) &&
+          !DEBUG_COMMAND
+            .test(content)
+        ) {
+          continue;
+        }
+
+        try {
+          await this.handleCommand(
+            message
           );
+
+        } catch (error) {
+          await this.markTechnicalFailure();
+
+          await this.setLastError(
+            `Handle command: ${
+              error?.message ||
+              String(error)
+            }`
+          );
+        }
       }
 
       if (
-        messages.length <
-        100
+        messages.length < 100
       ) {
         break;
       }
     }
 
-    await this
-      .ctx
-      .storage
-      .put(
-        "last_poll_at",
-        new Date()
-          .toISOString()
-      );
+    await this.ctx.storage.put(
+      "last_poll_at",
+      new Date()
+        .toISOString()
+    );
   }
 
-  // ----------------------------------------------------------
-  // MESSAGE HANDLER
-  // ----------------------------------------------------------
+  async buildGuideCheck() {
+    const report = {
+      ok: true,
 
-  async processMessage(message) {
-    if (
-      !message?.id ||
-      !message?.author
+      imageChannelId:
+        GUIDE_IMAGE_CHANNEL_ID,
+
+      totalExpectedPages:
+        0,
+
+      totalMatchedPages:
+        0,
+
+      totalImageAttachments:
+        0,
+
+      classes: {}
+    };
+
+    const diag =
+      catalogDiagnostics();
+
+    for (
+      const classKey
+      of Object.keys(
+        GUIDE_BATCH_MESSAGE_IDS
+      )
     ) {
-      return;
+      const expectedPages =
+        Number(
+          diag.pageCounts
+            ?.[classKey] ||
+          0
+        );
+
+      report.totalExpectedPages +=
+        expectedPages;
+
+      try {
+        const attachments =
+          await this.getClassAttachmentIndex(
+            classKey,
+            true
+          );
+
+        const classPages =
+          CLASS_GUIDE_PAGES
+            .filter(
+              (page) =>
+                page.classKey ===
+                classKey
+            );
+
+        const matched = [];
+        const missing = [];
+
+        for (
+          const page
+          of classPages
+        ) {
+          const found =
+            findAttachmentForPage(
+              page,
+              attachments
+            );
+
+          if (
+            found.attachment
+          ) {
+            matched.push({
+              key:
+                page.key,
+
+              filename:
+                page.filename,
+
+              attachmentFilename:
+                found
+                  .attachment
+                  .filename,
+
+              messageId:
+                found
+                  .attachment
+                  .__sourceMessageId ||
+                null,
+
+              matchMode:
+                found.matchMode
+            });
+
+          } else {
+            missing.push({
+              key:
+                page.key,
+
+              filename:
+                page.filename
+            });
+          }
+        }
+
+        report.totalMatchedPages +=
+          matched.length;
+
+        report.totalImageAttachments +=
+          attachments.length;
+
+        report.classes[
+          classKey
+        ] = {
+          ok:
+            missing.length === 0,
+
+          messageIds:
+            GUIDE_BATCH_MESSAGE_IDS[
+              classKey
+            ],
+
+          expectedPages,
+
+          attachmentCount:
+            attachments.length,
+
+          matchedPages:
+            matched.length,
+
+          missing
+        };
+
+        if (
+          missing.length > 0
+        ) {
+          report.ok =
+            false;
+        }
+
+      } catch (error) {
+        report.ok =
+          false;
+
+        report.classes[
+          classKey
+        ] = {
+          ok: false,
+
+          messageIds:
+            GUIDE_BATCH_MESSAGE_IDS[
+              classKey
+            ],
+
+          expectedPages,
+
+          error:
+            error?.message ||
+            String(error)
+        };
+      }
     }
 
-    if (
-      message.author.bot ||
-      message.webhook_id
-    ) {
-      return;
-    }
+    return report;
+  }
 
+  async handleCommand(message) {
     const content =
       String(
-        message.content ||
+        message
+          ?.content ||
         ""
-      )
-        .trim();
+      ).trim();
 
     if (
-      !QUESTION_COMMAND
-        .test(
-          content
-        )
+      DEBUG_COMMAND
+        .test(content)
     ) {
+      await this.handleDebugCommand(
+        message
+      );
+
       return;
     }
 
-    const currentQuestion =
+    let currentQuestion =
       cleanText(
         content.replace(
           QUESTION_COMMAND,
@@ -3362,10 +1533,9 @@ export class DiscordGateway extends DurableObject {
     ) {
       try {
         referencedMessage =
-          await this
-            .discordRequest(
-              `/channels/${QUESTION_CHANNEL_ID}/messages/${referencedId}`
-            );
+          await this.discordRequest(
+            `/channels/${QUESTION_CHANNEL_ID}/messages/${referencedId}`
+          );
 
       } catch {
         referencedMessage =
@@ -3381,11 +1551,10 @@ export class DiscordGateway extends DurableObject {
         1600
       );
 
-    const image =
+    const userImage =
       getImageAttachment(
         message
       ) ||
-
       getImageAttachment(
         referencedMessage
       );
@@ -3398,8 +1567,7 @@ export class DiscordGateway extends DurableObject {
       currentQuestion
     ) {
       effectiveQuestion =
-        `Önceki mesaj: ${referencedText}\n` +
-        `Ek soru: ${currentQuestion}`;
+        `Önceki mesaj: ${referencedText}\nEk soru: ${currentQuestion}`;
 
     } else if (
       currentQuestion
@@ -3414,21 +1582,21 @@ export class DiscordGateway extends DurableObject {
         referencedText;
 
     } else if (
-      image
+      userImage
     ) {
       effectiveQuestion =
-        "Bu görseldeki World of Warcraft konusu veya görevi hakkında yardımcı ol.";
+        "Bu World of Warcraft görselindeki konu hakkında yardımcı ol.";
     }
 
     if (
       !effectiveQuestion &&
-      !image
+      !userImage
     ) {
-      await this
-        .reply(
-          message,
-          "Sorunu `!soru` komutundan sonra yazabilir veya cevaplamak istediğin mesaja reply atıp sadece `!soru` yazabilirsin."
-        );
+      await this.reply(
+        message,
+
+        "Sorunu `!soru` komutundan sonra yazabilir veya cevaplamak istediğin mesaja reply atıp sadece `!soru` yazabilirsin."
+      );
 
       return;
     }
@@ -3438,239 +1606,206 @@ export class DiscordGateway extends DurableObject {
         message.author.id
       );
 
-    const cooldownMs =
-      memberCooldownMs(
+    const premiumInfo =
+      await this.getMemberCooldownClass(
         message
       );
 
     const cooldown =
-      await this
-        .acquireCooldown(
-          userId,
-          cooldownMs
-        );
-
-    if (
-      !cooldown.allowed
-    ) {
-      await this
-        .reply(
-          message,
-          `Yeni soru hakkın için **${formatRemaining(cooldown.remainingMs)}** beklemelisin.`
-        );
-
-      return;
-    }
-
-    const classGuideMatch =
-      findClassGuideMatch(
-        effectiveQuestion
+      await this.acquireCooldown(
+        userId,
+        premiumInfo.durationMs
       );
 
-    if (
-      classGuideMatch?.talent
-    ) {
-      const guideImage =
-        await this
-          .getGuideImageAsset(
-            classGuideMatch
-          );
+    if (!cooldown.allowed) {
+      const cooldownMessage =
+        `⏱️ Tekrar soru sorabilmek için **${formatRemaining(cooldown.remainingMs)}** beklemelisin. ` +
+        "YouTube Katıl ve Twitch Sub üyelerinde bekleme süresi 1 dakika, normal üyelerde 15 dakikadır.";
 
       await this.reply(
         message,
-        buildTalentAnswer(classGuideMatch),
-        { imageUrl: guideImage?.url }
+        cooldownMessage
       );
 
-      await this.markAnswered();
-      await this.clearLastError();
+      await this.recordTrace({
+        route:
+          "cooldown_reject",
+
+        userId,
+
+        premium:
+          premiumInfo.premium,
+
+        premiumReason:
+          premiumInfo.reason,
+
+        remainingMs:
+          cooldown.remainingMs,
+
+        tavilyUsed:
+          false,
+
+        imageSent:
+          false
+      });
+
       return;
     }
 
-    await this
-      .ctx
-      .storage
-      .put(
-        "last_question_at",
-        new Date()
-          .toISOString()
-      );
+    await this.ctx.storage.put(
+      "last_question_at",
+      new Date()
+        .toISOString()
+    );
 
-    // ========================================================
-    // GUILD — LOCAL, FREE
-    // ========================================================
-
-    if (
-      isGuildInfoQuestion(
-        effectiveQuestion
-      )
-    ) {
-      await this
-        .reply(
+    try {
+      if (
+        isGuildInfoQuestion(
+          effectiveQuestion
+        )
+      ) {
+        await this.reply(
           message,
           GUILD_INFO_MESSAGE
         );
 
-      await this
-        .markAnswered();
+        await this.finishSuccessfulAnswer({
+          route:
+            "local_guild",
 
-      await this
-        .clearLastError();
+          source:
+            "local_constant",
 
-      return;
-    }
+          tavilyUsed:
+            false,
 
-    // ========================================================
-    // MESLEK / CAMP / LEGACY — LOCAL, FREE
-    // ========================================================
+          imageSent:
+            false
+        });
 
-    const localCurated =
-      tryCuratedForeverAnswer(
-        effectiveQuestion
-      );
+        return;
+      }
 
-    if (
-      localCurated
-    ) {
-      await this
-        .safeTyping(
-          QUESTION_CHANNEL_ID
-        );
-
-      const guideImage =
-        await this
-          .getGuideImageAsset(
-            localCurated.topic
-          );
-
-      const localAnswer =
-        appendGuideReminder(
-          localCurated.answer,
-          effectiveQuestion,
-          {
-            curatedTopic:
-              localCurated.topic
-          }
-        );
-
-      await this
-        .reply(
-          message,
-          localAnswer,
-          {
-            imageUrl:
-              guideImage?.url
-          }
-        );
-
-      await this
-        .markAnswered();
-
-      await this
-        .clearLastError();
-
-      return;
-    }
-
-    // ========================================================
-    // LOCAL BASIC RESPONSES
-    // ========================================================
-
-    if (
-      isChannelRecommendationQuestion(
-        effectiveQuestion
-      )
-    ) {
-      await this
-        .reply(
-          message,
-          CHANNEL_RECOMMENDATION_MESSAGE
-        );
-
-      await this
-        .markAnswered();
-
-      await this
-        .clearLastError();
-
-      return;
-    }
-
-    if (
-      isIdentityQuestion(
-        effectiveQuestion
-      )
-    ) {
-      await this
-        .reply(
+      if (
+        isIdentityQuestion(
+          effectiveQuestion
+        )
+      ) {
+        await this.reply(
           message,
           IDENTITY_MESSAGE
         );
 
-      await this
-        .markAnswered();
+        await this.finishSuccessfulAnswer({
+          route:
+            "local_identity",
 
-      await this
-        .clearLastError();
+          source:
+            "local_constant",
 
-      return;
-    }
+          tavilyUsed:
+            false,
 
-    // ========================================================
-    // NORMAL AI FLOW — MEVCUT MANTIK
-    // ========================================================
+          imageSent:
+            false
+        });
 
-    try {
-      await this
-        .safeTyping(
-          QUESTION_CHANNEL_ID
-        );
-
-      let imageContext =
-        "";
+        return;
+      }
 
       if (
-        image &&
-        !likelyCuratedTopic(
+        isChannelRecommendationQuestion(
           effectiveQuestion
         )
       ) {
-        imageContext =
-          await this
-            .analyzeImage(
-              image,
-              effectiveQuestion
-            );
+        await this.reply(
+          message,
+          CHANNEL_RECOMMENDATION_MESSAGE
+        );
+
+        await this.finishSuccessfulAnswer({
+          route:
+            "local_channel_recommendation",
+
+          source:
+            "local_constant",
+
+          tavilyUsed:
+            false,
+
+          imageSent:
+            false
+        });
+
+        return;
+      }
+
+      await this.safeTyping(
+        QUESTION_CHANNEL_ID
+      );
+
+      const classResolution =
+        resolveClassGuide(
+          effectiveQuestion
+        );
+
+      if (
+        classResolution.matched &&
+        classResolution.pages.length > 0
+      ) {
+        const classResult =
+          await this.answerFromClassGuide(
+            message,
+            effectiveQuestion,
+            classResolution
+          );
+
+        if (
+          classResult.handled
+        ) {
+          await this.finishSuccessfulAnswer(
+            classResult.trace
+          );
+
+          return;
+        }
       }
 
       let finalQuestion =
         effectiveQuestion;
 
-      if (
-        imageContext
-      ) {
-        finalQuestion +=
-          `\n\nEkran görüntüsünden okunan bilgiler:\n${imageContext}`;
+      if (userImage) {
+        const imageContext =
+          await this.analyzeUserImage(
+            userImage,
+            effectiveQuestion
+          );
+
+        if (imageContext) {
+          finalQuestion +=
+            `\n\nEkran görüntüsünden okunan bilgiler:\n${imageContext}`;
+        }
       }
 
       let result;
+      let listenerFallback =
+        false;
 
       try {
         result =
-          await this
-            .askWowAi(
-              finalQuestion
-            );
+          await this.askWowAi(
+            finalQuestion
+          );
 
-      } catch (
-        backendError
-      ) {
+      } catch (backendError) {
+        listenerFallback =
+          true;
+
         result =
-          await this
-            .askGeminiFallback(
-              finalQuestion,
-              backendError
-            );
+          await this.askGeminiGeneralFallback(
+            finalQuestion,
+            backendError
+          );
       }
 
       const answer =
@@ -3679,9 +1814,7 @@ export class DiscordGateway extends DurableObject {
           ""
         );
 
-      if (
-        !answer
-      ) {
+      if (!answer) {
         throw new Error(
           "AI boş cevap döndürdü."
         );
@@ -3691,125 +1824,1366 @@ export class DiscordGateway extends DurableObject {
         appendGuideReminder(
           answer,
           effectiveQuestion,
-          result
+          Boolean(
+            result?.curatedTopic
+          )
         );
 
-      const detectedGuideTopic =
-        classGuideMatch ||
-        result?.curatedTopic ||
-        likelyCuratedTopic(
-          effectiveQuestion
+      const specialFiles = [];
+
+      if (
+        result?.curatedTopic &&
+        SPECIAL_GUIDE_IMAGE_MESSAGE_IDS[
+          result.curatedTopic
+        ]
+      ) {
+        const specialMedia =
+          await this.getSpecialGuideMedia(
+            result.curatedTopic
+          );
+
+        if (specialMedia) {
+          specialFiles.push(
+            specialMedia
+          );
+        }
+      }
+
+      const preparedFiles =
+        await this.prepareOutgoingFiles(
+          specialFiles
         );
 
-      const guideImage =
-        detectedGuideTopic
+      await this.reply(
+        message,
+        finalAnswer,
+        {
+          files:
+            preparedFiles
+        }
+      );
 
-          ? await this
-              .getGuideImageAsset(
-                detectedGuideTopic
-              )
+      const source =
+        listenerFallback
+          ? "listener_gemini_fallback"
+          : result?.curated
+            ? `backend_curated:${result.curatedTopic || "unknown"}`
+            : Array.isArray(
+                result?.sources
+              ) &&
+              result.sources.length > 0
+                ? `backend_tavily_grounded:${result.mode || "unknown"}`
+                : `backend_model_or_fallback:${result?.mode || result?.fallback || "unknown"}`;
 
-          : null;
+      await this.finishSuccessfulAnswer({
+        route:
+          "normal_backend",
 
-      await this
-        .reply(
-          message,
-          finalAnswer,
-          {
-            imageUrl:
-              guideImage?.url
-          }
-        );
+        source,
 
-      await this
-        .markAnswered();
+        backendMode:
+          result?.mode ||
+          null,
 
-      await this
-        .clearLastError();
+        curatedTopic:
+          result?.curatedTopic ||
+          null,
+
+        tavilyUsed:
+          !listenerFallback &&
+          Array.isArray(
+            result?.sources
+          ) &&
+          result.sources.length > 0,
+
+        imageSent:
+          preparedFiles.length > 0,
+
+        imageCount:
+          preparedFiles.length
+      });
 
     } catch (error) {
-      await this
-        .releaseCooldown(
-          userId
-        );
+      await this.releaseCooldown(
+        userId
+      );
 
-      await this
-        .markTechnicalFailure();
+      await this.markTechnicalFailure();
 
-      await this
-        .setLastError(
-          `Question: ${
-            error?.message ||
-            String(
-              error
-            )
-          }`
-        );
+      await this.setLastError(
+        `Question: ${
+          error?.message ||
+          String(error)
+        }`
+      );
 
-      await this
-        .reply(
-          message,
-          "Şu an bilgi kaynaklarından birine ulaşamadım. Bu soru hakkından düşmedi; biraz sonra tekrar deneyebilirsin."
-        );
+      await this.reply(
+        message,
+
+        "Şu an bilgi kaynaklarından birine ulaşamadım. Bu deneme cooldown hakkından düşmedi; biraz sonra tekrar deneyebilirsin."
+      );
     }
   }
 
-  // ----------------------------------------------------------
-  // COOLDOWN
-  // ----------------------------------------------------------
+  async handleDebugCommand(message) {
+    const userId =
+      String(
+        message
+          ?.author
+          ?.id ||
+        ""
+      );
 
-  async acquireCooldown(userId, cooldownMs) {
+    if (
+      !ADMIN_COOLDOWN_BYPASS_USER_IDS
+        .has(userId)
+    ) {
+      return;
+    }
+
+    const trace =
+      await this.ctx.storage.get(
+        "last_trace"
+      );
+
+    const lastError =
+      await this.ctx.storage.get(
+        "last_error"
+      );
+
+    const payload = {
+      lastTrace:
+        trace ||
+        null,
+
+      lastError:
+        lastError ||
+        null
+    };
+
+    await this.reply(
+      message,
+
+      `\`\`\`json\n${JSON.stringify(payload, null, 2).slice(0, 1700)}\n\`\`\``
+    );
+  }
+
+  async answerFromClassGuide(
+    message,
+    question,
+    resolution
+  ) {
+    const startedAt =
+      Date.now();
+
+    const media =
+      await this.loadClassGuideMedia(
+        resolution
+      );
+
+    const pageContexts = [];
+
+    const contextSources =
+      new Set();
+
+    for (
+      const page
+      of resolution.pages
+    ) {
+      if (
+        (page.talents || [])
+          .length > 0
+      ) {
+        pageContexts.push(
+          buildStructuredGuideContext({
+            pages: [
+              page
+            ]
+          })
+        );
+
+        contextSources.add(
+          "catalog_structured"
+        );
+
+        continue;
+      }
+
+      const mediaItem =
+        media.find(
+          (item) =>
+            item.page.key ===
+            page.key
+        ) ||
+        null;
+
+      if (mediaItem) {
+        try {
+          const visionText =
+            await this.getCachedGuideVisionText(
+              page,
+              mediaItem
+            );
+
+          if (visionText) {
+            pageContexts.push(
+              `PAGE: ${page.key}\nFILE: ${page.filename}\nVISION_TRANSCRIPT:\n${visionText}`
+            );
+
+            contextSources.add(
+              "guide_image_vision_cache"
+            );
+
+            continue;
+          }
+
+        } catch (error) {
+          await this.setLastError(
+            `Guide vision ${page.key}: ${
+              error?.message ||
+              String(error)
+            }`
+          );
+        }
+      }
+
+      pageContexts.push(
+        buildKeywordFallbackContext(
+          page
+        )
+      );
+
+      contextSources.add(
+        "catalog_keywords_fallback"
+      );
+    }
+
+    const context =
+      pageContexts
+        .filter(Boolean)
+        .join(
+          "\n\n---\n\n"
+        )
+        .slice(
+          0,
+          30000
+        );
+
+    if (
+      !context.trim()
+    ) {
+      return {
+        handled:
+          false,
+
+        trace: {
+          route:
+            "class_guide",
+
+          source:
+            "no_context",
+
+          classKey:
+            resolution.classKey,
+
+          pages:
+            resolution.pages
+              .map(
+                (p) =>
+                  p.key
+              ),
+
+          tavilyUsed:
+            false,
+
+          imageSent:
+            false
+        }
+      };
+    }
+
+    const answer =
+      await this.askGuideGrounded(
+        question,
+        resolution,
+        context
+      );
+
+    if (!answer) {
+      return {
+        handled:
+          false,
+
+        trace: {
+          route:
+            "class_guide",
+
+          source:
+            "guide_model_empty",
+
+          classKey:
+            resolution.classKey,
+
+          pages:
+            resolution.pages
+              .map(
+                (p) =>
+                  p.key
+              ),
+
+          tavilyUsed:
+            false,
+
+          imageSent:
+            false
+        }
+      };
+    }
+
+    const finalAnswer =
+      appendGuideReminder(
+        tidyAnswer(
+          answer
+        ),
+        question,
+        true
+      );
+
+    const preparedFiles =
+      await this.prepareOutgoingFiles(
+        media
+      );
+
+    await this.reply(
+      message,
+      finalAnswer,
+      {
+        files:
+          preparedFiles
+      }
+    );
+
+    const trace = {
+      route:
+        "class_guide",
+
+      source:
+        [...contextSources]
+          .join("+"),
+
+      classKey:
+        resolution.classKey,
+
+      treeKey:
+        resolution.treeKey ||
+        null,
+
+      intents:
+        resolution.intents,
+
+      reason:
+        resolution.reason,
+
+      confidence:
+        resolution.confidence,
+
+      pages:
+        resolution.pages
+          .map(
+            (page) =>
+              page.key
+          ),
+
+      filenames:
+        resolution.pages
+          .map(
+            (page) =>
+              page.filename
+          ),
+
+      batchMessageIds:
+        expectedBatchMessageIds(
+          resolution.classKey
+        ),
+
+      imageChannelId:
+        GUIDE_IMAGE_CHANNEL_ID,
+
+      imagesMatched:
+        media.length,
+
+      imagesSent:
+        preparedFiles.length,
+
+      imageSent:
+        preparedFiles.length > 0,
+
+      tavilyUsed:
+        false,
+
+      elapsedMs:
+        Date.now() -
+        startedAt
+    };
+
+    return {
+      handled:
+        true,
+
+      trace
+    };
+  }
+
+  async loadClassGuideMedia(
+    resolution
+  ) {
+    const classKey =
+      resolution.classKey;
+
+    const attachments =
+      await this.getClassAttachmentIndex(
+        classKey
+      );
+
+    const results = [];
+
+    for (
+      const page
+      of resolution.pages
+    ) {
+      const match =
+        findAttachmentForPage(
+          page,
+          attachments
+        );
+
+      if (
+        !match.attachment
+      ) {
+        console.log(
+          JSON.stringify({
+            event:
+              "guide_attachment_missing",
+
+            classKey,
+
+            pageKey:
+              page.key,
+
+            filename:
+              page.filename,
+
+            batchMessageIds:
+              GUIDE_BATCH_MESSAGE_IDS[
+                classKey
+              ] ||
+              []
+          })
+        );
+
+        continue;
+      }
+
+      results.push({
+        page,
+
+        attachment:
+          match.attachment,
+
+        matchMode:
+          match.matchMode,
+
+        sourceChannelId:
+          GUIDE_IMAGE_CHANNEL_ID,
+
+        sourceMessageId:
+          match
+            .attachment
+            .__sourceMessageId ||
+          null,
+
+        bytes:
+          null
+      });
+    }
+
+    return results;
+  }
+
+  async getClassAttachmentIndex(
+    classKey,
+    forceRefresh = false
+  ) {
+    const now =
+      Date.now();
+
+    const cached =
+      this.classAttachmentCache.get(
+        classKey
+      );
+
+    if (
+      !forceRefresh &&
+      cached &&
+      now - cached.at <
+      GUIDE_ATTACHMENT_CACHE_MS
+    ) {
+      return (
+        cached.attachments
+      );
+    }
+
+    const messageIds =
+      GUIDE_BATCH_MESSAGE_IDS[
+        classKey
+      ] ||
+      [];
+
+    const attachments = [];
+
+    for (
+      const messageId
+      of messageIds
+    ) {
+      const sourceMessage =
+        await this.discordRequest(
+          `/channels/${GUIDE_IMAGE_CHANNEL_ID}/messages/${messageId}`
+        );
+
+      for (
+        const attachment
+        of sourceMessage
+          ?.attachments ||
+        []
+      ) {
+        if (
+          !isImageAttachment(
+            attachment
+          )
+        ) {
+          continue;
+        }
+
+        attachments.push({
+          ...attachment,
+
+          __sourceMessageId:
+            messageId
+        });
+      }
+    }
+
+    this.classAttachmentCache.set(
+      classKey,
+      {
+        at:
+          now,
+
+        attachments
+      }
+    );
+
+    return attachments;
+  }
+
+  async ensureMediaBytes(
+    mediaItem
+  ) {
+    if (
+      mediaItem?.bytes
+      instanceof
+      Uint8Array
+    ) {
+      return (
+        mediaItem.bytes
+      );
+    }
+
+    const response =
+      await fetch(
+        mediaItem
+          .attachment
+          .url
+      );
+
+    if (!response.ok) {
+      this.classAttachmentCache.delete(
+        mediaItem.page.classKey
+      );
+
+      throw new Error(
+        `Guide image download ${response.status}: ${mediaItem.page.key}`
+      );
+    }
+
+    const bytes =
+      new Uint8Array(
+        await response
+          .arrayBuffer()
+      );
+
+    mediaItem.bytes =
+      bytes;
+
+    return bytes;
+  }
+
+  async getCachedGuideVisionText(
+    page,
+    mediaItem
+  ) {
+    const attachmentId =
+      String(
+        mediaItem
+          ?.attachment
+          ?.id ||
+        "unknown"
+      );
+
+    const key =
+      `guidevision:v3:${page.key}:${attachmentId}`;
+
+    const cached =
+      await this.ctx.storage.get(
+        key
+      );
+
+    if (
+      typeof cached ===
+        "string" &&
+      cached.trim()
+    ) {
+      return cached;
+    }
+
+    if (
+      !this.env
+        .GEMINI_API_KEY
+    ) {
+      throw new Error(
+        "GEMINI_API_KEY bulunamadı."
+      );
+    }
+
+    const bytes =
+      await this.ensureMediaBytes(
+        mediaItem
+      );
+
+    if (
+      bytes.byteLength >
+      MAX_VISION_IMAGE_BYTES
+    ) {
+      throw new Error(
+        `Guide image Vision sınırını aşıyor: ${bytes.byteLength}`
+      );
+    }
+
+    const base64 =
+      bytesToBase64(
+        bytes
+      );
+
+    const mimeType =
+      mediaItem
+        .attachment
+        .content_type ||
+      "image/png";
+
+    const prompt = `
+Bu görsel Totik Channel'ın WoW Forever class rehberi sayfasıdır.
+
+Sayfa anahtarı: ${page.key}
+Dosya adı: ${page.filename}
+Catalog anahtar kelimeleri: ${(page.keywords || []).join(" | ")}
+
+GÖREV:
+Görselde yazan bilgiyi dış bilgi eklemeden Türkçe ve yapılandırılmış şekilde çıkar.
+
+Mutlaka yakala:
+- başlık / konu
+- ana maddeler
+- sayı, yüzde, süre, cooldown, seviye gibi değerler
+- öneri / öncelik / sıra varsa aynen anlamını koruyarak
+- uyarı / istisna / not varsa
+- spell, talent, stat, rotation, race veya leveling isimleri
+
+KURALLAR:
+- Görselde olmayan bilgiyi ekleme.
+- WoW genel bilgisiyle boşluk doldurma.
+- Emin olmadığın metni kesinleştirme.
+- Reklam veya kanal çağrısı üretme.
+- Sonuç yalnızca rehber sayfasının içeriği olsun.
+- Kısa ama eksiksiz bir kaynak özeti üret.
+    `.trim();
+
+    const controller =
+      new AbortController();
+
+    const timer =
+      setTimeout(
+        () =>
+          controller.abort(),
+        VISION_TIMEOUT_MS
+      );
+
+    try {
+      const response =
+        await fetch(
+          GEMINI_VISION_ENDPOINT,
+          {
+            method:
+              "POST",
+
+            signal:
+              controller.signal,
+
+            headers: {
+              "content-type":
+                "application/json",
+
+              "x-goog-api-key":
+                this.env
+                  .GEMINI_API_KEY
+            },
+
+            body:
+              JSON.stringify({
+                contents: [
+                  {
+                    parts: [
+                      {
+                        text:
+                          prompt
+                      },
+
+                      {
+                        inlineData: {
+                          mimeType,
+                          data:
+                            base64
+                        }
+                      }
+                    ]
+                  }
+                ],
+
+                generationConfig: {
+                  temperature:
+                    0.05,
+
+                  maxOutputTokens:
+                    900
+                }
+              })
+          }
+        );
+
+      const raw =
+        await response.text();
+
+      let data = {};
+
+      try {
+        data =
+          raw
+            ? JSON.parse(
+                raw
+              )
+            : {};
+
+      } catch {
+        throw new Error(
+          "Guide Vision geçersiz JSON döndürdü."
+        );
+      }
+
+      if (!response.ok) {
+        throw new Error(
+          `Guide Vision HTTP ${response.status}: ${
+            data
+              ?.error
+              ?.message ||
+            raw.slice(
+              0,
+              400
+            )
+          }`
+        );
+      }
+
+      const text =
+        (
+          data
+            ?.candidates
+            ?.[0]
+            ?.content
+            ?.parts ||
+          []
+        )
+          .map(
+            (part) =>
+              part?.text ||
+              ""
+          )
+          .join("\n")
+          .trim();
+
+      if (!text) {
+        throw new Error(
+          "Guide Vision boş sonuç döndürdü."
+        );
+      }
+
+      const cleaned =
+        cleanText(
+          text,
+          6000
+        );
+
+      await this.ctx.storage.put(
+        key,
+        cleaned
+      );
+
+      return cleaned;
+
+    } finally {
+      clearTimeout(
+        timer
+      );
+    }
+  }
+
+  async askGuideGrounded(
+    question,
+    resolution,
+    context
+  ) {
+    const prompt = `
+Sen Totik Channel WoW Yardım Botusun.
+
+KULLANICI SORUSU:
+${question}
+
+EŞLEŞEN TOTIK CLASS REHBERİ:
+- class: ${resolution.classKey}
+- spec/tree: ${resolution.treeKey || "belirtilmedi"}
+- konu: ${(resolution.intents || []).join(", ") || "genel"}
+- sayfalar: ${(resolution.pages || []).map((p) => p.filename).join(", ")}
+
+AŞAĞIDAKİ VERİ TOTIK CHANNEL REHBER GÖRSELLERİNDEN GELİR:
+
+---
+${context}
+---
+
+CEVAP KURALLARI:
+1. Bu soruda birincil ve bağlayıcı kaynak yalnızca yukarıdaki rehber verisidir.
+2. Tavily, web, başka WoW sürümleri veya genel model bilgisi EKLEME.
+3. Rehberde olmayan bir build sırası / öneri / sayı uydurma.
+4. Kullanıcı belirli bir talent soruyorsa doğrudan o talentı açıkla.
+5. Kullanıcı "Holy Priest talentleri neler" gibi bir tree soruyorsa o tree'nin rehberde bulunan talentlarını derli toplu anlat; diğer tree'leri karıştırma.
+6. Eğer soru leveling + spec ise hem leveling sayfasındaki bilgi hem de eşleşen talent sayfaları kullanılabilir.
+7. Rehber verisinde Türkçe açıklama yok ama İngilizce effect varsa anlamını doğal Türkçeyle aktarabilirsin; yeni mekanik ekleme.
+8. Cevap Türkçe, net, Discord'da rahat okunur olsun. Gereksiz giriş yapma.
+9. Normalde 5-10 kısa madde yeterli. Çok uzun talent listesinde en önemli ayrımı özetle ve rehber görsellerinin tamamının ekte olduğunu belirt.
+10. Cooldown, üyelik, reklam veya kaynak motorundan bahsetme.
+    `.trim();
+
+    const text =
+      await this.callGeminiText(
+        prompt,
+        900,
+        0.1
+      );
+
+    return text;
+  }
+
+  async getSpecialGuideMedia(
+    topic
+  ) {
+    const messageId =
+      SPECIAL_GUIDE_IMAGE_MESSAGE_IDS[
+        String(
+          topic || ""
+        )
+      ];
+
+    if (!messageId) {
+      return null;
+    }
+
+    try {
+      const sourceMessage =
+        await this.discordRequest(
+          `/channels/${QUESTION_CHANNEL_ID}/messages/${messageId}`
+        );
+
+      const attachment =
+        getImageAttachment(
+          sourceMessage
+        );
+
+      if (!attachment) {
+        return null;
+      }
+
+      return {
+        page: {
+          key:
+            `special.${topic}`,
+
+          classKey:
+            "special",
+
+          filename:
+            attachment.filename ||
+            `${topic}.png`
+        },
+
+        attachment,
+
+        sourceChannelId:
+          QUESTION_CHANNEL_ID,
+
+        sourceMessageId:
+          messageId,
+
+        bytes:
+          null
+      };
+
+    } catch (error) {
+      await this.setLastError(
+        `Special guide image ${topic}: ${
+          error?.message ||
+          String(error)
+        }`
+      );
+
+      return null;
+    }
+  }
+
+  async prepareOutgoingFiles(
+    mediaItems
+  ) {
+    const files = [];
+
+    let totalBytes = 0;
+
+    for (
+      const mediaItem
+      of mediaItems || []
+    ) {
+      if (
+        files.length >=
+        MAX_GUIDE_FILES
+      ) {
+        break;
+      }
+
+      try {
+        const bytes =
+          await this.ensureMediaBytes(
+            mediaItem
+          );
+
+        if (
+          bytes.byteLength >
+          MAX_SINGLE_GUIDE_FILE_BYTES
+        ) {
+          console.log(
+            JSON.stringify({
+              event:
+                "guide_file_too_large",
+
+              pageKey:
+                mediaItem
+                  .page
+                  ?.key,
+
+              bytes:
+                bytes.byteLength
+            })
+          );
+
+          continue;
+        }
+
+        if (
+          totalBytes +
+          bytes.byteLength >
+          MAX_TOTAL_GUIDE_FILE_BYTES
+        ) {
+          break;
+        }
+
+        const filename =
+          mediaItem
+            .page
+            ?.filename ||
+          mediaItem
+            .attachment
+            ?.filename ||
+          "guide.png";
+
+        files.push({
+          filename,
+
+          contentType:
+            mediaItem
+              .attachment
+              ?.content_type ||
+            "image/png",
+
+          bytes,
+
+          description:
+            `Totik guide: ${
+              mediaItem
+                .page
+                ?.key ||
+              filename
+            }`
+        });
+
+        totalBytes +=
+          bytes.byteLength;
+
+      } catch (error) {
+        await this.setLastError(
+          `Guide file ${
+            mediaItem
+              .page
+              ?.key ||
+            "unknown"
+          }: ${
+            error?.message ||
+            String(error)
+          }`
+        );
+      }
+    }
+
+    return files;
+  }
+
+  async getMemberCooldownClass(
+    message
+  ) {
+    const userId =
+      String(
+        message
+          ?.author
+          ?.id ||
+        ""
+      );
+
+    if (
+      ADMIN_COOLDOWN_BYPASS_USER_IDS
+        .has(userId)
+    ) {
+      return {
+        premium: true,
+
+        reason:
+          "admin_bypass",
+
+        durationMs:
+          0
+      };
+    }
+
+    const memberRoleIds =
+      new Set(
+        (
+          message
+            ?.member
+            ?.roles ||
+          []
+        )
+          .map(String)
+      );
+
+    const youtubeIds =
+      parseCsvIds(
+        this.env
+          .YOUTUBE_MEMBER_ROLE_IDS
+      );
+
+    const twitchIds =
+      parseCsvIds(
+        this.env
+          .TWITCH_SUB_ROLE_IDS
+      );
+
+    for (
+      const roleId
+      of memberRoleIds
+    ) {
+      if (
+        youtubeIds.has(
+          roleId
+        )
+      ) {
+        return {
+          premium: true,
+
+          reason:
+            "youtube_role_id",
+
+          durationMs:
+            PREMIUM_COOLDOWN_MS
+        };
+      }
+
+      if (
+        twitchIds.has(
+          roleId
+        )
+      ) {
+        return {
+          premium: true,
+
+          reason:
+            "twitch_role_id",
+
+          durationMs:
+            PREMIUM_COOLDOWN_MS
+        };
+      }
+    }
+
+    const guildId =
+      String(
+        message
+          ?.guild_id ||
+        ""
+      );
+
+    if (
+      guildId &&
+      memberRoleIds.size > 0
+    ) {
+      try {
+        const roles =
+          await this.getGuildRoles(
+            guildId
+          );
+
+        for (
+          const role
+          of roles
+        ) {
+          if (
+            !memberRoleIds.has(
+              String(
+                role.id
+              )
+            )
+          ) {
+            continue;
+          }
+
+          const name =
+            normalizeGuideText(
+              role.name
+            );
+
+          const youtubeMember =
+            name.includes(
+              "youtube"
+            ) &&
+            /katil|abone|member|uyelik/
+              .test(name);
+
+          const twitchSub =
+            name.includes(
+              "twitch"
+            ) &&
+            /sub|subscriber|abone/
+              .test(name);
+
+          if (youtubeMember) {
+            return {
+              premium:
+                true,
+
+              reason:
+                `role_name:${role.name}`,
+
+              durationMs:
+                PREMIUM_COOLDOWN_MS
+            };
+          }
+
+          if (twitchSub) {
+            return {
+              premium:
+                true,
+
+              reason:
+                `role_name:${role.name}`,
+
+              durationMs:
+                PREMIUM_COOLDOWN_MS
+            };
+          }
+        }
+
+      } catch (error) {
+        console.log(
+          JSON.stringify({
+            event:
+              "premium_role_lookup_failed",
+
+            guildId,
+
+            error:
+              error?.message ||
+              String(error)
+          })
+        );
+      }
+    }
+
+    return {
+      premium:
+        false,
+
+      reason:
+        "normal_member",
+
+      durationMs:
+        NORMAL_COOLDOWN_MS
+    };
+  }
+
+  async getGuildRoles(
+    guildId
+  ) {
+    const cached =
+      this.guildRoleCache.get(
+        guildId
+      );
+
+    if (
+      cached &&
+      Date.now() -
+      cached.at <
+      PREMIUM_ROLE_CACHE_MS
+    ) {
+      return cached.roles;
+    }
+
+    const roles =
+      await this.discordRequest(
+        `/guilds/${guildId}/roles`
+      );
+
+    const safeRoles =
+      Array.isArray(
+        roles
+      )
+        ? roles
+        : [];
+
+    this.guildRoleCache.set(
+      guildId,
+      {
+        at:
+          Date.now(),
+
+        roles:
+          safeRoles
+      }
+    );
+
+    return safeRoles;
+  }
+
+  async acquireCooldown(
+    userId,
+    durationMs
+  ) {
     if (
       ADMIN_COOLDOWN_BYPASS_USER_IDS
         .has(
           String(
             userId
           )
-        )
+        ) ||
+      durationMs <= 0
     ) {
-      return { allowed: true, remainingMs: 0 };
+      return {
+        allowed:
+          true,
+
+        remainingMs:
+          0,
+
+        durationMs
+      };
     }
 
     const key =
       `cooldown:${userId}`;
 
     const previous =
-      await this
-        .ctx
-        .storage
-        .get(
-          key
-        );
+      await this.ctx.storage.get(
+        key
+      );
 
     const now =
       Date.now();
 
     if (
       typeof previous ===
-        "number" &&
-
-      now -
-        previous <
-        cooldownMs
+      "number"
     ) {
-      return {
-        allowed: false,
-        remainingMs: cooldownMs - (now - previous)
-      };
+      const elapsed =
+        now -
+        previous;
+
+      if (
+        elapsed <
+        durationMs
+      ) {
+        return {
+          allowed:
+            false,
+
+          remainingMs:
+            durationMs -
+            elapsed,
+
+          durationMs
+        };
+      }
     }
 
-    await this
-      .ctx
-      .storage
-      .put(
-        key,
-        now
-      );
+    await this.ctx.storage.put(
+      key,
+      now
+    );
 
-    return { allowed: true, remainingMs: 0 };
+    return {
+      allowed:
+        true,
+
+      remainingMs:
+        0,
+
+      durationMs
+    };
   }
 
-  async releaseCooldown(userId) {
+  async releaseCooldown(
+    userId
+  ) {
     if (
       ADMIN_COOLDOWN_BYPASS_USER_IDS
         .has(
@@ -3822,177 +3196,151 @@ export class DiscordGateway extends DurableObject {
     }
 
     try {
-      await this
-        .ctx
-        .storage
-        .delete(
-          `cooldown:${userId}`
-        );
+      await this.ctx.storage.delete(
+        `cooldown:${userId}`
+      );
 
     } catch {
-      // ignore
     }
   }
 
-  // ----------------------------------------------------------
-  // IMAGE ANALYSIS
-  // ----------------------------------------------------------
-
-  async analyzeImage(
+  async analyzeUserImage(
     image,
     question
   ) {
     if (
-      !this
-        .env
+      !this.env
         .GEMINI_API_KEY
     ) {
-      throw new Error(
-        "GEMINI_API_KEY bulunamadı."
-      );
+      return "";
     }
 
-    const imageResponse =
+    const response =
       await fetch(
         image.url
       );
 
-    if (
-      !imageResponse.ok
-    ) {
+    if (!response.ok) {
       throw new Error(
-        `Discord görseli indirilemedi: ${imageResponse.status}`
+        `Discord görseli indirilemedi: ${response.status}`
       );
     }
 
-    const buffer =
-      await imageResponse
-        .arrayBuffer();
+    const bytes =
+      new Uint8Array(
+        await response
+          .arrayBuffer()
+      );
 
     if (
-      buffer.byteLength >
-      7 *
-      1024 *
-      1024
+      bytes.byteLength >
+      MAX_VISION_IMAGE_BYTES
     ) {
       throw new Error(
-        "Görsel 7 MB sınırını aşıyor."
+        "Görsel Vision sınırını aşıyor."
       );
     }
 
     const base64 =
       bytesToBase64(
-        new Uint8Array(
-          buffer
-        )
+        bytes
       );
 
     const prompt = `
-World of Warcraft ekran görüntüsünü dikkatlice incele.
+World of Warcraft ekran görüntüsünü incele.
 
 Kullanıcının sorusu:
 ${question}
 
-Sadece soruyu doğru araştırmak için gerekli bilgileri çıkar:
-- Quest/görev adı
-- Objective
-- NPC, item veya hedef
-- Bölge / zone
-- Haritada görünen önemli konum
-- Quest açıklamasındaki önemli ipuçları
+Sadece soruyu araştırmak/yanıtlamak için görselde gerçekten görülen bilgileri çıkar.
 
 Görselde olmayan bilgiyi uydurma.
-Emin olmadığın şeyi kesinmiş gibi yazma.
-Türkçe, kısa ve bilgi odaklı cevap ver.
+Türkçe ve kısa yaz.
     `.trim();
 
-    const response =
-      await fetch(
-        GEMINI_URL,
-        {
-          method:
-            "POST",
+    const controller =
+      new AbortController();
 
-          headers: {
-            "content-type":
-              "application/json",
-
-            "x-goog-api-key":
-              this
-                .env
-                .GEMINI_API_KEY
-          },
-
-          body:
-            JSON.stringify({
-              contents: [
-                {
-                  parts: [
-                    {
-                      text:
-                        prompt
-                    },
-
-                    {
-                      inlineData: {
-                        mimeType:
-                          image.contentType ||
-                          "image/png",
-
-                        data:
-                          base64
-                      }
-                    }
-                  ]
-                }
-              ],
-
-              generationConfig: {
-                temperature:
-                  0.1,
-
-                maxOutputTokens:
-                  350
-              }
-            })
-        }
+    const timer =
+      setTimeout(
+        () =>
+          controller.abort(),
+        VISION_TIMEOUT_MS
       );
 
-    const raw =
-      await response
-        .text();
-
-    let data;
-
     try {
-      data =
-        raw
+      const result =
+        await fetch(
+          GEMINI_VISION_ENDPOINT,
+          {
+            method:
+              "POST",
 
+            signal:
+              controller.signal,
+
+            headers: {
+              "content-type":
+                "application/json",
+
+              "x-goog-api-key":
+                this.env
+                  .GEMINI_API_KEY
+            },
+
+            body:
+              JSON.stringify({
+                contents: [
+                  {
+                    parts: [
+                      {
+                        text:
+                          prompt
+                      },
+
+                      {
+                        inlineData: {
+                          mimeType:
+                            image
+                              .content_type ||
+                            "image/png",
+
+                          data:
+                            base64
+                        }
+                      }
+                    ]
+                  }
+                ],
+
+                generationConfig: {
+                  temperature:
+                    0.05,
+
+                  maxOutputTokens:
+                    450
+                }
+              })
+          }
+        );
+
+      const raw =
+        await result.text();
+
+      const data =
+        raw
           ? JSON.parse(
               raw
             )
-
           : {};
 
-    } catch {
-      throw new Error(
-        "Gemini görsel cevabı okunamadı."
-      );
-    }
+      if (!result.ok) {
+        throw new Error(
+          `Gemini Vision ${result.status}`
+        );
+      }
 
-    if (
-      !response.ok
-    ) {
-      throw new Error(
-        `Gemini Vision ${response.status}: ${raw.slice(
-          0,
-          300
-        )}`
-      );
-    }
-
-    const text =
-      (
+      return (
         data
           ?.candidates
           ?.[0]
@@ -4001,29 +3349,19 @@ Türkçe, kısa ve bilgi odaklı cevap ver.
         []
       )
         .map(
-          part =>
+          (part) =>
             part?.text ||
             ""
         )
-        .join(
-          "\n"
-        )
+        .join("\n")
         .trim();
 
-    if (
-      !text
-    ) {
-      throw new Error(
-        "Görselden yeterli bilgi çıkarılamadı."
+    } finally {
+      clearTimeout(
+        timer
       );
     }
-
-    return text;
   }
-
-  // ----------------------------------------------------------
-  // MAIN WOW AI
-  // ----------------------------------------------------------
 
   async askWowAi(question) {
     const url =
@@ -4031,26 +3369,20 @@ Türkçe, kısa ve bilgi odaklı cevap ver.
         WOW_AI_URL
       );
 
-    url.searchParams
-      .set(
-        "q",
-        question
-      );
+    url.searchParams.set(
+      "q",
+      question
+    );
 
     let lastError =
       null;
 
     for (
       let attempt = 1;
-
       attempt <=
-      AI_MAX_ATTEMPTS;
-
+      BACKEND_ATTEMPTS;
       attempt++
     ) {
-      const startedAt =
-        Date.now();
-
       const controller =
         new AbortController();
 
@@ -4058,8 +3390,7 @@ Türkçe, kısa ve bilgi odaklı cevap ver.
         setTimeout(
           () =>
             controller.abort(),
-
-          AI_TIMEOUT_MS
+          BACKEND_TIMEOUT_MS
         );
 
       try {
@@ -4081,8 +3412,7 @@ Türkçe, kısa ve bilgi odaklı cevap ver.
           );
 
         const raw =
-          await response
-            .text();
+          await response.text();
 
         let data =
           null;
@@ -4090,35 +3420,15 @@ Türkçe, kısa ve bilgi odaklı cevap ver.
         try {
           data =
             raw
-
               ? JSON.parse(
                   raw
                 )
-
               : {};
 
         } catch {
           data =
             null;
         }
-
-        await Promise.all([
-          this.ctx.storage.put(
-            "last_backend_status",
-            response.status
-          ),
-
-          this.ctx.storage.put(
-            "last_backend_attempts",
-            attempt
-          ),
-
-          this.ctx.storage.put(
-            "last_backend_duration_ms",
-            Date.now() -
-            startedAt
-          )
-        ]);
 
         if (
           response.ok &&
@@ -4129,12 +3439,10 @@ Türkçe, kısa ve bilgi odaklı cevap ver.
 
         const detail =
           data?.error ||
-
           raw.slice(
             0,
             400
           ) ||
-
           `HTTP ${response.status}`;
 
         lastError =
@@ -4146,12 +3454,11 @@ Türkçe, kısa ve bilgi odaklı cevap ver.
           retryableBackendStatus(
             response.status
           ) &&
-
           attempt <
-          AI_MAX_ATTEMPTS
+          BACKEND_ATTEMPTS
         ) {
           await sleep(
-            1500
+            1200
           );
 
           continue;
@@ -4160,52 +3467,34 @@ Türkçe, kısa ve bilgi odaklı cevap ver.
         throw lastError;
 
       } catch (error) {
-        await Promise.all([
-          this.ctx.storage.put(
-            "last_backend_attempts",
-            attempt
-          ),
-
-          this.ctx.storage.put(
-            "last_backend_duration_ms",
-            Date.now() -
-            startedAt
-          )
-        ]);
-
         const aborted =
           error?.name ===
           "AbortError";
 
         lastError =
           aborted
-
             ? new Error(
-                `totik-ai-test ${AI_TIMEOUT_MS / 1000} saniyede cevap vermedi.`
+                `totik-ai-test ${BACKEND_TIMEOUT_MS / 1000} saniyede cevap vermedi.`
               )
-
             : error;
 
         const retry =
           attempt <
-            AI_MAX_ATTEMPTS &&
-
+          BACKEND_ATTEMPTS &&
           (
             aborted ||
-
-            /HTTP 502|HTTP 503|HTTP 504/i.test(
-              String(
-                error?.message ||
-                ""
+            /HTTP 502|HTTP 503|HTTP 504/i
+              .test(
+                String(
+                  error?.message ||
+                  ""
+                )
               )
-            )
           );
 
-        if (
-          retry
-        ) {
+        if (retry) {
           await sleep(
-            1500
+            1200
           );
 
           continue;
@@ -4222,48 +3511,25 @@ Türkçe, kısa ve bilgi odaklı cevap ver.
 
     throw (
       lastError ||
-
       new Error(
         "AI backend bilinmeyen hata verdi."
       )
     );
   }
 
-  // ----------------------------------------------------------
-  // GEMINI FALLBACK
-  // ----------------------------------------------------------
-
-  async askGeminiFallback(
-    question,
-    backendError
+  async callGeminiText(
+    prompt,
+    maxOutputTokens = 800,
+    temperature = 0.1
   ) {
     if (
-      !this
-        .env
+      !this.env
         .GEMINI_API_KEY
     ) {
-      throw backendError;
+      throw new Error(
+        "GEMINI_API_KEY bulunamadı."
+      );
     }
-
-    const prompt = `
-Sen Totik Channel için geliştirilmiş Totik WoW Yardım Botunun yedek cevap sistemisin.
-
-Kullanıcının sorusu:
-${question}
-
-Ana araştırma sistemi geçici olarak yanıt veremedi.
-
-Kurallar:
-- World of Warcraft konusunda yardımcı ol.
-- Yalnızca gerçekten bildiğin bilgiyi söyle.
-- Güncel WoW Forever, yeni patch, beta veya değişebilecek bilgilerde emin değilsen uydurma.
-- Emin olmadığın güncel bilgiyi açıkça belirt.
-- Genel ve stabil WoW bilgisinde doğrudan yardımcı ol.
-- Türkçe cevap ver.
-- Gereksiz giriş ve tekrar kullanma.
-- Derli toplu ve mümkün olduğunca kısa cevap ver.
-- Genellikle 3-6 cümle veya kısa maddeler yeterli.
-    `.trim();
 
     const controller =
       new AbortController();
@@ -4272,15 +3538,13 @@ Kurallar:
       setTimeout(
         () =>
           controller.abort(),
-
-        40 *
-        1000
+        GEMINI_TIMEOUT_MS
       );
 
     try {
       const response =
         await fetch(
-          GEMINI_URL,
+          GEMINI_INTERACTIONS_ENDPOINT,
           {
             method:
               "POST",
@@ -4293,92 +3557,76 @@ Kurallar:
                 "application/json",
 
               "x-goog-api-key":
-                this
-                  .env
+                this.env
                   .GEMINI_API_KEY
             },
 
             body:
               JSON.stringify({
-                contents: [
-                  {
-                    parts: [
-                      {
-                        text:
-                          prompt
-                      }
-                    ]
-                  }
-                ],
+                model:
+                  GEMINI_TEXT_MODEL,
 
-                generationConfig: {
-                  temperature:
-                    0.2,
+                input:
+                  prompt,
 
-                  maxOutputTokens:
-                    650
+                store:
+                  false,
+
+                generation_config: {
+                  temperature,
+
+                  max_output_tokens:
+                    maxOutputTokens
                 }
               })
           }
         );
 
       const raw =
-        await response
-          .text();
+        await response.text();
 
-      let data;
+      let data = {};
 
       try {
         data =
           raw
-
             ? JSON.parse(
                 raw
               )
-
             : {};
 
       } catch {
-        throw backendError;
+        throw new Error(
+          `Gemini geçersiz JSON döndürdü: ${raw.slice(0, 400)}`
+        );
       }
 
-      if (
-        !response.ok
-      ) {
-        throw backendError;
+      if (!response.ok) {
+        throw new Error(
+          `Gemini Interactions HTTP ${response.status}: ${
+            data
+              ?.error
+              ?.message ||
+            raw.slice(
+              0,
+              500
+            )
+          }`
+        );
       }
 
-      const answer =
-        (
+      const text =
+        extractInteractionText(
           data
-            ?.candidates
-            ?.[0]
-            ?.content
-            ?.parts ||
-          []
-        )
-          .map(
-            part =>
-              part?.text ||
-              ""
-          )
-          .join(
-            "\n"
-          )
-          .trim();
+        );
 
-      if (
-        !answer
-      ) {
-        throw backendError;
+      if (!text) {
+        throw new Error(
+          "Gemini Interactions boş metin döndürdü."
+        );
       }
 
-      return {
-        answer,
-
-        fallback:
-          "gemini"
-      };
+      return text;
 
     } finally {
       clearTimeout(
@@ -4387,79 +3635,52 @@ Kurallar:
     }
   }
 
-  // ----------------------------------------------------------
-  // STATS
-  // ----------------------------------------------------------
+  async askGeminiGeneralFallback(
+    question,
+    backendError
+  ) {
+    const prompt = `
+Sen Totik Channel için geliştirilmiş WoW Yardım Botunun yedek cevap sistemisin.
 
-  async markAnswered() {
-    const current =
-      Number(
-        await this
-          .ctx
-          .storage
-          .get(
-            "answered_count"
+Kullanıcının sorusu:
+${question}
+
+Ana araştırma sistemi geçici olarak yanıt veremedi.
+
+Kurallar:
+- World of Warcraft konusunda yardımcı ol.
+- Yalnızca gerçekten bildiğin stabil bilgiyi söyle.
+- WoW Forever beta / güncel / değişebilecek bilgi konusunda emin değilsen bunu açıkça belirt ve uydurma.
+- Türkçe, kısa, derli toplu cevap ver.
+- Cooldown veya üyelik reklamı yazma.
+    `.trim();
+
+    try {
+      const answer =
+        await this.callGeminiText(
+          prompt,
+          700,
+          0.15
+        );
+
+      return {
+        answer,
+
+        fallback:
+          "gemini_interactions",
+
+        backendError:
+          String(
+            backendError
+              ?.message ||
+            ""
           )
-      ) ||
-      0;
+      };
 
-    await this
-      .ctx
-      .storage
-      .put(
-        "answered_count",
-        current +
-        1
-      );
+    } catch {
+      throw backendError;
+    }
   }
-
-  async markTechnicalFailure() {
-    const current =
-      Number(
-        await this
-          .ctx
-          .storage
-          .get(
-            "technical_failure_count"
-          )
-      ) ||
-      0;
-
-    await this
-      .ctx
-      .storage
-      .put(
-        "technical_failure_count",
-        current +
-        1
-      );
-  }
-
-  async clearLastError() {
-    await this
-      .ctx
-      .storage
-      .delete(
-        "last_error"
-      );
-  }
-
-  async setLastError(message) {
-    await this
-      .ctx
-      .storage
-      .put(
-        "last_error",
-        String(
-          message ||
-          "Unknown error"
-        )
-      );
-  }
-
-  // ----------------------------------------------------------
-  // DISCORD REPLY
-  // ----------------------------------------------------------
 
   async reply(
     originalMessage,
@@ -4468,20 +3689,22 @@ Kurallar:
   ) {
     const chunks =
       splitDiscordMessage(
-        withAccessFooter(
-          answer
-        )
+        answer
       );
+
+    const files =
+      Array.isArray(
+        options.files
+      )
+        ? options.files
+        : [];
 
     for (
       let i = 0;
-
-      i <
-      chunks.length;
-
+      i < chunks.length;
       i++
     ) {
-      const body = {
+      const payload = {
         content:
           chunks[i],
 
@@ -4493,11 +3716,8 @@ Kurallar:
         }
       };
 
-      if (
-        i ===
-        0
-      ) {
-        body.message_reference = {
+      if (i === 0) {
+        payload.message_reference = {
           message_id:
             String(
               originalMessage.id
@@ -4512,114 +3732,79 @@ Kurallar:
       }
 
       if (
-        i ===
-          0 &&
-
-        options.imageUrl
+        i === 0 &&
+        files.length > 0
       ) {
-        body.embeds = [
-          {
-            image: {
-              url: String(options.imageUrl)
-            }
-          }
-        ];
-      }
+        await this.discordMultipartRequest(
+          `/channels/${QUESTION_CHANNEL_ID}/messages`,
+          payload,
+          files
+        );
 
-      if (
-        i ===
-          0 &&
-
-        options.imageFile
-      ) {
-        try {
-          await this
-            .discordMultipartRequest(
-              `/channels/${QUESTION_CHANNEL_ID}/messages`,
-              body,
-              options.imageFile
-            );
-
-          continue;
-
-        } catch (error) {
-          // Görsel yüklenemezse cevap yine metin olarak gönder.
-          await this
-            .setLastError(
-              `Guide image upload: ${
-                error?.message ||
-                String(
-                  error
-                )
-              }`
-            );
-        }
-      }
-
-      await this
-        .discordRequest(
+      } else {
+        await this.discordRequest(
           `/channels/${QUESTION_CHANNEL_ID}/messages`,
           {
             method:
               "POST",
 
-            body
+            body:
+              payload
           }
         );
+      }
     }
   }
 
-  async getGuideImageAsset(topic) {
+  async safeTyping(
+    channelId
+  ) {
     try {
-      // Yeni class rehberleri: bir mesajda birden çok attachment bulunabilir.
-      if (topic?.page?.classKey || topic?.classKey) {
-        const page = topic.page || topic;
-        const messageIds = GUIDE_BATCH_MESSAGE_IDS[page.classKey] || [];
-        for (const messageId of messageIds) {
-          const sourceMessage = await this.discordRequest(
-            `/channels/${GUIDE_IMAGE_CHANNEL_ID}/messages/${messageId}`
-          );
-          const attachments = Array.isArray(sourceMessage?.attachments)
-            ? sourceMessage.attachments
-            : [];
-          const attachment = attachments.find(item =>
-            String(item?.filename || "").toLocaleLowerCase("tr-TR") ===
-            String(page.filename || "").toLocaleLowerCase("tr-TR")
-          );
-          if (attachment?.url) return { url: attachment.url, filename: attachment.filename };
+      await this.discordRequest(
+        `/channels/${channelId}/typing`,
+        {
+          method:
+            "POST"
         }
-        throw new Error(`Attachment bulunamadı: ${page.classKey}/${page.filename}`);
-      }
+      );
 
-      // Eski profession/camping/legacy sistemi aynen korunur.
-      const key = String(topic || "");
-      const messageId = GUIDE_IMAGE_MESSAGE_IDS[key];
-      if (!messageId) return null;
-      const sourceMessage = await this.discordRequest(
-        `/channels/${QUESTION_CHANNEL_ID}/messages/${messageId}`
-      );
-      const attachment = getImageAttachment(sourceMessage);
-      if (!attachment?.url) throw new Error("Kaynak mesajda görsel attachment bulunamadı.");
-      return { url: attachment.url, filename: `${key}.png` };
-    } catch (error) {
-      await this.setLastError(
-        `Guide image: ${error?.message || String(error)}`
-      );
-      return null;
+    } catch {
     }
   }
 
   async discordMultipartRequest(
     path,
-    body,
-    imageFile
+    payload,
+    files
   ) {
+    const safeFiles =
+      files.slice(
+        0,
+        10
+      );
+
+    const payloadWithAttachments = {
+      ...payload,
+
+      attachments:
+        safeFiles.map(
+          (file, index) => ({
+            id:
+              index,
+
+            filename:
+              file.filename,
+
+            description:
+              file.description ||
+              undefined
+          })
+        )
+    };
+
     for (
       let attempt = 1;
-
-      attempt <=
-      4;
-
+      attempt <= 4;
       attempt++
     ) {
       const form =
@@ -4628,24 +3813,30 @@ Kurallar:
       form.append(
         "payload_json",
         JSON.stringify(
-          body
+          payloadWithAttachments
         )
       );
 
-      form.append(
-        "files[0]",
-        new Blob(
-          [
-            imageFile.bytes
-          ],
-          {
-            type:
-              imageFile.contentType ||
-              "image/png"
-          }
-        ),
-        imageFile.filename ||
-        "guide.png"
+      safeFiles.forEach(
+        (file, index) => {
+          const blob =
+            new Blob(
+              [
+                file.bytes
+              ],
+              {
+                type:
+                  file.contentType ||
+                  "application/octet-stream"
+              }
+            );
+
+          form.append(
+            `files[${index}]`,
+            blob,
+            file.filename
+          );
+        }
       );
 
       const response =
@@ -4673,8 +3864,7 @@ Kurallar:
       }
 
       const raw =
-        await response
-          .text();
+        await response.text();
 
       let data =
         null;
@@ -4682,11 +3872,9 @@ Kurallar:
       try {
         data =
           raw
-
             ? JSON.parse(
                 raw
               )
-
             : null;
 
       } catch {
@@ -4700,13 +3888,13 @@ Kurallar:
       ) {
         let retryAfter =
           Number(
-            data?.retry_after ||
+            data
+              ?.retry_after ||
             1
           );
 
         if (
-          retryAfter <
-          100
+          retryAfter < 100
         ) {
           retryAfter *=
             1000;
@@ -4724,10 +3912,8 @@ Kurallar:
 
       if (
         response.status >=
-          500 &&
-
-        attempt <
-          4
+        500 &&
+        attempt < 4
       ) {
         await sleep(
           attempt *
@@ -4737,16 +3923,12 @@ Kurallar:
         continue;
       }
 
-      if (
-        !response.ok
-      ) {
+      if (!response.ok) {
         throw new Error(
           `Discord multipart ${response.status}: ${
             typeof data ===
             "string"
-
               ? data
-
               : JSON.stringify(
                   data
                 )
@@ -4762,26 +3944,6 @@ Kurallar:
     );
   }
 
-  async safeTyping(channelId) {
-    try {
-      await this
-        .discordRequest(
-          `/channels/${channelId}/typing`,
-          {
-            method:
-              "POST"
-          }
-        );
-
-    } catch {
-      // Typing başarısız olsa bile devam.
-    }
-  }
-
-  // ----------------------------------------------------------
-  // DISCORD REST
-  // ----------------------------------------------------------
-
   async discordRequest(
     path,
     options = {}
@@ -4792,10 +3954,7 @@ Kurallar:
 
     for (
       let attempt = 1;
-
-      attempt <=
-      4;
-
+      attempt <= 4;
       attempt++
     ) {
       const headers = {
@@ -4837,8 +3996,7 @@ Kurallar:
       }
 
       const raw =
-        await response
-          .text();
+        await response.text();
 
       let data =
         null;
@@ -4846,11 +4004,9 @@ Kurallar:
       try {
         data =
           raw
-
             ? JSON.parse(
                 raw
               )
-
             : null;
 
       } catch {
@@ -4864,13 +4020,13 @@ Kurallar:
       ) {
         let retryAfter =
           Number(
-            data?.retry_after ||
+            data
+              ?.retry_after ||
             1
           );
 
         if (
-          retryAfter <
-          100
+          retryAfter < 100
         ) {
           retryAfter *=
             1000;
@@ -4888,10 +4044,8 @@ Kurallar:
 
       if (
         response.status >=
-          500 &&
-
-        attempt <
-          4
+        500 &&
+        attempt < 4
       ) {
         await sleep(
           attempt *
@@ -4901,16 +4055,12 @@ Kurallar:
         continue;
       }
 
-      if (
-        !response.ok
-      ) {
+      if (!response.ok) {
         throw new Error(
           `Discord API ${response.status}: ${
             typeof data ===
             "string"
-
               ? data
-
               : JSON.stringify(
                   data
                 )
@@ -4923,6 +4073,86 @@ Kurallar:
 
     throw new Error(
       "Discord API maksimum retry sayısına ulaştı."
+    );
+  }
+
+  async finishSuccessfulAnswer(
+    trace
+  ) {
+    await this.markAnswered();
+    await this.clearLastError();
+    await this.recordTrace(
+      trace
+    );
+  }
+
+  async recordTrace(trace) {
+    const value = {
+      at:
+        new Date()
+          .toISOString(),
+
+      ...trace
+    };
+
+    await this.ctx.storage.put(
+      "last_trace",
+      value
+    );
+
+    console.log(
+      JSON.stringify({
+        event:
+          "totik_question_trace",
+
+        ...value
+      })
+    );
+  }
+
+  async markAnswered() {
+    const current =
+      Number(
+        await this.ctx.storage.get(
+          "answered_count"
+        )
+      ) ||
+      0;
+
+    await this.ctx.storage.put(
+      "answered_count",
+      current + 1
+    );
+  }
+
+  async markTechnicalFailure() {
+    const current =
+      Number(
+        await this.ctx.storage.get(
+          "technical_failure_count"
+        )
+      ) ||
+      0;
+
+    await this.ctx.storage.put(
+      "technical_failure_count",
+      current + 1
+    );
+  }
+
+  async clearLastError() {
+    await this.ctx.storage.delete(
+      "last_error"
+    );
+  }
+
+  async setLastError(message) {
+    await this.ctx.storage.put(
+      "last_error",
+      String(
+        message ||
+        "Unknown error"
+      )
     );
   }
 }
