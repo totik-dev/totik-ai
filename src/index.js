@@ -1,4 +1,5 @@
 import { DurableObject } from "cloudflare:workers";
+
 import {
   GUIDE_IMAGE_CHANNEL_ID,
   GUIDE_BATCH_MESSAGE_IDS,
@@ -11,49 +12,146 @@ import {
   normalizeGuideText
 } from "./class-guide-runtime.js";
 
-const DISCORD_API = "https://discord.com/api/v10";
-const QUESTION_CHANNEL_ID = "1548811398069489744";
-const GUIDE_CHANNEL_ID = "1549395522689966190";
-const GUILD_INFO_CHANNEL_ID = "1549847008406143157";
-const QUESTION_COMMAND = /^!soru(?:\s|$)/i;
-const DEBUG_COMMAND = /^!soru-debug(?:\s|$)/i;
-const WOW_AI_URL = "https://totik-ai-test.totikch.workers.dev/";
 
-const GEMINI_TEXT_MODEL = "gemini-3.5-flash-lite";
+// ============================================================
+// CONFIG
+// ============================================================
+
+const DISCORD_API =
+  "https://discord.com/api/v10";
+
+const QUESTION_CHANNEL_ID =
+  "1548811398069489744";
+
+const GUIDE_CHANNEL_ID =
+  "1549395522689966190";
+
+const GUILD_INFO_CHANNEL_ID =
+  "1549847008406143157";
+
+const QUESTION_COMMAND =
+  /^!soru(?:\s|$)/i;
+
+const DEBUG_COMMAND =
+  /^!soru-debug(?:\s|$)/i;
+
+const WOW_AI_URL =
+  "https://totik-ai-test.totikch.workers.dev/";
+
+
+// ============================================================
+// GEMINI
+// ============================================================
+
+const GEMINI_TEXT_MODEL =
+  "gemini-3.5-flash-lite";
+
 const GEMINI_INTERACTIONS_ENDPOINT =
   "https://generativelanguage.googleapis.com/v1beta/interactions";
 
-const GEMINI_VISION_MODEL = "gemini-3.6-flash";
+const GEMINI_VISION_MODEL =
+  "gemini-3.6-flash";
+
 const GEMINI_VISION_ENDPOINT =
   `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_VISION_MODEL}:generateContent`;
 
-const POLL_INTERVAL_MS = 10_000;
-const NORMAL_COOLDOWN_MS = 15 * 60_000;
-const PREMIUM_COOLDOWN_MS = 60_000;
-const PREMIUM_ROLE_CACHE_MS = 10 * 60_000;
-const GUIDE_ATTACHMENT_CACHE_MS = 5 * 60_000;
-const BACKEND_TIMEOUT_MS = 75_000;
-const GEMINI_TIMEOUT_MS = 35_000;
-const VISION_TIMEOUT_MS = 45_000;
-const MAX_DISCORD_MESSAGE = 1900;
-const MAX_ANSWER_CHARS = 1550;
-const MAX_GUIDE_FILES = 10;
-const MAX_SINGLE_GUIDE_FILE_BYTES = 9 * 1024 * 1024;
-const MAX_TOTAL_GUIDE_FILE_BYTES = 23 * 1024 * 1024;
-const MAX_VISION_IMAGE_BYTES = 8 * 1024 * 1024;
 
-const ADMIN_COOLDOWN_BYPASS_USER_IDS = new Set([
-  "194062355460653056"
-]);
+// ============================================================
+// LIMITS
+// ============================================================
+
+const POLL_INTERVAL_MS =
+  10 * 1000;
+
+const NORMAL_COOLDOWN_MS =
+  15 * 60 * 1000;
+
+const PREMIUM_COOLDOWN_MS =
+  1 * 60 * 1000;
+
+const PREMIUM_ROLE_CACHE_MS =
+  10 * 60 * 1000;
+
+const GUIDE_ATTACHMENT_CACHE_MS =
+  5 * 60 * 1000;
+
+const BACKEND_TIMEOUT_MS =
+  75 * 1000;
+
+const GEMINI_TIMEOUT_MS =
+  35 * 1000;
+
+const VISION_TIMEOUT_MS =
+  45 * 1000;
+
+const MAX_DISCORD_MESSAGE =
+  1900;
+
+const NORMAL_ANSWER_MAX_CHARS =
+  1550;
+
+/*
+  Class rehberi cevapları özellikle kısa tutulur.
+  Görseller zaten mesajın altında gönderildiği için
+  bot bütün tabloyu metne çevirmeye çalışmaz.
+*/
+const CLASS_GUIDE_TARGET_CHARS =
+  760;
+
+const CLASS_GUIDE_HARD_MAX_CHARS =
+  900;
+
+const CLASS_GUIDE_MIN_CUT_CHARS =
+  450;
+
+const MAX_GUIDE_FILES =
+  10;
+
+const MAX_SINGLE_GUIDE_FILE_BYTES =
+  9 * 1024 * 1024;
+
+const MAX_TOTAL_GUIDE_FILE_BYTES =
+  23 * 1024 * 1024;
+
+const MAX_VISION_IMAGE_BYTES =
+  8 * 1024 * 1024;
+
+
+// ============================================================
+// ADMIN
+// ============================================================
+
+const ADMIN_COOLDOWN_BYPASS_USER_IDS =
+  new Set([
+    "194062355460653056"
+  ]);
+
+
+// ============================================================
+// SPECIAL GUIDES
+// ============================================================
 
 const SPECIAL_GUIDE_IMAGE_MESSAGE_IDS = {
-  profession: "1553090607482798253",
-  camping: "1553095278234701906",
-  legacy: "1553095337416335400"
+  profession:
+    "1553090607482798253",
+
+  camping:
+    "1553095278234701906",
+
+  legacy:
+    "1553095337416335400"
 };
+
+
+// ============================================================
+// TEXT CONSTANTS
+// ============================================================
 
 const GUIDE_REMINDER_MESSAGE =
   `Bu konu hakkında Totik Channel'da rehber içerik var, <#${GUIDE_CHANNEL_ID}> kanalından detaylı bakabilirsin.`;
+
+const CLASS_GUIDE_CONTINUE_MESSAGE =
+  "Devamı için rehber görsellerini inceleyebilirsin.";
 
 const GUILD_INFO_MESSAGE =
   `Totik Channel ekibi WoW Forever'da Normal ruleset'te Alliance tarafında oynuyor. Guild katılımı, şartlar ve güncel detaylar için <#${GUILD_INFO_CHANNEL_ID}> kanalına bakabilirsin.`;
@@ -61,138 +159,421 @@ const GUILD_INFO_MESSAGE =
 const IDENTITY_MESSAGE =
   "Ben Totik Channel için geliştirilmiş WoW yardım botuyum.";
 
-function json(data, status = 200) {
+
+// ============================================================
+// BASIC HELPERS
+// ============================================================
+
+function json(
+  data,
+  status = 200
+) {
   return new Response(
-    JSON.stringify(data, null, 2),
+    JSON.stringify(
+      data,
+      null,
+      2
+    ),
     {
       status,
+
       headers: {
-        "content-type": "application/json; charset=utf-8",
-        "cache-control": "no-store"
+        "content-type":
+          "application/json; charset=utf-8",
+
+        "cache-control":
+          "no-store"
       }
     }
   );
 }
 
+
 function sleep(ms) {
   return new Promise(
     resolve =>
-      setTimeout(resolve, ms)
+      setTimeout(
+        resolve,
+        ms
+      )
   );
 }
 
+
 function cleanText(
   value,
-  max = 2200
+  maxLength = 2200
 ) {
-  return String(value || "")
-    .replace(/\r/g, "")
-    .replace(/[ \t]+/g, " ")
-    .replace(/\n{3,}/g, "\n\n")
+  return String(
+    value || ""
+  )
+    .replace(
+      /\r/g,
+      ""
+    )
+
+    .replace(
+      /[ \t]+/g,
+      " "
+    )
+
+    .replace(
+      /\n{3,}/g,
+      "\n\n"
+    )
+
     .trim()
-    .slice(0, max);
+
+    .slice(
+      0,
+      maxLength
+    );
 }
 
-function sanitizeGuideAnswer(value) {
+
+// ============================================================
+// ANSWER CLEANING
+// ============================================================
+
+function removeTechnicalGuideLanguage(
+  value
+) {
+  return String(
+    value || ""
+  )
+
+    // Selamlama
+    .replace(
+      /^\s*(selam|merhaba)[!,. :;-]*\s*/i,
+      ""
+    )
+
+    // Bot kendini tanıtmasın
+    .replace(
+      /^\s*(ben\s+)?totik channel(?:'ın|'in|in)?\s+wow\s+(yardım|yardim)\s+botu(?:yum|dur|yım|yim)?[!,. :;-]*\s*/i,
+      ""
+    )
+
+    .replace(
+      /^\s*totik channel wow (yardım|yardim) botu(?:yum|dur)?[!,. :;-]*\s*/i,
+      ""
+    )
+
+    // PNG/JPG dosya isimleri kullanıcıya çıkmasın
+    .replace(
+      /`?\b\d{1,2}-[a-z0-9._-]+\.(?:png|jpe?g|webp)\b`?/gi,
+      ""
+    )
+
+    // Teknik kaynak satırları
+    .replace(
+      /^\s*(PAGE|FILE|DOSYA|SAYFA|KAYNAK)\s*:\s*.*$/gim,
+      ""
+    )
+
+    // Gereksiz kaynak ifadeleri
+    .replace(
+      /rehber görsellerinin tamamı ekte yer almaktadır\.?/gi,
+      ""
+    )
+
+    .replace(
+      /rehber gorsellerinin tamami ekte yer almaktadir\.?/gi,
+      ""
+    )
+
+    .replace(
+      /ekte yer alan görsellerde/gi,
+      "rehberde"
+    )
+
+    .replace(
+      /ekte yer alan gorsellerde/gi,
+      "rehberde"
+    )
+
+    // Model bazen bunu kendi yazar.
+    // Biz kontrollü biçimde en sona ekleyeceğiz.
+    .replace(
+      /devamı için rehber görsellerini inceleyebilirsin\.?/gi,
+      ""
+    )
+
+    .replace(
+      /devami icin rehber gorsellerini inceleyebilirsin\.?/gi,
+      ""
+    )
+
+    .replace(
+      /\(\s*\)/g,
+      ""
+    )
+
+    .replace(
+      /[ \t]+\n/g,
+      "\n"
+    )
+
+    .replace(
+      /\n{3,}/g,
+      "\n\n"
+    )
+
+    .replace(
+      /[ \t]{2,}/g,
+      " "
+    )
+
+    .trim();
+}
+
+
+function findNaturalCut(
+  text,
+  maxChars,
+  minChars
+) {
+  const sample =
+    text.slice(
+      0,
+      maxChars
+    );
+
+  const boundaries = [
+    sample.lastIndexOf(
+      "\n• "
+    ),
+
+    sample.lastIndexOf(
+      "\n- "
+    ),
+
+    sample.lastIndexOf(
+      "\n"
+    ),
+
+    sample.lastIndexOf(
+      ". "
+    ),
+
+    sample.lastIndexOf(
+      "! "
+    ),
+
+    sample.lastIndexOf(
+      "? "
+    )
+  ];
+
+  let cut =
+    Math.max(
+      ...boundaries
+    );
+
+  if (
+    cut <
+    minChars
+  ) {
+    cut =
+      maxChars;
+  }
+
+  /*
+    Nokta/soru/ünlem sonrasında kesiyorsak
+    noktalama işaretini de içeride tut.
+  */
+  if (
+    cut <
+      sample.length &&
+    [".", "!", "?"]
+      .includes(
+        sample[cut]
+      )
+  ) {
+    cut += 1;
+  }
+
+  return cut;
+}
+
+
+function sanitizeNormalAnswer(
+  value
+) {
   let text =
-    String(value || "")
-      .replace(/\r/g, "")
-
-      .replace(
-        /^\s*(selam|merhaba)[!,. :;-]*\s*/i,
-        ""
-      )
-
-      .replace(
-        /^\s*(ben\s+)?totik channel(?:'ın|'in|in)?\s+wow\s+(yardım|yardim)\s+botu(?:yum|dur|yım|yim)?[!,. :;-]*\s*/i,
-        ""
-      )
-
-      .replace(
-        /^\s*totik channel wow (yardım|yardim) botu(?:yum|dur)?[!,. :;-]*\s*/i,
-        ""
-      )
-
-      .replace(
-        /`?\b\d{1,2}-[a-z0-9._-]+\.(?:png|jpe?g|webp)\b`?/gi,
-        ""
-      )
-
-      .replace(
-        /^\s*(PAGE|FILE|DOSYA|SAYFA)\s*:\s*.*$/gim,
-        ""
-      )
-
-      .replace(/\(\s*\)/g, "")
-      .replace(/[ \t]+\n/g, "\n")
-      .replace(/\n{3,}/g, "\n\n")
-      .replace(/[ \t]{2,}/g, " ")
-      .trim();
-
-  text =
-    text
-      .replace(
-        /rehber görsellerinin tamamı ekte yer almaktadır\.?/gi,
-        ""
-      )
-
-      .replace(
-        /rehber gorsellerinin tamami ekte yer almaktadir\.?/gi,
-        ""
-      )
-
-      .replace(
-        /ekte yer alan görsellerde/gi,
-        "rehberde"
-      )
-
-      .replace(
-        /ekte yer alan gorsellerde/gi,
-        "rehberde"
-      )
-
-      .trim();
+    removeTechnicalGuideLanguage(
+      value
+    );
 
   if (
     text.length <=
-    MAX_ANSWER_CHARS
+    NORMAL_ANSWER_MAX_CHARS
   ) {
     return text;
   }
 
-  const sample =
-    text.slice(
-      0,
-      MAX_ANSWER_CHARS
-    );
-
   const cut =
-    Math.max(
-      sample.lastIndexOf(". "),
-      sample.lastIndexOf("! "),
-      sample.lastIndexOf("? "),
-      sample.lastIndexOf("\n")
+    findNaturalCut(
+      text,
+      NORMAL_ANSWER_MAX_CHARS,
+      800
     );
 
   return (
     `${text
       .slice(
         0,
-        cut > 800
-          ? cut + 1
-          : MAX_ANSWER_CHARS
+        cut
       )
       .trim()}…`
   );
 }
 
-function splitDiscordMessage(value) {
+
+/*
+  CLASS GUIDE CEVAPLARI
+
+  Amaç:
+  - Uzun listeyi Discord'a dökmemek
+  - En önemli kısmı anlatmak
+  - Detayı görsellere bırakmak
+*/
+function finalizeClassGuideAnswer(
+  value,
+  resolution
+) {
   let text =
-    String(value || "")
-      .trim();
+    removeTechnicalGuideLanguage(
+      value
+    );
+
+  if (!text) {
+    return "";
+  }
+
+  const pageCount =
+    Array.isArray(
+      resolution?.pages
+    )
+      ? resolution.pages.length
+      : 0;
+
+  /*
+    Birden fazla rehber sayfası varsa zaten altında
+    birden fazla görsel geliyor.
+
+    Bu durumda mesajı görsellerin yerine geçecek kadar
+    uzun tutmak istemiyoruz.
+  */
+  const broadGuideAnswer =
+    pageCount > 1;
+
+  let truncated =
+    false;
+
+  if (
+    text.length >
+    CLASS_GUIDE_HARD_MAX_CHARS
+  ) {
+    const cut =
+      findNaturalCut(
+        text,
+        CLASS_GUIDE_TARGET_CHARS,
+        CLASS_GUIDE_MIN_CUT_CHARS
+      );
+
+    text =
+      text
+        .slice(
+          0,
+          cut
+        )
+        .trim();
+
+    truncated =
+      true;
+  }
+
+  /*
+    900'ü aşmamış olsa bile model 800-900 karakterlik
+    gereksiz uzun bir cevap üretmiş olabilir.
+
+    Birden fazla görsel varsa hedefe yaklaştırıyoruz.
+  */
+  else if (
+    broadGuideAnswer &&
+    text.length >
+    CLASS_GUIDE_TARGET_CHARS
+  ) {
+    const cut =
+      findNaturalCut(
+        text,
+        CLASS_GUIDE_TARGET_CHARS,
+        CLASS_GUIDE_MIN_CUT_CHARS
+      );
+
+    text =
+      text
+        .slice(
+          0,
+          cut
+        )
+        .trim();
+
+    truncated =
+      true;
+  }
+
+  if (
+    truncated &&
+    !/[.!?]$/
+      .test(text)
+  ) {
+    text += "…";
+  }
+
+  /*
+    Genel/birden fazla görselli rehber sorusunda
+    kullanıcıya görsellere bakmasını söylüyoruz.
+
+    Tek talent gibi çok spesifik ve tek sayfalık
+    sorularda gereksiz yere eklemiyoruz.
+  */
+  if (
+    broadGuideAnswer ||
+    truncated
+  ) {
+    text +=
+      `\n\n${CLASS_GUIDE_CONTINUE_MESSAGE}`;
+  }
+
+  return text.trim();
+}
+
+
+// ============================================================
+// DISCORD TEXT SPLIT
+// ============================================================
+
+function splitDiscordMessage(
+  value
+) {
+  let text =
+    String(
+      value || ""
+    ).trim();
 
   if (!text) {
     return [];
+  }
+
+  if (
+    text.length <=
+    MAX_DISCORD_MESSAGE
+  ) {
+    return [
+      text
+    ];
   }
 
   const chunks = [];
@@ -207,7 +588,10 @@ function splitDiscordMessage(value) {
         MAX_DISCORD_MESSAGE
       );
 
-    if (cut < 700) {
+    if (
+      cut <
+      700
+    ) {
       cut =
         text.lastIndexOf(
           " ",
@@ -215,64 +599,100 @@ function splitDiscordMessage(value) {
         );
     }
 
-    if (cut < 700) {
+    if (
+      cut <
+      700
+    ) {
       cut =
         MAX_DISCORD_MESSAGE;
     }
 
     chunks.push(
       text
-        .slice(0, cut)
+        .slice(
+          0,
+          cut
+        )
         .trim()
     );
 
     text =
       text
-        .slice(cut)
+        .slice(
+          cut
+        )
         .trim();
   }
 
   if (text) {
-    chunks.push(text);
+    chunks.push(
+      text
+    );
   }
 
   return chunks;
 }
 
-function compareSnowflakes(a, b) {
+
+// ============================================================
+// SNOWFLAKE SORT
+// ============================================================
+
+function compareSnowflakes(
+  a,
+  b
+) {
   try {
     const aa =
       BigInt(
         String(
-          a?.id || "0"
+          a?.id ||
+          "0"
         )
       );
 
     const bb =
       BigInt(
         String(
-          b?.id || "0"
+          b?.id ||
+          "0"
         )
       );
 
-    return (
-      aa < bb
-        ? -1
-        : aa > bb
-          ? 1
-          : 0
-    );
+    if (
+      aa <
+      bb
+    ) {
+      return -1;
+    }
+
+    if (
+      aa >
+      bb
+    ) {
+      return 1;
+    }
+
+    return 0;
 
   } catch {
     return String(
-      a?.id || ""
-    ).localeCompare(
-      String(
-        b?.id || ""
-      )
-    );
+      a?.id ||
+      ""
+    )
+      .localeCompare(
+        String(
+          b?.id ||
+          ""
+        )
+      );
   }
 }
+
+
+// ============================================================
+// ATTACHMENT HELPERS
+// ============================================================
 
 function isImageAttachment(
   attachment
@@ -298,9 +718,12 @@ function isImageAttachment(
       "image/"
     ) ||
     /\.(png|jpe?g|webp)$/i
-      .test(filename)
+      .test(
+        filename
+      )
   );
 }
+
 
 function getImageAttachment(
   message
@@ -318,47 +741,77 @@ function getImageAttachment(
   );
 }
 
-function parseCsvIds(value) {
+
+// ============================================================
+// ROLE HELPERS
+// ============================================================
+
+function parseCsvIds(
+  value
+) {
   return new Set(
-    String(value || "")
+    String(
+      value ||
+      ""
+    )
       .split(",")
+
       .map(
-        x =>
-          x.trim()
+        value =>
+          value.trim()
       )
-      .filter(Boolean)
+
+      .filter(
+        Boolean
+      )
   );
 }
 
-function formatRemaining(ms) {
-  const total =
+
+// ============================================================
+// COOLDOWN TEXT
+// ============================================================
+
+function formatRemaining(
+  ms
+) {
+  const totalSeconds =
     Math.max(
       1,
       Math.ceil(
         Number(
-          ms || 0
-        ) / 1000
+          ms ||
+          0
+        ) /
+        1000
       )
     );
 
   const minutes =
     Math.floor(
-      total / 60
+      totalSeconds /
+      60
     );
 
   const seconds =
-    total % 60;
+    totalSeconds %
+    60;
 
   if (
-    minutes &&
-    seconds
+    minutes >
+      0 &&
+    seconds >
+      0
   ) {
     return (
       `${minutes} dakika ${seconds} saniye`
     );
   }
 
-  if (minutes) {
+  if (
+    minutes >
+    0
+  ) {
     return (
       `${minutes} dakika`
     );
@@ -369,17 +822,29 @@ function formatRemaining(ms) {
   );
 }
 
+
+// ============================================================
+// GUIDE REMINDER
+// ============================================================
+
 function appendGuideReminder(
   answer,
   force = false
 ) {
   const text =
-    String(answer || "")
-      .trim();
+    String(
+      answer ||
+      ""
+    ).trim();
 
   if (
     !text ||
-    !force ||
+    !force
+  ) {
+    return text;
+  }
+
+  if (
     text.includes(
       `<#${GUIDE_CHANNEL_ID}>`
     )
@@ -392,6 +857,11 @@ function appendGuideReminder(
   );
 }
 
+
+// ============================================================
+// LOCAL INTENTS
+// ============================================================
+
 function isIdentityQuestion(
   question
 ) {
@@ -402,9 +872,12 @@ function isIdentityQuestion(
 
   return (
     /sen kimsin|sen nesin|kimin botusun|kim gelistirdi|kim yapti seni/
-      .test(q)
+      .test(
+        q
+      )
   );
 }
+
 
 function isGuildInfoQuestion(
   question
@@ -416,31 +889,54 @@ function isGuildInfoQuestion(
 
   return (
     /guild|lonca/
-      .test(q) &&
-    /katil|basvur|alim|alliance|horde|ruleset|sunucu|server/
-      .test(q)
+      .test(
+        q
+      ) &&
+    /katil|basvur|alim|hangi taraf|alliance|horde|ruleset|sunucu|server/
+      .test(
+        q
+      )
   );
 }
 
-function bytesToBase64(bytes) {
-  let binary = "";
+
+// ============================================================
+// BASE64
+// ============================================================
+
+function bytesToBase64(
+  bytes
+) {
+  let binary =
+    "";
+
+  const chunkSize =
+    0x8000;
 
   for (
     let i = 0;
     i < bytes.length;
-    i += 0x8000
+    i += chunkSize
   ) {
     binary +=
       String.fromCharCode(
         ...bytes.subarray(
           i,
-          i + 0x8000
+          i +
+          chunkSize
         )
       );
   }
 
-  return btoa(binary);
+  return btoa(
+    binary
+  );
 }
+
+
+// ============================================================
+// GEMINI INTERACTIONS RESPONSE PARSER
+// ============================================================
 
 function extractInteractionText(
   data
@@ -451,7 +947,8 @@ function extractInteractionText(
     data.output_text.trim()
   ) {
     return (
-      data.output_text.trim()
+      data.output_text
+        .trim()
     );
   }
 
@@ -464,7 +961,8 @@ function extractInteractionText(
 
   for (
     let i =
-      steps.length - 1;
+      steps.length -
+      1;
 
     i >= 0;
 
@@ -489,6 +987,7 @@ function extractInteractionText(
 
     const text =
       content
+
         .filter(
           part =>
             part?.type ===
@@ -502,7 +1001,10 @@ function extractInteractionText(
             part.text
         )
 
-        .join("\n")
+        .join(
+          "\n"
+        )
+
         .trim();
 
     if (text) {
@@ -513,7 +1015,13 @@ function extractInteractionText(
   return "";
 }
 
+
+// ============================================================
+// WORKER ENTRY
+// ============================================================
+
 export default {
+
   async fetch(
     request,
     env
@@ -529,23 +1037,37 @@ export default {
     ) {
       return json({
         ok: true,
+
         service:
           "totik-ai",
+
         mode:
-          "class-guide-grounded-v2",
-        guideCatalog:
-          catalogDiagnostics(),
+          "class-guide-grounded-short-v3",
+
         normalCooldownMinutes:
-          15,
+          NORMAL_COOLDOWN_MS /
+          60000,
+
         premiumCooldownMinutes:
-          1
+          PREMIUM_COOLDOWN_MS /
+          60000,
+
+        classGuideTargetChars:
+          CLASS_GUIDE_TARGET_CHARS,
+
+        guideCatalog:
+          catalogDiagnostics()
       });
     }
 
-    if (!env.GATEWAY) {
+    if (
+      !env.GATEWAY
+    ) {
       return json(
         {
-          ok: false,
+          ok:
+            false,
+
           error:
             "GATEWAY Durable Object binding bulunamadı."
         },
@@ -553,11 +1075,14 @@ export default {
       );
     }
 
+    const id =
+      env.GATEWAY.idFromName(
+        "totik-ai-main"
+      );
+
     const stub =
       env.GATEWAY.get(
-        env.GATEWAY.idFromName(
-          "totik-ai-main"
-        )
+        id
       );
 
     const routeMap = {
@@ -589,18 +1114,46 @@ export default {
       return new Response(
         "Not found",
         {
-          status: 404
+          status:
+            404
         }
       );
     }
 
-    return stub.fetch(
-      new Request(
-        `https://internal${target}`
-      )
-    );
+    try {
+      return await stub.fetch(
+        new Request(
+          `https://internal${target}`
+        )
+      );
+
+    } catch (
+      error
+    ) {
+      return json(
+        {
+          ok:
+            false,
+
+          error:
+            "durable_object_unavailable",
+
+          detail:
+            error?.message ||
+            String(
+              error
+            )
+        },
+        503
+      );
+    }
   }
 };
+
+
+// ============================================================
+// DURABLE OBJECT
+// ============================================================
 
 export class DiscordGateway
   extends DurableObject {
@@ -627,11 +1180,23 @@ export class DiscordGateway
       new Map();
   }
 
-  async fetch(request) {
+
+  // ==========================================================
+  // INTERNAL HTTP ROUTES
+  // ==========================================================
+
+  async fetch(
+    request
+  ) {
     const url =
       new URL(
         request.url
       );
+
+
+    // --------------------------------------------------------
+    // START
+    // --------------------------------------------------------
 
     if (
       url.pathname ===
@@ -643,7 +1208,8 @@ export class DiscordGateway
       ) {
         return json(
           {
-            ok: false,
+            ok:
+              false,
 
             error:
               "DISCORD_BOT_TOKEN secret bulunamadı."
@@ -665,10 +1231,22 @@ export class DiscordGateway
       );
 
       return json({
-        ok: true,
-        state: "polling"
+        ok:
+          true,
+
+        state:
+          "polling",
+
+        pollIntervalSeconds:
+          POLL_INTERVAL_MS /
+          1000
       });
     }
+
+
+    // --------------------------------------------------------
+    // STOP
+    // --------------------------------------------------------
 
     if (
       url.pathname ===
@@ -682,10 +1260,18 @@ export class DiscordGateway
       await this.ctx.storage.deleteAlarm();
 
       return json({
-        ok: true,
-        state: "stopped"
+        ok:
+          true,
+
+        state:
+          "stopped"
       });
     }
+
+
+    // --------------------------------------------------------
+    // MANUAL RUN
+    // --------------------------------------------------------
 
     if (
       url.pathname ===
@@ -706,11 +1292,21 @@ export class DiscordGateway
       );
 
       return json({
-        ok: true,
-        state: "polling",
-        manualRun: true
+        ok:
+          true,
+
+        state:
+          "polling",
+
+        manualRun:
+          true
       });
     }
+
+
+    // --------------------------------------------------------
+    // GUIDE CHECK
+    // --------------------------------------------------------
 
     if (
       url.pathname ===
@@ -727,6 +1323,11 @@ export class DiscordGateway
       );
     }
 
+
+    // --------------------------------------------------------
+    // STATUS
+    // --------------------------------------------------------
+
     if (
       url.pathname ===
       "/status"
@@ -738,7 +1339,9 @@ export class DiscordGateway
         lastPollAt,
         lastQuestionAt,
         lastError,
-        lastTrace
+        lastTrace,
+        answeredCount,
+        technicalFailureCount
       ] =
         await Promise.all([
           this.ctx.storage.get(
@@ -767,6 +1370,14 @@ export class DiscordGateway
 
           this.ctx.storage.get(
             "last_trace"
+          ),
+
+          this.ctx.storage.get(
+            "answered_count"
+          ),
+
+          this.ctx.storage.get(
+            "technical_failure_count"
           )
         ]);
 
@@ -784,7 +1395,26 @@ export class DiscordGateway
           alarmAt != null,
 
         initialized:
-          initialized === true,
+          initialized ===
+          true,
+
+        pollIntervalSeconds:
+          POLL_INTERVAL_MS /
+          1000,
+
+        normalCooldownMinutes:
+          NORMAL_COOLDOWN_MS /
+          60000,
+
+        premiumCooldownMinutes:
+          PREMIUM_COOLDOWN_MS /
+          60000,
+
+        questionChannelId:
+          QUESTION_CHANNEL_ID,
+
+        guideImageChannelId:
+          GUIDE_IMAGE_CHANNEL_ID,
 
         lastMessageId:
           lastMessageId ||
@@ -802,8 +1432,17 @@ export class DiscordGateway
           alarmAt
             ? new Date(
                 alarmAt
-              ).toISOString()
+              )
+                .toISOString()
             : null,
+
+        answeredCount:
+          answeredCount ??
+          0,
+
+        technicalFailureCount:
+          technicalFailureCount ??
+          0,
 
         lastTrace:
           lastTrace ||
@@ -818,44 +1457,60 @@ export class DiscordGateway
       });
     }
 
+
     return new Response(
       "Not found",
       {
-        status: 404
+        status:
+          404
       }
     );
   }
 
+
+  // ==========================================================
+  // ALARM
+  // ==========================================================
+
   async alarm() {
+    const enabled =
+      await this.ctx.storage.get(
+        "polling_enabled"
+      );
+
     if (
-      (
-        await this.ctx.storage.get(
-          "polling_enabled"
-        )
-      ) === false
+      enabled ===
+      false
     ) {
       return;
     }
 
     try {
       await this.ensureInitialized();
+
       await this.pollOnce();
 
-    } catch (error) {
+    } catch (
+      error
+    ) {
       await this.setLastError(
         `Polling: ${
           error?.message ||
-          String(error)
+          String(
+            error
+          )
         }`
       );
 
     } finally {
+      const stillEnabled =
+        await this.ctx.storage.get(
+          "polling_enabled"
+        );
+
       if (
-        (
-          await this.ctx.storage.get(
-            "polling_enabled"
-          )
-        ) !== false
+        stillEnabled !==
+        false
       ) {
         await this.ctx.storage.setAlarm(
           Date.now() +
@@ -865,13 +1520,20 @@ export class DiscordGateway
     }
   }
 
+
+  // ==========================================================
+  // INITIALIZATION
+  // ==========================================================
+
   async ensureInitialized() {
+    const initialized =
+      await this.ctx.storage.get(
+        "initialized"
+      );
+
     if (
-      (
-        await this.ctx.storage.get(
-          "initialized"
-        )
-      ) === true
+      initialized ===
+      true
     ) {
       return;
     }
@@ -885,7 +1547,8 @@ export class DiscordGateway
       Array.isArray(
         messages
       ) &&
-      messages.length
+      messages.length >
+      0
     ) {
       await this.ctx.storage.put(
         "last_message_id",
@@ -895,16 +1558,29 @@ export class DiscordGateway
       );
     }
 
-    await this.ctx.storage.put(
-      "initialized",
-      true
-    );
+    await Promise.all([
+      this.ctx.storage.put(
+        "initialized",
+        true
+      ),
 
-    await this.ctx.storage.put(
-      "polling_enabled",
-      true
-    );
+      this.ctx.storage.put(
+        "polling_enabled",
+        true
+      ),
+
+      this.ctx.storage.put(
+        "last_poll_at",
+        new Date()
+          .toISOString()
+      )
+    ]);
   }
+
+
+  // ==========================================================
+  // POLLING
+  // ==========================================================
 
   async pollOnce() {
     let cursor =
@@ -931,7 +1607,8 @@ export class DiscordGateway
         !Array.isArray(
           messages
         ) ||
-        !messages.length
+        messages.length ===
+        0
       ) {
         break;
       }
@@ -955,23 +1632,30 @@ export class DiscordGateway
         );
 
         if (
-          message?.author?.bot
+          message
+            ?.author
+            ?.bot
         ) {
           continue;
         }
 
         const content =
           String(
-            message?.content ||
+            message
+              ?.content ||
             ""
           )
             .trim();
 
         if (
           !QUESTION_COMMAND
-            .test(content) &&
+            .test(
+              content
+            ) &&
           !DEBUG_COMMAND
-            .test(content)
+            .test(
+              content
+            )
         ) {
           continue;
         }
@@ -981,11 +1665,17 @@ export class DiscordGateway
             message
           );
 
-        } catch (error) {
+        } catch (
+          error
+        ) {
+          await this.markTechnicalFailure();
+
           await this.setLastError(
             `Handle command: ${
               error?.message ||
-              String(error)
+              String(
+                error
+              )
             }`
           );
         }
@@ -1006,12 +1696,18 @@ export class DiscordGateway
     );
   }
 
+
+  // ==========================================================
+  // GUIDE CHECK
+  // ==========================================================
+
   async buildGuideCheck() {
     const diag =
       catalogDiagnostics();
 
     const report = {
-      ok: true,
+      ok:
+        true,
 
       imageChannelId:
         GUIDE_IMAGE_CHANNEL_ID,
@@ -1025,7 +1721,8 @@ export class DiscordGateway
       totalImageAttachments:
         0,
 
-      classes: {}
+      classes:
+        {}
     };
 
     for (
@@ -1049,7 +1746,8 @@ export class DiscordGateway
                 classKey
             );
 
-        const missing = [];
+        const missing =
+          [];
 
         let matchedPages =
           0;
@@ -1101,7 +1799,7 @@ export class DiscordGateway
           expectedPages:
             Number(
               diag
-                .pageCounts
+                ?.pageCounts
                 ?.[classKey] ||
               pages.length
             ),
@@ -1115,20 +1813,24 @@ export class DiscordGateway
         };
 
         if (
-          missing.length
+          missing.length >
+          0
         ) {
           report.ok =
             false;
         }
 
-      } catch (error) {
+      } catch (
+        error
+      ) {
         report.ok =
           false;
 
         report.classes[
           classKey
         ] = {
-          ok: false,
+          ok:
+            false,
 
           messageIds:
             expectedBatchMessageIds(
@@ -1138,14 +1840,16 @@ export class DiscordGateway
           expectedPages:
             Number(
               diag
-                .pageCounts
+                ?.pageCounts
                 ?.[classKey] ||
               0
             ),
 
           error:
             error?.message ||
-            String(error)
+            String(
+              error
+            )
         };
       }
     }
@@ -1153,17 +1857,32 @@ export class DiscordGateway
     return report;
   }
 
-  async handleCommand(message) {
+
+  // ==========================================================
+  // COMMAND HANDLER
+  // ==========================================================
+
+  async handleCommand(
+    message
+  ) {
     const content =
       String(
-        message?.content ||
+        message
+          ?.content ||
         ""
       )
         .trim();
 
+
+    // --------------------------------------------------------
+    // DEBUG
+    // --------------------------------------------------------
+
     if (
       DEBUG_COMMAND
-        .test(content)
+        .test(
+          content
+        )
     ) {
       await this.handleDebugCommand(
         message
@@ -1172,47 +1891,10 @@ export class DiscordGateway
       return;
     }
 
-    const userId =
-      String(
-        message.author.id
-      );
 
-    const premiumInfo =
-      await this.getMemberCooldownClass(
-        message
-      );
-
-    const cooldown =
-      await this.acquireCooldown(
-        userId,
-        premiumInfo.durationMs
-      );
-
-    if (
-      !cooldown.allowed
-    ) {
-      await this.reply(
-        message,
-
-        `⏱️ Tekrar soru sorabilmek için **${formatRemaining(cooldown.remainingMs)}** beklemelisin. YouTube Katıl ve Twitch Sub üyelerinde bekleme süresi 1 dakika, normal üyelerde 15 dakikadır.`
-      );
-
-      await this.recordTrace({
-        route:
-          "cooldown_reject",
-
-        tier:
-          premiumInfo.reason,
-
-        remainingMs:
-          cooldown.remainingMs,
-
-        tavilyUsed:
-          false
-      });
-
-      return;
-    }
+    // --------------------------------------------------------
+    // QUESTION CONTEXT
+    // --------------------------------------------------------
 
     let currentQuestion =
       cleanText(
@@ -1266,7 +1948,7 @@ export class DiscordGateway
       );
 
     let question =
-      currentQuestion;
+      "";
 
     if (
       referencedText &&
@@ -1276,35 +1958,88 @@ export class DiscordGateway
         `Önceki mesaj: ${referencedText}\nEk soru: ${currentQuestion}`;
 
     } else if (
-      !currentQuestion &&
+      currentQuestion
+    ) {
+      question =
+        currentQuestion;
+
+    } else if (
       referencedText
     ) {
       question =
         referencedText;
 
     } else if (
-      !currentQuestion &&
       userImage
     ) {
       question =
         "Bu World of Warcraft görselindeki konu hakkında yardımcı ol.";
     }
 
+
     if (
       !question &&
       !userImage
     ) {
-      await this.releaseCooldown(
-        userId
-      );
-
       await this.reply(
         message,
-        "Sorunu `!soru` komutundan sonra yazabilirsin."
+
+        "Sorunu `!soru` komutundan sonra yazabilir veya bir mesaja reply atıp `!soru` yazabilirsin."
       );
 
       return;
     }
+
+
+    // --------------------------------------------------------
+    // COOLDOWN
+    // --------------------------------------------------------
+
+    const userId =
+      String(
+        message.author.id
+      );
+
+    const cooldownClass =
+      await this.getMemberCooldownClass(
+        message
+      );
+
+    const cooldown =
+      await this.acquireCooldown(
+        userId,
+        cooldownClass.durationMs
+      );
+
+    if (
+      !cooldown.allowed
+    ) {
+      await this.reply(
+        message,
+
+        `⏱️ Tekrar soru sorabilmek için **${formatRemaining(cooldown.remainingMs)}** beklemelisin. YouTube Katıl ve Twitch Sub üyelerinde bekleme süresi 1 dakika, normal üyelerde 15 dakikadır.`
+      );
+
+      await this.recordTrace({
+        route:
+          "cooldown_reject",
+
+        tier:
+          cooldownClass.reason,
+
+        remainingMs:
+          cooldown.remainingMs,
+
+        tavilyUsed:
+          false,
+
+        imageSent:
+          false
+      });
+
+      return;
+    }
+
 
     await this.ctx.storage.put(
       "last_question_at",
@@ -1312,7 +2047,13 @@ export class DiscordGateway
         .toISOString()
     );
 
+
     try {
+
+      // ------------------------------------------------------
+      // LOCAL IDENTITY
+      // ------------------------------------------------------
+
       if (
         isIdentityQuestion(
           question
@@ -1323,7 +2064,7 @@ export class DiscordGateway
           IDENTITY_MESSAGE
         );
 
-        await this.recordTrace({
+        await this.finishSuccessfulAnswer({
           route:
             "local_identity",
 
@@ -1331,11 +2072,19 @@ export class DiscordGateway
             "local_constant",
 
           tavilyUsed:
+            false,
+
+          imageSent:
             false
         });
 
         return;
       }
+
+
+      // ------------------------------------------------------
+      // LOCAL GUILD
+      // ------------------------------------------------------
 
       if (
         isGuildInfoQuestion(
@@ -1347,7 +2096,7 @@ export class DiscordGateway
           GUILD_INFO_MESSAGE
         );
 
-        await this.recordTrace({
+        await this.finishSuccessfulAnswer({
           route:
             "local_guild",
 
@@ -1355,15 +2104,24 @@ export class DiscordGateway
             "local_constant",
 
           tavilyUsed:
+            false,
+
+          imageSent:
             false
         });
 
         return;
       }
 
+
       await this.safeTyping(
         QUESTION_CHANNEL_ID
       );
+
+
+      // ------------------------------------------------------
+      // CLASS GUIDE MATCH
+      // ------------------------------------------------------
 
       let classFallbackMedia =
         [];
@@ -1375,7 +2133,11 @@ export class DiscordGateway
 
       if (
         resolution.matched &&
-        resolution.pages?.length
+        Array.isArray(
+          resolution.pages
+        ) &&
+        resolution.pages.length >
+        0
       ) {
         const guideResult =
           await this.answerFromClassGuide(
@@ -1387,11 +2149,9 @@ export class DiscordGateway
         if (
           guideResult.handled
         ) {
-          await this.recordTrace(
+          await this.finishSuccessfulAnswer(
             guideResult.trace
           );
-
-          await this.clearLastError();
 
           return;
         }
@@ -1401,21 +2161,35 @@ export class DiscordGateway
           [];
       }
 
+
+      // ------------------------------------------------------
+      // USER IMAGE CONTEXT
+      // ------------------------------------------------------
+
       let finalQuestion =
         question;
 
-      if (userImage) {
+      if (
+        userImage
+      ) {
         const imageContext =
           await this.analyzeUserImage(
             userImage,
             question
           );
 
-        if (imageContext) {
+        if (
+          imageContext
+        ) {
           finalQuestion +=
-            `\n\nKullanıcı görselinden okunan bilgi:\n${imageContext}`;
+            `\n\nKullanıcının görselinden okunan bilgiler:\n${imageContext}`;
         }
       }
+
+
+      // ------------------------------------------------------
+      // NORMAL BACKEND
+      // ------------------------------------------------------
 
       let result;
 
@@ -1441,8 +2215,9 @@ export class DiscordGateway
           );
       }
 
+
       let answer =
-        sanitizeGuideAnswer(
+        sanitizeNormalAnswer(
           result?.answer ||
           ""
         );
@@ -1452,6 +2227,11 @@ export class DiscordGateway
           "AI boş cevap döndürdü."
         );
       }
+
+
+      // ------------------------------------------------------
+      // SPECIAL PROFESSION / CAMP / LEGACY IMAGE
+      // ------------------------------------------------------
 
       const specialMedia =
         [];
@@ -1467,22 +2247,27 @@ export class DiscordGateway
             result.curatedTopic
           );
 
-        if (item) {
+        if (
+          item
+        ) {
           specialMedia.push(
             item
           );
         }
       }
 
+
       const allMedia = [
         ...classFallbackMedia,
         ...specialMedia
       ];
 
+
       const files =
         await this.prepareOutgoingFiles(
           allMedia
         );
+
 
       const shouldRemind =
         Boolean(
@@ -1490,11 +2275,13 @@ export class DiscordGateway
           result?.curatedTopic
         );
 
+
       answer =
         appendGuideReminder(
           answer,
           shouldRemind
         );
+
 
       await this.reply(
         message,
@@ -1504,7 +2291,8 @@ export class DiscordGateway
         }
       );
 
-      await this.recordTrace({
+
+      await this.finishSuccessfulAnswer({
         route:
           resolution.matched
             ? "class_guide_backend_fallback"
@@ -1518,7 +2306,8 @@ export class DiscordGateway
               : Array.isArray(
                   result?.sources
                 ) &&
-                result.sources.length
+                result.sources.length >
+                0
                 ? `backend_tavily_grounded:${result.mode || "unknown"}`
                 : `backend_model:${result?.mode || "unknown"}`,
 
@@ -1536,12 +2325,16 @@ export class DiscordGateway
             []
           )
             .map(
-              p =>
-                p.key
+              page =>
+                page.key
             ),
 
         imagesSent:
           files.length,
+
+        imageSent:
+          files.length >
+          0,
 
         tavilyUsed:
           !listenerFallback &&
@@ -1552,17 +2345,24 @@ export class DiscordGateway
           0
       });
 
-      await this.clearLastError();
-
-    } catch (error) {
+    } catch (
+      error
+    ) {
+      /*
+        Teknik hata cooldown tüketmez.
+      */
       await this.releaseCooldown(
         userId
       );
 
+      await this.markTechnicalFailure();
+
       await this.setLastError(
         `Question: ${
           error?.message ||
-          String(error)
+          String(
+            error
+          )
         }`
       );
 
@@ -1573,6 +2373,11 @@ export class DiscordGateway
       );
     }
   }
+
+
+  // ==========================================================
+  // DEBUG COMMAND
+  // ==========================================================
 
   async handleDebugCommand(
     message
@@ -1587,34 +2392,38 @@ export class DiscordGateway
 
     if (
       !ADMIN_COOLDOWN_BYPASS_USER_IDS
-        .has(userId)
+        .has(
+          userId
+        )
     ) {
       return;
     }
 
-    const trace =
+    const lastTrace =
       await this.ctx.storage.get(
         "last_trace"
       );
 
-    const error =
+    const lastError =
       await this.ctx.storage.get(
         "last_error"
       );
+
+    const payload = {
+      lastTrace:
+        lastTrace ||
+        null,
+
+      lastError:
+        lastError ||
+        null
+    };
 
     await this.reply(
       message,
 
       `\`\`\`json\n${JSON.stringify(
-        {
-          lastTrace:
-            trace ||
-            null,
-
-          lastError:
-            error ||
-            null
-        },
+        payload,
         null,
         2
       ).slice(
@@ -1624,6 +2433,11 @@ export class DiscordGateway
     );
   }
 
+
+  // ==========================================================
+  // CLASS GUIDE ANSWER
+  // ==========================================================
+
   async answerFromClassGuide(
     message,
     question,
@@ -1632,10 +2446,20 @@ export class DiscordGateway
     const startedAt =
       Date.now();
 
+
+    // --------------------------------------------------------
+    // FIND REAL DISCORD IMAGES
+    // --------------------------------------------------------
+
     const media =
       await this.loadClassGuideMedia(
         resolution
       );
+
+
+    // --------------------------------------------------------
+    // BUILD GROUNDING CONTEXT
+    // --------------------------------------------------------
 
     const contexts =
       [];
@@ -1646,31 +2470,49 @@ export class DiscordGateway
     let allPagesGrounded =
       true;
 
+
     for (
       const page
       of resolution.pages
     ) {
+
+      /*
+        Talent sayfalarında katalog zaten
+        structured data içeriyor.
+      */
       if (
         (
           page.talents ||
           []
-        ).length
+        ).length >
+        0
       ) {
-        contexts.push(
+        const structured =
           buildStructuredGuideContext({
             pages: [
               page
             ]
-          })
-        );
+          });
 
-        sourceKinds.add(
-          "catalog_structured"
-        );
+        if (
+          structured
+        ) {
+          contexts.push(
+            structured
+          );
 
-        continue;
+          sourceKinds.add(
+            "catalog_structured"
+          );
+
+          continue;
+        }
       }
 
+
+      /*
+        Talent olmayan görseller için gerçek PNG okunur.
+      */
       const mediaItem =
         media.find(
           item =>
@@ -1678,12 +2520,16 @@ export class DiscordGateway
             page.key
         );
 
-      if (!mediaItem) {
+
+      if (
+        !mediaItem
+      ) {
         allPagesGrounded =
           false;
 
         continue;
       }
+
 
       try {
         const vision =
@@ -1692,7 +2538,9 @@ export class DiscordGateway
             mediaItem
           );
 
-        if (!vision) {
+        if (
+          !vision
+        ) {
           allPagesGrounded =
             false;
 
@@ -1700,28 +2548,38 @@ export class DiscordGateway
         }
 
         contexts.push(
-          `KAYNAK ${contexts.length + 1}:\n${vision}`
+          vision
         );
 
         sourceKinds.add(
           "guide_image_vision"
         );
 
-      } catch (error) {
+      } catch (
+        error
+      ) {
         allPagesGrounded =
           false;
 
         await this.setLastError(
           `Guide vision ${page.key}: ${
             error?.message ||
-            String(error)
+            String(
+              error
+            )
           }`
         );
       }
     }
 
+
+    /*
+      Yeterli rehber grounding yoksa uydurmak yerine
+      normal backend'e bırakıyoruz.
+    */
     if (
-      !contexts.length ||
+      contexts.length ===
+        0 ||
       !allPagesGrounded
     ) {
       return {
@@ -1747,8 +2605,8 @@ export class DiscordGateway
           pages:
             resolution.pages
               .map(
-                p =>
-                  p.key
+                page =>
+                  page.key
               ),
 
           tavilyUsed:
@@ -1757,7 +2615,12 @@ export class DiscordGateway
       };
     }
 
-    const answer =
+
+    // --------------------------------------------------------
+    // GENERATE SHORT GUIDE ANSWER
+    // --------------------------------------------------------
+
+    const rawAnswer =
       await this.askGuideGrounded(
         question,
         resolution,
@@ -1766,26 +2629,17 @@ export class DiscordGateway
         )
       );
 
-const rawGuideAnswer =
-  String(answer || "").trim();
 
-let cleanAnswer =
-  sanitizeGuideAnswer(
-    rawGuideAnswer
-  );
+    const cleanAnswer =
+      finalizeClassGuideAnswer(
+        rawAnswer,
+        resolution
+      );
 
-if (
-  rawGuideAnswer.length >
-  MAX_ANSWER_CHARS
-) {
-  cleanAnswer =
-    cleanAnswer
-      .replace(/…$/, "")
-      .trimEnd() +
-    "…\n\nDevamı için rehber görsellerini inceleyebilirsin.";
-}
 
-    if (!cleanAnswer) {
+    if (
+      !cleanAnswer
+    ) {
       return {
         handled:
           false,
@@ -1797,21 +2651,38 @@ if (
             "class_guide",
 
           source:
-            "empty_guide_answer"
+            "empty_guide_answer",
+
+          classKey:
+            resolution.classKey,
+
+          treeKey:
+            resolution.treeKey ||
+            null,
+
+          tavilyUsed:
+            false
         }
       };
     }
+
+
+    // --------------------------------------------------------
+    // PREPARE REAL DISCORD ATTACHMENTS
+    // --------------------------------------------------------
 
     const files =
       await this.prepareOutgoingFiles(
         media
       );
 
+
     const finalAnswer =
       appendGuideReminder(
         cleanAnswer,
         true
       );
+
 
     await this.reply(
       message,
@@ -1820,6 +2691,7 @@ if (
         files
       }
     );
+
 
     return {
       handled:
@@ -1832,7 +2704,10 @@ if (
         source:
           [
             ...sourceKinds
-          ].join("+"),
+          ]
+            .join(
+              "+"
+            ),
 
         classKey:
           resolution.classKey,
@@ -1851,8 +2726,8 @@ if (
         pages:
           resolution.pages
             .map(
-              p =>
-                p.key
+              page =>
+                page.key
             ),
 
         batchMessageIds:
@@ -1866,8 +2741,15 @@ if (
         imagesSent:
           files.length,
 
+        imageSent:
+          files.length >
+          0,
+
         tavilyUsed:
           false,
+
+        answerChars:
+          cleanAnswer.length,
 
         elapsedMs:
           Date.now() -
@@ -1875,6 +2757,11 @@ if (
       }
     };
   }
+
+
+  // ==========================================================
+  // CLASS GUIDE MEDIA RESOLUTION
+  // ==========================================================
 
   async loadClassGuideMedia(
     resolution
@@ -1884,7 +2771,9 @@ if (
         resolution.classKey
       );
 
-    const results = [];
+    const results =
+      [];
+
 
     for (
       const page
@@ -1899,6 +2788,22 @@ if (
       if (
         !match.attachment
       ) {
+        console.log(
+          JSON.stringify({
+            event:
+              "guide_attachment_missing",
+
+            classKey:
+              resolution.classKey,
+
+            pageKey:
+              page.key,
+
+            expectedFilename:
+              page.filename
+          })
+        );
+
         continue;
       }
 
@@ -1907,6 +2812,9 @@ if (
 
         attachment:
           match.attachment,
+
+        matchMode:
+          match.matchMode,
 
         sourceMessageId:
           match
@@ -1919,22 +2827,32 @@ if (
       });
     }
 
+
     return results;
   }
+
+
+  // ==========================================================
+  // LOAD ALL CLASS ATTACHMENTS
+  // ==========================================================
 
   async getClassAttachmentIndex(
     classKey,
     forceRefresh = false
   ) {
+    const now =
+      Date.now();
+
     const cached =
       this.classAttachmentCache.get(
         classKey
       );
 
+
     if (
       !forceRefresh &&
       cached &&
-      Date.now() -
+      now -
       cached.at <
       GUIDE_ATTACHMENT_CACHE_MS
     ) {
@@ -1943,20 +2861,27 @@ if (
       );
     }
 
+
+    const messageIds =
+      GUIDE_BATCH_MESSAGE_IDS[
+        classKey
+      ] ||
+      [];
+
+
     const attachments =
       [];
 
+
     for (
       const messageId
-      of GUIDE_BATCH_MESSAGE_IDS[
-        classKey
-      ] ||
-      []
+      of messageIds
     ) {
       const sourceMessage =
         await this.discordRequest(
           `/channels/${GUIDE_IMAGE_CHANNEL_ID}/messages/${messageId}`
         );
+
 
       for (
         const attachment
@@ -1981,18 +2906,25 @@ if (
       }
     }
 
+
     this.classAttachmentCache.set(
       classKey,
       {
         at:
-          Date.now(),
+          now,
 
         attachments
       }
     );
 
+
     return attachments;
   }
+
+
+  // ==========================================================
+  // MEDIA BYTES
+  // ==========================================================
 
   async ensureMediaBytes(
     mediaItem
@@ -2007,6 +2939,7 @@ if (
       );
     }
 
+
     const response =
       await fetch(
         mediaItem
@@ -2014,11 +2947,27 @@ if (
           .url
       );
 
-    if (!response.ok) {
+
+    if (
+      !response.ok
+    ) {
+      if (
+        mediaItem
+          ?.page
+          ?.classKey
+      ) {
+        this.classAttachmentCache.delete(
+          mediaItem
+            .page
+            .classKey
+        );
+      }
+
       throw new Error(
-        `Guide image download ${response.status}`
+        `Guide image download HTTP ${response.status}`
       );
     }
+
 
     const bytes =
       new Uint8Array(
@@ -2026,11 +2975,18 @@ if (
           .arrayBuffer()
       );
 
+
     mediaItem.bytes =
       bytes;
 
+
     return bytes;
   }
+
+
+  // ==========================================================
+  // GUIDE VISION CACHE
+  // ==========================================================
 
   async getCachedGuideVisionText(
     page,
@@ -2044,13 +3000,20 @@ if (
         "unknown"
       );
 
+
+    /*
+      v5:
+      Prompt değiştiğinde eski kötü cache kullanılmasın.
+    */
     const cacheKey =
-      `guidevision:v4:${page.key}:${attachmentId}`;
+      `guidevision:v5:${page.key}:${attachmentId}`;
+
 
     const cached =
       await this.ctx.storage.get(
         cacheKey
       );
+
 
     if (
       typeof cached ===
@@ -2060,10 +3023,12 @@ if (
       return cached;
     }
 
+
     const bytes =
       await this.ensureMediaBytes(
         mediaItem
       );
+
 
     if (
       bytes.byteLength >
@@ -2074,24 +3039,50 @@ if (
       );
     }
 
-    const prompt = `
-Bu görsel Totik Channel'ın WoW Forever rehber sayfasıdır.
 
-GÖREV:
-Görseldeki içerikleri eksiksiz biçimde kaynak verisine dönüştür.
+    const prompt =
+`
+Bu görsel Totik Channel'ın WoW Forever rehberine ait gerçek bir rehber sayfasıdır.
 
-Kurallar:
-- Görselde yazmayan hiçbir WoW bilgisi ekleme.
-- Dosya adı, PNG/JPG adı, sayfa anahtarı, katalog veya teknik bilgi yazma.
-- Başlıkları, spell/talent/buff/aura/seal isimlerini ve açıklamalarını koru.
-- Sayı, yüzde, süre, cooldown, menzil, seviye ve istisnaları atlama.
-- Görselde bir liste varsa listedeki maddeleri tek tek çıkar.
-- Görselde öneri veya öncelik varsa aynen anlamını koru.
-- Türkçe metni olduğu gibi anlamlandır; bozuk OCR üretme.
-- Yalnızca cevap üretmekte kullanılacak temiz kaynak özeti döndür.
-`.trim();
+Görevin, görseldeki bilgiyi daha sonra kullanıcı sorularına cevap vermek için kaynak verisine dönüştürmektir.
 
-    const result =
+KURALLAR:
+
+- Yalnızca görselde gerçekten yazan bilgiyi çıkar.
+- World of Warcraft genel bilginle boşluk doldurma.
+- Görselde olmayan hiçbir mekanik, sayı veya öneri ekleme.
+- PNG/JPG dosya adı yazma.
+- Teknik katalog adı yazma.
+- Kaynak numarası yazma.
+- Reklam veya kanal çağrısı yazma.
+
+Özellikle koru:
+
+- spell / ability / talent / buff isimleri
+- ne yaptıkları
+- yüzde değerleri
+- süreler
+- cooldownlar
+- mana / rage / energy değerleri
+- menzil
+- hedef sayısı
+- party / raid gibi etki alanları
+- özel şartlar
+- istisnalar
+- öncelik sıraları
+- leveling önerileri
+- rotation adımları
+- stat ilişkileri
+
+Görselde bir liste varsa bütün listeyi kaynak verisinde tut.
+
+Cevabı son kullanıcıya yazmıyorsun.
+Sadece temiz, doğru ve yoğun bir kaynak özeti üret.
+`
+      .trim();
+
+
+    const vision =
       await this.callGeminiVision(
         prompt,
         bytes,
@@ -2099,67 +3090,121 @@ Kurallar:
           .attachment
           .content_type ||
         "image/png",
-        1200
+        1400
       );
+
 
     const cleaned =
       cleanText(
-        result,
-        7000
+        vision,
+        7500
       );
 
-    if (!cleaned) {
+
+    if (
+      !cleaned
+    ) {
       throw new Error(
         "Guide Vision boş döndü."
       );
     }
+
 
     await this.ctx.storage.put(
       cacheKey,
       cleaned
     );
 
+
     return cleaned;
   }
+
+
+  // ==========================================================
+  // GUIDE GROUNDED ANSWER
+  // ==========================================================
 
   async askGuideGrounded(
     question,
     resolution,
     context
   ) {
-    const prompt = `
+    const prompt =
+`
 KULLANICI SORUSU:
 ${question}
 
-EŞLEŞEN REHBER BAĞLAMI:
-class=${resolution.classKey}
-spec/tree=${resolution.treeKey || "belirtilmedi"}
-konu=${(resolution.intents || []).join(", ") || "genel"}
+REHBER EŞLEŞMESİ:
+Class: ${resolution.classKey}
+Spec / Tree: ${resolution.treeKey || "belirtilmedi"}
+Konu: ${(resolution.intents || []).join(", ") || "genel"}
 
-TOTIK CHANNEL REHBER KAYNAĞI:
+TOTIK CHANNEL REHBER VERİSİ:
 ---
 ${context}
 ---
 
-CEVAP KURALLARI:
-1. Direkt cevaba gir. Selam verme ve kendini tanıtma.
-2. Yalnızca yukarıdaki rehber içeriğine dayan. Tavily, web, başka WoW sürümü veya genel model bilgisi ekleme.
-3. Kullanıcının sorduğu şeyi gerçekten açıkla; sadece "Blessings / Auras / Seals var" diye başlık saymakla yetinme.
-4. Buff soruluyorsa rehberde geçen buffların adlarını ve ne yaptıklarını anlat.
-5. Talent soruluyorsa yalnızca istenen tree/spec talentlarını anlat; başka tree karıştırma.
-6. Rotation/stat/race/leveling sorusunda ilgili rehber maddelerini doğal bir cevap halinde aktar.
-7. Dosya adı, .png, .jpg, sayfa adı, katalog anahtarı, kaynak numarası, "ekteki dosya" veya teknik sistem bilgisi ASLA yazma.
-8. "Totik Channel WoW Yardım Botuyum" gibi bir tanıtım ASLA yapma.
-9. Rehberde olmayan build, sayı veya tavsiye uydurma.
-10. Türkçe, doğal ve Discord'da rahat okunur cevap ver. Gereksiz giriş ve sonuç cümlesi kullanma.
-`.trim();
+Bu kullanıcıya Discord'da cevap veriyorsun.
+
+ÇOK ÖNEMLİ CEVAP KURALLARI:
+
+1. Direkt cevaba gir.
+2. "Selam" deme.
+3. Kendini tanıtma.
+4. "Ben Totik Channel WoW Yardım Botuyum" veya benzeri hiçbir ifade kullanma.
+5. PNG, JPG, dosya adı, sayfa adı, katalog adı veya kaynak numarası yazma.
+6. Yalnızca yukarıdaki Totik Channel rehber verisini kullan.
+7. Tavily, web veya genel model bilgisi ekleme.
+8. Rehberde olmayan sayı veya öneri uydurma.
+
+UZUNLUK:
+
+- Cevap KISA olmalı.
+- Yaklaşık 500-750 karakter hedefle.
+- En fazla 4-6 kısa madde kullan.
+- Görselde bulunan her detayı metne dökme.
+- Kullanıcının sorusuna cevap vermek için en önemli bilgileri seç.
+- Uzun açıklamalar yerine kısa ve yararlı maddeler yaz.
+- Aynı bilgiyi farklı cümlelerle tekrar etme.
+
+SORU TÜRÜNE GÖRE:
+
+Talent sorusu:
+- Sadece istenen spec/tree bilgisini kullan.
+- Başka talent tree'lerini karıştırma.
+- Talentların tamamını uzun uzun açıklamak yerine temel etkilerini kısa yaz.
+
+Buff / Aura / Seal sorusu:
+- İlgili buffların ana isimlerini ve temel etkilerini kısa özetle.
+- Her açıklamayı tek cümleye yakın tut.
+- Rehberde onlarca ayrıntı varsa hepsini metne taşıma.
+
+Rotation sorusu:
+- Yalnızca ana öncelik sırasını ver.
+
+Stat sorusu:
+- Ana stat / stat önceliğini kısa ver.
+
+Leveling sorusu:
+- Yalnızca en önemli yol haritasını özetle.
+
+Rehber görsellerinin ayrıntıları zaten kullanıcıya ayrıca gönderilecek.
+Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap vermektir.
+`
+      .trim();
+
 
     return this.callGeminiText(
       prompt,
-      1000,
-      0.08
+      600,
+      0.05
     );
   }
+
+
+  // ==========================================================
+  // SPECIAL PROFESSION / CAMPING / LEGACY IMAGE
+  // ==========================================================
 
   async getSpecialGuideMedia(
     topic
@@ -2167,58 +3212,91 @@ CEVAP KURALLARI:
     const messageId =
       SPECIAL_GUIDE_IMAGE_MESSAGE_IDS[
         String(
-          topic || ""
+          topic ||
+          ""
         )
       ];
 
-    if (!messageId) {
+
+    if (
+      !messageId
+    ) {
       return null;
     }
 
-    const sourceMessage =
-      await this.discordRequest(
-        `/channels/${QUESTION_CHANNEL_ID}/messages/${messageId}`
+
+    try {
+      const sourceMessage =
+        await this.discordRequest(
+          `/channels/${QUESTION_CHANNEL_ID}/messages/${messageId}`
+        );
+
+
+      const attachment =
+        getImageAttachment(
+          sourceMessage
+        );
+
+
+      if (
+        !attachment
+      ) {
+        return null;
+      }
+
+
+      return {
+        page: {
+          key:
+            `special.${topic}`,
+
+          classKey:
+            "special",
+
+          filename:
+            attachment.filename ||
+            `${topic}.png`
+        },
+
+        attachment,
+
+        sourceMessageId:
+          messageId,
+
+        bytes:
+          null
+      };
+
+    } catch (
+      error
+    ) {
+      await this.setLastError(
+        `Special guide image ${topic}: ${
+          error?.message ||
+          String(
+            error
+          )
+        }`
       );
 
-    const attachment =
-      getImageAttachment(
-        sourceMessage
-      );
-
-    if (!attachment) {
       return null;
     }
-
-    return {
-      page: {
-        key:
-          `special.${topic}`,
-
-        classKey:
-          "special",
-
-        filename:
-          attachment.filename ||
-          `${topic}.png`
-      },
-
-      attachment,
-
-      sourceMessageId:
-        messageId,
-
-      bytes:
-        null
-    };
   }
+
+
+  // ==========================================================
+  // PREPARE REAL DISCORD FILES
+  // ==========================================================
 
   async prepareOutgoingFiles(
     mediaItems
   ) {
-    const files = [];
+    const files =
+      [];
 
     let totalBytes =
       0;
+
 
     for (
       const mediaItem
@@ -2232,11 +3310,13 @@ CEVAP KURALLARI:
         break;
       }
 
+
       try {
         const bytes =
           await this.ensureMediaBytes(
             mediaItem
           );
+
 
         if (
           bytes.byteLength >
@@ -2244,6 +3324,7 @@ CEVAP KURALLARI:
         ) {
           continue;
         }
+
 
         if (
           totalBytes +
@@ -2253,19 +3334,20 @@ CEVAP KURALLARI:
           break;
         }
 
+
         files.push({
           filename:
             mediaItem
-              .page
+              ?.page
               ?.filename ||
             mediaItem
-              .attachment
+              ?.attachment
               ?.filename ||
             "guide.png",
 
           contentType:
             mediaItem
-              .attachment
+              ?.attachment
               ?.content_type ||
             "image/png",
 
@@ -2275,21 +3357,37 @@ CEVAP KURALLARI:
             "Totik Channel WoW Forever rehberi"
         });
 
+
         totalBytes +=
           bytes.byteLength;
 
-      } catch (error) {
+      } catch (
+        error
+      ) {
         await this.setLastError(
-          `Guide file: ${
+          `Guide file ${
+            mediaItem
+              ?.page
+              ?.key ||
+            "unknown"
+          }: ${
             error?.message ||
-            String(error)
+            String(
+              error
+            )
           }`
         );
       }
     }
 
+
     return files;
   }
+
+
+  // ==========================================================
+  // PREMIUM / NORMAL COOLDOWN CLASS
+  // ==========================================================
 
   async getMemberCooldownClass(
     message
@@ -2302,18 +3400,26 @@ CEVAP KURALLARI:
         ""
       );
 
+
+    // Admin bypass
     if (
       ADMIN_COOLDOWN_BYPASS_USER_IDS
-        .has(userId)
+        .has(
+          userId
+        )
     ) {
       return {
-        durationMs:
-          0,
+        premium:
+          true,
 
         reason:
-          "admin_bypass"
+          "admin_bypass",
+
+        durationMs:
+          0
       };
     }
+
 
     const memberRoleIds =
       new Set(
@@ -2323,14 +3429,24 @@ CEVAP KURALLARI:
             ?.roles ||
           []
         )
-          .map(String)
+          .map(
+            String
+          )
       );
 
+
+    /*
+      İstersen Cloudflare env üzerinden gerçek role ID'leri
+      virgülle verebilirsin.
+
+      Olmasa da aşağıda role-name fallback var.
+    */
     const youtubeIds =
       parseCsvIds(
         this.env
           .YOUTUBE_MEMBER_ROLE_IDS
       );
+
 
     const twitchIds =
       parseCsvIds(
@@ -2338,35 +3454,49 @@ CEVAP KURALLARI:
           .TWITCH_SUB_ROLE_IDS
       );
 
+
     for (
-      const id
+      const roleId
       of memberRoleIds
     ) {
       if (
-        youtubeIds.has(id)
+        youtubeIds.has(
+          roleId
+        )
       ) {
         return {
-          durationMs:
-            PREMIUM_COOLDOWN_MS,
+          premium:
+            true,
 
           reason:
-            "youtube_role_id"
+            "youtube_role_id",
+
+          durationMs:
+            PREMIUM_COOLDOWN_MS
         };
       }
 
+
       if (
-        twitchIds.has(id)
+        twitchIds.has(
+          roleId
+        )
       ) {
         return {
-          durationMs:
-            PREMIUM_COOLDOWN_MS,
+          premium:
+            true,
 
           reason:
-            "twitch_role_id"
+            "twitch_role_id",
+
+          durationMs:
+            PREMIUM_COOLDOWN_MS
         };
       }
     }
 
+
+    // Role name fallback
     const guildId =
       String(
         message
@@ -2374,15 +3504,18 @@ CEVAP KURALLARI:
         ""
       );
 
+
     if (
       guildId &&
-      memberRoleIds.size
+      memberRoleIds.size >
+      0
     ) {
       try {
         const roles =
           await this.getGuildRoles(
             guildId
           );
+
 
         for (
           const role
@@ -2398,58 +3531,100 @@ CEVAP KURALLARI:
             continue;
           }
 
-          const name =
+
+          const roleName =
             normalizeGuideText(
               role.name
             );
 
-          const youtube =
-            name.includes(
+
+          const youtubeMember =
+            roleName.includes(
               "youtube"
             ) &&
             /katil|abone|member|uyelik/
-              .test(name);
+              .test(
+                roleName
+              );
 
-          const twitch =
-            name.includes(
+
+          const twitchSub =
+            roleName.includes(
               "twitch"
             ) &&
             /sub|subscriber|abone/
-              .test(name);
+              .test(
+                roleName
+              );
 
-          if (youtube) {
+
+          if (
+            youtubeMember
+          ) {
             return {
-              durationMs:
-                PREMIUM_COOLDOWN_MS,
+              premium:
+                true,
 
               reason:
-                `role_name:${role.name}`
+                `role_name:${role.name}`,
+
+              durationMs:
+                PREMIUM_COOLDOWN_MS
             };
           }
 
-          if (twitch) {
+
+          if (
+            twitchSub
+          ) {
             return {
-              durationMs:
-                PREMIUM_COOLDOWN_MS,
+              premium:
+                true,
 
               reason:
-                `role_name:${role.name}`
+                `role_name:${role.name}`,
+
+              durationMs:
+                PREMIUM_COOLDOWN_MS
             };
           }
         }
 
-      } catch {
+      } catch (
+        error
+      ) {
+        console.log(
+          JSON.stringify({
+            event:
+              "premium_role_lookup_failed",
+
+            error:
+              error?.message ||
+              String(
+                error
+              )
+          })
+        );
       }
     }
 
+
     return {
-      durationMs:
-        NORMAL_COOLDOWN_MS,
+      premium:
+        false,
 
       reason:
-        "normal_member"
+        "normal_member",
+
+      durationMs:
+        NORMAL_COOLDOWN_MS
     };
   }
+
+
+  // ==========================================================
+  // GUILD ROLES CACHE
+  // ==========================================================
 
   async getGuildRoles(
     guildId
@@ -2458,6 +3633,7 @@ CEVAP KURALLARI:
       this.guildRoleCache.get(
         guildId
       );
+
 
     if (
       cached &&
@@ -2470,17 +3646,20 @@ CEVAP KURALLARI:
       );
     }
 
+
     const roles =
       await this.discordRequest(
         `/guilds/${guildId}/roles`
       );
 
-    const safe =
+
+    const safeRoles =
       Array.isArray(
         roles
       )
         ? roles
         : [];
+
 
     this.guildRoleCache.set(
       guildId,
@@ -2489,19 +3668,26 @@ CEVAP KURALLARI:
           Date.now(),
 
         roles:
-          safe
+          safeRoles
       }
     );
 
-    return safe;
+
+    return safeRoles;
   }
+
+
+  // ==========================================================
+  // COOLDOWN
+  // ==========================================================
 
   async acquireCooldown(
     userId,
     durationMs
   ) {
     if (
-      durationMs <= 0 ||
+      durationMs <=
+        0 ||
       ADMIN_COOLDOWN_BYPASS_USER_IDS
         .has(
           String(
@@ -2514,54 +3700,71 @@ CEVAP KURALLARI:
           true,
 
         remainingMs:
-          0
+          0,
+
+        durationMs
       };
     }
 
+
     const key =
       `cooldown:${userId}`;
+
 
     const previous =
       await this.ctx.storage.get(
         key
       );
 
+
     const now =
       Date.now();
 
+
     if (
       typeof previous ===
-        "number" &&
-      now -
-      previous <
-      durationMs
+        "number"
     ) {
-      return {
-        allowed:
-          false,
+      const elapsed =
+        now -
+        previous;
 
-        remainingMs:
-          durationMs -
-          (
-            now -
-            previous
-          )
-      };
+
+      if (
+        elapsed <
+        durationMs
+      ) {
+        return {
+          allowed:
+            false,
+
+          remainingMs:
+            durationMs -
+            elapsed,
+
+          durationMs
+        };
+      }
     }
+
 
     await this.ctx.storage.put(
       key,
       now
     );
 
+
     return {
       allowed:
         true,
 
       remainingMs:
-        0
+        0,
+
+      durationMs
     };
   }
+
 
   async releaseCooldown(
     userId
@@ -2577,10 +3780,20 @@ CEVAP KURALLARI:
       return;
     }
 
-    await this.ctx.storage.delete(
-      `cooldown:${userId}`
-    );
+
+    try {
+      await this.ctx.storage.delete(
+        `cooldown:${userId}`
+      );
+
+    } catch {
+    }
   }
+
+
+  // ==========================================================
+  // USER IMAGE ANALYSIS
+  // ==========================================================
 
   async analyzeUserImage(
     image,
@@ -2593,20 +3806,26 @@ CEVAP KURALLARI:
       return "";
     }
 
+
     const response =
       await fetch(
         image.url
       );
 
-    if (!response.ok) {
+
+    if (
+      !response.ok
+    ) {
       return "";
     }
+
 
     const bytes =
       new Uint8Array(
         await response
           .arrayBuffer()
       );
+
 
     if (
       bytes.byteLength >
@@ -2615,30 +3834,54 @@ CEVAP KURALLARI:
       return "";
     }
 
+
+    const prompt =
+`
+World of Warcraft ekran görüntüsünü incele.
+
+Kullanıcının sorusu:
+${question}
+
+Yalnızca bu soruyu cevaplamak için görselde gerçekten görülen bilgileri çıkar.
+
+Görselde olmayan bilgi ekleme.
+Türkçe ve kısa yaz.
+`
+      .trim();
+
+
     return this.callGeminiVision(
-      `World of Warcraft ekran görüntüsünü incele. Kullanıcı sorusu: ${question}\nYalnızca görselde gerçekten görülen bilgileri kısa ve Türkçe çıkar.`,
-
+      prompt,
       bytes,
-
       image.content_type ||
       "image/png",
-
       500
     );
   }
 
-  async askWowAi(question) {
+
+  // ==========================================================
+  // MAIN WOW BACKEND
+  // ==========================================================
+
+  async askWowAi(
+    question
+  ) {
     const url =
       new URL(
         WOW_AI_URL
       );
+
 
     url.searchParams.set(
       "q",
       question
     );
 
-    let lastError;
+
+    let lastError =
+      null;
+
 
     for (
       let attempt = 1;
@@ -2648,6 +3891,7 @@ CEVAP KURALLARI:
       const controller =
         new AbortController();
 
+
       const timer =
         setTimeout(
           () =>
@@ -2655,11 +3899,15 @@ CEVAP KURALLARI:
           BACKEND_TIMEOUT_MS
         );
 
+
       try {
         const response =
           await fetch(
             url.toString(),
             {
+              method:
+                "GET",
+
               headers: {
                 accept:
                   "application/json"
@@ -2670,19 +3918,28 @@ CEVAP KURALLARI:
             }
           );
 
+
         const raw =
           await response.text();
 
-        let data = {};
+
+        let data =
+          {};
+
 
         try {
           data =
             raw
-              ? JSON.parse(raw)
+              ? JSON.parse(
+                  raw
+                )
               : {};
 
         } catch {
+          data =
+            {};
         }
+
 
         if (
           response.ok &&
@@ -2690,6 +3947,7 @@ CEVAP KURALLARI:
         ) {
           return data;
         }
+
 
         lastError =
           new Error(
@@ -2702,15 +3960,18 @@ CEVAP KURALLARI:
             }`
           );
 
+
         if (
           [
             502,
             503,
             504
-          ].includes(
-            response.status
-          ) &&
-          attempt < 2
+          ]
+            .includes(
+              response.status
+            ) &&
+          attempt <
+          2
         ) {
           await sleep(
             1200
@@ -2718,20 +3979,31 @@ CEVAP KURALLARI:
 
           continue;
         }
+
 
         throw lastError;
 
-      } catch (error) {
-        lastError =
+      } catch (
+        error
+      ) {
+        if (
           error?.name ===
           "AbortError"
-            ? new Error(
-                "totik-ai-test timeout"
-              )
-            : error;
+        ) {
+          lastError =
+            new Error(
+              "totik-ai-test timeout"
+            );
+
+        } else {
+          lastError =
+            error;
+        }
+
 
         if (
-          attempt < 2
+          attempt <
+          2
         ) {
           await sleep(
             1200
@@ -2739,6 +4011,7 @@ CEVAP KURALLARI:
 
           continue;
         }
+
 
         throw lastError;
 
@@ -2749,6 +4022,7 @@ CEVAP KURALLARI:
       }
     }
 
+
     throw (
       lastError ||
       new Error(
@@ -2756,6 +4030,11 @@ CEVAP KURALLARI:
       )
     );
   }
+
+
+  // ==========================================================
+  // GEMINI TEXT
+  // ==========================================================
 
   async callGeminiText(
     prompt,
@@ -2771,8 +4050,10 @@ CEVAP KURALLARI:
       );
     }
 
+
     const controller =
       new AbortController();
+
 
     const timer =
       setTimeout(
@@ -2780,6 +4061,7 @@ CEVAP KURALLARI:
           controller.abort(),
         GEMINI_TIMEOUT_MS
       );
+
 
     try {
       const response =
@@ -2822,17 +4104,33 @@ CEVAP KURALLARI:
           }
         );
 
+
       const raw =
         await response.text();
 
-      const data =
-        raw
-          ? JSON.parse(
-              raw
-            )
-          : {};
 
-      if (!response.ok) {
+      let data =
+        {};
+
+
+      try {
+        data =
+          raw
+            ? JSON.parse(
+                raw
+              )
+            : {};
+
+      } catch {
+        throw new Error(
+          `Gemini geçersiz JSON döndürdü: ${raw.slice(0, 400)}`
+        );
+      }
+
+
+      if (
+        !response.ok
+      ) {
         throw new Error(
           `Gemini Interactions HTTP ${response.status}: ${
             data
@@ -2846,16 +4144,21 @@ CEVAP KURALLARI:
         );
       }
 
+
       const text =
         extractInteractionText(
           data
         );
 
-      if (!text) {
+
+      if (
+        !text
+      ) {
         throw new Error(
           "Gemini boş metin döndürdü."
         );
       }
+
 
       return text;
 
@@ -2865,6 +4168,11 @@ CEVAP KURALLARI:
       );
     }
   }
+
+
+  // ==========================================================
+  // GEMINI VISION
+  // ==========================================================
 
   async callGeminiVision(
     prompt,
@@ -2881,8 +4189,10 @@ CEVAP KURALLARI:
       );
     }
 
+
     const controller =
       new AbortController();
+
 
     const timer =
       setTimeout(
@@ -2890,6 +4200,7 @@ CEVAP KURALLARI:
           controller.abort(),
         VISION_TIMEOUT_MS
       );
+
 
     try {
       const response =
@@ -2945,17 +4256,33 @@ CEVAP KURALLARI:
           }
         );
 
+
       const raw =
         await response.text();
 
-      const data =
-        raw
-          ? JSON.parse(
-              raw
-            )
-          : {};
 
-      if (!response.ok) {
+      let data =
+        {};
+
+
+      try {
+        data =
+          raw
+            ? JSON.parse(
+                raw
+              )
+            : {};
+
+      } catch {
+        throw new Error(
+          "Gemini Vision geçersiz JSON döndürdü."
+        );
+      }
+
+
+      if (
+        !response.ok
+      ) {
         throw new Error(
           `Gemini Vision HTTP ${response.status}: ${
             data
@@ -2969,6 +4296,7 @@ CEVAP KURALLARI:
         );
       }
 
+
       return (
         data
           ?.candidates
@@ -2977,13 +4305,17 @@ CEVAP KURALLARI:
           ?.parts ||
         []
       )
+
         .map(
           part =>
             part?.text ||
             ""
         )
 
-        .join("\n")
+        .join(
+          "\n"
+        )
+
         .trim();
 
     } finally {
@@ -2993,30 +4325,46 @@ CEVAP KURALLARI:
     }
   }
 
+
+  // ==========================================================
+  // GENERAL GEMINI FALLBACK
+  // ==========================================================
+
   async askGeminiGeneralFallback(
     question,
     backendError
   ) {
-    const prompt = `
+    const prompt =
+`
 Kullanıcının World of Warcraft sorusu:
+
 ${question}
 
 Ana araştırma sistemi geçici olarak yanıt veremedi.
 
-Türkçe, kısa ve doğal cevap ver.
-WoW Forever'a özgü güncel bilgiden emin değilsen uydurma.
-Kendini tanıtma.
-Cooldown/üyelik/reklam yazma.
-`.trim();
+Kurallar:
+
+- Türkçe cevap ver.
+- Kısa ve doğal ol.
+- Kendini tanıtma.
+- WoW Forever'a özgü güncel bilgiden emin değilsen uydurma.
+- Cooldown veya üyelik mesajı yazma.
+- Reklam yapma.
+`
+      .trim();
+
 
     try {
+      const answer =
+        await this.callGeminiText(
+          prompt,
+          700,
+          0.15
+        );
+
+
       return {
-        answer:
-          await this.callGeminiText(
-            prompt,
-            700,
-            0.15
-          ),
+        answer,
 
         fallback:
           "gemini_interactions"
@@ -3026,6 +4374,11 @@ Cooldown/üyelik/reklam yazma.
       throw backendError;
     }
   }
+
+
+  // ==========================================================
+  // DISCORD REPLY
+  // ==========================================================
 
   async reply(
     originalMessage,
@@ -3037,6 +4390,7 @@ Cooldown/üyelik/reklam yazma.
         answer
       );
 
+
     const files =
       Array.isArray(
         options.files
@@ -3044,11 +4398,14 @@ Cooldown/üyelik/reklam yazma.
         ? options.files
         : [];
 
+
     if (
-      !chunks.length
+      chunks.length ===
+      0
     ) {
       return;
     }
+
 
     for (
       let i = 0;
@@ -3060,14 +4417,19 @@ Cooldown/üyelik/reklam yazma.
           chunks[i],
 
         allowed_mentions: {
-          parse: [],
+          parse:
+            [],
 
           replied_user:
             false
         }
       };
 
-      if (i === 0) {
+
+      if (
+        i ===
+        0
+      ) {
         payload.message_reference = {
           message_id:
             String(
@@ -3082,9 +4444,11 @@ Cooldown/üyelik/reklam yazma.
         };
       }
 
+
       if (
         i === 0 &&
-        files.length
+        files.length >
+        0
       ) {
         await this.discordMultipartRequest(
           `/channels/${QUESTION_CHANNEL_ID}/messages`,
@@ -3107,6 +4471,11 @@ Cooldown/üyelik/reklam yazma.
     }
   }
 
+
+  // ==========================================================
+  // TYPING
+  // ==========================================================
+
   async safeTyping(
     channelId
   ) {
@@ -3123,6 +4492,11 @@ Cooldown/üyelik/reklam yazma.
     }
   }
 
+
+  // ==========================================================
+  // DISCORD MULTIPART
+  // ==========================================================
+
   async discordMultipartRequest(
     path,
     payload,
@@ -3133,6 +4507,7 @@ Cooldown/üyelik/reklam yazma.
         0,
         10
       );
+
 
     const payloadWithAttachments = {
       ...payload,
@@ -3156,6 +4531,7 @@ Cooldown/üyelik/reklam yazma.
         )
     };
 
+
     for (
       let attempt = 1;
       attempt <= 4;
@@ -3164,6 +4540,7 @@ Cooldown/üyelik/reklam yazma.
       const form =
         new FormData();
 
+
       form.append(
         "payload_json",
         JSON.stringify(
@@ -3171,14 +4548,13 @@ Cooldown/üyelik/reklam yazma.
         )
       );
 
+
       safeFiles.forEach(
         (
           file,
           index
         ) => {
-          form.append(
-            `files[${index}]`,
-
+          const blob =
             new Blob(
               [
                 file.bytes
@@ -3188,12 +4564,17 @@ Cooldown/üyelik/reklam yazma.
                   file.contentType ||
                   "application/octet-stream"
               }
-            ),
+            );
 
+
+          form.append(
+            `files[${index}]`,
+            blob,
             file.filename
           );
         }
       );
+
 
       const response =
         await fetch(
@@ -3212,16 +4593,21 @@ Cooldown/üyelik/reklam yazma.
           }
         );
 
+
       const raw =
         await response.text();
+
 
       let data =
         null;
 
+
       try {
         data =
           raw
-            ? JSON.parse(raw)
+            ? JSON.parse(
+                raw
+              )
             : null;
 
       } catch {
@@ -3229,30 +4615,44 @@ Cooldown/üyelik/reklam yazma.
           raw;
       }
 
+
       if (
         response.status ===
         429
       ) {
-        const wait =
+        let retryAfter =
           Number(
             data
               ?.retry_after ||
             1
           );
 
+
+        if (
+          retryAfter <
+          100
+        ) {
+          retryAfter *=
+            1000;
+        }
+
+
         await sleep(
-          wait < 100
-            ? wait * 1000
-            : wait
+          Math.max(
+            500,
+            retryAfter
+          )
         );
 
         continue;
       }
 
+
       if (
         response.status >=
           500 &&
-        attempt < 4
+        attempt <
+        4
       ) {
         await sleep(
           attempt *
@@ -3262,24 +4662,46 @@ Cooldown/üyelik/reklam yazma.
         continue;
       }
 
-      if (!response.ok) {
+
+      if (
+        !response.ok
+      ) {
         throw new Error(
-          `Discord multipart ${response.status}: ${raw.slice(0, 500)}`
+          `Discord multipart ${response.status}: ${
+            typeof data ===
+            "string"
+              ? data
+              : JSON.stringify(
+                  data
+                )
+          }`
         );
       }
 
+
       return data;
     }
+
 
     throw new Error(
       "Discord multipart retry limiti aşıldı."
     );
   }
 
+
+  // ==========================================================
+  // DISCORD JSON REQUEST
+  // ==========================================================
+
   async discordRequest(
     path,
     options = {}
   ) {
+    const method =
+      options.method ||
+      "GET";
+
+
     for (
       let attempt = 1;
       attempt <= 4;
@@ -3290,13 +4712,12 @@ Cooldown/üyelik/reklam yazma.
           `Bot ${this.env.DISCORD_BOT_TOKEN}`
       };
 
-      const init = {
-        method:
-          options.method ||
-          "GET",
 
+      const init = {
+        method,
         headers
       };
+
 
       if (
         options.body !==
@@ -3307,17 +4728,20 @@ Cooldown/üyelik/reklam yazma.
         ] =
           "application/json";
 
+
         init.body =
           JSON.stringify(
             options.body
           );
       }
 
+
       const response =
         await fetch(
           `${DISCORD_API}${path}`,
           init
         );
+
 
       if (
         response.status ===
@@ -3326,16 +4750,21 @@ Cooldown/üyelik/reklam yazma.
         return null;
       }
 
+
       const raw =
         await response.text();
+
 
       let data =
         null;
 
+
       try {
         data =
           raw
-            ? JSON.parse(raw)
+            ? JSON.parse(
+                raw
+              )
             : null;
 
       } catch {
@@ -3343,30 +4772,44 @@ Cooldown/üyelik/reklam yazma.
           raw;
       }
 
+
       if (
         response.status ===
         429
       ) {
-        const wait =
+        let retryAfter =
           Number(
             data
               ?.retry_after ||
             1
           );
 
+
+        if (
+          retryAfter <
+          100
+        ) {
+          retryAfter *=
+            1000;
+        }
+
+
         await sleep(
-          wait < 100
-            ? wait * 1000
-            : wait
+          Math.max(
+            500,
+            retryAfter
+          )
         );
 
         continue;
       }
 
+
       if (
         response.status >=
           500 &&
-        attempt < 4
+        attempt <
+        4
       ) {
         await sleep(
           attempt *
@@ -3376,21 +4819,53 @@ Cooldown/üyelik/reklam yazma.
         continue;
       }
 
-      if (!response.ok) {
+
+      if (
+        !response.ok
+      ) {
         throw new Error(
-          `Discord API ${response.status}: ${raw.slice(0, 500)}`
+          `Discord API ${response.status}: ${
+            typeof data ===
+            "string"
+              ? data
+              : JSON.stringify(
+                  data
+                )
+          }`
         );
       }
 
+
       return data;
     }
+
 
     throw new Error(
       "Discord API retry limiti aşıldı."
     );
   }
 
-  async recordTrace(trace) {
+
+  // ==========================================================
+  // TRACE
+  // ==========================================================
+
+  async finishSuccessfulAnswer(
+    trace
+  ) {
+    await this.markAnswered();
+
+    await this.clearLastError();
+
+    await this.recordTrace(
+      trace
+    );
+  }
+
+
+  async recordTrace(
+    trace
+  ) {
     const value = {
       at:
         new Date()
@@ -3399,10 +4874,12 @@ Cooldown/üyelik/reklam yazma.
       ...trace
     };
 
+
     await this.ctx.storage.put(
       "last_trace",
       value
     );
+
 
     console.log(
       JSON.stringify({
@@ -3414,13 +4891,61 @@ Cooldown/üyelik/reklam yazma.
     );
   }
 
+
+  // ==========================================================
+  // COUNTERS
+  // ==========================================================
+
+  async markAnswered() {
+    const current =
+      Number(
+        await this.ctx.storage.get(
+          "answered_count"
+        )
+      ) ||
+      0;
+
+
+    await this.ctx.storage.put(
+      "answered_count",
+      current +
+      1
+    );
+  }
+
+
+  async markTechnicalFailure() {
+    const current =
+      Number(
+        await this.ctx.storage.get(
+          "technical_failure_count"
+        )
+      ) ||
+      0;
+
+
+    await this.ctx.storage.put(
+      "technical_failure_count",
+      current +
+      1
+    );
+  }
+
+
+  // ==========================================================
+  // ERROR STORAGE
+  // ==========================================================
+
   async clearLastError() {
     await this.ctx.storage.delete(
       "last_error"
     );
   }
 
-  async setLastError(message) {
+
+  async setLastError(
+    message
+  ) {
     await this.ctx.storage.put(
       "last_error",
       String(
