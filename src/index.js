@@ -1,4 +1,9 @@
 import { DurableObject } from "cloudflare:workers";
+import {
+  GUIDE_IMAGE_CHANNEL_ID,
+  GUIDE_BATCH_MESSAGE_IDS,
+  CLASS_GUIDE_PAGES
+} from "./class-guide-catalog.js";
 
 const DISCORD_API = "https://discord.com/api/v10";
 
@@ -22,10 +27,12 @@ const POLL_INTERVAL_MS = 10 * 1000;
 // COOLDOWN
 // ============================================================
 
-const USER_COOLDOWN_MS = 10 * 60 * 1000;
-
-const COOLDOWN_MESSAGE =
-  "Totik WoW Yardım Botu olarak her kullanıcı için 10 dakikada 1 soru cevaplayacak şekilde ayarlandım. Biraz sonra tekrar sorabilirsin.";
+const SUPPORTER_COOLDOWN_MS = 1 * 60 * 1000;
+const NORMAL_COOLDOWN_MS = 15 * 60 * 1000;
+const YOUTUBE_MEMBER_ROLE_ID = "690918966348087346";
+const TWITCH_SUB_ROLE_ID = "1047102585141727342";
+const ACCESS_FOOTER =
+  "⏱️ YouTube Katıl ve Twitch Sub üyeleri 1 dakika, normal üyeler 15 dakika bekleme süresine sahiptir.";
 
 // ============================================================
 // AI
@@ -2257,6 +2264,87 @@ function likelyCuratedTopic(
   return null;
 }
 
+function classFromQuestion(question) {
+  const q = normalizeLocal(question);
+  const aliases = {
+    paladin: ["paladin", "pala"], warrior: ["warrior", "savasci"],
+    priest: ["priest", "rahip"], hunter: ["hunter", "avci"],
+    warlock: ["warlock"], shaman: ["shaman", "saman"],
+    druid: ["druid"], mage: ["mage", "buyucu"], rogue: ["rogue", "haydut"]
+  };
+  for (const [classKey, words] of Object.entries(aliases)) {
+    if (words.some(word => new RegExp(`(^|\\s)${word}(\\s|$)`).test(q))) return classKey;
+  }
+  return null;
+}
+
+function findClassGuideMatch(question) {
+  const q = normalizeLocal(question);
+  if (!q) return null;
+  const requestedClass = classFromQuestion(q);
+
+  // Talent adları sınıf yazılmasa bile benzersiz ve yüksek önceliklidir.
+  const talentMatches = [];
+  for (const page of CLASS_GUIDE_PAGES) {
+    if (requestedClass && page.classKey !== requestedClass) continue;
+    for (const talent of page.talents || []) {
+      const name = normalizeLocal(talent.name);
+      if (name.length >= 4 && q.includes(name)) talentMatches.push({ page, talent, score: 1000 + name.length });
+    }
+  }
+  talentMatches.sort((a, b) => b.score - a.score);
+  if (talentMatches.length) return talentMatches[0];
+
+  const scored = [];
+  for (const page of CLASS_GUIDE_PAGES) {
+    if (requestedClass && page.classKey !== requestedClass) continue;
+    let score = requestedClass === page.classKey ? 30 : 0;
+    let strongest = 0;
+    for (const keyword of page.keywords || []) {
+      const key = normalizeLocal(keyword);
+      if (key.length < 3 || !q.includes(key)) continue;
+      const points = Math.min(40, key.length + (key.includes(" ") ? 8 : 0));
+      score += points;
+      strongest = Math.max(strongest, points);
+    }
+    if (strongest) scored.push({ page, talent: null, score });
+  }
+  scored.sort((a, b) => b.score - a.score);
+  if (!scored.length) return null;
+  if (!requestedClass && (scored.length > 1 && scored[0].score === scored[1].score)) return null;
+  return scored[0];
+}
+
+function buildTalentAnswer(match) {
+  if (!match?.talent) return null;
+  const talent = match.talent;
+  const className = match.page.classKey.charAt(0).toUpperCase() + match.page.classKey.slice(1);
+  const description = String(talent.tr || talent.effect || "").trim();
+  return `**${talent.name}** — ${className} / ${talent.tree}\n` +
+    `${description}\n\n` +
+    `Talent bilgisi WoW Forever rehber verisinden eşleştirildi. İlgili talent sayfası aşağıdadır.`;
+}
+
+function memberCooldownMs(message) {
+  const roles = Array.isArray(message?.member?.roles) ? message.member.roles.map(String) : [];
+  return roles.includes(YOUTUBE_MEMBER_ROLE_ID) || roles.includes(TWITCH_SUB_ROLE_ID)
+    ? SUPPORTER_COOLDOWN_MS
+    : NORMAL_COOLDOWN_MS;
+}
+
+function formatRemaining(ms) {
+  const totalSeconds = Math.max(1, Math.ceil(Number(ms || 0) / 1000));
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return minutes ? `${minutes} dakika ${seconds} saniye` : `${seconds} saniye`;
+}
+
+function withAccessFooter(value) {
+  const text = String(value || "").trim();
+  if (!text || text.includes(ACCESS_FOOTER)) return text;
+  return `${text}\n\n${ACCESS_FOOTER}`;
+}
+
 function appendGuideReminder(
   answer,
   question,
@@ -2481,7 +2569,7 @@ export default {
           QUESTION_CHANNEL_ID,
 
         cooldownMinutes:
-          USER_COOLDOWN_MS /
+          NORMAL_COOLDOWN_MS /
           60000,
 
         replySupport:
@@ -2876,7 +2964,7 @@ export class DiscordGateway extends DurableObject {
           1000,
 
         cooldownMinutes:
-          USER_COOLDOWN_MS /
+          NORMAL_COOLDOWN_MS /
           60000,
 
         channelId:
@@ -3321,21 +3409,52 @@ export class DiscordGateway extends DurableObject {
         message.author.id
       );
 
-    const allowed =
+    const cooldownMs =
+      memberCooldownMs(
+        message
+      );
+
+    const cooldown =
       await this
         .acquireCooldown(
-          userId
+          userId,
+          cooldownMs
         );
 
     if (
-      !allowed
+      !cooldown.allowed
     ) {
       await this
         .reply(
           message,
-          COOLDOWN_MESSAGE
+          `Yeni soru hakkın için **${formatRemaining(cooldown.remainingMs)}** beklemelisin.`
         );
 
+      return;
+    }
+
+    const classGuideMatch =
+      findClassGuideMatch(
+        effectiveQuestion
+      );
+
+    if (
+      classGuideMatch?.talent
+    ) {
+      const guideImage =
+        await this
+          .getGuideImageAsset(
+            classGuideMatch
+          );
+
+      await this.reply(
+        message,
+        buildTalentAnswer(classGuideMatch),
+        { imageUrl: guideImage?.url }
+      );
+
+      await this.markAnswered();
+      await this.clearLastError();
       return;
     }
 
@@ -3389,9 +3508,9 @@ export class DiscordGateway extends DurableObject {
           QUESTION_CHANNEL_ID
         );
 
-      const guideImageFile =
+      const guideImage =
         await this
-          .getGuideImageFile(
+          .getGuideImageAsset(
             localCurated.topic
           );
 
@@ -3410,8 +3529,8 @@ export class DiscordGateway extends DurableObject {
           message,
           localAnswer,
           {
-            imageFile:
-              guideImageFile
+            imageUrl:
+              guideImage?.url
           }
         );
 
@@ -3547,16 +3666,17 @@ export class DiscordGateway extends DurableObject {
         );
 
       const detectedGuideTopic =
+        classGuideMatch ||
         result?.curatedTopic ||
         likelyCuratedTopic(
           effectiveQuestion
         );
 
-      const guideImageFile =
+      const guideImage =
         detectedGuideTopic
 
           ? await this
-              .getGuideImageFile(
+              .getGuideImageAsset(
                 detectedGuideTopic
               )
 
@@ -3567,8 +3687,8 @@ export class DiscordGateway extends DurableObject {
           message,
           finalAnswer,
           {
-            imageFile:
-              guideImageFile
+            imageUrl:
+              guideImage?.url
           }
         );
 
@@ -3600,7 +3720,7 @@ export class DiscordGateway extends DurableObject {
       await this
         .reply(
           message,
-          "Şu an bilgi kaynaklarından birine ulaşamadım. Bu soru 10 dakikalık hakkından düşmedi; biraz sonra tekrar deneyebilirsin."
+          "Şu an bilgi kaynaklarından birine ulaşamadım. Bu soru hakkından düşmedi; biraz sonra tekrar deneyebilirsin."
         );
     }
   }
@@ -3609,7 +3729,7 @@ export class DiscordGateway extends DurableObject {
   // COOLDOWN
   // ----------------------------------------------------------
 
-  async acquireCooldown(userId) {
+  async acquireCooldown(userId, cooldownMs) {
     if (
       ADMIN_COOLDOWN_BYPASS_USER_IDS
         .has(
@@ -3618,7 +3738,7 @@ export class DiscordGateway extends DurableObject {
           )
         )
     ) {
-      return true;
+      return { allowed: true, remainingMs: 0 };
     }
 
     const key =
@@ -3641,9 +3761,12 @@ export class DiscordGateway extends DurableObject {
 
       now -
         previous <
-        USER_COOLDOWN_MS
+        cooldownMs
     ) {
-      return false;
+      return {
+        allowed: false,
+        remainingMs: cooldownMs - (now - previous)
+      };
     }
 
     await this
@@ -3654,7 +3777,7 @@ export class DiscordGateway extends DurableObject {
         now
       );
 
-    return true;
+    return { allowed: true, remainingMs: 0 };
   }
 
   async releaseCooldown(userId) {
@@ -4316,7 +4439,9 @@ Kurallar:
   ) {
     const chunks =
       splitDiscordMessage(
-        answer
+        withAccessFooter(
+          answer
+        )
       );
 
     for (
@@ -4355,6 +4480,21 @@ Kurallar:
           fail_if_not_exists:
             false
         };
+      }
+
+      if (
+        i ===
+          0 &&
+
+        options.imageUrl
+      ) {
+        body.embeds = [
+          {
+            image: {
+              url: String(options.imageUrl)
+            }
+          }
+        ];
       }
 
       if (
@@ -4400,112 +4540,42 @@ Kurallar:
     }
   }
 
-  async getGuideImageFile(topic) {
-    const messageId =
-      GUIDE_IMAGE_MESSAGE_IDS[
-        String(
-          topic ||
-          ""
-        )
-      ];
-
-    if (
-      !messageId
-    ) {
-      return null;
-    }
-
+  async getGuideImageAsset(topic) {
     try {
-      const sourceMessage =
-        await this
-          .discordRequest(
-            `/channels/${QUESTION_CHANNEL_ID}/messages/${messageId}`
+      // Yeni class rehberleri: bir mesajda birden çok attachment bulunabilir.
+      if (topic?.page?.classKey || topic?.classKey) {
+        const page = topic.page || topic;
+        const messageIds = GUIDE_BATCH_MESSAGE_IDS[page.classKey] || [];
+        for (const messageId of messageIds) {
+          const sourceMessage = await this.discordRequest(
+            `/channels/${GUIDE_IMAGE_CHANNEL_ID}/messages/${messageId}`
           );
-
-      const attachment =
-        getImageAttachment(
-          sourceMessage
-        );
-
-      if (
-        !attachment?.url
-      ) {
-        throw new Error(
-          "Kaynak mesajda görsel attachment bulunamadı."
-        );
+          const attachments = Array.isArray(sourceMessage?.attachments)
+            ? sourceMessage.attachments
+            : [];
+          const attachment = attachments.find(item =>
+            String(item?.filename || "").toLocaleLowerCase("tr-TR") ===
+            String(page.filename || "").toLocaleLowerCase("tr-TR")
+          );
+          if (attachment?.url) return { url: attachment.url, filename: attachment.filename };
+        }
+        throw new Error(`Attachment bulunamadı: ${page.classKey}/${page.filename}`);
       }
 
-      const imageResponse =
-        await fetch(
-          attachment.url
-        );
-
-      if (
-        !imageResponse.ok
-      ) {
-        throw new Error(
-          `Kaynak görsel indirilemedi: ${imageResponse.status}`
-        );
-      }
-
-      const buffer =
-        await imageResponse
-          .arrayBuffer();
-
-      if (
-        buffer.byteLength >
-        8 *
-        1024 *
-        1024
-      ) {
-        throw new Error(
-          "Rehber görseli 8 MB sınırını aşıyor."
-        );
-      }
-
-      const sourceAttachment =
-        Array.isArray(
-          sourceMessage?.attachments
-        )
-
-          ? sourceMessage
-              .attachments
-              .find(
-                item =>
-                  item?.url ===
-                  attachment.url
-              )
-
-          : null;
-
-      return {
-        bytes:
-          buffer,
-
-        contentType:
-          attachment.contentType ||
-          "image/png",
-
-        filename:
-          String(
-            sourceAttachment
-              ?.filename ||
-            `${topic}.png`
-          )
-      };
-
+      // Eski profession/camping/legacy sistemi aynen korunur.
+      const key = String(topic || "");
+      const messageId = GUIDE_IMAGE_MESSAGE_IDS[key];
+      if (!messageId) return null;
+      const sourceMessage = await this.discordRequest(
+        `/channels/${QUESTION_CHANNEL_ID}/messages/${messageId}`
+      );
+      const attachment = getImageAttachment(sourceMessage);
+      if (!attachment?.url) throw new Error("Kaynak mesajda görsel attachment bulunamadı.");
+      return { url: attachment.url, filename: `${key}.png` };
     } catch (error) {
-      // Görsel alınamazsa cevap yine gönderilsin.
-      await this
-        .setLastError(
-          `Guide image ${topic}: ${
-            error?.message ||
-            String(
-              error
-            )
-          }`
-        );
-
+      await this.setLastError(
+        `Guide image: ${error?.message || String(error)}`
+      );
       return null;
     }
   }
