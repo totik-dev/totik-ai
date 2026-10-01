@@ -2283,6 +2283,35 @@ function findClassGuideMatch(question) {
   if (!q) return null;
   const requestedClass = classFromQuestion(q);
 
+  // "Holy Priest talentleri", "Frost Mage talent", "Prot Warrior build" gibi
+  // ağaç/genel talent sorularını doğrudan ilgili ilk talent sayfasına bağla.
+  if (requestedClass && /\b(talent|talentler|talentleri|build|agac|agaci)\b/.test(q)) {
+    const treeAliases = {
+      discipline: ["discipline", "disc"], holy: ["holy"], shadow: ["shadow"],
+      beast: ["beast mastery", "beast", "bm"], marksmanship: ["marksmanship", "marksman", "mm"], survival: ["survival"],
+      arcane: ["arcane"], fire: ["fire"], frost: ["frost"],
+      assassination: ["assassination", "assa"], combat: ["combat"], subtlety: ["subtlety", "sub"],
+      elemental: ["elemental", "ele"], enhancement: ["enhancement", "enh"], restoration: ["restoration", "resto"],
+      affliction: ["affliction", "affli"], demonology: ["demonology", "demo"], destruction: ["destruction", "destro"],
+      balance: ["balance", "moonkin", "boomkin"], "feral-combat": ["feral combat", "feral", "cat", "bear"],
+      arms: ["arms"], fury: ["fury"], protection: ["protection", "prot", "tank"],
+      retribution: ["retribution", "retri", "ret"]
+    };
+    let requestedTree = null;
+    for (const [tree, aliases] of Object.entries(treeAliases)) {
+      if (aliases.some(alias => new RegExp(`(^|\\s)${alias.replace(/[.*+?^${}()|[\\]\\]/g, "\\$&")}(\\s|$)`).test(q))) {
+        requestedTree = tree;
+        break;
+      }
+    }
+    const candidates = CLASS_GUIDE_PAGES.filter(page =>
+      page.classKey === requestedClass &&
+      /-talent-1\.png$/i.test(page.filename) &&
+      (!requestedTree || page.filename.toLowerCase().includes(`-${requestedTree}-talent-1.png`))
+    );
+    if (candidates.length) return { page: candidates[0], talent: null, score: 900 };
+  }
+
   // Talent adları sınıf yazılmasa bile benzersiz ve yüksek önceliklidir.
   const talentMatches = [];
   for (const page of CLASS_GUIDE_PAGES) {
