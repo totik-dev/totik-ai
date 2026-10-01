@@ -4,11 +4,14 @@ import {
   GUIDE_IMAGE_CHANNEL_ID,
   GUIDE_BATCH_MESSAGE_IDS,
   CLASS_GUIDE_PAGES,
+  GUIDE_SEMANTIC_INDEX,
   resolveClassGuide,
+  buildExternalResearchQuestion,
   buildStructuredGuideContext,
   findAttachmentForPage,
   expectedBatchMessageIds,
   catalogDiagnostics,
+  semanticIndexDiagnostics,
   normalizeGuideText
 } from "./class-guide-runtime.js";
 
@@ -90,11 +93,6 @@ const MAX_DISCORD_MESSAGE =
 const NORMAL_ANSWER_MAX_CHARS =
   1550;
 
-/*
-  Class rehberi cevapları özellikle kısa tutulur.
-  Görseller zaten mesajın altında gönderildiği için
-  bot bütün tabloyu metne çevirmeye çalışmaz.
-*/
 const CLASS_GUIDE_TARGET_CHARS =
   760;
 
@@ -132,6 +130,7 @@ const ADMIN_COOLDOWN_BYPASS_USER_IDS =
 // ============================================================
 
 const SPECIAL_GUIDE_IMAGE_MESSAGE_IDS = {
+
   profession:
     "1553090607482798253",
 
@@ -178,6 +177,7 @@ function json(
       status,
 
       headers: {
+
         "content-type":
           "application/json; charset=utf-8",
 
@@ -189,7 +189,9 @@ function json(
 }
 
 
-function sleep(ms) {
+function sleep(
+  ms
+) {
   return new Promise(
     resolve =>
       setTimeout(
@@ -205,7 +207,8 @@ function cleanText(
   maxLength = 2200
 ) {
   return String(
-    value || ""
+    value ||
+    ""
   )
     .replace(
       /\r/g,
@@ -239,16 +242,15 @@ function removeTechnicalGuideLanguage(
   value
 ) {
   return String(
-    value || ""
+    value ||
+    ""
   )
 
-    // Selamlama
     .replace(
       /^\s*(selam|merhaba)[!,. :;-]*\s*/i,
       ""
     )
 
-    // Bot kendini tanıtmasın
     .replace(
       /^\s*(ben\s+)?totik channel(?:'ın|'in|in)?\s+wow\s+(yardım|yardim)\s+botu(?:yum|dur|yım|yim)?[!,. :;-]*\s*/i,
       ""
@@ -259,19 +261,16 @@ function removeTechnicalGuideLanguage(
       ""
     )
 
-    // PNG/JPG dosya isimleri kullanıcıya çıkmasın
     .replace(
       /`?\b\d{1,2}-[a-z0-9._-]+\.(?:png|jpe?g|webp)\b`?/gi,
       ""
     )
 
-    // Teknik kaynak satırları
     .replace(
       /^\s*(PAGE|FILE|DOSYA|SAYFA|KAYNAK)\s*:\s*.*$/gim,
       ""
     )
 
-    // Gereksiz kaynak ifadeleri
     .replace(
       /rehber görsellerinin tamamı ekte yer almaktadır\.?/gi,
       ""
@@ -292,8 +291,6 @@ function removeTechnicalGuideLanguage(
       "rehberde"
     )
 
-    // Model bazen bunu kendi yazar.
-    // Biz kontrollü biçimde en sona ekleyeceğiz.
     .replace(
       /devamı için rehber görsellerini inceleyebilirsin\.?/gi,
       ""
@@ -339,7 +336,9 @@ function findNaturalCut(
       maxChars
     );
 
+
   const boundaries = [
+
     sample.lastIndexOf(
       "\n• "
     ),
@@ -365,10 +364,12 @@ function findNaturalCut(
     )
   ];
 
+
   let cut =
     Math.max(
       ...boundaries
     );
+
 
   if (
     cut <
@@ -378,20 +379,25 @@ function findNaturalCut(
       maxChars;
   }
 
-  /*
-    Nokta/soru/ünlem sonrasında kesiyorsak
-    noktalama işaretini de içeride tut.
-  */
+
   if (
     cut <
       sample.length &&
-    [".", "!", "?"]
+    [
+      ".",
+      "!",
+      "?"
+    ]
       .includes(
-        sample[cut]
+        sample[
+          cut
+        ]
       )
   ) {
-    cut += 1;
+    cut +=
+      1;
   }
+
 
   return cut;
 }
@@ -405,6 +411,7 @@ function sanitizeNormalAnswer(
       value
     );
 
+
   if (
     text.length <=
     NORMAL_ANSWER_MAX_CHARS
@@ -412,12 +419,14 @@ function sanitizeNormalAnswer(
     return text;
   }
 
+
   const cut =
     findNaturalCut(
       text,
       NORMAL_ANSWER_MAX_CHARS,
       800
     );
+
 
   return (
     `${text
@@ -430,14 +439,10 @@ function sanitizeNormalAnswer(
 }
 
 
-/*
-  CLASS GUIDE CEVAPLARI
+// ============================================================
+// CLASS GUIDE ANSWER LENGTH
+// ============================================================
 
-  Amaç:
-  - Uzun listeyi Discord'a dökmemek
-  - En önemli kısmı anlatmak
-  - Detayı görsellere bırakmak
-*/
 function finalizeClassGuideAnswer(
   value,
   resolution
@@ -447,29 +452,31 @@ function finalizeClassGuideAnswer(
       value
     );
 
-  if (!text) {
+
+  if (
+    !text
+  ) {
     return "";
   }
 
+
   const pageCount =
     Array.isArray(
-      resolution?.pages
+      resolution
+        ?.pages
     )
       ? resolution.pages.length
       : 0;
 
-  /*
-    Birden fazla rehber sayfası varsa zaten altında
-    birden fazla görsel geliyor.
 
-    Bu durumda mesajı görsellerin yerine geçecek kadar
-    uzun tutmak istemiyoruz.
-  */
-  const broadGuideAnswer =
-    pageCount > 1;
+  const broad =
+    pageCount >
+    1;
+
 
   let truncated =
     false;
+
 
   if (
     text.length >
@@ -482,6 +489,7 @@ function finalizeClassGuideAnswer(
         CLASS_GUIDE_MIN_CUT_CHARS
       );
 
+
     text =
       text
         .slice(
@@ -490,18 +498,14 @@ function finalizeClassGuideAnswer(
         )
         .trim();
 
+
     truncated =
       true;
   }
 
-  /*
-    900'ü aşmamış olsa bile model 800-900 karakterlik
-    gereksiz uzun bir cevap üretmiş olabilir.
 
-    Birden fazla görsel varsa hedefe yaklaştırıyoruz.
-  */
   else if (
-    broadGuideAnswer &&
+    broad &&
     text.length >
     CLASS_GUIDE_TARGET_CHARS
   ) {
@@ -512,6 +516,7 @@ function finalizeClassGuideAnswer(
         CLASS_GUIDE_MIN_CUT_CHARS
       );
 
+
     text =
       text
         .slice(
@@ -520,39 +525,39 @@ function finalizeClassGuideAnswer(
         )
         .trim();
 
+
     truncated =
       true;
   }
 
+
   if (
     truncated &&
     !/[.!?]$/
-      .test(text)
+      .test(
+        text
+      )
   ) {
-    text += "…";
+    text +=
+      "…";
   }
 
-  /*
-    Genel/birden fazla görselli rehber sorusunda
-    kullanıcıya görsellere bakmasını söylüyoruz.
 
-    Tek talent gibi çok spesifik ve tek sayfalık
-    sorularda gereksiz yere eklemiyoruz.
-  */
   if (
-    broadGuideAnswer ||
+    broad ||
     truncated
   ) {
     text +=
       `\n\n${CLASS_GUIDE_CONTINUE_MESSAGE}`;
   }
 
+
   return text.trim();
 }
 
 
 // ============================================================
-// DISCORD TEXT SPLIT
+// DISCORD MESSAGE SPLIT
 // ============================================================
 
 function splitDiscordMessage(
@@ -560,12 +565,18 @@ function splitDiscordMessage(
 ) {
   let text =
     String(
-      value || ""
-    ).trim();
+      value ||
+      ""
+    )
+      .trim();
 
-  if (!text) {
+
+  if (
+    !text
+  ) {
     return [];
   }
+
 
   if (
     text.length <=
@@ -576,7 +587,10 @@ function splitDiscordMessage(
     ];
   }
 
-  const chunks = [];
+
+  const chunks =
+    [];
+
 
   while (
     text.length >
@@ -587,6 +601,7 @@ function splitDiscordMessage(
         "\n",
         MAX_DISCORD_MESSAGE
       );
+
 
     if (
       cut <
@@ -599,6 +614,7 @@ function splitDiscordMessage(
         );
     }
 
+
     if (
       cut <
       700
@@ -606,6 +622,7 @@ function splitDiscordMessage(
       cut =
         MAX_DISCORD_MESSAGE;
     }
+
 
     chunks.push(
       text
@@ -616,6 +633,7 @@ function splitDiscordMessage(
         .trim()
     );
 
+
     text =
       text
         .slice(
@@ -624,18 +642,22 @@ function splitDiscordMessage(
         .trim();
   }
 
-  if (text) {
+
+  if (
+    text
+  ) {
     chunks.push(
       text
     );
   }
+
 
   return chunks;
 }
 
 
 // ============================================================
-// SNOWFLAKE SORT
+// SNOWFLAKE
 // ============================================================
 
 function compareSnowflakes(
@@ -651,6 +673,7 @@ function compareSnowflakes(
         )
       );
 
+
     const bb =
       BigInt(
         String(
@@ -659,23 +682,22 @@ function compareSnowflakes(
         )
       );
 
-    if (
+
+    return (
       aa <
       bb
-    ) {
-      return -1;
-    }
+    )
+      ? -1
+      : (
+          aa >
+          bb
+        )
+        ? 1
+        : 0;
 
-    if (
-      aa >
-      bb
-    ) {
-      return 1;
-    }
-
-    return 0;
 
   } catch {
+
     return String(
       a?.id ||
       ""
@@ -691,7 +713,7 @@ function compareSnowflakes(
 
 
 // ============================================================
-// ATTACHMENT HELPERS
+// IMAGE HELPERS
 // ============================================================
 
 function isImageAttachment(
@@ -705,6 +727,7 @@ function isImageAttachment(
     )
       .toLowerCase();
 
+
   const filename =
     String(
       attachment
@@ -712,6 +735,7 @@ function isImageAttachment(
       ""
     )
       .toLowerCase();
+
 
   return (
     type.startsWith(
@@ -729,16 +753,14 @@ function getImageAttachment(
   message
 ) {
   return (
-    (
-      message
-        ?.attachments ||
-      []
-    )
-      .find(
-        isImageAttachment
-      ) ||
-    null
-  );
+    message
+      ?.attachments ||
+    []
+  )
+    .find(
+      isImageAttachment
+    ) ||
+    null;
 }
 
 
@@ -754,7 +776,9 @@ function parseCsvIds(
       value ||
       ""
     )
-      .split(",")
+      .split(
+        ","
+      )
 
       .map(
         value =>
@@ -787,15 +811,18 @@ function formatRemaining(
       )
     );
 
+
   const minutes =
     Math.floor(
       totalSeconds /
       60
     );
 
+
   const seconds =
     totalSeconds %
     60;
+
 
   if (
     minutes >
@@ -808,6 +835,7 @@ function formatRemaining(
     );
   }
 
+
   if (
     minutes >
     0
@@ -816,6 +844,7 @@ function formatRemaining(
       `${minutes} dakika`
     );
   }
+
 
   return (
     `${seconds} saniye`
@@ -835,22 +864,20 @@ function appendGuideReminder(
     String(
       answer ||
       ""
-    ).trim();
+    )
+      .trim();
+
 
   if (
     !text ||
-    !force
-  ) {
-    return text;
-  }
-
-  if (
+    !force ||
     text.includes(
       `<#${GUIDE_CHANNEL_ID}>`
     )
   ) {
     return text;
   }
+
 
   return (
     `${text}\n\n${GUIDE_REMINDER_MESSAGE}`
@@ -859,7 +886,7 @@ function appendGuideReminder(
 
 
 // ============================================================
-// LOCAL INTENTS
+// LOCAL QUESTIONS
 // ============================================================
 
 function isIdentityQuestion(
@@ -869,6 +896,7 @@ function isIdentityQuestion(
     normalizeGuideText(
       question
     );
+
 
   return (
     /sen kimsin|sen nesin|kimin botusun|kim gelistirdi|kim yapti seni/
@@ -886,6 +914,7 @@ function isGuildInfoQuestion(
     normalizeGuideText(
       question
     );
+
 
   return (
     /guild|lonca/
@@ -910,23 +939,25 @@ function bytesToBase64(
   let binary =
     "";
 
-  const chunkSize =
-    0x8000;
 
   for (
-    let i = 0;
-    i < bytes.length;
-    i += chunkSize
+    let i =
+      0;
+    i <
+      bytes.length;
+    i +=
+      0x8000
   ) {
     binary +=
       String.fromCharCode(
         ...bytes.subarray(
           i,
           i +
-          chunkSize
+          0x8000
         )
       );
   }
+
 
   return btoa(
     binary
@@ -935,22 +966,25 @@ function bytesToBase64(
 
 
 // ============================================================
-// GEMINI INTERACTIONS RESPONSE PARSER
+// INTERACTIONS PARSER
 // ============================================================
 
 function extractInteractionText(
   data
 ) {
   if (
-    typeof data?.output_text ===
+    typeof data
+      ?.output_text ===
       "string" &&
-    data.output_text.trim()
+    data.output_text
+      .trim()
   ) {
     return (
       data.output_text
         .trim()
     );
   }
+
 
   const steps =
     Array.isArray(
@@ -959,17 +993,22 @@ function extractInteractionText(
       ? data.steps
       : [];
 
+
   for (
     let i =
       steps.length -
       1;
 
-    i >= 0;
+    i >=
+      0;
 
     i--
   ) {
     const step =
-      steps[i];
+      steps[
+        i
+      ];
+
 
     if (
       step?.type !==
@@ -978,12 +1017,14 @@ function extractInteractionText(
       continue;
     }
 
+
     const content =
       Array.isArray(
         step?.content
       )
         ? step.content
         : [];
+
 
     const text =
       content
@@ -1007,10 +1048,14 @@ function extractInteractionText(
 
         .trim();
 
-    if (text) {
+
+    if (
+      text
+    ) {
       return text;
     }
   }
+
 
   return "";
 }
@@ -1031,40 +1076,106 @@ export default {
         request.url
       );
 
+
+    // --------------------------------------------------------
+    // HEALTH
+    // --------------------------------------------------------
+
     if (
       url.pathname ===
       "/health"
     ) {
       return json({
-        ok: true,
+
+        ok:
+          true,
 
         service:
           "totik-ai",
 
         mode:
-          "class-guide-grounded-short-v3",
+          "semantic-guide-router-v4",
 
         normalCooldownMinutes:
-          NORMAL_COOLDOWN_MS /
-          60000,
+          15,
 
         premiumCooldownMinutes:
-          PREMIUM_COOLDOWN_MS /
-          60000,
-
-        classGuideTargetChars:
-          CLASS_GUIDE_TARGET_CHARS,
+          1,
 
         guideCatalog:
-          catalogDiagnostics()
+          catalogDiagnostics(),
+
+        semanticIndex:
+          semanticIndexDiagnostics()
       });
     }
+
+
+    // --------------------------------------------------------
+    // SEMANTIC INDEX
+    //
+    // 177 sayfanın bot tarafından nasıl sınıflandırıldığını
+    // tarayıcıdan görebilirsin.
+    // --------------------------------------------------------
+
+    if (
+      url.pathname ===
+      "/guide-index"
+    ) {
+      return json({
+
+        ok:
+          semanticIndexDiagnostics()
+            .ok,
+
+        diagnostics:
+          semanticIndexDiagnostics(),
+
+        pages:
+          GUIDE_SEMANTIC_INDEX
+            .map(
+              entry => ({
+
+                key:
+                  entry.page.key,
+
+                classKey:
+                  entry.page.classKey,
+
+                filename:
+                  entry.page.filename,
+
+                kind:
+                  entry.kind,
+
+                spec:
+                  entry.spec ||
+                  null,
+
+                faction:
+                  entry.faction ||
+                  null,
+
+                intents:
+                  entry.intents,
+
+                talentCount:
+                  (
+                    entry.page.talents ||
+                    []
+                  ).length
+              })
+            )
+      });
+    }
+
 
     if (
       !env.GATEWAY
     ) {
       return json(
         {
+
           ok:
             false,
 
@@ -1075,17 +1186,21 @@ export default {
       );
     }
 
+
     const id =
       env.GATEWAY.idFromName(
         "totik-ai-main"
       );
+
 
     const stub =
       env.GATEWAY.get(
         id
       );
 
+
     const routeMap = {
+
       "/":
         "/start",
 
@@ -1105,12 +1220,16 @@ export default {
         "/guide-check"
     };
 
+
     const target =
       routeMap[
         url.pathname
       ];
 
-    if (!target) {
+
+    if (
+      !target
+    ) {
       return new Response(
         "Not found",
         {
@@ -1120,6 +1239,7 @@ export default {
       );
     }
 
+
     try {
       return await stub.fetch(
         new Request(
@@ -1127,11 +1247,13 @@ export default {
         )
       );
 
+
     } catch (
       error
     ) {
       return json(
         {
+
           ok:
             false,
 
@@ -1167,23 +1289,27 @@ export class DiscordGateway
       env
     );
 
+
     this.ctx =
       ctx;
+
 
     this.env =
       env;
 
+
     this.guildRoleCache =
       new Map();
+
 
     this.classAttachmentCache =
       new Map();
   }
 
 
-  // ==========================================================
-  // INTERNAL HTTP ROUTES
-  // ==========================================================
+// ============================================================
+// ROUTES
+// ============================================================
 
   async fetch(
     request
@@ -1208,6 +1334,7 @@ export class DiscordGateway
       ) {
         return json(
           {
+
             ok:
               false,
 
@@ -1218,19 +1345,24 @@ export class DiscordGateway
         );
       }
 
+
       await this.ctx.storage.put(
         "polling_enabled",
         true
       );
 
+
       await this.ensureInitialized();
+
 
       await this.ctx.storage.setAlarm(
         Date.now() +
         1000
       );
 
+
       return json({
+
         ok:
           true,
 
@@ -1257,9 +1389,12 @@ export class DiscordGateway
         false
       );
 
+
       await this.ctx.storage.deleteAlarm();
 
+
       return json({
+
         ok:
           true,
 
@@ -1270,7 +1405,7 @@ export class DiscordGateway
 
 
     // --------------------------------------------------------
-    // MANUAL RUN
+    // RUN
     // --------------------------------------------------------
 
     if (
@@ -1282,16 +1417,21 @@ export class DiscordGateway
         true
       );
 
+
       await this.ensureInitialized();
 
+
       await this.pollOnce();
+
 
       await this.ctx.storage.setAlarm(
         Date.now() +
         POLL_INTERVAL_MS
       );
 
+
       return json({
+
         ok:
           true,
 
@@ -1315,6 +1455,7 @@ export class DiscordGateway
       const report =
         await this.buildGuideCheck();
 
+
       return json(
         report,
         report.ok
@@ -1333,17 +1474,28 @@ export class DiscordGateway
       "/status"
     ) {
       const [
+
         enabled,
+
         initialized,
+
         lastMessageId,
+
         lastPollAt,
+
         lastQuestionAt,
+
         lastError,
+
         lastTrace,
+
         answeredCount,
+
         technicalFailureCount
+
       ] =
         await Promise.all([
+
           this.ctx.storage.get(
             "polling_enabled"
           ),
@@ -1381,18 +1533,24 @@ export class DiscordGateway
           )
         ]);
 
+
       const alarmAt =
         await this.ctx.storage.getAlarm();
 
+
       return json({
+
         state:
-          enabled === false
+          enabled ===
+          false
             ? "stopped"
             : "polling",
 
         running:
-          enabled !== false &&
-          alarmAt != null,
+          enabled !==
+            false &&
+          alarmAt !=
+            null,
 
         initialized:
           initialized ===
@@ -1403,12 +1561,10 @@ export class DiscordGateway
           1000,
 
         normalCooldownMinutes:
-          NORMAL_COOLDOWN_MS /
-          60000,
+          15,
 
         premiumCooldownMinutes:
-          PREMIUM_COOLDOWN_MS /
-          60000,
+          1,
 
         questionChannelId:
           QUESTION_CHANNEL_ID,
@@ -1453,7 +1609,10 @@ export class DiscordGateway
           null,
 
         guideCatalog:
-          catalogDiagnostics()
+          catalogDiagnostics(),
+
+        semanticIndex:
+          semanticIndexDiagnostics()
       });
     }
 
@@ -1468,27 +1627,29 @@ export class DiscordGateway
   }
 
 
-  // ==========================================================
-  // ALARM
-  // ==========================================================
+// ============================================================
+// ALARM
+// ============================================================
 
   async alarm() {
-    const enabled =
-      await this.ctx.storage.get(
-        "polling_enabled"
-      );
-
     if (
-      enabled ===
+      (
+        await this.ctx.storage.get(
+          "polling_enabled"
+        )
+      ) ===
       false
     ) {
       return;
     }
 
+
     try {
       await this.ensureInitialized();
 
+
       await this.pollOnce();
+
 
     } catch (
       error
@@ -1502,14 +1663,15 @@ export class DiscordGateway
         }`
       );
 
+
     } finally {
-      const stillEnabled =
-        await this.ctx.storage.get(
-          "polling_enabled"
-        );
 
       if (
-        stillEnabled !==
+        (
+          await this.ctx.storage.get(
+            "polling_enabled"
+          )
+        ) !==
         false
       ) {
         await this.ctx.storage.setAlarm(
@@ -1521,34 +1683,34 @@ export class DiscordGateway
   }
 
 
-  // ==========================================================
-  // INITIALIZATION
-  // ==========================================================
+// ============================================================
+// INITIALIZE
+// ============================================================
 
   async ensureInitialized() {
-    const initialized =
-      await this.ctx.storage.get(
-        "initialized"
-      );
-
     if (
-      initialized ===
+      (
+        await this.ctx.storage.get(
+          "initialized"
+        )
+      ) ===
       true
     ) {
       return;
     }
+
 
     const messages =
       await this.discordRequest(
         `/channels/${QUESTION_CHANNEL_ID}/messages?limit=1`
       );
 
+
     if (
       Array.isArray(
         messages
       ) &&
-      messages.length >
-      0
+      messages.length
     ) {
       await this.ctx.storage.put(
         "last_message_id",
@@ -1558,7 +1720,9 @@ export class DiscordGateway
       );
     }
 
+
     await Promise.all([
+
       this.ctx.storage.put(
         "initialized",
         true
@@ -1578,9 +1742,9 @@ export class DiscordGateway
   }
 
 
-  // ==========================================================
-  // POLLING
-  // ==========================================================
+// ============================================================
+// POLL
+// ============================================================
 
   async pollOnce() {
     let cursor =
@@ -1588,9 +1752,14 @@ export class DiscordGateway
         "last_message_id"
       );
 
+
     for (
-      let page = 0;
-      page < 3;
+      let page =
+        0;
+
+      page <
+        3;
+
       page++
     ) {
       const query =
@@ -1598,10 +1767,12 @@ export class DiscordGateway
           ? `?after=${encodeURIComponent(cursor)}&limit=100`
           : "?limit=1";
 
+
       const messages =
         await this.discordRequest(
           `/channels/${QUESTION_CHANNEL_ID}/messages${query}`
         );
+
 
       if (
         !Array.isArray(
@@ -1613,9 +1784,11 @@ export class DiscordGateway
         break;
       }
 
+
       messages.sort(
         compareSnowflakes
       );
+
 
       for (
         const message
@@ -1626,10 +1799,12 @@ export class DiscordGateway
             message.id
           );
 
+
         await this.ctx.storage.put(
           "last_message_id",
           cursor
         );
+
 
         if (
           message
@@ -1639,6 +1814,7 @@ export class DiscordGateway
           continue;
         }
 
+
         const content =
           String(
             message
@@ -1646,6 +1822,7 @@ export class DiscordGateway
             ""
           )
             .trim();
+
 
         if (
           !QUESTION_COMMAND
@@ -1660,15 +1837,18 @@ export class DiscordGateway
           continue;
         }
 
+
         try {
           await this.handleCommand(
             message
           );
 
+
         } catch (
           error
         ) {
           await this.markTechnicalFailure();
+
 
           await this.setLastError(
             `Handle command: ${
@@ -1681,6 +1861,7 @@ export class DiscordGateway
         }
       }
 
+
       if (
         messages.length <
         100
@@ -1688,6 +1869,7 @@ export class DiscordGateway
         break;
       }
     }
+
 
     await this.ctx.storage.put(
       "last_poll_at",
@@ -1697,17 +1879,23 @@ export class DiscordGateway
   }
 
 
-  // ==========================================================
-  // GUIDE CHECK
-  // ==========================================================
+// ============================================================
+// GUIDE CHECK
+// ============================================================
 
   async buildGuideCheck() {
     const diag =
       catalogDiagnostics();
 
+
+    const semantic =
+      semanticIndexDiagnostics();
+
+
     const report = {
+
       ok:
-        true,
+        semantic.ok,
 
       imageChannelId:
         GUIDE_IMAGE_CHANNEL_ID,
@@ -1721,9 +1909,13 @@ export class DiscordGateway
       totalImageAttachments:
         0,
 
+      semanticIndex:
+        semantic,
+
       classes:
         {}
     };
+
 
     for (
       const classKey
@@ -1738,6 +1930,7 @@ export class DiscordGateway
             true
           );
 
+
         const pages =
           CLASS_GUIDE_PAGES
             .filter(
@@ -1746,11 +1939,14 @@ export class DiscordGateway
                 classKey
             );
 
+
         const missing =
           [];
 
+
         let matchedPages =
           0;
+
 
         for (
           const page
@@ -1762,13 +1958,16 @@ export class DiscordGateway
               attachments
             );
 
+
           if (
             found.attachment
           ) {
             matchedPages++;
 
+
           } else {
             missing.push({
+
               key:
                 page.key,
 
@@ -1778,15 +1977,19 @@ export class DiscordGateway
           }
         }
 
+
         report.totalMatchedPages +=
           matchedPages;
+
 
         report.totalImageAttachments +=
           attachments.length;
 
+
         report.classes[
           classKey
         ] = {
+
           ok:
             missing.length ===
             0,
@@ -1812,13 +2015,14 @@ export class DiscordGateway
           missing
         };
 
+
         if (
-          missing.length >
-          0
+          missing.length
         ) {
           report.ok =
             false;
         }
+
 
       } catch (
         error
@@ -1826,9 +2030,11 @@ export class DiscordGateway
         report.ok =
           false;
 
+
         report.classes[
           classKey
         ] = {
+
           ok:
             false,
 
@@ -1854,13 +2060,14 @@ export class DiscordGateway
       }
     }
 
+
     return report;
   }
 
 
-  // ==========================================================
-  // COMMAND HANDLER
-  // ==========================================================
+// ============================================================
+// COMMAND HANDLER
+// ============================================================
 
   async handleCommand(
     message
@@ -1888,12 +2095,13 @@ export class DiscordGateway
         message
       );
 
+
       return;
     }
 
 
     // --------------------------------------------------------
-    // QUESTION CONTEXT
+    // QUESTION
     // --------------------------------------------------------
 
     let currentQuestion =
@@ -1905,15 +2113,18 @@ export class DiscordGateway
         1800
       );
 
+
     let referencedMessage =
       message
         .referenced_message ||
       null;
 
+
     const referencedId =
       message
         .message_reference
         ?.message_id;
+
 
     if (
       !referencedMessage &&
@@ -1925,11 +2136,14 @@ export class DiscordGateway
             `/channels/${QUESTION_CHANNEL_ID}/messages/${referencedId}`
           );
 
+
       } catch {
+
         referencedMessage =
           null;
       }
     }
+
 
     const referencedText =
       cleanText(
@@ -1939,6 +2153,7 @@ export class DiscordGateway
         1600
       );
 
+
     const userImage =
       getImageAttachment(
         message
@@ -1947,8 +2162,10 @@ export class DiscordGateway
         referencedMessage
       );
 
+
     let question =
       "";
+
 
     if (
       referencedText &&
@@ -1957,17 +2174,20 @@ export class DiscordGateway
       question =
         `Önceki mesaj: ${referencedText}\nEk soru: ${currentQuestion}`;
 
+
     } else if (
       currentQuestion
     ) {
       question =
         currentQuestion;
 
+
     } else if (
       referencedText
     ) {
       question =
         referencedText;
+
 
     } else if (
       userImage
@@ -1987,6 +2207,7 @@ export class DiscordGateway
         "Sorunu `!soru` komutundan sonra yazabilir veya bir mesaja reply atıp `!soru` yazabilirsin."
       );
 
+
       return;
     }
 
@@ -2000,16 +2221,19 @@ export class DiscordGateway
         message.author.id
       );
 
+
     const cooldownClass =
       await this.getMemberCooldownClass(
         message
       );
+
 
     const cooldown =
       await this.acquireCooldown(
         userId,
         cooldownClass.durationMs
       );
+
 
     if (
       !cooldown.allowed
@@ -2020,7 +2244,9 @@ export class DiscordGateway
         `⏱️ Tekrar soru sorabilmek için **${formatRemaining(cooldown.remainingMs)}** beklemelisin. YouTube Katıl ve Twitch Sub üyelerinde bekleme süresi 1 dakika, normal üyelerde 15 dakikadır.`
       );
 
+
       await this.recordTrace({
+
         route:
           "cooldown_reject",
 
@@ -2037,6 +2263,7 @@ export class DiscordGateway
           false
       });
 
+
       return;
     }
 
@@ -2051,7 +2278,7 @@ export class DiscordGateway
     try {
 
       // ------------------------------------------------------
-      // LOCAL IDENTITY
+      // IDENTITY
       // ------------------------------------------------------
 
       if (
@@ -2064,7 +2291,9 @@ export class DiscordGateway
           IDENTITY_MESSAGE
         );
 
+
         await this.finishSuccessfulAnswer({
+
           route:
             "local_identity",
 
@@ -2078,12 +2307,13 @@ export class DiscordGateway
             false
         });
 
+
         return;
       }
 
 
       // ------------------------------------------------------
-      // LOCAL GUILD
+      // GUILD
       // ------------------------------------------------------
 
       if (
@@ -2096,7 +2326,9 @@ export class DiscordGateway
           GUILD_INFO_MESSAGE
         );
 
+
         await this.finishSuccessfulAnswer({
+
           route:
             "local_guild",
 
@@ -2110,6 +2342,7 @@ export class DiscordGateway
             false
         });
 
+
         return;
       }
 
@@ -2120,16 +2353,141 @@ export class DiscordGateway
 
 
       // ------------------------------------------------------
-      // CLASS GUIDE MATCH
+      // RESOLVE CLASS GUIDE
       // ------------------------------------------------------
-
-      let classFallbackMedia =
-        [];
 
       const resolution =
         resolveClassGuide(
           question
         );
+
+
+      // ------------------------------------------------------
+      // EXTERNAL-ONLY
+      //
+      // Quest / görev / lokasyon gibi sorularda
+      // class görseli GÖNDERİLMEZ.
+      // ------------------------------------------------------
+
+      if (
+        resolution.externalOnly
+      ) {
+        const researchQuestion =
+          buildExternalResearchQuestion(
+            question,
+            resolution
+          );
+
+
+        const result =
+          await this.askWowAi(
+            researchQuestion
+          );
+
+
+        const hasSources =
+          Array.isArray(
+            result?.sources
+          ) &&
+          result.sources.length >
+          0;
+
+
+        let answer;
+
+
+        /*
+          Class quest gibi hassas bir soruda
+          source yoksa model bilgisinden görev uydurtmuyoruz.
+        */
+
+        if (
+          !hasSources &&
+          resolution.externalKind ===
+          "class_quest_or_quest"
+        ) {
+          answer =
+            "Bu class görevi sorusu için güvenilir bir kaynak bulamadım. Yanlış görev adı veya ödül uydurmak yerine burada net bilgi vermiyorum.";
+
+
+        } else {
+
+          answer =
+            sanitizeNormalAnswer(
+              result?.answer ||
+              ""
+            );
+        }
+
+
+        if (
+          !answer
+        ) {
+          throw new Error(
+            "Araştırma backend'i boş cevap döndürdü."
+          );
+        }
+
+
+        /*
+          ÖNEMLİ:
+          Quest route'ta files yok.
+        */
+
+        await this.reply(
+          message,
+          answer
+        );
+
+
+        await this.finishSuccessfulAnswer({
+
+          route:
+            "external_research",
+
+          externalKind:
+            resolution.externalKind,
+
+          classKey:
+            resolution.classKey ||
+            null,
+
+          specKey:
+            resolution.specKey ||
+            null,
+
+          faction:
+            resolution.faction ||
+            null,
+
+          source:
+            hasSources
+              ? `backend_tavily_grounded:${result?.mode || "unknown"}`
+              : `backend_no_source:${result?.mode || "unknown"}`,
+
+          sourceCount:
+            hasSources
+              ? result.sources.length
+              : 0,
+
+          tavilyUsed:
+            hasSources,
+
+          imageSent:
+            false,
+
+          imagesSent:
+            0
+        });
+
+
+        return;
+      }
+
+
+      // ------------------------------------------------------
+      // CLASS GUIDE
+      // ------------------------------------------------------
 
       if (
         resolution.matched &&
@@ -2146,6 +2504,7 @@ export class DiscordGateway
             resolution
           );
 
+
         if (
           guideResult.handled
         ) {
@@ -2153,21 +2512,25 @@ export class DiscordGateway
             guideResult.trace
           );
 
+
           return;
         }
 
-        classFallbackMedia =
-          guideResult.media ||
-          [];
+
+        /*
+          Grounding başarısızsa random guide görseli yok.
+          Backend'e görselsiz düşer.
+        */
       }
 
 
       // ------------------------------------------------------
-      // USER IMAGE CONTEXT
+      // NORMAL BACKEND
       // ------------------------------------------------------
 
       let finalQuestion =
         question;
+
 
       if (
         userImage
@@ -2178,6 +2541,7 @@ export class DiscordGateway
             question
           );
 
+
         if (
           imageContext
         ) {
@@ -2187,14 +2551,12 @@ export class DiscordGateway
       }
 
 
-      // ------------------------------------------------------
-      // NORMAL BACKEND
-      // ------------------------------------------------------
-
       let result;
+
 
       let listenerFallback =
         false;
+
 
       try {
         result =
@@ -2202,11 +2564,13 @@ export class DiscordGateway
             finalQuestion
           );
 
+
       } catch (
         backendError
       ) {
         listenerFallback =
           true;
+
 
         result =
           await this.askGeminiGeneralFallback(
@@ -2222,7 +2586,10 @@ export class DiscordGateway
           ""
         );
 
-      if (!answer) {
+
+      if (
+        !answer
+      ) {
         throw new Error(
           "AI boş cevap döndürdü."
         );
@@ -2230,11 +2597,12 @@ export class DiscordGateway
 
 
       // ------------------------------------------------------
-      // SPECIAL PROFESSION / CAMP / LEGACY IMAGE
+      // SPECIAL GUIDE
       // ------------------------------------------------------
 
       const specialMedia =
         [];
+
 
       if (
         result?.curatedTopic &&
@@ -2247,6 +2615,7 @@ export class DiscordGateway
             result.curatedTopic
           );
 
+
         if (
           item
         ) {
@@ -2257,21 +2626,14 @@ export class DiscordGateway
       }
 
 
-      const allMedia = [
-        ...classFallbackMedia,
-        ...specialMedia
-      ];
-
-
       const files =
         await this.prepareOutgoingFiles(
-          allMedia
+          specialMedia
         );
 
 
       const shouldRemind =
         Boolean(
-          resolution.matched ||
           result?.curatedTopic
         );
 
@@ -2293,48 +2655,40 @@ export class DiscordGateway
 
 
       await this.finishSuccessfulAnswer({
-        route:
-          resolution.matched
-            ? "class_guide_backend_fallback"
-            : "normal_backend",
 
-        source:
-          listenerFallback
-            ? "listener_gemini_fallback"
-            : result?.curated
-              ? `backend_curated:${result.curatedTopic || "unknown"}`
-              : Array.isArray(
-                  result?.sources
-                ) &&
-                result.sources.length >
-                0
-                ? `backend_tavily_grounded:${result.mode || "unknown"}`
-                : `backend_model:${result?.mode || "unknown"}`,
+        route:
+          "normal_backend",
+
+        classResolutionReason:
+          resolution.reason ||
+          null,
 
         classKey:
           resolution.classKey ||
           null,
 
-        treeKey:
-          resolution.treeKey ||
+        specKey:
+          resolution.specKey ||
           null,
 
-        pages:
-          (
-            resolution.pages ||
-            []
-          )
-            .map(
-              page =>
-                page.key
-            ),
+        source:
+          listenerFallback
 
-        imagesSent:
-          files.length,
+            ? "listener_gemini_fallback"
 
-        imageSent:
-          files.length >
-          0,
+            : result?.curated
+
+              ? `backend_curated:${result.curatedTopic || "unknown"}`
+
+              : Array.isArray(
+                  result?.sources
+                ) &&
+                result.sources.length >
+                0
+
+                ? `backend_tavily_grounded:${result.mode || "unknown"}`
+
+                : `backend_model:${result?.mode || "unknown"}`,
 
         tavilyUsed:
           !listenerFallback &&
@@ -2342,20 +2696,27 @@ export class DiscordGateway
             result?.sources
           ) &&
           result.sources.length >
-          0
+          0,
+
+        imageSent:
+          files.length >
+          0,
+
+        imagesSent:
+          files.length
       });
+
 
     } catch (
       error
     ) {
-      /*
-        Teknik hata cooldown tüketmez.
-      */
       await this.releaseCooldown(
         userId
       );
 
+
       await this.markTechnicalFailure();
+
 
       await this.setLastError(
         `Question: ${
@@ -2366,6 +2727,7 @@ export class DiscordGateway
         }`
       );
 
+
       await this.reply(
         message,
 
@@ -2375,9 +2737,9 @@ export class DiscordGateway
   }
 
 
-  // ==========================================================
-  // DEBUG COMMAND
-  // ==========================================================
+// ============================================================
+// DEBUG
+// ============================================================
 
   async handleDebugCommand(
     message
@@ -2390,6 +2752,7 @@ export class DiscordGateway
         ""
       );
 
+
     if (
       !ADMIN_COOLDOWN_BYPASS_USER_IDS
         .has(
@@ -2399,25 +2762,33 @@ export class DiscordGateway
       return;
     }
 
+
     const lastTrace =
       await this.ctx.storage.get(
         "last_trace"
       );
+
 
     const lastError =
       await this.ctx.storage.get(
         "last_error"
       );
 
+
     const payload = {
+
       lastTrace:
         lastTrace ||
         null,
 
       lastError:
         lastError ||
-        null
+        null,
+
+      semanticIndex:
+        semanticIndexDiagnostics()
     };
+
 
     await this.reply(
       message,
@@ -2434,9 +2805,9 @@ export class DiscordGateway
   }
 
 
-  // ==========================================================
-  // CLASS GUIDE ANSWER
-  // ==========================================================
+// ============================================================
+// CLASS GUIDE ANSWER
+// ============================================================
 
   async answerFromClassGuide(
     message,
@@ -2447,29 +2818,27 @@ export class DiscordGateway
       Date.now();
 
 
-    // --------------------------------------------------------
-    // FIND REAL DISCORD IMAGES
-    // --------------------------------------------------------
-
     const media =
       await this.loadClassGuideMedia(
         resolution
       );
 
 
-    // --------------------------------------------------------
-    // BUILD GROUNDING CONTEXT
-    // --------------------------------------------------------
-
     const contexts =
       [];
+
 
     const sourceKinds =
       new Set();
 
+
     let allPagesGrounded =
       true;
 
+
+    // --------------------------------------------------------
+    // BUILD SOURCE CONTEXT
+    // --------------------------------------------------------
 
     for (
       const page
@@ -2477,9 +2846,10 @@ export class DiscordGateway
     ) {
 
       /*
-        Talent sayfalarında katalog zaten
-        structured data içeriyor.
+        Talent data catalog'da structured ise
+        Vision çağırmaya gerek yok.
       */
+
       if (
         (
           page.talents ||
@@ -2494,6 +2864,7 @@ export class DiscordGateway
             ]
           });
 
+
         if (
           structured
         ) {
@@ -2501,9 +2872,11 @@ export class DiscordGateway
             structured
           );
 
+
           sourceKinds.add(
             "catalog_structured"
           );
+
 
           continue;
         }
@@ -2511,8 +2884,9 @@ export class DiscordGateway
 
 
       /*
-        Talent olmayan görseller için gerçek PNG okunur.
+        Diğer görseller gerçek PNG'den okunur.
       */
+
       const mediaItem =
         media.find(
           item =>
@@ -2527,6 +2901,7 @@ export class DiscordGateway
         allPagesGrounded =
           false;
 
+
         continue;
       }
 
@@ -2538,28 +2913,34 @@ export class DiscordGateway
             mediaItem
           );
 
+
         if (
           !vision
         ) {
           allPagesGrounded =
             false;
 
+
           continue;
         }
+
 
         contexts.push(
           vision
         );
 
+
         sourceKinds.add(
           "guide_image_vision"
         );
+
 
       } catch (
         error
       ) {
         allPagesGrounded =
           false;
+
 
         await this.setLastError(
           `Guide vision ${page.key}: ${
@@ -2573,22 +2954,22 @@ export class DiscordGateway
     }
 
 
-    /*
-      Yeterli rehber grounding yoksa uydurmak yerine
-      normal backend'e bırakıyoruz.
-    */
+    // --------------------------------------------------------
+    // NO GROUNDING = NO IMAGE
+    // --------------------------------------------------------
+
     if (
       contexts.length ===
         0 ||
       !allPagesGrounded
     ) {
       return {
+
         handled:
           false,
 
-        media,
-
         trace: {
+
           route:
             "class_guide",
 
@@ -2598,8 +2979,8 @@ export class DiscordGateway
           classKey:
             resolution.classKey,
 
-          treeKey:
-            resolution.treeKey ||
+          specKey:
+            resolution.specKey ||
             null,
 
           pages:
@@ -2610,6 +2991,9 @@ export class DiscordGateway
               ),
 
           tavilyUsed:
+            false,
+
+          imageSent:
             false
         }
       };
@@ -2617,7 +3001,7 @@ export class DiscordGateway
 
 
     // --------------------------------------------------------
-    // GENERATE SHORT GUIDE ANSWER
+    // GENERATE GROUNDED ANSWER
     // --------------------------------------------------------
 
     const rawAnswer =
@@ -2641,34 +3025,24 @@ export class DiscordGateway
       !cleanAnswer
     ) {
       return {
+
         handled:
           false,
 
-        media,
-
         trace: {
+
           route:
             "class_guide",
 
           source:
-            "empty_guide_answer",
-
-          classKey:
-            resolution.classKey,
-
-          treeKey:
-            resolution.treeKey ||
-            null,
-
-          tavilyUsed:
-            false
+            "empty_guide_answer"
         }
       };
     }
 
 
     // --------------------------------------------------------
-    // PREPARE REAL DISCORD ATTACHMENTS
+    // ATTACH RELEVANT IMAGES ONLY
     // --------------------------------------------------------
 
     const files =
@@ -2694,10 +3068,12 @@ export class DiscordGateway
 
 
     return {
+
       handled:
         true,
 
       trace: {
+
         route:
           "class_guide",
 
@@ -2712,8 +3088,12 @@ export class DiscordGateway
         classKey:
           resolution.classKey,
 
-        treeKey:
-          resolution.treeKey ||
+        specKey:
+          resolution.specKey ||
+          null,
+
+        faction:
+          resolution.faction ||
           null,
 
         intents:
@@ -2759,9 +3139,9 @@ export class DiscordGateway
   }
 
 
-  // ==========================================================
-  // CLASS GUIDE MEDIA RESOLUTION
-  // ==========================================================
+// ============================================================
+// LOAD MATCHED GUIDE MEDIA
+// ============================================================
 
   async loadClassGuideMedia(
     resolution
@@ -2770,6 +3150,7 @@ export class DiscordGateway
       await this.getClassAttachmentIndex(
         resolution.classKey
       );
+
 
     const results =
       [];
@@ -2785,29 +3166,16 @@ export class DiscordGateway
           attachments
         );
 
+
       if (
         !match.attachment
       ) {
-        console.log(
-          JSON.stringify({
-            event:
-              "guide_attachment_missing",
-
-            classKey:
-              resolution.classKey,
-
-            pageKey:
-              page.key,
-
-            expectedFilename:
-              page.filename
-          })
-        );
-
         continue;
       }
 
+
       results.push({
+
         page,
 
         attachment:
@@ -2832,9 +3200,9 @@ export class DiscordGateway
   }
 
 
-  // ==========================================================
-  // LOAD ALL CLASS ATTACHMENTS
-  // ==========================================================
+// ============================================================
+// CLASS ATTACHMENTS
+// ============================================================
 
   async getClassAttachmentIndex(
     classKey,
@@ -2842,6 +3210,7 @@ export class DiscordGateway
   ) {
     const now =
       Date.now();
+
 
     const cached =
       this.classAttachmentCache.get(
@@ -2862,20 +3231,16 @@ export class DiscordGateway
     }
 
 
-    const messageIds =
-      GUIDE_BATCH_MESSAGE_IDS[
-        classKey
-      ] ||
-      [];
-
-
     const attachments =
       [];
 
 
     for (
       const messageId
-      of messageIds
+      of GUIDE_BATCH_MESSAGE_IDS[
+        classKey
+      ] ||
+      []
     ) {
       const sourceMessage =
         await this.discordRequest(
@@ -2897,7 +3262,9 @@ export class DiscordGateway
           continue;
         }
 
+
         attachments.push({
+
           ...attachment,
 
           __sourceMessageId:
@@ -2910,6 +3277,7 @@ export class DiscordGateway
     this.classAttachmentCache.set(
       classKey,
       {
+
         at:
           now,
 
@@ -2922,9 +3290,9 @@ export class DiscordGateway
   }
 
 
-  // ==========================================================
-  // MEDIA BYTES
-  // ==========================================================
+// ============================================================
+// MEDIA BYTES
+// ============================================================
 
   async ensureMediaBytes(
     mediaItem
@@ -2963,6 +3331,7 @@ export class DiscordGateway
         );
       }
 
+
       throw new Error(
         `Guide image download HTTP ${response.status}`
       );
@@ -2984,9 +3353,9 @@ export class DiscordGateway
   }
 
 
-  // ==========================================================
-  // GUIDE VISION CACHE
-  // ==========================================================
+// ============================================================
+// GUIDE VISION CACHE
+// ============================================================
 
   async getCachedGuideVisionText(
     page,
@@ -3002,11 +3371,11 @@ export class DiscordGateway
 
 
     /*
-      v5:
-      Prompt değiştiğinde eski kötü cache kullanılmasın.
+      v6 yeni prompt/cache.
     */
+
     const cacheKey =
-      `guidevision:v5:${page.key}:${attachmentId}`;
+      `guidevision:v6:${page.key}:${attachmentId}`;
 
 
     const cached =
@@ -3044,52 +3413,36 @@ export class DiscordGateway
 `
 Bu görsel Totik Channel'ın WoW Forever rehberine ait gerçek bir rehber sayfasıdır.
 
-Görevin, görseldeki bilgiyi daha sonra kullanıcı sorularına cevap vermek için kaynak verisine dönüştürmektir.
+Görevin bu sayfayı daha sonra soru-cevap sisteminin güvenilir kaynak verisine dönüştürmek.
 
 KURALLAR:
 
 - Yalnızca görselde gerçekten yazan bilgiyi çıkar.
 - World of Warcraft genel bilginle boşluk doldurma.
-- Görselde olmayan hiçbir mekanik, sayı veya öneri ekleme.
-- PNG/JPG dosya adı yazma.
-- Teknik katalog adı yazma.
-- Kaynak numarası yazma.
-- Reklam veya kanal çağrısı yazma.
-
-Özellikle koru:
-
-- spell / ability / talent / buff isimleri
-- ne yaptıkları
-- yüzde değerleri
-- süreler
-- cooldownlar
-- mana / rage / energy değerleri
-- menzil
-- hedef sayısı
-- party / raid gibi etki alanları
-- özel şartlar
-- istisnalar
-- öncelik sıraları
-- leveling önerileri
-- rotation adımları
-- stat ilişkileri
-
-Görselde bir liste varsa bütün listeyi kaynak verisinde tut.
-
-Cevabı son kullanıcıya yazmıyorsun.
-Sadece temiz, doğru ve yoğun bir kaynak özeti üret.
+- Görselde olmayan mekanik, sayı, görev, NPC, item, lokasyon veya öneri ekleme.
+- Dosya adı, PNG/JPG adı, sayfa anahtarı veya teknik katalog bilgisi yazma.
+- Spell / ability / talent / buff / aura / seal isimlerini koru.
+- Yüzde, süre, cooldown, menzil, seviye, hedef sayısı, party/raid kapsamı ve istisnaları koru.
+- Rotation / priority sayfasıysa adım sırasını koru.
+- Leveling sayfasıysa yalnızca görseldeki leveling yol haritasını koru.
+- Bu görsel class quest sayfası değilse görev bilgisi uydurma.
+- Son kullanıcıya cevap yazmıyorsun; temiz kaynak özeti çıkarıyorsun.
 `
       .trim();
 
 
     const vision =
       await this.callGeminiVision(
+
         prompt,
+
         bytes,
+
         mediaItem
           .attachment
           .content_type ||
         "image/png",
+
         1400
       );
 
@@ -3120,9 +3473,9 @@ Sadece temiz, doğru ve yoğun bir kaynak özeti üret.
   }
 
 
-  // ==========================================================
-  // GUIDE GROUNDED ANSWER
-  // ==========================================================
+// ============================================================
+// GUIDE GROUNDED ANSWER
+// ============================================================
 
   async askGuideGrounded(
     question,
@@ -3135,76 +3488,83 @@ KULLANICI SORUSU:
 ${question}
 
 REHBER EŞLEŞMESİ:
-Class: ${resolution.classKey}
-Spec / Tree: ${resolution.treeKey || "belirtilmedi"}
-Konu: ${(resolution.intents || []).join(", ") || "genel"}
+
+Class:
+${resolution.classKey}
+
+Spec / Tree:
+${resolution.specKey || "belirtilmedi"}
+
+Konu:
+${(resolution.intents || []).join(", ") || "genel"}
+
 
 TOTIK CHANNEL REHBER VERİSİ:
+
 ---
 ${context}
 ---
 
-Bu kullanıcıya Discord'da cevap veriyorsun.
 
-ÇOK ÖNEMLİ CEVAP KURALLARI:
+CEVAP KURALLARI:
 
 1. Direkt cevaba gir.
-2. "Selam" deme.
+
+2. Selam verme.
+
 3. Kendini tanıtma.
-4. "Ben Totik Channel WoW Yardım Botuyum" veya benzeri hiçbir ifade kullanma.
-5. PNG, JPG, dosya adı, sayfa adı, katalog adı veya kaynak numarası yazma.
-6. Yalnızca yukarıdaki Totik Channel rehber verisini kullan.
-7. Tavily, web veya genel model bilgisi ekleme.
-8. Rehberde olmayan sayı veya öneri uydurma.
 
-UZUNLUK:
+4. Yalnızca yukarıdaki Totik Channel rehber verisini kullan.
 
-- Cevap KISA olmalı.
-- Yaklaşık 500-750 karakter hedefle.
-- En fazla 4-6 kısa madde kullan.
-- Görselde bulunan her detayı metne dökme.
-- Kullanıcının sorusuna cevap vermek için en önemli bilgileri seç.
-- Uzun açıklamalar yerine kısa ve yararlı maddeler yaz.
-- Aynı bilgiyi farklı cümlelerle tekrar etme.
+5. Dosya adı, PNG/JPG, sayfa anahtarı, katalog veya teknik kaynak adı yazma.
 
-SORU TÜRÜNE GÖRE:
+6. Rehberde olmayan görev, NPC, item, mekanik, sayı veya tavsiye uydurma.
 
-Talent sorusu:
-- Sadece istenen spec/tree bilgisini kullan.
-- Başka talent tree'lerini karıştırma.
-- Talentların tamamını uzun uzun açıklamak yerine temel etkilerini kısa yaz.
+7. Kullanıcı görev/class quest soruyorsa bu route'a zaten gelmemeli; görev bilgisi üretme.
 
-Buff / Aura / Seal sorusu:
-- İlgili buffların ana isimlerini ve temel etkilerini kısa özetle.
-- Her açıklamayı tek cümleye yakın tut.
-- Rehberde onlarca ayrıntı varsa hepsini metne taşıma.
+8. Talent sorusunda yalnızca eşleşen spec/tree talentlarını anlat.
 
-Rotation sorusu:
-- Yalnızca ana öncelik sırasını ver.
+9. Buff sorusunda yalnızca eşleşen buff sayfasındaki ana buffları ve temel etkilerini özetle.
 
-Stat sorusu:
-- Ana stat / stat önceliğini kısa ver.
+10. Aura sorusunda yalnızca Aura anlat.
 
-Leveling sorusu:
-- Yalnızca en önemli yol haritasını özetle.
+11. Seal sorusunda yalnızca Seal anlat.
 
-Rehber görsellerinin ayrıntıları zaten kullanıcıya ayrıca gönderilecek.
-Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap vermektir.
+12. Blessing sorusunda yalnızca Blessing anlat.
+
+13. Rotation/taktik sorusunda eşleşen priority/utility rehberine göre 4-6 kısa madde yaz.
+
+14. Stat sorusunda yalnızca eşleşen stat sayfalarını kullan; gereksiz talent veya skill listesi verme.
+
+15. Leveling sorusunda leveling sayfasını özetle; görev bilgisi görselde yoksa görev uydurma.
+
+16. Class özeti yalnızca kullanıcı gerçekten class'ın ne olduğunu/rollerini sorarsa kullanılır.
+
+17. Cevap yaklaşık 500-750 karakter olsun.
+
+18. En fazla 4-6 kısa madde kullan.
+
+19. Detayın tamamını yazma; görseller zaten kullanıcıya gönderilecek.
+
+20. Cooldown, üyelik veya bot mimarisinden bahsetme.
 `
       .trim();
 
 
     return this.callGeminiText(
+
       prompt,
+
       600,
+
       0.05
     );
   }
 
 
-  // ==========================================================
-  // SPECIAL PROFESSION / CAMPING / LEGACY IMAGE
-  // ==========================================================
+// ============================================================
+// SPECIAL GUIDE IMAGE
+// ============================================================
 
   async getSpecialGuideMedia(
     topic
@@ -3246,7 +3606,9 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
 
 
       return {
+
         page: {
+
           key:
             `special.${topic}`,
 
@@ -3267,6 +3629,7 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
           null
       };
 
+
     } catch (
       error
     ) {
@@ -3279,20 +3642,22 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
         }`
       );
 
+
       return null;
     }
   }
 
 
-  // ==========================================================
-  // PREPARE REAL DISCORD FILES
-  // ==========================================================
+// ============================================================
+// PREPARE DISCORD FILES
+// ============================================================
 
   async prepareOutgoingFiles(
     mediaItems
   ) {
     const files =
       [];
+
 
     let totalBytes =
       0;
@@ -3336,6 +3701,7 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
 
 
         files.push({
+
           filename:
             mediaItem
               ?.page
@@ -3361,6 +3727,7 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
         totalBytes +=
           bytes.byteLength;
 
+
       } catch (
         error
       ) {
@@ -3385,9 +3752,9 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
   }
 
 
-  // ==========================================================
-  // PREMIUM / NORMAL COOLDOWN CLASS
-  // ==========================================================
+// ============================================================
+// PREMIUM ROLE
+// ============================================================
 
   async getMemberCooldownClass(
     message
@@ -3401,7 +3768,6 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
       );
 
 
-    // Admin bypass
     if (
       ADMIN_COOLDOWN_BYPASS_USER_IDS
         .has(
@@ -3409,6 +3775,7 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
         )
     ) {
       return {
+
         premium:
           true,
 
@@ -3435,12 +3802,6 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
       );
 
 
-    /*
-      İstersen Cloudflare env üzerinden gerçek role ID'leri
-      virgülle verebilirsin.
-
-      Olmasa da aşağıda role-name fallback var.
-    */
     const youtubeIds =
       parseCsvIds(
         this.env
@@ -3459,12 +3820,14 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
       const roleId
       of memberRoleIds
     ) {
+
       if (
         youtubeIds.has(
           roleId
         )
       ) {
         return {
+
           premium:
             true,
 
@@ -3483,6 +3846,7 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
         )
       ) {
         return {
+
           premium:
             true,
 
@@ -3496,7 +3860,6 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
     }
 
 
-    // Role name fallback
     const guildId =
       String(
         message
@@ -3562,6 +3925,7 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
             youtubeMember
           ) {
             return {
+
               premium:
                 true,
 
@@ -3578,6 +3942,7 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
             twitchSub
           ) {
             return {
+
               premium:
                 true,
 
@@ -3590,11 +3955,13 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
           }
         }
 
+
       } catch (
         error
       ) {
         console.log(
           JSON.stringify({
+
             event:
               "premium_role_lookup_failed",
 
@@ -3610,6 +3977,7 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
 
 
     return {
+
       premium:
         false,
 
@@ -3622,9 +3990,9 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
   }
 
 
-  // ==========================================================
-  // GUILD ROLES CACHE
-  // ==========================================================
+// ============================================================
+// ROLE CACHE
+// ============================================================
 
   async getGuildRoles(
     guildId
@@ -3664,6 +4032,7 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
     this.guildRoleCache.set(
       guildId,
       {
+
         at:
           Date.now(),
 
@@ -3677,9 +4046,9 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
   }
 
 
-  // ==========================================================
-  // COOLDOWN
-  // ==========================================================
+// ============================================================
+// COOLDOWN
+// ============================================================
 
   async acquireCooldown(
     userId,
@@ -3696,6 +4065,7 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
         )
     ) {
       return {
+
         allowed:
           true,
 
@@ -3723,7 +4093,7 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
 
     if (
       typeof previous ===
-        "number"
+      "number"
     ) {
       const elapsed =
         now -
@@ -3735,6 +4105,7 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
         durationMs
       ) {
         return {
+
           allowed:
             false,
 
@@ -3755,6 +4126,7 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
 
 
     return {
+
       allowed:
         true,
 
@@ -3786,14 +4158,15 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
         `cooldown:${userId}`
       );
 
+
     } catch {
     }
   }
 
 
-  // ==========================================================
-  // USER IMAGE ANALYSIS
-  // ==========================================================
+// ============================================================
+// USER IMAGE ANALYSIS
+// ============================================================
 
   async analyzeUserImage(
     image,
@@ -3840,29 +4213,35 @@ Bu nedenle cevabın görevi görseli tekrar yazmak değil, soruya hızlı cevap 
 World of Warcraft ekran görüntüsünü incele.
 
 Kullanıcının sorusu:
+
 ${question}
 
 Yalnızca bu soruyu cevaplamak için görselde gerçekten görülen bilgileri çıkar.
 
 Görselde olmayan bilgi ekleme.
+
 Türkçe ve kısa yaz.
 `
       .trim();
 
 
     return this.callGeminiVision(
+
       prompt,
+
       bytes,
+
       image.content_type ||
       "image/png",
+
       500
     );
   }
 
 
-  // ==========================================================
-  // MAIN WOW BACKEND
-  // ==========================================================
+// ============================================================
+// MAIN BACKEND
+// ============================================================
 
   async askWowAi(
     question
@@ -3884,8 +4263,12 @@ Türkçe ve kısa yaz.
 
 
     for (
-      let attempt = 1;
-      attempt <= 2;
+      let attempt =
+        1;
+
+      attempt <=
+        2;
+
       attempt++
     ) {
       const controller =
@@ -3905,10 +4288,12 @@ Türkçe ve kısa yaz.
           await fetch(
             url.toString(),
             {
+
               method:
                 "GET",
 
               headers: {
+
                 accept:
                   "application/json"
               },
@@ -3935,7 +4320,9 @@ Türkçe ve kısa yaz.
                 )
               : {};
 
+
         } catch {
+
           data =
             {};
         }
@@ -3977,28 +4364,24 @@ Türkçe ve kısa yaz.
             1200
           );
 
+
           continue;
         }
 
 
         throw lastError;
 
+
       } catch (
         error
       ) {
-        if (
+        lastError =
           error?.name ===
           "AbortError"
-        ) {
-          lastError =
-            new Error(
-              "totik-ai-test timeout"
-            );
-
-        } else {
-          lastError =
-            error;
-        }
+            ? new Error(
+                "totik-ai-test timeout"
+              )
+            : error;
 
 
         if (
@@ -4009,13 +4392,16 @@ Türkçe ve kısa yaz.
             1200
           );
 
+
           continue;
         }
 
 
         throw lastError;
 
+
       } finally {
+
         clearTimeout(
           timer
         );
@@ -4032,9 +4418,9 @@ Türkçe ve kısa yaz.
   }
 
 
-  // ==========================================================
-  // GEMINI TEXT
-  // ==========================================================
+// ============================================================
+// GEMINI TEXT
+// ============================================================
 
   async callGeminiText(
     prompt,
@@ -4068,6 +4454,7 @@ Türkçe ve kısa yaz.
         await fetch(
           GEMINI_INTERACTIONS_ENDPOINT,
           {
+
             method:
               "POST",
 
@@ -4075,6 +4462,7 @@ Türkçe ve kısa yaz.
               controller.signal,
 
             headers: {
+
               "content-type":
                 "application/json",
 
@@ -4085,6 +4473,7 @@ Türkçe ve kısa yaz.
 
             body:
               JSON.stringify({
+
                 model:
                   GEMINI_TEXT_MODEL,
 
@@ -4095,6 +4484,7 @@ Türkçe ve kısa yaz.
                   false,
 
                 generation_config: {
+
                   temperature,
 
                   max_output_tokens:
@@ -4120,6 +4510,7 @@ Türkçe ve kısa yaz.
                 raw
               )
             : {};
+
 
       } catch {
         throw new Error(
@@ -4162,7 +4553,9 @@ Türkçe ve kısa yaz.
 
       return text;
 
+
     } finally {
+
       clearTimeout(
         timer
       );
@@ -4170,9 +4563,9 @@ Türkçe ve kısa yaz.
   }
 
 
-  // ==========================================================
-  // GEMINI VISION
-  // ==========================================================
+// ============================================================
+// GEMINI VISION
+// ============================================================
 
   async callGeminiVision(
     prompt,
@@ -4207,6 +4600,7 @@ Türkçe ve kısa yaz.
         await fetch(
           GEMINI_VISION_ENDPOINT,
           {
+
             method:
               "POST",
 
@@ -4214,6 +4608,7 @@ Türkçe ve kısa yaz.
               controller.signal,
 
             headers: {
+
               "content-type":
                 "application/json",
 
@@ -4224,9 +4619,12 @@ Türkçe ve kısa yaz.
 
             body:
               JSON.stringify({
+
                 contents: [
                   {
+
                     parts: [
+
                       {
                         text:
                           prompt
@@ -4234,6 +4632,7 @@ Türkçe ve kısa yaz.
 
                       {
                         inlineData: {
+
                           mimeType,
 
                           data:
@@ -4247,6 +4646,7 @@ Türkçe ve kısa yaz.
                 ],
 
                 generationConfig: {
+
                   temperature:
                     0.02,
 
@@ -4272,6 +4672,7 @@ Türkçe ve kısa yaz.
                 raw
               )
             : {};
+
 
       } catch {
         throw new Error(
@@ -4318,7 +4719,9 @@ Türkçe ve kısa yaz.
 
         .trim();
 
+
     } finally {
+
       clearTimeout(
         timer
       );
@@ -4326,9 +4729,9 @@ Türkçe ve kısa yaz.
   }
 
 
-  // ==========================================================
-  // GENERAL GEMINI FALLBACK
-  // ==========================================================
+// ============================================================
+// GEMINI GENERAL FALLBACK
+// ============================================================
 
   async askGeminiGeneralFallback(
     question,
@@ -4344,41 +4747,42 @@ Ana araştırma sistemi geçici olarak yanıt veremedi.
 
 Kurallar:
 
-- Türkçe cevap ver.
-- Kısa ve doğal ol.
+- Türkçe, kısa ve doğal cevap ver.
+
 - Kendini tanıtma.
+
 - WoW Forever'a özgü güncel bilgiden emin değilsen uydurma.
-- Cooldown veya üyelik mesajı yazma.
-- Reklam yapma.
+
+- Cooldown, üyelik veya reklam yazma.
 `
       .trim();
 
 
     try {
-      const answer =
-        await this.callGeminiText(
-          prompt,
-          700,
-          0.15
-        );
-
-
       return {
-        answer,
+
+        answer:
+          await this.callGeminiText(
+            prompt,
+            700,
+            0.15
+          ),
 
         fallback:
           "gemini_interactions"
       };
 
+
     } catch {
+
       throw backendError;
     }
   }
 
 
-  // ==========================================================
-  // DISCORD REPLY
-  // ==========================================================
+// ============================================================
+// DISCORD REPLY
+// ============================================================
 
   async reply(
     originalMessage,
@@ -4400,23 +4804,30 @@ Kurallar:
 
 
     if (
-      chunks.length ===
-      0
+      !chunks.length
     ) {
       return;
     }
 
 
     for (
-      let i = 0;
-      i < chunks.length;
+      let i =
+        0;
+
+      i <
+        chunks.length;
+
       i++
     ) {
       const payload = {
+
         content:
-          chunks[i],
+          chunks[
+            i
+          ],
 
         allowed_mentions: {
+
           parse:
             [],
 
@@ -4431,6 +4842,7 @@ Kurallar:
         0
       ) {
         payload.message_reference = {
+
           message_id:
             String(
               originalMessage.id
@@ -4446,20 +4858,26 @@ Kurallar:
 
 
       if (
-        i === 0 &&
-        files.length >
-        0
+        i ===
+          0 &&
+        files.length
       ) {
         await this.discordMultipartRequest(
+
           `/channels/${QUESTION_CHANNEL_ID}/messages`,
+
           payload,
+
           files
         );
 
+
       } else {
+
         await this.discordRequest(
           `/channels/${QUESTION_CHANNEL_ID}/messages`,
           {
+
             method:
               "POST",
 
@@ -4472,9 +4890,9 @@ Kurallar:
   }
 
 
-  // ==========================================================
-  // TYPING
-  // ==========================================================
+// ============================================================
+// TYPING
+// ============================================================
 
   async safeTyping(
     channelId
@@ -4483,19 +4901,21 @@ Kurallar:
       await this.discordRequest(
         `/channels/${channelId}/typing`,
         {
+
           method:
             "POST"
         }
       );
+
 
     } catch {
     }
   }
 
 
-  // ==========================================================
-  // DISCORD MULTIPART
-  // ==========================================================
+// ============================================================
+// MULTIPART
+// ============================================================
 
   async discordMultipartRequest(
     path,
@@ -4510,6 +4930,7 @@ Kurallar:
 
 
     const payloadWithAttachments = {
+
       ...payload,
 
       attachments:
@@ -4518,6 +4939,7 @@ Kurallar:
             file,
             index
           ) => ({
+
             id:
               index,
 
@@ -4533,8 +4955,12 @@ Kurallar:
 
 
     for (
-      let attempt = 1;
-      attempt <= 4;
+      let attempt =
+        1;
+
+      attempt <=
+        4;
+
       attempt++
     ) {
       const form =
@@ -4554,22 +4980,23 @@ Kurallar:
           file,
           index
         ) => {
-          const blob =
+
+          form.append(
+
+            `files[${index}]`,
+
             new Blob(
               [
                 file.bytes
               ],
               {
+
                 type:
                   file.contentType ||
                   "application/octet-stream"
               }
-            );
+            ),
 
-
-          form.append(
-            `files[${index}]`,
-            blob,
             file.filename
           );
         }
@@ -4580,10 +5007,12 @@ Kurallar:
         await fetch(
           `${DISCORD_API}${path}`,
           {
+
             method:
               "POST",
 
             headers: {
+
               Authorization:
                 `Bot ${this.env.DISCORD_BOT_TOKEN}`
             },
@@ -4610,7 +5039,9 @@ Kurallar:
               )
             : null;
 
+
       } catch {
+
         data =
           raw;
       }
@@ -4644,6 +5075,7 @@ Kurallar:
           )
         );
 
+
         continue;
       }
 
@@ -4658,6 +5090,7 @@ Kurallar:
           attempt *
           750
         );
+
 
         continue;
       }
@@ -4689,9 +5122,9 @@ Kurallar:
   }
 
 
-  // ==========================================================
-  // DISCORD JSON REQUEST
-  // ==========================================================
+// ============================================================
+// DISCORD JSON
+// ============================================================
 
   async discordRequest(
     path,
@@ -4703,18 +5136,25 @@ Kurallar:
 
 
     for (
-      let attempt = 1;
-      attempt <= 4;
+      let attempt =
+        1;
+
+      attempt <=
+        4;
+
       attempt++
     ) {
       const headers = {
+
         Authorization:
           `Bot ${this.env.DISCORD_BOT_TOKEN}`
       };
 
 
       const init = {
+
         method,
+
         headers
       };
 
@@ -4767,7 +5207,9 @@ Kurallar:
               )
             : null;
 
+
       } catch {
+
         data =
           raw;
       }
@@ -4801,6 +5243,7 @@ Kurallar:
           )
         );
 
+
         continue;
       }
 
@@ -4815,6 +5258,7 @@ Kurallar:
           attempt *
           750
         );
+
 
         continue;
       }
@@ -4846,16 +5290,18 @@ Kurallar:
   }
 
 
-  // ==========================================================
-  // TRACE
-  // ==========================================================
+// ============================================================
+// TRACE
+// ============================================================
 
   async finishSuccessfulAnswer(
     trace
   ) {
     await this.markAnswered();
 
+
     await this.clearLastError();
+
 
     await this.recordTrace(
       trace
@@ -4867,6 +5313,7 @@ Kurallar:
     trace
   ) {
     const value = {
+
       at:
         new Date()
           .toISOString(),
@@ -4883,6 +5330,7 @@ Kurallar:
 
     console.log(
       JSON.stringify({
+
         event:
           "totik_question_trace",
 
@@ -4892,9 +5340,9 @@ Kurallar:
   }
 
 
-  // ==========================================================
-  // COUNTERS
-  // ==========================================================
+// ============================================================
+// COUNTERS
+// ============================================================
 
   async markAnswered() {
     const current =
@@ -4932,9 +5380,9 @@ Kurallar:
   }
 
 
-  // ==========================================================
-  // ERROR STORAGE
-  // ==========================================================
+// ============================================================
+// ERROR
+// ============================================================
 
   async clearLastError() {
     await this.ctx.storage.delete(
