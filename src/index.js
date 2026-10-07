@@ -75,6 +75,12 @@ const PREMIUM_COOLDOWN_MS =
 const PREMIUM_ROLE_CACHE_MS =
   10 * 60 * 1000;
 
+const MEMBER_ROLE_CACHE_MS =
+  60 * 1000;
+
+const MEMBER_ROLE_CACHE_MAX_ENTRIES =
+  500;
+
 const GUIDE_ATTACHMENT_CACHE_MS =
   5 * 60 * 1000;
 
@@ -156,7 +162,13 @@ const GUILD_INFO_MESSAGE =
   `Totik Channel ekibi WoW Forever'da Normal ruleset'te Alliance tarafında oynuyor. Guild katılımı, şartlar ve güncel detaylar için <#${GUILD_INFO_CHANNEL_ID}> kanalına bakabilirsin.`;
 
 const IDENTITY_MESSAGE =
-  "Ben Totik Channel için geliştirilmiş WoW yardım botuyum.";
+  "Ben Murloc Asistan'ım. Totik Channel tarafından WoW oyuncularına oyun içi bilgi ve rehber desteği vermek için hazırlanmış bir yapay zekâ asistanıyım.";
+
+const SOURCE_POLICY_MESSAGE =
+  "Ben Murloc Asistan'ım; Totik Channel için hazırlanmış bir yapay zekâ asistanıyım. Dış kaynak, kanal veya içerik üreticisi öneremem. WoW içerikleri için yalnızca Totik Channel YouTube kanalını önerebilirim.";
+
+const PERSONAL_QUESTION_MESSAGE =
+  "Ben Murloc Asistan'ım. Totik Channel tarafından WoW oyuncularına oyun içi bilgi ve rehber desteği vermek için hazırlanmış bir yapay zekâ asistanıyım. Kişisel sorular, içerik fikirleri ve kanal stratejisi hakkında yönlendirme yapmıyorum. WoW'un oyun içi mekanikleri, görevleri, sınıfları veya sistemleriyle ilgili bir soru sorabilirsin.";
 
 
 // ============================================================
@@ -412,6 +424,12 @@ function sanitizeNormalAnswer(
     );
 
 
+  text =
+    enforceOutputPolicy(
+      text
+    );
+
+
   if (
     text.length <=
     NORMAL_ANSWER_MAX_CHARS
@@ -450,6 +468,12 @@ function finalizeClassGuideAnswer(
   let text =
     removeTechnicalGuideLanguage(
       value
+    );
+
+
+  text =
+    enforceOutputPolicy(
+      text
     );
 
 
@@ -777,16 +801,25 @@ function parseCsvIds(
       ""
     )
       .split(
-        ","
+        /[,;|\s]+/
       )
 
       .map(
         value =>
-          value.trim()
+          value
+            .trim()
+            .replace(
+              /^<@&|>$/g,
+              ""
+            )
       )
 
       .filter(
-        Boolean
+        value =>
+          /^\d{15,22}$/
+            .test(
+              value
+            )
       )
   );
 }
@@ -926,6 +959,148 @@ function isGuildInfoQuestion(
         q
       )
   );
+}
+
+
+function isExternalSourceRecommendationQuestion(
+  question
+) {
+  const q =
+    normalizeGuideText(
+      question
+    );
+
+
+  const sourceContext =
+    /kaynak|kanal|youtube|youtuber|video|site|web sitesi|wiki|podcast|yayinci|streamer|icerik uretici|nereden dinle|nereden izle|nereden oku/;
+
+
+  const recommendationIntent =
+    /oner|tavsiye|soyle|listele|bul|nereden|hangisi|kimden|takip et|izleyeyim|dinleyeyim|okuyayim/;
+
+
+  return (
+    sourceContext.test(
+      q
+    ) &&
+    recommendationIntent.test(
+      q
+    )
+  );
+}
+
+
+function isPersonalOrCreatorAdviceQuestion(
+  question
+) {
+  const q =
+    normalizeGuideText(
+      question
+    );
+
+
+  const creatorContext =
+    /video cek|ne ceksem|rehber cek|icerik fikri|icerik uret|kanalimi|kanal buyut|youtube icin|yayinda ne|stream icin|thumbnail|kucuk resim|video basligi|izlenme|abone kazan|seo|sosyal medya/;
+
+
+  const creatorIntent =
+    /ne|nasil|hangi|oner|tavsiye|fikir|yardim|yapayim|ceksem|hazirla|bul/;
+
+
+  if (
+    creatorContext.test(
+      q
+    ) &&
+    creatorIntent.test(
+      q
+    )
+  ) {
+    return true;
+  }
+
+
+  return (
+    /sevgilim|iliski tavsiyesi|evlilik|ozgecmis|is basvurusu|dersim|odevim|sinavim|diyet|saglik tavsiyesi|hukuki tavsiye|borsa|yatirim tavsiyesi/
+      .test(
+        q
+      )
+  );
+}
+
+
+function violatesSourcePolicy(
+  value
+) {
+  const text =
+    String(
+      value ||
+      ""
+    );
+
+
+  const normalized =
+    normalizeGuideText(
+      text
+    );
+
+
+  if (
+    /https?:\/\/|www\./i
+      .test(
+        text
+      )
+  ) {
+    return true;
+  }
+
+
+  if (
+    !normalized.includes(
+      "totik channel"
+    ) &&
+    /kaynak|kanal|youtube|youtuber|site|wiki|podcast|yayinci|streamer|icerik uretici/
+      .test(
+        normalized
+      ) &&
+    /oner|tavsiye|takip et|izleyebilirsin|dinleyebilirsin|okuyabilirsin|bakabilirsin|goz at/
+      .test(
+        normalized
+      )
+  ) {
+    return true;
+  }
+
+
+  return (
+    /\b(?:wowhead|icy\s*veins|mmo[-\s]?champion|warcraft\s*wiki|reddit|curseforge|method\.gg|youtube\.com|youtu\.be|twitch\.tv|discord\.gg)\b/i
+      .test(
+        text
+      )
+  );
+}
+
+
+function enforceOutputPolicy(
+  value
+) {
+  const text =
+    String(
+      value ||
+      ""
+    )
+      .trim();
+
+
+  if (
+    violatesSourcePolicy(
+      text
+    )
+  ) {
+    return SOURCE_POLICY_MESSAGE;
+  }
+
+
+  return text;
 }
 
 
@@ -1101,6 +1276,30 @@ export default {
 
         premiumCooldownMinutes:
           1,
+
+        premiumRoleConfiguration: {
+
+          youtubeRoleIdCount:
+            parseCsvIds(
+              env
+                .YOUTUBE_MEMBER_ROLE_IDS
+            ).size,
+
+          twitchRoleIdCount:
+            parseCsvIds(
+              env
+                .TWITCH_SUB_ROLE_IDS
+            ).size,
+
+          sharedPremiumRoleIdCount:
+            parseCsvIds(
+              env
+                .PREMIUM_ROLE_IDS
+            ).size,
+
+          liveMemberLookup:
+            true
+        },
 
         guideCatalog:
           catalogDiagnostics(),
@@ -1299,6 +1498,10 @@ export class DiscordGateway
 
 
     this.guildRoleCache =
+      new Map();
+
+
+    this.memberRoleCache =
       new Map();
 
 
@@ -1566,6 +1769,34 @@ export class DiscordGateway
         premiumCooldownMinutes:
           1,
 
+        premiumRoleConfiguration: {
+
+          youtubeRoleIdCount:
+            parseCsvIds(
+              this.env
+                .YOUTUBE_MEMBER_ROLE_IDS
+            ).size,
+
+          twitchRoleIdCount:
+            parseCsvIds(
+              this.env
+                .TWITCH_SUB_ROLE_IDS
+            ).size,
+
+          sharedPremiumRoleIdCount:
+            parseCsvIds(
+              this.env
+                .PREMIUM_ROLE_IDS
+            ).size,
+
+          liveMemberLookup:
+            true,
+
+          memoryCacheSeconds:
+            MEMBER_ROLE_CACHE_MS /
+            1000
+        },
+
         questionChannelId:
           QUESTION_CHANNEL_ID,
 
@@ -1790,20 +2021,18 @@ export class DiscordGateway
       );
 
 
+      let pageCursor =
+        cursor;
+
+
       for (
         const message
         of messages
       ) {
-        cursor =
+        const messageId =
           String(
             message.id
           );
-
-
-        await this.ctx.storage.put(
-          "last_message_id",
-          cursor
-        );
 
 
         if (
@@ -1811,6 +2040,10 @@ export class DiscordGateway
             ?.author
             ?.bot
         ) {
+          pageCursor =
+            messageId;
+
+
           continue;
         }
 
@@ -1834,6 +2067,10 @@ export class DiscordGateway
               content
             )
         ) {
+          pageCursor =
+            messageId;
+
+
           continue;
         }
 
@@ -1842,6 +2079,10 @@ export class DiscordGateway
           await this.handleCommand(
             message
           );
+
+
+          pageCursor =
+            messageId;
 
 
         } catch (
@@ -1858,8 +2099,33 @@ export class DiscordGateway
               )
             }`
           );
+
+
+          if (
+            pageCursor &&
+            pageCursor !==
+              cursor
+          ) {
+            await this.ctx.storage.put(
+              "last_message_id",
+              pageCursor
+            );
+          }
+
+
+          throw error;
         }
       }
+
+
+      cursor =
+        pageCursor;
+
+
+      await this.ctx.storage.put(
+        "last_message_id",
+        cursor
+      );
 
 
       if (
@@ -2213,6 +2479,137 @@ export class DiscordGateway
 
 
     // --------------------------------------------------------
+    // LOCAL POLICY ROUTES
+    //
+    // These routes do not call an AI service and do not consume
+    // the member's question cooldown.
+    // --------------------------------------------------------
+
+    if (
+      isExternalSourceRecommendationQuestion(
+        question
+      )
+    ) {
+      await this.reply(
+        message,
+        SOURCE_POLICY_MESSAGE
+      );
+
+
+      await this.finishSuccessfulAnswer({
+
+        route:
+          "local_source_policy",
+
+        source:
+          "local_constant",
+
+        tavilyUsed:
+          false,
+
+        imageSent:
+          false
+      });
+
+
+      return;
+    }
+
+
+    if (
+      isPersonalOrCreatorAdviceQuestion(
+        question
+      )
+    ) {
+      await this.reply(
+        message,
+        PERSONAL_QUESTION_MESSAGE
+      );
+
+
+      await this.finishSuccessfulAnswer({
+
+        route:
+          "local_personal_policy",
+
+        source:
+          "local_constant",
+
+        tavilyUsed:
+          false,
+
+        imageSent:
+          false
+      });
+
+
+      return;
+    }
+
+
+    if (
+      isIdentityQuestion(
+        question
+      )
+    ) {
+      await this.reply(
+        message,
+        IDENTITY_MESSAGE
+      );
+
+
+      await this.finishSuccessfulAnswer({
+
+        route:
+          "local_identity",
+
+        source:
+          "local_constant",
+
+        tavilyUsed:
+          false,
+
+        imageSent:
+          false
+      });
+
+
+      return;
+    }
+
+
+    if (
+      isGuildInfoQuestion(
+        question
+      )
+    ) {
+      await this.reply(
+        message,
+        GUILD_INFO_MESSAGE
+      );
+
+
+      await this.finishSuccessfulAnswer({
+
+        route:
+          "local_guild",
+
+        source:
+          "local_constant",
+
+        tavilyUsed:
+          false,
+
+        imageSent:
+          false
+      });
+
+
+      return;
+    }
+
+
+    // --------------------------------------------------------
     // COOLDOWN
     // --------------------------------------------------------
 
@@ -2276,77 +2673,6 @@ export class DiscordGateway
 
 
     try {
-
-      // ------------------------------------------------------
-      // IDENTITY
-      // ------------------------------------------------------
-
-      if (
-        isIdentityQuestion(
-          question
-        )
-      ) {
-        await this.reply(
-          message,
-          IDENTITY_MESSAGE
-        );
-
-
-        await this.finishSuccessfulAnswer({
-
-          route:
-            "local_identity",
-
-          source:
-            "local_constant",
-
-          tavilyUsed:
-            false,
-
-          imageSent:
-            false
-        });
-
-
-        return;
-      }
-
-
-      // ------------------------------------------------------
-      // GUILD
-      // ------------------------------------------------------
-
-      if (
-        isGuildInfoQuestion(
-          question
-        )
-      ) {
-        await this.reply(
-          message,
-          GUILD_INFO_MESSAGE
-        );
-
-
-        await this.finishSuccessfulAnswer({
-
-          route:
-            "local_guild",
-
-          source:
-            "local_constant",
-
-          tavilyUsed:
-            false,
-
-          imageSent:
-            false
-        });
-
-
-        return;
-      }
-
-
       await this.safeTyping(
         QUESTION_CHANNEL_ID
       );
@@ -2775,6 +3101,12 @@ export class DiscordGateway
       );
 
 
+    const cooldownClass =
+      await this.getMemberCooldownClass(
+        message
+      );
+
+
     const payload = {
 
       lastTrace:
@@ -2784,6 +3116,19 @@ export class DiscordGateway
       lastError:
         lastError ||
         null,
+
+      cooldownTest: {
+
+        premium:
+          cooldownClass.premium,
+
+        reason:
+          cooldownClass.reason,
+
+        cooldownSeconds:
+          cooldownClass.durationMs /
+          1000
+      },
 
       semanticIndex:
         semanticIndexDiagnostics()
@@ -3788,7 +4133,19 @@ CEVAP KURALLARI:
     }
 
 
-    const memberRoleIds =
+    const guildId =
+      String(
+        message
+          ?.guild_id ||
+        ""
+      );
+
+
+    let roleSource =
+      "message_member";
+
+
+    let memberRoleIds =
       new Set(
         (
           message
@@ -3800,6 +4157,129 @@ CEVAP KURALLARI:
             String
           )
       );
+
+
+    /*
+      Channel history responses can contain a stale or incomplete
+      member object. Always prefer the current guild member record.
+    */
+
+    if (
+      guildId &&
+      userId
+    ) {
+      const memberCacheKey =
+        `${guildId}:${userId}`;
+
+
+      const cachedMemberRoles =
+        this.memberRoleCache.get(
+          memberCacheKey
+        );
+
+
+      if (
+        cachedMemberRoles &&
+        Date.now() -
+          cachedMemberRoles.at <
+          MEMBER_ROLE_CACHE_MS
+      ) {
+        memberRoleIds =
+          new Set(
+            cachedMemberRoles.roles
+          );
+
+
+        roleSource =
+          "memory_cache";
+
+
+      } else {
+        try {
+          const liveMember =
+            await this.discordRequest(
+              `/guilds/${guildId}/members/${userId}`
+            );
+
+
+          if (
+            Array.isArray(
+              liveMember?.roles
+            )
+          ) {
+            memberRoleIds =
+              new Set(
+                liveMember.roles
+                  .map(
+                    String
+                  )
+              );
+
+
+            roleSource =
+              "live_guild_member";
+
+
+            if (
+              this.memberRoleCache.size >=
+              MEMBER_ROLE_CACHE_MAX_ENTRIES
+            ) {
+              const oldestKey =
+                this.memberRoleCache
+                  .keys()
+                  .next()
+                  .value;
+
+
+              if (
+                oldestKey
+              ) {
+                this.memberRoleCache.delete(
+                  oldestKey
+                );
+              }
+            }
+
+
+            this.memberRoleCache.set(
+              memberCacheKey,
+              {
+
+                at:
+                  Date.now(),
+
+                roles:
+                  [
+                    ...memberRoleIds
+                  ]
+              }
+            );
+          }
+
+
+        } catch (
+          error
+        ) {
+          console.log(
+            JSON.stringify({
+
+              event:
+                "live_member_role_lookup_failed",
+
+              userId,
+
+              guildId,
+
+              error:
+                error?.message ||
+                String(
+                  error
+                )
+            })
+          );
+        }
+      }
+    }
 
 
     const youtubeIds =
@@ -3816,10 +4296,35 @@ CEVAP KURALLARI:
       );
 
 
+    const premiumIds =
+      parseCsvIds(
+        this.env
+          .PREMIUM_ROLE_IDS
+      );
+
+
     for (
       const roleId
       of memberRoleIds
     ) {
+
+      if (
+        premiumIds.has(
+          roleId
+        )
+      ) {
+        return {
+
+          premium:
+            true,
+
+          reason:
+            `premium_role_id:${roleSource}`,
+
+          durationMs:
+            PREMIUM_COOLDOWN_MS
+        };
+      }
 
       if (
         youtubeIds.has(
@@ -3832,7 +4337,7 @@ CEVAP KURALLARI:
             true,
 
           reason:
-            "youtube_role_id",
+            `youtube_role_id:${roleSource}`,
 
           durationMs:
             PREMIUM_COOLDOWN_MS
@@ -3851,21 +4356,13 @@ CEVAP KURALLARI:
             true,
 
           reason:
-            "twitch_role_id",
+            `twitch_role_id:${roleSource}`,
 
           durationMs:
             PREMIUM_COOLDOWN_MS
         };
       }
     }
-
-
-    const guildId =
-      String(
-        message
-          ?.guild_id ||
-        ""
-      );
 
 
     if (
@@ -3902,20 +4399,14 @@ CEVAP KURALLARI:
 
 
           const youtubeMember =
-            roleName.includes(
-              "youtube"
-            ) &&
-            /katil|abone|member|uyelik/
+            /youtube|yt[ -]?katil|katil uyesi|kanal uyesi|youtube member/
               .test(
                 roleName
               );
 
 
           const twitchSub =
-            roleName.includes(
-              "twitch"
-            ) &&
-            /sub|subscriber|abone/
+            /twitch|twitch[ -]?sub|subscriber|sub uyesi/
               .test(
                 roleName
               );
@@ -3930,7 +4421,7 @@ CEVAP KURALLARI:
                 true,
 
               reason:
-                `role_name:${role.name}`,
+                `youtube_role_name:${role.name}:${roleSource}`,
 
               durationMs:
                 PREMIUM_COOLDOWN_MS
@@ -3947,7 +4438,7 @@ CEVAP KURALLARI:
                 true,
 
               reason:
-                `role_name:${role.name}`,
+                `twitch_role_name:${role.name}:${roleSource}`,
 
               durationMs:
                 PREMIUM_COOLDOWN_MS
@@ -3982,7 +4473,7 @@ CEVAP KURALLARI:
         false,
 
       reason:
-        "normal_member",
+        `normal_member:${roleSource}:roles=${memberRoleIds.size}`,
 
       durationMs:
         NORMAL_COOLDOWN_MS
@@ -4754,6 +5245,10 @@ Kurallar:
 - WoW Forever'a özgü güncel bilgiden emin değilsen uydurma.
 
 - Cooldown, üyelik veya reklam yazma.
+
+- Kullanıcıya Totik Channel dışında hiçbir kanal, site, video, yayıncı, içerik üreticisi veya dış kaynak önerme.
+
+- Cevabında URL verme. Kaynak önerisi istenirse yalnızca Totik Channel YouTube kanalını söyle ve başka kaynak öneremeyeceğini belirt.
 `
       .trim();
 
