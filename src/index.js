@@ -72,6 +72,20 @@ const NORMAL_COOLDOWN_MS =
 const PREMIUM_COOLDOWN_MS =
   1 * 60 * 1000;
 
+// Totik Channel's verified supporter roles. Keep these built in so a
+// deployment cannot silently turn supporters into normal members merely
+// because an optional environment variable was omitted. Environment values
+// below are additive and can still introduce further premium roles.
+const DEFAULT_YOUTUBE_MEMBER_ROLE_IDS =
+  new Set([
+    "690918966348087346"
+  ]);
+
+const DEFAULT_TWITCH_SUB_ROLE_IDS =
+  new Set([
+    "1047102585141727342"
+  ]);
+
 const PREMIUM_ROLE_CACHE_MS =
   10 * 60 * 1000;
 
@@ -972,7 +986,7 @@ function isExternalSourceRecommendationQuestion(
 
 
   const sourceContext =
-    /kaynak|kanal|youtube|youtuber|video|site|web sitesi|wiki|podcast|yayinci|streamer|icerik uretici|nereden dinle|nereden izle|nereden oku/;
+    /\b(?:kaynak\w*|kanal\w*|youtube|youtuber|video\w*|site|sitesi|web sitesi|wiki|podcast|yayinci|streamer|icerik uretici)\b|nereden (?:dinle|izle|oku)/;
 
 
   const recommendationIntent =
@@ -1058,7 +1072,7 @@ function violatesSourcePolicy(
     !normalized.includes(
       "totik channel"
     ) &&
-    /kaynak|kanal|youtube|youtuber|site|wiki|podcast|yayinci|streamer|icerik uretici/
+    /\b(?:kaynak\w*|kanal\w*|youtube|youtuber|site|sitesi|wiki|podcast|yayinci|streamer|icerik uretici)\b/
       .test(
         normalized
       ) &&
@@ -1096,7 +1110,15 @@ function enforceOutputPolicy(
       text
     )
   ) {
-    return SOURCE_POLICY_MESSAGE;
+    // Preserve useful gameplay instructions when the model appends an
+    // unwanted recommendation. Never replace the entire answer because
+    // one sentence mentions a website or creator.
+    const safeText = text
+      .split(/(?<=[.!?])\s+|\n+/)
+      .filter(part => !violatesSourcePolicy(part))
+      .join("\n")
+      .trim();
+    return safeText || SOURCE_POLICY_MESSAGE;
   }
 
 
@@ -4296,6 +4318,26 @@ CEVAP KURALLARI:
       );
 
 
+    for (
+      const roleId
+      of DEFAULT_YOUTUBE_MEMBER_ROLE_IDS
+    ) {
+      youtubeIds.add(
+        roleId
+      );
+    }
+
+
+    for (
+      const roleId
+      of DEFAULT_TWITCH_SUB_ROLE_IDS
+    ) {
+      twitchIds.add(
+        roleId
+      );
+    }
+
+
     const premiumIds =
       parseCsvIds(
         this.env
@@ -4399,7 +4441,7 @@ CEVAP KURALLARI:
 
 
           const youtubeMember =
-            /youtube|yt[ -]?katil|katil uyesi|kanal uyesi|youtube member/
+            /youtube|yt[ -]?katil|katil uyesi|kanal uyesi|youtube member|\bkatil\b/
               .test(
                 roleName
               );
