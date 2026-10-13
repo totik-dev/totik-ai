@@ -6473,7 +6473,7 @@ function normalizeGuideText(value) {
     .replace(/[’‘`´]/g, "'")
     .replace(/[^a-z0-9'\-+%:\s]/g, " ")
     // Only known game words: do not stem arbitrary Turkish words or names.
-    .replace(/\b(priest|warrior|hunter|mage|paladin|druid|rogue|shaman|warlock|talent|buff|debuff|skill|spell|pet|rotation|stat|aura|seal|blessing)'?(?:lerinizin|larinizin|lerinin|larinin|lerini|larini|lerim|larim|lerin|larin|leri|lari|ler|lar|iniz|unuz|im|um|in|un|i|u)(?=\s|$)/g, "$1")
+    .replace(/\b(priest|warrior|hunter|mage|paladin|pala|druid|rogue|shaman|warlock|lock|talent|buff|debuff|skill|spell|pet|rotation|stat|aura|seal|blessing)'?(?:lerinizin|larinizin|lerinin|larinin|lerini|larini|lerden|lardan|lerde|larda|lere|lara|lerim|larim|lerin|larin|leri|lari|ler|lar|iniz|unuz|nin|nun|yla|yle|dan|den|tan|ten|da|de|ta|te|ya|ye|yi|yu|im|um|in|un|a|e|i|u)(?=\s|$)/g, "$1")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -6615,12 +6615,14 @@ const CLASS_ALIASES = {
 
   shaman: [
     "shaman",
+    "sham",
     "saman",
     "şaman"
   ],
 
   warlock: [
-    "warlock"
+    "warlock",
+    "lock"
   ],
 
   warrior: [
