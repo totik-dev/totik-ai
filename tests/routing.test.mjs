@@ -28,6 +28,8 @@ const GUIDE_CASES = [
   ["mage frost talent", "mage", "frost", ["mage.14-frost-talent-1", "mage.15-frost-talent-2", "mage.16-frost-talent-3", "mage.17-frost-talent-4"]],
   ["warlock affli talent", "warlock", "affliction", ["warlock.08-affliction-talent-1", "warlock.09-affliction-talent-2", "warlock.10-affliction-talent-3"]],
   ["druid feral buff", "druid", "feral-combat", ["druid.02-buff-debuff"]],
+  ["shadow priestin raide verdiği buff nedir", "priest", "shadow", ["priest.02-buff-debuff"]],
+  ["warlock gruba ne katar", "warlock", null, ["warlock.02-buff-debuff"]],
   ["priest shadow seviye kasma", "priest", "shadow", ["priest.19-leveling"]],
   ["fury warrior silah seçimi", "warrior", "fury", ["warrior.21-weapon-gear-meslek"]],
   ["rogue combat rotasyon", "rogue", "combat", ["rogue.18-oynanis-oncelikleri"]],
@@ -80,4 +82,12 @@ test("src/class-guide-catalog.js matches the catalog embedded in src/index.js", 
   const read = path => fs.readFileSync(new URL(path, import.meta.url), "utf8");
   const catalog = read("../src/class-guide-catalog.js").replace(/^export /gm, "").replace(/^\/\/.*\n/, "").trim();
   assert.ok(read("../src/index.js").includes(catalog), "Catalog was regenerated but not copied into src/index.js (or the other way round).");
+});
+
+test("every non-talent guide page has verified text and src/index.js is up to date", async () => {
+  const { execFileSync } = await import("node:child_process");
+  execFileSync(process.execPath, [new URL("../scripts/build-guide-text.mjs", import.meta.url).pathname, "--check"]);
+  const { parseGuideTexts } = await import("../scripts/build-guide-text.mjs");
+  const texts = parseGuideTexts();
+  for (const page of w.CLASS_GUIDE_PAGES) if (!page.talents?.length) assert.ok(texts[page.key], `${page.key} has no text in rehber-metinleri/`);
 });
