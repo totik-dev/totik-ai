@@ -62,3 +62,67 @@ Alt başlık: 23 Eylül 2026 Beta Verileri • Lv60 tooltip değerleri
 
 Dipnot: Kamp buffları ilgili class bufflarıyla stack olmaz; onların yerine geçer.
 Dipnot: Leatherworking %5 XP buffı vermez; mevcut rested XP'yi levelin %5'ine kadar doldurur. Değerler karakter seviyesiyle ölçeklenir ve tabloda Lv60 beta değerleri yer almaktadır.
+
+## special.legacy
+
+Başlık: WoW Forever — LEGACY SİSTEMİ TABLOSU
+Alt başlık: 24 Eylül 2026 güncel beta verileri • account-wide kazanım • karakter başına 16 puan harcama sınırı
+
+Özet: Toplam kazanılabilir 65 Legacy Point. Karakter başına harcama limiti 16. 3 Legacy ağacı. 21 bilinen aktif perk.
+Legacy Point'ler hesap genelinde kazanılır; her karakter bu havuzdan kendi ağacını ayrı dağıtır.
+
+### Legacy Point Kaynakları
+| Kategori | Nasıl kazanılır | Puan |
+|---|---|---|
+| Class Leveling | 9 sınıf için Lv25 / Lv45 / Lv60 ilk kez | 27 |
+| Crafting Meslekleri | 6 crafting mesleği için 150 / 225 / 300: Alchemy, Blacksmithing, Enchanting, Engineering, Leatherworking, Tailoring | 18 |
+| PvP / BG | Rank 3 / 7 / 10 / 13 / 14 + 4 BG Exalted + Fields of Glory 4 / 7 / 10 | 12 |
+| Adventure | Explore Azeroth + Lord Valthalak görev zinciri | 2 |
+| Dungeonlar | 15-25 / 26-45 / 46-60 dungeon setlerini tamamlama | 3 |
+| Raiderlar | Onyxia + Hyjal Summit + Barrow Deeps | 3 |
+
+### Kozmetik Mil Taşları
+15 puan: Replica Ironforge Air Rifle
+25 puan: Spectral Bear Cub
+40 puan: Spectral Bear Tabard
+55 puan: Reins of the Spectral Bear
+
+### 3 Legacy Ağacı
+Professions: Meslek ilerlemesi, gathering verimi, crafting ekonomisi ve fishing/cooking desteği.
+Adventure: Leveling, kamp, keşif, seyahat ve açık dünya utility perkleri.
+Resourcefulness: Honor, reputation, bakım, buff süresi ve reagent/ölüm ekonomisi avantajları.
+
+### Aktif Perkler — Professions (7 perk)
+| Perk | Rank | Kısa açıklama |
+|---|---|---|
+| Working Overtime | 5 | Primary, secondary ve class tradeskill'lerde skill-up şansını artırır. |
+| Bountiful Harvest | 5 | Mining / Herbalism / Skinning'de gelen scarce material miktarını artırır. |
+| Master Chef | 5 | Cooking tariflerinde ekstra ürün çıkarma şansı verir. |
+| Bartering | 2 | Vendor fiyatlarını düşürür. |
+| Performance Bonus | 3 | Supply crate turn-in'lerinde ekstra Merchant's Favor şansı verir. |
+| Luremaster | 2 | Fishing lure kullanılırken ekstra balık yakalama şansını artırır. |
+| Dedicated Study | 1 | En düşük primary/secondary tradeskill'i yükselten günlük etki. |
+
+### Aktif Perkler — Adventure (7 perk)
+| Perk | Rank | Kısa açıklama |
+|---|---|---|
+| Well Rested | 5 | Rested XP birikimini ve rested cap'i artırır. |
+| Thrill of Adventure | 5 | Killing blow sonrası kısa süre HP/Mana yenilir. |
+| High Alert | 2 | Stealth tespitini karakter seviyen +1 / +2 yükselmiş gibi artırır; battleground'da çalışmaz. |
+| Talented | 1 | Talent point kazanımını daha erken başlatır. |
+| Field Guide | 3 | Camp feature ekleme cooldown'unu azaltır. |
+| Field Medicine | 2 | Recently Bandaged süresini azaltır. |
+| Frequent Flier | 1 | Flight path'leri daha ucuz ve daha hızlı yapar. |
+
+### Aktif Perkler — Resourcefulness (7 perk)
+| Perk | Rank | Kısa açıklama |
+|---|---|---|
+| The Quick and the Dead | 2 | Ölüyken hareket hızını artırır; dirilince kısa süre kaynak harcamazsın. |
+| Reinforce | 5 | Ölümde durability kaybını azaltır. |
+| Gourmand | 3 | Food bufflarının süresini artırır. |
+| For Great Honor | 5 | Honor kazanımını artırır. |
+| Permanence | 2 | Uzun süreli stat bufflarını ve camp faydalarını daha uzun sürdürür. |
+| Diplomat | 5 | Reputation kazanımını artırır. |
+| Reagent Economy | 1 | Vendor reagent gerektiren class yeteneklerini ve Tier 1 camp reagent maliyetlerini kaldırır. |
+
+Not: Bu görsel 24 Eylül 2026 güncel beta/client verileri temel alınarak sadeleştirilmiş bir özet tablodur. Beta sürecinde değerler değişebilir.
