@@ -83,3 +83,11 @@ test("src/class-guide-catalog.js matches the catalog embedded in src/index.js", 
   const catalog = read("../src/class-guide-catalog.js").replace(/^export /gm, "").replace(/^\/\/.*\n/, "").trim();
   assert.ok(read("../src/index.js").includes(catalog), "Catalog was regenerated but not copied into src/index.js (or the other way round).");
 });
+
+test("every non-talent guide page has verified text and src/index.js is up to date", async () => {
+  const { execFileSync } = await import("node:child_process");
+  execFileSync(process.execPath, [new URL("../scripts/build-guide-text.mjs", import.meta.url).pathname, "--check"]);
+  const { parseGuideTexts } = await import("../scripts/build-guide-text.mjs");
+  const texts = parseGuideTexts();
+  for (const page of w.CLASS_GUIDE_PAGES) if (!page.talents?.length) assert.ok(texts[page.key], `${page.key} has no text in rehber-metinleri/`);
+});

@@ -155,8 +155,9 @@ test("two questions in one message get two answers in a single reply", async () 
   const answer = net.posts[0].content;
   assert.match(answer, /\*\*1\) shamanların öncelikli statı nedir\?\*\*/);
   assert.match(answer, /\*\*2\) dwarf shaman için leveling aşamasında hangi meslekleri önerirsin\?\*\*/);
-  assert.match(answer, /Cevap numarası 1/);
-  assert.match(answer, /Cevap numarası 2/);
+  assert.match(answer, /Rehberdeki ilgili bilgiler/, "stat part answered from the guide text without OCR");
+  assert.match(answer, /\*\*2\)[^]*Cevap numarası 1/, "profession part answered separately");
+  assert.ok(!net.calls.some(c => c.includes("generateContent")), "no image OCR call");
   assert.equal(await storage.get("answered_count"), 1, "counts as one question");
 });
 
