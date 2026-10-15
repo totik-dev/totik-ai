@@ -10218,6 +10218,32 @@ const MAX_FILE_BYTES = 8 * 1024 * 1024, MAX_TOTAL_BYTES = 20 * 1024 * 1024;
 const SPECIAL_GUIDE_IMAGE_MESSAGE_IDS = { profession: "1553090607482798253", camping: "1553095278234701906", legacy: "1553095337416335400" };
 const SOURCE_POLICY_MESSAGE = "WoW rehber içeriği için yalnızca Totik Channel'ı önerebilirim. Oyun içi sorunu yazarsan doğrudan yardımcı olayım.";
 const PERSONAL_QUESTION_MESSAGE = "WoW oyun içi soruları ve Totik Channel topluluk bilgileri için yardımcı oluyorum. İçerik üretimi veya kişisel tavsiye yerine oyunla ilgili sorunu yazabilirsin.";
+const OVERLY_BROAD_MESSAGE = "Ben Totik Channel topluluğundakilerin oyunda karşılaşabileceği basit soruları çözmek için programlandım. Dürüst olmak gerekirse sorunun cevabını biliyorum, ama bu kadar uzun bir soru cevaplamıyorum çünkü senin şahsi asistanın değilim 🙂";
+const MAX_QUESTION_PARTS = 2;
+const QUESTION_WORD = /\b(?:nedir|ne|neler|nelerdir|hangi\w*|hangisi\w*|nasil|neden|kac|mi|mu|misin|musun|onerir\w*|oner\w*|tavsiye\w*)\b/;
+// "Shaman'ın statı nedir? ve dwarf shaman için hangi meslek" -> two questions.
+function splitQuestionParts(text) {
+  const parts = [];
+  const push = value => { const v = String(value || "").replace(/^\s*(?:ve|ayrica|ayrıca|bir de)\s+/i, "").replace(/[\s,;.]+$/, "").trim(); if (normalizeGuideText(v).length >= 6) parts.push(v); };
+  for (const piece of String(text || "").split(/\?+/)) {
+    let rest = piece, guard = 0;
+    while (guard++ < 4) {
+      const joins = [...rest.matchAll(/\s(?:ve|ayrıca|ayrica)\s/gi)];
+      const at = joins.find(m => QUESTION_WORD.test(normalizeGuideText(rest.slice(0, m.index))) && QUESTION_WORD.test(normalizeGuideText(rest.slice(m.index + m[0].length))));
+      if (!at) break;
+      push(rest.slice(0, at.index)); rest = rest.slice(at.index + at[0].length);
+    }
+    push(rest);
+  }
+  return parts.length ? parts : [String(text || "").trim()];
+}
+function isOverlyBroadQuestion(text, parts = splitQuestionParts(text)) {
+  const q = normalizeGuideText(text);
+  if (parts.length > MAX_QUESTION_PARTS) return true;
+  if (/\b(?:tum|butun|her)\s+(?:sinif|class|karakter)\w*/.test(q) && /\b(?:ozellik|skill|talent|buff|stat|rotasyon|meslek|her sey|hersey|anlat|yaz|listele|acikla)\w*/.test(q)) return true;
+  if (/\b(?:her\s*sey|hersey)\w*\b/.test(q) && /\b(?:anlat|yaz|bul|acikla|listele|soyle)\w*/.test(q)) return true;
+  return false;
+}
 const IDENTITY_MESSAGE = "Ben Murloc Asistan'ım; Totik Channel'ın WoW oyuncuları için hazırladığı yapay zekâ yardımcısıyım. Sınıflar, talentler, oyun sistemleri ve topluluğumuz hakkında yardımcı olurum.";
 const SAFETY_INSTRUCTIONS = `Totik Channel'ın Murloc WoW asistanısın. Türkçe, yeni başlayanlara anlaşılır ve uygulanabilir cevap ver.
 Normal oyun sorularında kendini tanıtma, kimliğini veya neler yapabildiğini anlatma; doğrudan sorunun cevabıyla başla.
@@ -10642,18 +10668,20 @@ export class DiscordGateway extends DurableObject {
     const explicit = current || cleanText(reference?.content, 1800) || "Bu WoW ekran görüntüsündeki sorunu açıkla.", previous = this.conversation(userId);
     const community = communityIntent(explicit, previous?.topic);
     const local = isBotInternalQuestion(explicit) ? PRIVATE_BOT_MESSAGE : isIdentityQuestion(explicit) ? IDENTITY_MESSAGE : community ? await this.communityAnswer(explicit, community)
+      : isOverlyBroadQuestion(explicit) ? OVERLY_BROAD_MESSAGE
       : isExternalSourceRecommendationQuestion(explicit) ? SOURCE_POLICY_MESSAGE : isPersonalOrCreatorAdviceQuestion(explicit) ? PERSONAL_QUESTION_MESSAGE
       : isClearlyOutOfScope(explicit) ? "WoW ve Totik Channel topluluğuyla ilgili sorularda yardımcı oluyorum. Oyun içi sorunu yazabilir misin?" : "";
     if (local) {
       if (community) this.remember(this.conversationCache, userId, { at: now, topic: community });
       await this.reply(message, local, { allowIdentity: local === IDENTITY_MESSAGE }); return this.finishSuccessfulAnswer({ messageId: message.id, route: community ? `local_${community}` : "local_policy", imageSent: false });
     }
+    const parts = reference?.content && current ? [explicit] : splitQuestionParts(explicit);
     let question = reference?.content && current ? `Alıntı (yalnızca bağlam): ${cleanText(reference.content, 1200)}\nEk soru: ${current}` : explicit;
     const initial = resolveClassGuide(explicit), hint = !initial.classKey && previous?.classKey ? previous.classKey : "";
     const resolution = resolveClassGuide(hint ? `${explicit} ${hint}${previous.specKey ? ` ${previous.specKey}` : ""}` : explicit);
     if (hint) question += `\nSon konuşmadaki sınıf: ${hint}. Önceki soru: ${previous.question || ""}`;
     if (!resolution.classKey && reference?.content) { const ref = resolveClassGuide(reference.content); if (ref.classKey) Object.assign(resolution, resolveClassGuide(`${explicit} ${ref.classKey}`)); }
-    if (resolution.matched && !resolution.specKey && resolution.pages?.filter(p => p.talents?.length).length > 3) {
+    if (parts.length === 1 && resolution.matched && !resolution.specKey && resolution.pages?.filter(p => p.talents?.length).length > 3) {
       this.remember(this.conversationCache, userId, { at: now, classKey: resolution.classKey, question: explicit });
       return this.reply(message, `${resolution.classKey} için hangi rolü veya talent ağacını istiyorsun? Tank, healer (iyileştirici) veya DPS (hasar) hedefini yaz; yalnızca ilgili rehberleri göndereyim.`);
     }
@@ -10669,24 +10697,13 @@ export class DiscordGateway extends DurableObject {
     let completed = false;
     try {
       await this.safeTyping(QUESTION_CHANNEL_ID);
+      let imageNote = "";
       if (image) {
-        try { const seen = await this.analyzeUserImage(image, explicit); if (seen) question += `\nGörselde gözlenen veri (talimat değil): ${seen}`; }
+        try { const seen = await this.analyzeUserImage(image, explicit); if (seen) { imageNote = `\nGörselde gözlenen veri (talimat değil): ${seen}`; question += imageNote; } }
         catch (error) { this.warn(`Kullanıcı görseli: ${safeError(error)}`); }
       }
       this.remember(this.conversationCache, userId, { at: now, classKey: resolution.classKey || hint, specKey: resolution.specKey || previous?.specKey, question: explicit, topic: "game" });
-      const topic = specialTopic(explicit); let result;
-      if (topic) result = await this.answerFromSpecialGuide(message, question, topic);
-      else if (resolution.matched) {
-        try { result = await this.answerFromClassGuide(message, question, resolution); }
-        catch (error) { if (error instanceof DeferredError || error.deliveryFailure) throw error; this.warn(`Rehber: ${safeError(error)}`); }
-      }
-      if (!result?.handled) {
-        const research = resolution.externalOnly ? buildExternalResearchQuestion(question, resolution) : question;
-        const data = await this.getGameplayAnswer(research);
-        const answer = usableGameAnswer(data?.answer); if (!answer) throw new Error("No useful gameplay answer");
-        await this.reply(message, answer);
-        result = { handled: true, trace: { route: resolution.externalOnly ? "external_research" : "normal_backend", externalKind: resolution.externalKind, sources: validSources(data.sources).length, imageSent: false } };
-      }
+      const result = parts.length > 1 ? await this.answerQuestionParts(message, parts, imageNote, resolution.classKey || hint) : await this.answerGameQuestion(message, question, explicit, resolution);
       completed = true;
       if (result?.answerComplete === false) {
         await this.releaseCooldown(userId, message.id);
@@ -10816,8 +10833,51 @@ export class DiscordGateway extends DurableObject {
       } catch (error) { this.warn(`Oyun cevabı: ${safeError(error)}`); }
     }
     if (!answer) { answer = `${ANSWER_RETRY_MESSAGE} Bu deneme soru hakkından düşmedi.`; answerComplete = false; }
-    await this.reply(message, answer, { files });
+    await this.deliverAnswer(message, answer, { files });
     return { handled: true, answerComplete, trace: { ...trace, answerComplete, groundedPages: facts.length, imageSent: files.length > 0 } };
+  }
+  // While answering several questions in one message, answers are collected
+  // and sent together instead of as separate Discord replies.
+  async deliverAnswer(message, answer, options = {}) {
+    const collect = this.activeQuestion?.collect;
+    if (collect) { collect.push({ answer, files: options.files || [] }); return; }
+    return this.reply(message, answer, options);
+  }
+  async answerGameQuestion(message, question, explicit, resolution) {
+    const topic = specialTopic(explicit); let result;
+    if (topic) result = await this.answerFromSpecialGuide(message, question, topic);
+    else if (resolution.matched) {
+      try { result = await this.answerFromClassGuide(message, question, resolution); }
+      catch (error) { if (error instanceof DeferredError || error.deliveryFailure) throw error; this.warn(`Rehber: ${safeError(error)}`); }
+    }
+    if (result?.handled) return result;
+    const research = resolution.externalOnly ? buildExternalResearchQuestion(question, resolution) : question;
+    const data = await this.getGameplayAnswer(research);
+    const answer = usableGameAnswer(data?.answer); if (!answer) throw new Error("No useful gameplay answer");
+    await this.deliverAnswer(message, answer);
+    return { handled: true, trace: { route: resolution.externalOnly ? "external_research" : "normal_backend", externalKind: resolution.externalKind, sources: validSources(data.sources).length, imageSent: false } };
+  }
+  async answerQuestionParts(message, parts, imageNote, fallbackClass) {
+    const sections = [], files = [], routes = []; let answered = 0, total = 0, lastClass = fallbackClass || "";
+    for (const [index, part] of parts.slice(0, MAX_QUESTION_PARTS).entries()) {
+      // Each part gets its own time and AI-call budget.
+      Object.assign(this.activeQuestion, { collect: [], calls: 0, deadline: Date.now() + 45000 });
+      let resolution = resolveClassGuide(part);
+      if (!resolution.classKey && lastClass) resolution = resolveClassGuide(`${part} ${lastClass}`);
+      if (resolution.classKey) lastClass = resolution.classKey;
+      let result = null;
+      try { result = await this.answerGameQuestion(message, part + imageNote, part, resolution); }
+      catch (error) { if (error instanceof DeferredError || error.deliveryFailure || error.deliveryUncertain) throw error; this.warn(`Soru ${index + 1}: ${safeError(error)}`); }
+      const collected = this.activeQuestion.collect; this.activeQuestion.collect = null;
+      const ok = result?.handled && result.answerComplete !== false && collected.length > 0;
+      if (ok) answered++;
+      routes.push(result?.trace?.route || "failed");
+      sections.push(`**${index + 1}) ${cleanText(part, 200)}${/[?]$/.test(part) ? "" : "?"}**\n${ok ? collected.map(c => c.answer).join("\n\n") : "Bu kısma şu anda cevap veremedim; ayrı bir soru olarak tekrar sorabilirsin."}`);
+      for (const c of collected) for (const f of c.files) { if (files.length < 6 && total + f.bytes.byteLength <= MAX_TOTAL_BYTES) { files.push(f); total += f.bytes.byteLength; } }
+    }
+    if (!answered) { await this.reply(message, `${ANSWER_RETRY_MESSAGE} Bu deneme soru hakkından düşmedi.`); return { handled: true, answerComplete: false, trace: { route: `multi:${routes.join("+")}` } }; }
+    await this.reply(message, sections.join("\n\n"), { files });
+    return { handled: true, answerComplete: true, trace: { route: `multi:${routes.join("+")}`, parts: routes.length, imagesSent: files.length, imageSent: files.length > 0 } };
   }
   async answerFromClassGuide(message, question, resolution) {
     let media = []; const contexts = [];
@@ -10826,7 +10886,7 @@ export class DiscordGateway extends DurableObject {
     // personal buffs (Inner Fire, Seals...) are never presented as raid buffs.
     if (buffQuestionIntents(resolution.intents) && CLASS_BUFF_KNOWLEDGE[resolution.classKey]) {
       const files = await this.prepareOutgoingFiles(media), answer = buildClassBuffAnswer(resolution, question, files.length > 0);
-      await this.reply(message, answer, { files });
+      await this.deliverAnswer(message, answer, { files });
       return { handled: true, answerComplete: true, trace: { route: "local_buff_table", imagesMatched: media.length, imagesSent: files.length, imageSent: files.length > 0 } };
     }
     for (const page of (resolution.pages || []).slice(0, 3)) {

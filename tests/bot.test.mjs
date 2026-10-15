@@ -145,3 +145,27 @@ test("cooldown message explains supporter and normal waiting times politely", as
   await bot.handleCommand(message("!soru hunter mı iyi mage mı", userId));
   assert.match(net.posts.at(-1).content, /Twitch abonelerimiz ve YouTube Katıl üyelerimiz 1 dakikada bir, diğer üyelerimiz 15 dakikada bir/);
 });
+
+test("two questions in one message get two answers in a single reply", async () => {
+  let n = 0;
+  const net = fakeNetwork({ backend: () => jsonResponse({ answer: `Cevap numarası ${++n}: rehbere göre açıklama.` }) });
+  const { bot, storage } = newBot();
+  await bot.handleCommand(message("!soru shamanların öncelikli statı nedir? ve dwarf shaman için leveling aşamasında hangi meslekleri önerirsin?"));
+  assert.equal(net.posts.length, 1, "one Discord reply");
+  const answer = net.posts[0].content;
+  assert.match(answer, /\*\*1\) shamanların öncelikli statı nedir\?\*\*/);
+  assert.match(answer, /\*\*2\) dwarf shaman için leveling aşamasında hangi meslekleri önerirsin\?\*\*/);
+  assert.match(answer, /Cevap numarası 1/);
+  assert.match(answer, /Cevap numarası 2/);
+  assert.equal(await storage.get("answered_count"), 1, "counts as one question");
+});
+
+test("overly broad or many-question requests get the playful refusal without using the cooldown", async () => {
+  const net = fakeNetwork(); const { bot, storage } = newBot(); const userId = "999999999999999991";
+  await bot.handleCommand(message("!soru bana tüm karakterlerin tüm özelliklerini yaz ve ona göre meslek öner", userId));
+  assert.equal(net.posts.at(-1).content, w.OVERLY_BROAD_MESSAGE);
+  assert.equal(await storage.get(`cooldown:${userId}`), undefined);
+  await new Promise(r => setTimeout(r, 2600));
+  await bot.handleCommand(message("!soru priest buff nedir? mage buff nedir? rogue buff nedir?", userId));
+  assert.equal(net.posts.at(-1).content, w.OVERLY_BROAD_MESSAGE);
+});

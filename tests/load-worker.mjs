@@ -6,7 +6,7 @@ const EXPORTED_FOR_TESTS = [
   "normalizeGuideText", "detectClass", "detectSpec", "resolveClassGuide", "catalogDiagnostics", "findAttachmentForPage",
   "communityIntent", "isBotInternalQuestion", "isIdentityQuestion", "isExternalSourceRecommendationQuestion",
   "isPersonalOrCreatorAdviceQuestion", "isClearlyOutOfScope", "specialTopic", "protectBotOutput", "splitDiscordMessage",
-  "usableGameAnswer", "safeError", "CLASS_GUIDE_PAGES", "GUIDE_BATCH_MESSAGE_IDS",
+  "usableGameAnswer", "safeError", "splitQuestionParts", "isOverlyBroadQuestion", "OVERLY_BROAD_MESSAGE", "CLASS_GUIDE_PAGES", "GUIDE_BATCH_MESSAGE_IDS",
   "QUESTION_CHANNEL_ID", "OWNER_ID", "PRIVATE_BOT_MESSAGE", "IDENTITY_MESSAGE", "SOURCE_POLICY_MESSAGE", "ANSWER_RETRY_MESSAGE"
 ];
 
