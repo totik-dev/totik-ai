@@ -115,3 +115,33 @@ test("output filter hides provider names and long answers are split for Discord"
   const chunks = w.splitDiscordMessage("Satır.\n".repeat(700));
   assert.ok(chunks.length > 1 && chunks.every(c => c.length <= 1900));
 });
+
+test("raid buff question is answered from the buff table without AI and keeps personal buffs apart", async () => {
+  const net = fakeNetwork(); const { bot } = newBot();
+  await bot.handleCommand(message("!soru shadow priestin raide verdiği buff nedir"));
+  const answer = net.posts.at(-1).content;
+  assert.match(answer, /Shadow Priest gruba ne verir/);
+  assert.match(answer, /Power Word: Fortitude/);
+  assert.match(answer, /Shadow Protection/);
+  assert.match(answer, /Vampiric Embrace/);
+  assert.match(answer, /Not: Inner Fire, Shadowform, Shadow Weaving kişiseldir/);
+  assert.ok(answer.indexOf("Inner Fire") > answer.indexOf("Vampiric Embrace"), "personal buff is not listed among raid buffs");
+  assert.ok(!net.calls.some(c => c.includes("googleapis")), "no AI call for a buff question");
+});
+
+test("paladin seals are never listed as group buffs", async () => {
+  const net = fakeNetwork(); const { bot } = newBot();
+  await bot.handleCommand(message("!soru paladin raide hangi buffları verir"));
+  const answer = net.posts.at(-1).content;
+  assert.match(answer, /Blessing of Kings/);
+  assert.match(answer, /Devotion Aura/);
+  assert.match(answer, /Not: Seal'ler kişiseldir/);
+});
+
+test("cooldown message explains supporter and normal waiting times politely", async () => {
+  const net = fakeNetwork(); const { bot } = newBot(); const userId = "888888888888888888";
+  await bot.handleCommand(message("!soru hangi sınıf solo için iyi", userId));
+  await new Promise(r => setTimeout(r, 2600));
+  await bot.handleCommand(message("!soru hunter mı iyi mage mı", userId));
+  assert.match(net.posts.at(-1).content, /Twitch abonelerimiz ve YouTube Katıl üyelerimiz 1 dakikada bir, diğer üyelerimiz 15 dakikada bir/);
+});

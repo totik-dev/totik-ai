@@ -8503,7 +8503,7 @@ function detectGuideIntents(
 
 
   if (
-    /buff.*neler|hangi buff/
+    /buff.*neler|hangi buff|\b(?:raid|grup|grub|party|parti)\w*\s+(?:ne\s+)?(?:katki|katar|verir)/
       .test(
         q
       )
@@ -10335,6 +10335,155 @@ function safeError(error) {
   return String(error?.message || error || "unknown").replace(/https?:\/\/\S+/g, "[adres]")
     .replace(/(?:Bot\s+)?[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{5,}\.[A-Za-z0-9_-]{15,}/g, "[gizli]").replace(/AIza[A-Za-z0-9_-]+/g, "[gizli]").slice(0, 300);
 }
+// ----------------------------------------------------------
+// CLASS BUFF KNOWLEDGE
+//
+// Hand-written so buff questions are answered without AI and never mix up
+// who receives a buff. scope: raid = every party/raid member can get it,
+// party = only the caster's own party (aura/totem/shout), target = one ally,
+// self = caster only, debuff = placed on an enemy, utility = group help that
+// is not a buff. specs: null = every spec of the class, otherwise talent trees.
+// ----------------------------------------------------------
+const BUFF_SCOPES = [
+  ["raid", "Raid ve party'deki herkese verilebilen bufflar"],
+  ["party", "Yalnızca kendi party'sine etki edenler"],
+  ["target", "Tek bir hedefe atılan destekler"],
+  ["debuff", "Düşmana atılan, grubun işine yarayan debufflar"],
+  ["utility", "Gruba başka katkılar"],
+  ["self", "Kişisel bufflar (gruba geçmez)"]
+];
+const CLASS_DISPLAY_NAMES = { druid: "Druid", hunter: "Hunter", mage: "Mage", paladin: "Paladin", priest: "Priest", rogue: "Rogue", shaman: "Shaman", warlock: "Warlock", warrior: "Warrior" };
+const SPEC_DISPLAY_NAMES = {
+  balance: "Balance", "feral-combat": "Feral", restoration: "Restoration", beast: "Beast Mastery", marksmanship: "Marksmanship", survival: "Survival",
+  arcane: "Arcane", fire: "Fire", frost: "Frost", holy: "Holy", protection: "Protection", retribution: "Retribution", discipline: "Discipline", shadow: "Shadow",
+  assassination: "Assassination", combat: "Combat", subtlety: "Subtlety", elemental: "Elemental", enhancement: "Enhancement",
+  affliction: "Affliction", demonology: "Demonology", destruction: "Destruction", arms: "Arms", fury: "Fury"
+};
+const CLASS_BUFF_KNOWLEDGE = {
+  priest: [
+    { name: "Power Word: Fortitude", scope: "raid", tr: "Stamina artırır; uzun süreli party/raid buffıdır." },
+    { name: "Divine Spirit", scope: "raid", tr: "Spirit artırır; mana kullananlar ve Spirit ile güçlenen buildler için değerlidir." },
+    { name: "Shadow Protection", scope: "raid", tr: "Shadow resistance verir; encounter'a ve PvP'ye göre kullanılır." },
+    { name: "Vampiric Embrace", scope: "party", specs: ["shadow"], tr: "Hedefe atılır; Priest'in verdiği Shadow spell hasarının %20'si kadar party üyelerini 30 sn iyileştirir." },
+    { name: "Power Word: Shield", scope: "target", tr: "Hasar emer; aynı hedefe Weakened Soul yüzünden hemen tekrar atılamaz." },
+    { name: "Fear Ward", scope: "target", tr: "Hedefi bir sonraki Fear etkisinden korur; Forever'da bütün Priestler öğrenir." },
+    { name: "Inner Fire", scope: "self", tr: "Priest'in kendi Armor ve saldırı gücünü artıran, charge tabanlı kişisel buff." },
+    { name: "Shadowform", scope: "self", specs: ["shadow"], tr: "Priest'in kendi Shadow hasarını artırır ve Shadow spell mana maliyetini düşürür." },
+    { name: "Shadow Weaving", scope: "self", specs: ["shadow"], tr: "Shadow spell'leri Priest'in kendi Shadow hasarını stack'lenerek artırır." }
+  ],
+  mage: [
+    { name: "Arcane Intellect", scope: "raid", tr: "Intellect artırır; mana kullanan herkese verilen uzun süreli buff." },
+    { name: "Amplify Magic / Dampen Magic", scope: "target", tr: "Hedefin aldığı büyü etkisini (iyileşme dahil) artırır ya da azaltır; duruma göre kullanılır." },
+    { name: "Remove Curse", scope: "utility", tr: "Grup üyelerinden Curse etkisini temizler." },
+    { name: "Conjure Food / Water", scope: "utility", tr: "Gruba yemek ve su sağlar." },
+    { name: "Frost Armor / Ice Armor / Mage Armor", scope: "self", tr: "Mage'in kendi savunmasını veya mana yenilenmesini güçlendiren armor buffları; aynı anda biri aktif olur." },
+    { name: "Improved Scorch", scope: "self", specs: ["fire"], tr: "Forever'da Mage'in hedefe verdiği kendi Fire hasarını artırır; diğer oyunculara geçmez." },
+    { name: "Winter's Chill", scope: "self", specs: ["frost"], tr: "Forever'da Mage'in kendi Ice Lance ve Frostbolt kritik şansını artırır." }
+  ],
+  druid: [
+    { name: "Mark of the Wild", scope: "raid", tr: "Tüm statları, Armor'ı ve resistance'ları artırır; uzun süreli party/raid buffı." },
+    { name: "Leader of the Pack", scope: "party", specs: ["feral-combat"], tr: "Cat/Bear formundayken 45 yarddaki party üyelerinin kritik vuruş şansını %3 artırır; Moonkin Aura ile birikmez." },
+    { name: "Moonkin Aura", scope: "party", specs: ["balance"], tr: "Moonkin Form'dayken 45 yarddaki party üyelerinin kritik şansını %3 artırır; Leader of the Pack ile birikmez." },
+    { name: "Thorns", scope: "target", tr: "Hedefe vuran düşmanlara Nature hasarı yansıtır; genelde tanka atılır." },
+    { name: "Innervate", scope: "target", tr: "Tek bir hedefin mana yenilenmesini kısa süre için çok artırır; genelde healer'a verilir." },
+    { name: "Faerie Fire", scope: "debuff", tr: "Hedefin Armor'ını düşürür ve görünmez olmasını engeller." },
+    { name: "Rebirth", scope: "utility", tr: "Savaş sırasında ölen bir oyuncuyu diriltir." },
+    { name: "Moonkin / Cat / Bear formları", scope: "self", tr: "Druid'in kendi rolüne göre girdiği formlar; form bonusları kişiseldir (Leader of the Pack ve Moonkin Aura hariç)." }
+  ],
+  hunter: [
+    { name: "Trueshot Aura", scope: "party", specs: ["marksmanship"], tr: "45 yarddaki party üyelerinin Ranged Attack Power değerini artırır." },
+    { name: "Aspect of the Pack", scope: "party", tr: "Party'ye hareket hızı verir; vurulan oyuncu yavaşlar, bu yüzden savaşta kapatılır." },
+    { name: "Aspect of the Wild", scope: "party", tr: "Party'ye Nature resistance verir." },
+    { name: "Hunter's Mark", scope: "debuff", tr: "Hedefi işaretler ve hedefe karşı Ranged Attack Power artırır." },
+    { name: "Aspect of the Hawk / Monkey", scope: "self", tr: "Hunter'ın kendi hasarını (Hawk) ya da dodge şansını (Monkey) artırır." }
+  ],
+  paladin: [
+    { name: "Blessing of Might", scope: "raid", tag: "blessing", tr: "Attack Power artırır; melee ve fiziksel DPS için." },
+    { name: "Blessing of Wisdom", scope: "raid", tag: "blessing", tr: "Mana yenilenmesini artırır; healer ve caster için." },
+    { name: "Blessing of Kings", scope: "raid", tag: "blessing", tr: "Tüm statları yüzde olarak artırır." },
+    { name: "Blessing of Salvation", scope: "raid", tag: "blessing", tr: "Üretilen threat'i azaltır; tank dışındaki oyuncular için." },
+    { name: "Blessing kuralı", scope: "raid", tag: "blessing", tr: "Blessinglar 60 dakika sürer; bir oyuncu aynı Paladin'den tek blessing alır, birden fazla Paladin farklı blessing verebilir." },
+    { name: "Blessing of Protection / Freedom / Sacrifice", scope: "target", tag: "blessing", tr: "Tek hedefi fiziksel hasardan korur, yavaşlatma etkilerinden kurtarır veya aldığı hasarın bir kısmını Paladin'e aktarır." },
+    { name: "Devotion Aura", scope: "party", tag: "aura", tr: "Party'nin Armor değerini artırır." },
+    { name: "Retribution Aura", scope: "party", tag: "aura", tr: "Party üyelerine vuran düşmanlara Holy hasarı yansıtır." },
+    { name: "Concentration Aura", scope: "party", tag: "aura", tr: "Party'nin büyü yaparken hasar aldığında yaşadığı kesintiyi azaltır." },
+    { name: "Resistance auraları", scope: "party", tag: "aura", tr: "Shadow, Frost veya Fire resistance verir; encounter'a göre seçilir." },
+    { name: "Crusader Aura", scope: "party", tag: "aura", tr: "Binekli hareket hızını artırır; savaş için değil yolculuk içindir." },
+    { name: "Aura kuralı", scope: "party", tag: "aura", tr: "Her Paladin aynı anda tek aura açar ve aura yalnızca kendi party'sine etki eder." },
+    { name: "Seal'ler", scope: "self", tr: "Seal of Righteousness, Command, Justice ve Fury gibi seal'ler Paladin'in kendi saldırılarını güçlendirir; gruba buff değildir." }
+  ],
+  shaman: [
+    { name: "Totem kuralı", scope: "party", tr: "Totemler yalnızca Shaman'ın kendi party'sine ve yakın menzile etki eder; her elementten (Earth, Fire, Water, Air) aynı anda bir totem olur." },
+    { name: "Strength of Earth Totem", scope: "party", tr: "Party'nin Strength değerini artırır." },
+    { name: "Stoneskin Totem", scope: "party", tr: "Party'nin aldığı fiziksel hasarı azaltır." },
+    { name: "Grace of Air Totem", scope: "party", tr: "Party'nin Agility değerini artırır." },
+    { name: "Windfury Totem", scope: "party", tr: "Party'deki melee oyunculara ekstra saldırı şansı verir." },
+    { name: "Windwall / Grounding Totem", scope: "party", tr: "Uzaktan gelen hasarı azaltır veya bir büyüyü üstüne çeker." },
+    { name: "Mana Spring Totem", scope: "party", tr: "Party'nin mana yenilenmesini artırır." },
+    { name: "Healing Stream Totem", scope: "party", tr: "Party'yi düzenli aralıklarla iyileştirir." },
+    { name: "Mana Tide Totem", scope: "party", specs: ["restoration"], tr: "12 sn boyunca 30 yarddaki party üyelerine düzenli mana verir." },
+    { name: "Resistance totemleri", scope: "party", tr: "Fire, Frost veya Nature resistance verir; encounter'a göre seçilir." },
+    { name: "Lightning Shield / Water Shield", scope: "self", tr: "Shaman'ın kendi üstündeki kalkanlar; gruba geçmez." }
+  ],
+  warlock: [
+    { name: "Blood Pact (Imp)", scope: "party", tr: "Imp aktifken party'nin Stamina değerini artırır." },
+    { name: "Soulstone", scope: "target", tr: "Hedef ölürse kendini diriltebilmesini sağlar; genelde healer'a atılır." },
+    { name: "Unending Breath / Detect Invisibility", scope: "target", tr: "Hedefe su altında nefes veya görünmezleri görme yeteneği verir." },
+    { name: "Curse of Weakness", scope: "debuff", tr: "Hedefin verdiği fiziksel hasarı azaltır." },
+    { name: "Curse of Exhaustion", scope: "debuff", specs: ["affliction"], tr: "Hedefin hareket hızını düşürür." },
+    { name: "Curse kuralı", scope: "debuff", tr: "Her Warlock bir hedefte aynı anda tek Curse tutabilir." },
+    { name: "Healthstone / Summoning", scope: "utility", tr: "Gruba can taşı dağıtır ve oyuncuları yanına çağırabilir." },
+    { name: "Demon Armor", scope: "self", tr: "Warlock'un kendi Armor ve can yenilenmesini artırır." },
+    { name: "Improved Shadow Bolt", scope: "self", specs: ["destruction"], tr: "Forever'da yalnızca Warlock'un kendi saldırılarından gelen Shadow hasarını artırır." },
+    { name: "Soul Link / Master Demonologist", scope: "self", specs: ["demonology"], tr: "Warlock ile demon'u arasında çalışır; gruba geçmez." }
+  ],
+  rogue: [
+    { name: "Expose Armor", scope: "debuff", tr: "Hedefin Armor'ını düşürür ve fiziksel hasar veren herkesin işine yarar; Warrior'ın Sunder Armor'ı ile birikmez." },
+    { name: "Kick / Kidney Shot", scope: "utility", tr: "Büyü kesme ve stun ile grubu korur." },
+    { name: "Poison'lar ve Slice and Dice", scope: "self", tr: "Rogue'un kendi hasarını ve saldırı hızını artırır; gruba geçmez." },
+    { name: "Not", scope: "utility", tr: "Rogue raid ve party'ye doğrudan buff vermez; katkısı hasar, Expose Armor ve kesmelerdir." }
+  ],
+  warrior: [
+    { name: "Battle Shout", scope: "party", tr: "Warrior'ın ana grup buffı; party'nin Attack Power değerini artırır." },
+    { name: "Sunder Armor", scope: "debuff", tr: "Hedefin Armor'ını stack'lenerek düşürür; fiziksel hasar veren grubun hasarını artırır." },
+    { name: "Demoralizing Shout", scope: "debuff", tr: "Yakındaki düşmanların Attack Power değerini düşürür; tankın aldığı hasarı azaltır." },
+    { name: "Thunder Clap", scope: "debuff", tr: "Yakındaki düşmanlara hasar verir ve saldırı hızlarını düşürür." },
+    { name: "Challenging / Intimidating Shout", scope: "utility", tr: "Düşmanları üstüne çeker veya korkutur; durum aracıdır." }
+  ]
+};
+const GROUP_BUFF_QUESTION = /\b(raid|raide|raidde|grup|gruba|grupta|party|partiye|parti|takim|takima|ekip|herkese)\b/;
+const PERSONAL_BUFF_QUESTION = /\b(kisisel|kendine|kendi|self)\b/;
+function buffQuestionIntents(intents = []) {
+  const buffish = ["buff", "debuff", "blessing", "aura"];
+  return intents.length > 0 && intents.every(i => buffish.includes(i)) ? intents : null;
+}
+function buildClassBuffAnswer(resolution, question, hasFiles) {
+  const classKey = resolution?.classKey, entries = CLASS_BUFF_KNOWLEDGE[classKey], intents = buffQuestionIntents(resolution?.intents);
+  if (!entries || !intents) return "";
+  const q = normalizeGuideText(question), specKey = resolution.specKey || null;
+  const tags = intents.filter(i => i === "blessing" || i === "aura");
+  let list = entries.filter(e => !e.specs || !specKey || e.specs.includes(specKey));
+  if (classKey === "paladin" && tags.length && !intents.includes("buff")) list = list.filter(e => tags.includes(e.tag));
+  const debuffOnly = intents.length === 1 && intents[0] === "debuff";
+  const groupOnly = !debuffOnly && GROUP_BUFF_QUESTION.test(q) && !PERSONAL_BUFF_QUESTION.test(q);
+  const personalOnly = !debuffOnly && PERSONAL_BUFF_QUESTION.test(q) && !GROUP_BUFF_QUESTION.test(q);
+  const order = debuffOnly ? ["debuff"] : personalOnly ? ["self"] : groupOnly ? ["raid", "party", "target", "debuff"] : BUFF_SCOPES.map(([s]) => s);
+  const who = `${specKey ? `${SPEC_DISPLAY_NAMES[specKey] || specKey} ` : ""}${CLASS_DISPLAY_NAMES[classKey]}`;
+  const title = debuffOnly ? `**${who} debuffları**` : personalOnly ? `**${who} kişisel buffları**` : groupOnly ? `**${who} gruba ne verir?**` : `**${who} buff ve debuffları**`;
+  const sections = [];
+  for (const scope of order) {
+    const items = list.filter(e => e.scope === scope);
+    if (!items.length) continue;
+    const label = BUFF_SCOPES.find(([s]) => s === scope)[1];
+    sections.push(`${label}:\n${items.map(e => `• **${e.name}**${e.specs && !specKey ? ` (${e.specs.map(s => SPEC_DISPLAY_NAMES[s] || s).join("/")} talenti)` : ""}: ${e.tr}`).join("\n")}`);
+  }
+  if (!sections.length) sections.push(debuffOnly ? `${who} düşmana grup için önemli bir debuff atmaz.` : `${who} için bu türde bir buff yok.`);
+  if (groupOnly) {
+    const personal = list.filter(e => e.scope === "self").map(e => e.name);
+    if (personal.length) sections.push(`Not: ${personal.join(", ")} kişiseldir; gruba geçmez.`);
+  }
+  return `${title}\n\n${sections.join("\n\n")}${hasFiles ? "\n\nİlgili rehber görselini de ekledim." : ""}`;
+}
 class DeferredError extends Error { constructor(message, retryAt) { super(message); this.name = "DeferredError"; this.retryAt = retryAt; } }
 async function authorizedManagement(request, env) {
   const expected = String(env.ADMIN_API_KEY || ""), supplied = request.headers.get("authorization") || "";
@@ -10514,7 +10663,7 @@ export class DiscordGateway extends DurableObject {
     if (!cooldown.allowed) {
       const flood = this.floodCache.get(userId); if (flood?.rejectedAt && now - flood.rejectedAt < 30000) return;
       if (flood) flood.rejectedAt = now;
-      return this.reply(message, `⏱️ Tekrar soru sorabilmek için **${formatRemaining(cooldown.remainingMs)}** beklemelisin. Katıl/Sub: 1 dakika; normal üyeler: 15 dakika.`);
+      return this.reply(message, `⏱️ Yeni bir soru sorabilmek için **${formatRemaining(cooldown.remainingMs)}** beklemelisin.\nTwitch abonelerimiz ve YouTube Katıl üyelerimiz 1 dakikada bir, diğer üyelerimiz 15 dakikada bir soru sorabilir. Anlayışın için teşekkürler! 💙`);
     }
     this.activeQuestion = { id: String(message.id), deadline: Date.now() + 50000, calls: 0, warnings: [], startedAt: Date.now() };
     let completed = false;
@@ -10673,6 +10822,13 @@ export class DiscordGateway extends DurableObject {
   async answerFromClassGuide(message, question, resolution) {
     let media = []; const contexts = [];
     try { media = await this.loadClassGuideMedia(resolution); } catch (error) { if (error instanceof DeferredError) throw error; this.warn(`Rehber yükleme: ${safeError(error)}`); }
+    // Buff questions are answered from the built-in buff table: no AI call, and
+    // personal buffs (Inner Fire, Seals...) are never presented as raid buffs.
+    if (buffQuestionIntents(resolution.intents) && CLASS_BUFF_KNOWLEDGE[resolution.classKey]) {
+      const files = await this.prepareOutgoingFiles(media), answer = buildClassBuffAnswer(resolution, question, files.length > 0);
+      await this.reply(message, answer, { files });
+      return { handled: true, answerComplete: true, trace: { route: "local_buff_table", imagesMatched: media.length, imagesSent: files.length, imageSent: files.length > 0 } };
+    }
     for (const page of (resolution.pages || []).slice(0, 3)) {
       if (page.talents?.length) { contexts.push(buildStructuredGuideContext({ pages: [page] })); continue; }
       const item = media.find(m => m.page.key === page.key); if (!item) continue;

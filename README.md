@@ -29,6 +29,8 @@ npm run check   # Worker'ı deploy etmeden derler
 
 GitHub'a gönderilen her değişiklikte bu iki adım otomatik çalışır (Actions → Test). Kırmızı görünürse değişiklik bir şeyi bozmuş demektir.
 
+Sınıfların buff/debuff bilgisi `src/index.js` içindeki `CLASS_BUFF_KNOWLEDGE` tablosundadır. Buff soruları AI kullanılmadan bu tablodan cevaplanır; yanlış veya eksik bir buff görürsen orayı düzelt.
+
 Yeni bir soru kalıbının doğru rehbere gitmesini istiyorsan `tests/routing.test.mjs` içindeki `GUIDE_CASES` listesine ekle.
 
 ## Ayarlar (Cloudflare değişkenleri)
