@@ -156,7 +156,7 @@ test("two questions in one message get two answers in a single reply", async () 
   assert.match(answer, /\*\*1\) shamanların öncelikli statı nedir\?\*\*/);
   assert.match(answer, /\*\*2\) dwarf shaman için leveling aşamasında hangi meslekleri önerirsin\?\*\*/);
   assert.match(answer, /Rehberdeki ilgili bilgiler/, "stat part answered from the guide text without OCR");
-  assert.match(answer, /\*\*2\)[^]*Cevap numarası 1/, "profession part answered separately");
+  assert.match(answer, /\*\*2\)[^]*Shaman için önerilen meslekler/, "profession part answered separately from the profession map");
   assert.ok(!net.calls.some(c => c.includes("generateContent")), "no image OCR call");
   assert.equal(await storage.get("answered_count"), 1, "counts as one question");
 });
@@ -169,4 +169,14 @@ test("overly broad or many-question requests get the playful refusal without usi
   await new Promise(r => setTimeout(r, 2600));
   await bot.handleCommand(message("!soru priest buff nedir? mage buff nedir? rogue buff nedir?", userId));
   assert.equal(net.posts.at(-1).content, w.OVERLY_BROAD_MESSAGE);
+});
+
+test("profession questions are answered from the profession map table without AI", async () => {
+  const net = fakeNetwork(); const { bot } = newBot();
+  await bot.handleCommand(message("!soru dwarf shaman için leveling aşamasında hangi meslekleri önerirsin"));
+  const answer = net.posts.at(-1).content;
+  assert.match(answer, /Shaman için önerilen meslekler/);
+  assert.match(answer, /Enhancement\*\*: Leveling: Skinning \+ Leatherworking/);
+  assert.doesNotMatch(answer, /Herbalism/);
+  assert.ok(!net.calls.some(c => c.includes("googleapis")), "no AI call");
 });
