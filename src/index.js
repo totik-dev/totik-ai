@@ -10915,7 +10915,7 @@ export class DiscordGateway extends DurableObject {
   }
   async askGuideGrounded(question, resolution, context) {
     return this.callGeminiText(JSON.stringify({ question, matchedClass: resolution.classKey, spec: resolution.specKey || null, trustedGuideFacts: context,
-      task: "Yalnızca verilen Totik rehberiyle soruyu doğrudan cevapla; görsel ekledim diyerek geçiştirme. Öneri istiyorsa eldeki özellikleri amaca göre karşılaştır; PvP/PvE tercihi eksikse koşullu öneri ver ve gerekirse tek soru sor. Tam etkideki sayı ve koşulları esas al. Rank bilgisinden maksimum rank uydurma. Türkçe özet eksikse tam etkiyi çevir. Görselin gönderildiğini varsayma. 3-5 kısa madde." }), 1000, 0.05);
+      task: "Yalnızca verilen Totik rehberiyle soruyu doğrudan cevapla; görsel ekledim diyerek geçiştirme. Rehberde yazmayan seçenek, meslek, stat veya sayı ekleme; sorulan şey rehberde yoksa bunu açıkça söyle. Soru bir spec veya ırk belirtiyorsa rehberdeki o satırı esas al. Öneri istiyorsa eldeki özellikleri amaca göre karşılaştır; PvP/PvE tercihi eksikse koşullu öneri ver ve gerekirse tek soru sor. Tam etkideki sayı ve koşulları esas al. Rank bilgisinden maksimum rank uydurma. Türkçe özet eksikse tam etkiyi çevir. Görselin gönderildiğini varsayma. 3-5 kısa madde." }), 1000, 0.05);
   }
   async analyzeUserImage(image, question) {
     if (!this.env.GEMINI_API_KEY) return "";
