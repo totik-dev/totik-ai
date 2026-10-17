@@ -10817,7 +10817,7 @@ export class DiscordGateway extends DurableObject {
     if (!cooldown.allowed) {
       const flood = this.floodCache.get(userId); if (flood?.rejectedAt && now - flood.rejectedAt < 30000) return;
       if (flood) flood.rejectedAt = now;
-      return this.reply(message, `⏱️ Yeni bir soru sorabilmek için **${formatRemaining(cooldown.remainingMs)}** beklemelisin.\nTwitch abonelerimiz ve YouTube Katıl üyelerimiz 1 dakikada bir, diğer üyelerimiz 15 dakikada bir soru sorabilir. Anlayışın için teşekkürler! 💙`);
+      return this.reply(message, `⏱️ Yeni soru için **${formatRemaining(cooldown.remainingMs)}** beklemelisin.\nMurloc Bot'un Twitch Sub ve YouTube Katıl aboneleri için bekleme süresi 1 dakika, normal üyeler için 15 dakikadır.`);
     }
     this.activeQuestion = { id: String(message.id), deadline: Date.now() + 50000, calls: 0, warnings: [], startedAt: Date.now() };
     let completed = false;
