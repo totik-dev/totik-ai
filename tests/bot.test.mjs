@@ -143,7 +143,7 @@ test("cooldown message explains supporter and normal waiting times politely", as
   await bot.handleCommand(message("!soru hangi sınıf solo için iyi", userId));
   await new Promise(r => setTimeout(r, 2600));
   await bot.handleCommand(message("!soru hunter mı iyi mage mı", userId));
-  assert.match(net.posts.at(-1).content, /Twitch abonelerimiz ve YouTube Katıl üyelerimiz 1 dakikada bir, diğer üyelerimiz 15 dakikada bir/);
+  assert.match(net.posts.at(-1).content, /Twitch Sub ve YouTube Katıl aboneleri için bekleme süresi 1 dakika, normal üyeler için 15 dakikadır\./);
 });
 
 test("two questions in one message get two answers in a single reply", async () => {
