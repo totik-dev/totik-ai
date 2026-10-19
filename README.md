@@ -9,6 +9,7 @@ Totik Channel Discord sunucusunda WoW Forever sorularını cevaplayan bot. Soru 
 - Soru bir sınıf rehberiyle eşleşirse (sınıf, spec, konu) rehber kanalındaki PNG'ler okunur, cevap bu rehbere dayanarak yazılır ve görseller mesaja eklenir.
 - Eşleşme yoksa WoW AI servisi (`WOW_AI_URL`), o da cevap vermezse Gemini kullanılır.
 - Bekleme süresi: YouTube Katıl / Twitch Sub / premium rolü 1 dakika, diğer üyeler 15 dakika. Cevap verilemezse hak geri verilir.
+- Başkasının mesajına yanıt vererek `!soru` yazmak (o kişinin sorusunu bota sordurmak) yalnızca YouTube Katıl / Twitch Sub / premium rolüne açıktır; diğer üyeler kendi sorularını sorar.
 - Cooldown, mesaj durumu ve rehber görsellerinden okunan metin Durable Object depolamasında tutulur; ayrı veritabanı yoktur.
 
 ## Dosyalar

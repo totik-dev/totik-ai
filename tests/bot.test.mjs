@@ -180,3 +180,20 @@ test("profession questions are answered from the profession map table without AI
   assert.doesNotMatch(answer, /Herbalism/);
   assert.ok(!net.calls.some(c => c.includes("googleapis")), "no AI call");
 });
+
+test("only supporters can ask by replying !soru to someone else's message", async () => {
+  const other = { id: "4242", author: { id: "999999999999999999" }, content: "stress test ne kadar süre aktif olacak" };
+  const normal = fakeNetwork(); const { bot, storage } = newBot(); const userId = "121212121212121212";
+  await bot.handleCommand({ ...message("!soru", userId), referenced_message: other });
+  assert.equal(normal.posts.at(-1).content, w.BORROWED_QUESTION_MESSAGE);
+  assert.equal(await storage.get(`cooldown:${userId}`), undefined, "refusal does not use the cooldown");
+  assert.ok(!normal.calls.some(c => c.includes("googleapis") || c.includes("wow")), "no AI call");
+
+  const supporter = fakeNetwork({ roles: ["1047102585141727342"] }); const { bot: bot2 } = newBot();
+  await bot2.handleCommand({ ...message("!soru", userId), referenced_message: other });
+  assert.match(supporter.posts.at(-1).content, /pet hasarı üstlenir/);
+
+  const own = fakeNetwork(); const { bot: bot3 } = newBot();
+  await bot3.handleCommand({ ...message("!soru", userId), referenced_message: { ...other, author: { id: userId } } });
+  assert.match(own.posts.at(-1).content, /pet hasarı üstlenir/, "replying to your own message still works");
+});

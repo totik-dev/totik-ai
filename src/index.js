@@ -10319,6 +10319,8 @@ const WOW_AI_URL = "https://totik-ai-test.totikch.workers.dev/";
 const QUESTION_COMMAND = /^!soru(?:\s|$)/i;
 const DEBUG_COMMAND = /^!soru-debug(?:\s|$)/i;
 const NORMAL_COOLDOWN_MS = 900000, PREMIUM_COOLDOWN_MS = 60000;
+const ROLE_UNKNOWN_MESSAGE = "Üyelik rolünü şu anda doğrulayamıyorum. Yanlışlıkla 15 dakika bekleme uygulamamak için bu denemeyi saymadım; biraz sonra tekrar deneyebilirsin.";
+const BORROWED_QUESTION_MESSAGE = "Başkasının mesajına yanıt vererek `!soru` yazmak yalnızca Twitch Sub ve YouTube Katıl abonelerine açık. Kendi sorunu `!soru <soru>` şeklinde sorabilirsin.";
 const MAX_FILE_BYTES = 8 * 1024 * 1024, MAX_TOTAL_BYTES = 20 * 1024 * 1024;
 const SPECIAL_GUIDE_IMAGE_MESSAGE_IDS = { profession: "1553090607482798253", camping: "1553095278234701906", legacy: "1553095337416335400" };
 const SOURCE_POLICY_MESSAGE = "WoW rehber içeriği için yalnızca Totik Channel'ı önerebilirim. Oyun içi sorunu yazarsan doğrudan yardımcı olayım.";
@@ -10789,6 +10791,17 @@ export class DiscordGateway extends DurableObject {
     if (!reference && message.message_reference?.message_id) {
       try { reference = await this.discordRequest(`/channels/${QUESTION_CHANNEL_ID}/messages/${message.message_reference.message_id}`); } catch { /* Deleted reply isn't fatal. */ }
     }
+    // Asking on behalf of someone else's message is a supporter perk; normal members ask their own questions.
+    let tier = null;
+    if (reference && !reference.author?.bot && String(reference.author?.id || "") !== userId) {
+      tier = await this.getMemberCooldownClass(message);
+      if (tier.unknown) return this.reply(message, ROLE_UNKNOWN_MESSAGE);
+      if (!tier.premium) {
+        if (recent?.rejectedAt && now - recent.rejectedAt < 30000) return;
+        this.floodCache.get(userId).rejectedAt = now;
+        return this.reply(message, BORROWED_QUESTION_MESSAGE);
+      }
+    }
     const image = getImageAttachment(message) || getImageAttachment(reference);
     if (!current && !image && !reference?.content) return this.reply(message, "Sorunu `!soru` sonrasında yazabilir, görsel ekleyebilir veya bir mesaja yanıt vererek `!soru` yazabilirsin.");
     const explicit = current || cleanText(reference?.content, 1800) || "Bu WoW ekran görüntüsündeki sorunu açıkla.", previous = this.conversation(userId);
@@ -10811,8 +10824,8 @@ export class DiscordGateway extends DurableObject {
       this.remember(this.conversationCache, userId, { at: now, classKey: resolution.classKey, question: explicit });
       return this.reply(message, `${resolution.classKey} için hangi rolü veya talent ağacını istiyorsun? Tank, healer (iyileştirici) veya DPS (hasar) hedefini yaz; yalnızca ilgili rehberleri göndereyim.`);
     }
-    const tier = await this.getMemberCooldownClass(message);
-    if (tier.unknown) return this.reply(message, "Üyelik rolünü şu anda doğrulayamıyorum. Yanlışlıkla 15 dakika bekleme uygulamamak için bu denemeyi saymadım; biraz sonra tekrar deneyebilirsin.");
+    tier ||= await this.getMemberCooldownClass(message);
+    if (tier.unknown) return this.reply(message, ROLE_UNKNOWN_MESSAGE);
     const cooldown = await this.acquireCooldown(userId, tier.durationMs, message.id);
     if (!cooldown.allowed) {
       const flood = this.floodCache.get(userId); if (flood?.rejectedAt && now - flood.rejectedAt < 30000) return;
