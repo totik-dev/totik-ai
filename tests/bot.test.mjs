@@ -180,3 +180,21 @@ test("profession questions are answered from the profession map table without AI
   assert.doesNotMatch(answer, /Herbalism/);
   assert.ok(!net.calls.some(c => c.includes("googleapis")), "no AI call");
 });
+
+test("a 'bilgi bulamadım' reply from the backend falls back to the general answer", async () => {
+  const net = fakeNetwork({
+    backend: () => jsonResponse({ answer: "Bu konuda güvenilir bilgi bulamadım." }),
+    gemini: () => jsonResponse({ status: "completed", steps: [{ type: "model_output", content: [{ type: "text", text: "Onyxia için önce Blackrock Spire tarafındaki görev zincirini tamamlaman gerekir." }] }] })
+  });
+  const { bot } = newBot();
+  await bot.handleCommand(message("!soru onyxia attunement nasıl yapılır"));
+  assert.match(net.posts[0].content, /görev zincirini/);
+  assert.ok(!/bulamadım/.test(net.posts[0].content));
+});
+
+test("no-info detection only catches short not-found replies", () => {
+  assert.ok(w.isNoInfoAnswer("Bu konuda bilgi bulunamadı."));
+  assert.ok(w.isNoInfoAnswer("Üzgünüm, bilgi yok."));
+  assert.ok(!w.isNoInfoAnswer("Warrior için Strength en önemli stattır; hit cap sonrası crit gelir."));
+  assert.ok(!w.isNoInfoAnswer(`Uzun cevap. ${"Detay ".repeat(80)} Bir kısmını bulamadım.`));
+});

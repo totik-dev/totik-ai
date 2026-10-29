@@ -10442,6 +10442,13 @@ function usableGameAnswer(value) {
   if (/^(?:gorsel|rehber|bu gorsel|bu rehber).{0,45}(?:okuyam|okunam)|^(?:bilgi yok|okuyam|okunam|yanit yok)/.test(q)) return "";
   return text;
 }
+// A short "could not find it" reply from the gameplay backend is not an answer:
+// it would reach every player as "bilgi yok". Such replies go to the fallback.
+function isNoInfoAnswer(value) {
+  const q = normalizeGuideText(value);
+  if (!q || q.length > 400) return false;
+  return /bulamad|bulunamad|bilgi (?:yok|bulunmuyor|mevcut degil)|bilgim yok|bilgiye ulasamad|sonuc (?:yok|bulunamad)|kaynak bulunamad|yeterli (?:bilgi|kaynak) (?:yok|bulunamad)|no (?:information|results?|relevant)|could not find|couldn'?t find|not found/.test(q);
+}
 function splitDiscordMessage(value) {
   let text = cleanText(value, 12000); const chunks = [];
   while (text.length > 1900) { let cut = text.lastIndexOf("\n", 1900); if (cut < 700) cut = text.lastIndexOf(" ", 1900); if (cut < 700) cut = 1900; chunks.push(text.slice(0, cut).trim()); text = text.slice(cut).trim(); }
@@ -11093,6 +11100,7 @@ export class DiscordGateway extends DurableObject {
     try {
       const data = await this.askWowAi(question), answer = usableGameAnswer(data?.answer);
       if (!answer) throw new Error("No useful gameplay answer");
+      if (isNoInfoAnswer(answer)) throw new Error("Backend bilgi yok cevabı verdi");
       return { ...data, answer };
     } catch (error) {
       this.warn(`Oyun cevabı: ${safeError(error)}`);
