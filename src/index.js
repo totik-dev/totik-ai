@@ -10429,8 +10429,14 @@ function stripUnaskedIntroduction(value) {
   });
   return removed ? kept.join("\n").trim() : text;
 }
+// The model now and then emits stray IPA letters or loose accent marks inside
+// Turkish words ("şekildedʘ̂:"). Turkish letters are precomposed after NFC, so
+// any combining mark left over is garbage.
+function stripStraySymbols(value) {
+  return String(value || "").normalize("NFC").replace(/[\u0250-\u02af\u0300-\u036f\ue000-\uf8ff\ufffd]/g, "");
+}
 function sanitizeNormalAnswer(value) {
-  return enforceOutputPolicy(stripUnaskedIntroduction(value).replace(/^\s*(?:selam|merhaba)[!,. :;-]*/i, "")
+  return enforceOutputPolicy(stripUnaskedIntroduction(stripStraySymbols(value)).replace(/^\s*(?:selam|merhaba)[!,. :;-]*/i, "")
     .replace(/^\s*(?:PAGE|FILE|DOSYA|SAYFA|KAYNAK)\s*:.*$/gim, "").replace(/`?\b\d{1,2}-[a-z0-9._-]+\.(?:png|jpe?g|webp)\b`?/gi, ""));
 }
 function usableGameAnswer(value) {

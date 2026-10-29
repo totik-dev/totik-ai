@@ -198,3 +198,7 @@ test("no-info detection only catches short not-found replies", () => {
   assert.ok(!w.isNoInfoAnswer("Warrior için Strength en önemli stattır; hit cap sonrası crit gelir."));
   assert.ok(!w.isNoInfoAnswer(`Uzun cevap. ${"Detay ".repeat(80)} Bir kısmını bulamadım.`));
 });
+
+test("stray symbols the model sometimes emits are removed, Turkish letters stay", () => {
+  assert.equal(w.usableGameAnswer("Rota şu şekildedʘ̂: Goldshire'ı geç, güneye İlerle."), "Rota şu şekilded: Goldshire'ı geç, güneye İlerle.");
+});
