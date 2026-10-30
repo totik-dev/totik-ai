@@ -202,3 +202,13 @@ test("no-info detection only catches short not-found replies", () => {
 test("stray symbols the model sometimes emits are removed, Turkish letters stay", () => {
   assert.equal(w.usableGameAnswer("Rota şu şekildedʘ̂: Goldshire'ı geç, güneye İlerle."), "Rota şu şekilded: Goldshire'ı geç, güneye İlerle.");
 });
+
+test("'guild var mı' gets a direct yes with the channels, without robotic disclaimers", async () => {
+  const net = fakeNetwork(); const { bot } = newBot();
+  await bot.handleCommand(message("!soru wow forever guild var mı"));
+  const answer = net.posts[0].content;
+  assert.match(answer, /^Evet, Totik Channel'ın WoW Forever guild'i var\./);
+  assert.match(answer, /Alliance/);
+  assert.match(answer, /başvuru açıklamasını takip edebilirsin/);
+  assert.ok(!/uydurmam/.test(answer));
+});

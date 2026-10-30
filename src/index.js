@@ -10771,12 +10771,14 @@ export class DiscordGateway extends DurableObject {
     if (intent === "totik") {
       if (/yayin|saat|takvim/.test(q)) return p.streamSchedule ? `Totik'in paylaşılan yayın takvimi: ${p.streamSchedule}` : "Totik'in doğrulanmış sabit yayın saatleri bende tanımlı değil. Güncel duyuruları Totik Channel'ın sunucu duyurularından takip edebilirsin.";
       if (/kim|ne yap|hakkinda|channel/.test(q)) return p.about || "Totik, Totik Channel topluluğunun içerik üreticisidir. Ben de bu topluluğun WoW oyun içi sorularına yardımcı olan Murloc Asistan'ım.";
-      return "Totik hakkında doğrulanmış bilgim: WoW Forever'da Normal ruleset ve Alliance tarafında oynuyor. Karakter adı, anlık konumu veya kişisel ayrıntıları tanımlı değil; tahmin ederek söylemem.";
+      return "Totik hakkında doğrulanmış bilgim: WoW Forever'da Normal ruleset ve Alliance tarafında oynuyor. Karakter adı veya anlık konumu gibi ayrıntılar bende yok.";
     }
     if (/(?:guild|lonca|klan).*?(?:adi|ismi)/.test(q)) return p.guildName ? `Guild adı: **${p.guildName}**. ${where}` : `${where}\nKesin guild adı bende tanımlı değil. Güncel guild bilgisi <#${GUILD_INFO_CHANNEL_ID}> kanalında.`;
     const defined = [p.guildRequirements && `Katılım şartları: ${p.guildRequirements}`, p.applicationInstructions && `Başvuru: ${p.applicationInstructions}`, p.guildContacts && `İletişim: ${p.guildContacts}`].filter(Boolean);
     const notices = !defined.length && /katil|basvur|alim|sart|iletisim/.test(q) ? await this.communityNotices() : "";
-    return `${where}${p.guildName ? ` Guild: **${p.guildName}**.` : ""}\n\n${defined.join("\n") || notices || "Başvurmak için guild-alim kanalına girip oradaki güncel başvuru açıklamasını takip et. Bende tanımlanmamış seviye, sınıf veya üyelik şartı uydurmam."}\n\nBaşvuru: <#${GUILD_APPLICATION_CHANNEL_ID}>\nGuild bilgileri: <#${GUILD_INFO_CHANNEL_ID}>`;
+    const intro = `Evet, Totik Channel'ın WoW Forever guild'i var${p.guildName ? `: **${p.guildName}**` : ""}. **${p.ruleset} ruleset**, **${p.faction}** tarafında oynuyoruz.${p.realm ? ` Realm: **${p.realm}**.` : ""}`;
+    const join = defined.join("\n") || notices || `Katılmak için <#${GUILD_APPLICATION_CHANNEL_ID}> kanalındaki başvuru açıklamasını takip edebilirsin.`;
+    return `${intro}\n\n${join}\n\nGuild hakkında güncel bilgiler: <#${GUILD_INFO_CHANNEL_ID}>${defined.length || notices ? `\nBaşvuru: <#${GUILD_APPLICATION_CHANNEL_ID}>` : ""}`;
   }
   async communityNotices() {
     const cached = this.communityCache.get("notices"); if (cached && Date.now() - cached.at < 300000) return cached.text;
