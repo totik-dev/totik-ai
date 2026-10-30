@@ -465,8 +465,8 @@ export const CLASS_GUIDE_PAGES = [
         "name": "King of the Jungle",
         "tree": "feral-combat",
         "meta": "3 ranks · Row 5",
-        "effect": "Tiger's Fury now instantly grants you 20 Energy.",
-        "tr": "Tiger'ın Fury'su artık size anında 20 Energy veriyor."
+        "effect": "Tiger's Fury now instantly grants you 20 Energy. Note: Tiger's Fury was removed in the October 26, 2026 WoW Forever development notes; the new effect of this talent has not been announced.",
+        "tr": "Tiger's Fury 26 Ekim 2026 geliştirici notlarıyla oyundan kaldırıldı; bu talentin yeni etkisi henüz açıklanmadı. (Eski hali: Tiger's Fury anında 20 Energy verirdi.)"
       },
       {
         "name": "Natural Reaction",
@@ -5935,7 +5935,6 @@ export const CLASS_GUIDE_PAGES = [
       "piercing howl",
       "improved cleave",
       "unbridled wrath",
-      "iron will",
       "cruelty",
       "booming voice",
       "fury talent 1",
@@ -5956,13 +5955,6 @@ export const CLASS_GUIDE_PAGES = [
         "meta": "5 ranks · Row 1",
         "effect": "Improves your chance to get a critical strike with melee attacks by 1%.",
         "tr": "Melee kritik şansını puan başına %1 artırır."
-      },
-      {
-        "name": "Iron Will",
-        "tree": "fury",
-        "meta": "5 ranks · Row 2",
-        "effect": "Reduces the duration of Stun and Fear effects inflicted on you by 3%.",
-        "tr": "Sana uygulanan Stun ve Fear sürelerini puan başına %3 azaltır."
       },
       {
         "name": "Unbridled Wrath",
@@ -6102,7 +6094,7 @@ export const CLASS_GUIDE_PAGES = [
       "master of defense",
       "last stand",
       "improved thunder clap",
-      "toughness",
+      "iron will",
       "improved bloodrage",
       "anticipation",
       "shield specialization",
@@ -6133,11 +6125,11 @@ export const CLASS_GUIDE_PAGES = [
         "tr": "Bloodrage'in ürettiği toplam Rage'i puan başına %25 artırır."
       },
       {
-        "name": "Toughness",
+        "name": "Iron Will",
         "tree": "protection",
-        "meta": "5 ranks · Row 2",
-        "effect": "Increases your Armor value from items by 2%.",
-        "tr": "Eşyalardan gelen Armor'u puan başına %2 artırır."
+        "meta": "5 ranks · Row 1",
+        "effect": "Reduces the duration of Stun and Fear effects inflicted on you by 3%.",
+        "tr": "Sana uygulanan Stun ve Fear sürelerini puan başına %3 azaltır."
       },
       {
         "name": "Improved Thunder Clap",

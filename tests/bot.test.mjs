@@ -1,6 +1,7 @@
 // Bot behaviour with Discord, the WoW AI backend and Gemini replaced by fakes.
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import { loadWorker } from "./load-worker.mjs";
 
 const w = await loadWorker();
@@ -155,7 +156,7 @@ test("two questions in one message get two answers in a single reply", async () 
   const answer = net.posts[0].content;
   assert.match(answer, /\*\*1\) shamanların öncelikli statı nedir\?\*\*/);
   assert.match(answer, /\*\*2\) dwarf shaman için leveling aşamasında hangi meslekleri önerirsin\?\*\*/);
-  assert.match(answer, /Rehberdeki ilgili bilgiler/, "stat part answered from the guide text without OCR");
+  assert.match(answer, /Totik rehberine göre/, "stat part answered from the guide text without OCR");
   assert.match(answer, /\*\*2\)[^]*Shaman için önerilen meslekler/, "profession part answered separately from the profession map");
   assert.ok(!net.calls.some(c => c.includes("generateContent")), "no image OCR call");
   assert.equal(await storage.get("answered_count"), 1, "counts as one question");
@@ -201,4 +202,36 @@ test("no-info detection only catches short not-found replies", () => {
 
 test("stray symbols the model sometimes emits are removed, Turkish letters stay", () => {
   assert.equal(w.usableGameAnswer("Rota şu şekildedʘ̂: Goldshire'ı geç, güneye İlerle."), "Rota şu şekilded: Goldshire'ı geç, güneye İlerle.");
+});
+
+test("'guild var mı' gets a direct yes with the channels, without robotic disclaimers", async () => {
+  const net = fakeNetwork(); const { bot } = newBot();
+  await bot.handleCommand(message("!soru wow forever guild var mı"));
+  const answer = net.posts[0].content;
+  assert.match(answer, /^Evet, Totik Channel'ın WoW Forever guild'i var\./);
+  assert.match(answer, /Alliance/);
+  assert.match(answer, /başvuru açıklamasını takip edebilirsin/);
+  assert.ok(!/uydurmam/.test(answer));
+});
+
+test("racial questions skip the outdated backend and the model gets the October Forever changes", async () => {
+  let sent = "";
+  const net = fakeNetwork({
+    backend: () => jsonResponse({ answer: "Human Spirit Spirit'i %5 artırır." }),
+    gemini: (url, init) => { sent = init.body; return jsonResponse({ status: "completed", steps: [{ type: "model_output", content: [{ type: "text", text: "Human Spirit artık Spirit'i %10 artırıyor." }] }] }); }
+  });
+  const { bot } = newBot();
+  await bot.handleCommand(message("!soru human spirit ne işe yarar"));
+  assert.match(net.posts[0].content, /%10/);
+  assert.match(sent, /Human Spirit Spirit'i %10 artırır \(eskiden %5\)/);
+  assert.ok(!net.calls.some(c => c.includes("totik-ai-test")), "backend not asked");
+  assert.ok(w.isForeverChangeTopic("orc ırkı hunter için iyi mi"));
+  assert.ok(!w.isForeverChangeTopic("onyxia attunement nasıl yapılır"));
+});
+
+test("guide texts carry the October 26-27 racial values", () => {
+  const src = fs.readFileSync(new URL("../src/index.js", import.meta.url), "utf8");
+  assert.ok(!/Human Spirit,? Spirit'i %5/.test(src));
+  assert.ok(!/Command Forever'da kaldırılmıştır/.test(src));
+  assert.match(src, /Berserking 15 sn %10 attack speed/);
 });

@@ -70,19 +70,19 @@ Başlık: WoW Forever — MAGE IRK SEÇIMI
 Alt başlık: PvE ve PvP birlikte değerlendirilmiştir; tek zorunlu ırk yoktur
 
 ### Human
-%5 Spirit, stun temizleme ve Perception.
+Human Spirit ile %10 Spirit, Ruthless ile %1 crit, stun temizleme ve Perception.
 
 ### Gnome
 %5 maksimum Mana, Escape Artist ve Engineering güvenliği.
 
 ### Undead
-Fear/Sleep/Charm temizleme ve casterlarda %10 Touch of the Grave proc.
+Fear/Sleep/Charm temizleme ve casterlarda %10 Touch of the Grave proc (15 sn'de en fazla bir kez).
 
 ### Troll
-Berserking cast hızı ve Beast Slaying.
+Berserking 15 sn cast hızı ve Beast Slaying.
 
 ### Orc
-Forever'da yeni Mage; Blood Fury Spell Power ve Shatter Curse magic savunması.
+Forever'da yeni Mage; Blood Fury Spell Power (cooldown 2 dk) ve Shatter Curse magic savunması.
 
 
 ## mage.05-ana-statlar

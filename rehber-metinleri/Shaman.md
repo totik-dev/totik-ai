@@ -70,19 +70,19 @@ Başlık: WoW Forever — SHAMAN IRK SEÇIMI
 Alt başlık: PvE ve PvP birlikte değerlendirilmiştir; tek zorunlu ırk yoktur
 
 ### Orc
-Blood Fury hem Attack hem Spell Power; Axe crit ve stun süresi azaltma.
+Blood Fury hem Attack hem Spell Power (cooldown 2 dk); stun süresi azaltma.
 
 ### Troll
-Berserking cast/attack speed; Beast Slaying leveling.
+Berserking 15 sn cast/attack speed; Beast Slaying leveling.
 
 ### Tauren
 Health + Hit, War Stomp ve Plainsrunning.
 
 ### Skyborne
-%1 Haste ve hareket; Elemental Insight tematik hasar avantajı.
+Wind Blessed Haste ve hareket; Elemental Insight tematik hasar avantajı.
 
 ### Dwarf
-Yeni Alliance Shaman; Stoneform ve Mace crit ile savunma/melee değeri.
+Yeni Alliance Shaman; Stoneform savunması ve Artisan's Precision ile %1 hit.
 
 
 ## shaman.05-ana-statlar

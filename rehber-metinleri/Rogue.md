@@ -70,10 +70,10 @@ Başlık: WoW Forever — ROGUE IRK SEÇIMI
 Alt başlık: PvE ve PvP birlikte değerlendirilmiştir; tek zorunlu ırk yoktur
 
 ### Human
-Sword crit, stun temizleme ve Perception.
+Ruthless ile %1 crit (silahtan bağımsız), stun temizleme ve Perception.
 
 ### Dwarf
-Stoneform Bleed/Poison/Disease temizler; Mace crit.
+Stoneform Bleed/Poison/Disease temizler; Artisan's Precision %1 hit verir.
 
 ### Night Elf
 Shadowmeld, Quickness ve Elune's Light burst.
@@ -82,13 +82,13 @@ Shadowmeld, Quickness ve Elune's Light burst.
 Escape Artist ve Eureka Energy/hasar penceresi.
 
 ### Orc
-Blood Fury, Axe crit ve kısa stun süresi.
+Blood Fury (cooldown 2 dk) ve kısa stun süresi.
 
 ### Undead
-Will of the Forsaken ve Touch of the Grave.
+Will of the Forsaken ve Touch of the Grave (15 sn'de en fazla bir kez).
 
 ### Troll
-Berserking ve Beast Slaying.
+Berserking (15 sn) ve Beast Slaying.
 
 ### Skyborne
 Haste, hareket ve glide utility.

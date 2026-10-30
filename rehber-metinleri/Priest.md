@@ -70,7 +70,7 @@ Başlık: WoW Forever — PRIEST IRK SEÇIMI
 Alt başlık: PvE ve PvP birlikte değerlendirilmiştir; tek zorunlu ırk yoktur
 
 ### Human
-Will to Survive stun temizler; Human Spirit Spirit'i %5 artırır.
+Will to Survive stun temizler; Human Spirit Spirit'i %10 artırır.
 
 ### Dwarf
 Stoneform savunması ve Priest'e özel Desperate Prayer/Chastise araçları.
@@ -85,7 +85,7 @@ Expansive Mind mana, Escape Artist hareket özgürlüğü ve Confounding Flash k
 Will of the Forsaken, Touch of the Grave ve Priest'e özel Dark Sacrifice.
 
 ### Troll
-Berserking cast hızı; Shadowguard ve Hex of Weakness Priest utility'si.
+Berserking 15 sn cast hızı; Shadowguard ve Hex of Weakness Priest utility'si.
 
 
 ## priest.05-ana-statlar
