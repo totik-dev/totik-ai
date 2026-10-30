@@ -34,10 +34,10 @@ Armor, ana statlar ve resistance sağlayan temel uzun süreli buff.
 Melee saldırgana Nature hasarı döndürür; tank veya solo hedefte kullanılır.
 
 ### Moonkin Aura
-Balance talenti; yakındaki party'nin spell critical strike şansını artırır.
+Balance talenti; yakındaki raid üyelerinin spell critical strike şansını artırır (15 Ekim'den beri raid geneli).
 
 ### Leader of the Pack
-Feral talenti; Cat/Bear formdayken party melee/ranged crit desteği sağlar.
+Feral talenti; Cat/Bear formdayken yakındaki raid üyelerine melee/ranged crit desteği sağlar (15 Ekim'den beri raid geneli).
 
 ### Omen of Clarity
 Melee saldırılardan Clearcasting proc üreterek sonraki uygun ability'nin resource maliyetini kaldırır.
@@ -73,10 +73,10 @@ Alt başlık: PvE ve PvP birlikte değerlendirilmiştir; tek zorunlu ırk yoktur
 Shadowmeld, Quickness ve Elune's Light; Alliance Druid seçeneği.
 
 ### Tauren
-Health + Hit, War Stomp ve Plainsrunning; Horde Druid seçeneği.
+Endurance ile %5 Health, War Stomp ve Plainsrunning (en fazla %60 hız, binekte çalışmaz); Horde Druid seçeneği.
 
 ### Skyborne
-Wind Blessed Haste, hareket ve Elemental Insight; Forever'ın yeni Druid seçeneği.
+Wind Blessed ile %2 Haste, hareket ve Elemental Insight; Forever'ın yeni Druid seçeneği.
 
 
 ## druid.05-ana-statlar

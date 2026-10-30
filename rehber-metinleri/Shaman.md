@@ -76,10 +76,10 @@ Blood Fury hem Attack hem Spell Power (cooldown 2 dk); stun süresi azaltma.
 Berserking 15 sn cast/attack speed; Beast Slaying leveling.
 
 ### Tauren
-Health + Hit, War Stomp ve Plainsrunning.
+Endurance ile %5 Health, War Stomp ve Plainsrunning (en fazla %60 hız, binekte çalışmaz).
 
 ### Skyborne
-Wind Blessed Haste ve hareket; Elemental Insight tematik hasar avantajı.
+Wind Blessed ile %2 Haste ve hareket; Elemental Insight tematik hasar avantajı.
 
 ### Dwarf
 Yeni Alliance Shaman; Stoneform savunması ve Artisan's Precision ile %1 hit.
