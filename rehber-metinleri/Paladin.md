@@ -39,8 +39,8 @@ Strength, Agility, Stamina, Intellect ve Spirit değerlerini %10 artırır.
 ### Blessing of Light
 Hedefe atılan Holy Light ve Flash of Light iyileştirmelerini güçlendirir.
 
-### Blessing of Salvation
-Üretilen threati %30 azaltır; düşmanın hedefini değiştirmez ve tankta kullanılmaz.
+### Salvation / Mass Salvation
+15 Ekim'den beri Blessing of Salvation'ın yerini aldı. Üretilen threati azaltır; düşmanın hedefini değiştirmez ve tankta kullanılmaz. İstenmeyen Salvation, Revoke ile kaldırılır.
 
 ### Blessing of Protection
 Fiziksel saldırılara bağışıklık verir. Forbearance nedeniyle hedef kısa süre yeniden güçlü Paladin koruması alamaz.

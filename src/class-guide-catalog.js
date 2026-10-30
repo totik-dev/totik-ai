@@ -302,8 +302,8 @@ export const CLASS_GUIDE_PAGES = [
         "name": "Moonkin Form",
         "tree": "balance",
         "meta": "1 rank · Row 7",
-        "effect": "35% of base mana Instant Transforms the Druid into Moonkin Form. While in this form, the armor contribution from items is increased by 360%, Omen of Clarity gains 100% increased chance to trigger, and all party members within 45 yards have their critical strike chance increased by 3%, exclusive with Leader of the Pack. The Moonkin cannot cast healing spells while shapeshifted. The act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
-        "tr": "Temel mananın %35'i Instant Transforms, Druid'dan Moonkin Form'ya. Bu formdayken, eşyaların zırh katkısı %360 artar, Clarity'nun Omen'sunun tetiklenme şansı %100 artar ve 45 yard içindeki tüm parti üyelerinin kritik vuruş şansları, Leader of the Pack hariç %3 artar. Moonkin, şekil değiştirilirken iyileştirme spellleri yapamaz. Şekil değiştirme eylemi, uygulayıcıyı Polymorph ve Movement Impairing efektlerinden kurtarır."
+        "effect": "35% of base mana Instant Transforms the Druid into Moonkin Form. While in this form, the armor contribution from items is increased by 360%, Omen of Clarity gains 100% increased chance to trigger, and all raid members within 45 yards have their critical strike chance increased by 3%, exclusive with Leader of the Pack. The Moonkin cannot cast healing spells while shapeshifted. The act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
+        "tr": "Temel mananın %35'i Instant Transforms, Druid'dan Moonkin Form'ya. Bu formdayken, eşyaların zırh katkısı %360 artar, Clarity'nun Omen'sunun tetiklenme şansı %100 artar ve 45 yard içindeki tüm raid üyelerinin kritik vuruş şansları, Leader of the Pack hariç %3 artar. Moonkin, şekil değiştirilirken iyileştirme spellleri yapamaz. Şekil değiştirme eylemi, uygulayıcıyı Polymorph ve Movement Impairing efektlerinden kurtarır."
       }
     ]
   },
@@ -458,8 +458,8 @@ export const CLASS_GUIDE_PAGES = [
         "name": "Leader of the Pack",
         "tree": "feral-combat",
         "meta": "1 rank · Row 5",
-        "effect": "While in Cat Form, Bear Form, or Dire Bear Form, the Leader of the Pack increases the critical strike chance of all party members within 45 yards by 3%, exclusive with Moonkin Aura.",
-        "tr": "Cat Form, Bear Form veya Dire Bear Form'da Leader of the Pack, Moonkin Aura'ya özel olarak 45 yarda içindeki tüm grup üyelerinin kritik vuruş şansını %3 artırır."
+        "effect": "While in Cat Form, Bear Form, or Dire Bear Form, the Leader of the Pack increases the critical strike chance of all raid members within 45 yards by 3%, exclusive with Moonkin Aura.",
+        "tr": "Cat Form, Bear Form veya Dire Bear Form'da Leader of the Pack, Moonkin Aura'ya özel olarak 45 yarda içindeki tüm raid üyelerinin kritik vuruş şansını %3 artırır (15 Ekim'den beri raid geneli)."
       },
       {
         "name": "King of the Jungle",
@@ -1086,8 +1086,8 @@ export const CLASS_GUIDE_PAGES = [
         "name": "Trueshot Aura",
         "tree": "marksmanship",
         "meta": "1 rank · Row 4",
-        "effect": "180 Mana Instant Increases the Ranged Attack Power of party members within 45 yards by 30. Lasts 30 min.",
-        "tr": "45 yard içindeki party üyelerine Ranged Attack Power verir; 30 dakika sürer."
+        "effect": "180 Mana Instant Increases the Ranged Attack Power of raid members within 45 yards by 30. Lasts 30 min.",
+        "tr": "45 yard içindeki raid üyelerine Ranged Attack Power verir; 30 dakika sürer (15 Ekim'den beri raid geneli)."
       },
       {
         "name": "Mortal Shots",

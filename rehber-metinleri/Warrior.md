@@ -91,7 +91,7 @@ Alt başlık: Tek mutlak doğru yok: silah, rol, PvP ve hareket ihtiyacına gör
 Blood Fury: %10 AP, 15 sn, cooldown 2 dk. Hardiness stun süresini %20 azaltır; Shatter Curse büyü savunmasıdır.
 
 ### Tauren — tank ve konfor
-Endurance toplam Health'i %5 ve Hit'i %1 artırır. War Stomp yakın grubu 2 sn stunlar. Plainsrunning uzun koşularda hız kazandırır.
+Endurance toplam Health'i %5 artırır. War Stomp yakın grubu 2 sn stunlar. Plainsrunning uzun koşularda %60'a kadar hız kazandırır; binekteyken çalışmaz.
 
 ### Troll — hız ve leveling
 Berserking 15 sn %10 attack speed verir. Beast Slaying beastlere %5 hasar; Rapid Regeneration güvenli boşlukta hızlı can yeniler.
@@ -100,7 +100,7 @@ Berserking 15 sn %10 attack speed verir. Beast Slaying beastlere %5 hasar; Rapid
 Will of the Forsaken Charm/Fear/Sleep kaldırır. Touch of the Grave Warrior'da %5 proc oranıyla can çalar (15 sn'de en fazla bir kez); Cannibalize mola süresini azaltır.
 
 ### Skyborne — hareket ve haste
-Wind Blessed Haste verir. Skysight hareket hızını, Walk on Air düşüş kontrolünü destekler; Elemental Insight elementallere %5 hasar verir.
+Wind Blessed %2 Haste verir. Skysight hareket hızını, Walk on Air düşüş kontrolünü destekler; Elemental Insight elementallere %5 hasar verir.
 
 
 ## warrior.06-irk-secimi-alliance
@@ -160,7 +160,7 @@ Melee kritik şansını artırır. Arms'ta Deep Wounds/Impale, Fury'de Flurry gi
 Hedefin melee saldırını Dodge veya Parry etme ihtimalini azaltır. Arkadan saldırmak NPC'nin parry yapmasını önler.
 
 ### Haste
-Auto attack hızını artırarak hasar ve Rage akışını hızlandırır. Skyborne Wind Blessed doğrudan %1 Haste verir.
+Auto attack hızını artırarak hasar ve Rage akışını hızlandırır. Skyborne Wind Blessed doğrudan %2 Haste verir.
 
 ### Armor Penetration
 Hedefin Armor etkisini azaltarak Physical damage'i güçlendirir. Sunder Armor gibi raid debufflarıyla birlikte değerlendirilir.

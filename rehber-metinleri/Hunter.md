@@ -37,7 +37,7 @@ Dodge sağlar; melee baskısı altında savunma seçeneğidir.
 Hareket hızını artırır; hasar alınca Daze riski nedeniyle savaş içinde dikkatli kullanılır.
 
 ### Trueshot Aura
-Marksmanship talenti; yakındaki party üyelerine Attack Power sağlar.
+Marksmanship talenti; yakındaki raid üyelerine Attack Power sağlar (15 Ekim'den beri raid geneli).
 
 ### Hunter's Mark
 Hedefi işaretler, ranged saldırıları destekler ve stealth hedef takibini kolaylaştırır.
@@ -76,10 +76,10 @@ Blood Fury burst (cooldown 2 dk), stun süresi azaltma; Command geri geldi ve pe
 Berserking 15 sn attack speed ve Beast Slaying leveling avantajı.
 
 ### Tauren
-Endurance Health + Hit; War Stomp yakın tehditten mesafe açar.
+Endurance %5 Health verir; War Stomp yakın tehditten mesafe açar.
 
 ### Skyborne
-Wind Blessed Haste, Skysight hareket ve Elemental Insight.
+Wind Blessed %2 Haste, Skysight hareket ve Elemental Insight.
 
 ### Dwarf
 Stoneform savunması; Find Treasure ve Big Game Hunter utility'si.
