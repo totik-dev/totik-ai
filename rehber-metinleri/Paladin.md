@@ -82,15 +82,15 @@ Başlık: PALADIN IRK SEÇİMİ
 Alt başlık: Human ve Dwarf hem PvE hem PvP için geçerlidir • Horde seçeneği Undead
 
 ### HUMAN
-Sword Specialization: Sword ve Two-Handed Sword kullanırken tüm spell ve saldırılara %2 crit. Will to Survive stun kaldırır. Perception stealth görmeyi; Human Spirit, Spirit'i %5 artırır.
+Ruthless: tüm spell ve saldırılara %1 crit; silah türüne bağlı değildir. Will to Survive stun kaldırır. Perception stealth görmeyi kolaylaştırır; Human Spirit, Spirit'i %10 artırır.
 
 ### DWARF
-Mace Specialization: Mace ile spell ve melee +%1 crit. Stoneform bleed/poison/disease temizler ve fiziksel hasarı azaltır. Big Game Hunter beastlere +%5 hasar verir.
+Artisan's Precision: spell ve saldırılara %1 hit. Stoneform bleed/poison/disease temizler ve fiziksel hasarı azaltır. Big Game Hunter beastlere +%5 hasar verir.
 
 ### UNDEAD
-Horde Paladin'in tek ırkıdır. Will of the Forsaken fear/sleep/charm kaldırır. Cannibalize can ve mana yeniler; Touch of the Grave hasar verir ve iyileştirir.
+Horde Paladin'in tek ırkıdır. Will of the Forsaken fear/sleep/charm kaldırır. Cannibalize can ve mana yeniler; Touch of the Grave hasar verir ve iyileştirir (15 sn'de en fazla bir kez).
 
-Dipnot: Racial değerleri güncel Forever beta tooltiplerine göre yazılmıştır.
+Dipnot: Racial değerleri Blizzard'ın 26-27 Ekim 2026 WoW Forever geliştirici notlarına göre güncellenmiştir. Forever'da silaha bağlı racial (Sword/Mace/Axe Specialization) yoktur.
 
 ## paladin.05-ana-statlar
 

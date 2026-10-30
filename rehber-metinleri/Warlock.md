@@ -70,16 +70,16 @@ Başlık: WARLOCK IRK SEÇİMİ
 Alt başlık: PvE ve PvP birlikte değerlendirilmiştir; tek zorunlu ırk yoktur
 
 ### Orc
-Blood Fury Spell Power burst; Shatter Curse savunması. Command Forever'da kaldırılmıştır.
+Blood Fury Spell Power burst (cooldown 2 dk); Shatter Curse savunması. Command geri geldi ve pet hasarını %5 artırır.
 
 ### Undead
-Will of the Forsaken kontrol temizler; Touch of the Grave casterlarda %10 proc.
+Will of the Forsaken kontrol temizler; Touch of the Grave casterlarda %10 proc (15 sn'de en fazla bir kez).
 
 ### Troll
-Berserking cast hızı ve Rapid Regeneration.
+Berserking 15 sn cast hızı ve Rapid Regeneration.
 
 ### Human
-Will to Survive, Perception ve %5 Spirit.
+Will to Survive, Perception, %10 Spirit ve Ruthless ile %1 crit.
 
 ### Gnome
 %5 maksimum Mana, Escape Artist ve daha güvenli Engineering.

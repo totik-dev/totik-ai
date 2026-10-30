@@ -1,6 +1,7 @@
 // Bot behaviour with Discord, the WoW AI backend and Gemini replaced by fakes.
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import { loadWorker } from "./load-worker.mjs";
 
 const w = await loadWorker();
@@ -211,4 +212,26 @@ test("'guild var mı' gets a direct yes with the channels, without robotic discl
   assert.match(answer, /Alliance/);
   assert.match(answer, /başvuru açıklamasını takip edebilirsin/);
   assert.ok(!/uydurmam/.test(answer));
+});
+
+test("racial questions skip the outdated backend and the model gets the October Forever changes", async () => {
+  let sent = "";
+  const net = fakeNetwork({
+    backend: () => jsonResponse({ answer: "Human Spirit Spirit'i %5 artırır." }),
+    gemini: (url, init) => { sent = init.body; return jsonResponse({ status: "completed", steps: [{ type: "model_output", content: [{ type: "text", text: "Human Spirit artık Spirit'i %10 artırıyor." }] }] }); }
+  });
+  const { bot } = newBot();
+  await bot.handleCommand(message("!soru human spirit ne işe yarar"));
+  assert.match(net.posts[0].content, /%10/);
+  assert.match(sent, /Human Spirit Spirit'i %10 artırır \(eskiden %5\)/);
+  assert.ok(!net.calls.some(c => c.includes("totik-ai-test")), "backend not asked");
+  assert.ok(w.isForeverChangeTopic("orc ırkı hunter için iyi mi"));
+  assert.ok(!w.isForeverChangeTopic("onyxia attunement nasıl yapılır"));
+});
+
+test("guide texts carry the October 26-27 racial values", () => {
+  const src = fs.readFileSync(new URL("../src/index.js", import.meta.url), "utf8");
+  assert.ok(!/Human Spirit,? Spirit'i %5/.test(src));
+  assert.ok(!/Command Forever'da kaldırılmıştır/.test(src));
+  assert.match(src, /Berserking 15 sn %10 attack speed/);
 });

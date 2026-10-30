@@ -70,10 +70,10 @@ Başlık: WoW Forever — HUNTER IRK SEÇIMI
 Alt başlık: PvE ve PvP birlikte değerlendirilmiştir; tek zorunlu ırk yoktur
 
 ### Orc
-Blood Fury burst, stun süresi azaltma; Command kaldırıldığı için pet hasarı raciali yoktur.
+Blood Fury burst (cooldown 2 dk), stun süresi azaltma; Command geri geldi ve pet hasarını %5 artırır.
 
 ### Troll
-Berserking attack speed ve Beast Slaying leveling avantajı.
+Berserking 15 sn attack speed ve Beast Slaying leveling avantajı.
 
 ### Tauren
 Endurance Health + Hit; War Stomp yakın tehditten mesafe açar.

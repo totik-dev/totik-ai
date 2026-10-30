@@ -88,31 +88,31 @@ Başlık: HORDE VE SKYBORNE IRK SEÇİMİ
 Alt başlık: Tek mutlak doğru yok: silah, rol, PvP ve hareket ihtiyacına göre seç
 
 ### Orc — güçlü genel seçim
-Blood Fury: %10 AP, 15 sn. Axe Specialization: Axe ile tüm saldırı ve spell'lere %1 crit. Hardiness stun süresini %20 azaltır; Shatter Curse büyü savunmasıdır.
+Blood Fury: %10 AP, 15 sn, cooldown 2 dk. Hardiness stun süresini %20 azaltır; Shatter Curse büyü savunmasıdır.
 
 ### Tauren — tank ve konfor
 Endurance toplam Health'i %5 ve Hit'i %1 artırır. War Stomp yakın grubu 2 sn stunlar. Plainsrunning uzun koşularda hız kazandırır.
 
 ### Troll — hız ve leveling
-Berserking 10 sn %10 attack speed verir. Beast Slaying beastlere %5 hasar; Rapid Regeneration güvenli boşlukta hızlı can yeniler.
+Berserking 15 sn %10 attack speed verir. Beast Slaying beastlere %5 hasar; Rapid Regeneration güvenli boşlukta hızlı can yeniler.
 
 ### Undead — PvP/utility
-Will of the Forsaken Charm/Fear/Sleep kaldırır. Touch of the Grave Warrior'da %5 proc oranıyla can çalar; Cannibalize mola süresini azaltır.
+Will of the Forsaken Charm/Fear/Sleep kaldırır. Touch of the Grave Warrior'da %5 proc oranıyla can çalar (15 sn'de en fazla bir kez); Cannibalize mola süresini azaltır.
 
 ### Skyborne — hareket ve haste
-Wind Blessed %1 Haste verir. Skysight hareket hızını, Walk on Air düşüş kontrolünü destekler; Elemental Insight elementallere %5 hasar verir.
+Wind Blessed Haste verir. Skysight hareket hızını, Walk on Air düşüş kontrolünü destekler; Elemental Insight elementallere %5 hasar verir.
 
 
 ## warrior.06-irk-secimi-alliance
 
 Başlık: ALLIANCE IRK SEÇİMİ
-Alt başlık: Human yalnız PvE seçimi değildir; Sword crit ve stun temizleme PvP'de de değerlidir
+Alt başlık: Human yalnız PvE seçimi değildir; crit ve stun temizleme PvP'de de değerlidir
 
-### Human — Sword ve PvP
-Sword Specialization: Sword/2H Sword ile tüm saldırı ve spell'lere %2 crit. Will to Survive tüm Stun etkilerini kaldırır.
+### Human — crit ve PvP
+Ruthless: tüm saldırı ve spell'lere %1 crit; silah türüne bağlı değildir. Will to Survive tüm Stun etkilerini kaldırır. Human Spirit Spirit'i %10 artırır.
 
 ### Dwarf — dayanıklılık
-Stoneform Bleed/Poison/Disease temizler, 8 sn bağışıklık ve %10 Physical damage reduction verir. Mace ile %1 crit.
+Stoneform Bleed/Poison/Disease temizler, 8 sn bağışıklık ve %10 Physical damage reduction verir. Artisan's Precision %1 hit verir.
 
 ### Night Elf — kaçınma/burst
 Quickness %1 Dodge ve %2 movement speed verir. Elune's Light 15 sn %10 crit; Shadowmeld tehdit azaltma ve pozisyon aracıdır.
@@ -272,7 +272,7 @@ Main Hand DPS > ability isabeti için Hit > Strength / Attack Power > Crit > ek 
 Defense / Armor / Stamina ile dayanıklılık; ardından Hit/Expertise ile tutarlı threat, sonra Block Value/Chance ve Strength. İçeriğe göre denge değişir.
 
 ### PvP
-Weapon damage > Stamina > Strength/AP > Crit; Human Sword, Orc Axe veya Dwarf Mace gibi racials kullandığın silahı etkileyebilir.
+Weapon damage > Stamina > Strength/AP > Crit; Forever'da silaha bağlı racial (Sword/Axe/Mace Specialization) yoktur; silahı racial'a göre değil hasarına göre seç.
 
 
 ## warrior.20-leveling-yol-haritasi
