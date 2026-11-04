@@ -235,3 +235,42 @@ test("guide texts carry the October 26-27 racial values", () => {
   assert.ok(!/Command Forever'da kaldırılmıştır/.test(src));
   assert.match(src, /Berserking 15 sn %10 attack speed/);
 });
+
+test("watchdog restarts a broken polling chain but respects /stop", async () => {
+  const { bot, storage } = newBot();
+  assert.equal(await storage.getAlarm(), null);
+  assert.equal((await bot.watchdog()).restarted, true);
+  assert.ok(await storage.getAlarm() > Date.now());
+  assert.equal((await bot.watchdog()).restarted, false, "healthy future alarm is left alone");
+  await storage.put("polling_enabled", false); await storage.deleteAlarm();
+  assert.equal((await bot.watchdog()).restarted, false);
+  assert.equal(await storage.getAlarm(), null);
+});
+
+test("cron trigger calls the watchdog", async () => {
+  let called = null; const waits = [];
+  const env = { GATEWAY: { idFromName: n => n, get: () => ({ fetch: async req => { called = new URL(req.url).pathname; return new Response("{}"); } }) } };
+  await worker.scheduled({}, env, { waitUntil: p => waits.push(p) }); await Promise.all(waits);
+  assert.equal(called, "/watchdog");
+});
+
+test("health explains why the bot is silent", async () => {
+  const { bot, storage } = newBot();
+  w.setFetch(async () => jsonResponse({ message: "401: Unauthorized", code: 0 }, 401));
+  await bot.alarm();
+  assert.equal((await bot.healthSummary()).durum, "discord_token_gecersiz");
+  assert.ok(await storage.getAlarm(), "alarm chain keeps going after an error");
+
+  const { bot: bot2, storage: s2 } = newBot();
+  await s2.put("initialized", true); await s2.put("last_message_id", "1");
+  w.setFetch(async () => jsonResponse([{ id: "2", type: 0, content: "", author: { id: "5" }, attachments: [], embeds: [] }]));
+  await bot2.alarm();
+  assert.equal((await bot2.healthSummary()).durum, "mesaj_icerigi_okunamiyor");
+
+  w.setFetch(async () => jsonResponse([{ id: "3", type: 0, content: "selam", author: { id: "5" }, attachments: [] }]));
+  await bot2.alarm();
+  const h = await bot2.healthSummary(); assert.equal(h.durum, "calisiyor"); assert.equal(h.ok, true);
+
+  await s2.put("polling_enabled", false);
+  assert.equal((await bot2.healthSummary()).durum, "durduruldu");
+});
