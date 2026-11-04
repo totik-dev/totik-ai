@@ -7,6 +7,11 @@
 
   "keep_vars": true,
 
+  // Every 5 minutes: restart the polling alarm chain if it has stopped.
+  "triggers": {
+    "crons": ["*/5 * * * *"]
+  },
+
   "durable_objects": {
     "bindings": [
       {

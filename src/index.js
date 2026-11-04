@@ -10663,15 +10663,26 @@ async function authorizedManagement(request, env) {
 export default {
   async fetch(request, env) {
     const path = new URL(request.url).pathname;
-    if (path === "/" || path === "/health") return json({ service: "Murloc AI", ok: true });
+    if (path === "/" || path === "/health") {
+      // Public, key-free health page so the owner can check the bot from a browser. Only coarse state, no error text.
+      if (!env.GATEWAY) return json({ service: "Murloc AI", ok: true });
+      try { const h = await gatewayStub(env).fetch(new Request("https://internal/health")).then(r => r.json()); return json({ service: "Murloc AI", ...h }); }
+      catch { return json({ service: "Murloc AI", ok: false, durum: "durum_okunamadi" }); }
+    }
     if (!["/start", "/stop", "/run", "/status", "/guide-check"].includes(path)) return json({ error: "Not found" }, 404);
     if (!await authorizedManagement(request, env)) return json({ error: "Unauthorized" }, 401);
     if (["/start", "/stop", "/run"].includes(path) && request.method !== "POST") return json({ error: "POST required" }, 405);
     if (!["GET", "POST"].includes(request.method)) return json({ error: "Method not allowed" }, 405);
     if (!env.GATEWAY) return json({ error: "GATEWAY binding missing" }, 503);
-    return env.GATEWAY.get(env.GATEWAY.idFromName("totik-ai-main")).fetch(new Request(`https://internal${path}`, { method: request.method }));
+    return gatewayStub(env).fetch(new Request(`https://internal${path}`, { method: request.method }));
+  },
+  // Cron watchdog: the polling loop is a chain of alarms; if that chain ever breaks the bot goes silent for everyone.
+  async scheduled(event, env, ctx) {
+    if (env.GATEWAY) ctx.waitUntil(gatewayStub(env).fetch(new Request("https://internal/watchdog", { method: "POST" })));
   }
 };
+function gatewayStub(env) { return env.GATEWAY.get(env.GATEWAY.idFromName("totik-ai-main")); }
+const POLL_STALE_MS = 5 * 60000;
 
 export class DiscordGateway extends DurableObject {
   constructor(ctx, env) {
@@ -10690,8 +10701,10 @@ export class DiscordGateway extends DurableObject {
     }
     if (path === "/stop") { await this.ctx.storage.put("polling_enabled", false); await this.ctx.storage.deleteAlarm(); return json({ stopped: true }); }
     if (path === "/guide-check") return json(await this.buildGuideCheck());
+    if (path === "/watchdog") return json(await this.watchdog());
+    if (path === "/health") return json(await this.healthSummary());
     if (path === "/status") {
-      const keys = ["initialized", "polling_enabled", "last_message_id", "last_error", "last_trace", "last_warning", "answered_count"];
+      const keys = ["initialized", "polling_enabled", "last_message_id", "last_error", "last_poll_error", "last_poll_at", "content_missing_at", "watchdog_restart_at", "last_trace", "last_warning", "answered_count"];
       const values = await Promise.all(keys.map(k => this.ctx.storage.get(k)));
       return json({ version: VERSION, guildId: this.guildId, questionChannelId: QUESTION_CHANNEL_ID, lastPollAt: this.lastPollAt || null,
         nextAlarm: await this.ctx.storage.getAlarm(), ...Object.fromEntries(keys.map((k, i) => [k, values[i] ?? null])) });
@@ -10701,9 +10714,36 @@ export class DiscordGateway extends DurableObject {
   async alarm() {
     if (await this.ctx.storage.get("polling_enabled") === false) return;
     let delay = 30000;
-    try { await this.ensureInitialized(); const result = await this.pollOnce(); delay = result?.busy ? 10000 : 30000; await this.cleanupRecords(); }
-    catch (error) { if (error instanceof DeferredError) delay = Math.max(10000, error.retryAt - Date.now()); else await this.setLastError(`Polling: ${safeError(error)}`); }
+    try {
+      await this.ensureInitialized(); const result = await this.pollOnce(); delay = result?.busy ? 10000 : 30000;
+      await this.ctx.storage.put("last_poll_at", Date.now()); await this.ctx.storage.delete("last_poll_error"); await this.cleanupRecords();
+    }
+    catch (error) {
+      if (error instanceof DeferredError) delay = Math.max(10000, error.retryAt - Date.now());
+      else { const text = `Polling: ${safeError(error)}`; await this.setLastError(text); await this.ctx.storage.put("last_poll_error", { at: Date.now(), status: error?.status || null, message: cleanText(text, 300) }); }
+    }
     finally { if (await this.ctx.storage.get("polling_enabled") !== false) await this.ctx.storage.setAlarm(Date.now() + delay); }
+  }
+  async watchdog() {
+    if (await this.ctx.storage.get("polling_enabled") === false) return { restarted: false, reason: "stopped" };
+    const alarm = await this.ctx.storage.getAlarm(), lastPoll = Number(await this.ctx.storage.get("last_poll_at") || 0), now = Date.now();
+    // A healthy chain always has a future alarm. A missing or long-overdue alarm means the chain broke.
+    if (alarm && alarm > now - 120000) return { restarted: false, reason: "alarm_ok" };
+    await this.ctx.storage.setAlarm(now + 1000); await this.ctx.storage.put("watchdog_restart_at", now);
+    console.log(JSON.stringify({ event: "watchdog_restart", alarm, lastPoll }));
+    return { restarted: true };
+  }
+  async healthSummary() {
+    const get = k => this.ctx.storage.get(k), now = Date.now();
+    const [enabled, lastPoll, pollError, contentMissing, contentSeen] = await Promise.all(["polling_enabled", "last_poll_at", "last_poll_error", "content_missing_at", "content_seen_at"].map(get));
+    const minutesAgo = lastPoll ? Math.round((now - lastPoll) / 60000) : null;
+    let durum = "calisiyor", aciklama = "Bot soru kanalını düzenli okuyor.";
+    if (enabled === false) { durum = "durduruldu"; aciklama = "Bot /stop ile durdurulmuş."; }
+    else if (pollError?.status === 401) { durum = "discord_token_gecersiz"; aciklama = "Discord bot tokeni geçersiz, Discord Developer Portal'dan yeni token alınmalı."; }
+    else if (pollError?.status === 403 || pollError?.status === 404) { durum = "discord_kanal_erisimi_yok"; aciklama = "Bot soru kanalını göremiyor (kanal izni veya bot sunucudan atılmış olabilir)."; }
+    else if (contentMissing && now - contentMissing < 86400000 && !(contentSeen > contentMissing)) { durum = "mesaj_icerigi_okunamiyor"; aciklama = "Discord mesaj içeriğini boş gönderiyor; Developer Portal > Bot > Message Content Intent açılmalı."; }
+    else if (!lastPoll || now - lastPoll > POLL_STALE_MS) { durum = "yoklama_calismiyor"; aciklama = pollError ? "Bot kanalı okurken hata alıyor." : "Bot bir süredir kanalı okumadı."; }
+    return { ok: durum === "calisiyor", durum, aciklama, son_okuma_dk_once: minutesAgo };
   }
   async ensureInitialized() {
     if (await this.ctx.storage.get("initialized") === true) return;
@@ -10726,6 +10766,11 @@ export class DiscordGateway extends DurableObject {
         for (const raw of messages) {
           if (Date.now() >= turnDeadline) break;
           const message = { ...raw, guild_id: this.guildId }, content = String(raw.content || "").trim();
+          if (!raw.author?.bot && [0, 19].includes(raw.type ?? 0)) {
+            // Without the Message Content intent Discord sends user messages with empty text, so no !soru is ever seen.
+            if (content) await this.ctx.storage.put("content_seen_at", Date.now());
+            else if (!raw.attachments?.length && !raw.embeds?.length && !raw.sticker_items?.length && !raw.poll) await this.ctx.storage.put("content_missing_at", Date.now());
+          }
           if (!message.author?.bot && (QUESTION_COMMAND.test(content) || DEBUG_COMMAND.test(content))) {
             busy = true; const key = `message:${message.id}`, previous = await this.ctx.storage.get(key);
             if (!previous || !["done", "failed", "uncertain"].includes(previous.status)) {
