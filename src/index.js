@@ -10310,6 +10310,7 @@ function protectBotOutput(value) {
 const WOW_AI_URL = "https://totik-ai-test.totikch.workers.dev/";
 const QUESTION_COMMAND = /^!soru(?:\s|$)/i;
 const DEBUG_COMMAND = /^!soru-debug(?:\s|$)/i;
+const KICK_SUB_ROLE_IDS = ["1566519827965812966"]; // Kick abone rolü (ek ID: KICK_SUB_ROLE_IDS ortam değişkeni)
 const NORMAL_COOLDOWN_MS = 900000, PREMIUM_COOLDOWN_MS = 60000;
 const MAX_FILE_BYTES = 8 * 1024 * 1024, MAX_TOTAL_BYTES = 20 * 1024 * 1024;
 const SPECIAL_GUIDE_IMAGE_MESSAGE_IDS = { profession: "1553090607482798253", camping: "1553095278234701906", legacy: "1553095337416335400" };
@@ -10878,7 +10879,7 @@ export class DiscordGateway extends DurableObject {
     if (!cooldown.allowed) {
       const flood = this.floodCache.get(userId); if (flood?.rejectedAt && now - flood.rejectedAt < 30000) return;
       if (flood) flood.rejectedAt = now;
-      return this.reply(message, `⏱️ Yeni soru için **${formatRemaining(cooldown.remainingMs)}** beklemelisin.\nMurloc Bot'un Twitch Sub ve YouTube Katıl aboneleri için bekleme süresi 1 dakika, normal üyeler için 15 dakikadır.`);
+      return this.reply(message, `⏱️ Yeni soru için **${formatRemaining(cooldown.remainingMs)}** beklemelisin.\nMurloc Bot'un Kick & Twitch aboneleri ve YouTube Katıl üyeleri için bekleme süresi 1 dakika, normal üyeler için 15 dakikadır.`);
     }
     this.activeQuestion = { id: String(message.id), deadline: Date.now() + 50000, calls: 0, warnings: [], startedAt: Date.now() };
     let completed = false;
@@ -10919,8 +10920,8 @@ export class DiscordGateway extends DurableObject {
       try { const member = await this.discordRequest(`/guilds/${this.guildId}/members/${userId}`); if (!Array.isArray(member?.roles)) throw new Error("Member roles unavailable"); roles = member.roles.map(String); roleSource = "live_guild_member"; this.remember(this.memberRoleCache, key, { at: Date.now(), roles }); }
       catch (error) { if (error instanceof DeferredError) throw error; if (cached && Date.now() - cached.at < 300000) { roles = cached.roles; roleSource = "recent_verified_cache"; } else return { premium: false, unknown: true, reason: "role_lookup_unavailable", durationMs: null }; }
     }
-    const youtube = new Set(["690918966348087346", ...parseCsvIds(this.env.YOUTUBE_MEMBER_ROLE_IDS)]), twitch = new Set(["1047102585141727342", ...parseCsvIds(this.env.TWITCH_SUB_ROLE_IDS)]), extra = parseCsvIds(this.env.PREMIUM_ROLE_IDS);
-    const kind = roles.some(r => youtube.has(r)) ? "youtube_role_id" : roles.some(r => twitch.has(r)) ? "twitch_role_id" : roles.some(r => extra.has(r)) ? "premium_role_id" : "normal_member";
+    const youtube = new Set(["690918966348087346", ...parseCsvIds(this.env.YOUTUBE_MEMBER_ROLE_IDS)]), twitch = new Set(["1047102585141727342", ...parseCsvIds(this.env.TWITCH_SUB_ROLE_IDS)]), kick = new Set([...KICK_SUB_ROLE_IDS, ...parseCsvIds(this.env.KICK_SUB_ROLE_IDS)]), extra = parseCsvIds(this.env.PREMIUM_ROLE_IDS);
+    const kind = roles.some(r => youtube.has(r)) ? "youtube_role_id" : roles.some(r => twitch.has(r)) ? "twitch_role_id" : roles.some(r => kick.has(r)) ? "kick_role_id" : roles.some(r => extra.has(r)) ? "premium_role_id" : "normal_member";
     return { premium: kind !== "normal_member", reason: `${kind}:${roleSource}`, durationMs: kind === "normal_member" ? NORMAL_COOLDOWN_MS : PREMIUM_COOLDOWN_MS };
   }
   async acquireCooldown(userId, durationMs, messageId = "") {
