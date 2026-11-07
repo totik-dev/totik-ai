@@ -95,6 +95,14 @@ test("YouTube/Twitch supporters get the 1 minute cooldown, the owner none", asyn
   assert.equal((await bot.getMemberCooldownClass(message("!soru x", OWNER_ID))).durationMs, 0);
 });
 
+test("Kick subscribers get the 1 minute cooldown", async () => {
+  fakeNetwork({ roles: ["1566519827965812966"] });
+  const { bot } = newBot();
+  const result = await bot.getMemberCooldownClass(message("!soru x"));
+  assert.equal(result.durationMs, 60000);
+  assert.match(result.reason, /^kick_role_id:/);
+});
+
 test("when every AI route fails the user gets a retry message and keeps their question", async () => {
   const net = fakeNetwork({ backend: () => jsonResponse({}, 503) }); const { bot, storage } = newBot();
   const userId = "777777777777777777";
@@ -144,7 +152,7 @@ test("cooldown message explains supporter and normal waiting times politely", as
   await bot.handleCommand(message("!soru hangi sınıf solo için iyi", userId));
   await new Promise(r => setTimeout(r, 2600));
   await bot.handleCommand(message("!soru hunter mı iyi mage mı", userId));
-  assert.match(net.posts.at(-1).content, /Twitch Sub ve YouTube Katıl aboneleri için bekleme süresi 1 dakika, normal üyeler için 15 dakikadır\./);
+  assert.match(net.posts.at(-1).content, /Kick & Twitch aboneleri ve YouTube Katıl üyeleri için bekleme süresi 1 dakika, normal üyeler için 15 dakikadır\./);
 });
 
 test("two questions in one message get two answers in a single reply", async () => {
