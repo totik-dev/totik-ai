@@ -10742,7 +10742,7 @@ export class DiscordGateway extends DurableObject {
     if (enabled === false) { durum = "durduruldu"; aciklama = "Bot /stop ile durdurulmuş."; }
     else if (pollError?.status === 401) { durum = "discord_token_gecersiz"; aciklama = "Discord bot tokeni geçersiz, Discord Developer Portal'dan yeni token alınmalı."; }
     else if (pollError?.status === 403 || pollError?.status === 404) { durum = "discord_kanal_erisimi_yok"; aciklama = "Bot soru kanalını göremiyor (kanal izni veya bot sunucudan atılmış olabilir)."; }
-    else if (contentMissing && now - contentMissing < 86400000 && !(contentSeen > contentMissing)) { durum = "mesaj_icerigi_okunamiyor"; aciklama = "Discord mesaj içeriğini boş gönderiyor; Developer Portal > Bot > Message Content Intent açılmalı."; }
+    else if (contentMissing && now - contentMissing < 86400000 && !(contentSeen >= contentMissing)) { durum = "mesaj_icerigi_okunamiyor"; aciklama = "Discord mesaj içeriğini boş gönderiyor; Developer Portal > Bot > Message Content Intent açılmalı."; }
     else if (!lastPoll || now - lastPoll > POLL_STALE_MS) { durum = "yoklama_calismiyor"; aciklama = pollError ? "Bot kanalı okurken hata alıyor." : "Bot bir süredir kanalı okumadı."; }
     return { ok: durum === "calisiyor", durum, aciklama, son_okuma_dk_once: minutesAgo };
   }
