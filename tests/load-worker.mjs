@@ -7,7 +7,7 @@ const EXPORTED_FOR_TESTS = [
   "communityIntent", "isBotInternalQuestion", "isIdentityQuestion", "isExternalSourceRecommendationQuestion",
   "isPersonalOrCreatorAdviceQuestion", "isClearlyOutOfScope", "specialTopic", "protectBotOutput", "splitDiscordMessage",
   "usableGameAnswer", "isNoInfoAnswer", "isForeverChangeTopic", "safeError", "splitQuestionParts", "isOverlyBroadQuestion", "OVERLY_BROAD_MESSAGE", "CLASS_GUIDE_PAGES", "GUIDE_BATCH_MESSAGE_IDS",
-  "QUESTION_CHANNEL_ID", "OWNER_ID", "PRIVATE_BOT_MESSAGE", "IDENTITY_MESSAGE", "SOURCE_POLICY_MESSAGE", "ANSWER_RETRY_MESSAGE"
+  "QUESTION_CHANNEL_ID", "OWNER_ID", "isTalentAdviceQuestion", "isTalentQuestion", "TALENT_ADVICE_MESSAGE", "PRIVATE_BOT_MESSAGE", "IDENTITY_MESSAGE", "SOURCE_POLICY_MESSAGE", "ANSWER_RETRY_MESSAGE"
 ];
 
 export async function loadWorker() {
