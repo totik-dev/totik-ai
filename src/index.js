@@ -10409,6 +10409,24 @@ function isTalentAdviceQuestion(text) {
   if (info.test(q) && !strongAdvice) return false;
   return strongAdvice || ask.test(q);
 }
+const DUNGEON_CHANNEL_ID = "1569329251981860984";
+const DUNGEON_MESSAGE = `Dungeonlarla ilgili aradığın her şey <#${DUNGEON_CHANNEL_ID}> kanalında! 🗺️ Dungeon rotaları, hangi levelde girileceği, verdiği görevler, boss sıraları ve daha fazlası orada detaylıca anlatılıyor. Hangi dungeon'a gideceğine karar vermeden önce mutlaka bir göz at.`;
+const DUNGEON_FOOTER = `\n\n🗺️ Dungeon rotaları, levelleri ve görevleri için <#${DUNGEON_CHANNEL_ID}> kanalına bak.`;
+const DUNGEON_TERM = new RegExp([
+  "\\b(?:dungeon|dungon|dangeon|dungen|zindan|instance)\\w*", "\\bdung\\b", "\\bins\\b",
+  "ragefire|\\brfc\\b|wailing cavern\\w*|deadmines?|dead mines|\\bvancleef|shadowfang|\\bsfk\\b|blackfathom|\\bbfd\\b|stockade\\w*|\\bstocks\\b|gnomeregan|\\bgnomer\\b",
+  "razorfen|\\brfk\\b|\\brfd\\b|scarlet monastery|\\bscarlet\\b|\\bsm (?:gy|graveyard|lib|library|arm|armory|cath|cathedral)\\w*|uldaman|\\bulda\\b|zul ?farrak|\\bzf\\b|maraudon|\\bmara\\b",
+  "sunken temple|temple of atal|blackrock depths|\\bbrd\\b|\\blbrs\\b|\\bubrs\\b|blackrock spire|dire maul|scholomance|\\bscholo\\b|stratholme|\\bstrat\\b",
+].join("|"));
+function isDungeonQuestion(text) { return DUNGEON_TERM.test(normalizeGuideText(text)); }
+// Questions that are about dungeons themselves (route, level, quests, which one to run) go to the
+// dungeon channel. A class question that only mentions a dungeon keeps its answer and gets a note.
+function isDungeonInfoQuestion(text) {
+  if (!isDungeonQuestion(text)) return false;
+  const q = normalizeGuideText(text);
+  if (detectClass(text) && /\b(?:stat|talent|rotasyon|rotation|spell|skill|buff|ability|gear|ekipman|silah|irk|build|pet|aggro|threat|heal|tank|dps)\w*/.test(q)) return false;
+  return true;
+}
 function isPersonalOrCreatorAdviceQuestion(question) {
   const q = normalizeGuideText(question); if (communityIntent(question)) return false;
   return /video cek|ne ceksem|rehber cek|icerik fikri|kanalimi|kanal buyut|thumbnail|video basligi|abone kazan|seo|sosyal medya|sevgilim|iliski tavsiyesi|evlilik|ozgecmis|is basvurusu|odevim|diyet|saglik tavsiyesi|hukuki tavsiye|yatirim tavsiyesi/.test(q);
@@ -10874,6 +10892,7 @@ export class DiscordGateway extends DurableObject {
     const community = communityIntent(explicit, previous?.topic);
     const local = isBotInternalQuestion(explicit) ? PRIVATE_BOT_MESSAGE : isIdentityQuestion(explicit) ? IDENTITY_MESSAGE : community ? await this.communityAnswer(explicit, community)
       : isTalentAdviceQuestion(explicit) ? TALENT_ADVICE_MESSAGE
+      : isDungeonInfoQuestion(explicit) ? DUNGEON_MESSAGE
       : isOverlyBroadQuestion(explicit) ? OVERLY_BROAD_MESSAGE
       : isExternalSourceRecommendationQuestion(explicit) ? SOURCE_POLICY_MESSAGE : isPersonalOrCreatorAdviceQuestion(explicit) ? PERSONAL_QUESTION_MESSAGE
       : isClearlyOutOfScope(explicit) ? "WoW ve Totik Channel topluluğuyla ilgili sorularda yardımcı oluyorum. Oyun içi sorunu yazabilir misin?" : "";
@@ -10901,6 +10920,7 @@ export class DiscordGateway extends DurableObject {
     }
     this.activeQuestion = { id: String(message.id), deadline: Date.now() + 50000, calls: 0, warnings: [], startedAt: Date.now() };
     this.activeQuestion.talentFooter = isTalentQuestion(explicit) || isTalentQuestion(reference?.content) || !!resolution.pages?.some(p => p.talents?.length);
+    this.activeQuestion.dungeonFooter = isDungeonQuestion(explicit) || isDungeonQuestion(reference?.content);
     let completed = false;
     try {
       await this.safeTyping(QUESTION_CHANNEL_ID);
@@ -11243,6 +11263,9 @@ export class DiscordGateway extends DurableObject {
     const active = this.activeQuestion;
     if (active?.talentFooter && !active.talentFooterAdded && String(active.id) === String(message.id) && !safe.startsWith(ANSWER_RETRY_MESSAGE) && safe !== PRIVATE_BOT_MESSAGE && !safe.includes(`<#${TALENT_CHANNEL_ID}>`)) {
       safe += TALENT_FOOTER; active.talentFooterAdded = true;
+    }
+    if (active?.dungeonFooter && !active.dungeonFooterAdded && String(active.id) === String(message.id) && !safe.startsWith(ANSWER_RETRY_MESSAGE) && safe !== PRIVATE_BOT_MESSAGE && !safe.includes(`<#${DUNGEON_CHANNEL_ID}>`)) {
+      safe += DUNGEON_FOOTER; active.dungeonFooterAdded = true;
     }
     const chunks = splitDiscordMessage(safe);
     for (let i = 0; i < chunks.length; i++) {

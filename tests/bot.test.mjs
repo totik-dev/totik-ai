@@ -304,3 +304,25 @@ test("non-talent questions get no talent channel note", async () => {
   assert.ok(net.posts.length >= 1);
   assert.ok(!net.posts.some(p => p.content.includes("1569040165048160378")));
 });
+
+test("dungeon questions are sent to the dungeon channel without an AI call", async () => {
+  for (const q of ["deadmines kaç levelde girilir", "dungeon rotası nasıl", "hangi dungeona gideyim", "SFK görevleri nerede", "zindan önerisi", "strat ud kaç level"]) {
+    const net = fakeNetwork(); const { bot } = newBot();
+    await bot.handleCommand(message(`!soru ${q}`));
+    assert.equal(net.posts.length, 1, q);
+    assert.equal(net.posts[0].content, w.DUNGEON_MESSAGE, q);
+    assert.match(net.posts[0].content, /<#1569329251981860984>/);
+    assert.ok(!net.calls.some(c => c.includes("googleapis") || c.includes("workers.dev")), `no AI call for: ${q}`);
+  }
+  assert.equal(w.isDungeonQuestion("instagram hesabın ne"), false);
+  assert.equal(w.isDungeonQuestion("dm at bana"), false);
+});
+
+test("class questions that mention a dungeon keep their answer and get the dungeon note once", async () => {
+  assert.equal(w.isDungeonInfoQuestion("dungeonda warrior tank hangi stat"), false);
+  const net = fakeNetwork(); const { bot } = newBot();
+  await bot.handleCommand(message("!soru hunter dungeonda pet aggro nasıl yönetilir"));
+  const text = net.posts.map(p => p.content).join("\n");
+  assert.match(text, /Dungeon rotaları, levelleri ve görevleri için <#1569329251981860984> kanalına bak/);
+  assert.equal(text.match(/1569329251981860984/g).length, 1);
+});
