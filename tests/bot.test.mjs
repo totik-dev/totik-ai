@@ -274,3 +274,33 @@ test("health explains why the bot is silent", async () => {
   await s2.put("polling_enabled", false);
   assert.equal((await bot2.healthSummary()).durum, "durduruldu");
 });
+
+test("talent advice questions are sent to the leveling-talent channel without an AI call", async () => {
+  for (const q of ["hangi talenti seçmeliyim", "talent ne yapmalıyım", "warrior talent nasıl dağıtılır", "talentlerimi nereye basayım", "fury warrior build önerisi", "rogue hangi talentleri almalı", "1-60 talent sırası"]) {
+    const net = fakeNetwork(); const { bot } = newBot();
+    await bot.handleCommand(message(`!soru ${q}`));
+    assert.equal(net.posts.length, 1, q);
+    assert.equal(net.posts[0].content, w.TALENT_ADVICE_MESSAGE, q);
+    assert.match(net.posts[0].content, /<#1569040165048160378>/);
+    assert.ok(!net.calls.some(c => c.includes("googleapis") || c.includes("workers.dev")), `no AI call for: ${q}`);
+  }
+});
+
+test("talent info questions keep their answer and point to the leveling-talent channel once", async () => {
+  for (const q of ["Improved Heroic Strike talenti ne işe yarar", "deep wounds nedir", "talent ne zaman açılıyor"]) {
+    assert.equal(w.isTalentAdviceQuestion(q), false, q);
+  }
+  const net = fakeNetwork({ backend: () => jsonResponse({ answer: "Deep Wounds, kritik vuruşlarından sonra hedefte kanama bırakır ve zamanla ek hasar verir." }) });
+  const { bot } = newBot();
+  await bot.handleCommand(message("!soru deep wounds nedir"));
+  const text = net.posts.map(p => p.content).join("\n");
+  assert.match(text, /Talentlerini nasıl dağıtacağını bilmiyorsan <#1569040165048160378> kanalına bak/);
+  assert.equal(text.match(/1569040165048160378/g).length, 1);
+});
+
+test("non-talent questions get no talent channel note", async () => {
+  const net = fakeNetwork(); const { bot } = newBot();
+  await bot.handleCommand(message("!soru hunter solo oyunda iyi mi"));
+  assert.ok(net.posts.length >= 1);
+  assert.ok(!net.posts.some(p => p.content.includes("1569040165048160378")));
+});

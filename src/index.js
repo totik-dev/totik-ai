@@ -10391,6 +10391,24 @@ function isExternalSourceRecommendationQuestion(question) {
   return /kaynak|youtube|youtuber|video|web sitesi|wiki|podcast|yayinci|streamer|icerik uretici|(?:hangi|baska|bir) kanal/.test(q)
     && /oner|tavsiye|soyle|listele|bul|nereden|hangisi|kimden|takip|izleyeyim|dinleyeyim|okuyayim/.test(q);
 }
+const TALENT_CHANNEL_ID = "1569040165048160378";
+const TALENT_ADVICE_MESSAGE = `Talentlerini nasıl dağıtacağını ve hangilerini seçmen gerektiğini <#${TALENT_CHANNEL_ID}> kanalında bulabilirsin.`;
+const TALENT_FOOTER = `\n\n📌 Talentlerini nasıl dağıtacağını bilmiyorsan <#${TALENT_CHANNEL_ID}> kanalına bak.`;
+const TALENT_TERM = /\b(?:talent|telent|talant|tallent|tlnt)\w*|yetenek (?:agac|puan)\w*/;
+function isTalentQuestion(text) { return TALENT_TERM.test(normalizeGuideText(text)); }
+// "hangi talenti seçmeliyim", "talent ne yapayım", "build önerisi" and other ways of asking how to
+// pick or spend talents go straight to the leveling-talent channel instead of an AI answer.
+function isTalentAdviceQuestion(text) {
+  const q = normalizeGuideText(text);
+  const topic = TALENT_TERM.test(q) || /\bbuild\w*|(?:skill|spec) (?:puan|point)\w*|\b(?:puan|point)\w* (?:nereye|nasil|hangi)|(?:nereye|nasil) (?:puan|point) ?\w*/.test(q);
+  if (!topic) return false;
+  const choose = /\b(?:al|sec|bas|ver|koy|yap|dagit|harca|ilerle|git|kur|diz|doldur|tercih ed?|ver)(?:mali|meli|ayim|eyim|ayayim|sam|sem|alim|elim|acagim|ecegim|mam|mem|mak|mek|sin|iyim|iyor|irim|arim|erim|ip)\w*/;
+  const ask = /\bhangi\w*|\bnereye\b|\bnasil\b|\bne (?:yap|sec|al|bas|ver|koy|dagit)\w*|oner\w*|tavsiye\w*|\bbuild\w*|diz(?:i)?lim\w*|dagilim\w*|dagitim\w*|sirasi\b|siralama\w*|en iyi|ideal|\bmeta\b|optimal|mantikli|\bonce\b|leveling|level (?:atarken|kasarken|alirken|basina)|seviye (?:atlarken|kasarken|alirken)|kasarken|\bkasma\w*|bilmiyorum|anlamadim|kafam karis\w*|yardim\w*|rehber\w*|guide|secim\w*|plan\w*/;
+  const info = /ne ise yarar|ne yarar|\bne yapar|nedir|ne demek|etkisi|acikla|anlat|kac (?:puan|rank|point)|max rank/;
+  const strongAdvice = choose.test(q) || /oner\w*|tavsiye\w*|\bbuild\w*|\bnereye\b|bilmiyorum|hangisini|\bne yap(?:ayim|maliyim|sam|acagim)\w*|dagit/.test(q);
+  if (info.test(q) && !strongAdvice) return false;
+  return strongAdvice || ask.test(q);
+}
 function isPersonalOrCreatorAdviceQuestion(question) {
   const q = normalizeGuideText(question); if (communityIntent(question)) return false;
   return /video cek|ne ceksem|rehber cek|icerik fikri|kanalimi|kanal buyut|thumbnail|video basligi|abone kazan|seo|sosyal medya|sevgilim|iliski tavsiyesi|evlilik|ozgecmis|is basvurusu|odevim|diyet|saglik tavsiyesi|hukuki tavsiye|yatirim tavsiyesi/.test(q);
@@ -10855,6 +10873,7 @@ export class DiscordGateway extends DurableObject {
     const explicit = current || cleanText(reference?.content, 1800) || "Bu WoW ekran görüntüsündeki sorunu açıkla.", previous = this.conversation(userId);
     const community = communityIntent(explicit, previous?.topic);
     const local = isBotInternalQuestion(explicit) ? PRIVATE_BOT_MESSAGE : isIdentityQuestion(explicit) ? IDENTITY_MESSAGE : community ? await this.communityAnswer(explicit, community)
+      : isTalentAdviceQuestion(explicit) ? TALENT_ADVICE_MESSAGE
       : isOverlyBroadQuestion(explicit) ? OVERLY_BROAD_MESSAGE
       : isExternalSourceRecommendationQuestion(explicit) ? SOURCE_POLICY_MESSAGE : isPersonalOrCreatorAdviceQuestion(explicit) ? PERSONAL_QUESTION_MESSAGE
       : isClearlyOutOfScope(explicit) ? "WoW ve Totik Channel topluluğuyla ilgili sorularda yardımcı oluyorum. Oyun içi sorunu yazabilir misin?" : "";
@@ -10881,6 +10900,7 @@ export class DiscordGateway extends DurableObject {
       return this.reply(message, `⏱️ Yeni soru için **${formatRemaining(cooldown.remainingMs)}** beklemelisin.\nMurloc Bot'un Twitch Sub ve YouTube Katıl aboneleri için bekleme süresi 1 dakika, normal üyeler için 15 dakikadır.`);
     }
     this.activeQuestion = { id: String(message.id), deadline: Date.now() + 50000, calls: 0, warnings: [], startedAt: Date.now() };
+    this.activeQuestion.talentFooter = isTalentQuestion(explicit) || isTalentQuestion(reference?.content) || !!resolution.pages?.some(p => p.talents?.length);
     let completed = false;
     try {
       await this.safeTyping(QUESTION_CHANNEL_ID);
@@ -11219,7 +11239,12 @@ export class DiscordGateway extends DurableObject {
   async askGeminiGeneralFallback(question) { return { answer: await this.callGeminiText(JSON.stringify({ question, task: "Yeni başlayan için kısa yardım. Güncel araştırma yok: sürüme özel NPC/ödül/koordinat/sayı uydurma; güvenli bilinen adımları ver, gerekirse tek soru sor." }), 1100), fallback: true, sources: [] }; }
   async reply(message, answer, options = {}) {
     const output = options.allowIdentity && answer === IDENTITY_MESSAGE ? answer : stripUnaskedIntroduction(answer);
-    const chunks = splitDiscordMessage(protectBotOutput(output));
+    let safe = protectBotOutput(output);
+    const active = this.activeQuestion;
+    if (active?.talentFooter && !active.talentFooterAdded && String(active.id) === String(message.id) && !safe.startsWith(ANSWER_RETRY_MESSAGE) && safe !== PRIVATE_BOT_MESSAGE && !safe.includes(`<#${TALENT_CHANNEL_ID}>`)) {
+      safe += TALENT_FOOTER; active.talentFooterAdded = true;
+    }
+    const chunks = splitDiscordMessage(safe);
     for (let i = 0; i < chunks.length; i++) {
       const key = `delivery:${message.id}:${i}`, previous = await this.ctx.storage.get(key); if (previous?.status === "sent") continue;
       // Discord nonce covers only minutes; never silently resend an old ambiguous write.
