@@ -7,7 +7,7 @@
     "test": "node --experimental-vm-modules --test tests/*.test.mjs",
     "check": "wrangler deploy --dry-run --outdir .wrangler/dry-run",
     "deploy": "wrangler deploy",
-    "guide-text": "node scripts/build-guide-text.mjs"
+    "cards": "node scripts/build-cards.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.0.0"
