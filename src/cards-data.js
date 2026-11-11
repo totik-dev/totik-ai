@@ -3940,6 +3940,8 @@ export const CLASS_FACTS = {
  ],
  "siniflar": {
   "druid": {
+   "zirh": "leather",
+   "silah": "staff, tek ve iki elli mace, dagger, fist weapon; sword, axe ve kalkan kullanamaz",
    "irklar": [
     "Night Elf",
     "High Order Skyborne",
@@ -4009,6 +4011,8 @@ export const CLASS_FACTS = {
    ]
   },
   "hunter": {
+   "zirh": "40. seviyeye kadar leather, 40. seviyeden sonra mail",
+   "silah": "ana silahı bow, crossbow ya da gun; yakın dövüşte tek ve iki elli sword, axe; dagger, fist weapon, polearm, staff; mace kullanamaz, kalkan takamaz",
    "irklar": [
     "Human",
     "Dwarf",
@@ -4086,6 +4090,8 @@ export const CLASS_FACTS = {
    ]
   },
   "mage": {
+   "zirh": "cloth",
+   "silah": "staff, dagger, tek elli sword ve wand; mace, axe ve kalkan kullanamaz",
    "irklar": [
     "Human",
     "Gnome",
@@ -4161,6 +4167,8 @@ export const CLASS_FACTS = {
    ]
   },
   "paladin": {
+   "zirh": "40. seviyeye kadar mail, 40. seviyeden sonra plate",
+   "silah": "tek ve iki elli sword, axe, mace; polearm; kalkan takabilir",
    "irklar": [
     "Human",
     "Dwarf",
@@ -4228,6 +4236,8 @@ export const CLASS_FACTS = {
    ]
   },
   "priest": {
+   "zirh": "cloth",
+   "silah": "tek elli mace, dagger, staff ve wand; sword, axe ve kalkan kullanamaz",
    "irklar": [
     "Human",
     "Dwarf",
@@ -4306,6 +4316,8 @@ export const CLASS_FACTS = {
    ]
   },
   "rogue": {
+   "zirh": "leather",
+   "silah": "dagger, tek elli sword, tek elli mace, fist weapon; menzilli olarak bow, crossbow, gun, thrown; iki elli silah ve kalkan kullanamaz",
    "irklar": [
     "Human",
     "Dwarf",
@@ -4386,6 +4398,8 @@ export const CLASS_FACTS = {
    ]
   },
   "shaman": {
+   "zirh": "40. seviyeye kadar leather, 40. seviyeden sonra mail",
+   "silah": "tek elli mace, tek elli axe, dagger, fist weapon, staff; kalkan takabilir",
    "irklar": [
     "Dwarf",
     "Orc",
@@ -4456,6 +4470,8 @@ export const CLASS_FACTS = {
    ]
   },
   "warlock": {
+   "zirh": "cloth",
+   "silah": "staff, dagger, tek elli sword ve wand; mace, axe ve kalkan kullanamaz",
    "irklar": [
     "Human",
     "Gnome",
@@ -4523,6 +4539,8 @@ export const CLASS_FACTS = {
    ]
   },
   "warrior": {
+   "zirh": "40. seviyeye kadar mail, 40. seviyeden sonra plate",
+   "silah": "tek ve iki elli sword, axe, mace; dagger, fist weapon, polearm, staff; menzilli olarak bow, crossbow, gun, thrown; kalkan takabilir",
    "irklar": [
     "Human",
     "Dwarf",

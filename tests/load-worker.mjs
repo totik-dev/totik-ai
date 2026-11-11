@@ -6,7 +6,7 @@ const EXPORTED_FOR_TESTS = [
   "normalizeGuideText", "pickCards", "detectExternalOnlyIntent", "CARDS", "CARD_TOPICS", "selectCards", "detectClass", "findCardAttachment",
   "communityIntent", "isBotInternalQuestion", "isIdentityQuestion", "isExternalSourceRecommendationQuestion",
   "isPersonalOrCreatorAdviceQuestion", "isClearlyOutOfScope", "protectBotOutput", "splitDiscordMessage",
-  "usableGameAnswer", "isNoInfoAnswer", "isForeverChangeTopic", "safeError", "splitQuestionParts", "isOverlyBroadQuestion", "OVERLY_BROAD_MESSAGE",
+  "usableGameAnswer", "isNoInfoAnswer", "hasNoInfoSentence", "stripNoInfoSentences", "isKickRoleName", "isForeverChangeTopic", "safeError", "splitQuestionParts", "isOverlyBroadQuestion", "OVERLY_BROAD_MESSAGE",
   "QUESTION_CHANNEL_ID", "OWNER_ID", "TALENT_CHANNEL_ID", "DUNGEON_CHANNEL_ID", "isTalentAdviceQuestion", "isTalentQuestion", "TALENT_ADVICE_MESSAGE", "isDungeonQuestion", "isDungeonInfoQuestion", "PRIVATE_BOT_MESSAGE", "IDENTITY_MESSAGE", "SOURCE_POLICY_MESSAGE", "ANSWER_RETRY_MESSAGE"
 ];
 

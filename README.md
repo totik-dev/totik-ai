@@ -10,9 +10,13 @@ Totik Channel Discord sunucusunda WoW Forever sorularını cevaplayan bot. Soru 
 - "Arcane mi frost mu fire mi", "warrior hangi spec" gibi uzmanlık karşılaştırmalarında bot her uzmanlığın rolünü, güçlü ve zayıf yanlarını (`kartlar/sinif-bilgi.json`) kullanır ve en fazla iki uzmanlığın talent sırası kartını ekler. "Hangi sınıf tank olur", "hunter mı mage mı" gibi sınıf sorularını da aynı bilgiden cevaplar.
 - Cevap yalnız soruya ait bölümden kurulur: uzmanlık belliyse Oynanış kartının diğer uzmanlık bölümleri, seviye belliyse talent sırası kartının o seviyedeki satırı öne alınır. Böylece başka uzmanlığın ya da mesleğin bilgisi cevaba karışmaz.
 - Yazım hataları ("palladin", "deadmins", "gnomregan") ve kısaltmalar ("bm", "sfk", "strat ud") tanınır. "eng", "skin", "war", "dm" gibi günlük kelimeler tek başına kart getirmez.
+- "Priest için hangi meslek", "kaç meslek alabilirim" gibi meslek seçimi sorularında bot, meslek kartlarındaki öneri satırlarını (`KİM`, `SINIF`, `KİMİN İŞİ`, `EŞ`, `İKİLİ`, `İKİNCİL`) kullanır; kartların o sınıf için önerdiği en fazla iki ana mesleğin genel kartını ekler ve iki konunun bağlantısını verir.
+- "Alan vuran skili var mı", "aoe büyüleri" gibi sorularda bot, sınıfın yetenek ve talent kartlarında birden çok hedefe etki eden satırları ve Oynanış kartındaki `ÇOK HEDEF` notunu toplar.
+- Ekipman sorularında ("20 level hunter ne giymeli", "priest hangi silah") kart eklenmez; cevap `kartlar/sinif-bilgi.json` içindeki zırh ve silah kuralından kurulur ve araştırma servisine sorulmaz.
+- Görev ve "nereden alınır" soruları araştırma servisine gider. Servis "bu bilgi verilerde yer almıyor" gibi bir cümleyle dönerse soru bir kez de Gemini'ye sorulur; böyle dolgu cümleleri cevaptan çıkarılır.
 - Hiçbir kural uymazsa bot soruyla en çok ortak kelimesi olan kartı dener; bu durumda kart yalnız AI adımı "kart bu soruyu cevaplıyor" derse kullanılır.
 - Kart soruyu karşılamıyorsa ya da eşleşme yoksa WoW AI servisi (`WOW_AI_URL`), o da cevap vermezse Gemini kullanılır.
-- Bekleme süresi: YouTube Katıl / Twitch Sub / premium rolü 1 dakika, diğer üyeler 15 dakika. Cevap verilemezse hak geri verilir.
+- Bekleme süresi: YouTube Katıl / Twitch Sub / Kick abonesi / premium rolü 1 dakika, diğer üyeler 15 dakika. Cevap verilemezse hak geri verilir. Kick abonesi rolü, sunucuda adında "Kick" geçen roldür (bot rolleri sayılmaz); `KICK_SUB_ROLE_IDS` verilirse yalnız o roller sayılır. `/health` çıktısındaki `kick_rolu` hangi rolün bulunduğunu gösterir.
 - Cooldown, mesaj durumu ve forum konularının listesi Durable Object depolamasında tutulur; ayrı veritabanı yoktur.
 
 ## Dosyalar
@@ -24,7 +28,7 @@ Totik Channel Discord sunucusunda WoW Forever sorularını cevaplayan bot. Soru 
 | `src/cards-data.js` | 189 kartın tam metni. Elle düzenlenmez; `npm run cards` üretir. |
 | `kartlar/kartlar.json` | Kart listesi: her kartın konusu, forumdaki dosya adı, forum ve konu başlığı, anahtar kelimeler. |
 | `kartlar/metin/<id>.md` | Her kartın içindeki bilginin tamamı, düz metin olarak. Botun bilgi tabanı budur. |
-| `kartlar/sinif-bilgi.json` | Kartlarda yazmayan doğrulanmış sınıf bilgisi: uzmanlıkların rolü, artıları ve eksileri, sınıfların ırkları, ırka göre öneriler. |
+| `kartlar/sinif-bilgi.json` | Kartlarda yazmayan doğrulanmış sınıf bilgisi: uzmanlıkların rolü, artıları ve eksileri, sınıfların ırkları, ırka göre öneriler, sınıfın giydiği zırh ve kullandığı silah türleri (Classic kuralı). |
 | `scripts/build-cards.mjs` | `kartlar/` klasöründen `src/cards-data.js` dosyasını üretir. |
 | `tests/` | Otomatik testler. Ağ kullanmaz; Discord ve AI servisleri sahte cevaplarla taklit edilir. |
 | `tests/questions.test.mjs`, `tests/questions-reviewed.mjs` | Soru bataryası: 1200'den fazla gerçek tarzda soru ve her birinin alması gereken kart. |
@@ -49,7 +53,7 @@ Bot bir soruya yanlış kart verirse soruyu ve doğru kartı `tests/questions-re
 
 Zorunlu gizli değerler: `DISCORD_BOT_TOKEN`, `GEMINI_API_KEY`, `ADMIN_API_KEY` (en az 32 karakter).
 
-İsteğe bağlı: `DISCORD_GUILD_ID`, `WOW_AI_URL`, `WOW_AI_METHOD` (`POST` ya da boş = GET), `WOW_AI_API_KEY`, `GEMINI_TEXT_MODEL`, `GEMINI_VISION_MODEL`, `TOTIK_PROFILE_JSON`, `YOUTUBE_MEMBER_ROLE_IDS`, `TWITCH_SUB_ROLE_IDS`, `PREMIUM_ROLE_IDS`, `COMMUNITY_EDITOR_IDS`, `SPECIAL_GUIDE_CHANNEL_ID`.
+İsteğe bağlı: `DISCORD_GUILD_ID`, `WOW_AI_URL`, `WOW_AI_METHOD` (`POST` ya da boş = GET), `WOW_AI_API_KEY`, `GEMINI_TEXT_MODEL`, `GEMINI_VISION_MODEL`, `TOTIK_PROFILE_JSON`, `YOUTUBE_MEMBER_ROLE_IDS`, `TWITCH_SUB_ROLE_IDS`, `KICK_SUB_ROLE_IDS`, `PREMIUM_ROLE_IDS`, `COMMUNITY_EDITOR_IDS`, `SPECIAL_GUIDE_CHANNEL_ID`.
 
 `TOTIK_PROFILE_JSON` alanları: `about`, `guildName`, `realm`, `ruleset`, `faction`, `guildRequirements`, `applicationInstructions`, `guildContacts`, `streamSchedule`.
 

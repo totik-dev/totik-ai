@@ -64,7 +64,7 @@ export function buildCards() {
 export function classFacts() {
   const { taraflar, genel, siniflar } = JSON.parse(fs.readFileSync(factsUrl, "utf8"));
   if (!taraflar?.Alliance?.length || !taraflar?.Horde?.length) throw new Error("Sınıf bilgisi eksik: taraflar");
-  for (const [key, entry] of Object.entries(siniflar)) if (!Array.isArray(entry.uzmanliklar) || entry.uzmanliklar.length !== 3) throw new Error(`Sınıf bilgisi eksik: ${key}`);
+  for (const [key, entry] of Object.entries(siniflar)) if (!Array.isArray(entry.uzmanliklar) || entry.uzmanliklar.length !== 3 || !entry.zirh || !entry.silah) throw new Error(`Sınıf bilgisi eksik: ${key}`);
   return { taraflar, genel, siniflar };
 }
 

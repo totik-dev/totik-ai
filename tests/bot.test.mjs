@@ -30,7 +30,7 @@ const topicId = name => TOPICS.find(topic => topic.name === name).id;
 
 // Fake network: records Discord posts, answers member lookups, the gameplay backend and the three
 // guide forums (one post per topic, the cards as attachments of its first message).
-function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunter solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun." }), gemini = () => jsonResponse({}, 500), missingFiles = [], fileSize = 2048, archived = [], longPost = false, scanFails = false } = {}) {
+function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunter solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun." }), gemini = () => jsonResponse({}, 500), missingFiles = [], fileSize = 2048, archived = [], longPost = false, scanFails = false, guildRoles = [] } = {}) {
   const posts = [], calls = [], prompts = [];
   const threadJson = topic => ({ id: topic.id, parent_id: FORUMS[topic.category], name: topic.name, thread_metadata: { archive_timestamp: "2026-11-10T00:00:00.000Z" } });
   w.setFetch(async (input, init = {}) => {
@@ -40,6 +40,7 @@ function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunte
       const path = url.pathname.replace(/^\/api\/v\d+/, "");
       if (path.endsWith("/typing")) return new Response(null, { status: 204 });
       if (/\/guilds\/\d+\/members\//.test(path)) return jsonResponse({ roles });
+      if (/^\/guilds\/\d+\/roles$/.test(path)) return jsonResponse(guildRoles);
       if (init.method === "POST" && path.endsWith("/messages")) {
         const form = typeof init.body === "string" ? null : init.body, body = form ? JSON.parse(form.get("payload_json")) : JSON.parse(init.body);
         posts.push({ ...body, files: form ? [...form.keys()].filter(key => key.startsWith("files[")).map(key => form.get(key).name) : [] });
@@ -148,7 +149,7 @@ test("cooldown message explains supporter and normal waiting times politely", as
   await bot.handleCommand(message("!soru hangi sınıf solo için iyi", userId));
   await new Promise(r => setTimeout(r, 2600));
   await bot.handleCommand(message("!soru hunter mı iyi mage mı", userId));
-  assert.match(net.posts.at(-1).content, /Twitch Sub ve YouTube Katıl aboneleri için bekleme süresi 1 dakika, normal üyeler için 15 dakikadır\./);
+  assert.match(net.posts.at(-1).content, /Twitch Sub, YouTube Katıl ve Kick aboneleri için bekleme süresi 1 dakika, normal üyeler için 15 dakikadır\./);
 });
 
 test("two questions in one message get two answers in a single reply, each with its own source", async () => {
@@ -584,4 +585,108 @@ test("answers that do not come from a card are asked for in the same short shape
   assert.match(asked, /^mount kaç levelde alınır/);
   assert.match(asked, /en fazla 5 kısa satır/);
   assert.equal(net.posts[0].content, "Mount 40. seviyede alınır.");
+});
+
+// ---------- Live reports of 2026-11-11 ----------
+
+test("Kick subscribers get the 1 minute cooldown: the server role named after Kick, or KICK_SUB_ROLE_IDS", async () => {
+  const guildRoles = [{ id: "900000000000000001", name: "Kick Abone" }, { id: "900000000000000002", name: "Kickbot", tags: { bot_id: "1" } }, { id: "900000000000000003", name: "Moderatör" }, { id: "900000000000000004", name: "Kicked" }];
+  let net = fakeNetwork({ roles: ["900000000000000001"], guildRoles }); let { bot } = newBot();
+  assert.equal((await bot.getMemberCooldownClass(message("!soru x"))).durationMs, 60000);
+  assert.match((await bot.getMemberCooldownClass(message("!soru x"))).reason, /^kick_role_id/);
+  assert.equal(net.calls.filter(c => c.endsWith("/roles")).length, 1, "the role list is read once");
+  assert.equal((await bot.healthSummary()).kick_rolu, "Kick Abone");
+  // Roles that only look like it do not count.
+  for (const role of ["900000000000000002", "900000000000000003", "900000000000000004"]) {
+    fakeNetwork({ roles: [role], guildRoles }); ({ bot } = newBot());
+    assert.equal((await bot.getMemberCooldownClass(message("!soru x"))).durationMs, 900000, role);
+  }
+  // A role id given in the settings wins, without reading the role list.
+  net = fakeNetwork({ roles: ["900000000000000009"], guildRoles }); ({ bot } = newBot({ KICK_SUB_ROLE_IDS: "900000000000000009" }));
+  assert.equal((await bot.getMemberCooldownClass(message("!soru x"))).durationMs, 60000);
+  assert.ok(!net.calls.some(c => c.endsWith("/roles")));
+  assert.ok(w.isKickRoleName("KICK") && w.isKickRoleName("Kick Sub") && w.isKickRoleName("🟢 Kick Abonesi") && !w.isKickRoleName("Kickboks") && !w.isKickRoleName("Sidekick"));
+});
+
+test("equipment question: answered from the armor and weapon rule of the class, no card, no research backend", async () => {
+  const net = fakeNetwork({ gemini: () => geminiText("20. seviyede **Hunter** leather giyer; mail 40. seviyede açılır. Agility ve Stamina veren parçalara bak.") }); const { bot } = newBot();
+  await bot.handleCommand(message("!soru 20 lvl night elf hunterım hangi itemleri almam gerekli silah kıyafet vs."));
+  assert.equal(net.posts.length, 1);
+  assert.match(net.posts[0].content, /^20\. seviyede \*\*Hunter\*\* leather giyer/);
+  assert.deepEqual(net.posts[0].files, [], "no race or talent card");
+  assert.ok(!/bakabilirsin/.test(net.posts[0].content));
+  assert.equal(net.prompts.length, 1, "one AI call");
+  const prompt = JSON.parse(JSON.parse(net.prompts[0]).input);
+  assert.equal(prompt.playerClass, "Hunter");
+  assert.match(prompt.rules, /^Hunter: zırh 40\. seviyeye kadar leather, 40\. seviyeden sonra mail; silah: ana silahı bow, crossbow ya da gun/);
+  assert.ok(!/Warrior/.test(prompt.rules), "only the rule of the player's class");
+  assert.ok(!net.calls.some(c => c.includes("workers.dev")), "the research backend is not asked");
+});
+
+test("weapon and profession in one message: weapon rule for the first part, profession cards and both topics for the second", async () => {
+  const net = fakeNetwork({ gemini: (url, init) => /Oyuncu ekipman soruyor/.test(String(init.body))
+    ? geminiText("**Priest** tek elli mace, dagger, staff ve wand kullanır.")
+    : geminiText("**Enchanting** ve **Tailoring** al: Priest Tailoring'den en çok faydayı görür, Enchanting wand yapar.") });
+  const { bot } = newBot();
+  await bot.handleCommand(message("!soru 10 lvl shadow priestim, elimde topuzla takılıyorum. Hangi silahları kullanmalıyım? hangi meslekleri seçmeliyim hiçbir bilgim yok yeni başladım"));
+  assert.equal(net.posts.length, 1);
+  const answer = net.posts[0].content;
+  assert.match(answer, /\*\*1\) [^\n]*Hangi silahları kullanmalıyım\?\*\*\n\*\*Priest\*\* tek elli mace/);
+  assert.match(answer, /\*\*2\) hangi meslekleri seçmeliyim[^\n]*\*\*\n\*\*Enchanting\*\* ve \*\*Tailoring\*\* al/);
+  assert.match(answer, new RegExp(`<#${topicId("Enchanting")}> ve <#${topicId("Tailoring")}> konularına bakabilirsin`), "both profession topics are linked");
+  assert.deepEqual(net.posts[0].files, ["ench-genel.png", "tail-genel.png"], "the profession cards, not a talent card");
+  const advice = JSON.parse(JSON.parse(net.prompts.find(p => /hangi mesleği seçeceğini soruyor/.test(p))).input);
+  assert.equal(advice.playerClass, "Priest", "the class of the first part carries over");
+  assert.match(advice.trustedCardText, /Priest için kartlarda yazanlar:\nEnchanting: Mage, Priest, Warlock \(wand yapar\)/);
+});
+
+test("profession advice: without a class the forum is linked; while the model is down the card lines answer", async () => {
+  let net = fakeNetwork({ gemini: () => geminiText("En fazla iki ana meslek alabilirsin; **Cooking**, **Fishing** ve **First Aid** bunlara ek alınır.") }); let { bot } = newBot();
+  await bot.handleCommand(message("!soru kaç meslek alabilirim"));
+  assert.match(net.posts[0].content, /^En fazla iki ana meslek alabilirsin/);
+  assert.match(net.posts[0].content, new RegExp(`<#${FORUMS.profession}> kanalına bakabilirsin\\.$`));
+  assert.deepEqual(net.posts[0].files, []);
+  net = fakeNetwork(); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru hunter için hangi meslek"));
+  assert.match(net.posts[0].content, /Leatherworking: Druid ve Rogue oyun boyu deri giyer\. Hunter ve Shaman önce deri, sonra mail/);
+  assert.deepEqual(net.posts[0].files, ["lw-genel.png"]);
+  // "Which profession earns money" is not on the cards: the normal answer takes over.
+  net = fakeNetwork({ gemini: () => geminiText("KARTTA_YOK") }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru hangi meslek para kazandırır"));
+  assert.deepEqual(net.posts[0].files, []);
+  assert.ok(net.calls.some(c => c.includes("workers.dev")));
+});
+
+test("a short follow-up stays with its question: area abilities come from the class cards", async () => {
+  assert.deepEqual(Array.from(w.splitQuestionParts("shadow priestin alan vuran skili var mı ? hangisi kaç levelde")), ["shadow priestin alan vuran skili var mı hangisi kaç levelde"]);
+  assert.equal(w.splitQuestionParts("deadmines kaç level? fishing nerede kasılır?").length, 2);
+  const net = fakeNetwork({ gemini: () => geminiText("Shadow'da tek tuşla alan hasarı yok; **Shadow Word: Pain**'i her düşmana at, **Devouring Plague** ölünce yayılır.") }); const { bot } = newBot();
+  await bot.handleCommand(message("!soru shadow priestin alan vuran skili var mı ? hangisi kaç levelde"));
+  assert.equal(net.posts.length, 1);
+  assert.ok(!/\*\*1\)/.test(net.posts[0].content), "one question, one answer");
+  assert.deepEqual(net.posts[0].files, [file("priest-07-oynanis"), file("priest-03-yetenekler-2")]);
+  const prompt = JSON.parse(JSON.parse(net.prompts[0]).input);
+  assert.match(prompt.trustedCardText, /Oynanış kartındaki çok hedef notları:\n- Shadow: Shadow Word: Pain'i her düşmana at/);
+  assert.match(prompt.trustedCardText, /Psychic Scream[^\n]*Yakındaki en fazla 5 düşman/);
+  assert.match(prompt.trustedCardText, /Holy Nova[^\n]*10 metre içindeki düşmanlara/);
+  assert.match(prompt.trustedCardText, /Devouring Contagion[^\n]*yakındaki 2 düşmana yayılır/);
+  assert.ok(!/Prayer of Mending|Mana Burn/.test(prompt.trustedCardText.split("alan etkili")[1].split("\n\n")[0]), "heals and single-target spells are not listed as area abilities");
+});
+
+test("quest question: a research answer that says the detail is missing is asked again, the filler sentence is never sent", async () => {
+  let asked = "";
+  const backend = url => { asked = url.searchParams.get("q"); return jsonResponse({ answer: "Fire Hardened Hauberk, Warrior sınıf görevinin ödülüdür. Görevi veren NPC ve detaylı konum bilgisi elimizdeki güncel verilerde yer almamaktadır." }); };
+  let net = fakeNetwork({ backend, gemini: () => geminiText("Görevi Stormwind Dwarven District'teki Furen Longbeard verir.") }); let { bot } = newBot();
+  await bot.handleCommand(message("!soru fire hardened hauberk görevini hangi npc veriyor nerede"));
+  assert.match(asked, /Bu soru görev araştırmasıdır\./);
+  assert.match(asked, /görevi veren NPC'yi, NPC'nin bulunduğu şehir ya da bölgeyi/);
+  assert.equal(net.posts[0].content, "Görevi Stormwind Dwarven District'teki Furen Longbeard verir.");
+  assert.match(net.prompts.at(-1), /görev \/ NPC \/ edinim sorusu/);
+  // The model has nothing better: the useful part of the research answer is sent, without the filler sentence.
+  net = fakeNetwork({ backend }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru fire hardened hauberk görevini hangi npc veriyor nerede"));
+  assert.equal(net.posts[0].content, "Fire Hardened Hauberk, Warrior sınıf görevinin ödülüdür.");
+  assert.ok(w.hasNoInfoSentence("Ödülü budur. Konum bilgisi kaynaklarda bulunmamaktadır."));
+  assert.ok(!w.hasNoInfoSentence("Bu zindanda görev yok, doğrudan girebilirsin. Detaylı rota kartta yazıyor."));
+  assert.equal(w.stripNoInfoSentences("Bu konuda net bir bilgi yok."), "Bu konuda net bir bilgi yok.", "an answer that is only filler is left to the no-info check");
 });

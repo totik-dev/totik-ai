@@ -94,7 +94,7 @@ test("general dungeon questions are answered from the dungeon list", () => {
 
 test("questions the cards do not cover are left to the normal answer", () => {
   // No rule picks a card. A loose text match (search) may still be offered to the model, which can decline it.
-  for (const q of ["onyxia attunement nasıl yapılır", "wow forever guild var mı", "dwarf shaman için leveling aşamasında hangi meslekleri önerirsin", "shame on you", "state machine"]) { const s = w.pickCards(q); assert.ok(!s || s.search, q); }
+  for (const q of ["onyxia attunement nasıl yapılır", "wow forever guild var mı", "20 lvl night elf hunterım hangi itemleri almam gerekli silah kıyafet vs.", "shame on you", "state machine"]) { const s = w.pickCards(q); assert.ok(!s || s.search, q); }
 });
 
 test("a class question that mentions a dungeon stays a class question", () => {
