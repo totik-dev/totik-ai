@@ -1,4 +1,4 @@
-// AUTO-GENERATED — scripts/build-cards.mjs (npm run cards). Elle düzenleme: kartlar/metin/*.md dosyalarını düzelt.
+// AUTO-GENERATED — scripts/build-cards.mjs (npm run cards). Elle düzenleme: kartlar/metin/*.md ve kartlar/sinif-bilgi.json dosyalarını düzelt.
 export const CARDS = [
  {
   "id": "druid-01-irk-secimi",
@@ -3748,3 +3748,855 @@ export const CARDS = [
   "text": "# Tailoring · 1 → 300 Başlamadan Önce\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Tailoring\n- Skill aralığı: 1 → 300 (Başlamadan önce)\n- Fraksiyon: kartta fraksiyon rozeti yok; eğitmen tablolarında Alliance / Horde / İki taraf ayrımı var\n- Rozet: Tavsiye edilen rota\n\n## Nasıl başlarım?\n\n- `1` Mesleği öğren: bir Tailoring eğitmenine git. Durotar, Mulgore, Dun Morogh ve Teldrassil'de eğitmen yok: başkente git.\n- (kumaş ikonu) Kumaş (cloth) insansı (Humanoid) düşmanlardan düşer. Toplama mesleği ve alet gerekmez: ikinci meslek serbest. 1–225 rotasındaki her tarif istasyonsuz yapılır.\n- (iplik ikonu) İplik, boya ve Bleach eğitmenin yanındaki Tailoring Supplies satıcısında. Tirisfal'da yok: Brill'de Abigail Shiel.\n- (bolt ikonu) Her tarif bolt (kumaş topu) ister: yaptığın bolt'ları sakla, rota onları sonraki adımlarda kullanır.\n- `FOREVER` Forever'da tarifler 25–45 skill erken griye döner: eski Classic rehberlerini değil, bu kartların rotasını izle.\n\n## Rütbeler\n\n| Rütbe | Tavan | Skill şartı | Karakter seviyesi | Ücret |\n|---|---|---|---|---|\n| Apprentice | 75 | Şart yok | Şart yok | 10 bakır |\n| Journeyman | 150 | 50 | 10 | 5 gümüş |\n| Expert | 225 | 125 | 20 | 50 gümüş |\n| Artisan | 300 | 200 | 35 | 5 altın |\n\nİki şart birden: hem skill hem karakter seviyesi. Sonraki rütbeyi tavana gelmeden alabilirsin: 50'de Journeyman, 125'te Expert, 200'de Artisan al. Journeyman'sız 75'i geçemezsin: puan gelmez, o yüzden bu sırada AFK craft yapma. Bütün rütbeler eğitmenden; kitap ya da görev gerekmez. 150, 225 ve 300'e ilk ulaştığında Legacy puanı kazanırsın.\n\n## Journeyman eğitmenleri (1 → 150)\n\n| Taraf | Eğitmen | Yer | /mappin |\n|---|---|---|---|\n| Alliance | Sellandus | Stormwind, Mage Quarter (Duncan's Textiles'ın karşısındaki bina) | 1453 42.0 76.2 |\n| Alliance | Jormund Stonebrow | Ironforge, The Great Forge (Stonebrow's Clothier) | 1455 43.6 28.2 |\n| Alliance | Me'lynn | Darnassus, Craftsmen's Terrace | 1457 62.6 22.6 |\n| Horde | Magar | Orgrimmar, The Drag | 1454 63.4 50.0 |\n| Horde | Rhiannon Davis | Undercity, Magic Quarter | 1458 70.6 29.6 |\n| Horde | Tepa | Thunder Bluff, Central Bluff | 1456 44.2 45.0 |\n| Horde | Mahani | The Barrens, Camp Taurajo | 1413 44.8 59.4 |\n| İki taraf | Grarnik Goodstitch | Stranglethorn, Booty Bay (en yüksek bina, rampayla çık) | 1434 28.6 76.8 |\n| İki taraf | Taleen Shimmerthread | Zephras Isle, Shen'dar Village | 2521 44.8 44.2 |\n| İki taraf | Othesia Evengale | Zephras Isle, Valanaar | 2521 64.4 81.0 |\n\nYalnız Apprentice (75'e kadar) öğretenler: Lawrence Schneider (Stormwind) · Uthrar Threx (Ironforge) · Trianna (Darnassus) · Eldrin (Elwynn, Eastvale Logging Camp) · Grondal Moonbreeze (Darkshore, Auberdine) · Snang (Orgrimmar) · Victor Ward (Undercity) · Vhan (Thunder Bluff) · Bowen Brisboise (Tirisfal, Cold Hearth Manor) · Kil'hala (Barrens, Crossroads). Oyunda `/mappin <harita> X Y` yazınca haritaya işaret konur.\n\n## Expert ve Artisan eğitmenleri\n\n| Rütbe | Taraf | Eğitmen | Yer | /mappin |\n|---|---|---|---|---|\n| Expert | Alliance | Georgio Bolero | Stormwind, Mage Quarter (Duncan's Textiles) | 1453 43.2 73.6 |\n| Expert | Alliance | Charles Worth | Alterac Mountains, Dalaran (Talismanic Textiles) | 1416 17.8 60.6 |\n| Expert | Horde | Josef Gregorian | Undercity, Magic Quarter | 1458 70.6 30.6 |\n| Artisan | Alliance | Timothy Worthington | Dustwallow Marsh, Theramore Isle: gemiden inince soldaki ilk küçük binanın üst katı | 1445 66.2 51.6 |\n| Artisan | Horde | Daryl Stack | Hillsbrad Foothills, Tarren Mill: hanın hemen doğusundaki kilise | 1424 63.6 20.8 |\n\nExpert (125 skill + seviye 20) 225'e kadarki ana rota tariflerinin hepsini öğretir. Artisan (200 skill + seviye 35) eğitmenleri Bolt of Runecloth ve Runecloth Belt'i de öğretir. Skyborne karakter, yaratırken seçtiği tarafın eğitmenini kullanır.\n\n## Kumaş nereden?\n\n| Kumaş | Düşen mob seviyesi | Bolt | Rotada |\n|---|---|---|---|\n| Linen Cloth | 1–19 | 2 kumaş = 1 bolt | 1 → 55 |\n| Wool Cloth | 15–30 | 3 kumaş = 1 bolt | 55 → 100 |\n| Silk Cloth | 26–40 | 4 kumaş = 1 bolt | 100 → 190 |\n| Mageweave Cloth | 41–50 | 5 kumaş = 1 bolt | 140 → 225 |\n| Runecloth | 51–60 | 5 kumaş = 1 bolt | 225 → 300 |\n| Felcloth | 50–60 iblisler (Demon) | — | 2 Felcloth = 1 Mooncloth |\n\nKendi seviyendeki insansı düşmanları kes; karakterin gençse üst kumaşları Auction House'tan al. İyi yerler: Silk Desolace, Arathi Highlands, Stranglethorn · Mageweave Tanaris (Lost Rigger Cove korsanları), Feralas, Hinterlands · Runecloth Felwood (Deadwood furbolgları), Winterspring (Winterfall Village), Eastern Plaguelands, Burning Steppes (Blackrock orkları). Fishing dünyanın her yerinde içinden bolt çıkabilen sandıklar çıkarır.\n\n## Boyalar ve malzemeci\n\n- Blue Dye, Red Dye, Bleach ve bütün iplikler (Coarse, Fine, Silken, Heavy Silken, Rune Thread) satıcıdan alınır.\n- Cerulean Dye (yeni): Alchemy 50, Empty Vial + 2 Frilled Lichen. Woolen ve Silk Reagent Bag, Merchant's Favor setleri ister.\n- Magenta Dye (yeni): Alchemy 130, Leaded Vial + 2 Rosecap.\n- Viridian Dye (yeni): Alchemy 230, Crystal Vial + 2 Stranglevine, Fermenter'da yapılır.\n- `ALCHEMY` Yeni boyaları satıcı satmaz: bir Alchemist'ten ya da AH'den al. Klasik boyalar (Blue, Red, Bleach) satıcıda kalır.\n\n## Forever'da yeni: Reagent çantaları\n\n| Çanta | Yuva | Skill | Malzeme | Tarif nereden |\n|---|---|---|---|---|\n| Linen Reagent Bag | 6 | 5 | 6 Bolt of Linen Cloth + 6 Coarse Thread | Tailoring Supplies satıcısı: Alexandra Bolero (Stormwind) · Jennabink Powerseam (Wetlands) · Mallen Swain (Hillsbrad) · Xizk Goodstitch (Stranglethorn) |\n| Woolen Reagent Bag | 8 | 70 | 3 Bolt of Woolen Cloth + 1 Fine Thread + 1 Cerulean Dye | Aynı satıcılar |\n| Silk Reagent Bag | 10 | 125 | 3 Bolt of Silk Cloth + 2 Heavy Leather + 3 Fine Thread + 3 Cerulean Dye | Desolace'ta centaur satıcıları Molkar / Gorhak (klan itibarı) ya da görev I Need a Tailor |\n| Mageweave Reagent Bag | 12 | 190 | 4 Bolt of Mageweave + 2 Heavy Silken Thread + 1 Magenta + 1 Cerulean Dye | 60 Merchant's Favor, Friendly (Mivin Shadowweave · Jim'bek) |\n| Runecloth Reagent Bag | 14 | 215 | 5 Bolt of Runecloth + 2 Rugged Leather + 1 Rune Thread + 1 Viridian Dye | 60 Merchant's Favor, Friendly (Mivin Shadowweave · Jim'bek) |\n\nMalzemeler için ayrı bir çanta yuvası var: normal çanta yerlerin boş kalır. Reagent çantaları giyince bağlanır (BoE): satılabilir. Üst sürümler: Mooncloth Reagent Bag (255, 18 yuva; deseni düşerek gelir, alınca bağlanır) ve Bottomless Reagent Bag (300, 20 yuva; Loom yanında yapılır). Red Linen Bag 8 yuva.\n\n## Seviye 10: bağlanan kemerler\n\n- `BOP` İkisi de alınca bağlanır: Tailoring'i kemeri giyecek karakterde aç. Eğitmenden öğrenilir (5 gümüş 26 bakır), 55 skill'e kadar puan da verir.\n- `CASTER` Novice Arcanist's Sash: +3 Int, +3 Sta, büyü hasarı ve iyileştirme +4. 8 Bolt of Linen Cloth + 2 Fine Thread + 2 Minor Mana Potion.\n- `HEALER` Novice Ardent's Sash: +3 Int, +3 Spirit, iyileştirme +6, hasar +2. 12 Bolt of Linen Cloth + 2 Fine Thread + 2 Minor Healing Potion.\n- `SINIF` Mage, Priest ve Warlock Tailoring'den en çok faydayı görür. Melee sınıf için değer: çanta, altın ve kampta Spirit bayrağı.\n\n## Merchant's Favor setleri\n\n| Bedel | Şart | Parça (açıldığı skill) |\n|---|---|---|\n| 30 Favor | — | Boots (60) · Gloves (75) · Sash (85) · Circlet (100) · Gown (110) · Leggings (125) |\n| 60 Favor | Friendly | Handwraps (165) · Shoulders (195) · Cuffs (205) · Waistcord (215) |\n| 90 Favor | Honored | Sandals (235) |\n| 1.000 Favor | 300 skill | Tailoring Certification: hesaptaki bütün karakterlere \"the Tailor\" unvanı |\n\nSatıcı: Alliance Mivin Shadowweave (Redridge, Three Corners), Horde Jim'bek (Barrens, Crossroads'un batı kapısı dışı); ikisi aynı 67 tarifi satar. Her büyü okulunun ad ailesi: Fire Flame · Fiery · Netherflame, Frost Silky · Frothing · Netherfroth, Arcane Pearly · Golden · Nethershine, Shadow Shadow · Black · Netherpearl, Holy Shining · Radiant · Netherlight, Healer Pristine · Gilded · Nethergeld (Healer'da Handwraps yok). Tarifler Cerulean Dye ve okulun malzemesini ister (Fire Oil, Small Lustrous Pearl, Shadowgem…). Merchant's Favor karakter başınadır; unvanı göstermek için o karakterin de 300 olması gerekir.\n\n## Zindan tarifleri: Filigreed\n\n- `75` Filigreed … Gown: Deadmines, Shadowfang Keep, Ragefire Chasm.\n- `100` Filigreed … Leggings: Blackfathom Deeps, Stockade, Shadowfang Keep, Deadmines.\n- `125` Filigreed … Circlet: Blackfathom Deeps, Stockade, Razorfen Kraul, Scarlet Monastery.\n- `SETLER` Altı çeşit: Flame, Pearly, Pristine, Shadow, Shining, Silky. Tarifler bu düşük seviye zindanlarda düşer, eşyalar alınca bağlanır. Sınıf rehberi: Mage Flame / Silky / Pearly, Priest Pristine / Shining / Shadow, Warlock Shadow / Flame.\n\n## Kamp objeleri\n\n| Obje | Skill | Malzeme | Nereden öğrenilir | Ne yapar |\n|---|---|---|---|---|\n| Faction Banner | 20 | 1 Bolt of Linen Cloth + 1 Coarse Thread | Herhangi bir Tailoring eğitmeni (1 gümüş 5 bakır) · başlangıç görevi Camping 101: Tailoring (seviye 4, ücretsiz) | Yakında oturan kendi tarafına Spirit. Divine Spirit ile birikmez. |\n| Spinning Wheel | 140 | 2 Simple Wood + 5 Bolt of Silk Cloth + 3 Fine Thread | Blueprint: Spinning Wheel: City of Dalaran zindanında Unstable Sentinel (%9). Bağlanmaz: AH'den de alınır. | Bazı tarifler burada yapılır (ör. Black Slippers) + bayrağın Spirit buff'ı |\n| Loom | 300 | 4 Bolt of Runecloth + 4 Simple Wood + 1 Bottled Screams | Blueprint: Loom eşyasıyla (eğitmen öğretmez). Bağlanmaz: başka oyuncudan ya da AH'den alınabilir | Loom tarifleri (ör. Venomspew Cord) + Spirit buff'ı |\n\nKamp ateşini Cooking kurar; objeler onun yanına konur ve 1 saatlik ortak bekleme süresi paylaşır. Buff için kampta 1 dakika otur. Üst obje (Spinning Wheel, Loom) aynı kampta bayrağın yerine konabilir. Kamp buff'ları sınıf buff'larıyla birikmez.\n\n## Mooncloth ve Legacy\n\n- (Mooncloth ikonu) Mooncloth: 2 Felcloth → 1 Mooncloth, skill 230, Moonwell yanında yapılır, 3 gün 23 saatte bir 1 tane. Pattern: Mooncloth'u Qia satar (Winterspring, Everlook); alınca bağlanır.\n- `OVERTIME` Working Overtime (5 rütbe): her rütbe skill puanı şansına +%4.\n- `STUDY` Dedicated Study: en düşük mesleğine +1 skill.\n- `BONUS` Performance Bonus: sandık tesliminde %5 / %10 / %15 şansla 2 kat Merchant's Favor. Bartering: satıcı fiyatları rütbe başına %5 ucuz.\n\n## Banka: Waylaid Crate\n\n| Sandık | Seviye | İçine şunlardan birini koy |\n|---|---|---|\n| Apprentice Textiles | 10 | 40 Linen Cloth · ya da 20 Light Leather |\n| Apprentice Fabrics | 10 | 20 Bolt of Linen Cloth · ya da 2 Cured Light Hide |\n| Journeyman Textiles | 10 | 20 Wool Cloth · ya da 40 Silk Cloth · ya da 20 Medium Leather |\n| Journeyman Fabrics | 10 | 6 Bolt of Woolen Cloth · ya da 10 Bolt of Silk Cloth · ya da 2 Cured Medium Hide |\n| Expert Textiles | 20 | 40 Mageweave Cloth · ya da 20 Heavy Leather |\n| Expert Fabrics | 20 | 8 Bolt of Mageweave · ya da 2 Cured Heavy Hide |\n| Artisan Textiles | 35 | 40 Runecloth · ya da 20 Thick Leather · ya da 20 Rugged Leather |\n| Artisan Fabrics | 35 | 8 Bolt of Runecloth · ya da 2 Cured Thick Hide |\n\nÖdül (Textiles / Fabrics): Apprentice 5 / 10, Journeyman 10 / 20, Expert 15 / 30 Merchant's Favor. Sandığı sen yapamazsın: moblardan ve sandıklardan düşer ya da AH'den alınır. İçine tek bir deste koyup mühürlersin. Teslim: Alliance Marcy Baker (Redridge, Three Corners), Horde Dokimi (Barrens, Crossroads yanı). Fabrics sandıkları bolt ister ve 2 kat Favor verir: fazla bolt'un burada değerlenir. İlk sandığı doldurunca Shipping Label çıkar: tek seferlik görev, 50 Favor + 2.000 itibar.\n\n## Sat mı, sakla mı?\n\n- `ÇANTA` Her sınıf çanta alır: Tailoring her karakterde altın getirir. 215–225'te yaptığın Mageweave Bag'leri kullan, sat ya da altlarına gönder.\n- `ENCHANT` Fazla yeşil eşyaları (ör. Woolen Cape) bir Enchanter'a Disenchant ettir.\n- `KAMP` Kamp için ayır: bayrağa 1 Bolt of Linen + 1 Coarse Thread, Spinning Wheel'e 5 Bolt of Silk + 3 Fine Thread + 2 Simple Wood.\n- `FELCLOTH` Felcloth'u sakla: Mooncloth'un malzemesi.\n- `SATICI` Meslek eşyaları satıcıya artık daha ucuza satılıyor: yaptığını satıcıya boşaltmak eskisi kadar kazandırmaz.\n- `SIRA` Rota kartları: 1–150 → 150–300."
  }
 ];
+export const CLASS_FACTS = {
+ "taraflar": {
+  "Alliance": [
+   "Human",
+   "Dwarf",
+   "Night Elf",
+   "Gnome",
+   "High Order Skyborne"
+  ],
+  "Horde": [
+   "Orc",
+   "Undead",
+   "Tauren",
+   "Troll",
+   "Windshaper Skyborne"
+  ]
+ },
+ "genel": [
+  {
+   "sinif": "warrior",
+   "ad": "Warrior",
+   "not": "Rage ile savaşan yakın dövüşçü. En sağlam tanklardan; Battle Shout ve Sunder Armor ile grubun fiziksel hasarını artırır.",
+   "roller": [
+    [
+     "Arms",
+     "DPS"
+    ],
+    [
+     "Fury",
+     "DPS"
+    ],
+    [
+     "Protection",
+     "Tank"
+    ]
+   ]
+  },
+  {
+   "sinif": "paladin",
+   "ad": "Paladin",
+   "not": "Her rolü yapabilen destek sınıfı. Blessing, aura ve grup buff'larıyla grubu güçlendirir; tek hedef iyileştirmede çok iyi.",
+   "roller": [
+    [
+     "Holy",
+     "Heal"
+    ],
+    [
+     "Protection",
+     "Tank"
+    ],
+    [
+     "Retribution",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "hunter",
+   "ad": "Hunter",
+   "not": "Pet, tuzak ve menzilli silahla savaşır. Oyunun en rahat solo ve leveling sınıflarından; bol kontrol aracı var.",
+   "roller": [
+    [
+     "Beast Mastery",
+     "DPS"
+    ],
+    [
+     "Marksmanship",
+     "DPS"
+    ],
+    [
+     "Survival",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "rogue",
+   "ad": "Rogue",
+   "not": "Gizlilikten saldıran yakın dövüşçü. Yüksek hasar ve Sap, Kidney Shot gibi güçlü kontrol yetenekleri.",
+   "roller": [
+    [
+     "Assassination",
+     "DPS"
+    ],
+    [
+     "Combat",
+     "DPS"
+    ],
+    [
+     "Subtlety",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "priest",
+   "ad": "Priest",
+   "not": "Işık ya da gölge: güçlü iyileştirici veya Shadow büyüleriyle hasar veren büyücü. Discipline kalkan ve önleyici heal yapar.",
+   "roller": [
+    [
+     "Discipline",
+     "Heal"
+    ],
+    [
+     "Holy",
+     "Heal"
+    ],
+    [
+     "Shadow",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "shaman",
+   "ad": "Shaman",
+   "not": "Elementlerin ustası: uzaktan büyü, silahla yakın dövüş ya da iyileştirme. Totemleri grubu destekler.",
+   "roller": [
+    [
+     "Elemental",
+     "DPS"
+    ],
+    [
+     "Enhancement",
+     "DPS"
+    ],
+    [
+     "Restoration",
+     "Heal"
+    ]
+   ]
+  },
+  {
+   "sinif": "mage",
+   "ad": "Mage",
+   "not": "Büyük büyü hasarı ve kalabalık kontrolü (Polymorph, Frost Nova, Blink). Yemek, su ve portal yapar.",
+   "roller": [
+    [
+     "Arcane",
+     "DPS"
+    ],
+    [
+     "Fire",
+     "DPS"
+    ],
+    [
+     "Frost",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "warlock",
+   "ad": "Warlock",
+   "not": "DoT, Shadow ve Fire büyüleri ve iblis petiyle savaşır. Healthstone, Ritual of Summoning ve lanetlerle gruba katkı verir.",
+   "roller": [
+    [
+     "Affliction",
+     "DPS"
+    ],
+    [
+     "Demonology",
+     "DPS"
+    ],
+    [
+     "Destruction",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "druid",
+   "ad": "Druid",
+   "not": "Form değiştirerek her rolü yapabilen en esnek sınıf: ayı tank, kedi DPS, Moonkin büyücü ya da iyileştirici.",
+   "roller": [
+    [
+     "Balance",
+     "DPS"
+    ],
+    [
+     "Feral",
+     "Tank / DPS"
+    ],
+    [
+     "Restoration",
+     "Heal"
+    ]
+   ]
+  }
+ ],
+ "siniflar": {
+  "druid": {
+   "irklar": [
+    "Night Elf",
+    "High Order Skyborne",
+    "Tauren",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Windshaper Skyborne": [
+     "Balance",
+     "Feral",
+     "Restoration"
+    ],
+    "High Order Skyborne": [
+     "Balance",
+     "Restoration"
+    ],
+    "Night Elf": [
+     "Feral"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Balance",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Moonkin Form: bütün raid'e +%3 kritik",
+      "Eclipse ritmi: Wrath, ardından 2 hızlı Starfire",
+      "Insect Swarm ve Moonfire yürürken atılır",
+      "Rebirth: savaşta dirilten tek yetenek"
+     ],
+     "eksi": [
+      "Moonkin kritiği Leader of the Pack ile birikmez",
+      "Moonkin Form kendine az güç verir; değeri raid buff'ı",
+      "Başta mana sıkıntısı; rotasyonu Wrath'a kaydır"
+     ]
+    },
+    {
+     "ad": "Feral",
+     "rol": "DPS · Tank",
+     "arti": [
+      "Tek talent build'le hem ayı tank hem kedi DPS",
+      "Ayı tehdidi çok yüksek: Primal Bite, Lacerate",
+      "Leader of the Pack: bütün raid'e +%3 kritik",
+      "Silah DPS'iyle güçlenir; yükseltme hemen hissedilir"
+     ],
+     "eksi": [
+      "Kedide alan hasarı yok; hedef değişince combo gider",
+      "İki rol için iki ayrı eşya seti gerekir",
+      "Silah seçeneği az: çoğu zaman iki elli topuz"
+     ]
+    },
+    {
+     "ad": "Restoration",
+     "rol": "Heal",
+     "arti": [
+      "Hem tankı hem raid'i iyileştirir",
+      "Rejuvenation ve Swiftmend anlık: yürürken heal",
+      "Wild Growth: bütün partiye HoT",
+      "Swiftmend HoT'u silmeden anında heal"
+     ],
+     "eksi": [
+      "Kalkan (absorb) yok; Resto ile leveling çok yavaş",
+      "Gruba kendine özgü bir katkısı yok",
+      "Gücün çoğu Regrowth'ta; Healing Touch zayıf"
+     ]
+    }
+   ]
+  },
+  "hunter": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Night Elf",
+    "High Order Skyborne",
+    "Orc",
+    "Tauren",
+    "Troll",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Orc": [
+     "Beast Mastery"
+    ],
+    "High Order Skyborne": [
+     "Beast Mastery",
+     "Marksmanship"
+    ],
+    "Windshaper Skyborne": [
+     "Marksmanship"
+    ],
+    "Tauren": [
+     "Survival"
+    ],
+    "Human": [
+     "Survival"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Beast Mastery",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Pet hem tanklar hem vurur: en rahat solo ve leveling",
+      "Bestial Wrath: pet 18 sn +%50 hasar, durdurulamaz",
+      "Summon Hawk: pete ek olarak 2 şahin saldırır",
+      "Basit dönüş, yeni başlayana uygun"
+     ],
+     "eksi": [
+      "Pet'i sürekli yönetmek gerekir; dungeon'da yanlış grubu çekebilir",
+      "Hasarın çoğu pette; pet ölürse hasar düşer",
+      "Yakın menzil ile 8 m arasında hiç vuramazsın"
+     ]
+    },
+    {
+     "ad": "Marksmanship",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Hunter'ın en iyi çok hedef hasarı: Multi-Shot, Volley, Barrage",
+      "Lone Wolf: pet yokken tüm hasar +%20",
+      "Sniper Shot: 45 m menzil, sonraki 3 atış +10 m",
+      "Trueshot Aura: raid'e ranged Attack Power (+100'e kadar)"
+     ],
+     "eksi": [
+      "En yüksek hasar petsiz: solo oyunda seni koruyan tank yok",
+      "Kıpırdamadan durmak ister; hareketli dövüşte hasar düşer",
+      "Yakın menzil ile 8 m arasında hiç vuramazsın"
+     ]
+    },
+    {
+     "ad": "Survival",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Forever'da yakın dövüş uzmanlığı oldu: Predator's Edge, Strider Kick",
+      "Güçlü sürekli tek hedef hasarı",
+      "Expose Prey ile Mongoose Bite çok daha sık açılır",
+      "Resourcefulness: tuzak ve yakın yetenekler %60 az mana"
+     ],
+     "eksi": [
+      "Hunter'ın en zayıf leveling uzmanlığı, özellikle 40'a kadar",
+      "Ana talentleri ağacın sonunda; erken puanlar zayıf",
+      "Etkili çok hedef dönüşü yok"
+     ]
+    }
+   ]
+  },
+  "mage": {
+   "irklar": [
+    "Human",
+    "Gnome",
+    "High Order Skyborne",
+    "Orc",
+    "Undead",
+    "Troll"
+   ],
+   "irkOneri": {
+    "Gnome": [
+     "Arcane",
+     "Fire"
+    ],
+    "High Order Skyborne": [
+     "Arcane",
+     "Fire"
+    ],
+    "Human": [
+     "Arcane",
+     "Fire"
+    ],
+    "Troll": [
+     "Arcane",
+     "Fire"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Arcane",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Arcane Power ile cooldown'da DPS neredeyse 2 katı",
+      "34. seviyeden sonra savaşta mana yenilenmesi tam sürer",
+      "Clearcasting ve Missile Barrage bedava büyü verir",
+      "Fire'a kayan build ile Pyroblast patlaması da var"
+     ],
+     "eksi": [
+      "Arcane Blast her yığında pahalılaşır; dikkatsiz oynarsan mana biter",
+      "Yürürken zayıf: DoT'u ve güçlü anlık büyüsü yok",
+      "En iyi hasar için Fire ağacına da puan ister"
+     ]
+    },
+    {
+     "ad": "Fire",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "1. fazda en yüksek DPS'li Mage",
+      "Heating Up ile Pyroblast artık rotasyonun parçası",
+      "Master of Elements kritiklerde mana geri verir",
+      "İki build: Combustion (Deep Fire) ya da Frostfire Bolt"
+     ],
+     "eksi": [
+      "Kritik şansına bağlı; zayıf eşyada Heating Up ve Ignite az çalışır",
+      "Leveling'de 34'e kadar mana yetmez, sık su içersin",
+      "Savunma cooldown'ı yok (Ice Block Frost ağacında)"
+     ]
+    },
+    {
+     "ad": "Frost",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Chill, Frost Nova, Frostbite: en iyi kontrol ve kaçış",
+      "Fingers of Frost ile boss'ta da Shatter kritiği",
+      "Ice Barrier ve Ice Block ile en sağlam Mage",
+      "Permafrost'la Cone of Cold 4 düşmanı sürekli yavaşlatır"
+     ],
+     "eksi": [
+      "Simülasyonda ham DPS'i en düşük",
+      "Fingers of Frost ve Frostbite şansına bağlı",
+      "Cone of Cold için hedefe yakın durmak gerekir"
+     ]
+    }
+   ]
+  },
+  "paladin": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Undead"
+   ],
+   "irkOneri": {
+    "Human": [
+     "Holy",
+     "Retribution"
+    ],
+    "Dwarf": [
+     "Protection"
+    ],
+    "Undead": [
+     "Protection",
+     "Retribution"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Holy",
+     "rol": "Heal",
+     "arti": [
+      "Tek hedef heal'de çok güçlü: Flash of Light ve Holy Light",
+      "Light's Vigil + Holy Shock ile artık grup heal'i de var",
+      "Plate zırh, Divine Shield ve Lay on Hands: leveling'de neredeyse ölmez",
+      "Blessing ve Aura'lar yüzünden her grup Paladin ister"
+     ],
+     "eksi": [
+      "Light's Vigil çok pahalı; sık basarsan mana biter",
+      "Hasarı düşük, tek başına görev yapmak yavaş",
+      "Hareket yeteneği yok"
+     ]
+    },
+    {
+     "ad": "Protection",
+     "rol": "Tank",
+     "arti": [
+      "Forever'da taunt var: Seal of Fury açıkken Judgement",
+      "Consecration ile küçük gruplarda tehdit tutmak kolay",
+      "Shieldsworn: Holy Strike kalkanla vurur, büyüleri de bloklar",
+      "Blokta mana geri gelir; Templar's Bulwark büyük kalkan"
+     ],
+     "eksi": [
+      "Judgement taunt da yapar; raidde off-tank'ken mühür değiştirmek gerekir",
+      "Consecration nerf yedi: çok düşmanı tutmak eskisi kadar kolay değil",
+      "Hareket yeteneği yok"
+     ]
+    },
+    {
+     "ad": "Retribution",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Bol acil durum aracı: Lay on Hands, Divine Shield, Blessing of Protection",
+      "Mana havuzu sayesinde uzun süre durmadan savaşır",
+      "İki build: Unsealed Wrath (mühür değiştirme) ya da Holy Shock'lu",
+      "Pursuit of Justice ile savaşta hızlı"
+     ],
+     "eksi": [
+      "Consecration dışında AoE yok; 4 düşmandan sonrası zayıf",
+      "Beta'da çok nerf yedi",
+      "Unsealed Wrath build'i swing timer takibi ister"
+     ]
+    }
+   ]
+  },
+  "priest": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Night Elf",
+    "Gnome",
+    "Undead",
+    "Troll"
+   ],
+   "irkOneri": {
+    "Human": [
+     "Discipline",
+     "Holy"
+    ],
+    "Gnome": [
+     "Discipline",
+     "Holy"
+    ],
+    "Dwarf": [
+     "Shadow"
+    ],
+    "Undead": [
+     "Discipline",
+     "Holy",
+     "Shadow"
+    ],
+    "Troll": [
+     "Shadow"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Discipline",
+     "rol": "Heal",
+     "arti": [
+      "Tank heal'inde çok güçlü: Power Word: Shield ve Penance",
+      "Power Infusion: dostun büyü gücü 15 sn +%20",
+      "Divine Aegis: kritik heal hedefe ek kalkan bırakır",
+      "Fortitude, Fear Ward, Dispel Magic: bol yardımcı büyü"
+     ],
+     "eksi": [
+      "Grup heal'i zayıf",
+      "Hasarı az; tek başına leveling'de Shadow talentleri al",
+      "Hareket yeteneği yok, yalnız Levitate"
+     ]
+    },
+    {
+     "ad": "Holy",
+     "rol": "Heal",
+     "arti": [
+      "Yeni başlayana uygun, oynaması kolay",
+      "Grup heal'i güçlü: Prayer of Healing, Prayer of Mending, Holy Nova",
+      "Spirit of Redemption: ölünce 15 sn bedava heal",
+      "Holy Binding: Flash Heal seni de iyileştirir"
+     ],
+     "eksi": [
+      "Tek hedef heal'de Discipline'in gerisinde",
+      "Hasarı az, tek başına leveling zor",
+      "Her işi yapar ama öbür healer'lardan biraz zayıf"
+     ]
+    },
+    {
+     "ad": "Shadow",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Vampiric Embrace: hasarının %20'si grubu iyileştirir",
+      "Dark Inspiration: grubun Spirit'i +%15",
+      "Shadowform: Shadow büyüleri yarı mana, alınan fiziksel hasar −%15",
+      "Leveling'de güvenli: Shield ve heal hep elinde"
+     ],
+     "eksi": [
+      "Shadowform'a (40. seviye) kadar mana dar, sık içersin",
+      "Güçlü AoE büyüsü yok",
+      "Hareket edince hasar durur"
+     ]
+    }
+   ]
+  },
+  "rogue": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Night Elf",
+    "Gnome",
+    "High Order Skyborne",
+    "Orc",
+    "Undead",
+    "Troll",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Undead": [
+     "Assassination",
+     "Combat",
+     "Subtlety"
+    ],
+    "Gnome": [
+     "Assassination",
+     "Combat",
+     "Subtlety"
+    ],
+    "Orc": [
+     "Subtlety"
+    ],
+    "Dwarf": [
+     "Subtlety"
+    ],
+    "Night Elf": [
+     "Subtlety"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Assassination",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Güçlü tek hedef hasarı: Mutilate ve zehirler",
+      "Mutilate 2 combo verir, zehirli hedefe +%20 vurur",
+      "Venom: Shank sonrası 6 sn zehir hasarı +%30",
+      "Improved Expose Armor'a en kolay ulaşan uzmanlık"
+     ],
+     "eksi": [
+      "AoE ve cleave yok; çok küçük düşmanda geride kalır",
+      "Savaşta kendini iyileştiremez, bandaj tek çare",
+      "Takip edilecek çok buff ve debuff: yeni başlayana zor"
+     ]
+    },
+    {
+     "ad": "Combat",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Blade Flurry ile cleave yapan tek Rogue uzmanlığı",
+      "Hack and Slash: her silah türüne bonus, respec gerekmez",
+      "Adrenaline Rush: 15 sn Energy yenilenmesi +%100",
+      "Basit dönüş: Sinister Strike ve Eviscerate"
+     ],
+     "eksi": [
+      "Gerçek AoE yok; Blade Flurry yalnız 1 ek düşmana vurur",
+      "Hasarı çok oto saldırıdan gelir: iyi silaha bağlı",
+      "Yakın dövüşçü olarak yavaşlatma ve köklere açık"
+     ]
+    },
+    {
+     "ad": "Subtlety",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Çıkıştan hemen önce yenilendi: hızlı, kanama odaklı oynanış",
+      "Shank + Boot Knife ve Premeditation ile bol combo puanı",
+      "Death Mark: 6 sn hasarı biriktirip patlatır",
+      "PvP'de çok güçlü: aynı anda 2 hedefe Sap"
+     ],
+     "eksi": [
+      "Güçlü talentleri ağacın sonunda; düşük seviyede zayıf",
+      "AoE yok; çok düşmanda tek tek DoT atmak gerekir"
+     ]
+    }
+   ]
+  },
+  "shaman": {
+   "irklar": [
+    "Dwarf",
+    "Orc",
+    "Tauren",
+    "Troll",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Orc": [
+     "Elemental",
+     "Restoration"
+    ],
+    "Windshaper Skyborne": [
+     "Enhancement"
+    ],
+    "Dwarf": [
+     "Elemental",
+     "Enhancement",
+     "Restoration"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Elemental",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Fire Nova + Trial by Fire: geniş alanda güçlü hasar",
+      "Lightning Overload: %30 şansla bedava ikinci yıldırım",
+      "Lightning Mastery: 15 sn hızlı Bolt, beklemesiz Chain",
+      "Totemler bütün raid'i güçlendirir"
+     ],
+     "eksi": [
+      "Tek hedef hasarı diğer büyücülerden düşük",
+      "Mana çabuk biter; uzun dövüşte zorlanır",
+      "Sert kontrol (CC) yok; yalnız Earthbind Totem"
+     ]
+    },
+    {
+     "ad": "Enhancement",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Stormstrike: 6 sn'de bir %150 silah vuruşu",
+      "Maelstrom: 5 yığında anlık, bedava Lightning Bolt",
+      "Windfury Totem: yakın dövüşçülerin en güçlü buff'ı",
+      "Magma Totem + Fire Nova ile iyi alan hasarı"
+     ],
+     "eksi": [
+      "İlk seviyelerde mana çok dar",
+      "Çok stat ister: Strength, Attack Power, Intellect, Spell Power",
+      "Blizzard 10.11'de Strength'i en güçlü stat yapıyor; eşya seçimi değişiyor"
+     ]
+    },
+    {
+     "ad": "Restoration",
+     "rol": "Heal",
+     "arti": [
+      "En kolay healer'lardan: 3 büyülük çekirdek",
+      "Riptide'lı hedefe Chain Heal +%25",
+      "Healing Way: Healing Wave doğrudan +%25",
+      "Mana Tide ve raid çapında totemlerle güçlü destek"
+     ],
+     "eksi": [
+      "Chain Heal ve Riptide ancak 40. seviyede gelir",
+      "Mana yoğun; Water Shield ve Mana Tide şart",
+      "Riptide dışında bekleme süreli büyü yok; ustalaşacak az şey"
+     ]
+    }
+   ]
+  },
+  "warlock": {
+   "irklar": [
+    "Human",
+    "Gnome",
+    "Orc",
+    "Undead",
+    "Troll"
+   ],
+   "irkOneri": {
+    "Human": [
+     "Affliction",
+     "Demonology",
+     "Destruction"
+    ],
+    "Orc": [
+     "Affliction",
+     "Demonology",
+     "Destruction"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Affliction",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Uzun dövüşte ve dağınık düşmanlarda güçlü",
+      "DoT'lar kritik vurur; Pandemic kritik hasarını artırır",
+      "Siphon Life ve Drain Life ile canını geri alır",
+      "Yürürken de hasar: DoT'lar ve anlık Nightfall Shadow Bolt'u"
+     ],
+     "eksi": [
+      "Kısa dövüşte zayıf: düşman DoT'lar işlemeden ölür",
+      "Wrack kanalı durarak atılır; koşunca hasar düşer"
+     ]
+    },
+    {
+     "ad": "Demonology",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Succubus hasarın büyük parçası; Demonic Brand onu güçlendirir",
+      "Demonic Pact: Imp feda bonusu Succubus açıkken de sürer",
+      "Soul Link: aldığın hasarın %30'unu pet alır",
+      "Demonic Energies ve Life Tap petin can ve manasını doldurur"
+     ],
+     "eksi": [
+      "Pet ölürse hasarın ve Soul Link gider",
+      "Sık hedef değişimi ve koşu pet hasarını düşürür",
+      "Shadow bonusları Hellfire ve Rain of Fire'a işlemez"
+     ]
+    },
+    {
+     "ad": "Destruction",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Hasar kendi büyülerinden; DoT'ların işlemesini beklemez",
+      "Conflagrate ve Shadowburn anlık; Shadow and Flame ile +%20 hasar",
+      "Bane of Havoc ile ikinci hedefe ek %15 hasar",
+      "AoE büyüleri (Hellfire, Rain of Fire) Agonizing Flames ve Ruin'den güç alır"
+     ],
+     "eksi": [
+      "Durarak oynanır: ana büyü Incinerate döküm süreli",
+      "Succubus feda edilince petsiz oynanır; açık tutmak da güçlü ama pet ölmemeli",
+      "En güçlü AoE (Hellfire) yakın mesafede ve sana da vurur"
+     ]
+    }
+   ]
+  },
+  "warrior": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Night Elf",
+    "Gnome",
+    "High Order Skyborne",
+    "Orc",
+    "Undead",
+    "Tauren",
+    "Troll",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Orc": [
+     "Arms"
+    ],
+    "Windshaper Skyborne": [
+     "Fury"
+    ],
+    "Undead": [
+     "Protection"
+    ],
+    "Night Elf": [
+     "Arms",
+     "Fury",
+     "Protection"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Arms",
+     "rol": "Yakın DPS",
+     "arti": [
+      "İki düşmana karşı çok güçlü cleave (Sweeping Strikes)",
+      "Bloodthrill: Rend'li hedefte Overpower sık açılır",
+      "Weaponmaster: silah türü değişince respec gerekmez",
+      "Mortal Strike hedefin iyileşmesini %50 keser"
+     ],
+     "eksi": [
+      "Rage dar; fazla harcarsan Mortal Strike'a yetmez",
+      "Ana talentler gelene kadar dikkatli çekiş ve dinlenme ister"
+     ]
+    },
+    {
+     "ad": "Fury",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Basit ve hızlı oynanış: Bloodthirst + Whirlwind",
+      "Whirlwind iki silahla vurur, küçük gruplarda güçlü",
+      "Death Wish: 30 sn +%20 fiziksel hasar (3 dk)",
+      "Lingering Rage ile çekişler arası Rage korunur"
+     ],
+     "eksi": [
+      "Leveling'de geç oturur; ana yetenekler 36–40'ta gelir",
+      "İki silahla ıskalamak Rage'i aç bırakır",
+      "Hedeften uzak kalınca hem hasar hem Rage düşer"
+     ]
+    },
+    {
+     "ad": "Protection",
+     "rol": "Tank",
+     "arti": [
+      "Önerilen Warrior leveling uzmanlığı",
+      "Güçlü tehdit: Shield Slam, Revenge, Thunder Clap",
+      "Shield Wall ve Last Stand ile zor çekişlerde hayatta kalır",
+      "Shield Bash, Taunt ve Challenging Shout ile çekişi kurtarır"
+     ],
+     "eksi": [
+      "Rage blok, dodge ve parry'den gelir; seni vurmayan düşmanda azalır",
+      "4'ten fazla düşmanda hedef değiştirerek tehdit tutmalısın",
+      "Intercept için Berserker Stance'e geçmek Rage kaybettirir"
+     ]
+    }
+   ]
+  }
+ }
+};

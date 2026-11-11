@@ -344,7 +344,7 @@ test("talent advice: the bot asks for class and spec, then sends that spec's lev
   const net = fakeNetwork({ gemini: () => geminiText("Arms'ta ilk puanlar karttaki sırayla Deflection ve Improved Rend'e gider.") });
   const { bot, storage } = newBot(); const userId = "666666666666666661";
   await bot.handleCommand(message("!soru warrior talent nasıl dağıtılır", userId));
-  assert.match(net.posts[0].content, /^Warrior için hangi uzmanlığı soruyorsun\? Arms, Fury, Protection/);
+  assert.match(net.posts[0].content, /^Warrior için hangi uzmanlığın talent sırasını istiyorsun\? \*\*Arms\*\* \(Yakın DPS\), \*\*Fury\*\* \(Yakın DPS\), \*\*Protection\*\* \(Tank\)\. Örneğin `!soru warrior arms talent sırası`/);
   assert.equal(await storage.get(`cooldown:${userId}`), undefined, "asking back does not use the cooldown");
   await new Promise(r => setTimeout(r, 2600));
   await bot.handleCommand(message("!soru arms", userId));
@@ -466,4 +466,122 @@ test("leftovers of the old guide system are removed from storage", async () => {
   await storage.put("guidevision:v7:warrior.01:1", { version: 7, text: "eski" });
   await bot.cleanupRecords();
   assert.equal(await storage.get("guidevision:v7:warrior.01:1"), undefined);
+});
+
+// ---------- Understanding the question ----------
+
+const file = id => w.CARDS.find(card => card.id === id).file;
+
+test("which spec, three specs named: compared from the verified spec facts, the cards the answer points at are attached", async () => {
+  const net = fakeNetwork({ gemini: () => geminiText("Leveling için **Frost** en rahatı: en iyi kontrol ve kaçış, Ice Barrier ile en sağlam Mage.\n**Fire** 1. fazda en yüksek DPS'li Mage ama 34'e kadar mana yetmez.\n**Arcane** yürürken zayıf.\nKART: Frost, Fire") });
+  const { bot } = newBot();
+  await bot.handleCommand(message("!soru mage için levelling,dungeon ve pvp için hangi talentleri önerirsin arcane mi frost mu fire mi"));
+  assert.equal(net.posts.length, 1, "one answer, the question is not split");
+  const post = net.posts[0];
+  assert.match(post.content, /^Leveling için \*\*Frost\*\* en rahatı/);
+  assert.ok(!/KART:/.test(post.content), "the card line is not shown");
+  assert.deepEqual(post.files, [file("mage-10-frost-leveling"), file("mage-09-fire-leveling")]);
+  assert.match(post.content, /`!soru mage arcane talent sırası`/, "the spec without a card can be asked for");
+  assert.match(post.content, new RegExp(`<#${topicId("Mage")}> konusuna bakabilirsin\\.$`));
+  assert.equal(net.prompts.length, 1);
+  const sent = JSON.parse(JSON.parse(net.prompts[0]).input);
+  assert.deepEqual(sent.about.karsilastirilan_uzmanliklar, ["Arcane", "Frost", "Fire"]);
+  assert.match(sent.trustedCardText, /Mage Frost \(rol: Menzilli DPS\)/);
+  assert.match(sent.trustedCardText, /Leveling'de 34'e kadar mana yetmez/);
+  assert.match(sent.trustedCardText, /Arcane 9, Fire 0, Frost 42/, "the point split of each build is given");
+  assert.ok(!/Satır 1, sütun 1/.test(sent.trustedCardText), "the full talent trees are not sent for a comparison");
+  assert.ok(!/Icy Veins/i.test(sent.trustedCardText), "no source names in the facts");
+});
+
+test("which spec: without a card line the first spec the answer names gets its card", async () => {
+  const net = fakeNetwork({ gemini: () => geminiText("**Protection** önerilen Warrior leveling uzmanlığı. **Fury** leveling'de geç oturur, **Arms** iki düşmana karşı güçlü.") });
+  const { bot } = newBot();
+  await bot.handleCommand(message("!soru warrior hangi spec leveling için iyi"));
+  assert.deepEqual(net.posts[0].files, [file("warrior-10-protection-leveling")]);
+  assert.match(net.posts[0].content, /`!soru warrior arms talent sırası`/);
+});
+
+test("which spec while the model is down: each spec with its strengths, two named specs still get both cards", async () => {
+  let net = fakeNetwork(); let { bot } = newBot();
+  await bot.handleCommand(message("!soru priest kasarken hangi spec"));
+  assert.match(net.posts[0].content, /\*\*Discipline\*\* \(Heal\)/);
+  assert.match(net.posts[0].content, /\*\*Shadow\*\* \(Menzilli DPS\)/);
+  assert.deepEqual(net.posts[0].files, []);
+  assert.match(net.posts[0].content, /`!soru priest discipline talent sırası`/);
+  net = fakeNetwork(); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru mage frost mu fire mı"));
+  assert.deepEqual(net.posts[0].files, [file("mage-10-frost-leveling"), file("mage-09-fire-leveling")]);
+  assert.match(net.posts[0].content, /\*\*Frost\*\* \(Menzilli DPS\)/);
+  assert.ok(!/arcane talent sırası/.test(net.posts[0].content), "no hint when every compared spec has its card");
+});
+
+test("a question about one spec is answered from that spec's section only", async () => {
+  const net = fakeNetwork({ gemini: () => geminiText("Hayır, yalnız Frost yetmez: Frost önceliğinde Arcane Missiles (Missile Barrage açılınca) ve Evocation da var.") });
+  const { bot } = newBot();
+  await bot.handleCommand(message("!soru frost mage oynarken skill trainerda fire veya arcane skillerini almak gerekir mi? yoksa sadece frost skillerini almak mı gerekir?"));
+  assert.equal(net.posts.length, 1);
+  assert.ok(!/^\*\*1\)/.test(net.posts[0].content), "answered as one question");
+  assert.equal(net.posts[0].files[0], file("mage-07-oynanis"));
+  assert.equal(net.prompts.length, 1);
+  const sent = JSON.parse(JSON.parse(net.prompts[0]).input);
+  assert.equal(sent.about.uzmanlik, "Frost");
+  const gameplay = sent.trustedCardText.split("KART: ").find(part => part.startsWith("Mage · Oynanış") || /Oynanış Önceliği/.test(part.slice(0, 80)));
+  assert.match(gameplay, /## Frost/);
+  assert.match(gameplay, /Ice Barrier/);
+  assert.ok(!/## Arcane\n/.test(gameplay) && !/## Fire\n/.test(gameplay), "the Arcane and Fire priority lists are left out");
+  assert.match(gameplay, /KURAL/, "the rule that holds for every spec stays");
+});
+
+test("a level in a build question puts that level's row in front of the model", async () => {
+  const net = fakeNetwork({ gemini: () => geminiText("30. seviyede Ice Shards'a puan veriyorsun (28–31).") }); const { bot } = newBot();
+  await bot.handleCommand(message("!soru frost mage 30 level hangi talent"));
+  const sent = JSON.parse(JSON.parse(net.prompts[0]).input);
+  assert.equal(sent.about.seviye, 30);
+  assert.match(sent.trustedCardText, /SORUYLA EN İLGİLİ SATIRLAR:\nSeviye 30: 28–31 · Ice Shards · Frost/);
+  assert.deepEqual(net.posts[0].files, [file("mage-10-frost-leveling")]);
+});
+
+test("which class: answered from the class overview, linked to the class forum, no card", async () => {
+  const net = fakeNetwork({ gemini: () => geminiText("Tank olabilenler: **Warrior** (Protection), **Paladin** (Protection) ve **Druid** (Feral).") }); const { bot } = newBot();
+  await bot.handleCommand(message("!soru hangi sınıf tank olabilir"));
+  assert.match(net.posts[0].content, /^Tank olabilenler/);
+  assert.deepEqual(net.posts[0].files, []);
+  assert.match(net.posts[0].content, new RegExp(`<#${FORUMS.class}> kanalına bakabilirsin\\.$`));
+  const sent = JSON.parse(JSON.parse(net.prompts[0]).input);
+  assert.match(sent.trustedCardText, /Paladin: .*Protection \(Tank\)/);
+  assert.ok(!net.calls.some(c => c.includes("workers.dev")));
+});
+
+test("two classes compared: both class topics are linked", async () => {
+  const net = fakeNetwork({ gemini: () => geminiText("**Hunter** en rahat solo ve leveling sınıflarından. **Mage** büyük büyü hasarı ve kalabalık kontrolü verir.") }); const { bot } = newBot();
+  await bot.handleCommand(message("!soru hunter mı iyi mage mı"));
+  assert.match(net.posts[0].content, new RegExp(`<#${topicId("Hunter")}> ve <#${topicId("Mage")}> konularına bakabilirsin\\.$`));
+  assert.deepEqual(net.posts[0].files, []);
+});
+
+test("a loose text match is used only when the model confirms it", async () => {
+  // The model says the card does not answer it: the normal answer takes over, no card is sent.
+  let net = fakeNetwork({ gemini: () => geminiText("KARTTA_YOK") }); let { bot } = newBot();
+  await bot.handleCommand(message("!soru thermaplugg bombaları nasıl durdurulur"));
+  assert.equal(net.posts.length, 1);
+  assert.deepEqual(net.posts[0].files, []);
+  assert.ok(net.calls.some(c => c.includes("workers.dev")), "the normal answer is asked");
+  // The model is down: no guess from a loosely matched card.
+  net = fakeNetwork(); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru thermaplugg bombaları nasıl durdurulur"));
+  assert.deepEqual(net.posts[0].files, []);
+  // The model answers from the card: the card is attached.
+  net = fakeNetwork({ gemini: () => geminiText("Sütun düğmeleri bombaları keser.") }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru thermaplugg bombaları nasıl durdurulur"));
+  assert.match(net.posts[0].content, /^Sütun düğmeleri bombaları keser\./);
+  assert.deepEqual(net.posts[0].files, [file("zindan-11-gnomeregan")]);
+});
+
+test("answers that do not come from a card are asked for in the same short shape", async () => {
+  let asked = "";
+  const net = fakeNetwork({ backend: url => { asked = url.searchParams.get("q"); return jsonResponse({ answer: "Mount 40. seviyede alınır." }); } }); const { bot } = newBot();
+  await bot.handleCommand(message("!soru mount kaç levelde alınır"));
+  assert.match(asked, /^mount kaç levelde alınır/);
+  assert.match(asked, /en fazla 5 kısa satır/);
+  assert.equal(net.posts[0].content, "Mount 40. seviyede alınır.");
 });

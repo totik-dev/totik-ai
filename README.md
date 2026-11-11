@@ -7,6 +7,10 @@ Totik Channel Discord sunucusunda WoW Forever sorularını cevaplayan bot. Soru 
 - Cloudflare Worker + tek bir Durable Object (`DiscordGateway`). Bot Discord'a sürekli bağlı değildir; 10–30 saniyede bir soru kanalındaki yeni mesajları okur.
 - Bot kimliği, guild/Totik bilgisi ve kaynak önerisi gibi sorular AI kullanılmadan sabit metinle cevaplanır.
 - Soru bir rehber kartıyla eşleşirse (sınıf, zindan ya da meslek) bot kartın metninden 1–3 satırlık kısa bir cevap yazar, kartın görselini forumdaki konusundan alıp mesaja ekler ve sonuna "Bu konuda detaylı bilgi için … konusuna bakabilirsin" diye konunun bağlantısını koyar. Talent sorusunda sınıf ya da uzmanlık belli değilse önce onu sorar.
+- "Arcane mi frost mu fire mi", "warrior hangi spec" gibi uzmanlık karşılaştırmalarında bot her uzmanlığın rolünü, güçlü ve zayıf yanlarını (`kartlar/sinif-bilgi.json`) kullanır ve en fazla iki uzmanlığın talent sırası kartını ekler. "Hangi sınıf tank olur", "hunter mı mage mı" gibi sınıf sorularını da aynı bilgiden cevaplar.
+- Cevap yalnız soruya ait bölümden kurulur: uzmanlık belliyse Oynanış kartının diğer uzmanlık bölümleri, seviye belliyse talent sırası kartının o seviyedeki satırı öne alınır. Böylece başka uzmanlığın ya da mesleğin bilgisi cevaba karışmaz.
+- Yazım hataları ("palladin", "deadmins", "gnomregan") ve kısaltmalar ("bm", "sfk", "strat ud") tanınır. "eng", "skin", "war", "dm" gibi günlük kelimeler tek başına kart getirmez.
+- Hiçbir kural uymazsa bot soruyla en çok ortak kelimesi olan kartı dener; bu durumda kart yalnız AI adımı "kart bu soruyu cevaplıyor" derse kullanılır.
 - Kart soruyu karşılamıyorsa ya da eşleşme yoksa WoW AI servisi (`WOW_AI_URL`), o da cevap vermezse Gemini kullanılır.
 - Bekleme süresi: YouTube Katıl / Twitch Sub / premium rolü 1 dakika, diğer üyeler 15 dakika. Cevap verilemezse hak geri verilir.
 - Cooldown, mesaj durumu ve forum konularının listesi Durable Object depolamasında tutulur; ayrı veritabanı yoktur.
@@ -20,8 +24,10 @@ Totik Channel Discord sunucusunda WoW Forever sorularını cevaplayan bot. Soru 
 | `src/cards-data.js` | 189 kartın tam metni. Elle düzenlenmez; `npm run cards` üretir. |
 | `kartlar/kartlar.json` | Kart listesi: her kartın konusu, forumdaki dosya adı, forum ve konu başlığı, anahtar kelimeler. |
 | `kartlar/metin/<id>.md` | Her kartın içindeki bilginin tamamı, düz metin olarak. Botun bilgi tabanı budur. |
+| `kartlar/sinif-bilgi.json` | Kartlarda yazmayan doğrulanmış sınıf bilgisi: uzmanlıkların rolü, artıları ve eksileri, sınıfların ırkları, ırka göre öneriler. |
 | `scripts/build-cards.mjs` | `kartlar/` klasöründen `src/cards-data.js` dosyasını üretir. |
 | `tests/` | Otomatik testler. Ağ kullanmaz; Discord ve AI servisleri sahte cevaplarla taklit edilir. |
+| `tests/questions.test.mjs`, `tests/questions-reviewed.mjs` | Soru bataryası: 1200'den fazla gerçek tarzda soru ve her birinin alması gereken kart. |
 
 ## Değişiklik yaparken
 
@@ -37,7 +43,7 @@ Bir kart değişirse `kartlar/metin/` altındaki metnini düzelt, yeni kart ekle
 
 Kartların görselleri repoda durmaz. Bot, sunucudaki forum kanallarını (Class, Zindan, Meslek rehberleri) günde bir kez tarar, konuları başlığından tanır ve kartı konudaki ekin dosya adından bulur. Her soruda yalnız o soruya uyan 1–2 kart forumdan alınır. Bu yüzden forumdaki konu başlıkları ve dosya adları `kartlar.json` ile aynı kalmalı; botun bu üç forumu görme ve mesaj geçmişini okuma izni olmalı.
 
-Yeni bir soru kalıbının doğru karta gitmesini istiyorsan `tests/routing.test.mjs` içindeki `CASES` listesine ekle.
+Bot bir soruya yanlış kart verirse soruyu ve doğru kartı `tests/questions-reviewed.mjs` listesine ekle (`["soru", "=kart-id"]`), sonra `src/cards.js` içindeki kuralı düzelt. Batarya, bir düzeltmenin başka soruları bozup bozmadığını gösterir. Bu testler Discord'a ya da AI servisine bağlanmaz, kota harcamaz.
 
 ## Ayarlar (Cloudflare değişkenleri)
 

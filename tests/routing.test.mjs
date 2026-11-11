@@ -79,6 +79,8 @@ test("a talent question without a spec asks for the spec, without a class asks f
   for (const q of ["warrior talent nasıl dağıtılır", "rogue hangi talentleri almalı", "shaman leveling"]) assert.equal(pick(q)?.need, "spec", q);
   for (const q of ["hangi talenti seçmeliyim", "talent ne yapmalıyım", "talentlerimi nereye basayım", "1-60 talent sırası"]) assert.equal(pick(q)?.need, "class", q);
   // A spec named after the bot asked: the class comes from the conversation.
+  // With a goal in the question the specs are compared instead of asking back.
+  assert.deepEqual(Array.from(w.pickCards("priest kasarken hangi spec").compare), ["discipline", "holy", "shadow"]);
   const followUp = w.pickCards("arms", { talentAdvice: true, classHint: "warrior" });
   assert.deepEqual(Array.from(followUp.cards, card => card.id), ["warrior-08-arms-leveling"]);
 });
@@ -91,7 +93,8 @@ test("general dungeon questions are answered from the dungeon list", () => {
 });
 
 test("questions the cards do not cover are left to the normal answer", () => {
-  for (const q of ["hangi sınıf solo için iyi", "hunter mı iyi mage mı", "onyxia attunement nasıl yapılır", "wow forever guild var mı", "dwarf shaman için leveling aşamasında hangi meslekleri önerirsin", "priest kasarken hangi spec", "shame on you", "state machine"]) assert.equal(pick(q), null, q);
+  // No rule picks a card. A loose text match (search) may still be offered to the model, which can decline it.
+  for (const q of ["onyxia attunement nasıl yapılır", "wow forever guild var mı", "dwarf shaman için leveling aşamasında hangi meslekleri önerirsin", "shame on you", "state machine"]) { const s = w.pickCards(q); assert.ok(!s || s.search, q); }
 });
 
 test("a class question that mentions a dungeon stays a class question", () => {
@@ -111,4 +114,22 @@ test("normalizer folds Turkish letters and known suffixes only", () => {
   assert.equal(w.normalizeGuideText("Warrior'ların talentleri"), "warrior talent");
   assert.equal(w.normalizeGuideText("warriorda locka palaya"), "warrior lock pala");
   assert.equal(w.normalizeGuideText("Ahmetde"), "ahmetde");
+});
+
+test("misspelled class, dungeon and profession names are read as the real name", async () => {
+  const { questionText } = await import("../src/cards.js");
+  const fixed = { "palladin tank": "paladin tank", "rouge zehir": "rogue zehir", "wariror arms": "warrior arms", "worlock pet": "warlock pet", "deadmins kaç level": "deadmines kac level", "gnomregan rota": "gnomeregan rota",
+    "stokade": "stockade", "herbalizm 150": "herbalism 150", "palladinde hangi aura": "paladin hangi aura", "demonoloji lock": "demonology lock", "lockpicking nasıl kasılır": "pick lock nasil kasilir" };
+  for (const [question, expected] of Object.entries(fixed)) assert.equal(questionText(question), expected, question);
+  // Real words that only resemble a name stay as they are.
+  for (const question of ["waiting for raid", "kralı kim", "frost resistance", "element nedir", "savaşı kim kazandı", "zaman ne zaman", "şu yapılan şey nedir", "hunterlar ne yapar", "sunucu ne zaman açılıyor"]) {
+    assert.ok(!/paladin|rogue|warrior|warlock|shaman|conjure|elemental|wailing/.test(questionText(question).replace(/hunter\w*/, "")), `${question} → ${questionText(question)}`);
+  }
+});
+
+test("everyday words that look like a profession or a class do not pick a card", () => {
+  for (const question of ["bana eng konuşur musun", "karakter skin", "skin değiştirme var mı", "ore fiyatları ne kadar", "dm atabilir miyim sana", "st ne demek", "lock oldum kaldım hesabım kilitlendi", "war başladı mı", "combat log nasıl açılır"]) {
+    const selection = w.pickCards(question);
+    assert.ok(!selection || selection.search, `${question} → ${selection ? Array.from(selection.cards, card => card.id).join(", ") : "null"}`);
+  }
 });

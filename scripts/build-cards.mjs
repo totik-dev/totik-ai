@@ -1,10 +1,10 @@
-// Builds src/cards-data.js from kartlar/kartlar.json and kartlar/metin/<id>.md.
+// Builds src/cards-data.js from kartlar/kartlar.json, kartlar/metin/<id>.md and kartlar/sinif-bilgi.json.
 // Usage: npm run cards                      (update src/cards-data.js)
 //        node scripts/build-cards.mjs --check   (fail if out of date)
 import fs from "node:fs";
 
 const root = new URL("../", import.meta.url);
-const indexUrl = new URL("kartlar/kartlar.json", root), textDir = new URL("kartlar/metin/", root), outUrl = new URL("src/cards-data.js", root);
+const indexUrl = new URL("kartlar/kartlar.json", root), textDir = new URL("kartlar/metin/", root), outUrl = new URL("src/cards-data.js", root), factsUrl = new URL("kartlar/sinif-bilgi.json", root);
 
 const slug = value => String(value || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ı/g, "i").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const PROFESSION_KEYS = { aid: "first-aid", alch: "alchemy", bs: "blacksmithing", cook: "cooking", ench: "enchanting", eng: "engineering", fish: "fishing", herb: "herbalism", lw: "leatherworking", mining: "mining", skin: "skinning", tail: "tailoring" };
@@ -60,8 +60,16 @@ export function buildCards() {
   return { cards, missing, total: index.length };
 }
 
-export function render(cards) {
-  return `// AUTO-GENERATED — scripts/build-cards.mjs (npm run cards). Elle düzenleme: kartlar/metin/*.md dosyalarını düzelt.\nexport const CARDS = ${JSON.stringify(cards, null, 1)};\n`;
+// Verified class data that is not printed on any card: spec roles, strengths and weaknesses, race picks.
+export function classFacts() {
+  const { taraflar, genel, siniflar } = JSON.parse(fs.readFileSync(factsUrl, "utf8"));
+  if (!taraflar?.Alliance?.length || !taraflar?.Horde?.length) throw new Error("Sınıf bilgisi eksik: taraflar");
+  for (const [key, entry] of Object.entries(siniflar)) if (!Array.isArray(entry.uzmanliklar) || entry.uzmanliklar.length !== 3) throw new Error(`Sınıf bilgisi eksik: ${key}`);
+  return { taraflar, genel, siniflar };
+}
+
+export function render(cards, facts = classFacts()) {
+  return `// AUTO-GENERATED — scripts/build-cards.mjs (npm run cards). Elle düzenleme: kartlar/metin/*.md ve kartlar/sinif-bilgi.json dosyalarını düzelt.\nexport const CARDS = ${JSON.stringify(cards, null, 1)};\nexport const CLASS_FACTS = ${JSON.stringify(facts, null, 1)};\n`;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

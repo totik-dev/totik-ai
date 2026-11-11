@@ -1,0 +1,853 @@
+{
+ "aciklama": "Doğrulanmış sınıf verisi (wow-forever-sinif/veri). Kartlarda olmayan uzmanlık rolü, artı/eksi ve ırk önerileri. Kaynak adı ve 'henüz test edilmedi' türü satırlar çıkarıldı.",
+ "taraflar": {
+  "Alliance": [
+   "Human",
+   "Dwarf",
+   "Night Elf",
+   "Gnome",
+   "High Order Skyborne"
+  ],
+  "Horde": [
+   "Orc",
+   "Undead",
+   "Tauren",
+   "Troll",
+   "Windshaper Skyborne"
+  ]
+ },
+ "genel": [
+  {
+   "sinif": "warrior",
+   "ad": "Warrior",
+   "not": "Rage ile savaşan yakın dövüşçü. En sağlam tanklardan; Battle Shout ve Sunder Armor ile grubun fiziksel hasarını artırır.",
+   "roller": [
+    [
+     "Arms",
+     "DPS"
+    ],
+    [
+     "Fury",
+     "DPS"
+    ],
+    [
+     "Protection",
+     "Tank"
+    ]
+   ]
+  },
+  {
+   "sinif": "paladin",
+   "ad": "Paladin",
+   "not": "Her rolü yapabilen destek sınıfı. Blessing, aura ve grup buff'larıyla grubu güçlendirir; tek hedef iyileştirmede çok iyi.",
+   "roller": [
+    [
+     "Holy",
+     "Heal"
+    ],
+    [
+     "Protection",
+     "Tank"
+    ],
+    [
+     "Retribution",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "hunter",
+   "ad": "Hunter",
+   "not": "Pet, tuzak ve menzilli silahla savaşır. Oyunun en rahat solo ve leveling sınıflarından; bol kontrol aracı var.",
+   "roller": [
+    [
+     "Beast Mastery",
+     "DPS"
+    ],
+    [
+     "Marksmanship",
+     "DPS"
+    ],
+    [
+     "Survival",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "rogue",
+   "ad": "Rogue",
+   "not": "Gizlilikten saldıran yakın dövüşçü. Yüksek hasar ve Sap, Kidney Shot gibi güçlü kontrol yetenekleri.",
+   "roller": [
+    [
+     "Assassination",
+     "DPS"
+    ],
+    [
+     "Combat",
+     "DPS"
+    ],
+    [
+     "Subtlety",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "priest",
+   "ad": "Priest",
+   "not": "Işık ya da gölge: güçlü iyileştirici veya Shadow büyüleriyle hasar veren büyücü. Discipline kalkan ve önleyici heal yapar.",
+   "roller": [
+    [
+     "Discipline",
+     "Heal"
+    ],
+    [
+     "Holy",
+     "Heal"
+    ],
+    [
+     "Shadow",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "shaman",
+   "ad": "Shaman",
+   "not": "Elementlerin ustası: uzaktan büyü, silahla yakın dövüş ya da iyileştirme. Totemleri grubu destekler.",
+   "roller": [
+    [
+     "Elemental",
+     "DPS"
+    ],
+    [
+     "Enhancement",
+     "DPS"
+    ],
+    [
+     "Restoration",
+     "Heal"
+    ]
+   ]
+  },
+  {
+   "sinif": "mage",
+   "ad": "Mage",
+   "not": "Büyük büyü hasarı ve kalabalık kontrolü (Polymorph, Frost Nova, Blink). Yemek, su ve portal yapar.",
+   "roller": [
+    [
+     "Arcane",
+     "DPS"
+    ],
+    [
+     "Fire",
+     "DPS"
+    ],
+    [
+     "Frost",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "warlock",
+   "ad": "Warlock",
+   "not": "DoT, Shadow ve Fire büyüleri ve iblis petiyle savaşır. Healthstone, Ritual of Summoning ve lanetlerle gruba katkı verir.",
+   "roller": [
+    [
+     "Affliction",
+     "DPS"
+    ],
+    [
+     "Demonology",
+     "DPS"
+    ],
+    [
+     "Destruction",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "druid",
+   "ad": "Druid",
+   "not": "Form değiştirerek her rolü yapabilen en esnek sınıf: ayı tank, kedi DPS, Moonkin büyücü ya da iyileştirici.",
+   "roller": [
+    [
+     "Balance",
+     "DPS"
+    ],
+    [
+     "Feral",
+     "Tank / DPS"
+    ],
+    [
+     "Restoration",
+     "Heal"
+    ]
+   ]
+  }
+ ],
+ "siniflar": {
+  "druid": {
+   "irklar": [
+    "Night Elf",
+    "High Order Skyborne",
+    "Tauren",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Windshaper Skyborne": [
+     "Balance",
+     "Feral",
+     "Restoration"
+    ],
+    "High Order Skyborne": [
+     "Balance",
+     "Restoration"
+    ],
+    "Night Elf": [
+     "Feral"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Balance",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Moonkin Form: bütün raid'e +%3 kritik",
+      "Eclipse ritmi: Wrath, ardından 2 hızlı Starfire",
+      "Insect Swarm ve Moonfire yürürken atılır",
+      "Rebirth: savaşta dirilten tek yetenek"
+     ],
+     "eksi": [
+      "Moonkin kritiği Leader of the Pack ile birikmez",
+      "Moonkin Form kendine az güç verir; değeri raid buff'ı",
+      "Başta mana sıkıntısı; rotasyonu Wrath'a kaydır"
+     ]
+    },
+    {
+     "ad": "Feral",
+     "rol": "DPS · Tank",
+     "arti": [
+      "Tek talent build'le hem ayı tank hem kedi DPS",
+      "Ayı tehdidi çok yüksek: Primal Bite, Lacerate",
+      "Leader of the Pack: bütün raid'e +%3 kritik",
+      "Silah DPS'iyle güçlenir; yükseltme hemen hissedilir"
+     ],
+     "eksi": [
+      "Kedide alan hasarı yok; hedef değişince combo gider",
+      "İki rol için iki ayrı eşya seti gerekir",
+      "Silah seçeneği az: çoğu zaman iki elli topuz"
+     ]
+    },
+    {
+     "ad": "Restoration",
+     "rol": "Heal",
+     "arti": [
+      "Hem tankı hem raid'i iyileştirir",
+      "Rejuvenation ve Swiftmend anlık: yürürken heal",
+      "Wild Growth: bütün partiye HoT",
+      "Swiftmend HoT'u silmeden anında heal"
+     ],
+     "eksi": [
+      "Kalkan (absorb) yok; Resto ile leveling çok yavaş",
+      "Gruba kendine özgü bir katkısı yok",
+      "Gücün çoğu Regrowth'ta; Healing Touch zayıf"
+     ]
+    }
+   ]
+  },
+  "hunter": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Night Elf",
+    "High Order Skyborne",
+    "Orc",
+    "Tauren",
+    "Troll",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Orc": [
+     "Beast Mastery"
+    ],
+    "High Order Skyborne": [
+     "Beast Mastery",
+     "Marksmanship"
+    ],
+    "Windshaper Skyborne": [
+     "Marksmanship"
+    ],
+    "Tauren": [
+     "Survival"
+    ],
+    "Human": [
+     "Survival"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Beast Mastery",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Pet hem tanklar hem vurur: en rahat solo ve leveling",
+      "Bestial Wrath: pet 18 sn +%50 hasar, durdurulamaz",
+      "Summon Hawk: pete ek olarak 2 şahin saldırır",
+      "Basit dönüş, yeni başlayana uygun"
+     ],
+     "eksi": [
+      "Pet'i sürekli yönetmek gerekir; dungeon'da yanlış grubu çekebilir",
+      "Hasarın çoğu pette; pet ölürse hasar düşer",
+      "Yakın menzil ile 8 m arasında hiç vuramazsın"
+     ]
+    },
+    {
+     "ad": "Marksmanship",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Hunter'ın en iyi çok hedef hasarı: Multi-Shot, Volley, Barrage",
+      "Lone Wolf: pet yokken tüm hasar +%20",
+      "Sniper Shot: 45 m menzil, sonraki 3 atış +10 m",
+      "Trueshot Aura: raid'e ranged Attack Power (+100'e kadar)"
+     ],
+     "eksi": [
+      "En yüksek hasar petsiz: solo oyunda seni koruyan tank yok",
+      "Kıpırdamadan durmak ister; hareketli dövüşte hasar düşer",
+      "Yakın menzil ile 8 m arasında hiç vuramazsın"
+     ]
+    },
+    {
+     "ad": "Survival",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Forever'da yakın dövüş uzmanlığı oldu: Predator's Edge, Strider Kick",
+      "Güçlü sürekli tek hedef hasarı",
+      "Expose Prey ile Mongoose Bite çok daha sık açılır",
+      "Resourcefulness: tuzak ve yakın yetenekler %60 az mana"
+     ],
+     "eksi": [
+      "Hunter'ın en zayıf leveling uzmanlığı, özellikle 40'a kadar",
+      "Ana talentleri ağacın sonunda; erken puanlar zayıf",
+      "Etkili çok hedef dönüşü yok"
+     ]
+    }
+   ]
+  },
+  "mage": {
+   "irklar": [
+    "Human",
+    "Gnome",
+    "High Order Skyborne",
+    "Orc",
+    "Undead",
+    "Troll"
+   ],
+   "irkOneri": {
+    "Gnome": [
+     "Arcane",
+     "Fire"
+    ],
+    "High Order Skyborne": [
+     "Arcane",
+     "Fire"
+    ],
+    "Human": [
+     "Arcane",
+     "Fire"
+    ],
+    "Troll": [
+     "Arcane",
+     "Fire"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Arcane",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Arcane Power ile cooldown'da DPS neredeyse 2 katı",
+      "34. seviyeden sonra savaşta mana yenilenmesi tam sürer",
+      "Clearcasting ve Missile Barrage bedava büyü verir",
+      "Fire'a kayan build ile Pyroblast patlaması da var"
+     ],
+     "eksi": [
+      "Arcane Blast her yığında pahalılaşır; dikkatsiz oynarsan mana biter",
+      "Yürürken zayıf: DoT'u ve güçlü anlık büyüsü yok",
+      "En iyi hasar için Fire ağacına da puan ister"
+     ]
+    },
+    {
+     "ad": "Fire",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "1. fazda en yüksek DPS'li Mage",
+      "Heating Up ile Pyroblast artık rotasyonun parçası",
+      "Master of Elements kritiklerde mana geri verir",
+      "İki build: Combustion (Deep Fire) ya da Frostfire Bolt"
+     ],
+     "eksi": [
+      "Kritik şansına bağlı; zayıf eşyada Heating Up ve Ignite az çalışır",
+      "Leveling'de 34'e kadar mana yetmez, sık su içersin",
+      "Savunma cooldown'ı yok (Ice Block Frost ağacında)"
+     ]
+    },
+    {
+     "ad": "Frost",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Chill, Frost Nova, Frostbite: en iyi kontrol ve kaçış",
+      "Fingers of Frost ile boss'ta da Shatter kritiği",
+      "Ice Barrier ve Ice Block ile en sağlam Mage",
+      "Permafrost'la Cone of Cold 4 düşmanı sürekli yavaşlatır"
+     ],
+     "eksi": [
+      "Simülasyonda ham DPS'i en düşük",
+      "Fingers of Frost ve Frostbite şansına bağlı",
+      "Cone of Cold için hedefe yakın durmak gerekir"
+     ]
+    }
+   ]
+  },
+  "paladin": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Undead"
+   ],
+   "irkOneri": {
+    "Human": [
+     "Holy",
+     "Retribution"
+    ],
+    "Dwarf": [
+     "Protection"
+    ],
+    "Undead": [
+     "Protection",
+     "Retribution"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Holy",
+     "rol": "Heal",
+     "arti": [
+      "Tek hedef heal'de çok güçlü: Flash of Light ve Holy Light",
+      "Light's Vigil + Holy Shock ile artık grup heal'i de var",
+      "Plate zırh, Divine Shield ve Lay on Hands: leveling'de neredeyse ölmez",
+      "Blessing ve Aura'lar yüzünden her grup Paladin ister"
+     ],
+     "eksi": [
+      "Light's Vigil çok pahalı; sık basarsan mana biter",
+      "Hasarı düşük, tek başına görev yapmak yavaş",
+      "Hareket yeteneği yok"
+     ]
+    },
+    {
+     "ad": "Protection",
+     "rol": "Tank",
+     "arti": [
+      "Forever'da taunt var: Seal of Fury açıkken Judgement",
+      "Consecration ile küçük gruplarda tehdit tutmak kolay",
+      "Shieldsworn: Holy Strike kalkanla vurur, büyüleri de bloklar",
+      "Blokta mana geri gelir; Templar's Bulwark büyük kalkan"
+     ],
+     "eksi": [
+      "Judgement taunt da yapar; raidde off-tank'ken mühür değiştirmek gerekir",
+      "Consecration nerf yedi: çok düşmanı tutmak eskisi kadar kolay değil",
+      "Hareket yeteneği yok"
+     ]
+    },
+    {
+     "ad": "Retribution",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Bol acil durum aracı: Lay on Hands, Divine Shield, Blessing of Protection",
+      "Mana havuzu sayesinde uzun süre durmadan savaşır",
+      "İki build: Unsealed Wrath (mühür değiştirme) ya da Holy Shock'lu",
+      "Pursuit of Justice ile savaşta hızlı"
+     ],
+     "eksi": [
+      "Consecration dışında AoE yok; 4 düşmandan sonrası zayıf",
+      "Beta'da çok nerf yedi",
+      "Unsealed Wrath build'i swing timer takibi ister"
+     ]
+    }
+   ]
+  },
+  "priest": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Night Elf",
+    "Gnome",
+    "Undead",
+    "Troll"
+   ],
+   "irkOneri": {
+    "Human": [
+     "Discipline",
+     "Holy"
+    ],
+    "Gnome": [
+     "Discipline",
+     "Holy"
+    ],
+    "Dwarf": [
+     "Shadow"
+    ],
+    "Undead": [
+     "Discipline",
+     "Holy",
+     "Shadow"
+    ],
+    "Troll": [
+     "Shadow"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Discipline",
+     "rol": "Heal",
+     "arti": [
+      "Tank heal'inde çok güçlü: Power Word: Shield ve Penance",
+      "Power Infusion: dostun büyü gücü 15 sn +%20",
+      "Divine Aegis: kritik heal hedefe ek kalkan bırakır",
+      "Fortitude, Fear Ward, Dispel Magic: bol yardımcı büyü"
+     ],
+     "eksi": [
+      "Grup heal'i zayıf",
+      "Hasarı az; tek başına leveling'de Shadow talentleri al",
+      "Hareket yeteneği yok, yalnız Levitate"
+     ]
+    },
+    {
+     "ad": "Holy",
+     "rol": "Heal",
+     "arti": [
+      "Yeni başlayana uygun, oynaması kolay",
+      "Grup heal'i güçlü: Prayer of Healing, Prayer of Mending, Holy Nova",
+      "Spirit of Redemption: ölünce 15 sn bedava heal",
+      "Holy Binding: Flash Heal seni de iyileştirir"
+     ],
+     "eksi": [
+      "Tek hedef heal'de Discipline'in gerisinde",
+      "Hasarı az, tek başına leveling zor",
+      "Her işi yapar ama öbür healer'lardan biraz zayıf"
+     ]
+    },
+    {
+     "ad": "Shadow",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Vampiric Embrace: hasarının %20'si grubu iyileştirir",
+      "Dark Inspiration: grubun Spirit'i +%15",
+      "Shadowform: Shadow büyüleri yarı mana, alınan fiziksel hasar −%15",
+      "Leveling'de güvenli: Shield ve heal hep elinde"
+     ],
+     "eksi": [
+      "Shadowform'a (40. seviye) kadar mana dar, sık içersin",
+      "Güçlü AoE büyüsü yok",
+      "Hareket edince hasar durur"
+     ]
+    }
+   ]
+  },
+  "rogue": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Night Elf",
+    "Gnome",
+    "High Order Skyborne",
+    "Orc",
+    "Undead",
+    "Troll",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Undead": [
+     "Assassination",
+     "Combat",
+     "Subtlety"
+    ],
+    "Gnome": [
+     "Assassination",
+     "Combat",
+     "Subtlety"
+    ],
+    "Orc": [
+     "Subtlety"
+    ],
+    "Dwarf": [
+     "Subtlety"
+    ],
+    "Night Elf": [
+     "Subtlety"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Assassination",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Güçlü tek hedef hasarı: Mutilate ve zehirler",
+      "Mutilate 2 combo verir, zehirli hedefe +%20 vurur",
+      "Venom: Shank sonrası 6 sn zehir hasarı +%30",
+      "Improved Expose Armor'a en kolay ulaşan uzmanlık"
+     ],
+     "eksi": [
+      "AoE ve cleave yok; çok küçük düşmanda geride kalır",
+      "Savaşta kendini iyileştiremez, bandaj tek çare",
+      "Takip edilecek çok buff ve debuff: yeni başlayana zor"
+     ]
+    },
+    {
+     "ad": "Combat",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Blade Flurry ile cleave yapan tek Rogue uzmanlığı",
+      "Hack and Slash: her silah türüne bonus, respec gerekmez",
+      "Adrenaline Rush: 15 sn Energy yenilenmesi +%100",
+      "Basit dönüş: Sinister Strike ve Eviscerate"
+     ],
+     "eksi": [
+      "Gerçek AoE yok; Blade Flurry yalnız 1 ek düşmana vurur",
+      "Hasarı çok oto saldırıdan gelir: iyi silaha bağlı",
+      "Yakın dövüşçü olarak yavaşlatma ve köklere açık"
+     ]
+    },
+    {
+     "ad": "Subtlety",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Çıkıştan hemen önce yenilendi: hızlı, kanama odaklı oynanış",
+      "Shank + Boot Knife ve Premeditation ile bol combo puanı",
+      "Death Mark: 6 sn hasarı biriktirip patlatır",
+      "PvP'de çok güçlü: aynı anda 2 hedefe Sap"
+     ],
+     "eksi": [
+      "Güçlü talentleri ağacın sonunda; düşük seviyede zayıf",
+      "AoE yok; çok düşmanda tek tek DoT atmak gerekir"
+     ]
+    }
+   ]
+  },
+  "shaman": {
+   "irklar": [
+    "Dwarf",
+    "Orc",
+    "Tauren",
+    "Troll",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Orc": [
+     "Elemental",
+     "Restoration"
+    ],
+    "Windshaper Skyborne": [
+     "Enhancement"
+    ],
+    "Dwarf": [
+     "Elemental",
+     "Enhancement",
+     "Restoration"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Elemental",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Fire Nova + Trial by Fire: geniş alanda güçlü hasar",
+      "Lightning Overload: %30 şansla bedava ikinci yıldırım",
+      "Lightning Mastery: 15 sn hızlı Bolt, beklemesiz Chain",
+      "Totemler bütün raid'i güçlendirir"
+     ],
+     "eksi": [
+      "Tek hedef hasarı diğer büyücülerden düşük",
+      "Mana çabuk biter; uzun dövüşte zorlanır",
+      "Sert kontrol (CC) yok; yalnız Earthbind Totem"
+     ]
+    },
+    {
+     "ad": "Enhancement",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Stormstrike: 6 sn'de bir %150 silah vuruşu",
+      "Maelstrom: 5 yığında anlık, bedava Lightning Bolt",
+      "Windfury Totem: yakın dövüşçülerin en güçlü buff'ı",
+      "Magma Totem + Fire Nova ile iyi alan hasarı"
+     ],
+     "eksi": [
+      "İlk seviyelerde mana çok dar",
+      "Çok stat ister: Strength, Attack Power, Intellect, Spell Power",
+      "Blizzard 10.11'de Strength'i en güçlü stat yapıyor; eşya seçimi değişiyor"
+     ]
+    },
+    {
+     "ad": "Restoration",
+     "rol": "Heal",
+     "arti": [
+      "En kolay healer'lardan: 3 büyülük çekirdek",
+      "Riptide'lı hedefe Chain Heal +%25",
+      "Healing Way: Healing Wave doğrudan +%25",
+      "Mana Tide ve raid çapında totemlerle güçlü destek"
+     ],
+     "eksi": [
+      "Chain Heal ve Riptide ancak 40. seviyede gelir",
+      "Mana yoğun; Water Shield ve Mana Tide şart",
+      "Riptide dışında bekleme süreli büyü yok; ustalaşacak az şey"
+     ]
+    }
+   ]
+  },
+  "warlock": {
+   "irklar": [
+    "Human",
+    "Gnome",
+    "Orc",
+    "Undead",
+    "Troll"
+   ],
+   "irkOneri": {
+    "Human": [
+     "Affliction",
+     "Demonology",
+     "Destruction"
+    ],
+    "Orc": [
+     "Affliction",
+     "Demonology",
+     "Destruction"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Affliction",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Uzun dövüşte ve dağınık düşmanlarda güçlü",
+      "DoT'lar kritik vurur; Pandemic kritik hasarını artırır",
+      "Siphon Life ve Drain Life ile canını geri alır",
+      "Yürürken de hasar: DoT'lar ve anlık Nightfall Shadow Bolt'u"
+     ],
+     "eksi": [
+      "Kısa dövüşte zayıf: düşman DoT'lar işlemeden ölür",
+      "Wrack kanalı durarak atılır; koşunca hasar düşer"
+     ]
+    },
+    {
+     "ad": "Demonology",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Succubus hasarın büyük parçası; Demonic Brand onu güçlendirir",
+      "Demonic Pact: Imp feda bonusu Succubus açıkken de sürer",
+      "Soul Link: aldığın hasarın %30'unu pet alır",
+      "Demonic Energies ve Life Tap petin can ve manasını doldurur"
+     ],
+     "eksi": [
+      "Pet ölürse hasarın ve Soul Link gider",
+      "Sık hedef değişimi ve koşu pet hasarını düşürür",
+      "Shadow bonusları Hellfire ve Rain of Fire'a işlemez"
+     ]
+    },
+    {
+     "ad": "Destruction",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Hasar kendi büyülerinden; DoT'ların işlemesini beklemez",
+      "Conflagrate ve Shadowburn anlık; Shadow and Flame ile +%20 hasar",
+      "Bane of Havoc ile ikinci hedefe ek %15 hasar",
+      "AoE büyüleri (Hellfire, Rain of Fire) Agonizing Flames ve Ruin'den güç alır"
+     ],
+     "eksi": [
+      "Durarak oynanır: ana büyü Incinerate döküm süreli",
+      "Succubus feda edilince petsiz oynanır; açık tutmak da güçlü ama pet ölmemeli",
+      "En güçlü AoE (Hellfire) yakın mesafede ve sana da vurur"
+     ]
+    }
+   ]
+  },
+  "warrior": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Night Elf",
+    "Gnome",
+    "High Order Skyborne",
+    "Orc",
+    "Undead",
+    "Tauren",
+    "Troll",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Orc": [
+     "Arms"
+    ],
+    "Windshaper Skyborne": [
+     "Fury"
+    ],
+    "Undead": [
+     "Protection"
+    ],
+    "Night Elf": [
+     "Arms",
+     "Fury",
+     "Protection"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Arms",
+     "rol": "Yakın DPS",
+     "arti": [
+      "İki düşmana karşı çok güçlü cleave (Sweeping Strikes)",
+      "Bloodthrill: Rend'li hedefte Overpower sık açılır",
+      "Weaponmaster: silah türü değişince respec gerekmez",
+      "Mortal Strike hedefin iyileşmesini %50 keser"
+     ],
+     "eksi": [
+      "Rage dar; fazla harcarsan Mortal Strike'a yetmez",
+      "Ana talentler gelene kadar dikkatli çekiş ve dinlenme ister"
+     ]
+    },
+    {
+     "ad": "Fury",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Basit ve hızlı oynanış: Bloodthirst + Whirlwind",
+      "Whirlwind iki silahla vurur, küçük gruplarda güçlü",
+      "Death Wish: 30 sn +%20 fiziksel hasar (3 dk)",
+      "Lingering Rage ile çekişler arası Rage korunur"
+     ],
+     "eksi": [
+      "Leveling'de geç oturur; ana yetenekler 36–40'ta gelir",
+      "İki silahla ıskalamak Rage'i aç bırakır",
+      "Hedeften uzak kalınca hem hasar hem Rage düşer"
+     ]
+    },
+    {
+     "ad": "Protection",
+     "rol": "Tank",
+     "arti": [
+      "Önerilen Warrior leveling uzmanlığı",
+      "Güçlü tehdit: Shield Slam, Revenge, Thunder Clap",
+      "Shield Wall ve Last Stand ile zor çekişlerde hayatta kalır",
+      "Shield Bash, Taunt ve Challenging Shout ile çekişi kurtarır"
+     ],
+     "eksi": [
+      "Rage blok, dodge ve parry'den gelir; seni vurmayan düşmanda azalır",
+      "4'ten fazla düşmanda hedef değiştirerek tehdit tutmalısın",
+      "Intercept için Berserker Stance'e geçmek Rage kaybettirir"
+     ]
+    }
+   ]
+  }
+ }
+}
