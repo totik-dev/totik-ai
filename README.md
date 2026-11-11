@@ -53,4 +53,5 @@ Kanal, sunucu ve sahip ID'leri `src/index.js` içinde sabittir (`QUESTION_CHANNE
 
 1. `npm run deploy`
 2. Botu başlat: `POST https://<worker-adresi>/start` ve başlık `Authorization: Bearer <ADMIN_API_KEY>`
-3. Durum: `GET /status`, kart kontrolü: `GET /card-check` (aynı başlıkla; botun forumlarda bulamadığı konuları ve kartları listeler). Durdurmak için `POST /stop`.
+3. Herkese açık durum sayfası: `GET /health` (botun çalışıp çalışmadığını ve rehber forumlarında kaç konuyu bulduğunu gösterir: `kart_konulari: 61/61`).
+4. Durum: `GET /status`, kart kontrolü: `GET /card-check` (aynı başlıkla; botun forumlarda bulamadığı konuları ve kartları listeler). Durdurmak için `POST /stop`.

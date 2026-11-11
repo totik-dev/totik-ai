@@ -30,7 +30,7 @@ const topicId = name => TOPICS.find(topic => topic.name === name).id;
 
 // Fake network: records Discord posts, answers member lookups, the gameplay backend and the three
 // guide forums (one post per topic, the cards as attachments of its first message).
-function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunter solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun." }), gemini = () => jsonResponse({}, 500), missingFiles = [], fileSize = 2048, archived = [] } = {}) {
+function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunter solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun." }), gemini = () => jsonResponse({}, 500), missingFiles = [], fileSize = 2048, archived = [], longPost = false, scanFails = false } = {}) {
   const posts = [], calls = [], prompts = [];
   const threadJson = topic => ({ id: topic.id, parent_id: FORUMS[topic.category], name: topic.name, thread_metadata: { archive_timestamp: "2026-11-10T00:00:00.000Z" } });
   w.setFetch(async (input, init = {}) => {
@@ -45,11 +45,18 @@ function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunte
         posts.push({ ...body, files: form ? [...form.keys()].filter(key => key.startsWith("files[")).map(key => form.get(key).name) : [] });
         return jsonResponse({ id: String(9000 + posts.length) });
       }
+      if (scanFails && /^\/guilds\/\d+\/(?:channels|threads\/active)$/.test(path)) return jsonResponse({ message: "Internal error" }, 500);
       if (/^\/guilds\/\d+\/channels$/.test(path)) return jsonResponse([{ id: FORUMS.class, type: 15, name: "class-rehberleri" }, { id: FORUMS.dungeon, type: 15, name: "zindan-rehberleri" }, { id: FORUMS.profession, type: 15, name: "meslek-rehberleri" }, { id: "1", type: 0, name: "genel" }]);
       if (/^\/guilds\/\d+\/threads\/active$/.test(path)) return jsonResponse({ threads: TOPICS.filter(topic => !archived.includes(topic.name)).map(threadJson) });
       const forum = path.match(/^\/channels\/(\d+)\/threads\/archived\/public$/);
       if (forum) return jsonResponse({ threads: TOPICS.filter(topic => archived.includes(topic.name) && FORUMS[topic.category] === forum[1]).map(threadJson), has_more: false });
       const thread = path.match(/^\/channels\/(\d+)\/messages$/), topic = thread && TOPICS.find(t => t.id === thread[1]);
+      // A long post: the first 100 messages hold the original cards, the newest message a replaced one.
+      if (topic && longPost) {
+        const card = (file, where) => ({ id: `${where}${file}`, filename: file, size: fileSize, content_type: "image/png", url: `https://cdn.discordapp.com/attachments/${where}/1/${file}?ex=1` });
+        if (url.searchParams.get("after") === "0") return jsonResponse(Array.from({ length: 100 }, (_, i) => ({ id: String(100 - i), attachments: i === 99 ? topic.files.map(file => card(file, "old")) : [] })));
+        return jsonResponse([{ id: "500", attachments: [card(topic.files[0], "new")] }, ...Array.from({ length: 99 }, (_, i) => ({ id: String(499 - i), attachments: [] }))]);
+      }
       if (topic) return jsonResponse([{ id: `${topic.id}1`, attachments: topic.files.filter(file => !missingFiles.includes(file)).map((file, i) => ({ id: `${topic.id}${i}`, filename: file, size: fileSize, content_type: "image/png", url: `https://cdn.discordapp.com/attachments/${topic.id}/${i}/${file}?ex=1&is=2&hm=3` })) }]);
       return jsonResponse([]);
     }
@@ -403,4 +410,60 @@ test("card check reports which topics and cards the bot can see in the forums", 
   report = await bot.buildCardCheck();
   assert.equal(report.ok, false);
   assert.deepEqual(Array.from(report.missingCards), ["fish-genel"]);
+});
+
+// ---------- Review fixes ----------
+
+test("card wording is not mistaken for recommending an outside source", () => {
+  for (const text of ["Excavation Site: Wetlands: önerilen seviye 31, bölge Wetlands.", "Dalaran'da 3. adım Kanalizasyon çıkışı. Önerilen seviye 33.", "Fishing için tavsiye edilen rota Stormwind kanalları.", "Mana kaynağın bitince su iç, bunu öneririm."]) assert.equal(w.usableGameAnswer(text), text);
+  assert.equal(w.usableGameAnswer("Şu YouTube kanalını takip etmeni öneririm. Warrior için Strength önemli."), "Warrior için Strength önemli.");
+  assert.equal(w.usableGameAnswer("1. Önce Rend at.\n2. Sonra Mortal Strike.\n\nAyrıca şu siteye bakabilirsin. Devam et."), "1. Önce Rend at.\n2. Sonra Mortal Strike.\n\nDevam et.");
+  assert.equal(w.usableGameAnswer("Bu sitede rehber var, okuyabilirsin."), "");
+});
+
+test("the example the bot gives when it asks for a spec leads to that spec's leveling card", () => {
+  for (const card of Array.from(w.CARDS).filter(c => c.kind === "leveling")) {
+    const question = `${card.classKey} ${card.spec.replace(/-/g, " ")} talent sırası`;
+    const picked = w.pickCards(question, { talentAdvice: w.isTalentAdviceQuestion(question) });
+    assert.deepEqual(Array.from(picked.cards, c => c.id), [card.id], question);
+  }
+});
+
+test("a card replaced later in a long forum post wins over the original", async () => {
+  const net = fakeNetwork({ longPost: true, gemini: () => geminiText("Skill 1–75 arasında başlangıç bölgelerinde tut.") }); const { bot } = newBot();
+  await bot.handleCommand(message("!soru fishing 20 skill nerede"));
+  assert.deepEqual(net.posts[0].files, ["fish-1-75.png"]);
+  assert.ok(net.calls.some(c => c.includes("/attachments/new/")), "the newest copy is downloaded");
+  assert.ok(!net.calls.some(c => c.includes("/attachments/old/")));
+});
+
+test("a failed forum scan does not block the answer and is not repeated for every question", async () => {
+  const net = fakeNetwork({ scanFails: true, gemini: () => geminiText("Skill 75–225 arasında kartta yazan yerlerde tut.") }); const { bot } = newBot();
+  await bot.handleCommand(message("!soru fishing 150 skill nerede kasılır", "600000000000000011"));
+  await bot.handleCommand(message("!soru mining 200 nerede kasarım", "600000000000000012"));
+  assert.equal(net.posts.length, 2);
+  assert.match(net.posts[0].content, /^Skill 75–225/);
+  assert.match(net.posts[0].content, /Meslek rehberleri forumundaki \*\*Fishing\*\* konusuna bakabilirsin/);
+  assert.ok(net.calls.filter(c => /\/guilds\/\d+\/channels$/.test(c)).length <= 3, "the scan is retried once (with its own retries), not per question");
+});
+
+test("health shows how many guide topics the bot found", async () => {
+  const net = fakeNetwork(); const { bot, storage } = newBot();
+  await storage.put("last_poll_at", Date.now());
+  await bot.buildCardCheck();
+  let health = await bot.healthSummary();
+  assert.equal(health.ok, true); assert.equal(health.kart_konulari, "61/61");
+  fakeNetwork({ archived: [], missingFiles: [] });
+  const value = await storage.get("cards:topics"); value.topics = {}; await storage.put("cards:topics", value);
+  health = await bot.healthSummary();
+  assert.equal(health.kart_konulari, "0/61");
+  assert.match(health.aciklama, /Rehber forumları görünmüyor/);
+  assert.ok(net);
+});
+
+test("leftovers of the old guide system are removed from storage", async () => {
+  fakeNetwork(); const { bot, storage } = newBot();
+  await storage.put("guidevision:v7:warrior.01:1", { version: 7, text: "eski" });
+  await bot.cleanupRecords();
+  assert.equal(await storage.get("guidevision:v7:warrior.01:1"), undefined);
 });
