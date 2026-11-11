@@ -16,18 +16,20 @@ Numaralı boss listesi:
 
 1. Ravasaur Hunters
 2. Direhorn Matriarch
-3. Thunderhoof
-4. Venomridge
-5. Bolt
-6. Snowtalon
-7. Vitrix
-8. Nanaya
+3. King Op
+4. Thunderhoof
+5. Venomridge
+6. Cinder
+7. Bolt
+8. Snowtalon
+9. Titanosaur
+10. Vitrix
+11. Nanaya
 
 Harita etiketleri:
 
 - GİRİŞ
-- Duraklar: 1, 2, 3, 4, 5, 6, 7, 8 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)
-- ↑ YUKARI ÇIK (5. durağın üstünde, 6. durağa giden yolda)
+- Duraklar: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)
 
 ## 1 — Kuzeye çık, kuzey yolundan doğuya
 
@@ -41,39 +43,56 @@ Harita etiketleri:
 - Not: Lv 61
 - Panel haritası: 1 → 2
 
-## 3 — Gölün güneyinden batıya
+## 3 — Güneydoğudaki goril mağarasına gir
+
+- Boss: King Op
+- Not: mağaradaki gorillerin kralı
+- Panel haritası: 2 → 3
+
+## 4 — Mağaradan çık, gölün güneyinden batıya
 
 - Boss: Thunderhoof
 - Not: Lv 61
-- Panel haritası: 2 → 3
+- Panel haritası: 3 → 4
 
-## 4 — Batıya, katran çukurlarının güneyine
+## 5 — Batıya, katran çukurlarının güneyine
 
 - Boss: Venomridge
 - Not: Lv 61
-- Panel haritası: 3 → 4
+- Panel haritası: 4 → 5
 
-## 5 — Kuzeye, çukurların arasına
+## 6 — Batıya, girişin yanındaki ateş alanına
+
+- Boss: Cinder
+- Not: önce ateş elementallerini kes · Lv 61
+- Panel haritası: 5 → 6
+
+## 7 — Doğuya dön, çukurların arasına
 
 - Boss: Bolt
 - Not: Lv 62
-- Panel haritası: 4 → 5
+- Panel haritası: 6 → 7
 
-## 6 — Batı yolundan kuzeybatı mağarasına
+## 8 — Batı yolundan kuzeybatı mağarasına
 
 - Boss: Snowtalon
 - Not: mağarada · Lv 62
-- Yolda: ↑ yukarı çık
-- Panel haritası: 5 → 6. Etiketler: ↑ YUKARI ÇIK
+- Panel haritası: 7 → 8
 
-## 7 — Geri dön, kuzey yolundan doğuya
+## 9 — Mağaradan çık, güneydeki açıklığa
+
+- Boss: Titanosaur
+- Not: Lv 61
+- Panel haritası: 8 → 9
+
+## 10 — Kuzey yolundan doğuya
 
 - Boss: Vitrix
 - Not: Lv 62
-- Panel haritası: 6 → 7
+- Panel haritası: 9 → 10
 
-## 8 — Gölün ortasındaki adaya
+## 11 — Gölün ortasındaki adaya
 
 - Boss: Nanaya
 - Not: son boss · Lv 62
-- Panel haritası: 7 → 8
+- Panel haritası: 10 → 11

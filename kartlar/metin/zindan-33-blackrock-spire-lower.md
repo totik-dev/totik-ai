@@ -36,8 +36,7 @@ Harita etiketleri:
 - ↑ YUKARI ÇIK (8. durağın altında)
 - Roughshod Pike (… (haritanın sağ kenarında; etiketin devamı kesik)
 - Ghok Bashguud (nadir) (1. durağın altında)
-- Spirestone Battle Lord (nadir) (1. durağın altında; büyük kısmı diğer etiketlerin altında kalmış, yalnız üst kenarı ve "(nadir)" görünüyor)
-- Spirestone Lord Magus (nadir) (1. durağın altında)
+- Battle Lord / Lord Magus (nadir) (1. durağın altında)
 - Bannok Grimaxe (nadir)
 - ↑ YUKARI ÇIK (2. durağın sağ üstünde, 4. durağa giden yolda)
 - Crystal Fang (nadir) (2. durağın altında)
@@ -51,7 +50,7 @@ Harita etiketleri:
 - Boss: Highlord Omokk
 - Not: ilk boss · UBRS mührü: Vaelan ile konuş
 - Yolda: ↓ aşağı in
-- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, Vaelan (UBRS mührü) (altında bir mavi etiket kalmış, yazısı görünmüyor), Spirestone Lord Magus (nadir), Spirestone Battle Lord (nadir) (büyük kısmı kapalı), Spirestone Butcher (nadir) (baş kısmı kapalı)
+- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, Vaelan (UBRS mührü) (altında bir mavi etiket kalmış, yazısı görünmüyor), Battle Lord / Lord Magus (nadir), Spirestone Butcher (nadir) (baş kısmı kapalı)
 
 ## 2 — Troll bölümü: koridor sonundaki rampadan in
 

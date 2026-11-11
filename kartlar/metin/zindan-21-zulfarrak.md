@@ -55,7 +55,7 @@ Harita etiketleri:
 ## 4 — Piramidin merdivenine çık, Bly'ı kurtar
 
 - Boss: Shadowpriest Sezz'ziz
-- Not: Cellatı kes, anahtarla kafesleri aç
+- Not: kafesleri aç · sonda Nekrum gelir
 - Yolda: ↑ yukarı çık
 - Panel haritası: 3 → 4. Etiketler: ↑ YUKARI ÇIK, Sandfury Executioner (anahtar)
 

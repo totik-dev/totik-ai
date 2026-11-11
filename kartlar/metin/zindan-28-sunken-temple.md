@@ -35,6 +35,7 @@ Harita etiketleri:
 - Hukku
 - Heykel 2
 - Heykel 5
+- Heykel 6 (son) (yeşil 6 durağının yanında)
 - Zul'Lor
 - Heykel 3
 - Heykel 4
@@ -50,7 +51,7 @@ Harita etiketleri:
 - Boss: Heykel bulmacası
 - Not: 6 heykele numara sırasıyla tıkla
 - Yolda: ↓ aşağı in
-- Panel haritası: GİRİŞ → yeşil 6. Etiketler: GİRİŞ, ↓ AŞAĞI İN, Heykel 1, Heykel 2, Heykel 3, Heykel 4, Heykel 5
+- Panel haritası: GİRİŞ → yeşil 6. Etiketler: GİRİŞ, ↓ AŞAĞI İN, Heykel 1, Heykel 2, Heykel 3, Heykel 4, Heykel 5, Heykel 6 (son)
 
 ## 2 — Heykel halkasından en alt kata, çukura
 

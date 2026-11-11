@@ -9,14 +9,6 @@ TOTİK CHANNEL · ZİNDAN REHBERİ
 - Alliance görevi: 10
 - Bölge (küçük harita etiketi): Dun Morogh
 
-## DOĞRULAMA HATASI
-
-(Kartın üstüne basılmış kırmızı kutu; genel haritanın bir bölümünü ve Adım 2 panelinin başlığının sol tarafını kapatıyor. Kutudaki yazı aynen:)
-
-DOĞRULAMA HATASI
-
-Taşan yazı: ☠ Mekgineer Thermaplugg · son boss · tünelde nadir Dark Iron Ambassador olabilir · sütun düğmeleri bombaları keser
-
 ## Genel harita: bütün rota
 
 Numaraları sırayla izle · her adım yanda büyük çizili
@@ -33,7 +25,7 @@ Harita üzerindeki etiketler (numaralı işaretler dışında):
 
 - GİRİŞ
 - ↓ AŞAĞI ATLA
-- ⇣ AŞAĞI İN (4 kez görünüyor; haritanın bir bölümü DOĞRULAMA HATASI kutusunun altında kaldığı için orası okunamıyor)
+- ⇣ AŞAĞI İN (5 kez)
 - ⇡ YUKARI ÇIK
 - ☠ Dark Iron Ambassador (nadir)
 
@@ -43,13 +35,12 @@ Harita üzerindeki etiketler (numaralı işaretler dışında):
 - Panel haritasındaki rota: GİRİŞ → 1
 - Panel haritasındaki etiketler: GİRİŞ
 
-## Adım 2 — …ıdan salona aşağı atla
+## Adım 2 — Geri dön, yukarıdan salona aşağı atla
 
-- … · salonda dolaşır · atlayınca çok can gider
+- ☠ Viscous Fallout · salonda dolaşır · atlayınca çok can gider
+- Yolda: ↓ aşağı atla
 - Panel haritasındaki rota: 1 → 2
 - Panel haritasındaki etiketler: ↓ AŞAĞI ATLA
-- Not (transkript): Bu panelin başlık bölümünün sol tarafı DOĞRULAMA HATASI kutusuyla kapalı: başlığın başı, boss adı ve (varsa) "Yolda:" satırı kartta okunamıyor. Okunabilen kısım yukarıdaki gibidir.
-- Not (transkript): Genel haritadaki numaralı listede 2 = Viscous Fallout.
 
 ## Adım 3 — Batı tünelinden Launch Bay platformuna
 
@@ -67,8 +58,7 @@ Harita üzerindeki etiketler (numaralı işaretler dışında):
 
 ## Adım 5 — Dar tünelden geri çık, ana tünelden devam et
 
-- ☠ Mekgineer Thermaplugg · son boss · tünelde nadir Dark Iron Ambassador olabilir · sütun düğmeleri bom…
+- ☠ Mekgineer Thermaplugg · son boss · sütun düğmeleri bombaları keser
 - Yolda: ⇣ aşağı in → ⇣ aşağı in
 - Panel haritasındaki rota: 4 → 5
 - Panel haritasındaki etiketler: ☠ Dark Iron Ambassador (nadir); ⇣ AŞAĞI İN (2 kez)
-- Not (transkript): Boss satırı panelin sağ kenarında "bom" hecesinde kesiliyor; satırın tamamı DOĞRULAMA HATASI kutusunda yazıyor: "… · sütun düğmeleri bombaları keser".
