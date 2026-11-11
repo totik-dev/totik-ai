@@ -4,7 +4,7 @@
 // rehberleri). src/cards-data.js holds the full text of every card
 // (kartlar/metin/*.md); this module only decides WHICH cards fit a question.
 // It is pure (no network, no Discord), so tests import it directly.
-import { CARDS, CLASS_FACTS } from "./cards-data.js";
+import { CARDS, CLASS_FACTS, FOREVER_NOTES } from "./cards-data.js";
 
 export { CARDS, CLASS_FACTS };
 
@@ -304,10 +304,99 @@ function classOverviewLine(classKey) {
   const entry = CLASS_FACTS.genel.find(item => item.sinif === classKey); if (!entry) return "";
   return `${entry.ad}: ${entry.not} Uzmanlıklar: ${entry.roller.map(([name, role]) => `${name} (${role})`).join(", ")}.`;
 }
+// What each class wears and wields: "Hunter: zırh 40. seviyeye kadar leather, 40. seviyeden sonra mail; silah …".
+export function gearRule(classKey = null) {
+  const keys = classKey ? [classKey] : Object.keys(CLASS_NAMES);
+  return keys.map(key => `${CLASS_NAMES[key]}: zırh ${CLASS_FACTS.siniflar[key].zirh}; silah: ${CLASS_FACTS.siniflar[key].silah}`).join(".\n") + ".";
+}
 function raceAdviceText(classKey) {
   const facts = CLASS_FACTS.siniflar[classKey]; if (!facts) return "";
   const picks = Object.entries(facts.irkOneri || {}).map(([race, specs]) => `${race}: ${specs.join(", ")}`).join(" · ");
-  return `${CLASS_NAMES[classKey]} olabilen ırklar: ${facts.irklar.join(", ")}.${picks ? `\nIrka göre öne çıkan uzmanlıklar: ${picks}.` : ""}`;
+  return `${classRaceLine(classKey)}${picks ? `\nIrka göre öne çıkan uzmanlıklar: ${picks}.` : ""}`;
+}
+// "Shaman olabilen ırklar: Alliance'ta Dwarf; Horde'da Orc, Tauren, Troll, Windshaper Skyborne."
+export function classRaceLine(classKey) {
+  const races = CLASS_FACTS.siniflar[classKey].irklar;
+  const sides = Object.entries(CLASS_FACTS.taraflar).map(([side, list]) => { const own = races.filter(race => list.includes(race)); return own.length ? `${side}'ta ${own.join(", ")}`.replace("Horde'ta", "Horde'da") : `${side} tarafında yok`; });
+  return `${CLASS_NAMES[classKey]} olabilen ırklar: ${sides.join("; ")}.`;
+}
+// The WoW Forever rules that differ from WoW Classic, built from the verified class data. Sent with every AI call.
+function factionRaces() { return Object.entries(CLASS_FACTS.taraflar).map(([side, list]) => `${side} ırkları: ${list.join(", ")}.`).join(" "); }
+// Classes that Classic gave to one side only and Forever gives to both.
+function openedClasses() {
+  const sideOf = race => Object.entries(CLASS_FACTS.taraflar).find(([, list]) => list.includes(race))?.[0];
+  return Object.entries({ shaman: "Horde", paladin: "Alliance" }).map(([key, classicSide]) => {
+    const other = CLASS_FACTS.siniflar[key].irklar.filter(race => sideOf(race) !== classicSide);
+    return other.length ? `${CLASS_NAMES[key]} Classic'te yalnız ${classicSide} sınıfıydı; Forever'da ${sideOf(other[0])} tarafında da vardır (${other.join(", ")})` : "";
+  }).filter(Boolean);
+}
+// The research backend knows WoW Classic and receives only the question: the Forever rules the question
+// touches travel with it ("Shaman olabilen ırklar: Alliance'ta Dwarf; …").
+export function foreverHint(classKey = null, notes = []) {
+  return ["WoW Forever notu (WoW Classic'ten farklıdır, cevap buna uymalı):",
+    classKey && CLASS_FACTS.siniflar[classKey] ? classRaceLine(classKey) : `${openedClasses().join(". ")}.`,
+    ...(notes || []).filter(note => note.ozet).map(note => note.ozet),
+    "\"Classic'te yok\", \"Burning Crusade'de açıldı\" gibi başka sürüm bilgisi yazma."].join(" ");
+}
+export function foreverRules() {
+  const opened = openedClasses();
+  return [
+    "WoW Forever kuralları (WoW Classic'ten farklıdır; çelişen Classic, Burning Crusade ya da Retail bilgisi yerine bunlar geçerlidir):",
+    factionRaces(),
+    ...Object.keys(CLASS_NAMES).map(classRaceLine),
+    opened.length ? `${opened.join(". ")}. "Alliance'ta Shaman yok", "Horde'da Paladin yok", "bu sınıf Burning Crusade'de açıldı" gibi cümleler Forever için yanlıştır.` : "",
+    "Skyborne Forever'la gelen yeni ırktır. En yüksek seviye 60'tır, uçan binek yoktur.",
+    // One sentence per Forever note that the model must never contradict (the full note is sent when the question touches it).
+    ...FOREVER_NOTES.filter(note => note.ozet).map(note => note.ozet)
+  ].filter(Boolean).join("\n");
+}
+// Sentences that state a Classic rule which is wrong in Forever: another expansion as the reason,
+// or a class denied to a side or race that can play it. Trainer and quest sentences are left alone.
+const OTHER_VERSION = /burning crusade|(?:^| )tbc(?= |$)|lich king|(?:^| )wotlk(?= |$)|cataclysm|pandaria|draenor|shadowlands|dragonflight|(?:klasik|classic|vanilla) donem\w*/;
+const DENIED = /(?:^| )(?:yok\w*|secemez\w*|secilemez\w*|olamaz\w*|oynayamaz\w*|oynanamaz\w*|bulunmaz\w*|bulunmamakta\w*|acilmis\w*|acilmadi\w*|mevcut degil\w*)(?= |$)/;
+export function foreverContradictions(text) {
+  const out = [];
+  for (const sentence of String(text || "").split(/(?<=[.!?])\s+|\n+/)) {
+    const norm = normalizeText(sentence); if (!norm) continue;
+    // "Mind Sear Lich King'le geldi, Forever'da yok" names the other version to set Forever apart: left alone.
+    let wrong = OTHER_VERSION.test(norm) && !/(?:^| )forever\w*(?= |$)/.test(norm);
+    if (!wrong && !/(?:^| )(?:egitmen\w*|egitici\w*|trainer\w*|npc\w*|gorev\w*|quest\w*)(?= |$)/.test(norm)) {
+      for (const key of Object.keys(CLASS_NAMES)) {
+        if (!new RegExp(`(?:^| )${key}\\w*(?= |$)`).test(norm)) continue;
+        const races = CLASS_FACTS.siniflar[key].irklar, sides = Object.entries(CLASS_FACTS.taraflar).filter(([, list]) => races.some(race => list.includes(race))).map(([side]) => side.toLowerCase());
+        const only = norm.match(/(?:^| )(?:sadece|yalnizca|yalniz) (?:\w+ ){0,2}?(alliance|horde)/);
+        if (only && sides.some(side => side !== only[1])) wrong = true;
+        // "Alliance'ta Human Shaman olamaz" is true: the sentence denies a race that really cannot be the class.
+        const others = Object.values(CLASS_FACTS.taraflar).flat().filter(race => !races.includes(race)).some(race => new RegExp(`(?:^| )${normalizeText(race)}\\w*(?= |$)`).test(norm));
+        if (DENIED.test(norm) && !others && (sides.some(side => new RegExp(`(?:^| )${side}\\w*(?= |$)`).test(norm)) || races.some(race => norm.includes(normalizeText(race))))) wrong = true;
+      }
+    }
+    if (wrong) out.push(sentence.trim());
+  }
+  return out;
+}
+export function stripForeverContradictions(text) {
+  const bad = new Set(foreverContradictions(text)); if (!bad.size) return String(text || "");
+  return String(text || "").split("\n").map(line => line.split(/(?<=[.!?])\s+/).filter(part => !bad.has(part.trim())).join(" ")).filter(line => line.trim()).join("\n").trim();
+}
+// The Forever notes a question touches: "stormwindden darnassusa nasıl giderim" → the travel note.
+let noteIndex = null;
+function noteHits(question) {
+  const q = normalizeText(question); if (!q) return [];
+  noteIndex ||= FOREVER_NOTES.map(note => ({ note, keys: note.anahtar.map(key => key.split("+").map(part => { const text = normalizeText(part); return new RegExp(`(?:^| )${text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}${text.length <= 3 ? "" : "\\w*"}(?= |$)`); })) }));
+  return noteIndex.map(({ note, keys }) => { const hit = keys.filter(parts => parts.every(part => part.test(q))); return { note, score: hit.length, specific: hit.some(parts => parts.length > 1) }; }).filter(hit => hit.score > 0).sort((a, b) => b.specific - a.specific || b.score - a.score);
+}
+export function foreverNotes(question, limit = 2) { return noteHits(question).slice(0, limit).map(hit => hit.note); }
+// A key that joins two words ("shaman+trainer", "enhancement+dual") names the note's own subject:
+// such a question is answered from the note even when a card of the class was picked.
+export function isForeverNoteSubject(question) { return noteHits(question).some(hit => hit.specific); }
+export function foreverNoteText(notes) { return notes.map(note => `## ${note.baslik}\n${note.satirlar.map(line => `- ${line}`).join("\n")}`).join("\n\n"); }
+// Without the model: the lines of the notes that share the most words with the question.
+export function localNoteAnswer(notes, question) {
+  const stems = [...new Set(normalizeText(question).split(" ").filter(word => word.length >= 4 && !STOP_WORDS.has(word)).map(word => word.slice(0, Math.max(4, word.length - 2))))];
+  const lines = notes.flatMap(note => note.satirlar).map((text, order) => { const words = normalizeText(text).split(" "); return { text, order, score: stems.filter(stem => words.some(word => word.startsWith(stem))).length }; });
+  const top = Math.max(...lines.map(line => line.score));
+  return (top > 0 ? lines.filter(line => line.score === top).slice(0, 2) : lines.slice(0, 2)).map(line => line.text).join("\n");
 }
 
 export function detectSpec(question, classKey) {
@@ -447,6 +536,9 @@ const PROFESSION_INTENT = {
   general: /(?:^| )(?:egitmen\w*|trainer\w*|ogren\w*|nedir|ne ise yara\w*|genel|mantikli|deger\w*|rutbe\w*|artisan|expert|journeyman|apprentice|uzmanli[kg]\w*|nasil baslar\w*|nasil baslan\w*)(?= |$)/
 };
 
+// "alan vuran skill", "aoe büyüsü": the cards describe these as "yakındaki düşmanlar", "10 metre içindeki", "yayılır".
+const AOE_QUESTION = /(?:^| )(?:aoe|area|alan (?:vuran|hasar\w*|etkili|etkisi|buyu\w*|skil\w*|yetene\w*|saldiri\w*)|alana (?:vuran|hasar\w*)|toplu (?:vuran|hasar\w*)|cok(?:lu)? hedef\w*)(?= |$)/;
+const AOE_LINE = /(?:yakindaki|yakinindaki|cevre\w*|etraf\w*|alandaki|tum|butun) (?:\w+ ){0,3}(?:dusman|hedef)|metre icindeki (?:\w+ ){0,2}(?:dusman|hedef)|dusmanlara (?:\w+ ){0,3}hasar|(?:^| )alan\w* (?:\w+ ){0,4}hasar|(?:rozet\w*|etiket\w*) alan|yan\w*daki (?:\w+ )?dusman|cevre\w* (?:\w+ ){0,2}hasar|(?:^| )(?:yayilir|sicrar|ziplar|aoe)(?= |$)|(?:^| )[2-9] (?:hedef|dusman)\w*/;
 function rank(entries, words, prior) {
   return entries.map(entry => ({ entry, score: lexicalScore(entry, words) + prior(entry.card) })).sort((a, b) => b.score - a.score || CARDS.indexOf(a.entry.card) - CARDS.indexOf(b.entry.card));
 }
@@ -468,7 +560,8 @@ function itemTerms(q, entries, skip = () => false) {
 const GATHERING = ["herbalism", "mining", "skinning", "fishing"];
 const FIND_WORD = /(?:^| )(?:nerede|nerde|nereden|nerden|farm\w*|dus\w*|cik\w*|bulun\w*|toplan\w*|tutul\w*|kazil\w*)(?= |$)/;
 function itemSource(q) {
-  if (!FIND_WORD.test(q) || /(?:^| )(?:cloth|kumas)\w*/.test(q)) return null;
+  // "kitap nerede teslim edilir": a Forever note covers the subject and no profession is named.
+  if (!FIND_WORD.test(q) || /(?:^| )(?:cloth|kumas)\w*/.test(q) || noteHits(q).length) return null;
   const all = kb().index, classCards = all.filter(entry => entry.card.category === "class");
   let best = null, tie = false;
   for (const key of GATHERING) {
@@ -480,6 +573,43 @@ function itemSource(q) {
     if (!best || score > best.score) { best = { key, score }; tie = false; } else if (score === best.score) tie = true;
   }
   return best && !tie ? best.key : null;
+}
+// What the profession cards say about choosing a profession: who it suits, what pairs with it, primary or secondary.
+// [{ profession, card, tag, text, classes }] in the order: class advice, pairs, primary/secondary.
+const ADVICE_TAGS = ["KİM", "SINIF", "KİMİN İŞİ", "EŞ", "İKİLİ", "İKİNCİL"];
+let adviceLines = null;
+function professionAdviceLines() {
+  if (adviceLines) return adviceLines;
+  const lines = [], seen = new Set();
+  for (const card of CARDS.filter(item => item.category === "profession")) {
+    for (const raw of card.text.split("\n")) {
+      const match = raw.match(/^- `?([A-ZÇĞİÖŞÜ ]{2,12})`?\s*[—:]?\s+(.*)$/); if (!match || !ADVICE_TAGS.includes(match[1].trim())) continue;
+      const text = match[2].trim(), classes = Object.keys(CLASS_NAMES).filter(key => new RegExp(`\\b${CLASS_NAMES[key]}\\b`).test(text)), key = `${card.profession}\n${text}`;
+      // The same pairing note is printed on several range cards; one copy, the one that names classes first.
+      if (seen.has(key)) continue; seen.add(key);
+      lines.push({ profession: card.profession, card, tag: match[1].trim(), text, classes });
+    }
+  }
+  const order = line => ADVICE_TAGS.indexOf(line.tag) * 2 + (line.classes.length ? 0 : 1);
+  lines.sort((a, b) => order(a) - order(b));
+  // Per profession and tag keep one line without classes ("Herbalism aynı rotada bitki toplar").
+  adviceLines = lines.filter((line, i) => line.classes.length || !lines.slice(0, i).some(other => other.profession === line.profession && other.tag === line.tag));
+  return adviceLines;
+}
+// "priest için hangi meslek", "hangi meslekleri seçmeliyim": answered from those lines, with the general cards
+// of the (at most two) professions that the cards recommend for the class.
+function professionAdvice(classKey) {
+  const lines = professionAdviceLines(), secondary = [...new Set(lines.filter(line => line.tag === "İKİNCİL").map(line => line.profession))];
+  const primary = Object.keys(PROFESSIONS).filter(key => !secondary.includes(key));
+  const mine = classKey ? lines.filter(line => line.classes.includes(classKey)) : [];
+  const cards = [...new Set(mine.filter(line => line.tag !== "İKİLİ" && primary.includes(line.profession)).map(line => line.profession))].slice(0, 2).map(key => CARDS.find(card => card.profession === key && card.part === "genel")).filter(Boolean);
+  const name = key => PROFESSIONS[key].name, show = line => `${name(line.profession)}: ${line.text}`;
+  const facts = [`MESLEK SEÇİMİ (meslek kartlarından)`,
+    `Ana meslekler (aynı anda en fazla iki tanesi öğrenilir): ${primary.map(name).join(", ")}. İkincil meslekler (ana meslek yerini kullanmaz, üçü birlikte öğrenilebilir): ${secondary.map(name).join(", ")}.`,
+    classKey ? (mine.length ? `${CLASS_NAMES[classKey]} için kartlarda yazanlar:\n${mine.map(show).join("\n")}` : `Kartlarda ${CLASS_NAMES[classKey]} adına özel bir meslek önerisi yazmıyor.`) : "",
+    `Diğer satırlar:\n${lines.filter(line => !mine.includes(line)).map(show).join("\n")}`].filter(Boolean).join("\n");
+  const forum = CARDS.find(card => card.category === "profession")?.forum || null;
+  return result("profession", cards, { classKey, advice: true, adviceLines: mine.map(show), general: !cards.length, forum: cards[0]?.forum || forum, facts, siblings: [] });
 }
 // "alınır", "kurulur", "bulunuyor": verbs of the question, never the name of an item.
 const COMMON_VERB = /^(?:al|bul|kur|kullan|gerek|ver|git|sat|dus|cik|bak|kazan|pisir|dik|bas|ol|gel|koy|tak|at)(?:in|il|un|ul|n|l)?(?:ir|ur|ar|er|iyor|uyor|mak|mek|mali|meli|acak|ecek|an|en|dim|dum|sam|sem|ayim|eyim|abil|ebil|iyorum|uyorum|inir|unur|ilir|ulur|malik|mis|mus)\w*$/;
@@ -577,6 +707,16 @@ const ASKS_ADVICE = /(?:^| )(?:hangi\w*|oner\w*|tavsiye\w*)(?= |$)/;
 // "frost mu fire mı": the question particle right after a name.
 // "holy priest mi disc priest mi": the class name may stand between the spec and the particle.
 const followedByParticle = (q, hit, between = []) => { const rest = q.slice(hit.end); if (/^\w* m[iu](?= |$)/.test(rest)) return true; const next = rest.match(/^\w* (\w+) m[iu](?= |$)/); return !!next && between.some(alias => hasTerm(next[1], alias)); };
+// "hangi itemleri almalıyım", "hangi zırh", "silah seçimi": equipment, which no card covers.
+const WEAPON_WORD = /(?:^| )(?:silah\w*|weapon\w*|staff|asa|wand|sword|kilic\w*|mace|topuz\w*|axe|balta\w*|dagger|hancer\w*|bow|crossbow|gun|tufek\w*|polearm|mizrak\w*|2h|1h|iki elli|tek elli|kalkan tak\w*)(?= |$)/;
+const GEAR = /(?:^| )(?:item\w*|itemler\w*|esya\w*|ekipman\w*|gear\w*|zirh\w*|armor\w*|armour\w*|kiyafet\w*|giymeli\w*|giyeyim|giyer\w*|giyebil\w*|giyiyor\w*|giyilir|giyilmeli|kusan\w*|mail|plate|leather|cloth)(?= |$)/;
+const WEAPON_TALENT = /(?:sword|mace|axe|dagger|fist|polearm|wand|two handed|weapon) speciali[sz]ation|dual wield|iki elli silah/;
+// "itemleri nasıl satarım", "zırhım kırıldı": about an item, but not about what to wear.
+const NOT_WEARING = /(?:^| )(?:sat\w*|tamir\w*|repair\w*|kiril\w*|durability|dayanikli\w*|banka\w*|bank|auction|muzayede|ah|canta\w*|bag\w*|soulbound|transmog\w*|enchant\w*|disenchant\w*|boz\w*|sildi\w*|silin\w*|kayboldu|kayip|bug\w*|hata\w*|addon\w*|link\w*|mail kutu\w*|mailbox|posta\w*|mail at\w*|mail gonder\w*|mail gel\w*)(?= |$)/;
+export function isGearQuestion(question) {
+  const q = questionText(question);
+  return (GEAR.test(q) || WEAPON_WORD.test(q)) && !INTENT.talents.test(q) && !/(?:^| )(?:build\w*|puan sira\w*|dagilim\w*|dagitim\w*|dizilim\w*)(?= |$)/.test(q) && !INTENT.gameplay.test(q) && !INTENT.abilities.test(q) && !/(?:^| )(?:irk\w*|race|racial\w*)(?= |$)/.test(q) && !PROFESSION_WORD.test(q) && !NOT_WEARING.test(q) && !/(?:^| )(?:spec\w*|dual wield)(?= |$)/.test(q);
+}
 const CLASS_OVERVIEW = /nasil bir|iyi mi|guclu mu|zayif mi|(?:^| )(?:zor\w*|kolay\w*|rahat\w*|leveling|levelling|kasmak|kasilir|kasarken|rol\w*|tank\w*|heal\w*|sifaci\w*|dps|solo|pvp|pve|raid\w*|oynanir|oynamali\w*|oynasam|secmeli\w*|secsem|baslamali\w*|baslasam|deger\w*|oner\w*|tavsiye\w*|arti\w*|eksi\w*|avantaj\w*|dezavantaj\w*)(?= |$)/;
 
 function classTopic(classKey, entries) { return { classKey, forum: entries[0]?.card.forum || null, thread: entries[0]?.card.thread || null }; }
@@ -593,6 +733,8 @@ function selectClass(q, classKey, options) {
   const hits = detectSpecs(q, classKey);
   const intents = Object.fromEntries(Object.entries(INTENT).map(([name, regex]) => [name, regex.test(q)]));
   intents.leveling = intents.leveling || !!options.talentAdvice;
+  // "alliance shaman olabilir mi", "horde paladin var mı": which sides and races can be this class.
+  if (!intents.race && !intents.talents && !intents.leveling && !intents.gameplay && !intents.abilities && /(?:^| )(?:alliance\w*|ally|alli|horde\w*|hord)(?= |$)/.test(q) && /(?:^| )(?:olabil\w*|olur|olunur|olunuyor|oluyor|olunabil\w*|var|yok|oynan\w*|oynayabil\w*|secebil\w*|secil\w*|acabil\w*|acilir)(?= |$)/.test(q) && !/(?:^| )(?:trainer\w*|egitmen\w*|egitici\w*|gorev\w*|quest\w*|zindan\w*|dungeon\w*)(?= |$)/.test(q)) intents.race = true;
   // "druid ırk" is a race question; "tauren druid rotasyon" is not.
   if (intents.race && (intents.leveling || intents.gameplay || intents.talents) && !/(?:^| )(?:irk\w*|race|racial\w*)(?= |$)/.test(q)) intents.race = false;
   // Which spec: two or more specs set against each other, or no spec named and the question asks which one to play.
@@ -627,9 +769,14 @@ function selectClass(q, classKey, options) {
     if (card.kind === "abilities") value += (intents.abilities && !intents.talents && !intents.leveling ? 3 : 0) + (when && (!named.length || named.some(hit => hit.cards.has(card.id))) ? 5 : 0);
     return value;
   };
-  const ranked = rank(entries, words, prior), top = ranked[0];
-  const anyIntent = Object.values(intents).some(Boolean) || learn;
-  const facts = [spec ? specFactText(classKey, spec) : classOverviewLine(classKey), intents.race ? raceAdviceText(classKey) : ""].filter(Boolean).join("\n");
+  // "alan vuran skili var mı": the cards that describe area-effect abilities, and the list of all of them.
+  const area = AOE_QUESTION.test(q) && !intents.talents && !intents.leveling ? areaLines(entries) : [];
+  const multi = area.length ? multiTargetNotes(entries, spec) : [];
+  const areaPrior = card => Math.min(3, area.filter(item => item.card === card).length) * 3 + (multi.some(note => note.card === card) ? 8 : 0);
+  const ranked = rank(entries, words, card => prior(card) + areaPrior(card)), top = ranked[0];
+  const anyIntent = Object.values(intents).some(Boolean) || learn || area.length > 0;
+  const areaFacts = area.length ? `${multi.length ? `Oynanış kartındaki çok hedef notları:\n${multi.map(note => `- ${note.section}: ${note.text}`).join("\n")}\n` : ""}${CLASS_NAMES[classKey]} kartlarındaki alan etkili (birden çok hedefe etki eden) yetenekler (\"Seviye\" ya da yetenek satırındaki sayı öğrenildiği seviyedir; talent satırındaki sayı ağaçtaki sıra numarasıdır, seviye değildir):\n${area.slice(0, 10).map(item => `- [${item.card.title.split(" · ").pop()}] ${item.text.slice(0, 220)}`).join("\n")}` : "";
+  const facts = [spec ? specFactText(classKey, spec) : classOverviewLine(classKey), intents.race ? raceAdviceText(classKey) : "", areaFacts].filter(Boolean).join("\n");
   const extra = { ...classTopic(classKey, entries), spec, intents, facts, siblings: [] };
   // Without an intent word a card needs a clear text match, or a rare word of the question ("hunter aspectleri").
   const rareHit = top && words.length <= 2 && words.some(word => word.length >= 5 && [word, ...stems(word).filter(stem => SUFFIX_ONLY.test(word.slice(stem.length)))].some(form => top.entry.tokens.has(form) && (kb().frequency.get(form) || 0) <= 8));
@@ -648,7 +795,7 @@ function selectClass(q, classKey, options) {
   }
   const cards = [top.entry.card], second = ranked[1];
   // A second card only when the question itself points at it: its kind was asked for, or it holds a name from the question.
-  const wanted = card => card.kind !== "leveling" && named.some(hit => hit.cards.has(card.id)) || { talents: intents.talents, abilities: intents.abilities, gameplay: intents.gameplay }[card.kind];
+  const wanted = card => card.kind !== "leveling" && named.some(hit => hit.cards.has(card.id)) || areaPrior(card) > 0 || { talents: intents.talents, abilities: intents.abilities, gameplay: intents.gameplay }[card.kind];
   if (second && second.score >= 5 && second.score >= top.score * 0.8 && !(intents.leveling || intents.race) && wanted(second.entry.card)) cards.push(second.entry.card);
   return result("class", cards, extra);
 }
@@ -711,8 +858,14 @@ export function selectCards(question, options = {}) {
     const level = levelInQuestion(q), overview = dungeonOverview(level), first = [...DUNGEON_CARDS.values()][0];
     return result("dungeon", overview.cards, { general: true, level, facts: overview.text, localAnswer: overview.text, forum: first?.forum || null, thread: overview.cards.length === 1 ? overview.cards[0].thread : null });
   }
-  // "shaman için hangi meslek": the cards hold no profession advice per class.
-  if (professionWord) return null;
+  // "shaman için hangi meslek", "hangi meslekleri seçmeliyim": what the profession cards say about choosing one.
+  if (professionWord) return /(?:^| )(?:hangi\w*|oner\w*|tavsiye\w*|sec\w*|almali\w*|alayim|alsam|alabil\w*|ogrenebil\w*|baslamali\w*|iyi|uygun|gider|yakisir|lazim|kac meslek|iki meslek|2 meslek|birden|ayni anda)(?= |$)/.test(q) || named && q.split(" ").length <= 5 ? professionAdvice(classKey) : null;
+  // Equipment questions: no card covers them, and a race or talent card would only mislead.
+  // Only a talent card that really has weapon talents ("rogue hangi silah combat") still answers one.
+  if (classKey && isGearQuestion(q)) {
+    const selection = WEAPON_WORD.test(q) ? selectClass(q, classKey, options) : null;
+    return selection && !selection.need && selection.cards.length && selection.cards.every(card => card.kind === "talents" && WEAPON_TALENT.test(normalizeText(card.text))) ? selection : null;
+  }
   if (classKey) {
     const selection = selectClass(q, classKey, options);
     if (selection) return selection;
@@ -755,27 +908,64 @@ function readableLine(line, header) {
   const rest = cells.slice(1).map((cell, i) => cell && cell !== "—" ? `${header?.[i + 1] ? `${header[i + 1]}: ` : ""}${cell}` : "").filter(Boolean);
   return cells[0] ? `**${cells[0]}**${rest.length ? `: ${rest.join(" · ")}` : ""}` : "";
 }
+// The readable lines of a card text: bullets as they are, table rows as "**first cell**: header: cell · ...".
+function readableLines(text) {
+  const out = []; let header = null;
+  for (const raw of text.split("\n")) {
+    const line = raw.trim();
+    if (!line.startsWith("|")) header = null;
+    if (!line || /^#/.test(line) || /^(?:Üst bilgi|Sol üst|Sağ üst|Kart başlığı|Marka|Rozet|Kartta )/.test(line)) continue;
+    if (line.startsWith("|") && !header) { header = line.split("|").slice(1, -1).map(cell => cell.trim()); continue; }
+    const text = readableLine(line, header).replace(/^\(ikon\)\s*(?:—\s*)?/, ""); if (text.length >= 12) out.push(text);
+  }
+  return out;
+}
 // The lines of the chosen cards, scored by the distinctive words they share with the question.
 function scoredLines(selection, question) {
-  const words = tokenize(question), lines = [];
+  const words = tokenize(question), lines = [], area = AOE_QUESTION.test(questionText(question));
   for (const card of selection.cards) {
-    let header = null;
-    for (const raw of focusedText(card, selection).split("\n")) {
-      const line = raw.trim();
-      if (!line.startsWith("|")) header = null;
-      if (!line || /^#/.test(line) || /^(?:Üst bilgi|Sol üst|Sağ üst|Kart başlığı|Marka|Rozet|Kartta )/.test(line)) continue;
-      if (line.startsWith("|") && !header) { header = line.split("|").slice(1, -1).map(cell => cell.trim()); continue; }
-      const text = readableLine(line, header).replace(/^\(ikon\)\s*(?:—\s*)?/, ""); if (text.length < 12 || lines.some(known => known.text === text)) continue;
-      const tokens = new Set(normalizeText(text).split(" "));
-      lines.push({ text, order: lines.length, score: words.reduce((sum, word) => sum + (tokens.has(word) ? idf(word) : 0), 0) });
+    for (const text of readableLines(focusedText(card, selection))) {
+      if (lines.some(known => known.text === text)) continue;
+      const norm = normalizeText(text), tokens = new Set(norm.split(" "));
+      lines.push({ text, order: lines.length, score: words.reduce((sum, word) => sum + (tokens.has(word) ? idf(word) : 0), 0) + (area && AOE_LINE.test(norm) ? 6 : 0) });
     }
   }
   return lines;
+}
+// Every area-effect ability the class's cards describe: "Holy Nova (Holy Talentleri): 10 metre içindeki düşmanlara …".
+function areaLines(entries) {
+  const out = [];
+  for (const entry of entries) {
+    if (!["abilities", "talents"].includes(entry.card.kind)) continue;
+    for (const text of readableLines(entry.card.text)) {
+      const norm = normalizeText(text);
+      // Only ability and talent rows count, and a heal that jumps between allies is not an area attack.
+      if (!/(?:^| )(?:yetenek|talent) /.test(norm) || !AOE_LINE.test(norm) || (/iyilestir/.test(norm) && !/hasar\w* (?:ver|vur)/.test(norm))) continue;
+      if (!out.some(item => item.text === text)) out.push({ card: entry.card, text });
+    }
+  }
+  return out;
+}
+
+// The "ÇOK HEDEF: …" notes of the gameplay card, one per spec section ("Shadow: Shadow Word: Pain'i her düşmana at …").
+function multiTargetNotes(entries, spec = null) {
+  const out = [];
+  for (const entry of entries) {
+    if (entry.card.kind !== "gameplay") continue;
+    const own = spec ? normalizeText(specFacts(entry.card.classKey, spec)?.ad || SPEC_NAMES[spec] || "") : "";
+    for (const section of entry.card.text.split(/\n(?=## )/)) {
+      const name = section.split("\n")[0].replace(/^#+ /, "").trim(), line = section.split("\n").find(row => /^ÇOK HEDEF\s*:/.test(row.trim()));
+      if (line && (!own || normalizeText(name) === own)) out.push({ card: entry.card, section: name, text: line.trim().replace(/^ÇOK HEDEF\s*:\s*/, "") });
+    }
+  }
+  return out;
 }
 
 export function buildCardContext(selection, limit = 16000, question = "") {
   const parts = []; let used = 0;
   if (selection.facts) { parts.push(`ÖZET BİLGİ:\n${selection.facts}`); used += selection.facts.length; }
+  // Profession advice is answered from the advice lines alone; the general cards are only attached.
+  if (selection.advice) return parts.join("\n\n---\n\n");
   // A comparison is answered from the facts; of the cards only the point split is needed.
   if (selection.compare) {
     const builds = (selection.candidates || []).map(card => `${card.title}: ${pointSummary(card)}`).filter(line => !line.endsWith(": "));
@@ -803,6 +993,7 @@ export function specRole(classKey, spec) { return spec === "feral-ayi" ? "Tank" 
 // Used only when the AI step fails: the lines of the chosen cards that share most words with the question.
 export function localCardAnswer(selection, question) {
   if (selection.localAnswer) return selection.localAnswer;
+  if (selection.advice) return (selection.adviceLines.length ? selection.adviceLines.slice(0, 3) : selection.facts.split("\n").slice(1, 2)).map(text => `• ${text}`).join("\n");
   if (selection.compare) {
     return selection.compare.map(spec => { const facts = specFacts(selection.classKey, spec); return facts ? `• **${SPEC_NAMES[spec]}** (${specRole(selection.classKey, spec)}): ${facts.arti.slice(0, 2).join(" · ")}. Zayıf yanı: ${facts.eksi[0]}.` : ""; }).filter(Boolean).join("\n");
   }

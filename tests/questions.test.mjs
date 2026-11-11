@@ -11,6 +11,7 @@
 //   "overview"  answered from the class overview (all classes)
 //   "dungeons"  the dungeon list by level
 //   "none"      the cards are not used by rule (a loose text match may still be tried)
+//   "note=a,b"  answered from these WoW Forever notes (kartlar/forever-bilgi.json) before any card
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { loadWorker } from "./load-worker.mjs";
@@ -22,6 +23,11 @@ const ids = selection => Array.from(selection?.cards || [], card => card.id);
 
 function check(question, expected) {
   const s = pick(question), got = ids(s), label = `${question} → ${s ? `${s.category} [${got.join(", ")}]${s.need ? ` need:${s.need}` : ""}${s.compare ? ` compare:${Array.from(s.compare).join("+")}` : ""}${s.factsOnly ? " facts" : ""}${s.search ? " search" : ""}` : "null"}`;
+  const notes = Array.from(w.foreverNotes(question), note => note.id), noteFirst = notes.length > 0 && (!s || s.need || s.search || w.isForeverNoteSubject(question));
+  if (process.env.DUMP_NOTES && notes.length) console.log(`NOTE\t${noteFirst ? "first" : "after"}\t${notes.join(",")}\t${expected}\t${label}`);
+  if (expected.startsWith("note=")) { assert.ok(noteFirst, label); return assert.deepEqual(notes.slice(0, expected.slice(5).split(",").length), expected.slice(5).split(","), `${label} notes: ${notes.join(", ")}`); }
+  // A question that a card answers is never taken over by a Forever note.
+  if (expected !== "none") assert.ok(!noteFirst, `${label} — Forever notu kartın önüne geçti: ${notes.join(", ")}`);
   if (expected === "none") return assert.ok(!s || s.search, label);
   assert.ok(s && !s.search, label);
   if (expected.startsWith("need:")) return assert.equal(s.need, expected.slice(5), label);
@@ -33,6 +39,9 @@ function check(question, expected) {
     return;
   }
   assert.ok(!s.compare, label);
+  // "advice" = profession advice from the card lines, without a card; "advice=a,b" = with those cards.
+  if (expected.startsWith("advice")) { assert.ok(s.advice, label); return assert.deepEqual(got, expected.length > 7 ? expected.slice(7).split(",") : [], label); }
+  assert.ok(!s.advice, label);
   if (expected === "facts") return assert.ok(s.factsOnly && !s.general && !got.length, label);
   if (expected === "overview") return assert.ok(s.factsOnly && s.general && s.category === "class", label);
   if (expected === "dungeons") return assert.ok(s.general && s.category === "dungeon", label);
@@ -137,7 +146,7 @@ CASES.push(
   ["leatherworking 230", "=lw-225-300"], ["lw 100", "=lw-1-150"], ["leatherworking 160", "=lw-150-225"], ["leatherworking eğitmeni", "=lw-genel"], ["dericilik nasıl kasılır", "^lw-1-150"],
   ["tailoring 150 den sonra ne dikeyim", "=tail-150-300"], ["terzilik 50", "=tail-1-150"], ["tailoring eğitmeni", "=tail-genel"], ["tailoring 280", "=tail-150-300"], ["tailoring nerede kasılır", "^tail-1-150"],
   ["engineering mi blacksmithing mi", "=eng-genel,bs-genel"], ["herbalism alchemy beraber iyi mi", "=herb-genel,alch-genel"], ["mining ve blacksmithing", "=mining-genel,bs-genel"], ["skinning leatherworking", "=skin-genel,lw-genel"],
-  ["para kazanmak için hangi meslek", "none"], ["warrior için hangi meslek", "none"], ["dwarf shaman için leveling aşamasında hangi meslekleri önerirsin", "none"], ["hangi meslekleri seçmeliyim", "none"],
+  ["para kazanmak için hangi meslek", "advice"], ["warrior için hangi meslek", "advice"], ["dwarf shaman için leveling aşamasında hangi meslekleri önerirsin", "advice=lw-genel"], ["hangi meslekleri seçmeliyim", "advice"],
   // ------------------------------------------------------------
   // Dungeons
   // ------------------------------------------------------------

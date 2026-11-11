@@ -4,7 +4,7 @@
 import fs from "node:fs";
 
 const root = new URL("../", import.meta.url);
-const indexUrl = new URL("kartlar/kartlar.json", root), textDir = new URL("kartlar/metin/", root), outUrl = new URL("src/cards-data.js", root), factsUrl = new URL("kartlar/sinif-bilgi.json", root);
+const indexUrl = new URL("kartlar/kartlar.json", root), textDir = new URL("kartlar/metin/", root), outUrl = new URL("src/cards-data.js", root), factsUrl = new URL("kartlar/sinif-bilgi.json", root), notesUrl = new URL("kartlar/forever-bilgi.json", root);
 
 const slug = value => String(value || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ı/g, "i").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const PROFESSION_KEYS = { aid: "first-aid", alch: "alchemy", bs: "blacksmithing", cook: "cooking", ench: "enchanting", eng: "engineering", fish: "fishing", herb: "herbalism", lw: "leatherworking", mining: "mining", skin: "skinning", tail: "tailoring" };
@@ -64,12 +64,23 @@ export function buildCards() {
 export function classFacts() {
   const { taraflar, genel, siniflar } = JSON.parse(fs.readFileSync(factsUrl, "utf8"));
   if (!taraflar?.Alliance?.length || !taraflar?.Horde?.length) throw new Error("Sınıf bilgisi eksik: taraflar");
-  for (const [key, entry] of Object.entries(siniflar)) if (!Array.isArray(entry.uzmanliklar) || entry.uzmanliklar.length !== 3) throw new Error(`Sınıf bilgisi eksik: ${key}`);
+  for (const [key, entry] of Object.entries(siniflar)) if (!Array.isArray(entry.uzmanliklar) || entry.uzmanliklar.length !== 3 || !entry.zirh || !entry.silah) throw new Error(`Sınıf bilgisi eksik: ${key}`);
   return { taraflar, genel, siniflar };
 }
 
-export function render(cards, facts = classFacts()) {
-  return `// AUTO-GENERATED — scripts/build-cards.mjs (npm run cards). Elle düzenleme: kartlar/metin/*.md ve kartlar/sinif-bilgi.json dosyalarını düzelt.\nexport const CARDS = ${JSON.stringify(cards, null, 1)};\nexport const CLASS_FACTS = ${JSON.stringify(facts, null, 1)};\n`;
+// What is different in WoW Forever and is not on any card (travel, new zones, library books, new trainers, systems).
+export function foreverNotes() {
+  const { notlar } = JSON.parse(fs.readFileSync(notesUrl, "utf8")), seen = new Set();
+  if (!Array.isArray(notlar) || !notlar.length) throw new Error("Forever bilgisi eksik: notlar");
+  for (const note of notlar) {
+    if (!note.id || seen.has(note.id) || !note.baslik || !Array.isArray(note.anahtar) || !note.anahtar.length || !Array.isArray(note.satirlar) || !note.satirlar.length) throw new Error(`Forever notu hatalı: ${note.id || note.baslik}`);
+    seen.add(note.id);
+  }
+  return notlar.map(({ id, baslik, ozet, anahtar, satirlar }) => ({ id, baslik, ...(ozet ? { ozet } : {}), anahtar, satirlar }));
+}
+
+export function render(cards, facts = classFacts(), notes = foreverNotes()) {
+  return `// AUTO-GENERATED — scripts/build-cards.mjs (npm run cards). Elle düzenleme: kartlar/metin/*.md, kartlar/sinif-bilgi.json ve kartlar/forever-bilgi.json dosyalarını düzelt.\nexport const CARDS = ${JSON.stringify(cards, null, 1)};\nexport const CLASS_FACTS = ${JSON.stringify(facts, null, 1)};\nexport const FOREVER_NOTES = ${JSON.stringify(notes, null, 1)};\n`;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
