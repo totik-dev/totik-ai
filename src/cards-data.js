@@ -1,4 +1,4 @@
-// AUTO-GENERATED — scripts/build-cards.mjs (npm run cards). Elle düzenleme: kartlar/metin/*.md ve kartlar/sinif-bilgi.json dosyalarını düzelt.
+// AUTO-GENERATED — scripts/build-cards.mjs (npm run cards). Elle düzenleme: kartlar/metin/*.md, kartlar/sinif-bilgi.json ve kartlar/forever-bilgi.json dosyalarını düzelt.
 export const CARDS = [
  {
   "id": "druid-01-irk-secimi",
@@ -4399,7 +4399,7 @@ export const CLASS_FACTS = {
   },
   "shaman": {
    "zirh": "40. seviyeye kadar leather, 40. seviyeden sonra mail",
-   "silah": "tek elli mace, tek elli axe, dagger, fist weapon, staff; kalkan takabilir",
+   "silah": "tek elli mace, tek elli axe, dagger, fist weapon, staff; Forever'da iki elli axe ve iki elli mace talent gerekmeden kullanılır; dual wield (çift silah) yoktur; kalkan takabilir. Enhancement iki elli silahla oynar",
    "irklar": [
     "Dwarf",
     "Orc",
@@ -4618,3 +4618,403 @@ export const CLASS_FACTS = {
   }
  }
 };
+export const FOREVER_NOTES = [
+ {
+  "id": "ulasim",
+  "baslik": "Ulaşım: gemiler, zeplinler ve Stormwind Limanı",
+  "ozet": "Stormwind'in limanı vardır (Stormwind Harbor) ve buradan Darkshore'daki Auberdine'e gemi kalkar; Stormwind'den Darnassus'a Menethil Harbor'dan geçmeden gidilir.",
+  "anahtar": [
+   "gemi",
+   "liman",
+   "harbor",
+   "harbour",
+   "boat",
+   "ship",
+   "tekne",
+   "zeplin",
+   "zeppelin",
+   "skyboat",
+   "gok gemi",
+   "iskele",
+   "tram",
+   "nasil gid",
+   "nasil gec",
+   "nasil ulas",
+   "nereden gid",
+   "yol tarif",
+   "en hizli yol",
+   "ucan binek",
+   "flying mount",
+   "ucabil",
+   "nasil var",
+   "nerden gid",
+   "gidilir",
+   "gidebilir",
+   "gitmek ist",
+   "gidecegim",
+   "gidicem",
+   "en kisa yol",
+   "ulasim"
+  ],
+  "satirlar": [
+   "Forever'da uçan binek yoktur. Hızlı ulaşım uçuş noktaları (flight path), gemiler, zeplinler, Deeprun Tram ve Mage portallarıyla olur.",
+   "YENİ: Stormwind'in artık limanı var (Stormwind Harbor). Buradan Darkshore'daki Auberdine'e doğrudan gemi kalkar. Stormwind'den kalkan tek gemi budur ve limanın en güneydeki iskelesinden kalkar.",
+   "YENİ: Auberdine, Menethil Harbor ve Southshore arasında dolaşan bir gemi var. Stormwind gemisi Southshore'a uğramaz.",
+   "YENİ: Tanaris'teki Steamwheedle Port ile Riverglades'teki Powderfuse Port arasında iki tarafın da kullandığı bir gemi var.",
+   "Stormwind'den Darnassus'a: Stormwind Limanı'ndan Auberdine gemisine bin, Auberdine'den Rut'theran Village gemisine geç, Rut'theran'daki portaldan Darnassus'a çık. Menethil Harbor ve Wetlands'ten geçmek gerekmez.",
+   "Ironforge'dan Darnassus'a: Deeprun Tram ile Stormwind'e geç, Stormwind Limanı'ndan Auberdine gemisine bin. Menethil Harbor'dan Auberdine'e giden gemi de kullanılabilir.",
+   "Classic gemileri yerinde: Menethil Harbor ile Theramore, Auberdine ile Rut'theran Village, Feathermoon Stronghold ile Forgotten Coast, Ratchet ile Booty Bay (iki taraf da kullanır).",
+   "Horde zeplinleri Classic'teki gibidir: Orgrimmar, Undercity ve Grom'gol arasında çalışır. Thunder Bluff'a zeplin yoktur; Orgrimmar'dan uçuş noktasıyla gidilir.",
+   "Skyborne başlangıç adası Zephras Isle'dan iki skyboat (gök gemisi) kalkar: biri Mulgore'un kuzeybatısında, Thunder Bluff yakınındaki Skywatcher Plateau'ya, diğeri Alterac Mountains'taki Dalaran'a gider.",
+   "Stormwind ile Ironforge arasındaki Deeprun Tram yerinde duruyor."
+  ]
+ },
+ {
+  "id": "ucus-noktalari",
+  "baslik": "Uçuş noktaları (flight path)",
+  "anahtar": [
+   "flight path",
+   "flight point",
+   "flight master",
+   "ucus nokta",
+   "ucus yolu",
+   "fp",
+   "grifon",
+   "gryphon",
+   "wyvern",
+   "wind rider"
+  ],
+  "satirlar": [
+   "Classic'teki bütün uçuş noktaları ve rotaları Forever'da da vardır; Forever yalnız yenilerini ekler.",
+   "Yeni uçuş noktaları: Riverglades'te Farholde Keep ve Rog'mar; Mount Hyjal'da Tainted Foothills ve Summit of Eternity.",
+   "Mount Hyjal'daki Tainted Foothills uçuş noktası Winterspring'deki Everlook'a bağlanır."
+  ]
+ },
+ {
+  "id": "yeni-bolgeler",
+  "baslik": "Forever'la gelen yeni bölgeler",
+  "anahtar": [
+   "yeni bolge",
+   "yeni zone",
+   "yeni harita",
+   "riverglades",
+   "powderfuse",
+   "farholde",
+   "hyjal",
+   "darkwhisper",
+   "shen'dralas",
+   "shendralas",
+   "zephras"
+  ],
+  "satirlar": [
+   "Forever dört yeni bölge ekler: Zephras Isle, The Riverglades, Shen'dralas ve Mount Hyjal. Bu bölgelerde toplam 1000'den fazla yeni görev var.",
+   "Zephras Isle: Skyborne ırkının başlangıç bölgesi, 1–12. seviye.",
+   "The Riverglades: orta seviye bölgesi, yaklaşık 30–45. seviye. Powderfuse Port'a Tanaris'teki Steamwheedle Port'tan gemiyle gidilir.",
+   "Shen'dralas: Desolace'in güneyindedir.",
+   "Mount Hyjal: oyun sonu bölgesi, 55–60. seviye. Winterspring'in güney ucundaki Darkwhisper Gorge'dan girilir; en yakın eski uçuş noktası Everlook'tur."
+  ]
+ },
+ {
+  "id": "kitaplar",
+  "baslik": "Kütüphane kitapları (Library Books)",
+  "ozet": "Dünyada bulunan Library Book'lar (kütüphane kitapları) Stormwind'de Garion Wendell'e ya da Undercity'de Owen Thadd'e teslim edilir; XP ve ödül verir.",
+  "anahtar": [
+   "kitap",
+   "kitab",
+   "book",
+   "library",
+   "kutuphane",
+   "librarian",
+   "garion wendell",
+   "owen thadd",
+   "tome",
+   "parsomen yigin"
+  ],
+  "satirlar": [
+   "Library Book (kütüphane kitabı) Forever'la gelen bir toplama içeriğidir. Kitaplar dünyada sabit duran nesnelerdir (kitaplık, parşömen yığını, masadaki kitap); yaratıklardan düşmez.",
+   "Kitaba tıklayınca çantana girer; önceden görev almak gerekmez.",
+   "Kitaplar kütüphaneciye teslim edilir: Alliance için Stormwind'de Mage Quarter'daki Garion Wendell, Horde için Undercity'deki Owen Thadd. Teslim görevi yalnız üzerinde kitap varken görünür.",
+   "Her kitap teslim edilince XP ve biraz para verir.",
+   "Teslim ettiğin farklı kitap sayısına göre ödül seçersin: 10 kitapta kolye (Scholarly Pendant ya da Erudite's Amulet), 20 kitapta yüzük (Field Researcher's Loop ya da Philanthropist's Ring), 25 kitapta Truthseeker's Bow, Crest of Elucidation (kalkan) ya da Researcher's Night Light (off-hand). 25 kitap ödülleri 40. seviyede kuşanılır.",
+   "Sildiğin kitap yeniden alınamaz; teslim edene kadar çantanda tut.",
+   "Mage'ler teslim ettikleri her kitap için ayrıca Comprehension Charm alır.",
+   "Düşük seviye kitapları: Elwynn Forest'ta Archmage Theocritus' Research Journal (Tower of Azora); Westfall'da Bewitchments and Glamours (Moonbrook) ve Rumi of Gnomeregan: The Collected Works (Sentinel Hill); Duskwood'da Crimes Against Anatomy (Raven Hill'deki mezar odası); Loch Modan'da Runes of the Sorcerer-Kings (ogre mağarası); Wetlands'te Goaz Scrolls (Whelgar's Excavation Site); Ironforge'da Archmage Antonidas: The Unabridged Autobiography (Hall of Explorers).",
+   "Düşük seviye kitapları (Horde ve Kalimdor): Tirisfal Glades'te The Apothecary's Metaphysical Primer (Brill'deki simya dükkânı); Silverpine Forest'ta The Dalaran Digest, Vol. 23 (Amber Mill) ve Ataeric: On Arcane Curiosities (The Sepulcher); Orgrimmar'da The Lessons of Ta'zo; The Barrens'ta Arcanic Systems Manual, Baxtan: On Destructive Magics (Ratchet) ve Secrets of the Dreamers; Darkshore'da Nar'thalas Almanac, Vol. 74; Stonetalon Mountains'ta Fury of the Land.",
+   "30–45. seviye kitapları: Stranglethorn Vale'de Basilisks: Should Petrification be Feared? (basilisk mağarasının önü); Desolace'te Demons and You (Thunder Axe Fortress); Thousand Needles'ta Geomancy: The Stone-Cold Truth (Darkcloud Pinnacle); Alterac Mountains'ta Defensive Magics 101 (ilk ogre kulesi); Arathi Highlands'te A Web of Lies: Debunking Myths and Legends (Witherbark Village); Dustwallow Marsh'ta RwlRwlRwlRwl! (murloc kampı); Swamp of Sorrows'ta A Luddite's Guide to Caring for Your Demonic Pet (Fallow Sanctuary); Badlands'te Mummies: A Guide to the Unsavory Undead (dwarf kampının üstü).",
+   "45. seviye ve üstü kitaplar: Swamp of Sorrows'ta Sanguine Sorcery; Tanaris'te Legends of the Tidesages; Azshara'da Everyday Etiquette; Blackrock Mountain'da Stonewrought Design; The Hinterlands'te Venomous Journeys; Searing Gorge'da A Mind of Metal; Blasted Lands'te Conjurer's Codex; Western Plaguelands'te Undead Potatoes (Felstone Field); Eastern Plaguelands'te Scourge: Undead Menace or Misunderstood? (Plaguewood)."
+  ]
+ },
+ {
+  "id": "mage-comprehension",
+  "baslik": "Mage: Comprehension ve Study",
+  "anahtar": [
+   "comprehension",
+   "study",
+   "comprehend",
+   "scroll+mage",
+   "parsomen+mage",
+   "bundle of scrolls",
+   "light feather+mage"
+  ],
+  "satirlar": [
+   "Comprehension, Forever'da yalnız Mage'e açık ikincil bir beceridir; iki ana meslek yerinden birini kullanmaz.",
+   "Comprehension ve Study büyüsü kütüphanecinin Mage'lere verdiği görevle açılır (Stormwind'de Garion Wendell, Undercity'de Owen Thadd).",
+   "Study bir kütüphanede Light Feather harcanarak kullanılır: 6 saniyelik dökümle bir Bundle of Scrolls verir. Paketten hazır çözülmüş rastgele parşömenler çıkar; bunlar tüketilebilir buff'lardır.",
+   "Mage'ler kütüphaneciye teslim ettikleri her kitap için Comprehension Charm alır."
+  ]
+ },
+ {
+  "id": "yeni-egitmenler",
+  "baslik": "Yeni sınıf ve ırk eşleşmelerinin eğitmenleri",
+  "ozet": "Alliance Shaman eğitmenleri Anvilmar, Kharanos ve Ironforge'dadır (Forlorn Cavern); Horde Paladin eğitmenleri Deathknell ve Undercity'dedir (War Quarter).",
+  "anahtar": [
+   "shaman+egitmen",
+   "shaman+egitici",
+   "shaman+trainer",
+   "paladin+egitmen",
+   "paladin+egitici",
+   "paladin+trainer",
+   "hunter+human+egitmen",
+   "hunter+human+trainer",
+   "mage+orc+egitmen",
+   "mage+orc+trainer",
+   "teo hammerstorm",
+   "ingrid dunwald",
+   "eldrun stormbreaker",
+   "aramis hammerhand",
+   "garen largo",
+   "tordrin sternblade",
+   "mai'ah"
+  ],
+  "satirlar": [
+   "Alliance'ta Shaman yalnız Dwarf ırkıyla oynanır; bu yüzden Alliance Shaman eğitmenleri Dun Morogh ve Ironforge'dadır: Anvilmar'da Teo Hammerstorm (6. seviyeye kadar öğretir), Kharanos'ta Ingrid Dunwald, Ironforge'da Forlorn Cavern'deki Eldrun Stormbreaker.",
+   "Stormwind'de, Loch Modan'da ve diğer Alliance bölgelerinde Shaman eğitmeni yoktur; Dwarf Shaman yeni yetenekleri için Kharanos'a ya da Ironforge'a döner.",
+   "Horde'da Paladin yalnız Undead ırkıyla oynanır. İlk eğitmen Deathknell'deki Aramis Hammerhand'dir; Undercity'de War Quarter'daki Garen Largo yetenek öğretir ve talent sıfırlar.",
+   "Human Hunter'ın ilk eğitmeni Northshire Abbey'deki Tordrin Sternblade'dir.",
+   "Orc Mage'in ilk eğitmeni Valley of Trials'taki Mai'ah'tır."
+  ]
+ },
+ {
+  "id": "skyborne",
+  "baslik": "Skyborne ırkı ve yeni eşleşmeler",
+  "anahtar": [
+   "skyborne",
+   "high order",
+   "windshaper",
+   "yeni irk",
+   "heroic pack",
+   "yeni esles",
+   "yeni kombinasyon"
+  ],
+  "satirlar": [
+   "Skyborne, Forever'la gelen yeni ırktır. Tarafını karakter yaratırken seçersin: High Order Skyborne Alliance'tadır, Windshaper Skyborne Horde'dadır.",
+   "İki Skyborne da Warrior, Hunter, Rogue ve Druid olabilir. Ayrıca High Order Skyborne Mage, Windshaper Skyborne Shaman olabilir. Skyborne Paladin, Priest ve Warlock olamaz.",
+   "İki Skyborne da 1–12. seviye bölgesi Zephras Isle'da başlar.",
+   "Skyborne açmak için Skyborne Heroic Pack ya da daha üst bir Forever paketi gerekir; normal abonelik bu ırkı açmaz.",
+   "Forever ayrıca altı yeni sınıf ve ırk eşleşmesi getirir: Gnome Priest, Human Hunter, Dwarf Shaman, Orc Mage, Troll Warlock ve Undead Paladin."
+  ]
+ },
+ {
+  "id": "legacy",
+  "baslik": "Legacy sistemi",
+  "anahtar": [
+   "legacy",
+   "mirasi",
+   "miras puan",
+   "legacy challenge"
+  ],
+  "satirlar": [
+   "Legacy, Forever'ın hesap geneli ilerleme sistemidir. Puanlar hesapta bir kez kazanılır, her karakter bu puanları ayrı ayrı harcar.",
+   "Puanlar Legacy Challenge'lardan gelir: altı kategoride 65 challenge vardır ve her biri 1 puan verir. Her sınıfla 25., 45. ve 60. seviyeye ulaşmak ayrı ayrı challenge'dır.",
+   "Bir challenge hesap başına bir kez tamamlanır; ikinci karakter aynı challenge'dan yeniden puan almaz.",
+   "Puanlar üç ağaca harcanır: Professions, Adventure ve Resourcefulness. Bir karakter en fazla 16 puan harcayabilir.",
+   "Kazanılan toplam puan (harcanan değil) 15, 25, 40 ve 55 puanda kozmetik ödüller açar.",
+   "Legacy puanları ve koleksiyonlar Normal, PvP ve Roleplaying kuralları arasında ortaktır."
+  ]
+ },
+ {
+  "id": "binek",
+  "baslik": "Binek ve Riding",
+  "ozet": "Riding 40. seviyede (%60 hız), hızlı binek 60. seviyede (%100 hız) açılır.",
+  "anahtar": [
+   "binek",
+   "mount",
+   "riding",
+   "at kac",
+   "kacta at",
+   "epic mount",
+   "epik binek"
+  ],
+  "satirlar": [
+   "İlk Riding becerisi 40. seviyede açılır ve %60 hız verir; hızlı binek 60. seviyede açılır ve %100 hız verir.",
+   "Forever'da uçan binek yoktur."
+  ]
+ },
+ {
+  "id": "dual-spec",
+  "baslik": "Dual Specialization ve talent sıfırlama",
+  "ozet": "Dual Specialization 40. seviyede sınıf eğitmeninden alınır.",
+  "anahtar": [
+   "dual spec",
+   "dual talent",
+   "ikinci spec",
+   "ikinci uzmanlik",
+   "cift spec",
+   "cift uzmanlik",
+   "ikili spec"
+  ],
+  "satirlar": [
+   "Dual Specialization (ikinci talent dizilimi) 40. seviyede açılır ve sınıf eğitmeninden alınır.",
+   "Talentleri (Legacy talentleri dahil) değiştirmek için büyük şehirlerden birindeki sınıf eğitmenine gitmek gerekir."
+  ]
+ },
+ {
+  "id": "raid-takvimi",
+  "baslik": "Çıkış tarihi ve raid takvimi",
+  "anahtar": [
+   "raid",
+   "onyxia",
+   "barrow deeps",
+   "hyjal summit",
+   "takvim",
+   "roadmap",
+   "yol harita",
+   "ne zaman acil",
+   "ne zaman cik",
+   "cikis tarih",
+   "level cap",
+   "max level",
+   "son seviye",
+   "kac kisilik"
+  ],
+  "satirlar": [
+   "WoW Forever 4 Kasım 2026'da açıldı. En yüksek seviye 60'tır. Açılışta raid yoktu.",
+   "İlk raidler 9 Aralık 2026'da birlikte açılır: Barrow Deeps (10 kişilik, yeni), Hyjal Summit (20 kişilik, yeni) ve Onyxia's Lair (40 kişilik).",
+   "2027 baharı için 10 ve 20 kişilik iki yeni raid ile iki yeni dungeon, 2027 yazı için yenilenmiş bir klasik raid ile bir yeni raid ve iki dungeon daha duyuruldu. Blizzard bu raidlerin adını açıklamadı."
+  ]
+ },
+ {
+  "id": "kurallar",
+  "baslik": "Sunucu yerine kural seti (ruleset)",
+  "anahtar": [
+   "ruleset",
+   "kural set",
+   "realm",
+   "sunucu sec",
+   "hangi sunucu",
+   "server sec",
+   "hangi server",
+   "hardcore",
+   "rp-pvp",
+   "roleplay"
+  ],
+  "satirlar": [
+   "Forever'da isimli sunucu (realm) yoktur. Karakter yaratırken bir kural seti seçilir: Normal, PvP, Roleplaying ya da Roleplay-PvP. Hardcore daha sonra gelecek.",
+   "Farklı kural setlerindeki karakterler aynı gruba giremez; battleground eşleştirmesi kural setleri arasında ortaktır.",
+   "PvP kural setinde bir hesap yalnız tek tarafta karakter açabilir. Normal ve Roleplaying'de iki tarafta da karakter açılır.",
+   "Kural seti sonradan serbestçe değiştirilemez."
+  ]
+ },
+ {
+  "id": "xp",
+  "baslik": "XP bonusları",
+  "anahtar": [
+   "xp bonus",
+   "xp buff",
+   "exp bonus",
+   "deneyim bonus",
+   "rested",
+   "dinlenmis",
+   "well fed",
+   "yemek xp",
+   "hizli level",
+   "hizli kasil"
+  ],
+  "satirlar": [
+   "Pişmiş yemeklerin çoğu Well Fed verir: en az 10 saniye yiyince 15 dakika boyunca yaratık öldürmekten gelen XP %5 artar. Görev XP'sini artırmaz.",
+   "Rested XP yaratık XP'sini ikiye katlar; han ya da başkentte 8 saatte bir seviyenin %5'i kadar birikir ve en çok bir buçuk seviyelik olur. Görev XP'sine etki etmez.",
+   "Leatherworking'in Camp Tent'i rested XP'ni bir seviyenin %5'ine tamamlar; saatte bir kullanılır.",
+   "Rested XP ve Well Fed aynı anda çalışır."
+  ]
+ },
+ {
+  "id": "pvp",
+  "baslik": "PvP ve Darkspear Islands",
+  "anahtar": [
+   "darkspear islands",
+   "battleground",
+   "bg",
+   "honor",
+   "rank 14",
+   "pvp rank",
+   "pvp sistem",
+   "savas alani"
+  ],
+  "satirlar": [
+   "Darkspear Islands Forever'la gelen yeni battleground'dur: 15'e 15, nokta ele geçirmeli, 30–60. seviye, Dustwallow Marsh açıklarında. 2000 puana ilk ulaşan takım kazanır.",
+   "PvP ilerlemesi iki parçadır: Honor PvP ekipmanına harcanır, Rank Points ise haftalık sınırı olan 14 basamaklı rütbe merdivenini yükseltir. En üst rütbeler Alliance'ta Grand Marshal, Horde'da High Warlord'dur."
+  ]
+ },
+ {
+  "id": "arayuz",
+  "baslik": "Arayüz, transmog ve görünüm",
+  "anahtar": [
+   "edit mode",
+   "arayuz duzen",
+   "damage meter",
+   "hasar olcer",
+   "dps meter",
+   "transmog",
+   "hd model",
+   "sd model",
+   "eski model",
+   "classic gorunum"
+  ],
+  "satirlar": [
+   "Edit Mode Esc menüsünden açılır; action bar, unit frame, minimap ve sohbet gibi çerçeveler tıklanıp taşınır ya da boyutlandırılır.",
+   "Oyunun kendi Damage Meter'ı vardır ve kapalı gelir: Esc > Options > Advanced Options > Damage Meter > Enable Damage Meter.",
+   "Transmog isteğe bağlıdır. İlk girişte seçilen Enhanced görünümü HD modelleri ve transmog'u açar; Classic görünümü oyunun eski halini korur.",
+   "HD ya da SD model seçimi karakter başınadır ve sonradan değiştirilebilir; yalnız görünümü değiştirir."
+  ]
+ },
+ {
+  "id": "enhancement-silah",
+  "baslik": "Enhancement Shaman'ın silahı",
+  "ozet": "Shaman'da dual wield yoktur; Enhancement iki elli axe ya da iki elli mace kullanır.",
+  "anahtar": [
+   "enhancement+silah",
+   "enha+silah",
+   "enh+silah",
+   "enhancement+dual",
+   "enha+dual",
+   "shaman+dual wield",
+   "shaman+cift silah",
+   "shaman+iki elli",
+   "shaman+2h",
+   "enhancement+iki elli",
+   "enhancement+2h",
+   "enhancement+kalkan"
+  ],
+  "satirlar": [
+   "Forever'da Shaman iki elli axe ve iki elli mace'i talent gerekmeden kullanır.",
+   "Forever'da Shaman için dual wield (çift silah) yoktur.",
+   "Enhancement hasar için iki elli silahla oynar; daha dayanıklı olmak ya da kısa süre tanklamak için tek elli silah ve kalkan takar.",
+   "Enhancement için ekipmanda Strength ve Attack Power aranır."
+  ]
+ },
+ {
+  "id": "mind-sear",
+  "baslik": "Priest: Mind Sear ve çok hedef",
+  "anahtar": [
+   "mind sear",
+   "mindsear",
+   "priest+mind sear",
+   "priest+sear"
+  ],
+  "satirlar": [
+   "Forever'da Priest'in Mind Sear büyüsü yoktur; Priest yetenek ve talent listelerinde yer almaz.",
+   "Shadow çok hedefte Shadow Word: Pain'i her düşmana atar. Devouring Plague, Devouring Contagion talentiyle hedef ölünce yakındaki 2 düşmana yayılır.",
+   "Priest'in alan etkili büyüleri: Holy Nova (Holy talenti; 10 metre içindeki düşmanlara hasar verir, grubu iyileştirir) ve Psychic Scream (14. seviye; yakındaki en fazla 5 düşmanı 8 saniye korkutur)."
+  ]
+ }
+];

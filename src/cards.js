@@ -4,7 +4,7 @@
 // rehberleri). src/cards-data.js holds the full text of every card
 // (kartlar/metin/*.md); this module only decides WHICH cards fit a question.
 // It is pure (no network, no Discord), so tests import it directly.
-import { CARDS, CLASS_FACTS } from "./cards-data.js";
+import { CARDS, CLASS_FACTS, FOREVER_NOTES } from "./cards-data.js";
 
 export { CARDS, CLASS_FACTS };
 
@@ -312,7 +312,91 @@ export function gearRule(classKey = null) {
 function raceAdviceText(classKey) {
   const facts = CLASS_FACTS.siniflar[classKey]; if (!facts) return "";
   const picks = Object.entries(facts.irkOneri || {}).map(([race, specs]) => `${race}: ${specs.join(", ")}`).join(" · ");
-  return `${CLASS_NAMES[classKey]} olabilen ırklar: ${facts.irklar.join(", ")}.${picks ? `\nIrka göre öne çıkan uzmanlıklar: ${picks}.` : ""}`;
+  return `${classRaceLine(classKey)}${picks ? `\nIrka göre öne çıkan uzmanlıklar: ${picks}.` : ""}`;
+}
+// "Shaman olabilen ırklar: Alliance'ta Dwarf; Horde'da Orc, Tauren, Troll, Windshaper Skyborne."
+export function classRaceLine(classKey) {
+  const races = CLASS_FACTS.siniflar[classKey].irklar;
+  const sides = Object.entries(CLASS_FACTS.taraflar).map(([side, list]) => { const own = races.filter(race => list.includes(race)); return own.length ? `${side}'ta ${own.join(", ")}`.replace("Horde'ta", "Horde'da") : `${side} tarafında yok`; });
+  return `${CLASS_NAMES[classKey]} olabilen ırklar: ${sides.join("; ")}.`;
+}
+// The WoW Forever rules that differ from WoW Classic, built from the verified class data. Sent with every AI call.
+function factionRaces() { return Object.entries(CLASS_FACTS.taraflar).map(([side, list]) => `${side} ırkları: ${list.join(", ")}.`).join(" "); }
+// Classes that Classic gave to one side only and Forever gives to both.
+function openedClasses() {
+  const sideOf = race => Object.entries(CLASS_FACTS.taraflar).find(([, list]) => list.includes(race))?.[0];
+  return Object.entries({ shaman: "Horde", paladin: "Alliance" }).map(([key, classicSide]) => {
+    const other = CLASS_FACTS.siniflar[key].irklar.filter(race => sideOf(race) !== classicSide);
+    return other.length ? `${CLASS_NAMES[key]} Classic'te yalnız ${classicSide} sınıfıydı; Forever'da ${sideOf(other[0])} tarafında da vardır (${other.join(", ")})` : "";
+  }).filter(Boolean);
+}
+// The research backend knows WoW Classic and receives only the question: the Forever rules the question
+// touches travel with it ("Shaman olabilen ırklar: Alliance'ta Dwarf; …").
+export function foreverHint(classKey = null, notes = []) {
+  return ["WoW Forever notu (WoW Classic'ten farklıdır, cevap buna uymalı):",
+    classKey && CLASS_FACTS.siniflar[classKey] ? classRaceLine(classKey) : `${openedClasses().join(". ")}.`,
+    ...(notes || []).filter(note => note.ozet).map(note => note.ozet),
+    "\"Classic'te yok\", \"Burning Crusade'de açıldı\" gibi başka sürüm bilgisi yazma."].join(" ");
+}
+export function foreverRules() {
+  const opened = openedClasses();
+  return [
+    "WoW Forever kuralları (WoW Classic'ten farklıdır; çelişen Classic, Burning Crusade ya da Retail bilgisi yerine bunlar geçerlidir):",
+    factionRaces(),
+    ...Object.keys(CLASS_NAMES).map(classRaceLine),
+    opened.length ? `${opened.join(". ")}. "Alliance'ta Shaman yok", "Horde'da Paladin yok", "bu sınıf Burning Crusade'de açıldı" gibi cümleler Forever için yanlıştır.` : "",
+    "Skyborne Forever'la gelen yeni ırktır. En yüksek seviye 60'tır, uçan binek yoktur.",
+    // One sentence per Forever note that the model must never contradict (the full note is sent when the question touches it).
+    ...FOREVER_NOTES.filter(note => note.ozet).map(note => note.ozet)
+  ].filter(Boolean).join("\n");
+}
+// Sentences that state a Classic rule which is wrong in Forever: another expansion as the reason,
+// or a class denied to a side or race that can play it. Trainer and quest sentences are left alone.
+const OTHER_VERSION = /burning crusade|(?:^| )tbc(?= |$)|lich king|(?:^| )wotlk(?= |$)|cataclysm|pandaria|draenor|shadowlands|dragonflight|(?:klasik|classic|vanilla) donem\w*/;
+const DENIED = /(?:^| )(?:yok\w*|secemez\w*|secilemez\w*|olamaz\w*|oynayamaz\w*|oynanamaz\w*|bulunmaz\w*|bulunmamakta\w*|acilmis\w*|acilmadi\w*|mevcut degil\w*)(?= |$)/;
+export function foreverContradictions(text) {
+  const out = [];
+  for (const sentence of String(text || "").split(/(?<=[.!?])\s+|\n+/)) {
+    const norm = normalizeText(sentence); if (!norm) continue;
+    // "Mind Sear Lich King'le geldi, Forever'da yok" names the other version to set Forever apart: left alone.
+    let wrong = OTHER_VERSION.test(norm) && !/(?:^| )forever\w*(?= |$)/.test(norm);
+    if (!wrong && !/(?:^| )(?:egitmen\w*|egitici\w*|trainer\w*|npc\w*|gorev\w*|quest\w*)(?= |$)/.test(norm)) {
+      for (const key of Object.keys(CLASS_NAMES)) {
+        if (!new RegExp(`(?:^| )${key}\\w*(?= |$)`).test(norm)) continue;
+        const races = CLASS_FACTS.siniflar[key].irklar, sides = Object.entries(CLASS_FACTS.taraflar).filter(([, list]) => races.some(race => list.includes(race))).map(([side]) => side.toLowerCase());
+        const only = norm.match(/(?:^| )(?:sadece|yalnizca|yalniz) (?:\w+ ){0,2}?(alliance|horde)/);
+        if (only && sides.some(side => side !== only[1])) wrong = true;
+        // "Alliance'ta Human Shaman olamaz" is true: the sentence denies a race that really cannot be the class.
+        const others = Object.values(CLASS_FACTS.taraflar).flat().filter(race => !races.includes(race)).some(race => new RegExp(`(?:^| )${normalizeText(race)}\\w*(?= |$)`).test(norm));
+        if (DENIED.test(norm) && !others && (sides.some(side => new RegExp(`(?:^| )${side}\\w*(?= |$)`).test(norm)) || races.some(race => norm.includes(normalizeText(race))))) wrong = true;
+      }
+    }
+    if (wrong) out.push(sentence.trim());
+  }
+  return out;
+}
+export function stripForeverContradictions(text) {
+  const bad = new Set(foreverContradictions(text)); if (!bad.size) return String(text || "");
+  return String(text || "").split("\n").map(line => line.split(/(?<=[.!?])\s+/).filter(part => !bad.has(part.trim())).join(" ")).filter(line => line.trim()).join("\n").trim();
+}
+// The Forever notes a question touches: "stormwindden darnassusa nasıl giderim" → the travel note.
+let noteIndex = null;
+function noteHits(question) {
+  const q = normalizeText(question); if (!q) return [];
+  noteIndex ||= FOREVER_NOTES.map(note => ({ note, keys: note.anahtar.map(key => key.split("+").map(part => { const text = normalizeText(part); return new RegExp(`(?:^| )${text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}${text.length <= 3 ? "" : "\\w*"}(?= |$)`); })) }));
+  return noteIndex.map(({ note, keys }) => { const hit = keys.filter(parts => parts.every(part => part.test(q))); return { note, score: hit.length, specific: hit.some(parts => parts.length > 1) }; }).filter(hit => hit.score > 0).sort((a, b) => b.specific - a.specific || b.score - a.score);
+}
+export function foreverNotes(question, limit = 2) { return noteHits(question).slice(0, limit).map(hit => hit.note); }
+// A key that joins two words ("shaman+trainer", "enhancement+dual") names the note's own subject:
+// such a question is answered from the note even when a card of the class was picked.
+export function isForeverNoteSubject(question) { return noteHits(question).some(hit => hit.specific); }
+export function foreverNoteText(notes) { return notes.map(note => `## ${note.baslik}\n${note.satirlar.map(line => `- ${line}`).join("\n")}`).join("\n\n"); }
+// Without the model: the lines of the notes that share the most words with the question.
+export function localNoteAnswer(notes, question) {
+  const stems = [...new Set(normalizeText(question).split(" ").filter(word => word.length >= 4 && !STOP_WORDS.has(word)).map(word => word.slice(0, Math.max(4, word.length - 2))))];
+  const lines = notes.flatMap(note => note.satirlar).map((text, order) => { const words = normalizeText(text).split(" "); return { text, order, score: stems.filter(stem => words.some(word => word.startsWith(stem))).length }; });
+  const top = Math.max(...lines.map(line => line.score));
+  return (top > 0 ? lines.filter(line => line.score === top).slice(0, 2) : lines.slice(0, 2)).map(line => line.text).join("\n");
 }
 
 export function detectSpec(question, classKey) {
@@ -476,7 +560,8 @@ function itemTerms(q, entries, skip = () => false) {
 const GATHERING = ["herbalism", "mining", "skinning", "fishing"];
 const FIND_WORD = /(?:^| )(?:nerede|nerde|nereden|nerden|farm\w*|dus\w*|cik\w*|bulun\w*|toplan\w*|tutul\w*|kazil\w*)(?= |$)/;
 function itemSource(q) {
-  if (!FIND_WORD.test(q) || /(?:^| )(?:cloth|kumas)\w*/.test(q)) return null;
+  // "kitap nerede teslim edilir": a Forever note covers the subject and no profession is named.
+  if (!FIND_WORD.test(q) || /(?:^| )(?:cloth|kumas)\w*/.test(q) || noteHits(q).length) return null;
   const all = kb().index, classCards = all.filter(entry => entry.card.category === "class");
   let best = null, tie = false;
   for (const key of GATHERING) {
@@ -648,6 +733,8 @@ function selectClass(q, classKey, options) {
   const hits = detectSpecs(q, classKey);
   const intents = Object.fromEntries(Object.entries(INTENT).map(([name, regex]) => [name, regex.test(q)]));
   intents.leveling = intents.leveling || !!options.talentAdvice;
+  // "alliance shaman olabilir mi", "horde paladin var mı": which sides and races can be this class.
+  if (!intents.race && !intents.talents && !intents.leveling && !intents.gameplay && !intents.abilities && /(?:^| )(?:alliance\w*|ally|alli|horde\w*|hord)(?= |$)/.test(q) && /(?:^| )(?:olabil\w*|olur|olunur|olunuyor|oluyor|olunabil\w*|var|yok|oynan\w*|oynayabil\w*|secebil\w*|secil\w*|acabil\w*|acilir)(?= |$)/.test(q) && !/(?:^| )(?:trainer\w*|egitmen\w*|egitici\w*|gorev\w*|quest\w*|zindan\w*|dungeon\w*)(?= |$)/.test(q)) intents.race = true;
   // "druid ırk" is a race question; "tauren druid rotasyon" is not.
   if (intents.race && (intents.leveling || intents.gameplay || intents.talents) && !/(?:^| )(?:irk\w*|race|racial\w*)(?= |$)/.test(q)) intents.race = false;
   // Which spec: two or more specs set against each other, or no spec named and the question asks which one to play.

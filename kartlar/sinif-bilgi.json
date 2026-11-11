@@ -1,5 +1,5 @@
 {
- "aciklama": "Doğrulanmış sınıf verisi (wow-forever-sinif/veri). Kartlarda olmayan uzmanlık rolü, artı/eksi ve ırk önerileri. Kaynak adı ve 'henüz test edilmedi' türü satırlar çıkarıldı. 'zirh' ve 'silah' alanları kartlarda yazmayan Classic kuralıdır (hangi sınıf hangi zırhı giyer, hangi silah türünü kullanır).",
+ "aciklama": "Doğrulanmış sınıf verisi (wow-forever-sinif/veri). Kartlarda olmayan uzmanlık rolü, artı/eksi ve ırk önerileri. Kaynak adı ve 'henüz test edilmedi' türü satırlar çıkarıldı. 'zirh' ve 'silah' alanları kartlarda yazmayan Classic kuralıdır (hangi sınıf hangi zırhı giyer, hangi silah türünü kullanır); Shaman'ın iki elli silahı ve dual wield'in olmaması Forever rehberlerinden alındı.",
  "taraflar": {
   "Alliance": [
    "Human",
@@ -650,7 +650,7 @@
   },
   "shaman": {
    "zirh": "40. seviyeye kadar leather, 40. seviyeden sonra mail",
-   "silah": "tek elli mace, tek elli axe, dagger, fist weapon, staff; kalkan takabilir",
+   "silah": "tek elli mace, tek elli axe, dagger, fist weapon, staff; Forever'da iki elli axe ve iki elli mace talent gerekmeden kullanılır; dual wield (çift silah) yoktur; kalkan takabilir. Enhancement iki elli silahla oynar",
    "irklar": [
     "Dwarf",
     "Orc",

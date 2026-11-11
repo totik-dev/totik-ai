@@ -11,6 +11,7 @@
 //   "overview"  answered from the class overview (all classes)
 //   "dungeons"  the dungeon list by level
 //   "none"      the cards are not used by rule (a loose text match may still be tried)
+//   "note=a,b"  answered from these WoW Forever notes (kartlar/forever-bilgi.json) before any card
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { loadWorker } from "./load-worker.mjs";
@@ -22,6 +23,11 @@ const ids = selection => Array.from(selection?.cards || [], card => card.id);
 
 function check(question, expected) {
   const s = pick(question), got = ids(s), label = `${question} → ${s ? `${s.category} [${got.join(", ")}]${s.need ? ` need:${s.need}` : ""}${s.compare ? ` compare:${Array.from(s.compare).join("+")}` : ""}${s.factsOnly ? " facts" : ""}${s.search ? " search" : ""}` : "null"}`;
+  const notes = Array.from(w.foreverNotes(question), note => note.id), noteFirst = notes.length > 0 && (!s || s.need || s.search || w.isForeverNoteSubject(question));
+  if (process.env.DUMP_NOTES && notes.length) console.log(`NOTE\t${noteFirst ? "first" : "after"}\t${notes.join(",")}\t${expected}\t${label}`);
+  if (expected.startsWith("note=")) { assert.ok(noteFirst, label); return assert.deepEqual(notes.slice(0, expected.slice(5).split(",").length), expected.slice(5).split(","), `${label} notes: ${notes.join(", ")}`); }
+  // A question that a card answers is never taken over by a Forever note.
+  if (expected !== "none") assert.ok(!noteFirst, `${label} — Forever notu kartın önüne geçti: ${notes.join(", ")}`);
   if (expected === "none") return assert.ok(!s || s.search, label);
   assert.ok(s && !s.search, label);
   if (expected.startsWith("need:")) return assert.equal(s.need, expected.slice(5), label);
