@@ -3,11 +3,11 @@ import fs from "node:fs";
 import vm from "node:vm";
 
 const EXPORTED_FOR_TESTS = [
-  "normalizeGuideText", "detectClass", "detectSpec", "resolveClassGuide", "catalogDiagnostics", "findAttachmentForPage",
+  "normalizeGuideText", "pickCards", "detectExternalOnlyIntent", "CARDS", "CARD_TOPICS", "selectCards", "detectClass", "findCardAttachment",
   "communityIntent", "isBotInternalQuestion", "isIdentityQuestion", "isExternalSourceRecommendationQuestion",
-  "isPersonalOrCreatorAdviceQuestion", "isClearlyOutOfScope", "specialTopic", "protectBotOutput", "splitDiscordMessage",
-  "usableGameAnswer", "isNoInfoAnswer", "isForeverChangeTopic", "safeError", "splitQuestionParts", "isOverlyBroadQuestion", "OVERLY_BROAD_MESSAGE", "CLASS_GUIDE_PAGES", "GUIDE_BATCH_MESSAGE_IDS",
-  "QUESTION_CHANNEL_ID", "OWNER_ID", "isTalentAdviceQuestion", "isTalentQuestion", "TALENT_ADVICE_MESSAGE", "isDungeonQuestion", "isDungeonInfoQuestion", "DUNGEON_MESSAGE", "PRIVATE_BOT_MESSAGE", "IDENTITY_MESSAGE", "SOURCE_POLICY_MESSAGE", "ANSWER_RETRY_MESSAGE"
+  "isPersonalOrCreatorAdviceQuestion", "isClearlyOutOfScope", "protectBotOutput", "splitDiscordMessage",
+  "usableGameAnswer", "isNoInfoAnswer", "isForeverChangeTopic", "safeError", "splitQuestionParts", "isOverlyBroadQuestion", "OVERLY_BROAD_MESSAGE",
+  "QUESTION_CHANNEL_ID", "OWNER_ID", "TALENT_CHANNEL_ID", "DUNGEON_CHANNEL_ID", "isTalentAdviceQuestion", "isTalentQuestion", "TALENT_ADVICE_MESSAGE", "isDungeonQuestion", "isDungeonInfoQuestion", "PRIVATE_BOT_MESSAGE", "IDENTITY_MESSAGE", "SOURCE_POLICY_MESSAGE", "ANSWER_RETRY_MESSAGE"
 ];
 
 export async function loadWorker() {
@@ -20,11 +20,16 @@ export async function loadWorker() {
   const workerModule = new vm.SyntheticModule(["DurableObject"], function () {
     this.setExport("DurableObject", class DurableObject { constructor(ctx, env) { this.ctx = ctx; this.env = env; } });
   }, { context });
-  const module = new vm.SourceTextModule(source, { context });
-  await module.link(specifier => {
+  // The worker's own modules (./cards.js, ./cards-data.js) are loaded into the same context.
+  const local = new Map();
+  const link = specifier => {
     if (specifier === "cloudflare:workers") return workerModule;
-    throw new Error(`Unexpected module: ${specifier}`);
-  });
+    if (!/^\.\/[\w-]+\.js$/.test(specifier)) throw new Error(`Unexpected module: ${specifier}`);
+    if (!local.has(specifier)) local.set(specifier, new vm.SourceTextModule(fs.readFileSync(new URL(`../src/${specifier.slice(2)}`, import.meta.url), "utf8"), { context, identifier: specifier }));
+    return local.get(specifier);
+  };
+  const module = new vm.SourceTextModule(source, { context });
+  await module.link(link);
   await module.evaluate();
   return { ...module.namespace, setFetch: fn => { context.__fetch = fn; } };
 }

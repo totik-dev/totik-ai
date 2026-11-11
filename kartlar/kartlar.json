@@ -1,0 +1,2485 @@
+[
+ {
+  "id": "druid-01-irk-secimi",
+  "kategori": "sinif",
+  "konu": "Druid · Irk Secimi",
+  "ek_adi": "01-Irk-Secimi.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "irk secimi"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-02-yetenekler-1",
+  "kategori": "sinif",
+  "konu": "Druid · Yetenekler 1",
+  "ek_adi": "02-Yetenekler-1.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "yetenekler 1"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-03-yetenekler-2",
+  "kategori": "sinif",
+  "konu": "Druid · Yetenekler 2",
+  "ek_adi": "03-Yetenekler-2.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "yetenekler 2"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-04-balance-talentleri",
+  "kategori": "sinif",
+  "konu": "Druid · Balance Talentleri",
+  "ek_adi": "04-Balance-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "balance talentleri"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-05-feral-kedi-dps-talentleri",
+  "kategori": "sinif",
+  "konu": "Druid · Feral Kedi DPS Talentleri",
+  "ek_adi": "05-Feral-Kedi-DPS-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "feral kedi dps talentleri"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-06-feral-ayi-tank-talentleri",
+  "kategori": "sinif",
+  "konu": "Druid · Feral Ayi Tank Talentleri",
+  "ek_adi": "06-Feral-Ayi-Tank-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "feral ayi tank talentleri"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-07-restoration-talentleri",
+  "kategori": "sinif",
+  "konu": "Druid · Restoration Talentleri",
+  "ek_adi": "07-Restoration-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "restoration talentleri"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-08-oynanis",
+  "kategori": "sinif",
+  "konu": "Druid · Oynanis",
+  "ek_adi": "08-Oynanis.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "oynanis"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-09-balance-leveling",
+  "kategori": "sinif",
+  "konu": "Druid · Balance Leveling",
+  "ek_adi": "09-Balance-Leveling.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "balance leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-10-feral-kedi-leveling",
+  "kategori": "sinif",
+  "konu": "Druid · Feral Kedi Leveling",
+  "ek_adi": "10-Feral-Kedi-Leveling.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "feral kedi leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-11-feral-ayi-tank-leveling",
+  "kategori": "sinif",
+  "konu": "Druid · Feral Ayi Tank Leveling",
+  "ek_adi": "11-Feral-Ayi-Tank-Leveling.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "feral ayi tank leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-12-restoration-leveling",
+  "kategori": "sinif",
+  "konu": "Druid · Restoration Leveling",
+  "ek_adi": "12-Restoration-Leveling.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "restoration leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "hunter-01-irk-secimi",
+  "kategori": "sinif",
+  "konu": "Hunter · Irk Secimi",
+  "ek_adi": "01-Irk-Secimi.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "irk secimi"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-02-yetenekler-1",
+  "kategori": "sinif",
+  "konu": "Hunter · Yetenekler 1",
+  "ek_adi": "02-Yetenekler-1.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "yetenekler 1"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-03-yetenekler-2",
+  "kategori": "sinif",
+  "konu": "Hunter · Yetenekler 2",
+  "ek_adi": "03-Yetenekler-2.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "yetenekler 2"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-04-beast-mastery-talentleri",
+  "kategori": "sinif",
+  "konu": "Hunter · Beast Mastery Talentleri",
+  "ek_adi": "04-Beast-Mastery-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "beast mastery talentleri"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-05-marksmanship-talentleri",
+  "kategori": "sinif",
+  "konu": "Hunter · Marksmanship Talentleri",
+  "ek_adi": "05-Marksmanship-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "marksmanship talentleri"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-06-survival-talentleri",
+  "kategori": "sinif",
+  "konu": "Hunter · Survival Talentleri",
+  "ek_adi": "06-Survival-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "survival talentleri"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-07-oynanis",
+  "kategori": "sinif",
+  "konu": "Hunter · Oynanis",
+  "ek_adi": "07-Oynanis.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "oynanis"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-08-beast-mastery-leveling",
+  "kategori": "sinif",
+  "konu": "Hunter · Beast Mastery Leveling",
+  "ek_adi": "08-Beast-Mastery-Leveling.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "beast mastery leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-09-marksmanship-leveling",
+  "kategori": "sinif",
+  "konu": "Hunter · Marksmanship Leveling",
+  "ek_adi": "09-Marksmanship-Leveling.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "marksmanship leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-10-survival-leveling",
+  "kategori": "sinif",
+  "konu": "Hunter · Survival Leveling",
+  "ek_adi": "10-Survival-Leveling.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "survival leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "mage-01-irk-secimi",
+  "kategori": "sinif",
+  "konu": "Mage · Irk Secimi",
+  "ek_adi": "01-Irk-Secimi.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "irk secimi"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-02-yetenekler-1",
+  "kategori": "sinif",
+  "konu": "Mage · Yetenekler 1",
+  "ek_adi": "02-Yetenekler-1.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "yetenekler 1"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-03-yetenekler-2",
+  "kategori": "sinif",
+  "konu": "Mage · Yetenekler 2",
+  "ek_adi": "03-Yetenekler-2.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "yetenekler 2"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-04-arcane-talentleri",
+  "kategori": "sinif",
+  "konu": "Mage · Arcane Talentleri",
+  "ek_adi": "04-Arcane-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "arcane talentleri"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-05-fire-talentleri",
+  "kategori": "sinif",
+  "konu": "Mage · Fire Talentleri",
+  "ek_adi": "05-Fire-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "fire talentleri"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-06-frost-talentleri",
+  "kategori": "sinif",
+  "konu": "Mage · Frost Talentleri",
+  "ek_adi": "06-Frost-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "frost talentleri"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-07-oynanis",
+  "kategori": "sinif",
+  "konu": "Mage · Oynanis",
+  "ek_adi": "07-Oynanis.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "oynanis"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-08-arcane-leveling",
+  "kategori": "sinif",
+  "konu": "Mage · Arcane Leveling",
+  "ek_adi": "08-Arcane-Leveling.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "arcane leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-09-fire-leveling",
+  "kategori": "sinif",
+  "konu": "Mage · Fire Leveling",
+  "ek_adi": "09-Fire-Leveling.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "fire leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-10-frost-leveling",
+  "kategori": "sinif",
+  "konu": "Mage · Frost Leveling",
+  "ek_adi": "10-Frost-Leveling.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "frost leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "paladin-01-irk-secimi",
+  "kategori": "sinif",
+  "konu": "Paladin · Irk Secimi",
+  "ek_adi": "01-Irk-Secimi.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "irk secimi"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-02-yetenekler-1",
+  "kategori": "sinif",
+  "konu": "Paladin · Yetenekler 1",
+  "ek_adi": "02-Yetenekler-1.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "yetenekler 1"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-03-yetenekler-2",
+  "kategori": "sinif",
+  "konu": "Paladin · Yetenekler 2",
+  "ek_adi": "03-Yetenekler-2.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "yetenekler 2"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-04-holy-talentleri",
+  "kategori": "sinif",
+  "konu": "Paladin · Holy Talentleri",
+  "ek_adi": "04-Holy-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "holy talentleri"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-05-protection-talentleri",
+  "kategori": "sinif",
+  "konu": "Paladin · Protection Talentleri",
+  "ek_adi": "05-Protection-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "protection talentleri"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-06-retribution-talentleri",
+  "kategori": "sinif",
+  "konu": "Paladin · Retribution Talentleri",
+  "ek_adi": "06-Retribution-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "retribution talentleri"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-07-oynanis",
+  "kategori": "sinif",
+  "konu": "Paladin · Oynanis",
+  "ek_adi": "07-Oynanis.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "oynanis"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-08-holy-leveling",
+  "kategori": "sinif",
+  "konu": "Paladin · Holy Leveling",
+  "ek_adi": "08-Holy-Leveling.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "holy leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-09-protection-leveling",
+  "kategori": "sinif",
+  "konu": "Paladin · Protection Leveling",
+  "ek_adi": "09-Protection-Leveling.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "protection leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-10-retribution-leveling",
+  "kategori": "sinif",
+  "konu": "Paladin · Retribution Leveling",
+  "ek_adi": "10-Retribution-Leveling.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "retribution leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "priest-01-irk-secimi",
+  "kategori": "sinif",
+  "konu": "Priest · Irk Secimi",
+  "ek_adi": "01-Irk-Secimi.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "irk secimi"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-02-yetenekler-1",
+  "kategori": "sinif",
+  "konu": "Priest · Yetenekler 1",
+  "ek_adi": "02-Yetenekler-1.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "yetenekler 1"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-03-yetenekler-2",
+  "kategori": "sinif",
+  "konu": "Priest · Yetenekler 2",
+  "ek_adi": "03-Yetenekler-2.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "yetenekler 2"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-04-discipline-talentleri",
+  "kategori": "sinif",
+  "konu": "Priest · Discipline Talentleri",
+  "ek_adi": "04-Discipline-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "discipline talentleri"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-05-holy-talentleri",
+  "kategori": "sinif",
+  "konu": "Priest · Holy Talentleri",
+  "ek_adi": "05-Holy-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "holy talentleri"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-06-shadow-talentleri",
+  "kategori": "sinif",
+  "konu": "Priest · Shadow Talentleri",
+  "ek_adi": "06-Shadow-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "shadow talentleri"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-07-oynanis",
+  "kategori": "sinif",
+  "konu": "Priest · Oynanis",
+  "ek_adi": "07-Oynanis.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "oynanis"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-08-discipline-leveling",
+  "kategori": "sinif",
+  "konu": "Priest · Discipline Leveling",
+  "ek_adi": "08-Discipline-Leveling.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "discipline leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-09-holy-leveling",
+  "kategori": "sinif",
+  "konu": "Priest · Holy Leveling",
+  "ek_adi": "09-Holy-Leveling.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "holy leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-10-shadow-leveling",
+  "kategori": "sinif",
+  "konu": "Priest · Shadow Leveling",
+  "ek_adi": "10-Shadow-Leveling.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "shadow leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "rogue-01-irk-secimi",
+  "kategori": "sinif",
+  "konu": "Rogue · Irk Secimi",
+  "ek_adi": "01-Irk-Secimi.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "irk secimi"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-02-yetenekler-1",
+  "kategori": "sinif",
+  "konu": "Rogue · Yetenekler 1",
+  "ek_adi": "02-Yetenekler-1.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "yetenekler 1"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-03-yetenekler-2",
+  "kategori": "sinif",
+  "konu": "Rogue · Yetenekler 2",
+  "ek_adi": "03-Yetenekler-2.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "yetenekler 2"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-04-assassination-talentleri",
+  "kategori": "sinif",
+  "konu": "Rogue · Assassination Talentleri",
+  "ek_adi": "04-Assassination-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "assassination talentleri"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-05-combat-talentleri",
+  "kategori": "sinif",
+  "konu": "Rogue · Combat Talentleri",
+  "ek_adi": "05-Combat-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "combat talentleri"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-06-subtlety-talentleri",
+  "kategori": "sinif",
+  "konu": "Rogue · Subtlety Talentleri",
+  "ek_adi": "06-Subtlety-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "subtlety talentleri"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-07-oynanis",
+  "kategori": "sinif",
+  "konu": "Rogue · Oynanis",
+  "ek_adi": "07-Oynanis.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "oynanis"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-08-assassination-leveling",
+  "kategori": "sinif",
+  "konu": "Rogue · Assassination Leveling",
+  "ek_adi": "08-Assassination-Leveling.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "assassination leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-09-combat-leveling",
+  "kategori": "sinif",
+  "konu": "Rogue · Combat Leveling",
+  "ek_adi": "09-Combat-Leveling.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "combat leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-10-subtlety-leveling",
+  "kategori": "sinif",
+  "konu": "Rogue · Subtlety Leveling",
+  "ek_adi": "10-Subtlety-Leveling.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "subtlety leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "shaman-01-irk-secimi",
+  "kategori": "sinif",
+  "konu": "Shaman · Irk Secimi",
+  "ek_adi": "01-Irk-Secimi.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "irk secimi"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-02-yetenekler-1",
+  "kategori": "sinif",
+  "konu": "Shaman · Yetenekler 1",
+  "ek_adi": "02-Yetenekler-1.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "yetenekler 1"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-03-yetenekler-2",
+  "kategori": "sinif",
+  "konu": "Shaman · Yetenekler 2",
+  "ek_adi": "03-Yetenekler-2.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "yetenekler 2"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-04-yetenekler-3",
+  "kategori": "sinif",
+  "konu": "Shaman · Yetenekler 3",
+  "ek_adi": "04-Yetenekler-3.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "yetenekler 3"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-05-elemental-talentleri",
+  "kategori": "sinif",
+  "konu": "Shaman · Elemental Talentleri",
+  "ek_adi": "05-Elemental-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "elemental talentleri"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-06-enhancement-talentleri",
+  "kategori": "sinif",
+  "konu": "Shaman · Enhancement Talentleri",
+  "ek_adi": "06-Enhancement-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "enhancement talentleri"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-07-restoration-talentleri",
+  "kategori": "sinif",
+  "konu": "Shaman · Restoration Talentleri",
+  "ek_adi": "07-Restoration-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "restoration talentleri"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-08-oynanis",
+  "kategori": "sinif",
+  "konu": "Shaman · Oynanis",
+  "ek_adi": "08-Oynanis.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "oynanis"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-09-elemental-leveling",
+  "kategori": "sinif",
+  "konu": "Shaman · Elemental Leveling",
+  "ek_adi": "09-Elemental-Leveling.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "elemental leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-10-enhancement-leveling",
+  "kategori": "sinif",
+  "konu": "Shaman · Enhancement Leveling",
+  "ek_adi": "10-Enhancement-Leveling.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "enhancement leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-11-restoration-leveling",
+  "kategori": "sinif",
+  "konu": "Shaman · Restoration Leveling",
+  "ek_adi": "11-Restoration-Leveling.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "restoration leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "warlock-01-irk-secimi",
+  "kategori": "sinif",
+  "konu": "Warlock · Irk Secimi",
+  "ek_adi": "01-Irk-Secimi.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "irk secimi"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-02-yetenekler-1",
+  "kategori": "sinif",
+  "konu": "Warlock · Yetenekler 1",
+  "ek_adi": "02-Yetenekler-1.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "yetenekler 1"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-03-yetenekler-2",
+  "kategori": "sinif",
+  "konu": "Warlock · Yetenekler 2",
+  "ek_adi": "03-Yetenekler-2.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "yetenekler 2"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-04-affliction-talentleri",
+  "kategori": "sinif",
+  "konu": "Warlock · Affliction Talentleri",
+  "ek_adi": "04-Affliction-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "affliction talentleri"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-05-demonology-talentleri",
+  "kategori": "sinif",
+  "konu": "Warlock · Demonology Talentleri",
+  "ek_adi": "05-Demonology-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "demonology talentleri"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-06-destruction-talentleri",
+  "kategori": "sinif",
+  "konu": "Warlock · Destruction Talentleri",
+  "ek_adi": "06-Destruction-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "destruction talentleri"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-07-oynanis",
+  "kategori": "sinif",
+  "konu": "Warlock · Oynanis",
+  "ek_adi": "07-Oynanis.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "oynanis"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-08-affliction-leveling",
+  "kategori": "sinif",
+  "konu": "Warlock · Affliction Leveling",
+  "ek_adi": "08-Affliction-Leveling.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "affliction leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-09-demonology-leveling",
+  "kategori": "sinif",
+  "konu": "Warlock · Demonology Leveling",
+  "ek_adi": "09-Demonology-Leveling.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "demonology leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-10-destruction-leveling",
+  "kategori": "sinif",
+  "konu": "Warlock · Destruction Leveling",
+  "ek_adi": "10-Destruction-Leveling.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "destruction leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warrior-01-irk-secimi",
+  "kategori": "sinif",
+  "konu": "Warrior · Irk Secimi",
+  "ek_adi": "01-Irk-Secimi.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "irk secimi"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-02-yetenekler-1",
+  "kategori": "sinif",
+  "konu": "Warrior · Yetenekler 1",
+  "ek_adi": "02-Yetenekler-1.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "yetenekler 1"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-03-yetenekler-2",
+  "kategori": "sinif",
+  "konu": "Warrior · Yetenekler 2",
+  "ek_adi": "03-Yetenekler-2.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "yetenekler 2"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-04-arms-talentleri",
+  "kategori": "sinif",
+  "konu": "Warrior · Arms Talentleri",
+  "ek_adi": "04-Arms-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "arms talentleri"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-05-fury-talentleri",
+  "kategori": "sinif",
+  "konu": "Warrior · Fury Talentleri",
+  "ek_adi": "05-Fury-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "fury talentleri"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-06-protection-talentleri",
+  "kategori": "sinif",
+  "konu": "Warrior · Protection Talentleri",
+  "ek_adi": "06-Protection-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "protection talentleri"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-07-oynanis",
+  "kategori": "sinif",
+  "konu": "Warrior · Oynanis",
+  "ek_adi": "07-Oynanis.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "oynanis"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-08-arms-leveling",
+  "kategori": "sinif",
+  "konu": "Warrior · Arms Leveling",
+  "ek_adi": "08-Arms-Leveling.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "arms leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-09-fury-leveling",
+  "kategori": "sinif",
+  "konu": "Warrior · Fury Leveling",
+  "ek_adi": "09-Fury-Leveling.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "fury leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-10-protection-leveling",
+  "kategori": "sinif",
+  "konu": "Warrior · Protection Leveling",
+  "ek_adi": "10-Protection-Leveling.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "protection leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "zindan-01-ragefire-chasm",
+  "kategori": "zindan",
+  "konu": "Lv 14 · Ragefire Chasm (RFC)",
+  "ek_adi": "01 - Ragefire Chasm (Lv 14).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 14 · Ragefire Chasm (RFC)\" konusu",
+  "anahtar": [
+   "ragefire-chasm",
+   "RFC"
+  ],
+  "ozet": "## Ragefire Chasm (RFC)\n**Önerilen seviye:** 14 · **Bölge:** Orgrimmar\n**Bosslar (4):** Oggleflint, Taragaman the Hungerer, Jergosh the Invoker, Bazzalan\n-# Arama: RFC · 1/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 5,
+  "gorev_alliance": 0
+ },
+ {
+  "id": "zindan-02-hall-of-thanes",
+  "kategori": "zindan",
+  "konu": "Lv 18 · Hall of Thanes",
+  "ek_adi": "02 - Hall of Thanes (Lv 18).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 18 · Hall of Thanes\" konusu",
+  "anahtar": [
+   "hall-of-thanes",
+   "HoT",
+   "Thanes",
+   "Infurnus"
+  ],
+  "ozet": "## Hall of Thanes\n**Önerilen seviye:** 18 · **Bölge:** Ironforge\n**Bosslar (4):** Faldrim Anvilmar, Magmatus, Plunder, Durgen Dirgehammer\n-# Arama: HoT, Thanes, Infurnus · 2/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 0,
+  "gorev_alliance": 5
+ },
+ {
+  "id": "zindan-03-deadmines",
+  "kategori": "zindan",
+  "konu": "Lv 19 · Deadmines (DM)",
+  "ek_adi": "03 - Deadmines (Lv 19).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 19 · Deadmines (DM)\" konusu",
+  "anahtar": [
+   "deadmines",
+   "VC",
+   "Van Cleef",
+   "DM"
+  ],
+  "ozet": "## Deadmines (DM)\n**Önerilen seviye:** 19 · **Bölge:** Westfall\n**Bosslar (8):** Rhahk'Zor, Miner Johnson, Sneed's Shredder, Gilnid, Mr. Smite, Cookie, Captain Greenskin, Edwin VanCleef\n-# Arama: VC, Van Cleef, DM · 3/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 0,
+  "gorev_alliance": 6
+ },
+ {
+  "id": "zindan-04-wailing-caverns",
+  "kategori": "zindan",
+  "konu": "Lv 20 · Wailing Caverns (WC)",
+  "ek_adi": "04 - Wailing Caverns (Lv 20).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 20 · Wailing Caverns (WC)\" konusu",
+  "anahtar": [
+   "wailing-caverns",
+   "WC"
+  ],
+  "ozet": "## Wailing Caverns (WC)\n**Önerilen seviye:** 20 · **Bölge:** The Barrens\n**Bosslar (8):** Lady Anacondra, Lord Cobrahn, Kresh, Lord Pythas, Skum, Lord Serpentis, Verdan the Everliving, Mutanus the Devourer\n**Nadir:** Deviate Faerie Dragon\n-# Arama: WC · 4/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 7,
+  "gorev_alliance": 5
+ },
+ {
+  "id": "zindan-05-ruins-of-lordaeron",
+  "kategori": "zindan",
+  "konu": "Lv 20 · Ruins of Lordaeron",
+  "ek_adi": "05 - Ruins of Lordaeron (Lv 20).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 20 · Ruins of Lordaeron\" konusu",
+  "anahtar": [
+   "ruins-of-lordaeron",
+   "Lordaeron",
+   "The Butcher"
+  ],
+  "ozet": "## Ruins of Lordaeron\n**Önerilen seviye:** 20 · **Bölge:** Tirisfal Glades\n**Bosslar (6):** Witherfang, The Baron, Viktor the Vile, The Abandoned, Bjork, Rath'mael\n**Nadir:** Lordaeron Captain\n-# Arama: Lordaeron, The Butcher · 5/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 6,
+  "gorev_alliance": 4
+ },
+ {
+  "id": "zindan-06-shadowfang-keep",
+  "kategori": "zindan",
+  "konu": "Lv 24 · Shadowfang Keep (SFK)",
+  "ek_adi": "06 - Shadowfang Keep (Lv 24).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 24 · Shadowfang Keep (SFK)\" konusu",
+  "anahtar": [
+   "shadowfang-keep",
+   "SFK"
+  ],
+  "ozet": "## Shadowfang Keep (SFK)\n**Önerilen seviye:** 24 · **Bölge:** Silverpine Forest\n**Bosslar (8):** Rethilgore, Razorclaw the Butcher, Baron Silverlaine, Commander Springvale, Odo the Blindwatcher, Fenrus the Devourer, Wolf Master Nandos, Archmage Arugal\n**Nadir:** Deathsworn Captain\n-# Arama: SFK · 6/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 3,
+  "gorev_alliance": 0
+ },
+ {
+  "id": "zindan-07-blackfathom-deeps",
+  "kategori": "zindan",
+  "konu": "Lv 26 · Blackfathom Deeps (BFD)",
+  "ek_adi": "07 - Blackfathom Deeps (Lv 26).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 26 · Blackfathom Deeps (BFD)\" konusu",
+  "anahtar": [
+   "blackfathom-deeps",
+   "BFD",
+   "Geilhast"
+  ],
+  "ozet": "## Blackfathom Deeps (BFD)\n**Önerilen seviye:** 26 · **Bölge:** Ashenvale\n**Bosslar (7):** Ghamoo-ra, Lady Sarevess, Gelihast, Lorgus Jett, Old Serra'kis, Twilight Lord Kelris, Aku'mai\n**İsteğe bağlı / çağrılan:** Baron Aquanis\n-# Arama: BFD, Geilhast · 7/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 5,
+  "gorev_alliance": 5
+ },
+ {
+  "id": "zindan-08-stormwind-stockade",
+  "kategori": "zindan",
+  "konu": "Lv 27 · Stormwind Stockade (Stocks)",
+  "ek_adi": "08 - Stormwind Stockade (Lv 27).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 27 · Stormwind Stockade (Stocks)\" konusu",
+  "anahtar": [
+   "stormwind-stockade",
+   "Stocks",
+   "Stockade"
+  ],
+  "ozet": "## Stormwind Stockade (Stocks)\n**Önerilen seviye:** 27 · **Bölge:** Stormwind City\n**Bosslar (5):** Targorr the Dread, Dextren Ward, Kam Deepfury, Hamhock, Bazil Thredd\n**Nadir:** Bruegal Ironknuckle\n-# Arama: Stocks, Stockade · 8/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 0,
+  "gorev_alliance": 6
+ },
+ {
+  "id": "zindan-09-razorfen-kraul",
+  "kategori": "zindan",
+  "konu": "Lv 31 · Razorfen Kraul (RFK)",
+  "ek_adi": "09 - Razorfen Kraul (Lv 31).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 31 · Razorfen Kraul (RFK)\" konusu",
+  "anahtar": [
+   "razorfen-kraul",
+   "RFK"
+  ],
+  "ozet": "## Razorfen Kraul (RFK)\n**Önerilen seviye:** 31 · **Bölge:** The Barrens\n**Bosslar (6):** Roogug, Aggem Thorncurse, Death Speaker Jargba, Overlord Ramtusk, Agathelos the Raging, Charlga Razorflank\n**Nadir:** Earthcaller Halmgar, Blind Hunter\n-# Arama: RFK · 9/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 6,
+  "gorev_alliance": 5
+ },
+ {
+  "id": "zindan-10-excavation-site-wetlands",
+  "kategori": "zindan",
+  "konu": "Lv 31 · Excavation Site: Wetlands",
+  "ek_adi": "10 - Excavation Site Wetlands (Lv 31).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 31 · Excavation Site: Wetlands\" konusu",
+  "anahtar": [
+   "excavation-site-wetlands",
+   "Excavation",
+   "Wetlands"
+  ],
+  "ozet": "## Excavation Site: Wetlands\n**Önerilen seviye:** 31 · **Bölge:** Wetlands\n**Bosslar (4):** Saltspine, Shadetooth, Highland Horror, Relic Guardian\n-# Arama: Excavation, Wetlands · 10/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 3,
+  "gorev_alliance": 5
+ },
+ {
+  "id": "zindan-11-gnomeregan",
+  "kategori": "zindan",
+  "konu": "Lv 32 · Gnomeregan (Gnomer)",
+  "ek_adi": "11 - Gnomeregan (Lv 32).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 32 · Gnomeregan (Gnomer)\" konusu",
+  "anahtar": [
+   "gnomeregan",
+   "Gnomer"
+  ],
+  "ozet": "## Gnomeregan (Gnomer)\n**Önerilen seviye:** 32 · **Bölge:** Dun Morogh\n**Bosslar (5):** Grubbis, Viscous Fallout, Electrocutioner 6000, Crowd Pummeler 9-60, Mekgineer Thermaplugg\n**Nadir:** Dark Iron Ambassador\n-# Arama: Gnomer · 11/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 6,
+  "gorev_alliance": 10
+ },
+ {
+  "id": "zindan-12-scarlet-monastery-graveyard",
+  "kategori": "zindan",
+  "konu": "Lv 32 · Scarlet Monastery (SM) · Graveyard",
+  "ek_adi": "12 - Scarlet Monastery Graveyard (Lv 32).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 32 · Scarlet Monastery (SM) · Graveyard\" konusu",
+  "anahtar": [
+   "scarlet-monastery-graveyard",
+   "SM GY",
+   "SM"
+  ],
+  "ozet": "## Scarlet Monastery (SM) · Graveyard\n**Önerilen seviye:** 32 · **Bölge:** Tirisfal Glades\n**Bosslar (2):** Interrogator Vishas, Bloodmage Thalnos\n**Nadir:** Ironspine, Azshir the Sleepless, Fallen Champion\n-# Arama: SM GY, SM · 12/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 2,
+  "gorev_alliance": 0
+ },
+ {
+  "id": "zindan-13-city-of-dalaran",
+  "kategori": "zindan",
+  "konu": "Lv 33 · City of Dalaran",
+  "ek_adi": "13 - City of Dalaran (Lv 33).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 33 · City of Dalaran\" konusu",
+  "anahtar": [
+   "city-of-dalaran",
+   "Dalaran",
+   "Mana Elemental"
+  ],
+  "ozet": "## City of Dalaran\n**Önerilen seviye:** 33 · **Bölge:** Silverpine Forest\n**Bosslar (8):** Atrexis the Grave Knight, Lyn the Ignored, Mana Devourer, Arcane Anomaly, Fel Ancient, Arcanic Enigma, Unstable Sentinel, Shade of the Archmage\n-# Arama: Dalaran, Mana Elemental · 13/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 4,
+  "gorev_alliance": 4
+ },
+ {
+  "id": "zindan-14-scarlet-monastery-library",
+  "kategori": "zindan",
+  "konu": "Lv 35 · Scarlet Monastery (SM) · Library",
+  "ek_adi": "14 - Scarlet Monastery Library (Lv 35).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 35 · Scarlet Monastery (SM) · Library\" konusu",
+  "anahtar": [
+   "scarlet-monastery-library",
+   "SM Lib",
+   "SM"
+  ],
+  "ozet": "## Scarlet Monastery (SM) · Library\n**Önerilen seviye:** 35 · **Bölge:** Tirisfal Glades\n**Bosslar (2):** Houndmaster Loksey, Arcanist Doan\n-# Arama: SM Lib, SM · 14/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 4,
+  "gorev_alliance": 3
+ },
+ {
+  "id": "zindan-15-scarlet-monastery-armory",
+  "kategori": "zindan",
+  "konu": "Lv 38 · Scarlet Monastery (SM) · Armory",
+  "ek_adi": "15 - Scarlet Monastery Armory (Lv 38).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 38 · Scarlet Monastery (SM) · Armory\" konusu",
+  "anahtar": [
+   "scarlet-monastery-armory",
+   "SM Arm",
+   "SM"
+  ],
+  "ozet": "## Scarlet Monastery (SM) · Armory\n**Önerilen seviye:** 38 · **Bölge:** Tirisfal Glades\n**Bosslar (1):** Herod\n-# Arama: SM Arm, SM · 15/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 2,
+  "gorev_alliance": 1
+ },
+ {
+  "id": "zindan-16-the-drowned-city",
+  "kategori": "zindan",
+  "konu": "Lv 38 · The Drowned City",
+  "ek_adi": "16 - The Drowned City (Lv 38).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 38 · The Drowned City\" konusu",
+  "anahtar": [
+   "the-drowned-city",
+   "Drowned",
+   "STV"
+  ],
+  "ozet": "## The Drowned City\n**Önerilen seviye:** 38 · **Bölge:** Stranglethorn Vale\n**Bosslar (5):** Zul'Alai, Var'Taka, Captain Dreadrise, Deathless Guardians, Min'loth the Serpent\n**Ayrıca:** Primeval Elemental (gizli)\n-# Arama: Drowned, STV · 16/40 · Totik Channel zindan rehberi"
+ },
+ {
+  "id": "zindan-17-razorfen-downs",
+  "kategori": "zindan",
+  "konu": "Lv 39 · Razorfen Downs (RFD)",
+  "ek_adi": "17 - Razorfen Downs (Lv 39).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 39 · Razorfen Downs (RFD)\" konusu",
+  "anahtar": [
+   "razorfen-downs",
+   "RFD"
+  ],
+  "ozet": "## Razorfen Downs (RFD)\n**Önerilen seviye:** 39 · **Bölge:** The Barrens\n**Bosslar (5):** Tuten'kash, Mordresh Fire Eye, Glutton, Ragglesnout, Amnennar the Coldbringer\n**İsteğe bağlı / çağrılan:** Plaguemaw the Rotting\n-# Arama: RFD · 17/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 5,
+  "gorev_alliance": 4
+ },
+ {
+  "id": "zindan-18-scarlet-monastery-cathedral",
+  "kategori": "zindan",
+  "konu": "Lv 40 · Scarlet Monastery (SM) · Cathedral",
+  "ek_adi": "18 - Scarlet Monastery Cathedral (Lv 40).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 40 · Scarlet Monastery (SM) · Cathedral\" konusu",
+  "anahtar": [
+   "scarlet-monastery-cathedral",
+   "SM Cath",
+   "SM"
+  ],
+  "ozet": "## Scarlet Monastery (SM) · Cathedral\n**Önerilen seviye:** 40 · **Bölge:** Tirisfal Glades\n**Bosslar (2):** High Inquisitor Whitemane, High Inquisitor Fairbanks\n**Ayrıca:** Scarlet Commander Mograine (Whitemane ile)\n-# Arama: SM Cath, SM · 18/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 2,
+  "gorev_alliance": 1
+ },
+ {
+  "id": "zindan-19-krol-dok-stronghold",
+  "kategori": "zindan",
+  "konu": "Lv 43 · Krol'dok Stronghold",
+  "ek_adi": "19 - Krol'dok Stronghold (Lv 43).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 43 · Krol'dok Stronghold\" konusu",
+  "anahtar": [
+   "krol-dok-stronghold",
+   "Krol'dok",
+   "Kroldok",
+   "Overseer Mugg"
+  ],
+  "ozet": "## Krol'dok Stronghold\n**Önerilen seviye:** 43 · **Bölge:** Riverglades\n**Bosslar (5):** Slavecrusher Grox, Twilight Commander Zarmok, War Handler Ashka, Nar'gurk, Overlord Mugg\n**Ayrıca:** Bossman Toof (köprüden sonra)\n-# Arama: Krol'dok, Kroldok, Overseer Mugg · 19/40 · Totik Channel zindan rehberi"
+ },
+ {
+  "id": "zindan-20-uldaman",
+  "kategori": "zindan",
+  "konu": "Lv 45 · Uldaman (Ulda)",
+  "ek_adi": "20 - Uldaman (Lv 45).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 45 · Uldaman (Ulda)\" konusu",
+  "anahtar": [
+   "uldaman",
+   "Ulda"
+  ],
+  "ozet": "## Uldaman (Ulda)\n**Önerilen seviye:** 45 · **Bölge:** Badlands\n**Bosslar (8):** The Lost Dwarves, Revelosh, Ironaya, Obsidian Sentinel, Ancient Stone Keeper, Galgann Firehammer, Grimlok, Archaedas\n-# Arama: Ulda · 20/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 5,
+  "gorev_alliance": 10
+ },
+ {
+  "id": "zindan-21-zulfarrak",
+  "kategori": "zindan",
+  "konu": "Lv 46 · Zul'Farrak (ZF)",
+  "ek_adi": "21 - Zul'Farrak (Lv 46).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 46 · Zul'Farrak (ZF)\" konusu",
+  "anahtar": [
+   "zulfarrak",
+   "ZF"
+  ],
+  "ozet": "## Zul'Farrak (ZF)\n**Önerilen seviye:** 46 · **Bölge:** Tanaris\n**Bosslar (7):** Theka the Martyr, Antu'sul, Witch Doctor Zum'rah, Shadowpriest Sezz'ziz, Chief Ukorz Sandscalp, Hydromancer Velratha, Gahz'rilla\n**Ayrıca:** Nekrum Gutchewer (Sezz'ziz ile), Ruuzlu (Ukorz ile)\n**Nadir:** Zerillis, Sandarr Dunereaver, Dustwraith\n-# Arama: ZF · 21/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 7,
+  "gorev_alliance": 8
+ },
+ {
+  "id": "zindan-22-maraudon-orange",
+  "kategori": "zindan",
+  "konu": "Lv 47 · Maraudon (Mara) · Turuncu Kanat",
+  "ek_adi": "22 - Maraudon - Turuncu Kanat (Lv 47).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 47 · Maraudon (Mara) · Turuncu Kanat\" konusu",
+  "anahtar": [
+   "maraudon-orange",
+   "Mara",
+   "Mara Orange"
+  ],
+  "ozet": "## Maraudon (Mara) · Turuncu Kanat\n**Önerilen seviye:** 47 · **Bölge:** Desolace\n**Bosslar (3):** Noxxion, Razorlash, Celebras the Cursed\n**Nadir:** Meshlok the Harvester\n-# Arama: Mara, Mara Orange · 22/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 7,
+  "gorev_alliance": 7
+ },
+ {
+  "id": "zindan-23-maraudon-purple",
+  "kategori": "zindan",
+  "konu": "Lv 47 · Maraudon (Mara) · Mor Kanat",
+  "ek_adi": "23 - Maraudon - Mor Kanat (Lv 47).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 47 · Maraudon (Mara) · Mor Kanat\" konusu",
+  "anahtar": [
+   "maraudon-purple",
+   "Mara",
+   "Mara Purple"
+  ],
+  "ozet": "## Maraudon (Mara) · Mor Kanat\n**Önerilen seviye:** 47 · **Bölge:** Desolace\n**Bosslar (2):** Lord Vyletongue, Celebras the Cursed\n**Nadir:** Meshlok the Harvester\n-# Arama: Mara, Mara Purple · 23/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 7,
+  "gorev_alliance": 7
+ },
+ {
+  "id": "zindan-24-maraudon",
+  "kategori": "zindan",
+  "konu": "Lv 49 · Maraudon (Mara) · Tam",
+  "ek_adi": "24 - Maraudon (Lv 49).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 49 · Maraudon (Mara) · Tam\" konusu",
+  "anahtar": [
+   "maraudon",
+   "Mara"
+  ],
+  "ozet": "## Maraudon (Mara) · Tam\n**Önerilen seviye:** 49 · **Bölge:** Desolace\n**Bosslar (8):** Noxxion, Razorlash, Lord Vyletongue, Celebras the Cursed, Landslide, Rotgrip, Tinkerer Gizlock, Princess Theradras\n**Nadir:** Meshlok the Harvester\n-# Arama: Mara · 24/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 7,
+  "gorev_alliance": 7
+ },
+ {
+  "id": "zindan-25-maraudon-inner",
+  "kategori": "zindan",
+  "konu": "Lv 49 · Maraudon (Mara) · İç Bölüm (Prenses)",
+  "ek_adi": "25 - Maraudon - Ic Bolum (Prenses) (Lv 49).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 49 · Maraudon (Mara) · İç Bölüm (Prenses)\" konusu",
+  "anahtar": [
+   "maraudon-inner",
+   "Mara",
+   "Princess",
+   "Prenses"
+  ],
+  "ozet": "## Maraudon (Mara) · İç Bölüm (Prenses)\n**Önerilen seviye:** 49 · **Bölge:** Desolace\n**Bosslar (4):** Landslide, Rotgrip, Tinkerer Gizlock, Princess Theradras\n-# Arama: Mara, Princess, Prenses · 25/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 7,
+  "gorev_alliance": 7
+ },
+ {
+  "id": "zindan-26-alcaz-prison",
+  "kategori": "zindan",
+  "konu": "Lv 51 · Alcaz Prison",
+  "ek_adi": "26 - Alcaz Prison (Lv 51).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 51 · Alcaz Prison\" konusu",
+  "anahtar": [
+   "alcaz-prison",
+   "Alcaz"
+  ],
+  "ozet": "## Alcaz Prison\n**Önerilen seviye:** 51 · **Bölge:** Dustwallow Marsh\n**Bosslar (5):** Tidemistress Ca'zass, Overseer Wrex, Katerina the Cleaner, The Questioner, Blazeroar\n-# Arama: Alcaz · 26/40 · Totik Channel zindan rehberi"
+ },
+ {
+  "id": "zindan-27-blackrock-depths-lower",
+  "kategori": "zindan",
+  "konu": "Lv 52 · Blackrock Depths (BRD) · Alt (Detention Block)",
+  "ek_adi": "27 - Blackrock Depths - Alt (Detention Block) (Lv 52).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 52 · Blackrock Depths (BRD) · Alt (Detention Block)\" konusu",
+  "anahtar": [
+   "blackrock-depths-lower",
+   "BRD",
+   "Prison",
+   "Arena"
+  ],
+  "ozet": "## Blackrock Depths (BRD) · Alt (Detention Block)\n**Önerilen seviye:** 52 · **Bölge:** Searing Gorge\n**Bosslar (10):** High Interrogator Gerstahn, Lord Roccor, Houndmaster Grebmar, Ring of Law, Pyromancer Loregrain, Warder Stilgiss, The Vault, Fineous Darkvire, Lord Incendius, Bael'Gar\n-# Arama: BRD, Prison, Arena · 27/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 21,
+  "gorev_alliance": 16
+ },
+ {
+  "id": "zindan-28-sunken-temple",
+  "kategori": "zindan",
+  "konu": "Lv 53 · Sunken Temple (ST)",
+  "ek_adi": "28 - Sunken Temple (Lv 53).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 53 · Sunken Temple (ST)\" konusu",
+  "anahtar": [
+   "sunken-temple",
+   "ST",
+   "Atal'Hakkar"
+  ],
+  "ozet": "## Sunken Temple (ST)\n**Önerilen seviye:** 53 · **Bölge:** Swamp of Sorrows\n**Bosslar (7):** Atal'alarion, 6 trol (Atal'ai Defenders), Jammal'an the Prophet, Dreamscythe + Weaver, Avatar of Hakkar, Morphaz + Hazzas, Shade of Eranikus\n**Ayrıca:** 6 trol: Hukku, Mijan, Zul'Lor, Zolo, Gasher, Loro · Ogom (Jammal'an ile)\n**İsteğe bağlı / çağrılan:** Spawn of Hakkar\n-# Arama: ST, Atal'Hakkar · 28/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 9,
+  "gorev_alliance": 9
+ },
+ {
+  "id": "zindan-29-dire-maul-east",
+  "kategori": "zindan",
+  "konu": "Lv 56 · Dire Maul (DM) · Doğu",
+  "ek_adi": "29 - Dire Maul East (Lv 56).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 56 · Dire Maul (DM) · Doğu\" konusu",
+  "anahtar": [
+   "dire-maul-east",
+   "DM East",
+   "DME"
+  ],
+  "ozet": "## Dire Maul (DM) · Doğu\n**Önerilen seviye:** 56 · **Bölge:** Feralas\n**Bosslar (5):** Pusillin, Lethtendris, Hydrospawn, Zevrim Thornhoof, Alzzin the Wildshaper\n**İsteğe bağlı / çağrılan:** Isalien\n-# Arama: DM East, DME · 29/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 3,
+  "gorev_alliance": 3
+ },
+ {
+  "id": "zindan-30-blackmaw-hold",
+  "kategori": "zindan",
+  "konu": "Lv 57 · Blackmaw Hold",
+  "ek_adi": "30 - Blackmaw Hold (Lv 57).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 57 · Blackmaw Hold\" konusu",
+  "anahtar": [
+   "blackmaw-hold",
+   "Blackmaw"
+  ],
+  "ozet": "## Blackmaw Hold\n**Önerilen seviye:** 57 · **Bölge:** Azshara\n**Bosslar (7):** Impaan the Imprisoner, Withermaw, Bonesnout the Unbroken, Blackmaw Behemoth, Varrox Bleakhoof, Elder Shaman Bloodmane, Unbound Spirit\n**Nadir:** Moontouched Wanderer, Gortek the Apprentice\n-# Arama: Blackmaw · 30/40 · Totik Channel zindan rehberi"
+ },
+ {
+  "id": "zindan-31-blackrock-depths",
+  "kategori": "zindan",
+  "konu": "Lv 57 · Blackrock Depths (BRD) · Tam",
+  "ek_adi": "31 - Blackrock Depths (Lv 57).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 57 · Blackrock Depths (BRD) · Tam\" konusu",
+  "anahtar": [
+   "blackrock-depths",
+   "BRD"
+  ],
+  "ozet": "## Blackrock Depths (BRD) · Tam\n**Önerilen seviye:** 57 · **Bölge:** Searing Gorge\n**Bosslar (20):** High Interrogator Gerstahn, Lord Roccor, Houndmaster Grebmar, Ring of Law, Pyromancer Loregrain, Warder Stilgiss, The Vault, Fineous Darkvire, Lord Incendius, Bael'Gar, General Angerforge, Golem Lord Argelmach, Hurley Blackbreath, Ribbly Screwspigot, Plugger Spazzring, Phalanx, Ambassador Flamelash, The Seven, Magmus, Emperor Dagran Thaurissan\n**Ayrıca:** Princess Moira Bronzebeard (İmparator ile)\n**Nadir:** Panzor the Invincible\n-# Arama: BRD · 31/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 21,
+  "gorev_alliance": 16
+ },
+ {
+  "id": "zindan-32-blackrock-depths-upper",
+  "kategori": "zindan",
+  "konu": "Lv 57 · Blackrock Depths (BRD) · Üst (Upper City)",
+  "ek_adi": "32 - Blackrock Depths - Ust (Upper City) (Lv 57).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 57 · Blackrock Depths (BRD) · Üst (Upper City)\" konusu",
+  "anahtar": [
+   "blackrock-depths-upper",
+   "BRD",
+   "Emperor"
+  ],
+  "ozet": "## Blackrock Depths (BRD) · Üst (Upper City)\n**Önerilen seviye:** 57 · **Bölge:** Searing Gorge\n**Bosslar (10):** General Angerforge, Golem Lord Argelmach, Hurley Blackbreath, Ribbly Screwspigot, Plugger Spazzring, Phalanx, Ambassador Flamelash, The Seven, Magmus, Emperor Dagran Thaurissan\n**Ayrıca:** Princess Moira Bronzebeard (İmparator ile)\n**Nadir:** Panzor the Invincible\n-# Arama: BRD, Emperor · 32/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 21,
+  "gorev_alliance": 16
+ },
+ {
+  "id": "zindan-33-blackrock-spire-lower",
+  "kategori": "zindan",
+  "konu": "Lv 58 · Lower Blackrock Spire (LBRS)",
+  "ek_adi": "33 - Lower Blackrock Spire (Lv 58).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 58 · Lower Blackrock Spire (LBRS)\" konusu",
+  "anahtar": [
+   "blackrock-spire-lower",
+   "LBRS"
+  ],
+  "ozet": "## Lower Blackrock Spire (LBRS)\n**Önerilen seviye:** 58 · **Bölge:** Burning Steppes\n**Bosslar (8):** Highlord Omokk, Shadow Hunter Vosh'gajin, War Master Voone, Mother Smolderweb, Urok Doomhowl, Quartermaster Zigris, Halycon, Overlord Wyrmthalak\n**Ayrıca:** Gizrul the Slavener (Halycon ölünce)\n**İsteğe bağlı / çağrılan:** Mor Grayhoof\n**Nadir:** Spirestone Butcher, Spirestone Battle Lord, Spirestone Lord Magus, Bannok Grimaxe, Crystal Fang, Ghok Bashguud\n-# Arama: LBRS · 33/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 10,
+  "gorev_alliance": 11
+ },
+ {
+  "id": "zindan-34-dire-maul-west",
+  "kategori": "zindan",
+  "konu": "Lv 59 · Dire Maul (DM) · Batı",
+  "ek_adi": "34 - Dire Maul West (Lv 59).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 59 · Dire Maul (DM) · Batı\" konusu",
+  "anahtar": [
+   "dire-maul-west",
+   "DM West",
+   "DMW"
+  ],
+  "ozet": "## Dire Maul (DM) · Batı\n**Önerilen seviye:** 59 · **Bölge:** Feralas\n**Bosslar (6):** Magister Kalendris, Tsu'zee, Illyanna Ravenoak, Tendris Warpwood, Immol'thar, Prince Tortheldrin\n**İsteğe bağlı / çağrılan:** Lord Hel'nurath\n-# Arama: DM West, DMW · 34/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 3,
+  "gorev_alliance": 3
+ },
+ {
+  "id": "zindan-35-shapers-terrace",
+  "kategori": "zindan",
+  "konu": "Lv 60 · Shaper's Terrace",
+  "ek_adi": "35 - Shaper's Terrace (Lv 60).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 60 · Shaper's Terrace\" konusu",
+  "anahtar": [
+   "shapers-terrace",
+   "Shaper",
+   "Shapers",
+   "Un'Goro"
+  ],
+  "ozet": "## Shaper's Terrace\n**Önerilen seviye:** 60 · **Bölge:** Un'Goro Crater\n**Bosslar (11):** Ravasaur Hunters, Direhorn Matriarch, King Op, Thunderhoof, Venomridge, Cinder, Bolt, Snowtalon, Titanosaur, Vitrix, Nanaya\n**Ayrıca:** Ravasaur Hunters = Tor'Rel + Izha'Rel\n-# Arama: Shaper, Shapers, Un'Goro · 35/40 · Totik Channel zindan rehberi"
+ },
+ {
+  "id": "zindan-36-blackrock-spire-upper",
+  "kategori": "zindan",
+  "konu": "Lv 60 · Upper Blackrock Spire (UBRS)",
+  "ek_adi": "36 - Upper Blackrock Spire (Lv 60).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 60 · Upper Blackrock Spire (UBRS)\" konusu",
+  "anahtar": [
+   "blackrock-spire-upper",
+   "UBRS"
+  ],
+  "ozet": "## Upper Blackrock Spire (UBRS)\n**Önerilen seviye:** 60 · **Bölge:** Burning Steppes\n**Bosslar (4):** Pyroguard Emberseer, Warchief Rend Blackhand, The Beast, General Drakkisath\n**Ayrıca:** Gyth (Rend ile), Solakar Flamewreath (kuluçka), Goraluk Anvilcrack\n**İsteğe bağlı / çağrılan:** Lord Valthalak\n**Nadir:** Jed Runewatcher\n-# Arama: UBRS · 36/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 5,
+  "gorev_alliance": 4
+ },
+ {
+  "id": "zindan-37-dire-maul-north",
+  "kategori": "zindan",
+  "konu": "Lv 60 · Dire Maul (DM) · Kuzey",
+  "ek_adi": "37 - Dire Maul North (Lv 60).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 60 · Dire Maul (DM) · Kuzey\" konusu",
+  "anahtar": [
+   "dire-maul-north",
+   "DM North",
+   "DMN",
+   "Tribute"
+  ],
+  "ozet": "## Dire Maul (DM) · Kuzey\n**Önerilen seviye:** 60 · **Bölge:** Feralas\n**Bosslar (7):** Guard Mol'dar, Stomper Kreeg, Guard Fengus, Guard Slip'kik, Captain Kromcrush, Cho'Rush the Observer, King Gordok\n**Ayrıca:** Tribute run: muhafızları öldürmeden King Gordok\n-# Arama: DM North, DMN, Tribute · 37/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 4,
+  "gorev_alliance": 4
+ },
+ {
+  "id": "zindan-38-stratholme-living",
+  "kategori": "zindan",
+  "konu": "Lv 60 · Stratholme (Strat) · Canlı (Scarlet)",
+  "ek_adi": "38 - Stratholme Living (Lv 60).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 60 · Stratholme (Strat) · Canlı (Scarlet)\" konusu",
+  "anahtar": [
+   "stratholme-living",
+   "Strat",
+   "Strat Live"
+  ],
+  "ozet": "## Stratholme (Strat) · Canlı (Scarlet)\n**Önerilen seviye:** 60 · **Bölge:** Eastern Plaguelands\n**Bosslar (6):** The Unforgiven, Timmy the Cruel, Malor the Zealous, Cannon Master Willey, Archivist Galford, Balnazzar\n**Ayrıca:** Postmaster Malown (posta kutuları)\n**İsteğe bağlı / çağrılan:** Ezra Grimm, Crimson Hammersmith, Jarien ve Sothos\n**Nadir:** Hearthsinger Forresten, Skul\n-# Arama: Strat, Strat Live · 38/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 6,
+  "gorev_alliance": 6
+ },
+ {
+  "id": "zindan-39-stratholme-undead",
+  "kategori": "zindan",
+  "konu": "Lv 60 · Stratholme (Strat) · Ölü (Baron)",
+  "ek_adi": "39 - Stratholme Undead (Lv 60).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 60 · Stratholme (Strat) · Ölü (Baron)\" konusu",
+  "anahtar": [
+   "stratholme-undead",
+   "Strat",
+   "Strat UD",
+   "Baron"
+  ],
+  "ozet": "## Stratholme (Strat) · Ölü (Baron)\n**Önerilen seviye:** 60 · **Bölge:** Eastern Plaguelands\n**Bosslar (5):** Nerub'enkan, Baroness Anastari, Maleki the Pallid, Magistrate Barthilas, Baron Rivendare\n**Ayrıca:** Ramstein the Gorger (Baron'dan önce)\n**İsteğe bağlı / çağrılan:** Black Guard Swordsmith\n**Nadir:** Stonespine\n-# Arama: Strat, Strat UD, Baron · 39/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 7,
+  "gorev_alliance": 6
+ },
+ {
+  "id": "zindan-40-scholomance",
+  "kategori": "zindan",
+  "konu": "Lv 60 · Scholomance (Scholo)",
+  "ek_adi": "40 - Scholomance (Lv 60).png",
+  "nerede": "Zindan rehberleri forumu → \"Lv 60 · Scholomance (Scholo)\" konusu",
+  "anahtar": [
+   "scholomance",
+   "Scholo"
+  ],
+  "ozet": "## Scholomance (Scholo)\n**Önerilen seviye:** 60 · **Bölge:** Western Plaguelands\n**Bosslar (13):** Kirtonos, Jandice Barov, Rattlegore, Vectus, Marduk Blackpool, Ras Frostwhisperer, Lady Illucia Barov, Lord Alexei Barov, The Ravenian, Lorekeeper Polkelt, Doctor Theolen Krastinov, Instructor Malicia, Darkmaster Gandling\n**İsteğe bağlı / çağrılan:** Kormok\n-# Arama: Scholo · 40/40 · Totik Channel zindan rehberi",
+  "gorev_horde": 8,
+  "gorev_alliance": 8
+ },
+ {
+  "id": "aid-1-150",
+  "kategori": "meslek",
+  "konu": "First Aid · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "aid-1-150.png",
+  "nerede": "Meslek rehberleri forumu → First Aid konusu",
+  "anahtar": [
+   "first aid",
+   "ilk yardım, bandaj"
+  ],
+  "meslek": "First Aid"
+ },
+ {
+  "id": "aid-150-300",
+  "kategori": "meslek",
+  "konu": "First Aid · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "aid-150-300.png",
+  "nerede": "Meslek rehberleri forumu → First Aid konusu",
+  "anahtar": [
+   "first aid",
+   "ilk yardım, bandaj"
+  ],
+  "meslek": "First Aid"
+ },
+ {
+  "id": "aid-genel",
+  "kategori": "meslek",
+  "konu": "First Aid · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "ek_adi": "aid-genel.png",
+  "nerede": "Meslek rehberleri forumu → First Aid konusu",
+  "anahtar": [
+   "first aid",
+   "ilk yardım, bandaj"
+  ],
+  "meslek": "First Aid"
+ },
+ {
+  "id": "aid-tarifler",
+  "kategori": "meslek",
+  "konu": "First Aid · Önemli tarifler",
+  "ek_adi": "aid-tarifler.png",
+  "nerede": "Meslek rehberleri forumu → First Aid konusu",
+  "anahtar": [
+   "first aid",
+   "ilk yardım, bandaj"
+  ],
+  "meslek": "First Aid"
+ },
+ {
+  "id": "alch-1-150",
+  "kategori": "meslek",
+  "konu": "Alchemy · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "alch-1-150.png",
+  "nerede": "Meslek rehberleri forumu → Alchemy konusu",
+  "anahtar": [
+   "alchemy",
+   "simya, iksir, flask"
+  ],
+  "meslek": "Alchemy"
+ },
+ {
+  "id": "alch-150-300",
+  "kategori": "meslek",
+  "konu": "Alchemy · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "alch-150-300.png",
+  "nerede": "Meslek rehberleri forumu → Alchemy konusu",
+  "anahtar": [
+   "alchemy",
+   "simya, iksir, flask"
+  ],
+  "meslek": "Alchemy"
+ },
+ {
+  "id": "alch-genel",
+  "kategori": "meslek",
+  "konu": "Alchemy · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "ek_adi": "alch-genel.png",
+  "nerede": "Meslek rehberleri forumu → Alchemy konusu",
+  "anahtar": [
+   "alchemy",
+   "simya, iksir, flask"
+  ],
+  "meslek": "Alchemy"
+ },
+ {
+  "id": "bs-1-150",
+  "kategori": "meslek",
+  "konu": "Blacksmithing · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "bs-1-150.png",
+  "nerede": "Meslek rehberleri forumu → Blacksmithing konusu",
+  "anahtar": [
+   "blacksmithing",
+   "demircilik, silah, zırh"
+  ],
+  "meslek": "Blacksmithing"
+ },
+ {
+  "id": "bs-150-300",
+  "kategori": "meslek",
+  "konu": "Blacksmithing · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "bs-150-300.png",
+  "nerede": "Meslek rehberleri forumu → Blacksmithing konusu",
+  "anahtar": [
+   "blacksmithing",
+   "demircilik, silah, zırh"
+  ],
+  "meslek": "Blacksmithing"
+ },
+ {
+  "id": "bs-genel",
+  "kategori": "meslek",
+  "konu": "Blacksmithing · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "ek_adi": "bs-genel.png",
+  "nerede": "Meslek rehberleri forumu → Blacksmithing konusu",
+  "anahtar": [
+   "blacksmithing",
+   "demircilik, silah, zırh"
+  ],
+  "meslek": "Blacksmithing"
+ },
+ {
+  "id": "bs-tarifler",
+  "kategori": "meslek",
+  "konu": "Blacksmithing · Önemli tarifler",
+  "ek_adi": "bs-tarifler.png",
+  "nerede": "Meslek rehberleri forumu → Blacksmithing konusu",
+  "anahtar": [
+   "blacksmithing",
+   "demircilik, silah, zırh"
+  ],
+  "meslek": "Blacksmithing"
+ },
+ {
+  "id": "cook-1-150",
+  "kategori": "meslek",
+  "konu": "Cooking · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "cook-1-150.png",
+  "nerede": "Meslek rehberleri forumu → Cooking konusu",
+  "anahtar": [
+   "cooking",
+   "yemek, aşçılık, kamp"
+  ],
+  "meslek": "Cooking"
+ },
+ {
+  "id": "cook-150-300",
+  "kategori": "meslek",
+  "konu": "Cooking · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "cook-150-300.png",
+  "nerede": "Meslek rehberleri forumu → Cooking konusu",
+  "anahtar": [
+   "cooking",
+   "yemek, aşçılık, kamp"
+  ],
+  "meslek": "Cooking"
+ },
+ {
+  "id": "cook-genel",
+  "kategori": "meslek",
+  "konu": "Cooking · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "ek_adi": "cook-genel.png",
+  "nerede": "Meslek rehberleri forumu → Cooking konusu",
+  "anahtar": [
+   "cooking",
+   "yemek, aşçılık, kamp"
+  ],
+  "meslek": "Cooking"
+ },
+ {
+  "id": "cook-kamp",
+  "kategori": "meslek",
+  "konu": "Cooking · Kamp objeleri ve buffları",
+  "ek_adi": "cook-kamp.png",
+  "nerede": "Meslek rehberleri forumu → Cooking konusu",
+  "anahtar": [
+   "cooking",
+   "yemek, aşçılık, kamp"
+  ],
+  "meslek": "Cooking"
+ },
+ {
+  "id": "cook-yemek",
+  "kategori": "meslek",
+  "konu": "Cooking · Yemekler ve buffları",
+  "ek_adi": "cook-yemek.png",
+  "nerede": "Meslek rehberleri forumu → Cooking konusu",
+  "anahtar": [
+   "cooking",
+   "yemek, aşçılık, kamp"
+  ],
+  "meslek": "Cooking"
+ },
+ {
+  "id": "ench-1-150",
+  "kategori": "meslek",
+  "konu": "Enchanting · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "ench-1-150.png",
+  "nerede": "Meslek rehberleri forumu → Enchanting konusu",
+  "anahtar": [
+   "enchanting",
+   "büyü, enchant"
+  ],
+  "meslek": "Enchanting"
+ },
+ {
+  "id": "ench-150-300",
+  "kategori": "meslek",
+  "konu": "Enchanting · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "ench-150-300.png",
+  "nerede": "Meslek rehberleri forumu → Enchanting konusu",
+  "anahtar": [
+   "enchanting",
+   "büyü, enchant"
+  ],
+  "meslek": "Enchanting"
+ },
+ {
+  "id": "ench-genel",
+  "kategori": "meslek",
+  "konu": "Enchanting · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "ek_adi": "ench-genel.png",
+  "nerede": "Meslek rehberleri forumu → Enchanting konusu",
+  "anahtar": [
+   "enchanting",
+   "büyü, enchant"
+  ],
+  "meslek": "Enchanting"
+ },
+ {
+  "id": "ench-tarifler",
+  "kategori": "meslek",
+  "konu": "Enchanting · Önemli tarifler",
+  "ek_adi": "ench-tarifler.png",
+  "nerede": "Meslek rehberleri forumu → Enchanting konusu",
+  "anahtar": [
+   "enchanting",
+   "büyü, enchant"
+  ],
+  "meslek": "Enchanting"
+ },
+ {
+  "id": "eng-1-150",
+  "kategori": "meslek",
+  "konu": "Engineering · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "eng-1-150.png",
+  "nerede": "Meslek rehberleri forumu → Engineering konusu",
+  "anahtar": [
+   "engineering",
+   "mühendislik"
+  ],
+  "meslek": "Engineering"
+ },
+ {
+  "id": "eng-150-300",
+  "kategori": "meslek",
+  "konu": "Engineering · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "eng-150-300.png",
+  "nerede": "Meslek rehberleri forumu → Engineering konusu",
+  "anahtar": [
+   "engineering",
+   "mühendislik"
+  ],
+  "meslek": "Engineering"
+ },
+ {
+  "id": "eng-genel",
+  "kategori": "meslek",
+  "konu": "Engineering · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "ek_adi": "eng-genel.png",
+  "nerede": "Meslek rehberleri forumu → Engineering konusu",
+  "anahtar": [
+   "engineering",
+   "mühendislik"
+  ],
+  "meslek": "Engineering"
+ },
+ {
+  "id": "fish-1-75",
+  "kategori": "meslek",
+  "konu": "Fishing · Skill 1–75 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "fish-1-75.png",
+  "nerede": "Meslek rehberleri forumu → Fishing konusu",
+  "anahtar": [
+   "fishing",
+   "balıkçılık, balık tutma"
+  ],
+  "meslek": "Fishing"
+ },
+ {
+  "id": "fish-225-300",
+  "kategori": "meslek",
+  "konu": "Fishing · Skill 225–300 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "fish-225-300.png",
+  "nerede": "Meslek rehberleri forumu → Fishing konusu",
+  "anahtar": [
+   "fishing",
+   "balıkçılık, balık tutma"
+  ],
+  "meslek": "Fishing"
+ },
+ {
+  "id": "fish-75-225",
+  "kategori": "meslek",
+  "konu": "Fishing · Skill 75–225 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "fish-75-225.png",
+  "nerede": "Meslek rehberleri forumu → Fishing konusu",
+  "anahtar": [
+   "fishing",
+   "balıkçılık, balık tutma"
+  ],
+  "meslek": "Fishing"
+ },
+ {
+  "id": "fish-genel",
+  "kategori": "meslek",
+  "konu": "Fishing · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "ek_adi": "fish-genel.png",
+  "nerede": "Meslek rehberleri forumu → Fishing konusu",
+  "anahtar": [
+   "fishing",
+   "balıkçılık, balık tutma"
+  ],
+  "meslek": "Fishing"
+ },
+ {
+  "id": "herb-1-70-alliance",
+  "kategori": "meslek",
+  "konu": "Herbalism · Skill 1–70 kasma rotası: nerede, ne yapılır (Alliance)",
+  "ek_adi": "herb-1-70-alliance.png",
+  "nerede": "Meslek rehberleri forumu → Herbalism konusu",
+  "anahtar": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "meslek": "Herbalism"
+ },
+ {
+  "id": "herb-1-70-horde",
+  "kategori": "meslek",
+  "konu": "Herbalism · Skill 1–70 kasma rotası: nerede, ne yapılır (Horde)",
+  "ek_adi": "herb-1-70-horde.png",
+  "nerede": "Meslek rehberleri forumu → Herbalism konusu",
+  "anahtar": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "meslek": "Herbalism"
+ },
+ {
+  "id": "herb-115-170",
+  "kategori": "meslek",
+  "konu": "Herbalism · Skill 115–170 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "herb-115-170.png",
+  "nerede": "Meslek rehberleri forumu → Herbalism konusu",
+  "anahtar": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "meslek": "Herbalism"
+ },
+ {
+  "id": "herb-170-205",
+  "kategori": "meslek",
+  "konu": "Herbalism · Skill 170–205 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "herb-170-205.png",
+  "nerede": "Meslek rehberleri forumu → Herbalism konusu",
+  "anahtar": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "meslek": "Herbalism"
+ },
+ {
+  "id": "herb-205-230",
+  "kategori": "meslek",
+  "konu": "Herbalism · Skill 205–230 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "herb-205-230.png",
+  "nerede": "Meslek rehberleri forumu → Herbalism konusu",
+  "anahtar": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "meslek": "Herbalism"
+ },
+ {
+  "id": "herb-230-300",
+  "kategori": "meslek",
+  "konu": "Herbalism · Skill 230–300 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "herb-230-300.png",
+  "nerede": "Meslek rehberleri forumu → Herbalism konusu",
+  "anahtar": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "meslek": "Herbalism"
+ },
+ {
+  "id": "herb-70-115",
+  "kategori": "meslek",
+  "konu": "Herbalism · Skill 70–115 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "herb-70-115.png",
+  "nerede": "Meslek rehberleri forumu → Herbalism konusu",
+  "anahtar": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "meslek": "Herbalism"
+ },
+ {
+  "id": "herb-genel",
+  "kategori": "meslek",
+  "konu": "Herbalism · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "ek_adi": "herb-genel.png",
+  "nerede": "Meslek rehberleri forumu → Herbalism konusu",
+  "anahtar": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "meslek": "Herbalism"
+ },
+ {
+  "id": "lw-1-150",
+  "kategori": "meslek",
+  "konu": "Leatherworking · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "lw-1-150.png",
+  "nerede": "Meslek rehberleri forumu → Leatherworking konusu",
+  "anahtar": [
+   "leatherworking",
+   "deri işleme"
+  ],
+  "meslek": "Leatherworking"
+ },
+ {
+  "id": "lw-150-225",
+  "kategori": "meslek",
+  "konu": "Leatherworking · Skill 150–225 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "lw-150-225.png",
+  "nerede": "Meslek rehberleri forumu → Leatherworking konusu",
+  "anahtar": [
+   "leatherworking",
+   "deri işleme"
+  ],
+  "meslek": "Leatherworking"
+ },
+ {
+  "id": "lw-225-300",
+  "kategori": "meslek",
+  "konu": "Leatherworking · Skill 225–300 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "lw-225-300.png",
+  "nerede": "Meslek rehberleri forumu → Leatherworking konusu",
+  "anahtar": [
+   "leatherworking",
+   "deri işleme"
+  ],
+  "meslek": "Leatherworking"
+ },
+ {
+  "id": "lw-genel",
+  "kategori": "meslek",
+  "konu": "Leatherworking · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "ek_adi": "lw-genel.png",
+  "nerede": "Meslek rehberleri forumu → Leatherworking konusu",
+  "anahtar": [
+   "leatherworking",
+   "deri işleme"
+  ],
+  "meslek": "Leatherworking"
+ },
+ {
+  "id": "mining-1-65-alliance",
+  "kategori": "meslek",
+  "konu": "Mining · Skill 1–65 kasma rotası: nerede, ne yapılır (Alliance)",
+  "ek_adi": "mining-1-65-alliance.png",
+  "nerede": "Meslek rehberleri forumu → Mining konusu",
+  "anahtar": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "meslek": "Mining"
+ },
+ {
+  "id": "mining-1-65-horde",
+  "kategori": "meslek",
+  "konu": "Mining · Skill 1–65 kasma rotası: nerede, ne yapılır (Horde)",
+  "ek_adi": "mining-1-65-horde.png",
+  "nerede": "Meslek rehberleri forumu → Mining konusu",
+  "anahtar": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "meslek": "Mining"
+ },
+ {
+  "id": "mining-125-175",
+  "kategori": "meslek",
+  "konu": "Mining · Skill 125–175 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "mining-125-175.png",
+  "nerede": "Meslek rehberleri forumu → Mining konusu",
+  "anahtar": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "meslek": "Mining"
+ },
+ {
+  "id": "mining-175-245",
+  "kategori": "meslek",
+  "konu": "Mining · Skill 175–245 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "mining-175-245.png",
+  "nerede": "Meslek rehberleri forumu → Mining konusu",
+  "anahtar": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "meslek": "Mining"
+ },
+ {
+  "id": "mining-245-300",
+  "kategori": "meslek",
+  "konu": "Mining · Skill 245–300 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "mining-245-300.png",
+  "nerede": "Meslek rehberleri forumu → Mining konusu",
+  "anahtar": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "meslek": "Mining"
+ },
+ {
+  "id": "mining-65-125-alliance",
+  "kategori": "meslek",
+  "konu": "Mining · Skill 65–125 kasma rotası: nerede, ne yapılır (Alliance)",
+  "ek_adi": "mining-65-125-alliance.png",
+  "nerede": "Meslek rehberleri forumu → Mining konusu",
+  "anahtar": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "meslek": "Mining"
+ },
+ {
+  "id": "mining-65-125-horde",
+  "kategori": "meslek",
+  "konu": "Mining · Skill 65–125 kasma rotası: nerede, ne yapılır (Horde)",
+  "ek_adi": "mining-65-125-horde.png",
+  "nerede": "Meslek rehberleri forumu → Mining konusu",
+  "anahtar": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "meslek": "Mining"
+ },
+ {
+  "id": "mining-genel",
+  "kategori": "meslek",
+  "konu": "Mining · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "ek_adi": "mining-genel.png",
+  "nerede": "Meslek rehberleri forumu → Mining konusu",
+  "anahtar": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "meslek": "Mining"
+ },
+ {
+  "id": "skin-1-75-alliance",
+  "kategori": "meslek",
+  "konu": "Skinning · Skill 1–75 kasma rotası: nerede, ne yapılır (Alliance)",
+  "ek_adi": "skin-1-75-alliance.png",
+  "nerede": "Meslek rehberleri forumu → Skinning konusu",
+  "anahtar": [
+   "skinning",
+   "yüzme, deri toplama"
+  ],
+  "meslek": "Skinning"
+ },
+ {
+  "id": "skin-1-75-horde",
+  "kategori": "meslek",
+  "konu": "Skinning · Skill 1–75 kasma rotası: nerede, ne yapılır (Horde)",
+  "ek_adi": "skin-1-75-horde.png",
+  "nerede": "Meslek rehberleri forumu → Skinning konusu",
+  "anahtar": [
+   "skinning",
+   "yüzme, deri toplama"
+  ],
+  "meslek": "Skinning"
+ },
+ {
+  "id": "skin-150-225",
+  "kategori": "meslek",
+  "konu": "Skinning · Skill 150–225 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "skin-150-225.png",
+  "nerede": "Meslek rehberleri forumu → Skinning konusu",
+  "anahtar": [
+   "skinning",
+   "yüzme, deri toplama"
+  ],
+  "meslek": "Skinning"
+ },
+ {
+  "id": "skin-225-300",
+  "kategori": "meslek",
+  "konu": "Skinning · Skill 225–300 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "skin-225-300.png",
+  "nerede": "Meslek rehberleri forumu → Skinning konusu",
+  "anahtar": [
+   "skinning",
+   "yüzme, deri toplama"
+  ],
+  "meslek": "Skinning"
+ },
+ {
+  "id": "skin-75-150",
+  "kategori": "meslek",
+  "konu": "Skinning · Skill 75–150 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "skin-75-150.png",
+  "nerede": "Meslek rehberleri forumu → Skinning konusu",
+  "anahtar": [
+   "skinning",
+   "yüzme, deri toplama"
+  ],
+  "meslek": "Skinning"
+ },
+ {
+  "id": "skin-genel",
+  "kategori": "meslek",
+  "konu": "Skinning · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "ek_adi": "skin-genel.png",
+  "nerede": "Meslek rehberleri forumu → Skinning konusu",
+  "anahtar": [
+   "skinning",
+   "yüzme, deri toplama"
+  ],
+  "meslek": "Skinning"
+ },
+ {
+  "id": "tail-1-150",
+  "kategori": "meslek",
+  "konu": "Tailoring · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "tail-1-150.png",
+  "nerede": "Meslek rehberleri forumu → Tailoring konusu",
+  "anahtar": [
+   "tailoring",
+   "terzilik, kumaş, çanta"
+  ],
+  "meslek": "Tailoring"
+ },
+ {
+  "id": "tail-150-300",
+  "kategori": "meslek",
+  "konu": "Tailoring · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "ek_adi": "tail-150-300.png",
+  "nerede": "Meslek rehberleri forumu → Tailoring konusu",
+  "anahtar": [
+   "tailoring",
+   "terzilik, kumaş, çanta"
+  ],
+  "meslek": "Tailoring"
+ },
+ {
+  "id": "tail-genel",
+  "kategori": "meslek",
+  "konu": "Tailoring · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "ek_adi": "tail-genel.png",
+  "nerede": "Meslek rehberleri forumu → Tailoring konusu",
+  "anahtar": [
+   "tailoring",
+   "terzilik, kumaş, çanta"
+  ],
+  "meslek": "Tailoring"
+ }
+]

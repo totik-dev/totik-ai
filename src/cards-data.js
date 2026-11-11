@@ -1,0 +1,4602 @@
+// AUTO-GENERATED — scripts/build-cards.mjs (npm run cards). Elle düzenleme: kartlar/metin/*.md ve kartlar/sinif-bilgi.json dosyalarını düzelt.
+export const CARDS = [
+ {
+  "id": "druid-01-irk-secimi",
+  "category": "class",
+  "title": "Druid · Irk Secimi",
+  "file": "01-Irk-Secimi.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "irk secimi"
+  ],
+  "classKey": "druid",
+  "kind": "race",
+  "text": "# Druid · Irk Seçimi\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: DRUID — IRKLAR\n\n## Alliance\n\n### Night Elf\n\nElune's Light 15 saniye kritik şansını %10 artırır. Quickness dodge şansını biraz artırır, ayı formunda tankken işe yarar. Shadowmeld ile kısa süre gizlenebilirsin.\n\n### High Order Skyborne\n\nWind Blessed saldırı ve büyü hızını her zaman %2 artırır. Read Ley Line 15 saniye mana yenilenmesini %50 artırır; Innervate açıkken kullanılamaz. Skyborne ayrıca satın alınır.\n\n## Horde\n\n### Tauren\n\nEndurance toplam canını %5 artırır; ayı formunda tankken iyi gelir. War Stomp yakındaki düşmanları 2 saniye sersemletir. Plainsrunning koştukça seni hızlandırır.\n\n### Windshaper Skyborne\n\nWind Blessed saldırı ve büyü hızını her zaman %2 artırır; bütün rollerde işe yarar. Skysight 15 saniye koşu hızını %15 artırır. Skyborne ayrıca satın alınır."
+ },
+ {
+  "id": "druid-02-yetenekler-1",
+  "category": "class",
+  "title": "Druid · Yetenekler 1",
+  "file": "02-Yetenekler-1.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "yetenekler 1"
+  ],
+  "classKey": "druid",
+  "kind": "abilities",
+  "part": 1,
+  "text": "# Druid · Formlar, Ayı ve Kedi\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: DRUID — YETENEKLER 1/2\n\n## Formlar\n\nHer an tek form açıktır. Hangi yetenekleri kullanabileceğini form belirler.\n\n### Bear Form — Seviye 10\n\nRozetler: Sınıf görevi, Forever\n\nTank formu. Zırhın ve canın artar, Rage kullanırsın. 40. seviyede Dire Bear Form'a yükselir. Forever'da ürettiğin tehdit %115 artar.\n\nYalnız bu formda: Growl, Maul, Demoralizing Roar, Enrage, Bash, Swipe, Challenging Roar, Frenzied Regeneration\n\n### Aquatic Form — Seviye 16\n\nRozetler: Sınıf görevi\n\nSuda %50 daha hızlı yüzersin ve su altında nefes alırsın.\n\n### Cat Form — Seviye 20\n\nRozetler: Sınıf görevi\n\nHasar formu. Energy ve combo puanıyla vurursun. Attack Power'ın 120 artı Agility'n kadar artar.\n\nYalnız bu formda: Claw, Prowl, Rip, Shred, Ferocious Bite, Rake, Dash, Cower, Ravage, Track Humanoids, Pounce\n\n### Travel Form — Seviye 30\n\nAçık alanda koşu hızın %40 artar. Binek yokken yolculuk formun.\n\nDipnot: Forma girmek seni Polymorph ve yavaşlatmalardan kurtarır. Formdayken Faerie Fire dışında büyü atamazsın. Forever'da formdayken Disarm seni tutmaz.\n\n## Ayı Yetenekleri\n\nRage harcar, düşmanı üstünde tutar. Yalnız Bear Form'da.\n\n| Seviye | Yetenek | Rank | Rozetler | Açıklama |\n|---|---|---|---|---|\n| 10 | Growl | — | Tek hedef, Bear | Düşmanı sana saldırmaya zorlar. Düşman zaten sana vuruyorsa işe yaramaz. |\n| 10 | Maul | 7 rank | Bear | Sıradaki vuruşuna 128 hasar ekler. Rage'in biriktiğinde bas. |\n| 10 | Demoralizing Roar | 5 rank | Çevren · 30 sn, Bear | Çevrendeki düşmanların yakın dövüş Attack Power'ı 204 azalır, sana daha az vururlar. |\n| 12 | Enrage | — | Sen · 10 sn, Bear | Hemen 10, sonraki 10 saniyede 20 Rage daha kazanırsın. Bu sürede temel zırhın azalır. |\n| 14 | Bash | 3 rank | Düşman · 4 sn, Bear | Düşmanı 4 saniye sersemletir, büyüsünü de keser. Dakikada bir kullanılır. |\n| 16 | Swipe | 5 rank | 3 hedef, Bear | Yakındaki 3 düşmana birden vurur. Forever'da Attack Power'ınla da artar. |\n| 28 | Challenging Roar | — | Çevren · 6 sn, Bear | Çevrendeki bütün düşmanlar 6 saniye sana saldırmak zorunda kalır. 10 dakikada bir. |\n| 36 | Frenzied Regeneration | — | Sen · 10 sn, Bear | 10 saniye boyunca saniyede 10 Rage'i cana çevirir. Her Rage canının %1'ini doldurur. |\n\n## Kedi Yetenekleri\n\nEnergy harcar. Combo puanı biriktir, bitiriş hareketiyle harca.\n\n| Seviye | Yetenek | Rank | Rozetler | Açıklama |\n|---|---|---|---|---|\n| 20 | Claw | 5 rank | Cat | Silah hasarının %140'ı artı 115 vurur, 1 combo puanı verir. Önden saldırırken kullan. |\n| 20 | Prowl | 3 rank | Cat | Gizlenirsin ama koşu hızın %30 düşer. Ravage ve Pounce ile saldırıyı buradan açarsın. |\n| 20 | Rip | 6 rank | Düşman · 12 sn, Cat | Bitiriş hareketi. 12 saniye kanama hasarı verir, combo puanı arttıkça güçlenir. |\n| 20 | Shred | 5 rank | Cat, Forever | Düşmanın arkasından silah hasarının %200'ü artı 80 vurur, 1 combo puanı verir. Forever'da %155'ten yükseldi. |\n| 24 | Ferocious Bite | 5 rank | Cat, Forever | Bitiriş hareketi. Anında büyük hasar vurur, kalan Energy'n ek hasara dönüşür. Forever'da 24. seviyede gelir. |\n| 24 | Rake | 4 rank | Düşman · 9 sn, Cat | Hasar verir, 9 saniye kanatır ve 1 combo puanı verir. |\n| 26 | Dash | 2 rank | Sen · 15 sn, Cat | 15 saniye koşu hızın %60 artar. Gizliliği bozmaz. |\n| 28 | Cower | 3 rank | Cat | Hasar vermeden düşmandaki tehdidini çok azaltır. Düşman sana dönecekken kullan. |\n| 32 | Ravage | 4 rank | Cat | Gizliyken ve düşmanın arkasındayken silah hasarının %435'i artı 98 vurur. |\n| 32 | Track Humanoids | — | Cat | Yakındaki insansı yaratıkları mini haritada gösterir. |\n| 36 | Pounce | 3 rank | Düşman · 2 sn, Cat | Gizliyken arkadan atlarsın. Düşmanı 2 saniye sersemletir, 18 saniye kanatır. |"
+ },
+ {
+  "id": "druid-03-yetenekler-2",
+  "category": "class",
+  "title": "Druid · Yetenekler 2",
+  "file": "03-Yetenekler-2.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "yetenekler 2"
+  ],
+  "classKey": "druid",
+  "kind": "abilities",
+  "part": 2,
+  "text": "# Druid · Balance, İyileştirme ve Buff'lar\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: DRUID — YETENEKLER 2/2\n\n## Balance Büyüleri\n\nUzaktan Nature ve Arcane hasarı. Form dışında atılır.\n\n| Seviye | Yetenek | Rank | Rozetler | Açıklama |\n|---|---|---|---|---|\n| 1 | Wrath | 8 rank | Forever | Ana Nature büyün, tek hedefe vurur. Forever'da hasarı yaklaşık %50 arttı. |\n| 4 | Moonfire | 10 rank | Düşman · 12 sn | Anında Arcane hasarı vurur, sonra 12 saniye yakmaya devam eder. Koşarken de atılır. |\n| 20 | Starfire | 6 rank | Forever | Yavaş ama güçlü Arcane büyüsü. Forever'da temel hasarı yaklaşık %40 arttı. |\n| 40 | Hurricane | 3 rank | Alan · 10 sn | Kanal büyüsü. Alandaki düşmanlara 10 saniye vurur, saldırılarını %20 yavaşlatır. |\n\n## Kontrol ve Debuff\n\nDüşmanı durdurur, uyutur ya da zayıflatır.\n\n| Seviye | Yetenek | Rank | Rozetler | Açıklama |\n|---|---|---|---|---|\n| 8 | Entangling Roots | 6 rank | Düşman · 27 sn | Düşmanı 27 saniye yerinde tutar ve Nature hasarı verir. Hasar alınca kurtulabilir. |\n| 10 | Nature's Grasp | 6 rank | Sen · 45 sn | Sana yakından vuran ilk düşman yerine kök salar. Formdayken de atılır, dakikada bir. |\n| 18 | Faerie Fire | 4 rank | Düşman · 40 sn, Forever | Düşmanın zırhı 505 azalır, gizlenemez. Forever'da formdayken bedava atılır, Bear Form'da tehdit de üretir. |\n| 18 | Hibernate | 3 rank | Düşman · 40 sn | Beast ya da Dragonkin düşmanı 40 saniye uyutur. Hasar alınca uyanır. Aynı anda tek hedef. |\n| 22 | Soothe Animal | 3 rank | Beast · 15 sn | Beast düşmanın seni fark etme mesafesi 10 metre kısalır. Yanından sessizce geçmek için. |\n\n## İyileştirme ve Diriltme\n\nCan doldurur ya da ölen arkadaşını kaldırır. Form dışında atılır.\n\n| Seviye | Yetenek | Rank | Rozetler | Açıklama |\n|---|---|---|---|---|\n| 1 | Healing Touch | 10 rank | — | Yavaş ama büyük iyileştirme, 1947 can doldurur. Zor anlar için. |\n| 4 | Rejuvenation | 10 rank | Hedef · 12 sn | 12 saniye boyunca toplam 644 can doldurur. Hasar almadan önce at. |\n| 12 | Regrowth | 9 rank | Hedef · 21 sn | Hemen 1021 can, sonraki 21 saniyede 994 can daha doldurur. |\n| 12 | Revive | 5 rank | Savaş dışında, Forever'da yeni | Ölmüş bir oyuncuyu 750 can ve 1000 Mana ile diriltir. |\n| 20 | Rebirth | 5 rank | Savaş içinde | Ölmüş bir oyuncuyu savaşın ortasında 2200 can ve 2800 Mana ile diriltir. Tohum harcar, 30 dakikada bir. |\n| 30 | Tranquility | 4 rank | Grup · 10 sn | Kanal büyüsü. 20 metredeki grup üyelerine 10 saniye, 2 saniyede bir 285 can doldurur. 5 dakikada bir. |\n\n## Buff'lar\n\nSeni ya da grubunu güçlendirir.\n\n| Seviye | Yetenek | Rank | Rozetler | Açıklama |\n|---|---|---|---|---|\n| 1 | Mark of the Wild | 7 rank | Hedef · 1 saat | Hedefin zırhı 385, bütün statları 16, bütün dirençleri 27 artar. |\n| 6 | Thorns | 6 rank | Hedef · 10 dk | Hedefe yakından vuran her düşman 18 Nature hasarı alır, Spell Power'ınla biraz artar. Tanka at. |\n| 20 | Omen of Clarity | — | Sen | Büyü ve saldırıların şansla Clearcasting verir: sonraki hasar ya da heal yeteneğin bedava olur. |\n| 40 | Innervate | — | Hedef · 20 sn | Hedefin Mana yenilenmesi %400 artar, büyü yaparken de tam sürer. 6 dakikada bir. |\n| 44 | Barkskin | — | Sen · 15 sn | Aldığın fiziksel hasar %20 azalır, vurulunca büyün yavaşlamaz. Dakikada bir kullanılır. |\n| 50 | Gift of the Wild | 2 rank | Kitapla öğrenilir | Mark of the Wild'ın aynısını bütün grup ve raide birden verir. Wild Thornroot harcar. |\n\n## Yardımcı\n\nIşınlanma ve temizleme.\n\n| Seviye | Yetenek | Rank | Rozetler | Açıklama |\n|---|---|---|---|---|\n| 10 | Teleport: Moonglade | — | — | Moonglade'e ışınlanırsın. Form görevleri ve Druid eğitmeni orada. |\n| 14 | Cure Poison | — | Sınıf görevi | Dost hedefteki 1 zehir etkisini temizler. |\n| 24 | Remove Curse | — | — | Dost hedefteki 1 Curse ya da Bane etkisini kaldırır. |\n| 26 | Abolish Poison | — | Hedef · 8 sn | 8 saniye boyunca 2 saniyede bir zehir temizler. |"
+ },
+ {
+  "id": "druid-04-balance-talentleri",
+  "category": "class",
+  "title": "Druid · Balance Talentleri",
+  "file": "04-Balance-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "balance talentleri"
+  ],
+  "classKey": "druid",
+  "kind": "talents",
+  "spec": "balance",
+  "text": "# Druid · Balance Talent Ağacı\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: DRUID — BALANCE\n\n## Balance (ağaç şeması) — 16 talent\n\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki Talentler listesindeki numaralarla aynıdır. Satır numaraları ağacın solunda yazar (1–7).\n\n| Satır | Talent numaraları (soldan sağa) | Talentler |\n|---|---|---|\n| 1 | 1, 2 | Improved Wrath, Genesis |\n| 2 | 3, 4, 5, 6 | Moonglow, Improved Moonfire, Nature's Majesty, Nature's Reach |\n| 3 | 7, 8 | Improved Entangling Roots, Nature's Splendor |\n| 4 | 9, 10, 11 | Insect Swarm, Vengeance, Improved Starfire |\n| 5 | 12, 13, 14 | Overgrowth, Nature's Grace, Eclipse |\n| 6 | 15 | Moonfury |\n| 7 | 16 | Moonkin Form |\n\nOklar: 4 → 10 (Improved Moonfire → Vengeance), 5 → 8 (Nature's Majesty → Nature's Splendor).\n\nDipnot: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Improved Wrath | 5 rank | — | Wrath'ın döküm süresi 0,5 saniye kısalır, mana bedeli yarıya iner. |\n| 2 | Genesis | 5 rank | — | Zamanla verdiğin hasar ve iyileştirme (DoT ve HoT) %10 artar. |\n| 3 | Moonglow | 3 rank | — | Hasar büyülerin %25 daha az mana harcar. |\n| 4 | Improved Moonfire | 2 rank | — | Moonfire'ın hasarı ve kritik şansı %10 artar. |\n| 5 | Nature's Majesty | 2 rank | — | Büyü ve yakın dövüş kritik şansın %4 artar. |\n| 6 | Nature's Reach | 2 rank | — | Saldırı amaçlı Balance büyülerinin menzili %20, isabet şansın %4 artar. |\n| 7 | Improved Entangling Roots | 3 rank | — | Entangling Roots %75 fazla hasar verir ve %75 daha çok hasara dayanır. |\n| 8 | Nature's Splendor | 1 rank | ← Nature's Majesty | Moonfire ve Rejuvenation 3 saniye, Regrowth 6 saniye, Insect Swarm 2 saniye daha uzun sürer. |\n| 9 | Insect Swarm | 1 rank | — | Hedefe 12 saniye boyunca Nature hasarı verir ve isabet şansını %2 düşürür. |\n| 10 | Vengeance | 5 rank | ← Improved Moonfire | Arcane ve Nature büyülerinin kritik hasar bonusu %100 artar. |\n| 11 | Improved Starfire | 5 rank | — | Starfire'ın döküm süresi 0,5 saniye kısalır, %15 şansla hedefi 3 saniye sersemletir. |\n| 12 | Overgrowth | 2 rank | — | Entangling Roots ile aynı anda 2 hedefi daha köklendirebilirsin. |\n| 13 | Nature's Grace | 1 rank | — | Büyün kritik gelince 3 saniye boyunca büyü hızın %10 artar. |\n| 14 | Eclipse | 3 rank | — | Her Wrath, sonraki 2 Starfire'ı 0,5 saniye hızlandırır. En fazla 4 yük birikir. |\n| 15 | Moonfury | 5 rank | — | Arcane ve Nature hasarın %10 artar. |\n| 16 | Moonkin Form | 1 rank | — | Raid'in kritik şansı %3, eşyalardan gelen zırhın %360 artar. Bu formda iyileştirme büyüsü atamazsın. |"
+ },
+ {
+  "id": "druid-05-feral-kedi-dps-talentleri",
+  "category": "class",
+  "title": "Druid · Feral Kedi DPS Talentleri",
+  "file": "05-Feral-Kedi-DPS-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "feral kedi dps talentleri"
+  ],
+  "classKey": "druid",
+  "kind": "talents",
+  "spec": "feral-kedi",
+  "text": "# Druid · Feral · Kedi DPS Talentleri\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: DRUID — FERAL KEDİ DPS\n\n## Feral Combat (ağaç şeması) — 20 talent\n\n(Ağaçtaki ikonların altında yalnız puan yazar; talent adları aynı karttaki numaralı Talentler listesinin sırasından eşlendi. Liste ağacı satır satır, soldan sağa izler.)\n\n| Satır | Sütun | Talent | Alınan/maks | Durum |\n|---|---|---|---|---|\n| 1 | 2 | Ferocity — 5/5 | 5/5 | tamamlandı |\n| 1 | 3 | Furor — 3/5 | 3/5 | kısmen |\n| 2 | 1 | Feral Swiftness — 2/2 | 2/2 | tamamlandı |\n| 2 | 2 | Feral Instinct — 0/3 | 0/3 | puan yok |\n| 2 | 3 | Brutal Impact — 0/2 | 0/2 | puan yok |\n| 2 | 4 | Thick Hide — 0/3 | 0/3 | puan yok |\n| 3 | 1 | Shredding Attacks — 3/3 | 3/3 | tamamlandı |\n| 3 | 2 | Savage Fury — 2/2 | 2/2 | tamamlandı |\n| 3 | 3 | Feral Charge — 1/1 | 1/1 | tamamlandı |\n| 3 | 4 | Sharpened Claws — 2/2 | 2/2 | tamamlandı |\n| 4 | 1 | Predatory Strikes — 3/3 | 3/3 | tamamlandı |\n| 4 | 2 | Lacerate — 0/1 | 0/1 | puan yok |\n| 4 | 3 | Predatory Discipline — 1/1 | 1/1 | tamamlandı |\n| 4 | 4 | Blood Frenzy — 2/2 | 2/2 | tamamlandı |\n| 5 | 2 | Leader of the Pack — 1/1 | 1/1 | tamamlandı |\n| 5 | 4 | Natural Instinct — 2/2 | 2/2 | tamamlandı |\n| 6 | 1 | Rend and Tear — 5/5 | 5/5 | tamamlandı |\n| 6 | 4 | Natural Reaction — 0/5 | 0/5 | puan yok |\n| 7 | 2 | Primal Bite — 0/1 | 0/1 | puan yok |\n| 7 | 3 | Shifting Power — 1/1 | 1/1 | tamamlandı |\n\nOklar: Savage Fury → Lacerate, Sharpened Claws → Blood Frenzy, Predatory Strikes → Rend and Tear, Leader of the Pack → Primal Bite, Predatory Discipline → Shifting Power.\n\nDipnot: Parlak talentler 60. seviye kedi DPS build'ini gösterir ve Feral'e 33 puan koyar. Kalan 18 puan Restoration'a (Heart of the Wild 5, Naturalist 5) ve Balance'a (Genesis 5, Nature's Majesty 2, Nature's Reach 1) gider.\n\n## Talentler\n\nSütun başlığı: Parlak olanlar bu rolde alınır\n\n| No | Talent | Puan | Ön koşul | Bu rolde | Açıklama |\n|---|---|---|---|---|---|\n| 1 | Ferocity | 5/5 | — | alınır (parlak) | Maul, Primal Bite, Swipe, Claw ve Rake 5 Rage ya da Energy daha ucuza mal olur. |\n| 2 | Furor | 3/5 | — | alınır (parlak) | Bear Form'a geçince 10 Rage kazanırsın. Cat Form'a dönünce Energy'n korunur. |\n| 3 | Feral Swiftness | 2/2 | — | alınır (parlak) | Cat Form'da koşu hızın %30, dodge şansın %4 artar. |\n| 4 | Feral Instinct | 0/3 | — | alınmaz (soluk) | Swipe'ın hasarı %30 artar. Prowl'dayken düşmanlar seni daha zor fark eder. |\n| 5 | Brutal Impact | 0/2 | — | alınmaz (soluk) | Bash ve Pounce 1 saniye daha uzun sersemletir. Bash'in bekleme süresi 30 saniye kısalır. |\n| 6 | Thick Hide | 0/3 | — | alınmaz (soluk) | Formdayken seviyene göre ek temel zırh kazanırsın. |\n| 7 | Shredding Attacks | 3/3 | — | alınır (parlak) | Shred 18 Energy, Lacerate 3 Rage daha ucuza mal olur. |\n| 8 | Savage Fury | 2/2 | — | alınır (parlak) | Claw, Rake, Shred, Maul ve Swipe'ın hasarı %10 artar. |\n| 9 | Feral Charge | 1/1 | — | alınır (parlak) | Ayıyken düşmana atılıp onu 4 saniye köklendirirsin ve büyüsünü kesersin. Kediyken arkasına sıçrarsın. |\n| 10 | Sharpened Claws | 2/2 | — | alınır (parlak) | Ayı ve kedi formunda kritik şansın %6 artar. |\n| 11 | Predatory Strikes | 3/3 | — | alınır (parlak) | Formdayken seviyenin %150'si kadar ek Attack Power kazanırsın. |\n| 12 | Lacerate | 0/1 | ← Savage Fury | alınmaz (soluk) | Hedefte 5 kez yığılabilen bir kanama açar ve çok tehdit üretir. |\n| 13 | Predatory Discipline | 1/1 | — | alınır (parlak) | Ferocious Bite fazla Energy'ni harcamaz, ama yine de ondan ek hasar verir. |\n| 14 | Blood Frenzy | 2/2 | ← Sharpened Claws | alınır (parlak) | Ayıyken kritik vuruş 5 Rage verir. Kediyken combo puanı veren yeteneğin kritiği 1 ek combo puanı verir. |\n| 15 | Leader of the Pack | 1/1 | — | alınır (parlak) | Formdayken 45 metre içindeki raid üyelerinin kritik şansı %3 artar. |\n| 16 | Natural Instinct | 2/2 | — | alınır (parlak) | Yakın dövüş kritik hasar bonusun %20 artar. İyileştirmene Intellect'inin %25'i eklenir. |\n| 17 | Rend and Tear | 5/5 | ← Predatory Strikes | alınır (parlak) | Kanayan hedefe yakın dövüş hasarın %15 artar. |\n| 18 | Natural Reaction | 0/5 | — | alınmaz (soluk) | Dodge şansın %5 artar, her dodge'da 5 Rage kazanırsın. |\n| 19 | Primal Bite | 0/1 | ← Leader of the Pack | alınmaz (soluk) | Anında ısırır, tam silah hasarının üstüne ek hasar verir ve çok yüksek tehdit üretir. |\n| 20 | Shifting Power | 1/1 | ← Predatory Discipline | alınır (parlak) | Cat Form'a geçmek kadar mana harcayıp anında 40 Energy kazanırsın. |"
+ },
+ {
+  "id": "druid-06-feral-ayi-tank-talentleri",
+  "category": "class",
+  "title": "Druid · Feral Ayi Tank Talentleri",
+  "file": "06-Feral-Ayi-Tank-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "feral ayi tank talentleri"
+  ],
+  "classKey": "druid",
+  "kind": "talents",
+  "spec": "feral-ayi",
+  "text": "# Druid · Feral · Ayı Tank Talentleri\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: DRUID — FERAL AYI TANK\n\n## Feral Combat (ağaç şeması) — 20 talent\n\n(Ağaçtaki ikonların altında yalnız puan yazar; talent adları aynı karttaki numaralı Talentler listesinin sırasından eşlendi. Liste ağacı satır satır, soldan sağa izler.)\n\n| Satır | Sütun | Talent | Alınan/maks | Durum |\n|---|---|---|---|---|\n| 1 | 2 | Ferocity — 5/5 | 5/5 | tamamlandı |\n| 1 | 3 | Furor — 0/5 | 0/5 | puan yok |\n| 2 | 1 | Feral Swiftness — 2/2 | 2/2 | tamamlandı |\n| 2 | 2 | Feral Instinct — 3/3 | 3/3 | tamamlandı |\n| 2 | 3 | Brutal Impact — 0/2 | 0/2 | puan yok |\n| 2 | 4 | Thick Hide — 3/3 | 3/3 | tamamlandı |\n| 3 | 1 | Shredding Attacks — 0/3 | 0/3 | puan yok |\n| 3 | 2 | Savage Fury — 2/2 | 2/2 | tamamlandı |\n| 3 | 3 | Feral Charge — 1/1 | 1/1 | tamamlandı |\n| 3 | 4 | Sharpened Claws — 2/2 | 2/2 | tamamlandı |\n| 4 | 1 | Predatory Strikes — 3/3 | 3/3 | tamamlandı |\n| 4 | 2 | Lacerate — 1/1 | 1/1 | tamamlandı |\n| 4 | 3 | Predatory Discipline — 0/1 | 0/1 | puan yok |\n| 4 | 4 | Blood Frenzy — 1/2 | 1/2 | kısmen |\n| 5 | 2 | Leader of the Pack — 1/1 | 1/1 | tamamlandı |\n| 5 | 4 | Natural Instinct — 2/2 | 2/2 | tamamlandı |\n| 6 | 1 | Rend and Tear — 5/5 | 5/5 | tamamlandı |\n| 6 | 4 | Natural Reaction — 0/5 | 0/5 | puan yok |\n| 7 | 2 | Primal Bite — 1/1 | 1/1 | tamamlandı |\n| 7 | 3 | Shifting Power — 0/1 | 0/1 | puan yok |\n\nOklar: Savage Fury → Lacerate, Sharpened Claws → Blood Frenzy, Predatory Strikes → Rend and Tear, Leader of the Pack → Primal Bite, Predatory Discipline → Shifting Power.\n\nDipnot: Parlak talentler 60. seviye ayı tank build'ini gösterir ve Feral'e 32 puan koyar. Kalan 19 puan Restoration'a (Heart of the Wild 5, Naturalist 5) ve Balance'a (Genesis 5, Nature's Majesty 2, Nature's Reach 2) gider.\n\n## Talentler\n\nSütun başlığı: Parlak olanlar bu rolde alınır\n\n| No | Talent | Puan | Ön koşul | Bu rolde | Açıklama |\n|---|---|---|---|---|---|\n| 1 | Ferocity | 5/5 | — | alınır (parlak) | Maul, Primal Bite, Swipe, Claw ve Rake 5 Rage ya da Energy daha ucuza mal olur. |\n| 2 | Furor | 0/5 | — | alınmaz (soluk) | Bear Form'a geçince 10 Rage kazanırsın. Cat Form'a dönünce Energy'n korunur. |\n| 3 | Feral Swiftness | 2/2 | — | alınır (parlak) | Cat Form'da koşu hızın %30, dodge şansın %4 artar. |\n| 4 | Feral Instinct | 3/3 | — | alınır (parlak) | Swipe'ın hasarı %30 artar. Prowl'dayken düşmanlar seni daha zor fark eder. |\n| 5 | Brutal Impact | 0/2 | — | alınmaz (soluk) | Bash ve Pounce 1 saniye daha uzun sersemletir. Bash'in bekleme süresi 30 saniye kısalır. |\n| 6 | Thick Hide | 3/3 | — | alınır (parlak) | Formdayken seviyene göre ek temel zırh kazanırsın. |\n| 7 | Shredding Attacks | 0/3 | — | alınmaz (soluk) | Shred 18 Energy, Lacerate 3 Rage daha ucuza mal olur. |\n| 8 | Savage Fury | 2/2 | — | alınır (parlak) | Claw, Rake, Shred, Maul ve Swipe'ın hasarı %10 artar. |\n| 9 | Feral Charge | 1/1 | — | alınır (parlak) | Ayıyken düşmana atılıp onu 4 saniye köklendirirsin ve büyüsünü kesersin. Kediyken arkasına sıçrarsın. |\n| 10 | Sharpened Claws | 2/2 | — | alınır (parlak) | Ayı ve kedi formunda kritik şansın %6 artar. |\n| 11 | Predatory Strikes | 3/3 | — | alınır (parlak) | Formdayken seviyenin %150'si kadar ek Attack Power kazanırsın. |\n| 12 | Lacerate | 1/1 | ← Savage Fury | alınır (parlak) | Hedefte 5 kez yığılabilen bir kanama açar ve çok tehdit üretir. |\n| 13 | Predatory Discipline | 0/1 | — | alınmaz (soluk) | Ferocious Bite fazla Energy'ni harcamaz, ama yine de ondan ek hasar verir. |\n| 14 | Blood Frenzy | 1/2 | ← Sharpened Claws | alınır (parlak) | Ayıyken kritik vuruş 5 Rage verir. Kediyken combo puanı veren yeteneğin kritiği 1 ek combo puanı verir. |\n| 15 | Leader of the Pack | 1/1 | — | alınır (parlak) | Formdayken 45 metre içindeki raid üyelerinin kritik şansı %3 artar. |\n| 16 | Natural Instinct | 2/2 | — | alınır (parlak) | Yakın dövüş kritik hasar bonusun %20 artar. İyileştirmene Intellect'inin %25'i eklenir. |\n| 17 | Rend and Tear | 5/5 | ← Predatory Strikes | alınır (parlak) | Kanayan hedefe yakın dövüş hasarın %15 artar. |\n| 18 | Natural Reaction | 0/5 | — | alınmaz (soluk) | Dodge şansın %5 artar, her dodge'da 5 Rage kazanırsın. |\n| 19 | Primal Bite | 1/1 | ← Leader of the Pack | alınır (parlak) | Anında ısırır, tam silah hasarının üstüne ek hasar verir ve çok yüksek tehdit üretir. |\n| 20 | Shifting Power | 0/1 | ← Predatory Discipline | alınmaz (soluk) | Cat Form'a geçmek kadar mana harcayıp anında 40 Energy kazanırsın. |"
+ },
+ {
+  "id": "druid-07-restoration-talentleri",
+  "category": "class",
+  "title": "Druid · Restoration Talentleri",
+  "file": "07-Restoration-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "restoration talentleri"
+  ],
+  "classKey": "druid",
+  "kind": "talents",
+  "spec": "restoration",
+  "text": "# Druid · Restoration Talent Ağacı\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: DRUID — RESTORATION\n\n## Restoration (ağaç şeması) — 16 talent\n\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki Talentler listesindeki numaralarla aynıdır. Satır numaraları ağacın solunda yazar (1–7).\n\n| Satır | Talent numaraları (soldan sağa) | Talentler |\n|---|---|---|\n| 1 | 1, 2 | Nature's Focus, Heart of the Wild |\n| 2 | 3, 4, 5 | Naturalist, Reflection, Natural Shapeshifter |\n| 3 | 6, 7, 8 | Subtlety, Gift of Nature, Bloom |\n| 4 | 9, 10, 11 | Tranquil Spirit, Improved Rejuvenation, Swiftmend |\n| 5 | 12, 13, 14 | Nature's Swiftness, Living Spirit, Improved Tranquility |\n| 6 | 15 | Improved Regrowth |\n| 7 | 16 | Wild Growth |\n\nOklar: 3 → 12 (Naturalist → Nature's Swiftness), 10 → 15 (Improved Rejuvenation → Improved Regrowth), 13 → 16 (Living Spirit → Wild Growth).\n\nDipnot: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Nature's Focus | 5 rank | — | Hasar alırken Arcane ve Nature büyülerin %70 şansla döküm süresi kaybetmez. |\n| 2 | Heart of the Wild | 5 rank | — | Intellect'in %10 artar. Ayıyken Stamina'n %20, kediyken Strength'in %10 artar. |\n| 3 | Naturalist | 5 rank | — | Bütün hasarın %10 artar. Healing Touch ve Wild Growth 0,5 saniye daha hızlı dökülür. |\n| 4 | Reflection | 3 rank | — | Büyü yaparken de mana yenilenmenin %50'si devam eder. |\n| 5 | Natural Shapeshifter | 3 rank | — | Form değiştirmek %30 daha az mana harcar. |\n| 6 | Subtlety | 3 rank | — | Nature ve Arcane büyülerinin ürettiği tehdit %30 azalır. |\n| 7 | Gift of Nature | 5 rank | — | Bütün iyileştirme büyülerinin etkisi %10 artar. |\n| 8 | Bloom | 1 rank | — | Rejuvenation ya da Regrowth bitince hedef, Spirit'inin %100'ü kadar iyileşir. |\n| 9 | Tranquil Spirit | 5 rank | — | Healing Touch ve Tranquility %10 daha az mana harcar. |\n| 10 | Improved Rejuvenation | 3 rank | — | Rejuvenation'ın etkisi %15 artar. |\n| 11 | Swiftmend | 1 rank | — | Üstünde senin HoT'un olan hedefi anında iyileştirir. HoT silinmez. |\n| 12 | Nature's Swiftness | 1 rank | ← Naturalist | Sonraki Nature büyün anında atılır. |\n| 13 | Living Spirit | 3 rank | — | Spirit'in %15 artar. |\n| 14 | Improved Tranquility | 2 rank | — | Tranquility tehdit üretmez, bekleme süresi %60 kısalır. |\n| 15 | Improved Regrowth | 5 rank | ← Improved Rejuvenation | Regrowth'un kritik şansı %50 artar. |\n| 16 | Wild Growth | 1 rank | ← Living Spirit | Hedefi ve partisini 7 saniye boyunca zamanla iyileştirir. Döküm süresi 3 saniyedir. |"
+ },
+ {
+  "id": "druid-08-oynanis",
+  "category": "class",
+  "title": "Druid · Oynanis",
+  "file": "08-Oynanis.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "oynanis"
+  ],
+  "classKey": "druid",
+  "kind": "gameplay",
+  "text": "# Druid · Oynanış Önceliği\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: DRUID — OYNANIŞ\n\n## Balance\n\nForm: Moonkin Form\n\n| Öncelik | Yetenek | Açıklama |\n|---|---|---|\n| 1 | Insect Swarm | Hedefte hep açık tut, ama süresi bitmeden yenileme. |\n| 2 | Moonfire | Hedefte hep açık tut, ama süresi bitmeden yenileme. |\n| 3 | Wrath | Her atış 2 Eclipse yükü verir. Yükler doluyken atma. |\n| 4 | Starfire | Her Wrath'tan sonra 2 kez at. Eclipse yükü yokken atma. |\n| 5 | Faerie Fire | Gruptaki tek Druid sensen hedefte açık tut. |\n| 6 | Innervate | Healer'a ver. Manan çok azsa kendine kullan. |\n\nÇOK HEDEF: İki ile dört düşmanda her hedefe Insect Swarm ve Moonfire at, sonra Wrath ve 2 Starfire. Beş ya da daha fazla düşmanda Hurricane kullan.\n\n## Feral\n\nForm: Cat Form\n\n| Öncelik | Yetenek | Açıklama |\n|---|---|---|\n| 1 | Faerie Fire | Hedefte hep açık tut. |\n| 2 | Ferocious Bite | 5 combo puanı ve 70 Energy (Omen of Clarity ile 35) varken at. Rip'in en az 4 saniyesi kalsın. |\n| 3 | Shifting Power | Energy'n 50'nin altına düşünce kullan. |\n| 4 | Rip | 5 combo puanında, hedefte Rip yoksa at. |\n| 5 | Rake | Hedefte Rake yoksa at. |\n| 6 | Claw | Combo puanı biriktirmek için kullan. Omen of Clarity açılınca yerine Shred at. |\n\nAYI TANK: Faerie Fire ve Demoralizing Roar açık kalsın. Primal Bite'ı hazır oldukça bas, Lacerate'i 5 yığına çıkar, 35 Rage üstünde Maul kullan. Çok hedefte Swipe at. Kedinin alan hasarı yoktur.\n\n## Restoration\n\n| Öncelik | Yetenek | Açıklama |\n|---|---|---|\n| 1 | Regrowth | En verimli iyileştirmendir, tankta ve hasar alanda açık tut. |\n| 2 | Rejuvenation | Tankta ve sürekli hasar alan oyuncuda hep açık tut. |\n| 3 | Swiftmend | Acil durumda HoT'unun olduğu hedefi anında iyileştir. |\n| 4 | Innervate | Mananın büyük kısmı gidince kendine kullan. |\n| 5 | Insect Swarm | Boss'ta açık tut. Hem hasar verir hem de hedefin isabet şansını %2 düşürür. |\n| 6 | Wrath | Boş anlarda ucuz hasar için at. |\n\nGRUP İYİLEŞTİRME: Bir parti ağır hasar alınca Wild Growth at. Yalnız hedefin partisini iyileştirir, en iyisi Omen of Clarity açıkken atmaktır. Dungeon'da Tranquility ucuz bir grup iyileştirmesidir.\n\n## Kural\n\nKURAL: Üç uzmanlıkta da savaştan önce Mark of the Wild at, tanka Thorns koy. Omen of Clarity açılınca pahalı bir yeteneği bedava kullan."
+ },
+ {
+  "id": "druid-09-balance-leveling",
+  "category": "class",
+  "title": "Druid · Balance Leveling",
+  "file": "09-Balance-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "balance leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "druid",
+  "kind": "leveling",
+  "spec": "balance",
+  "text": "# Druid · Balance Leveling\n\nWOW FOREVER · TOTİK CHANNEL · Tavsiye edilen build\n\nSol üst başlık: DRUID — BALANCE\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\nAğaç başlıkları: BALANCE 38 puan · FERAL COMBAT 0 puan · RESTORATION 13 puan\n\n### Balance — 38 puan\n\n- Improved Wrath — 5/5 (satır 1, sütun 2; tamamlandı)\n- Genesis — 5/5 (satır 1, sütun 3; tamamlandı)\n- Moonglow — 3/3 (satır 2, sütun 1; tamamlandı)\n- Improved Moonfire — 2/2 (satır 2, sütun 2; tamamlandı)\n- Nature's Majesty — 2/2 (satır 2, sütun 3; tamamlandı)\n- Nature's Reach — 2/2 (satır 2, sütun 4; tamamlandı)\n- Improved Entangling Roots — 0/3 (satır 3, sütun 1; puan yok)\n- Nature's Splendor — 1/1 (satır 3, sütun 3; tamamlandı)\n- Insect Swarm — 1/1 (satır 4, sütun 1; tamamlandı)\n- Vengeance — 2/5 (satır 4, sütun 2; kısmen alındı)\n- Improved Starfire — 5/5 (satır 4, sütun 3; tamamlandı)\n- Overgrowth — 0/2 (satır 5, sütun 1; puan yok)\n- Nature's Grace — 1/1 (satır 5, sütun 2; tamamlandı)\n- Eclipse — 3/3 (satır 5, sütun 3; tamamlandı)\n- Moonfury — 5/5 (satır 6, sütun 2; tamamlandı)\n- Moonkin Form — 1/1 (satır 7, sütun 2; tamamlandı)\n\nÖn koşul okları: Nature's Majesty → Nature's Splendor; Improved Moonfire → Vengeance.\n\n### Feral Combat — 0 puan\n\n- Ferocity — 0/5 (satır 1, sütun 2; puan yok)\n- Furor — 0/5 (satır 1, sütun 3; puan yok)\n- Feral Swiftness — 0/2 (satır 2, sütun 1; puan yok)\n- Feral Instinct — 0/3 (satır 2, sütun 2; puan yok)\n- Brutal Impact — 0/2 (satır 2, sütun 3; puan yok)\n- Thick Hide — 0/3 (satır 2, sütun 4; puan yok)\n- Shredding Attacks — 0/3 (satır 3, sütun 1; puan yok)\n- Savage Fury — 0/2 (satır 3, sütun 2; puan yok)\n- Feral Charge — 0/1 (satır 3, sütun 3; puan yok)\n- Sharpened Claws — 0/2 (satır 3, sütun 4; puan yok)\n- Predatory Strikes — 0/3 (satır 4, sütun 1; puan yok)\n- Lacerate — 0/1 (satır 4, sütun 2; puan yok)\n- Predatory Discipline — 0/1 (satır 4, sütun 3; puan yok)\n- Blood Frenzy — 0/2 (satır 4, sütun 4; puan yok)\n- Leader of the Pack — 0/1 (satır 5, sütun 2; puan yok)\n- Natural Instinct — 0/2 (satır 5, sütun 4; puan yok)\n- Rend and Tear — 0/5 (satır 6, sütun 1; puan yok)\n- Natural Reaction — 0/5 (satır 6, sütun 4; puan yok)\n- Primal Bite — 0/1 (satır 7, sütun 2; puan yok)\n- Shifting Power — 0/1 (satır 7, sütun 3; puan yok)\n\nÖn koşul okları: Savage Fury → Lacerate; Sharpened Claws → Blood Frenzy; Predatory Strikes → Rend and Tear; Leader of the Pack → Primal Bite; Predatory Discipline → Shifting Power.\n\n### Restoration — 13 puan\n\n- Nature's Focus — 5/5 (satır 1, sütun 2; tamamlandı)\n- Heart of the Wild — 0/5 (satır 1, sütun 3; puan yok)\n- Naturalist — 5/5 (satır 2, sütun 1; tamamlandı)\n- Reflection — 3/3 (satır 2, sütun 2; tamamlandı)\n- Natural Shapeshifter — 0/3 (satır 2, sütun 3; puan yok)\n- Subtlety — 0/3 (satır 3, sütun 2; puan yok)\n- Gift of Nature — 0/5 (satır 3, sütun 3; puan yok)\n- Bloom — 0/1 (satır 3, sütun 4; puan yok)\n- Tranquil Spirit — 0/5 (satır 4, sütun 2; puan yok)\n- Improved Rejuvenation — 0/3 (satır 4, sütun 3; puan yok)\n- Swiftmend — 0/1 (satır 4, sütun 4; puan yok)\n- Nature's Swiftness — 0/1 (satır 5, sütun 1; puan yok)\n- Living Spirit — 0/3 (satır 5, sütun 2; puan yok)\n- Improved Tranquility — 0/2 (satır 5, sütun 4; puan yok)\n- Improved Regrowth — 0/5 (satır 6, sütun 3; puan yok)\n- Wild Growth — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Naturalist → Nature's Swiftness; Improved Rejuvenation → Improved Regrowth; Living Spirit → Wild Growth.\n\n## 60. seviye puan dağılımı\n\n38 Balance / 0 Feral Combat / 13 Restoration — TOPLAM 51 PUAN\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Improved Wrath | Balance | +5 | 5/5 | Wrath döküm süresi −0,5 sn, mana −%50 |\n| 15–19 | Nature's Focus | Restoration | +5 | 5/5 | Büyü %70 şansla hasardan gecikmez |\n| 20–22 | Reflection | Restoration | +3 | 3/3 | Büyü yaparken mana yenilenmesi %50 |\n| 23–24 | Nature's Reach | Balance | +2 | 2/2 | Balance büyü menzili +%20, isabet +%4 |\n| 25–26 | Nature's Majesty | Balance | +2 | 2/2 | Büyü ve yakın dövüş kritik şansı +%4 |\n| 27 | Moonglow | Balance | +1 | 1/3 | Hasar büyülerinin manası −%8 |\n| 28 | Nature's Splendor | Balance | +1 | 1/1 | DoT ve HoT büyülerinin süresi uzar |\n| 29–30 | Moonglow | Balance | +2 | 3/3 | Hasar büyülerinin manası −%25 |\n| 31–32 | Improved Moonfire | Balance | +2 | 2/2 | Moonfire hasarı ve kritik şansı +%10 |\n| 33 | Insect Swarm | Balance | +1 | 1/1 | 12 sn Nature hasarı, hedef isabeti −%2 |\n| 34–37 | Genesis | Balance | +4 | 4/5 | Periyodik hasar ve heal +%8 |\n| 38 | Nature's Grace | Balance | +1 | 1/1 | Kritikten sonra 3 sn büyü hızı +%10 |\n| 39 | Genesis | Balance | +1 | 5/5 | Periyodik hasar ve heal +%10 |\n| 40–44 | Naturalist | Restoration | +5 | 5/5 | Tüm hasar +%10, Healing Touch −0,5 sn |\n| 45–47 | Eclipse | Balance | +3 | 3/3 | Wrath, 2 Starfire'ı 0,5 sn hızlandırır |\n| 48–52 | Moonfury | Balance | +5 | 5/5 | Arcane ve Nature hasarı +%10 |\n| 53 | Moonkin Form | Balance | +1 | 1/1 | Raid kritik şansı +%3, zırh +%360 |\n| 54–58 | Improved Starfire | Balance | +5 | 5/5 | Starfire 0,5 sn hızlı, %15 şansla sersemletir |\n| 59–60 | Vengeance | Balance | +2 | 2/5 | Arcane ve Nature kritik bonusu +%40 |"
+ },
+ {
+  "id": "druid-10-feral-kedi-leveling",
+  "category": "class",
+  "title": "Druid · Feral Kedi Leveling",
+  "file": "10-Feral-Kedi-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "feral kedi leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "druid",
+  "kind": "leveling",
+  "spec": "feral-kedi",
+  "text": "# Druid · Feral Leveling\n\nWOW FOREVER · TOTİK CHANNEL · Tavsiye edilen build\n\nSol üst başlık: DRUID — FERAL\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\nAğaç başlıkları: BALANCE 9 puan · FERAL COMBAT 32 puan · RESTORATION 10 puan\n\n### Balance — 9 puan\n\n- Improved Wrath — 0/5 (satır 1, sütun 2; puan yok)\n- Genesis — 5/5 (satır 1, sütun 3; tamamlandı)\n- Moonglow — 0/3 (satır 2, sütun 1; puan yok)\n- Improved Moonfire — 0/2 (satır 2, sütun 2; puan yok)\n- Nature's Majesty — 2/2 (satır 2, sütun 3; tamamlandı)\n- Nature's Reach — 2/2 (satır 2, sütun 4; tamamlandı)\n- Improved Entangling Roots — 0/3 (satır 3, sütun 1; puan yok)\n- Nature's Splendor — 0/1 (satır 3, sütun 3; puan yok)\n- Insect Swarm — 0/1 (satır 4, sütun 1; puan yok)\n- Vengeance — 0/5 (satır 4, sütun 2; puan yok)\n- Improved Starfire — 0/5 (satır 4, sütun 3; puan yok)\n- Overgrowth — 0/2 (satır 5, sütun 1; puan yok)\n- Nature's Grace — 0/1 (satır 5, sütun 2; puan yok)\n- Eclipse — 0/3 (satır 5, sütun 3; puan yok)\n- Moonfury — 0/5 (satır 6, sütun 2; puan yok)\n- Moonkin Form — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Nature's Majesty → Nature's Splendor; Improved Moonfire → Vengeance.\n\n### Feral Combat — 32 puan\n\n- Ferocity — 5/5 (satır 1, sütun 2; tamamlandı)\n- Furor — 0/5 (satır 1, sütun 3; puan yok)\n- Feral Swiftness — 2/2 (satır 2, sütun 1; tamamlandı)\n- Feral Instinct — 3/3 (satır 2, sütun 2; tamamlandı)\n- Brutal Impact — 0/2 (satır 2, sütun 3; puan yok)\n- Thick Hide — 0/3 (satır 2, sütun 4; puan yok)\n- Shredding Attacks — 0/3 (satır 3, sütun 1; puan yok)\n- Savage Fury — 2/2 (satır 3, sütun 2; tamamlandı)\n- Feral Charge — 1/1 (satır 3, sütun 3; tamamlandı)\n- Sharpened Claws — 2/2 (satır 3, sütun 4; tamamlandı)\n- Predatory Strikes — 3/3 (satır 4, sütun 1; tamamlandı)\n- Lacerate — 1/1 (satır 4, sütun 2; tamamlandı)\n- Predatory Discipline — 1/1 (satır 4, sütun 3; tamamlandı)\n- Blood Frenzy — 2/2 (satır 4, sütun 4; tamamlandı)\n- Leader of the Pack — 1/1 (satır 5, sütun 2; tamamlandı)\n- Natural Instinct — 2/2 (satır 5, sütun 4; tamamlandı)\n- Rend and Tear — 5/5 (satır 6, sütun 1; tamamlandı)\n- Natural Reaction — 0/5 (satır 6, sütun 4; puan yok)\n- Primal Bite — 1/1 (satır 7, sütun 2; tamamlandı)\n- Shifting Power — 1/1 (satır 7, sütun 3; tamamlandı)\n\nÖn koşul okları: Savage Fury → Lacerate; Sharpened Claws → Blood Frenzy; Predatory Strikes → Rend and Tear; Leader of the Pack → Primal Bite; Predatory Discipline → Shifting Power.\n\n### Restoration — 10 puan\n\n- Nature's Focus — 0/5 (satır 1, sütun 2; puan yok)\n- Heart of the Wild — 5/5 (satır 1, sütun 3; tamamlandı)\n- Naturalist — 5/5 (satır 2, sütun 1; tamamlandı)\n- Reflection — 0/3 (satır 2, sütun 2; puan yok)\n- Natural Shapeshifter — 0/3 (satır 2, sütun 3; puan yok)\n- Subtlety — 0/3 (satır 3, sütun 2; puan yok)\n- Gift of Nature — 0/5 (satır 3, sütun 3; puan yok)\n- Bloom — 0/1 (satır 3, sütun 4; puan yok)\n- Tranquil Spirit — 0/5 (satır 4, sütun 2; puan yok)\n- Improved Rejuvenation — 0/3 (satır 4, sütun 3; puan yok)\n- Swiftmend — 0/1 (satır 4, sütun 4; puan yok)\n- Nature's Swiftness — 0/1 (satır 5, sütun 1; puan yok)\n- Living Spirit — 0/3 (satır 5, sütun 2; puan yok)\n- Improved Tranquility — 0/2 (satır 5, sütun 4; puan yok)\n- Improved Regrowth — 0/5 (satır 6, sütun 3; puan yok)\n- Wild Growth — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Naturalist → Nature's Swiftness; Improved Rejuvenation → Improved Regrowth; Living Spirit → Wild Growth.\n\n## 60. seviye puan dağılımı\n\n9 Balance / 32 Feral Combat / 10 Restoration — TOPLAM 51 PUAN\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Ferocity | Feral | +5 | 5/5 | Maul, Claw ve Rake bedeli −5 |\n| 15–17 | Feral Instinct | Feral | +3 | 3/3 | Swipe hasarı +%30, gizlilik güçlenir |\n| 18–19 | Feral Swiftness | Feral | +2 | 2/2 | Kedide koşu hızı +%30, dodge +%4 |\n| 20 | Feral Charge | Feral | +1 | 1/1 | Ayıyken atıl, 4 sn köklendir, büyü kes |\n| 21–22 | Savage Fury | Feral | +2 | 2/2 | Claw, Rake, Shred, Maul hasarı +%10 |\n| 23–24 | Sharpened Claws | Feral | +2 | 2/2 | Formdayken kritik şansı +%6 |\n| 25 | Lacerate | Feral | +1 | 1/1 | 5 kez yığılan kanama, yüksek tehdit |\n| 26–27 | Blood Frenzy | Feral | +2 | 2/2 | Kritikte ayıda +5 Rage, kedide +1 combo |\n| 28 | Predatory Discipline | Feral | +1 | 1/1 | Ferocious Bite fazla Energy harcamaz |\n| 29 | Predatory Strikes | Feral | +1 | 1/3 | Formda seviyenin 0,5 katı Attack Power |\n| 30 | Leader of the Pack | Feral | +1 | 1/1 | Formdayken raid kritik şansı +%3 |\n| 31–32 | Natural Instinct | Feral | +2 | 2/2 | Yakın dövüş kritik bonusu +%20 |\n| 33–34 | Predatory Strikes | Feral | +2 | 3/3 | Formda seviyenin 1,5 katı Attack Power |\n| 35–39 | Rend and Tear | Feral | +5 | 5/5 | Kanayan hedefe yakın dövüş hasarı +%15 |\n| 40 | Primal Bite | Feral | +1 | 1/1 | Güçlü ısırık, yüksek tehdit |\n| 41 | Shifting Power | Feral | +1 | 1/1 | Mana harcayıp anında 40 Energy kazan |\n| 42–46 | Heart of the Wild | Restoration | +5 | 5/5 | Kedi Strength +%10, ayı Stamina +%20 |\n| 47–51 | Naturalist | Restoration | +5 | 5/5 | Tüm hasar +%10, Healing Touch −0,5 sn |\n| 52–56 | Genesis | Balance | +5 | 5/5 | Periyodik hasar ve heal +%10 |\n| 57–58 | Nature's Reach | Balance | +2 | 2/2 | Balance büyü menzili +%20, isabet +%4 |\n| 59–60 | Nature's Majesty | Balance | +2 | 2/2 | Büyü ve yakın dövüş kritik şansı +%4 |"
+ },
+ {
+  "id": "druid-11-feral-ayi-tank-leveling",
+  "category": "class",
+  "title": "Druid · Feral Ayi Tank Leveling",
+  "file": "11-Feral-Ayi-Tank-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "feral ayi tank leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "druid",
+  "kind": "leveling",
+  "spec": "feral-ayi",
+  "text": "# Druid · Feral Tank Leveling\n\nWOW FOREVER · TOTİK CHANNEL · Tavsiye edilen build\n\nSol üst başlık: DRUID — FERAL TANK\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\nAğaç başlıkları: BALANCE 9 puan · FERAL COMBAT 32 puan · RESTORATION 10 puan\n\n### Balance — 9 puan\n\n- Improved Wrath — 0/5 (satır 1, sütun 2; puan yok)\n- Genesis — 5/5 (satır 1, sütun 3; tamamlandı)\n- Moonglow — 0/3 (satır 2, sütun 1; puan yok)\n- Improved Moonfire — 0/2 (satır 2, sütun 2; puan yok)\n- Nature's Majesty — 2/2 (satır 2, sütun 3; tamamlandı)\n- Nature's Reach — 2/2 (satır 2, sütun 4; tamamlandı)\n- Improved Entangling Roots — 0/3 (satır 3, sütun 1; puan yok)\n- Nature's Splendor — 0/1 (satır 3, sütun 3; puan yok)\n- Insect Swarm — 0/1 (satır 4, sütun 1; puan yok)\n- Vengeance — 0/5 (satır 4, sütun 2; puan yok)\n- Improved Starfire — 0/5 (satır 4, sütun 3; puan yok)\n- Overgrowth — 0/2 (satır 5, sütun 1; puan yok)\n- Nature's Grace — 0/1 (satır 5, sütun 2; puan yok)\n- Eclipse — 0/3 (satır 5, sütun 3; puan yok)\n- Moonfury — 0/5 (satır 6, sütun 2; puan yok)\n- Moonkin Form — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Nature's Majesty → Nature's Splendor; Improved Moonfire → Vengeance.\n\n### Feral Combat — 32 puan\n\n- Ferocity — 5/5 (satır 1, sütun 2; tamamlandı)\n- Furor — 0/5 (satır 1, sütun 3; puan yok)\n- Feral Swiftness — 2/2 (satır 2, sütun 1; tamamlandı)\n- Feral Instinct — 3/3 (satır 2, sütun 2; tamamlandı)\n- Brutal Impact — 0/2 (satır 2, sütun 3; puan yok)\n- Thick Hide — 3/3 (satır 2, sütun 4; tamamlandı)\n- Shredding Attacks — 0/3 (satır 3, sütun 1; puan yok)\n- Savage Fury — 2/2 (satır 3, sütun 2; tamamlandı)\n- Feral Charge — 1/1 (satır 3, sütun 3; tamamlandı)\n- Sharpened Claws — 2/2 (satır 3, sütun 4; tamamlandı)\n- Predatory Strikes — 3/3 (satır 4, sütun 1; tamamlandı)\n- Lacerate — 1/1 (satır 4, sütun 2; tamamlandı)\n- Predatory Discipline — 0/1 (satır 4, sütun 3; puan yok)\n- Blood Frenzy — 1/2 (satır 4, sütun 4; kısmen alındı)\n- Leader of the Pack — 1/1 (satır 5, sütun 2; tamamlandı)\n- Natural Instinct — 2/2 (satır 5, sütun 4; tamamlandı)\n- Rend and Tear — 5/5 (satır 6, sütun 1; tamamlandı)\n- Natural Reaction — 0/5 (satır 6, sütun 4; puan yok)\n- Primal Bite — 1/1 (satır 7, sütun 2; tamamlandı)\n- Shifting Power — 0/1 (satır 7, sütun 3; puan yok)\n\nÖn koşul okları: Savage Fury → Lacerate; Sharpened Claws → Blood Frenzy; Predatory Strikes → Rend and Tear; Leader of the Pack → Primal Bite; Predatory Discipline → Shifting Power.\n\n### Restoration — 10 puan\n\n- Nature's Focus — 0/5 (satır 1, sütun 2; puan yok)\n- Heart of the Wild — 5/5 (satır 1, sütun 3; tamamlandı)\n- Naturalist — 5/5 (satır 2, sütun 1; tamamlandı)\n- Reflection — 0/3 (satır 2, sütun 2; puan yok)\n- Natural Shapeshifter — 0/3 (satır 2, sütun 3; puan yok)\n- Subtlety — 0/3 (satır 3, sütun 2; puan yok)\n- Gift of Nature — 0/5 (satır 3, sütun 3; puan yok)\n- Bloom — 0/1 (satır 3, sütun 4; puan yok)\n- Tranquil Spirit — 0/5 (satır 4, sütun 2; puan yok)\n- Improved Rejuvenation — 0/3 (satır 4, sütun 3; puan yok)\n- Swiftmend — 0/1 (satır 4, sütun 4; puan yok)\n- Nature's Swiftness — 0/1 (satır 5, sütun 1; puan yok)\n- Living Spirit — 0/3 (satır 5, sütun 2; puan yok)\n- Improved Tranquility — 0/2 (satır 5, sütun 4; puan yok)\n- Improved Regrowth — 0/5 (satır 6, sütun 3; puan yok)\n- Wild Growth — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Naturalist → Nature's Swiftness; Improved Rejuvenation → Improved Regrowth; Living Spirit → Wild Growth.\n\n## 60. seviye puan dağılımı\n\n9 Balance / 32 Feral Combat / 10 Restoration — TOPLAM 51 PUAN\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Ferocity | Feral | +5 | 5/5 | Maul, Claw ve Rake bedeli −5 |\n| 15–17 | Feral Instinct | Feral | +3 | 3/3 | Swipe hasarı +%30, gizlilik güçlenir |\n| 18–19 | Feral Swiftness | Feral | +2 | 2/2 | Kedide koşu hızı +%30, dodge +%4 |\n| 20 | Feral Charge | Feral | +1 | 1/1 | Ayıyken atıl, 4 sn köklendir, büyü kes |\n| 21–22 | Savage Fury | Feral | +2 | 2/2 | Claw, Rake, Shred, Maul hasarı +%10 |\n| 23–24 | Sharpened Claws | Feral | +2 | 2/2 | Formdayken kritik şansı +%6 |\n| 25 | Lacerate | Feral | +1 | 1/1 | 5 kez yığılan kanama, yüksek tehdit |\n| 26–27 | Blood Frenzy | Feral | +2 | 2/2 | Kritikte ayıda +5 Rage, kedide +1 combo |\n| 28 | Predatory Discipline | Feral | +1 | 1/1 | Ferocious Bite fazla Energy harcamaz |\n| 29 | Predatory Strikes | Feral | +1 | 1/3 | Formda seviyenin 0,5 katı Attack Power |\n| 30 | Leader of the Pack | Feral | +1 | 1/1 | Formdayken raid kritik şansı +%3 |\n| 31–32 | Natural Instinct | Feral | +2 | 2/2 | Yakın dövüş kritik bonusu +%20 |\n| 33–34 | Predatory Strikes | Feral | +2 | 3/3 | Formda seviyenin 1,5 katı Attack Power |\n| 35–39 | Rend and Tear | Feral | +5 | 5/5 | Kanayan hedefe yakın dövüş hasarı +%15 |\n| 40 | Primal Bite | Feral | +1 | 1/1 | Güçlü ısırık, yüksek tehdit |\n| 41 | Shifting Power | Feral | +1 | 1/1 | Mana harcayıp anında 40 Energy kazan |\n| 42–46 | Heart of the Wild | Restoration | +5 | 5/5 | Kedi Strength +%10, ayı Stamina +%20 |\n| 47–51 | Naturalist | Restoration | +5 | 5/5 | Tüm hasar +%10, Healing Touch −0,5 sn |\n| 52–56 | Genesis | Balance | +5 | 5/5 | Periyodik hasar ve heal +%10 |\n| 57–58 | Nature's Reach | Balance | +2 | 2/2 | Balance büyü menzili +%20, isabet +%4 |\n| 59–60 | Nature's Majesty | Balance | +2 | 2/2 | Büyü ve yakın dövüş kritik şansı +%4 |\n\n## 60. seviyede respec → Ayı Tank\n\n(Puan sırası tablosunun devamı, ara başlık: \"60. SEVİYEDE RESPEC → AYI TANK\")\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 60 | Predatory Discipline | Feral | −1 | 0/1 | Kedi talenti, tankta gerekmez |\n| 60 | Shifting Power | Feral | −1 | 0/1 | Kediye Energy verir, tankta gerekmez |\n| 60 | Blood Frenzy | Feral | −1 | 1/2 | Ayıda kritikte %50 şansla +5 Rage |\n| 60 | Thick Hide | Feral | +3 | 3/3 | Formdayken seviyene göre ek zırh |"
+ },
+ {
+  "id": "druid-12-restoration-leveling",
+  "category": "class",
+  "title": "Druid · Restoration Leveling",
+  "file": "12-Restoration-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "restoration leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "druid",
+  "kind": "leveling",
+  "spec": "restoration",
+  "text": "# Druid · Restoration Leveling\n\nWOW FOREVER · TOTİK CHANNEL · Tavsiye edilen build\n\nSol üst başlık: DRUID — RESTORATION\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\nAğaç başlıkları: BALANCE 18 puan · FERAL COMBAT 0 puan · RESTORATION 33 puan\n\n### Balance — 18 puan\n\n- Improved Wrath — 5/5 (satır 1, sütun 2; tamamlandı)\n- Genesis — 4/5 (satır 1, sütun 3; kısmen alındı)\n- Moonglow — 3/3 (satır 2, sütun 1; tamamlandı)\n- Improved Moonfire — 0/2 (satır 2, sütun 2; puan yok)\n- Nature's Majesty — 2/2 (satır 2, sütun 3; tamamlandı)\n- Nature's Reach — 2/2 (satır 2, sütun 4; tamamlandı)\n- Improved Entangling Roots — 0/3 (satır 3, sütun 1; puan yok)\n- Nature's Splendor — 1/1 (satır 3, sütun 3; tamamlandı)\n- Insect Swarm — 1/1 (satır 4, sütun 1; tamamlandı)\n- Vengeance — 0/5 (satır 4, sütun 2; puan yok)\n- Improved Starfire — 0/5 (satır 4, sütun 3; puan yok)\n- Overgrowth — 0/2 (satır 5, sütun 1; puan yok)\n- Nature's Grace — 0/1 (satır 5, sütun 2; puan yok)\n- Eclipse — 0/3 (satır 5, sütun 3; puan yok)\n- Moonfury — 0/5 (satır 6, sütun 2; puan yok)\n- Moonkin Form — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Nature's Majesty → Nature's Splendor; Improved Moonfire → Vengeance.\n\n### Feral Combat — 0 puan\n\n- Ferocity — 0/5 (satır 1, sütun 2; puan yok)\n- Furor — 0/5 (satır 1, sütun 3; puan yok)\n- Feral Swiftness — 0/2 (satır 2, sütun 1; puan yok)\n- Feral Instinct — 0/3 (satır 2, sütun 2; puan yok)\n- Brutal Impact — 0/2 (satır 2, sütun 3; puan yok)\n- Thick Hide — 0/3 (satır 2, sütun 4; puan yok)\n- Shredding Attacks — 0/3 (satır 3, sütun 1; puan yok)\n- Savage Fury — 0/2 (satır 3, sütun 2; puan yok)\n- Feral Charge — 0/1 (satır 3, sütun 3; puan yok)\n- Sharpened Claws — 0/2 (satır 3, sütun 4; puan yok)\n- Predatory Strikes — 0/3 (satır 4, sütun 1; puan yok)\n- Lacerate — 0/1 (satır 4, sütun 2; puan yok)\n- Predatory Discipline — 0/1 (satır 4, sütun 3; puan yok)\n- Blood Frenzy — 0/2 (satır 4, sütun 4; puan yok)\n- Leader of the Pack — 0/1 (satır 5, sütun 2; puan yok)\n- Natural Instinct — 0/2 (satır 5, sütun 4; puan yok)\n- Rend and Tear — 0/5 (satır 6, sütun 1; puan yok)\n- Natural Reaction — 0/5 (satır 6, sütun 4; puan yok)\n- Primal Bite — 0/1 (satır 7, sütun 2; puan yok)\n- Shifting Power — 0/1 (satır 7, sütun 3; puan yok)\n\nÖn koşul okları: Savage Fury → Lacerate; Sharpened Claws → Blood Frenzy; Predatory Strikes → Rend and Tear; Leader of the Pack → Primal Bite; Predatory Discipline → Shifting Power.\n\n### Restoration — 33 puan\n\n- Nature's Focus — 5/5 (satır 1, sütun 2; tamamlandı)\n- Heart of the Wild — 0/5 (satır 1, sütun 3; puan yok)\n- Naturalist — 5/5 (satır 2, sütun 1; tamamlandı)\n- Reflection — 3/3 (satır 2, sütun 2; tamamlandı)\n- Natural Shapeshifter — 0/3 (satır 2, sütun 3; puan yok)\n- Subtlety — 0/3 (satır 3, sütun 2; puan yok)\n- Gift of Nature — 5/5 (satır 3, sütun 3; tamamlandı)\n- Bloom — 1/1 (satır 3, sütun 4; tamamlandı)\n- Tranquil Spirit — 0/5 (satır 4, sütun 2; puan yok)\n- Improved Rejuvenation — 3/3 (satır 4, sütun 3; tamamlandı)\n- Swiftmend — 1/1 (satır 4, sütun 4; tamamlandı)\n- Nature's Swiftness — 1/1 (satır 5, sütun 1; tamamlandı)\n- Living Spirit — 3/3 (satır 5, sütun 2; tamamlandı)\n- Improved Tranquility — 0/2 (satır 5, sütun 4; puan yok)\n- Improved Regrowth — 5/5 (satır 6, sütun 3; tamamlandı)\n- Wild Growth — 1/1 (satır 7, sütun 2; tamamlandı)\n\nÖn koşul okları: Naturalist → Nature's Swiftness; Improved Rejuvenation → Improved Regrowth; Living Spirit → Wild Growth.\n\n## 60. seviye puan dağılımı\n\n18 Balance / 0 Feral Combat / 33 Restoration — TOPLAM 51 PUAN\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Improved Wrath | Balance | +5 | 5/5 | Wrath döküm süresi −0,5 sn, mana −%50 |\n| 15–19 | Nature's Focus | Restoration | +5 | 5/5 | Büyü %70 şansla hasardan gecikmez |\n| 20–22 | Reflection | Restoration | +3 | 3/3 | Büyü yaparken mana yenilenmesi %50 |\n| 23–24 | Nature's Reach | Balance | +2 | 2/2 | Balance büyü menzili +%20, isabet +%4 |\n| 25–26 | Nature's Majesty | Balance | +2 | 2/2 | Büyü ve yakın dövüş kritik şansı +%4 |\n| 27 | Moonglow | Balance | +1 | 1/3 | Hasar büyülerinin manası −%8 |\n| 28 | Nature's Splendor | Balance | +1 | 1/1 | DoT ve HoT büyülerinin süresi uzar |\n| 29–30 | Moonglow | Balance | +2 | 3/3 | Hasar büyülerinin manası −%25 |\n| 31–32 | Genesis | Balance | +2 | 2/5 | Periyodik hasar ve heal +%4 |\n| 33 | Insect Swarm | Balance | +1 | 1/1 | 12 sn Nature hasarı, hedef isabeti −%2 |\n| 34–35 | Naturalist | Restoration | +2 | 2/5 | Tüm hasar +%4, Healing Touch −0,2 sn |\n| 36 | Bloom | Restoration | +1 | 1/1 | HoT bitince Spirit kadar ek heal |\n| 37–39 | Naturalist | Restoration | +3 | 5/5 | Tüm hasar +%10, Healing Touch −0,5 sn |\n| 40 | Gift of Nature | Restoration | +1 | 1/5 | İyileştirme etkisi +%2 |\n| 41 | Swiftmend | Restoration | +1 | 1/1 | HoT'lu hedefe anında heal, HoT silinmez |\n| 42–45 | Gift of Nature | Restoration | +4 | 5/5 | İyileştirme etkisi +%10 |\n| 46 | Nature's Swiftness | Restoration | +1 | 1/1 | Sonraki Nature büyüsü anında atılır |\n| 47–49 | Living Spirit | Restoration | +3 | 3/3 | Spirit +%15 |\n| 50–52 | Improved Rejuvenation | Restoration | +3 | 3/3 | Rejuvenation etkisi +%15 |\n| 53–57 | Improved Regrowth | Restoration | +5 | 5/5 | Regrowth kritik şansı +%50 |\n| 58 | Wild Growth | Restoration | +1 | 1/1 | Hedefin partisine 7 sn HoT |\n| 59–60 | Genesis | Balance | +2 | 4/5 | Periyodik hasar ve heal +%8 |"
+ },
+ {
+  "id": "hunter-01-irk-secimi",
+  "category": "class",
+  "title": "Hunter · Irk Secimi",
+  "file": "01-Irk-Secimi.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "irk secimi"
+  ],
+  "classKey": "hunter",
+  "kind": "race",
+  "text": "# Hunter · Irk Seçimi\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: HUNTER — IRKLAR. Kart başlığı: HUNTER • IRK SEÇİMİ. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\nKartta iki sıra var: üst sıra ALLIANCE, alt sıra HORDE. Her ırk kutusunda ırkın portresi, adı ve açıklaması yazar.\n\n## Alliance\n\n| Irk | Açıklama |\n|---|---|\n| Human | Ruthless kritik şansını her zaman %1 artırır. Pet senin kritik şansını kullandığı için bu ona da yarar. Will to Survive üstündeki stun'ı anında kaldırır. |\n| Dwarf | Artisan's Precision isabet şansını %1 artırır, okların daha az ıskalar. Big Game Hunter hayvan türü düşmanlara %5 fazla hasar verdirir. Stoneform 8 saniye fiziksel hasarı %10 azaltır. |\n| Night Elf | Elune's Light 15 saniye kritik şansını %10 artırır; pet de bundan yararlanır. Shadowmeld ile gizlenip düşmanın dikkatini kısa süre üzerinden atabilirsin. |\n| High Order Skyborne | Wind Blessed saldırı hızını her zaman %2 artırır; daha çok Auto Shot atarsın. Read Ley Line 15 saniye mana ve can yenilenmesini %50 artırır. Skyborne ayrıca satın alınır. |\n\n## Horde\n\n| Irk | Açıklama |\n|---|---|\n| Orc | Command petinin hasarını %5 artırır; petsiz oynarsan işe yaramaz. Blood Fury 15 saniye Attack Power'ını %10 artırır; Bestial Wrath ile aynı anda aç. |\n| Tauren | Endurance toplam canını %5 artırır. Plainsrunning koştukça seni %60'a kadar hızlandırır; hasar alınca azalır, Aspect of the Cheetah ile birikmez. War Stomp yakındakileri 2 saniye sersemletir. |\n| Troll | Berserking 15 saniye menzilli saldırı hızını %10 artırır (3 dakika bekleme). Beast Slaying hayvan türü düşmanlara %5 fazla hasar verdirir; leveling'de çok karşına çıkarlar. |\n| Windshaper Skyborne | Wind Blessed saldırı hızını her zaman %2 artırır; daha çok Auto Shot atarsın. Skysight 15 saniye koşu hızını %15 artırır. Skyborne ayrıca satın alınır. |"
+ },
+ {
+  "id": "hunter-02-yetenekler-1",
+  "category": "class",
+  "title": "Hunter · Yetenekler 1",
+  "file": "02-Yetenekler-1.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "yetenekler 1"
+  ],
+  "classKey": "hunter",
+  "kind": "abilities",
+  "part": 1,
+  "text": "# Hunter · Aspect, Saldırı ve Sting\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: HUNTER — YETENEKLER 1/2. Kart başlığı: HUNTER • ASPECT, SALDIRI VE STING. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\nHer yeteneğin solunda öğrenildiği seviye (SEVİYE kutusu), adının yanında varsa rank sayısı ve rozet yazar.\n\n## Aspect'ler\n\nHer an tek aspect açık kalır. Menzilde Hawk, yakın dövüşte Beast, yolda Cheetah kullan.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 4 | Aspect of the Monkey | — | Sen | Dodge (kaçınma) şansın %8 artar. Düşman sana yakından vururken açık tut. |\n| 10 | Aspect of the Hawk | 6 rank | Sen | Menzilli Attack Power'ın 110 artar. Uzaktan vururken açık tutacağın ana aspect. |\n| 20 | Aspect of the Cheetah | — | Sen | Koşu hızın %30 artar. Hasar alırsan 4 saniye Dazed (yavaşlama) olursun; savaşa girmeden kapat. |\n| 30 | Aspect of the Beast | 4 rank | Sen | Yakın dövüş Attack Power'ın 110 artar ve iz sürülemez olursun. Yakın dövüşte açık tutacağın aspect. |\n| 40 | Aspect of the Pack | — | Grup · 30 metre | Sen ve yakındaki grubun koşu hızı %30 artar. Hasar alan 4 saniye Dazed olur. |\n| 46 | Aspect of the Wild | 2 rank | Raid · 30 metre | Sen ve yakındaki grup ile raid üyelerinin Nature direnci 60 artar. Nature hasarı vuran boss'ta aç. |\n\n## Saldırılar\n\nMana harcayıp hasar verir. Atışlar 8 metreden yakına gitmez, yakın saldırılar silahla vurur.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 1 | Auto Shot | — | Forever | Menzilli silahınla kendiliğinden ateş edersin. Forever'da her atıştan önce 0,5 saniye kıpırdamadan durmalısın. |\n| 1 | Raptor Strike | 8 rank | — | Sıradaki yakın dövüş vuruşuna silah hasarı artı 70 ekler. 6 saniyede bir kullanılır. |\n| 6 | Arcane Shot | 8 rank | — | Anında 280 Arcane hasarı veren atış. 6 saniyede bir kullanılır, koşarken de atılır. |\n| 16 | Mongoose Bite | 4 rank | — | Bir saldırıdan dodge ile kaçınca açılır. Silah hasarı artı 57 vurur. |\n| 18 | Multi-Shot | — | 3 hedef | Üç hedefe birden atış yapar. Bekleme süresi Aimed Shot ile ortaktır; iki ve daha çok düşmanda bunu seç. |\n| 20 | Aimed Shot | 6 rank | Forever | 2 saniye nişan alır, atışa 350 hasar ekler. Forever'da her Hunter öğrenir; Multi-Shot ile bekleme süresi ortaktır. |\n| 40 | Volley | 3 rank | 8 metre alan | 6 saniye boyunca hedef alana ok yağdırırsın. Alandaki her düşman saniyede 112 Arcane hasarı alır. |\n\n## Sting'ler\n\nHedefe zehirli atış. Bir hedefte senden aynı anda yalnız bir Sting kalır.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 4 | Serpent Sting | 8 rank | Düşman · 15 sn | 15 saniyede 500 Nature hasarı verir. Uzun yaşayacak her düşmana ilk iş at. |\n| 22 | Scorpid Sting | — | Düşman · 20 sn | Hedefin saldırılarının isabet şansı %2 düşer. Güçlü yakın dövüşçü düşmana at. |\n| 36 | Viper Sting | 3 rank | Düşman · 8 sn | 8 saniyede hedeften 1108 Mana çeker. Büyü yapan düşmanın Mana'sını tüketir. |\n\n## Debuff ve Buff\n\nHedefi işaretler ya da kısa süre daha hızlı vurmanı sağlar.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 6 | Hunter's Mark | 4 rank | Düşman · 2 dk | Hedefe vuran herkesin menzilli Attack Power'ı 143 artar. Hedef gizlense de görünür kalır. |\n| 26 | Rapid Fire | — | Sen · 15 sn | Menzilli ve yakın saldırı hızın %40 artar. 5 dakika bekleme süresi var; zor düşmanda aç. |"
+ },
+ {
+  "id": "hunter-03-yetenekler-2",
+  "category": "class",
+  "title": "Hunter · Yetenekler 2",
+  "file": "03-Yetenekler-2.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "yetenekler 2"
+  ],
+  "classKey": "hunter",
+  "kind": "abilities",
+  "part": 2,
+  "text": "# Hunter · Tuzak, Pet ve Kontrol\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: HUNTER — YETENEKLER 2/2. Kart başlığı: HUNTER • TUZAK, PET VE KONTROL. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\nHer yeteneğin solunda öğrenildiği seviye (SEVİYE kutusu), adının yanında varsa rank sayısı ve rozet yazar.\n\n## Tuzaklar\n\nYere kurulur, düşman yaklaşınca çalışır. Aynı anda bir Fire ve bir Frost tuzağın kalabilir; hepsinin bekleme süresi ortak 30 saniyedir.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 16 | Immolation Trap | 5 rank | Tek hedef · 15 sn | İlk yaklaşan düşmanı yakar, 15 saniyede 690 Fire hasarı verir. |\n| 20 | Freezing Trap | 3 rank | Tek hedef · 20 sn; Forever | İlk yaklaşan düşmanı 20 saniye dondurur, hasar alınca çözülür. Forever'da tuzakları savaşta da kurabilirsin. |\n| 28 | Frost Trap | — | 10 metre · 30 sn | Buz alanı yaratır, içindeki düşmanların hızı %60 düşer. Kaçarken arkana kur. |\n| 34 | Explosive Trap | 3 rank | 10 metre | Patlayınca çevredeki bütün düşmanlara 237 Fire hasarı, 20 saniyede 330 ek hasar verir. |\n\n## Yardımcı\n\nİz sürme, uzağı görme ve gizlenen düşmanı bulma.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 1 | Track Beasts | — | — | Yakındaki hayvanları mini haritada gösterir. Diğer yaratık türlerinin izleri 10 ile 50. seviye arasında gelir. |\n| 14 | Eagle Eye | — | — | Bir dakika boyunca görüşünü uzağa yaklaştırırsın. Yalnız açık havada çalışır. |\n| 32 | Flare | — | 10 metre · 30 sn | Hedef alandaki gizlenmiş ve görünmez düşmanları açığa çıkarır. Rogue ve Druid'e karşı kullan. |\n\n## Pet\n\n10. seviyedeki sınıf görevini bitirince Tame Beast ve bütün pet yetenekleri açılır.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 10 | Tame Beast | — | Sınıf görevi | 20 saniye odaklanıp bir hayvanı evcilleştirirsin. Forever'da senden yüksek seviyeli hayvan evcilleşmez. |\n| 10 | Call Pet | — | — | Petini yanına çağırır. Gönderdiğin petini geri getirmek için de kullanılır. |\n| 10 | Dismiss Pet | — | — | Petini 5 saniyede gönderirsin. Petinin mutluluğu 50 azalır. |\n| 10 | Feed Pet | — | — | Petine yiyecek verip mutluluğunu artırırsın. Seviyesine yakın yiyecek daha çok işe yarar. |\n| 10 | Revive Pet | — | — | Ölen petini 10 saniyede diriltirsin, %15 canla döner. Temel Mana'nın tamamını harcar. |\n| 12 | Mend Pet | 7 rank | Pet · 5 sn | Odaklandığın 5 saniye boyunca petini saniyede 245 can iyileştirirsin. |\n| 14 | Eyes of the Beast | — | Pet · 2 dk | Petini 2 dakika doğrudan yönetir, onun gözüyle görürsün. Keşif için işe yarar. |\n| 24 | Beast Lore | — | — | Bir hayvanın hasarını, canını, zırhını ve ne yediğini gösterir. Evcilleştirmeden önce bak. |\n\n## Kontrol ve Kaçış\n\nDüşmanı yavaşlatır, korkutur ya da tehdidi senden alır.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 8 | Concussive Shot | — | Düşman · 4 sn | Hedefin koşu hızı %50 düşer. 12 saniyede bir kullanılır; yakına gelen düşmanı uzakta tut. |\n| 12 | Wing Clip | 3 rank | Düşman · 10 sn | Yakın dövüşte 50 hasar verir, hedefin koşu hızını %60 düşürür. Sonra geri çekilip ateş et. |\n| 12 | Distracting Shot | 6 rank | Tek hedef | Düşmanın dikkatini üzerine çeker. Şifacıya ya da başkasına koşan düşmanı sana çevirir. |\n| 14 | Scare Beast | 3 rank | Hayvan · 20 sn | Bir hayvanı 20 saniye korkudan kaçırır. Hasar korkuyu bozabilir; aynı anda tek hayvan. |\n| 20 | Disengage | 3 rank | — | Yakın dövüşteki hedefte tehdidini azaltır. Forever'da etkisi iki katına çıktı; düşmanı petine bırak. |\n| 30 | Feign Death | — | — | Ölü taklidi yaparsın, düşmanlar seni bırakır. Petin yakındaysa ona saldırmaya devam ederler. |"
+ },
+ {
+  "id": "hunter-04-beast-mastery-talentleri",
+  "category": "class",
+  "title": "Hunter · Beast Mastery Talentleri",
+  "file": "04-Beast-Mastery-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "beast mastery talentleri"
+  ],
+  "classKey": "hunter",
+  "kind": "talents",
+  "spec": "beast-mastery",
+  "text": "# Hunter · Beast Mastery Talent Ağacı\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: HUNTER — BEAST MASTERY. Kart başlığı: HUNTER • BEAST MASTERY TALENT AĞACI. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\n## Beast Mastery (ağaç şeması) — 16 talent\n\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki Talentler listesindeki numaralarla aynıdır. Satır numaraları ağacın solunda yazar (1–7). Sütun, ikonun ağaçtaki soldan kaçıncı sütunda durduğudur (1–4).\n\n| Satır | Talent numaraları (soldan sağa) | Talentler |\n|---|---|---|\n| 1 | 1 (sütun 2), 2 (sütun 3) | Deadly Aspects, Endurance Training |\n| 2 | 3 (sütun 1), 4 (sütun 2), 5 (sütun 3) | Focused Fire, Improved Aspect of the Monkey, Improved Revive Pet |\n| 3 | 6 (sütun 1), 7 (sütun 2), 8 (sütun 3) | Pathfinding, Bestial Swiftness, Unleashed Fury |\n| 4 | 9 (sütun 1), 10 (sütun 3), 11 (sütun 4) | Improved Mend Pet, Ferocity, Summon Hawk |\n| 5 | 12 (sütun 1), 13 (sütun 2), 14 (sütun 4) | Spirit Bond, Intimidation, Bestial Discipline |\n| 6 | 15 (sütun 3) | Frenzy |\n| 7 | 16 (sütun 2) | Bestial Wrath |\n\nOklar (ön koşul): 7 → 13 (Bestial Swiftness → Intimidation), 10 → 15 (Ferocity → Frenzy), 13 → 16 (Intimidation → Bestial Wrath).\n\nDipnot: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Deadly Aspects | 5 rank | — | Aspect of the Hawk ya da Beast açıkken oto saldırın %10 şansla saldırı hızını 12 saniye %30 artırır. |\n| 2 | Endurance Training | 5 rank | — | Petinin canı ve zırhı %15 artar. |\n| 3 | Focused Fire | 2 rank | — | Petin açıkken sen ve petin %2 daha fazla hasar verirsiniz. |\n| 4 | Improved Aspect of the Monkey | 3 rank | — | Aspect of the Monkey'nin verdiği dodge (kaçınma) %6 artar. Petin de bu etkinin yarısını alır. |\n| 5 | Improved Revive Pet | 2 rank | — | Revive Pet 6 saniye daha kısa sürer ve %40 daha az Mana harcar. Petin %30 daha fazla canla döner. |\n| 6 | Pathfinding | 2 rank | — | Aspect of the Cheetah ve Aspect of the Pack'in hız bonusu %6 artar. |\n| 7 | Bestial Swiftness | 1 rank | — | Petinin koşu hızı %30 artar. |\n| 8 | Unleashed Fury | 5 rank | — | Petinin ve şahinlerinin hasarı %15 artar. |\n| 9 | Improved Mend Pet | 2 rank | — | Mend Pet her iyileştirmede %50 şansla petindeki bir kötü etkiyi siler. Mana maliyeti %20 düşer. |\n| 10 | Ferocity | 5 rank | — | Petinin ve şahinlerinin kritik şansı %10 artar. |\n| 11 | Summon Hawk | 1 rank | — | Hedefe 18 saniye saldıran bir şahin çağırır, en çok iki tane olur. Bekleme süresi Arcane Shot ile ortaktır. |\n| 12 | Spirit Bond | 2 rank | — | Petin açıkken ikiniz de her 5 saniyede canınızın %1'ini yenilersiniz. |\n| 13 | Intimidation | 1 rank | ← Bestial Swiftness | Petinin sonraki vuruşu 3 saniye sersemletir, kritik şansı da %100 artar. |\n| 14 | Bestial Discipline | 2 rank | — | Petinin Focus yenilenmesi %20 artar. Büyü yaparken Mana yenilenmenin %50'si devam eder. |\n| 15 | Frenzy | 5 rank | ← Ferocity | Petin kritik vurunca 8 saniye saldırı hızı %30 artar. |\n| 16 | Bestial Wrath | 1 rank | ← Intimidation | Petin 18 saniye %50 fazla hasar verir ve ölmedikçe durdurulamaz. |"
+ },
+ {
+  "id": "hunter-05-marksmanship-talentleri",
+  "category": "class",
+  "title": "Hunter · Marksmanship Talentleri",
+  "file": "05-Marksmanship-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "marksmanship talentleri"
+  ],
+  "classKey": "hunter",
+  "kind": "talents",
+  "spec": "marksmanship",
+  "text": "# Hunter · Marksmanship Talent Ağacı\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: HUNTER — MARKSMANSHIP. Kart başlığı: HUNTER • MARKSMANSHIP TALENT AĞACI. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\n## Marksmanship (ağaç şeması) — 16 talent\n\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki Talentler listesindeki numaralarla aynıdır. Satır numaraları ağacın solunda yazar (1–7). Sütun, ikonun ağaçtaki soldan kaçıncı sütunda durduğudur (1–4).\n\n| Satır | Talent numaraları (soldan sağa) | Talentler |\n|---|---|---|\n| 1 | 1 (sütun 1), 2 (sütun 2), 3 (sütun 3) | Hawk Eye, Improved Concussive Shot, Lethal Attacks |\n| 2 | 4 (sütun 1), 5 (sütun 2), 6 (sütun 3) | Improved Stings, Efficiency, Careful Aim |\n| 3 | 7 (sütun 1), 8 (sütun 2), 9 (sütun 4) | Rapid Killing, Improved Arcane Shot, Lone Wolf |\n| 4 | 10 (sütun 2), 11 (sütun 3) | Trueshot Aura, Mortal Shots |\n| 5 | 12 (sütun 1), 13 (sütun 3), 14 (sütun 4) | Rapid Recuperation, Barrage, Scatter Shot |\n| 6 | 15 (sütun 3) | Ranged Weapon Specialization |\n| 7 | 16 (sütun 2) | Sniper Shot |\n\nOklar (ön koşul): 6 → 11 (Careful Aim → Mortal Shots), 7 → 12 (Rapid Killing → Rapid Recuperation), 10 → 16 (Trueshot Aura → Sniper Shot).\n\nDipnot: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Hawk Eye | 3 rank | — | Menzilli silahlarının menzili 6 metre artar. |\n| 2 | Improved Concussive Shot | 5 rank | — | Concussive Shot %20 şansla hedefi 3 saniye sersemletir. |\n| 3 | Lethal Attacks | 5 rank | — | Bütün saldırılarının kritik şansı %5 artar. |\n| 4 | Improved Stings | 3 rank | — | Serpent Sting hasarı %20 artar. Viper Sting'in bekleme süresi 6 saniye kısalır, Scorpid Sting 45 saniye uzar. |\n| 5 | Efficiency | 5 rank | — | Atışların, Sting'lerin ve yakın dövüş yeteneklerin %15 daha az Mana harcar. |\n| 6 | Careful Aim | 5 rank | — | Intellect'inin %100'ü kadar Attack Power kazanırsın. |\n| 7 | Rapid Killing | 2 rank | — | Rapid Fire'ın bekleme süresi 2 dakika kısalır. Bir düşman öldürünce sonraki atışın %20 fazla vurur. |\n| 8 | Improved Arcane Shot | 5 rank | — | Arcane Shot'ın bekleme süresi 1,5 saniye kısalır. |\n| 9 | Lone Wolf | 1 rank | — | Petin yokken bütün hasarın %20 artar. |\n| 10 | Trueshot Aura | 1 rank | — | 45 metre içindeki grubun menzilli Attack Power'ı 20 artar. Büyünün üst rank'larıyla bu değer 100'e çıkar. |\n| 11 | Mortal Shots | 5 rank | ← Careful Aim | Menzilli yeteneklerinin kritik hasar bonusu %30 artar. |\n| 12 | Rapid Recuperation | 2 rank | ← Rapid Killing | Serpent Sting'den sonra 15 saniye boyunca büyü yaparken de Mana yenilenmenin %50'si devam eder. Rapid Killing harcanınca bu oran %100 olur. |\n| 13 | Barrage | 3 rank | — | Multi-Shot, Aimed Shot ve Volley'nin hasarı %15 artar. |\n| 14 | Scatter Shot | 1 rank | — | Kısa menzilli bir atıştır. Silah hasarının %50'sini vurur ve hedefi 4 saniye şaşırtır. Hedef hasar alınca etki bozulur. |\n| 15 | Ranged Weapon Specialization | 5 rank | — | Menzilli silahla verdiğin hasar %5 artar. |\n| 16 | Sniper Shot | 1 rank | ← Trueshot Aura | 45 metreden atılabilen bir atıştır. Ardından 10 saniye boyunca sonraki 3 atışının menzili 10 metre artar. |"
+ },
+ {
+  "id": "hunter-06-survival-talentleri",
+  "category": "class",
+  "title": "Hunter · Survival Talentleri",
+  "file": "06-Survival-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "survival talentleri"
+  ],
+  "classKey": "hunter",
+  "kind": "talents",
+  "spec": "survival",
+  "text": "# Hunter · Survival Talent Ağacı\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: HUNTER — SURVIVAL. Kart başlığı: HUNTER • SURVIVAL TALENT AĞACI. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\n## Survival (ağaç şeması) — 18 talent\n\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki Talentler listesindeki numaralarla aynıdır. Satır numaraları ağacın solunda yazar (1–7). Sütun, ikonun ağaçtaki soldan kaçıncı sütunda durduğudur (1–4).\n\n| Satır | Talent numaraları (soldan sağa) | Talentler |\n|---|---|---|\n| 1 | 1 (sütun 2), 2 (sütun 3) | Improved Tracking, Deflection |\n| 2 | 3 (sütun 1), 4 (sütun 2), 5 (sütun 3), 6 (sütun 4) | Entrapment, Savage Strikes, Survivalist, Improved Wing Clip |\n| 3 | 7 (sütun 1), 8 (sütun 2), 9 (sütun 3) | Clever Traps, Surefooted, Deterrence |\n| 4 | 10 (sütun 1), 11 (sütun 2), 12 (sütun 3) | Survival Tactics, Predator's Edge, Counterattack |\n| 5 | 13 (sütun 1), 14 (sütun 2), 15 (sütun 3), 16 (sütun 4) | Resourcefulness, Expose Prey, Survivalist's Discipline, Strider Kick |\n| 6 | 17 (sütun 3) | Lightning Reflexes |\n| 7 | 18 (sütun 2) | Lacerating Strikes |\n\nOklar (ön koşul): 9 → 12 (Deterrence → Counterattack), 14 → 18 (Expose Prey → Lacerating Strikes).\n\nDipnot: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Improved Tracking | 5 rank | — | İzlediğin (Track) yaratık türüne verdiğin bütün hasar %5 artar. |\n| 2 | Deflection | 5 rank | — | Parry (savuşturma) şansın %5 artar. |\n| 3 | Entrapment | 5 rank | — | Tuzakların tetiklenince yakaladığı hedefler 5 saniye yerinden kıpırdayamaz. |\n| 4 | Savage Strikes | 2 rank | — | Yakın dövüş yeteneklerinin kritik şansı %4 artar. |\n| 5 | Survivalist | 5 rank | — | Toplam canın %10 artar. |\n| 6 | Improved Wing Clip | 3 rank | — | Wing Clip %20 şansla hedefi 5 saniye yerinde tutar. |\n| 7 | Clever Traps | 2 rank | — | Freezing ve Frost Trap'in süresi, Immolation ve Explosive Trap'in hasarı %30 artar. |\n| 8 | Surefooted | 3 rank | — | İsabet şansın %3 artar. Seni yavaşlatan etkilerin süresi %30 kısalır. |\n| 9 | Deterrence | 1 rank | — | Açınca 10 saniye dodge ve parry şansın %25 artar. |\n| 10 | Survival Tactics | 2 rank | — | Tuzaklarının ve Feign Death'in isabet şansı %10 artar. |\n| 11 | Predator's Edge | 5 rank | — | Yakın dövüş yeteneklerinin kritik hasarı %30, yan el silahının hasarı %50 artar. |\n| 12 | Counterattack | 1 rank | ← Deterrence | Parry yaptıktan sonra açılır. Hedefe vurur ve onu 5 saniye yerinde tutar. |\n| 13 | Resourcefulness | 2 rank | — | Tuzak ve yakın dövüş yeteneklerin %60 daha az Mana harcar. Kritik vurunca 30 saniye boyunca büyü yaparken de Mana yenilenmenin %50'si devam eder. |\n| 14 | Expose Prey | 2 rank | — | Hunter's Mark'lı hedefe her vuruşun %10 şansla Mongoose Bite'ı açar. |\n| 15 | Survivalist's Discipline | 2 rank | — | Tuzaklarının ve Deterrence'ın bekleme süresi %40 kısalır. |\n| 16 | Strider Kick | 1 rank | — | Silah hasarının %100'ü kadar vuran bir tekme atarsın. Ardından 3 saniye koşu hızın %30 artar. |\n| 17 | Lightning Reflexes | 5 rank | — | Agility'n %15 artar. |\n| 18 | Lacerating Strikes | 1 rank | ← Expose Prey | Mongoose Bite hedefi ayrıca 21 saniye kanatır. Kanama, Mongoose Bite hasarının %40'ı kadar vurur. |"
+ },
+ {
+  "id": "hunter-07-oynanis",
+  "category": "class",
+  "title": "Hunter · Oynanis",
+  "file": "07-Oynanis.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "oynanis"
+  ],
+  "classKey": "hunter",
+  "kind": "gameplay",
+  "text": "# Hunter · Oynanış Önceliği\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: HUNTER — OYNANIŞ. Kart başlığı: HUNTER • OYNANIŞ ÖNCELİĞİ. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\n## Beast Mastery\n\nPanelin sağ üst köşesindeki ikonlu etiket: Aspect of the Hawk\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Bestial Wrath | Hazır olduğu an kullan. Petin 18 saniye %50 fazla vurur. |\n| 2 | Serpent Sting | Hedefte hep açık tut. |\n| 3 | Summon Hawk | Hazır olduğu an kullan, iki şahin de açık kalsın. |\n| 4 | Aimed Shot | Hazır olduğu an kullan. |\n| 5 | Arcane Shot | Yalnız iki şahin de 6 saniyeden uzun kalacaksa kullan. |\n| 6 | Immolation Trap | Düşman yakındayken, bekleme süresi biter bitmez kur. |\n\nÇOK HEDEF: Multi-Shot ve Explosive Trap'i hazır oldukları an kullan, şahinleri açık tut, sonra Volley at. Sekiz ya da daha fazla düşmanda çoğunlukla Volley at.\n\n## Marksmanship\n\nPanelin sağ üst köşesindeki ikonlu etiket: Aspect of the Hawk\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Rapid Fire | Hazır olduğu an, trinket'inle birlikte kullan. |\n| 2 | Sniper Shot | Hazır olduğu an kullan. |\n| 3 | Aimed Shot | Hazır olduğu an kullan. |\n| 4 | Serpent Sting | Hedefte hep açık tut. |\n| 5 | Arcane Shot | Hazır olduğu an kullan. |\n| 6 | Immolation Trap | Düşman yakındayken, bekleme süresi biter bitmez kur. |\n\nÇOK HEDEF: Multi-Shot, Explosive Trap ve Sniper Shot kullan, sonra Volley at. Arcane Shot'ı yalnız üç ya da daha az düşmanda kullan.\n\n## Survival\n\nPanelin sağ üst köşesindeki ikonlu etiket: Aspect of the Beast\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Aimed Shot | Yakına koşmadan önce açılış atışı olarak kullan. |\n| 2 | Serpent Sting | Hedefe doğru koşarken at. |\n| 3 | Immolation Trap | Yakına girince, bekleme süresi biter bitmez kur. |\n| 4 | Raptor Strike | Hazır olduğu an kullan. |\n| 5 | Mongoose Bite | Açıldığı an kullan. Expose Prey onu sık açar. |\n| 6 | Strider Kick | Hazır olduğu an kullan. |\n\nÇOK HEDEF: Multi-Shot, Explosive Trap ve Volley kullan. Survival'ın çok düşmana karşı güçlü bir sırası yok.\n\n## Kural\n\nKURAL: Hepsinde savaştan önce Hunter's Mark at. Auto Shot için 0,5 saniye kıpırdamadan dur. Petin varsa önce o saldırsın."
+ },
+ {
+  "id": "hunter-08-beast-mastery-leveling",
+  "category": "class",
+  "title": "Hunter · Beast Mastery Leveling",
+  "file": "08-Beast-Mastery-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "beast mastery leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "hunter",
+  "kind": "leveling",
+  "spec": "beast-mastery",
+  "text": "# Hunter · Beast Mastery Leveling\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: HUNTER — BEAST MASTERY. Kart başlığı: HUNTER • BEAST MASTERY LEVELING. Sağ üst: TOTİK CHANNEL — TAVSİYE EDİLEN BUILD (rozet: Tavsiye edilen build).\nSeviye aralığı: Seviye 10 → 60.\n\n## Beast Mastery — 32 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Deadly Aspects — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Endurance Training — 1/5 (kısmen alındı)\n- Satır 2, sütun 1: Focused Fire — 2/2 (tamamlandı)\n- Satır 2, sütun 2: Improved Aspect of the Monkey — 0/3 (puan yok)\n- Satır 2, sütun 3: Improved Revive Pet — 2/2 (tamamlandı)\n- Satır 3, sütun 1: Pathfinding — 2/2 (tamamlandı)\n- Satır 3, sütun 2: Bestial Swiftness — 1/1 (tamamlandı)\n- Satır 3, sütun 3: Unleashed Fury — 5/5 (tamamlandı)\n- Satır 4, sütun 1: Improved Mend Pet — 0/2 (puan yok)\n- Satır 4, sütun 3: Ferocity — 5/5 (tamamlandı)\n- Satır 4, sütun 4: Summon Hawk — 1/1 (tamamlandı)\n- Satır 5, sütun 1: Spirit Bond — 0/2 (puan yok)\n- Satır 5, sütun 2: Intimidation — 1/1 (tamamlandı; ön koşul oku: Bestial Swiftness → Intimidation)\n- Satır 5, sütun 4: Bestial Discipline — 2/2 (tamamlandı)\n- Satır 6, sütun 3: Frenzy — 4/5 (kısmen alındı; ön koşul oku: Ferocity → Frenzy)\n- Satır 7, sütun 2: Bestial Wrath — 1/1 (tamamlandı; ön koşul oku: Intimidation → Bestial Wrath)\n\n## Marksmanship — 14 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Hawk Eye — 0/3 (puan yok)\n- Satır 1, sütun 2: Improved Concussive Shot — 0/5 (puan yok)\n- Satır 1, sütun 3: Lethal Attacks — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Improved Stings — 2/3 (kısmen alındı)\n- Satır 2, sütun 2: Efficiency — 0/5 (puan yok)\n- Satır 2, sütun 3: Careful Aim — 5/5 (tamamlandı)\n- Satır 3, sütun 1: Rapid Killing — 2/2 (tamamlandı)\n- Satır 3, sütun 2: Improved Arcane Shot — 0/5 (puan yok)\n- Satır 3, sütun 4: Lone Wolf — 0/1 (puan yok)\n- Satır 4, sütun 2: Trueshot Aura — 0/1 (puan yok)\n- Satır 4, sütun 3: Mortal Shots — 0/5 (puan yok; ön koşul oku: Careful Aim → Mortal Shots)\n- Satır 5, sütun 1: Rapid Recuperation — 0/2 (puan yok; ön koşul oku: Rapid Killing → Rapid Recuperation)\n- Satır 5, sütun 3: Barrage — 0/3 (puan yok)\n- Satır 5, sütun 4: Scatter Shot — 0/1 (puan yok)\n- Satır 6, sütun 3: Ranged Weapon Specialization — 0/5 (puan yok)\n- Satır 7, sütun 2: Sniper Shot — 0/1 (puan yok; ön koşul oku: Trueshot Aura → Sniper Shot)\n\n## Survival — 5 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Improved Tracking — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Deflection — 0/5 (puan yok)\n- Satır 2, sütun 1: Entrapment — 0/5 (puan yok)\n- Satır 2, sütun 2: Savage Strikes — 0/2 (puan yok)\n- Satır 2, sütun 3: Survivalist — 0/5 (puan yok)\n- Satır 2, sütun 4: Improved Wing Clip — 0/3 (puan yok)\n- Satır 3, sütun 1: Clever Traps — 0/2 (puan yok)\n- Satır 3, sütun 2: Surefooted — 0/3 (puan yok)\n- Satır 3, sütun 3: Deterrence — 0/1 (puan yok)\n- Satır 4, sütun 1: Survival Tactics — 0/2 (puan yok)\n- Satır 4, sütun 2: Predator's Edge — 0/5 (puan yok)\n- Satır 4, sütun 3: Counterattack — 0/1 (puan yok; ön koşul oku: Deterrence → Counterattack)\n- Satır 5, sütun 1: Resourcefulness — 0/2 (puan yok)\n- Satır 5, sütun 2: Expose Prey — 0/2 (puan yok)\n- Satır 5, sütun 3: Survivalist's Discipline — 0/2 (puan yok)\n- Satır 5, sütun 4: Strider Kick — 0/1 (puan yok)\n- Satır 6, sütun 3: Lightning Reflexes — 0/5 (puan yok)\n- Satır 7, sütun 2: Lacerating Strikes — 0/1 (puan yok; ön koşul oku: Expose Prey → Lacerating Strikes)\n\n## 60. Seviye Puan Dağılımı\n\n32 / 14 / 5 — Beast Mastery 32, Marksmanship 14, Survival 5. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Deadly Aspects | Beast Mastery | +5 | 5/5 | %10 şansla 12 sn saldırı hızı +%30 |\n| 15–16 | Focused Fire | Beast Mastery | +2 | 2/2 | Pet açıkken bütün hasar +%2 |\n| 17–18 | Improved Revive Pet | Beast Mastery | +2 | 2/2 | Revive Pet 6 sn kısa, %40 az Mana |\n| 19 | Endurance Training | Beast Mastery | +1 | 1/5 | Pet canı ve zırhı +%3 |\n| 20–21 | Pathfinding | Beast Mastery | +2 | 2/2 | Cheetah ve Pack aspect'lerine %6 ek hız |\n| 22 | Bestial Swiftness | Beast Mastery | +1 | 1/1 | Pet koşu hızı +%30 |\n| 23–24 | Unleashed Fury | Beast Mastery | +2 | 2/5 | Pet ve şahin hasarı +%6 |\n| 25 | Summon Hawk | Beast Mastery | +1 | 1/1 | Hedefe 18 sn saldıran şahin çağırır |\n| 26–28 | Unleashed Fury | Beast Mastery | +3 | 5/5 | Pet ve şahin hasarı +%15 |\n| 29 | Ferocity | Beast Mastery | +1 | 1/5 | Pet ve şahin kritik şansı +%2 |\n| 30–31 | Bestial Discipline | Beast Mastery | +2 | 2/2 | Pet Focus'u %20 hızlı dolar, büyüde Mana gelir |\n| 32–35 | Ferocity | Beast Mastery | +4 | 5/5 | Pet ve şahin kritik şansı +%10 |\n| 36 | Intimidation | Beast Mastery | +1 | 1/1 | Pet hedefi 3 sn sersemletir |\n| 37–39 | Frenzy | Beast Mastery | +3 | 3/5 | Pet kritiğinde %60 şansla hız +%30 |\n| 40 | Bestial Wrath | Beast Mastery | +1 | 1/1 | Pet 18 sn +%50 hasar, durdurulamaz |\n| 41 | Frenzy | Beast Mastery | +1 | 4/5 | Pet kritiğinde %80 şansla hız +%30 |\n| 42–46 | Lethal Attacks | Marksmanship | +5 | 5/5 | Bütün saldırılarda kritik şansı +%5 |\n| 47–51 | Careful Aim | Marksmanship | +5 | 5/5 | Intellect'in %100'ü Attack Power olur |\n| 52–53 | Rapid Killing | Marksmanship | +2 | 2/2 | Rapid Fire 2 dk erken, öldürünce +%20 |\n| 54–58 | Improved Tracking | Survival | +5 | 5/5 | İzlenen türe hasar +%5 |\n| 59–60 | Improved Stings | Marksmanship | +2 | 2/3 | Serpent Sting +%13, Viper Sting −4 sn |"
+ },
+ {
+  "id": "hunter-09-marksmanship-leveling",
+  "category": "class",
+  "title": "Hunter · Marksmanship Leveling",
+  "file": "09-Marksmanship-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "marksmanship leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "hunter",
+  "kind": "leveling",
+  "spec": "marksmanship",
+  "text": "# Hunter · Marksmanship Leveling\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: HUNTER — MARKSMANSHIP. Kart başlığı: HUNTER • MARKSMANSHIP LEVELING. Sağ üst: TOTİK CHANNEL — TAVSİYE EDİLEN BUILD (rozet: Tavsiye edilen build).\nSeviye aralığı: Seviye 10 → 60.\n\n## Beast Mastery — 19 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Deadly Aspects — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Endurance Training — 1/5 (kısmen alındı)\n- Satır 2, sütun 1: Focused Fire — 2/2 (tamamlandı)\n- Satır 2, sütun 2: Improved Aspect of the Monkey — 0/3 (puan yok)\n- Satır 2, sütun 3: Improved Revive Pet — 2/2 (tamamlandı)\n- Satır 3, sütun 1: Pathfinding — 2/2 (tamamlandı)\n- Satır 3, sütun 2: Bestial Swiftness — 1/1 (tamamlandı)\n- Satır 3, sütun 3: Unleashed Fury — 5/5 (tamamlandı)\n- Satır 4, sütun 1: Improved Mend Pet — 0/2 (puan yok)\n- Satır 4, sütun 3: Ferocity — 0/5 (puan yok)\n- Satır 4, sütun 4: Summon Hawk — 1/1 (tamamlandı)\n- Satır 5, sütun 1: Spirit Bond — 0/2 (puan yok)\n- Satır 5, sütun 2: Intimidation — 0/1 (puan yok; ön koşul oku: Bestial Swiftness → Intimidation)\n- Satır 5, sütun 4: Bestial Discipline — 0/2 (puan yok)\n- Satır 6, sütun 3: Frenzy — 0/5 (puan yok; ön koşul oku: Ferocity → Frenzy)\n- Satır 7, sütun 2: Bestial Wrath — 0/1 (puan yok; ön koşul oku: Intimidation → Bestial Wrath)\n\n## Marksmanship — 32 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Hawk Eye — 0/3 (puan yok)\n- Satır 1, sütun 2: Improved Concussive Shot — 0/5 (puan yok)\n- Satır 1, sütun 3: Lethal Attacks — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Improved Stings — 3/3 (tamamlandı)\n- Satır 2, sütun 2: Efficiency — 0/5 (puan yok)\n- Satır 2, sütun 3: Careful Aim — 5/5 (tamamlandı)\n- Satır 3, sütun 1: Rapid Killing — 2/2 (tamamlandı)\n- Satır 3, sütun 2: Improved Arcane Shot — 0/5 (puan yok)\n- Satır 3, sütun 4: Lone Wolf — 0/1 (puan yok)\n- Satır 4, sütun 2: Trueshot Aura — 1/1 (tamamlandı)\n- Satır 4, sütun 3: Mortal Shots — 5/5 (tamamlandı; ön koşul oku: Careful Aim → Mortal Shots)\n- Satır 5, sütun 1: Rapid Recuperation — 2/2 (tamamlandı; ön koşul oku: Rapid Killing → Rapid Recuperation)\n- Satır 5, sütun 3: Barrage — 3/3 (tamamlandı)\n- Satır 5, sütun 4: Scatter Shot — 0/1 (puan yok)\n- Satır 6, sütun 3: Ranged Weapon Specialization — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Sniper Shot — 1/1 (tamamlandı; ön koşul oku: Trueshot Aura → Sniper Shot)\n\n## Survival — 0 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Improved Tracking — 0/5 (puan yok)\n- Satır 1, sütun 3: Deflection — 0/5 (puan yok)\n- Satır 2, sütun 1: Entrapment — 0/5 (puan yok)\n- Satır 2, sütun 2: Savage Strikes — 0/2 (puan yok)\n- Satır 2, sütun 3: Survivalist — 0/5 (puan yok)\n- Satır 2, sütun 4: Improved Wing Clip — 0/3 (puan yok)\n- Satır 3, sütun 1: Clever Traps — 0/2 (puan yok)\n- Satır 3, sütun 2: Surefooted — 0/3 (puan yok)\n- Satır 3, sütun 3: Deterrence — 0/1 (puan yok)\n- Satır 4, sütun 1: Survival Tactics — 0/2 (puan yok)\n- Satır 4, sütun 2: Predator's Edge — 0/5 (puan yok)\n- Satır 4, sütun 3: Counterattack — 0/1 (puan yok; ön koşul oku: Deterrence → Counterattack)\n- Satır 5, sütun 1: Resourcefulness — 0/2 (puan yok)\n- Satır 5, sütun 2: Expose Prey — 0/2 (puan yok)\n- Satır 5, sütun 3: Survivalist's Discipline — 0/2 (puan yok)\n- Satır 5, sütun 4: Strider Kick — 0/1 (puan yok)\n- Satır 6, sütun 3: Lightning Reflexes — 0/5 (puan yok)\n- Satır 7, sütun 2: Lacerating Strikes — 0/1 (puan yok; ön koşul oku: Expose Prey → Lacerating Strikes)\n\n## 60. Seviye Puan Dağılımı\n\n19 / 32 / 0 — Beast Mastery 19, Marksmanship 32, Survival 0. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Lethal Attacks | Marksmanship | +5 | 5/5 | Bütün saldırılarda kritik şansı +%5 |\n| 15–19 | Careful Aim | Marksmanship | +5 | 5/5 | Intellect'in %100'ü Attack Power olur |\n| 20–21 | Rapid Killing | Marksmanship | +2 | 2/2 | Rapid Fire 2 dk erken, öldürünce +%20 |\n| 22–24 | Improved Stings | Marksmanship | +3 | 3/3 | Serpent Sting +%20, Viper Sting −6 sn |\n| 25 | Trueshot Aura | Marksmanship | +1 | 1/1 | Gruba menzilli Attack Power +20 |\n| 26–29 | Mortal Shots | Marksmanship | +4 | 4/5 | Menzilli kritik hasarı +%24 |\n| 30–31 | Rapid Recuperation | Marksmanship | +2 | 2/2 | Serpent Sting'den sonra büyüde Mana gelir |\n| 32 | Mortal Shots | Marksmanship | +1 | 5/5 | Menzilli kritik hasarı +%30 |\n| 33–34 | Barrage | Marksmanship | +2 | 2/3 | Multi-Shot, Aimed Shot ve Volley +%10 |\n| 35–39 | Ranged Weapon Specialization | Marksmanship | +5 | 5/5 | Menzilli silah hasarı +%5 |\n| 40 | Sniper Shot | Marksmanship | +1 | 1/1 | Uzun atış, sonraki 3 atış +10 m menzil |\n| 41–45 | Deadly Aspects | Beast Mastery | +5 | 5/5 | %10 şansla 12 sn saldırı hızı +%30 |\n| 46–47 | Focused Fire | Beast Mastery | +2 | 2/2 | Pet açıkken bütün hasar +%2 |\n| 48–49 | Improved Revive Pet | Beast Mastery | +2 | 2/2 | Revive Pet 6 sn kısa, %40 az Mana |\n| 50 | Endurance Training | Beast Mastery | +1 | 1/5 | Pet canı ve zırhı +%3 |\n| 51–52 | Pathfinding | Beast Mastery | +2 | 2/2 | Cheetah ve Pack aspect'lerine %6 ek hız |\n| 53 | Bestial Swiftness | Beast Mastery | +1 | 1/1 | Pet koşu hızı +%30 |\n| 54 | Barrage | Marksmanship | +1 | 3/3 | Multi-Shot, Aimed Shot ve Volley +%15 |\n| 55–56 | Unleashed Fury | Beast Mastery | +2 | 2/5 | Pet ve şahin hasarı +%6 |\n| 57 | Summon Hawk | Beast Mastery | +1 | 1/1 | Hedefe 18 sn saldıran şahin çağırır |\n| 58–60 | Unleashed Fury | Beast Mastery | +3 | 5/5 | Pet ve şahin hasarı +%15 |"
+ },
+ {
+  "id": "hunter-10-survival-leveling",
+  "category": "class",
+  "title": "Hunter · Survival Leveling",
+  "file": "10-Survival-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "survival leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "hunter",
+  "kind": "leveling",
+  "spec": "survival",
+  "text": "# Hunter · Survival Leveling\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: HUNTER — SURVIVAL. Kart başlığı: HUNTER • SURVIVAL LEVELING. Sağ üst: TOTİK CHANNEL — TAVSİYE EDİLEN BUILD (rozet: Tavsiye edilen build).\nSeviye aralığı: Seviye 10 → 60.\n\n## Beast Mastery — 0 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Deadly Aspects — 0/5 (puan yok)\n- Satır 1, sütun 3: Endurance Training — 0/5 (puan yok)\n- Satır 2, sütun 1: Focused Fire — 0/2 (puan yok)\n- Satır 2, sütun 2: Improved Aspect of the Monkey — 0/3 (puan yok)\n- Satır 2, sütun 3: Improved Revive Pet — 0/2 (puan yok)\n- Satır 3, sütun 1: Pathfinding — 0/2 (puan yok)\n- Satır 3, sütun 2: Bestial Swiftness — 0/1 (puan yok)\n- Satır 3, sütun 3: Unleashed Fury — 0/5 (puan yok)\n- Satır 4, sütun 1: Improved Mend Pet — 0/2 (puan yok)\n- Satır 4, sütun 3: Ferocity — 0/5 (puan yok)\n- Satır 4, sütun 4: Summon Hawk — 0/1 (puan yok)\n- Satır 5, sütun 1: Spirit Bond — 0/2 (puan yok)\n- Satır 5, sütun 2: Intimidation — 0/1 (puan yok; ön koşul oku: Bestial Swiftness → Intimidation)\n- Satır 5, sütun 4: Bestial Discipline — 0/2 (puan yok)\n- Satır 6, sütun 3: Frenzy — 0/5 (puan yok; ön koşul oku: Ferocity → Frenzy)\n- Satır 7, sütun 2: Bestial Wrath — 0/1 (puan yok; ön koşul oku: Intimidation → Bestial Wrath)\n\n## Marksmanship — 17 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Hawk Eye — 0/3 (puan yok)\n- Satır 1, sütun 2: Improved Concussive Shot — 0/5 (puan yok)\n- Satır 1, sütun 3: Lethal Attacks — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Improved Stings — 3/3 (tamamlandı)\n- Satır 2, sütun 2: Efficiency — 1/5 (kısmen alındı)\n- Satır 2, sütun 3: Careful Aim — 5/5 (tamamlandı)\n- Satır 3, sütun 1: Rapid Killing — 0/2 (puan yok)\n- Satır 3, sütun 2: Improved Arcane Shot — 0/5 (puan yok)\n- Satır 3, sütun 4: Lone Wolf — 1/1 (tamamlandı)\n- Satır 4, sütun 2: Trueshot Aura — 0/1 (puan yok)\n- Satır 4, sütun 3: Mortal Shots — 2/5 (kısmen alındı; ön koşul oku: Careful Aim → Mortal Shots)\n- Satır 5, sütun 1: Rapid Recuperation — 0/2 (puan yok; ön koşul oku: Rapid Killing → Rapid Recuperation)\n- Satır 5, sütun 3: Barrage — 0/3 (puan yok)\n- Satır 5, sütun 4: Scatter Shot — 0/1 (puan yok)\n- Satır 6, sütun 3: Ranged Weapon Specialization — 0/5 (puan yok)\n- Satır 7, sütun 2: Sniper Shot — 0/1 (puan yok; ön koşul oku: Trueshot Aura → Sniper Shot)\n\n## Survival — 34 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Improved Tracking — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Deflection — 0/5 (puan yok)\n- Satır 2, sütun 1: Entrapment — 0/5 (puan yok)\n- Satır 2, sütun 2: Savage Strikes — 2/2 (tamamlandı)\n- Satır 2, sütun 3: Survivalist — 3/5 (kısmen alındı)\n- Satır 2, sütun 4: Improved Wing Clip — 0/3 (puan yok)\n- Satır 3, sütun 1: Clever Traps — 2/2 (tamamlandı)\n- Satır 3, sütun 2: Surefooted — 3/3 (tamamlandı)\n- Satır 3, sütun 3: Deterrence — 0/1 (puan yok)\n- Satır 4, sütun 1: Survival Tactics — 2/2 (tamamlandı)\n- Satır 4, sütun 2: Predator's Edge — 5/5 (tamamlandı)\n- Satır 4, sütun 3: Counterattack — 0/1 (puan yok; ön koşul oku: Deterrence → Counterattack)\n- Satır 5, sütun 1: Resourcefulness — 1/2 (kısmen alındı)\n- Satır 5, sütun 2: Expose Prey — 2/2 (tamamlandı)\n- Satır 5, sütun 3: Survivalist's Discipline — 2/2 (tamamlandı)\n- Satır 5, sütun 4: Strider Kick — 1/1 (tamamlandı)\n- Satır 6, sütun 3: Lightning Reflexes — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Lacerating Strikes — 1/1 (tamamlandı; ön koşul oku: Expose Prey → Lacerating Strikes)\n\n## 60. Seviye Puan Dağılımı\n\n0 / 17 / 34 — Beast Mastery 0, Marksmanship 17, Survival 34. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Lethal Attacks | Marksmanship | +5 | 5/5 | Bütün saldırılarda kritik şansı +%5 |\n| 15–19 | Improved Tracking | Survival | +5 | 5/5 | İzlenen türe hasar +%5 |\n| 20–21 | Savage Strikes | Survival | +2 | 2/2 | Yakın yetenek kritik şansı +%4 |\n| 22–24 | Survivalist | Survival | +3 | 3/5 | Toplam can +%6 |\n| 25–27 | Surefooted | Survival | +3 | 3/3 | İsabet +%3, yavaşlatmalar %30 kısa |\n| 28–29 | Clever Traps | Survival | +2 | 2/2 | Tuzak süresi ve hasarı +%30 |\n| 30–34 | Predator's Edge | Survival | +5 | 5/5 | Yakın kritik hasarı +%30, yan el +%50 |\n| 35 | Strider Kick | Survival | +1 | 1/1 | Tekme vurur, 3 sn koşu hızı +%30 |\n| 36–37 | Expose Prey | Survival | +2 | 2/2 | İşaretli hedefte %10 şansla Mongoose Bite |\n| 38–39 | Survivalist's Discipline | Survival | +2 | 2/2 | Tuzak ve Deterrence beklemesi −%40 |\n| 40–44 | Lightning Reflexes | Survival | +5 | 5/5 | Agility +%15 |\n| 45 | Lacerating Strikes | Survival | +1 | 1/1 | Mongoose Bite hasarının %40'ı kanama |\n| 46 | Resourcefulness | Survival | +1 | 1/2 | Tuzak ve yakın yetenekler %30 az Mana |\n| 47–48 | Survival Tactics | Survival | +2 | 2/2 | Tuzak ve Feign Death isabeti +%10 |\n| 49–53 | Careful Aim | Marksmanship | +5 | 5/5 | Intellect'in %100'ü Attack Power olur |\n| 54 | Lone Wolf | Marksmanship | +1 | 1/1 | Pet yokken bütün hasar +%20 |\n| 55–57 | Improved Stings | Marksmanship | +3 | 3/3 | Serpent Sting +%20, Viper Sting −6 sn |\n| 58 | Efficiency | Marksmanship | +1 | 1/5 | Atış, Sting ve yakın yetenek %3 az Mana |\n| 59–60 | Mortal Shots | Marksmanship | +2 | 2/5 | Menzilli kritik hasarı +%12 |"
+ },
+ {
+  "id": "mage-01-irk-secimi",
+  "category": "class",
+  "title": "Mage · Irk Secimi",
+  "file": "01-Irk-Secimi.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "irk secimi"
+  ],
+  "classKey": "mage",
+  "kind": "race",
+  "text": "# Mage · Irk Seçimi\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: MAGE — IRKLAR. Kart başlığı: MAGE • IRK SEÇİMİ. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\nKartta iki sıra var: üst sıra ALLIANCE, alt sıra HORDE. Her ırk kutusunda ırkın portresi, adı ve açıklaması yazar.\n\n## Alliance\n\n| Irk | Açıklama |\n|---|---|\n| Human | Ruthless kritik şansını her zaman %1 artırır. The Human Spirit Spirit'ini %10 artırır, böylece manan daha hızlı dolar. Will to Survive üstündeki stun'ı anında kaldırır. |\n| Gnome | Eureka! 8 saniye büyülerini %10 daha ucuz ve %10 daha güçlü yapar; kısa dövüşlerde çok etkili. Expansive Mind en fazla manayı %5 artırır. Escape Artist kökleri kırar. |\n| High Order Skyborne | Mage olabilen tek Skyborne kolu. Wind Blessed büyü hızını her zaman %2 artırır. Read Ley Line 15 saniye mana yenilenmesini %50 artırır. Skyborne ayrıca satın alınır. |\n\n## Horde\n\n| Irk | Açıklama |\n|---|---|\n| Orc | Blood Fury 15 saniye büyü gücünü %10 artırır (2 dakika bekleme). Orc'un eskiden verdiği %1 kritik Forever'da kaldırıldı. Command yalnız Hunter ve Warlock petlerine işler. |\n| Undead | Touch of the Grave büyülerinde de zaman zaman hedeften can çeker; uzun dövüşlerde daha çok işe yarar. Will of the Forsaken korku etkisini anında kırar. |\n| Troll | Berserking 15 saniye büyü hızını %10 artırır (3 dakika bekleme); kısa dövüşlerde güçlü. Beast Slaying hayvan türü düşmanlara %5 fazla hasar verdirir. |"
+ },
+ {
+  "id": "mage-02-yetenekler-1",
+  "category": "class",
+  "title": "Mage · Yetenekler 1",
+  "file": "02-Yetenekler-1.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "yetenekler 1"
+  ],
+  "classKey": "mage",
+  "kind": "abilities",
+  "part": 1,
+  "text": "# Mage · Hasar Büyüleri, Kontrol ve Zırhlar\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: MAGE — YETENEKLER 1/2. Kart başlığı: MAGE • HASAR BÜYÜLERİ, KONTROL VE ZIRHLAR. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\nHer yeteneğin solunda öğrenildiği seviye (SEVİYE kutusu), adının yanında varsa rank sayısı ve rozet yazar.\n\n## Arcane Büyüleri\n\nArcane okulu: saf büyü hasarı.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 8 | Arcane Missiles | 7 rank | — | 5 saniye boyunca her saniye 175 Arcane hasarı vurur. Forever'da hedef büyü sırasında bir engelin arkasına geçse de mermiler gider. |\n| 14 | Arcane Explosion | 6 rank | 10 metre | Etrafındaki bütün düşmanlara anında 249 Arcane hasarı vurur. Yakına toplanan düşmanlarda art arda bas. |\n\n## Fire Büyüleri\n\nFire okulu: yüksek hasar ve yanma.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 1 | Fireball | 11 rank | — | 3,5 saniyede dökülür. 451 Fire hasarı vurur, 8 saniyede 56 hasar daha yakar. |\n| 6 | Fire Blast | 7 rank | — | Anında 453 Fire hasarı vurur. 8 saniye bekleme süresi var; yürürken ya da son vuruş için kullan. |\n| 16 | Flamestrike | 6 rank | Alan · 8 sn | Seçtiğin alana 424 Fire hasarı, ardından 8 saniyede 332 hasar daha. Aynı anda tek Flamestrike açık kalır. |\n| 22 | Scorch | 7 rank | — | 1,5 saniyede dökülür, 182 Fire hasarı vurur. Kısa dökümüyle hareketli dövüşte işe yarar. |\n\n## Frost Büyüleri\n\nFrost okulu: hasar verirken düşmanı yavaşlatır.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 4 | Frostbolt | 10 rank | Düşman · 9 sn | 3 saniyede dökülür. 398 Frost hasarı vurur ve düşmanı 9 saniye %40 yavaşlatır. |\n| 20 | Blizzard | 6 rank | Alan · 8 sn | Seçtiğin alana 8 saniyede toplam 1168 Frost hasarı yağdırır. Büyü sürerken hareket edemezsin. |\n| 26 | Cone of Cold | 5 rank | Koni · 6 sn | Önündeki düşmanlara 343 Frost hasarı, %40 yavaşlatma. Forever'da ilk 4 hedef %10 daha fazla ve 3 saniye uzun yavaşlar. |\n| 40 | Frostfire Bolt | 3 rank | Forever'da yeni | 292 hasar vurur, 9 saniyede 57 daha yakar ve %40 yavaşlatır. Hem Fire hem Frost sayılır. |\n\n## Kontrol ve Kaçış\n\nDüşmanı oyun dışı bırakır, büyüsünü keser ya da senden uzak tutar.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 8 | Polymorph | 4 rank | Düşman · 50 sn | Düşmanı koyuna çevirir, hasar alınca bozulur. Yalnız Beast, Humanoid ve Critter'a işler; aynı anda tek hedef. |\n| 10 | Frost Nova | 4 rank | Yakın · 8 sn | Etrafındaki düşmanları 8 saniye yerinde dondurur, hasar donmayı bozabilir. 25 saniye bekleme süresi var. |\n| 20 | Blink | — | — | 20 metre ileri ışınlanırsın; stun ve kök etkilerinden kurtulursun. 15 saniye bekleme süresi var. |\n| 24 | Counterspell | — | Kesme | Büyüyü keser, o okuldan büyüyü 10 saniye engeller. 30 saniye bekleme süresi var, yüksek tehdit üretir. |\n\n## Zırh Büyüleri\n\nAynı anda tek zırh büyüsü açık kalır, 30 dakika sürer. Hep birini açık tut.\n\n| Seviye | Yetenek | Açıklama |\n|---|---|---|\n| SEVİYE 1 | Frost Armor | Zırhın 200 artar. Sana vuran düşman şansla 5 saniye %30 yavaşlar, saldırı aralığı %25 uzar. |\n| SEVİYE 30 | Ice Armor | Frost Armor'ın güçlü hali. Zırhın 560, Frost direncin 15 artar; vuran düşman aynı şekilde yavaşlar. |\n| SEVİYE 34 | Mage Armor | Bütün büyü dirençlerin 15 artar. Büyü yaparken de mana yenilenmenin %50'si sürer. |\n\nDipnot: Tek başına oynarken Frost Armor ya da Ice Armor kullan. Vurulmayacağın grup ve raidde Mage Armor daha iyidir."
+ },
+ {
+  "id": "mage-03-yetenekler-2",
+  "category": "class",
+  "title": "Mage · Yetenekler 2",
+  "file": "03-Yetenekler-2.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "yetenekler 2"
+  ],
+  "classKey": "mage",
+  "kind": "abilities",
+  "part": 2,
+  "text": "# Mage · Buff, Koruma, Yemek-Su ve Işınlanma\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: MAGE — YETENEKLER 2/2. Kart başlığı: MAGE • BUFF, KORUMA, YEMEK-SU VE IŞINLANMA. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\nHer yeteneğin solunda öğrenildiği seviye (SEVİYE kutusu), adının yanında varsa rank sayısı ve rozet yazar.\n\n## Buff'lar\n\nSeni ya da grubunu güçlendirir.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 1 | Arcane Intellect | 5 rank | Dost · 1 saat | Hedefin Intellect'i 31 artar. Grupta mana kullanan herkese at. |\n| 12 | Dampen Magic | 5 rank | Dost · 10 dk | Hedefe gelen büyü hasarı 135, aldığı iyileştirme 270 azalır. Tek başına oynarken kendine açık tutabilirsin. |\n| 12 | Slow Fall | — | Dost · 30 sn | Düşüşü yavaşlatır, yüksekten atlayınca hasar almazsın. Light Feather harcar. |\n| 18 | Amplify Magic | 4 rank | Dost · 10 dk | Hedefe gelen büyü hasarı 113, aldığı iyileştirme 225 artar. Healer çok iyileştirirken işe yarar. |\n| 56 | Arcane Brilliance | — | Raid · 1 saat | Bütün grup ve raidin Intellect'i 31 artar, Arcane Powder harcar. Eğitmen öğretmez, Tome of Arcane Brilliance kitabından öğrenilir. |\n\n## Koruma ve Arındırma\n\nGelen hasarı emer ya da üstündeki laneti siler.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 18 | Remove Lesser Curse | — | Dost | Hedefin üstündeki bir lanet (Curse) etkisini kaldırır. Grupta lanet temizlemek senin işin. |\n| 20 | Fire Ward | 5 rank | Sen · 30 sn | 913 Fire hasarını emer. 30 saniye bekleme süresi var; ateş vuran düşmana karşı aç. |\n| 20 | Mana Shield | 6 rank | Sen · 1 dk | 570 fiziksel hasarı emer, emdiği her hasar için 2 mana harcar. Büyün kesilmesin diye ya da acil durumda aç. |\n| 22 | Frost Ward | 4 rank | Sen · 30 sn | 668 Frost hasarını emer. 30 saniye bekleme süresi var; buz vuran düşmana karşı aç. |\n\n## Yemek, Su ve Mana\n\nKendi yemeğini, suyunu ve mana taşını yaratırsın. Oyundan 15 dakikadan uzun çıkarsan kaybolurlar.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 4 | Conjure Water | 6 rank | — | Son rankta 20 şişe su yaratır. Gruba da dağıt, su satın almana gerek kalmaz. |\n| 6 | Conjure Food | 6 rank | — | Son rankta 20 Sweet Roll yaratır. Savaş dışında yiyerek canını doldurursun. |\n| 20 | Evocation | — | 8 sn | Büyüyü 8 saniye sürdürürken mana yenilenmen %1500 artar, manan büyük ölçüde dolar. 8 dakika bekleme süresi var. |\n| 28 | Conjure Mana Agate | — | — | Kullanınca anında 400 mana veren bir taş yaratır. 38, 48 ve 58. seviyede daha güçlü taşlar gelir; Mana Ruby 1100 mana verir. |\n\n## Işınlanma ve Portal\n\nBaşkentlere anında gidersin. Portal grubunu da götürür.\n\n| Seviye | Yetenek | Rank | Rozet | Açıklama |\n|---|---|---|---|---|\n| 20 | Teleport | — | Sen | Kendi tarafının başkentlerine ışınlanırsın: 20. seviyede iki, 30'da üçüncü başkent gelir. Rune of Teleportation harcar. |\n| 40 | Portal | — | Grup | Grubunu başkente götüren bir geçit açar: 40. seviyede iki, 50'de üçüncü başkent gelir. Rune of Portals harcar. |\n| 50 | Teleport: Dalaran | — | Yalnız Alliance; Forever'da yeni | Dalaran şehrine ışınlanırsın. Rune of Teleportation harcar, 10 saniyede dökülür. |"
+ },
+ {
+  "id": "mage-04-arcane-talentleri",
+  "category": "class",
+  "title": "Mage · Arcane Talentleri",
+  "file": "04-Arcane-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "arcane talentleri"
+  ],
+  "classKey": "mage",
+  "kind": "talents",
+  "spec": "arcane",
+  "text": "# Mage · Arcane Talent Ağacı\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: MAGE — ARCANE. Kart başlığı: MAGE • ARCANE TALENT AĞACI. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\n## Arcane (ağaç şeması) — 18 talent\n\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki Talentler listesindeki numaralarla aynıdır. Satır numaraları ağacın solunda yazar (1–7). Sütun, ikonun ağaçtaki soldan kaçıncı sütunda durduğudur (1–4).\n\n| Satır | Talent numaraları (soldan sağa) | Talentler |\n|---|---|---|\n| 1 | 1 (sütun 1), 2 (sütun 2), 3 (sütun 3) | Wand Specialization, Improved Channeling, Arcane Resilience |\n| 2 | 4 (sütun 1), 5 (sütun 2), 6 (sütun 3), 7 (sütun 4) | Arcane Subtlety, Magic Absorption, Arcane Concentration, Missile Barrage |\n| 3 | 8 (sütun 1), 9 (sütun 2), 10 (sütun 4) | Arcane Geometry, Arcane Impact, Arcane Blast |\n| 4 | 11 (sütun 1), 12 (sütun 2), 13 (sütun 3), 14 (sütun 4) | Arcane Shielding, Improved Counterspell, Arcane Meditation, Arcane Wrath |\n| 5 | 15 (sütun 2), 16 (sütun 3) | Presence of Mind, Arcane Mind |\n| 6 | 17 (sütun 3) | Arcane Instability |\n| 7 | 18 (sütun 2) | Arcane Power |\n\nOklar (ön koşul): 6 → 13 (Arcane Concentration → Arcane Meditation), 10 → 14 (Arcane Blast → Arcane Wrath), 15 → 18 (Presence of Mind → Arcane Power).\n\nDipnot: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Wand Specialization | 2 rank | — | Wand ile verdiğin hasar %25 artar. |\n| 2 | Improved Channeling | 5 rank | — | Hasar alınca Arcane Missiles hiç gerilemez. Arcane Blast ve Arcane Wrath %70 şansla gerilemez. |\n| 3 | Arcane Resilience | 3 rank | — | Zırhın, Intellect'inin %75'i kadar artar. |\n| 4 | Arcane Subtlety | 2 rank | — | Büyülerin hedefin dirençlerini 15 düşürür. Arcane büyülerinin tehdidi %30 azalır. |\n| 5 | Magic Absorption | 2 rank | — | Bütün dirençlerin 10 artar. Tamamen direndiğin her büyü toplam mananın %2'sini geri verir. |\n| 6 | Arcane Concentration | 5 rank | — | Hasar büyülerin %10 şansla Clearcasting açar, sonraki hasar büyün bedava olur. |\n| 7 | Missile Barrage | 2 rank | — | Arcane Blast %40, Fireball, Frostbolt, Frostfire Bolt ve Arcane Wrath %20 şansla sonraki Arcane Missiles'ı hızlı ve bedava yapar. |\n| 8 | Arcane Geometry | 2 rank | — | Arcane büyülerinin menzili 6 metre artar. |\n| 9 | Arcane Impact | 3 rank | — | Arcane büyülerinin kritik şansı %6 artar. |\n| 10 | Arcane Blast | 1 rank | — | Her atışta Intellect'inin %12'si kadar büyü gücü kazanırsın ve maliyeti %100 artar. 4 kez yığılır, 18 saniye sürer. |\n| 11 | Arcane Shielding | 2 rank | — | Mana Shield açıkken kaybettiğin mana %33 azalır. Mage Armor'un verdiği dirençler %50 artar. |\n| 12 | Improved Counterspell | 2 rank | — | Counterspell hedefi ayrıca 4 saniye susturur. |\n| 13 | Arcane Meditation | 3 rank | ← Arcane Concentration | Büyü yaparken mana yenilenmenin %50'si devam eder. |\n| 14 | Arcane Wrath | 1 rank | ← Arcane Blast | Arcane enerji mermisi atar ve toplam mananın %5'i kadar ek büyü gücü alır. Bekleme süresi 6 saniyedir. |\n| 15 | Presence of Mind | 1 rank | — | Kullanınca sonraki Mage büyün anında çıkar. |\n| 16 | Arcane Mind | 5 rank | — | Intellect'in %10 artar. Arcane büyülerinin kritik hasar bonusu %100 artar. |\n| 17 | Arcane Instability | 3 rank | — | Büyülerinin hasarı %3, kritik şansın %3 artar. |\n| 18 | Arcane Power | 1 rank | ← Presence of Mind | 15 saniye boyunca büyülerin %30 fazla hasar verir ama %30 fazla mana harcar. |"
+ },
+ {
+  "id": "mage-05-fire-talentleri",
+  "category": "class",
+  "title": "Mage · Fire Talentleri",
+  "file": "05-Fire-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "fire talentleri"
+  ],
+  "classKey": "mage",
+  "kind": "talents",
+  "spec": "fire",
+  "text": "# Mage · Fire Talent Ağacı\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: MAGE — FIRE. Kart başlığı: MAGE • FIRE TALENT AĞACI. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\n## Fire (ağaç şeması) — 17 talent\n\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki Talentler listesindeki numaralarla aynıdır. Satır numaraları ağacın solunda yazar (1–7). Sütun, ikonun ağaçtaki soldan kaçıncı sütunda durduğudur (1–4).\n\n| Satır | Talent numaraları (soldan sağa) | Talentler |\n|---|---|---|\n| 1 | 1 (sütun 2), 2 (sütun 3) | Incineration, Accelerant |\n| 2 | 3 (sütun 1), 4 (sütun 2), 5 (sütun 3) | Ignite, Flame Throwing, Impact |\n| 3 | 6 (sütun 1), 7 (sütun 2), 8 (sütun 3), 9 (sütun 4) | Burning Soul, Improved Flamestrike, Pyroblast, Improved Fire Blast |\n| 4 | 10 (sütun 1), 11 (sütun 2), 12 (sütun 3), 13 (sütun 4) | Improved Scorch, Improved Fire Ward, Heating Up, Master of Elements |\n| 5 | 14 (sütun 2), 15 (sütun 3) | Critical Mass, Blast Wave |\n| 6 | 16 (sütun 3) | Fire Power |\n| 7 | 17 (sütun 2) | Combustion |\n\nOklar (ön koşul): 8 → 12 (Pyroblast → Heating Up), 14 → 17 (Critical Mass → Combustion).\n\nDipnot: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Incineration | 5 rank | — | Fire Blast, Scorch, Ice Lance ve Arcane Blast'ın kritik şansı %10 artar. |\n| 2 | Accelerant | 5 rank | — | Fireball, Frostfire Bolt ve Arcane Wrath'ın döküm süresi 0,5 saniye kısalır. |\n| 3 | Ignite | 5 rank | — | Fire büyün kritik vurunca hedef 4 saniyede büyü hasarının %40'ı kadar ek yanar. |\n| 4 | Flame Throwing | 2 rank | — | Fire büyülerinin menzili 6 metre artar. |\n| 5 | Impact | 3 rank | — | Fire büyülerin %10 şansla hedefi 2 saniye sersemletir. |\n| 6 | Burning Soul | 3 rank | — | Hasar alınca Fire büyülerin %70 şansla gerilemez. Fire büyülerinin tehdidi %30 azalır. |\n| 7 | Improved Flamestrike | 3 rank | — | Flamestrike'ın kritik şansı %15 artar. |\n| 8 | Pyroblast | 1 rank | — | Büyük bir ateş topu fırlatır. Hedef ayrıca 12 saniye yanar. |\n| 9 | Improved Fire Blast | 2 rank | — | Fire Blast'ın bekleme süresi 2 saniye kısalır, menzili 15 metre artar. |\n| 10 | Improved Scorch | 3 rank | — | Her Scorch hedefin aldığı Fire hasarını %3 artıran bir yığın bırakır. En fazla 5 yığın olur, 30 saniye sürer. |\n| 11 | Improved Fire Ward | 2 rank | — | Fire Ward açıkken gelen Fire büyülerini %20 şansla yansıtırsın. |\n| 12 | Heating Up | 1 rank | ← Pyroblast | Fireball, Frostfire Bolt, Fire Blast ve Scorch kritik vurunca sonraki Pyroblast %25 hızlı dökülür. 3 kez yığılır, 20 saniye sürer. |\n| 13 | Master of Elements | 3 rank | — | Fire ve Frost kritiklerin, büyünün temel mana maliyetinin %30'unu geri verir. |\n| 14 | Critical Mass | 3 rank | — | Fire büyülerinin kritik şansı %6 artar. |\n| 15 | Blast Wave | 1 rank | — | Etrafına ateş dalgası yayar ve vurduğu düşmanları 6 saniye %50 yavaşlatır. |\n| 16 | Fire Power | 3 rank | — | Hedefteki her Fire etkin için Fire hasarın %3 artar. Toplam artış en fazla %12 olur. |\n| 17 | Combustion | 1 rank | ← Critical Mass | Açınca her Fire isabetin Fire kritik şansını %10 artırır. 3 kritik vuruştan sonra biter. |"
+ },
+ {
+  "id": "mage-06-frost-talentleri",
+  "category": "class",
+  "title": "Mage · Frost Talentleri",
+  "file": "06-Frost-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "frost talentleri"
+  ],
+  "classKey": "mage",
+  "kind": "talents",
+  "spec": "frost",
+  "text": "# Mage · Frost Talent Ağacı\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: MAGE — FROST. Kart başlığı: MAGE • FROST TALENT AĞACI. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\n## Frost (ağaç şeması) — 18 talent\n\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki Talentler listesindeki numaralarla aynıdır. Satır numaraları ağacın solunda yazar (1–7). Sütun, ikonun ağaçtaki soldan kaçıncı sütunda durduğudur (1–4).\n\n| Satır | Talent numaraları (soldan sağa) | Talentler |\n|---|---|---|\n| 1 | 1 (sütun 1), 2 (sütun 2), 3 (sütun 3) | Frost Warding, Improved Frostbolt, Precision |\n| 2 | 4 (sütun 1), 5 (sütun 2), 6 (sütun 3), 7 (sütun 4) | Ice Shards, Frostbite, Improved Frost Nova, Permafrost |\n| 3 | 8 (sütun 1), 9 (sütun 2), 10 (sütun 3) | Frost Channeling, Improved Blizzard, Ice Lance |\n| 4 | 11 (sütun 1), 12 (sütun 2), 13 (sütun 4) | Arctic Reach, Ice Block, Shatter |\n| 5 | 14 (sütun 1), 15 (sütun 2), 16 (sütun 3) | Improved Cone of Cold, Cold Snap, Fingers of Frost |\n| 6 | 17 (sütun 3) | Winter's Chill |\n| 7 | 18 (sütun 2) | Ice Barrier |\n\nOklar (ön koşul): 10 → 16 (Ice Lance → Fingers of Frost), 15 → 18 (Cold Snap → Ice Barrier).\n\nDipnot: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Frost Warding | 2 rank | — | Frost Armor ve Ice Armor %30 güçlenir. Frost Ward %20 şansla büyüyü tamamen yok eder. Ice Barrier ve Frost Ward %20 fazla emer. |\n| 2 | Improved Frostbolt | 5 rank | — | Frostbolt'un döküm süresi 0,5 saniye kısalır. |\n| 3 | Precision | 3 rank | — | Bütün büyülerinin isabet şansı %6 artar. |\n| 4 | Ice Shards | 5 rank | — | Frost büyülerinin kritik hasar bonusu %100 artar. |\n| 5 | Frostbite | 3 rank | — | Chill etkilerin %15 şansla hedefi 5 saniye dondurur. |\n| 6 | Improved Frost Nova | 2 rank | — | Frost Nova'nın bekleme süresi 4 saniye kısalır. |\n| 7 | Permafrost | 3 rank | — | Chill etkilerin %33 uzun sürer ve hedefi %10 daha fazla yavaşlatır. |\n| 8 | Frost Channeling | 3 rank | — | Frost büyülerinin mana maliyeti %15, tehdidi %30 azalır. |\n| 9 | Improved Blizzard | 3 rank | — | Blizzard vurduğu düşmanları 1,5 saniye %40 yavaşlatır. |\n| 10 | Ice Lance | 1 rank | — | Donmuş hedefe %300 fazla vurur. Fire Blast ile ortak 8 saniye bekleme süresi var. |\n| 11 | Arctic Reach | 2 rank | — | Frostbolt, Ice Lance ve Blizzard'ın menzili %20 artar. Frost Nova ve Cone of Cold'un alanı da %20 genişler. |\n| 12 | Ice Block | 1 rank | — | 10 saniye bütün saldırılara bağışık olursun ama hareket edemez, büyü yapamazsın. |\n| 13 | Shatter | 3 rank | — | Donmuş hedefe karşı büyülerinin kritik şansı %50 artar. |\n| 14 | Improved Cone of Cold | 3 rank | — | Cone of Cold'un hasarı %35 artar. |\n| 15 | Cold Snap | 1 rank | — | Diğer bütün Frost büyülerinin bekleme süresini sıfırlar. |\n| 16 | Fingers of Frost | 2 rank | ← Ice Lance | Chill etkilerin %15 şansla sonraki 2 büyünde hedefi donmuş saydırır. |\n| 17 | Winter's Chill | 5 rank | — | Frostbolt ve Fingers of Frost'lu Ice Lance hedefe yığın bırakır. Her yığın sonraki Cone of Cold'un hasarını %20 artırır. |\n| 18 | Ice Barrier | 1 rank | ← Cold Snap | Hasar emen bir kalkan kurar ve 1 dakika Frost hasarın %15 artar. Kalkan durdukça hasar %5 daha artar, döküm gerilemez. |"
+ },
+ {
+  "id": "mage-07-oynanis",
+  "category": "class",
+  "title": "Mage · Oynanis",
+  "file": "07-Oynanis.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "oynanis"
+  ],
+  "classKey": "mage",
+  "kind": "gameplay",
+  "text": "# Mage · Oynanış Önceliği\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: MAGE — OYNANIŞ. Kart başlığı: MAGE • OYNANIŞ ÖNCELİĞİ. Sağ üst: TOTİK CHANNEL — SINIF REHBERİ.\n\n## Arcane\n\nPanelin sağ üst köşesindeki ikonlu etiket: Mage Armor\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Pyroblast | Açılışta at. Sonra Heating Up 3 yığın olunca at. |\n| 2 | Fire Blast | Heating Up 3 yığın olana kadar bekleme süresi dolar dolmaz kullan. |\n| 3 | Arcane Wrath | Hazır olduğu an kullan, 6 saniyede bir açılır. |\n| 4 | Arcane Missiles | Yalnız Missile Barrage açılınca at. |\n| 5 | Arcane Blast | 4 yığında tut. Yığın ilk atıştan 18 saniye sonra düşer. |\n| 6 | Presence of Mind | Arcane Wrath ya da Pyroblast'ı anında atmak için aç. |\n\nÇOK HEDEF: Flamestrike ile başla, sonra Arcane Explosion kullan. Flamestrike bitince Presence of Mind ile yenisini anında at.\n\n## Fire\n\nPanelin sağ üst köşesindeki ikonlu etiket: Mage Armor\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Pyroblast | Açılışta at. Sonra Heating Up 3 yığın olunca at. |\n| 2 | Fire Blast | Heating Up 3 yığın olana kadar bekleme süresi dolar dolmaz kullan. |\n| 3 | Scorch | Başta 5 yığın koy. 30 saniye dolmadan yığını tazele. |\n| 4 | Arcane Missiles | Yalnız Missile Barrage açılınca at. |\n| 5 | Arcane Blast | Bir ya da iki yığınını açık tut. |\n| 6 | Fireball | Ara büyün budur, yapacak başka bir şey yokken at. |\n\nÇOK HEDEF: Flamestrike ile başla ve bitmeden yenile. Arada Blast Wave (aldıysan), Cone of Cold ve Arcane Explosion kullan.\n\n## Frost\n\nPanelin sağ üst köşesindeki ikonlu etiket: Mage Armor\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Ice Barrier | Düşmanı çekmeden önce aç. Frost hasarı etkisinin 3 saniyesi kalınca yenile. |\n| 2 | Cone of Cold | Winter's Chill 5 yığın olunca, Frostbolt biter bitmez at. |\n| 3 | Ice Lance | Fingers of Frost açıkken ya da hedef donmuşken at. |\n| 4 | Arcane Missiles | Yalnız Missile Barrage açılınca at. |\n| 5 | Frostbolt | Ana büyün budur, yapacak başka bir şey yokken at. |\n| 6 | Evocation | Manan %5 civarına düşünce kullan, yarıda kesme. |\n\nÇOK HEDEF: Üç ya da daha fazla düşmanda Cone of Cold'u hazır oldukça kullan, Cold Snap ile sıfırla. Arada Blizzard at.\n\n## Kural\n\nKURAL: Her uzmanlıkta Arcane Intellect açık olsun. Arcane Power ya da Combustion'ı ırk yeteneğin ve trinket'inle aynı anda aç."
+ },
+ {
+  "id": "mage-08-arcane-leveling",
+  "category": "class",
+  "title": "Mage · Arcane Leveling",
+  "file": "08-Arcane-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "arcane leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "mage",
+  "kind": "leveling",
+  "spec": "arcane",
+  "text": "# Mage · Arcane Leveling\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: MAGE — ARCANE. Kart başlığı: MAGE • ARCANE LEVELING. Sağ üst: TOTİK CHANNEL — TAVSİYE EDİLEN BUILD (rozet: Tavsiye edilen build).\nSeviye aralığı: Seviye 10 → 60.\n\n## Arcane — 31 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Wand Specialization — 2/2 (tamamlandı)\n- Satır 1, sütun 2: Improved Channeling — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Arcane Resilience — 0/3 (puan yok)\n- Satır 2, sütun 1: Arcane Subtlety — 2/2 (tamamlandı)\n- Satır 2, sütun 2: Magic Absorption — 0/2 (puan yok)\n- Satır 2, sütun 3: Arcane Concentration — 5/5 (tamamlandı)\n- Satır 2, sütun 4: Missile Barrage — 2/2 (tamamlandı)\n- Satır 3, sütun 1: Arcane Geometry — 0/2 (puan yok)\n- Satır 3, sütun 2: Arcane Impact — 0/3 (puan yok)\n- Satır 3, sütun 4: Arcane Blast — 1/1 (tamamlandı)\n- Satır 4, sütun 1: Arcane Shielding — 0/2 (puan yok)\n- Satır 4, sütun 2: Improved Counterspell — 0/2 (puan yok)\n- Satır 4, sütun 3: Arcane Meditation — 3/3 (tamamlandı; ön koşul oku: Arcane Concentration → Arcane Meditation)\n- Satır 4, sütun 4: Arcane Wrath — 1/1 (tamamlandı; ön koşul oku: Arcane Blast → Arcane Wrath)\n- Satır 5, sütun 2: Presence of Mind — 1/1 (tamamlandı)\n- Satır 5, sütun 3: Arcane Mind — 5/5 (tamamlandı)\n- Satır 6, sütun 3: Arcane Instability — 3/3 (tamamlandı)\n- Satır 7, sütun 2: Arcane Power — 1/1 (tamamlandı; ön koşul oku: Presence of Mind → Arcane Power)\n\n## Fire — 17 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Incineration — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Accelerant — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Ignite — 3/5 (kısmen alındı)\n- Satır 2, sütun 2: Flame Throwing — 0/2 (puan yok)\n- Satır 2, sütun 3: Impact — 0/3 (puan yok)\n- Satır 3, sütun 1: Burning Soul — 0/3 (puan yok)\n- Satır 3, sütun 2: Improved Flamestrike — 0/3 (puan yok)\n- Satır 3, sütun 3: Pyroblast — 1/1 (tamamlandı)\n- Satır 3, sütun 4: Improved Fire Blast — 2/2 (tamamlandı)\n- Satır 4, sütun 1: Improved Scorch — 0/3 (puan yok)\n- Satır 4, sütun 2: Improved Fire Ward — 0/2 (puan yok)\n- Satır 4, sütun 3: Heating Up — 1/1 (tamamlandı; ön koşul oku: Pyroblast → Heating Up)\n- Satır 4, sütun 4: Master of Elements — 0/3 (puan yok)\n- Satır 5, sütun 2: Critical Mass — 0/3 (puan yok)\n- Satır 5, sütun 3: Blast Wave — 0/1 (puan yok)\n- Satır 6, sütun 3: Fire Power — 0/3 (puan yok)\n- Satır 7, sütun 2: Combustion — 0/1 (puan yok; ön koşul oku: Critical Mass → Combustion)\n\n## Frost — 3 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Frost Warding — 0/2 (puan yok)\n- Satır 1, sütun 2: Improved Frostbolt — 0/5 (puan yok)\n- Satır 1, sütun 3: Precision — 3/3 (tamamlandı)\n- Satır 2, sütun 1: Ice Shards — 0/5 (puan yok)\n- Satır 2, sütun 2: Frostbite — 0/3 (puan yok)\n- Satır 2, sütun 3: Improved Frost Nova — 0/2 (puan yok)\n- Satır 2, sütun 4: Permafrost — 0/3 (puan yok)\n- Satır 3, sütun 1: Frost Channeling — 0/3 (puan yok)\n- Satır 3, sütun 2: Improved Blizzard — 0/3 (puan yok)\n- Satır 3, sütun 3: Ice Lance — 0/1 (puan yok)\n- Satır 4, sütun 1: Arctic Reach — 0/2 (puan yok)\n- Satır 4, sütun 2: Ice Block — 0/1 (puan yok)\n- Satır 4, sütun 4: Shatter — 0/3 (puan yok)\n- Satır 5, sütun 1: Improved Cone of Cold — 0/3 (puan yok)\n- Satır 5, sütun 2: Cold Snap — 0/1 (puan yok)\n- Satır 5, sütun 3: Fingers of Frost — 0/2 (puan yok; ön koşul oku: Ice Lance → Fingers of Frost)\n- Satır 6, sütun 3: Winter's Chill — 0/5 (puan yok)\n- Satır 7, sütun 2: Ice Barrier — 0/1 (puan yok; ön koşul oku: Cold Snap → Ice Barrier)\n\n## 60. Seviye Puan Dağılımı\n\n31 / 17 / 3 — Arcane 31, Fire 17, Frost 3. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–11 | Wand Specialization | Arcane | +2 | 2/2 | Wand hasarı +%25 |\n| 12–14 | Improved Channeling | Arcane | +3 | 3/5 | Vurulunca Arcane Missiles %60 gerilemez |\n| 15–16 | Missile Barrage | Arcane | +2 | 2/2 | %40 şansla hızlı, bedava Arcane Missiles |\n| 17–19 | Arcane Concentration | Arcane | +3 | 3/5 | %6 şansla sonraki büyü bedava |\n| 20 | Arcane Blast | Arcane | +1 | 1/1 | Intellect'in %12'si büyü gücü, pahalanır |\n| 21–22 | Precision | Frost | +2 | 2/3 | Büyü isabeti +%4 |\n| 23–24 | Improved Channeling | Arcane | +2 | 5/5 | Vurulunca Arcane Missiles hiç gerilemez |\n| 25–26 | Arcane Concentration | Arcane | +2 | 5/5 | %10 şansla sonraki büyü bedava |\n| 27 | Arcane Wrath | Arcane | +1 | 1/1 | Toplam mananın %5'i kadar ek büyü gücü |\n| 28–30 | Arcane Meditation | Arcane | +3 | 3/3 | Büyü yaparken mana yenilenmesi %50 |\n| 31 | Arcane Subtlety | Arcane | +1 | 1/2 | Hedef direnci −8, Arcane tehdidi −%15 |\n| 32 | Presence of Mind | Arcane | +1 | 1/1 | Sonraki büyün anında çıkar |\n| 33–37 | Arcane Mind | Arcane | +5 | 5/5 | Intellect +%10, Arcane kritik hasarı +%100 |\n| 38–40 | Arcane Instability | Arcane | +3 | 3/3 | Büyü hasarı +%3, kritik şansı +%3 |\n| 41 | Arcane Subtlety | Arcane | +1 | 2/2 | Hedef direnci −15, Arcane tehdidi −%30 |\n| 42 | Arcane Power | Arcane | +1 | 1/1 | 15 sn hasar +%30, mana maliyeti +%30 |\n| 43–47 | Incineration | Fire | +5 | 5/5 | Scorch, Fire ve Arcane Blast kritik +%10 |\n| 48–52 | Accelerant | Fire | +5 | 5/5 | Fireball ve Arcane Wrath döküm −0,5 sn |\n| 53–54 | Improved Fire Blast | Fire | +2 | 2/2 | Bekleme −2 sn, menzil +15 metre |\n| 55–56 | Ignite | Fire | +2 | 2/5 | Fire kritiği hasarın %16'sı kadar yakar |\n| 57 | Pyroblast | Fire | +1 | 1/1 | Büyük ateş topu, ardından yanma |\n| 58 | Heating Up | Fire | +1 | 1/1 | Kritikler sonraki Pyroblast'ı hızlandırır |\n| 59 | Ignite | Fire | +1 | 3/5 | Fire kritiği hasarın %24'ü kadar yakar |\n| 60 | Precision | Frost | +1 | 3/3 | Büyü isabeti +%6 |"
+ },
+ {
+  "id": "mage-09-fire-leveling",
+  "category": "class",
+  "title": "Mage · Fire Leveling",
+  "file": "09-Fire-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "fire leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "mage",
+  "kind": "leveling",
+  "spec": "fire",
+  "text": "# Mage · Fire Leveling\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: MAGE — FIRE. Kart başlığı: MAGE • FIRE LEVELING. Sağ üst: TOTİK CHANNEL — TAVSİYE EDİLEN BUILD (rozet: Tavsiye edilen build).\nSeviye aralığı: Seviye 10 → 60.\n\n## Arcane — 18 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Wand Specialization — 2/2 (tamamlandı)\n- Satır 1, sütun 2: Improved Channeling — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Arcane Resilience — 0/3 (puan yok)\n- Satır 2, sütun 1: Arcane Subtlety — 0/2 (puan yok)\n- Satır 2, sütun 2: Magic Absorption — 0/2 (puan yok)\n- Satır 2, sütun 3: Arcane Concentration — 5/5 (tamamlandı)\n- Satır 2, sütun 4: Missile Barrage — 2/2 (tamamlandı)\n- Satır 3, sütun 1: Arcane Geometry — 0/2 (puan yok)\n- Satır 3, sütun 2: Arcane Impact — 0/3 (puan yok)\n- Satır 3, sütun 4: Arcane Blast — 1/1 (tamamlandı)\n- Satır 4, sütun 1: Arcane Shielding — 0/2 (puan yok)\n- Satır 4, sütun 2: Improved Counterspell — 0/2 (puan yok)\n- Satır 4, sütun 3: Arcane Meditation — 3/3 (tamamlandı; ön koşul oku: Arcane Concentration → Arcane Meditation)\n- Satır 4, sütun 4: Arcane Wrath — 0/1 (puan yok; ön koşul oku: Arcane Blast → Arcane Wrath)\n- Satır 5, sütun 2: Presence of Mind — 0/1 (puan yok)\n- Satır 5, sütun 3: Arcane Mind — 0/5 (puan yok)\n- Satır 6, sütun 3: Arcane Instability — 0/3 (puan yok)\n- Satır 7, sütun 2: Arcane Power — 0/1 (puan yok; ön koşul oku: Presence of Mind → Arcane Power)\n\n## Fire — 31 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Incineration — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Accelerant — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Ignite — 5/5 (tamamlandı)\n- Satır 2, sütun 2: Flame Throwing — 0/2 (puan yok)\n- Satır 2, sütun 3: Impact — 0/3 (puan yok)\n- Satır 3, sütun 1: Burning Soul — 0/3 (puan yok)\n- Satır 3, sütun 2: Improved Flamestrike — 0/3 (puan yok)\n- Satır 3, sütun 3: Pyroblast — 1/1 (tamamlandı)\n- Satır 3, sütun 4: Improved Fire Blast — 2/2 (tamamlandı)\n- Satır 4, sütun 1: Improved Scorch — 3/3 (tamamlandı)\n- Satır 4, sütun 2: Improved Fire Ward — 0/2 (puan yok)\n- Satır 4, sütun 3: Heating Up — 1/1 (tamamlandı; ön koşul oku: Pyroblast → Heating Up)\n- Satır 4, sütun 4: Master of Elements — 1/3 (kısmen alındı)\n- Satır 5, sütun 2: Critical Mass — 3/3 (tamamlandı)\n- Satır 5, sütun 3: Blast Wave — 1/1 (tamamlandı)\n- Satır 6, sütun 3: Fire Power — 3/3 (tamamlandı)\n- Satır 7, sütun 2: Combustion — 1/1 (tamamlandı; ön koşul oku: Critical Mass → Combustion)\n\n## Frost — 2 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Frost Warding — 0/2 (puan yok)\n- Satır 1, sütun 2: Improved Frostbolt — 0/5 (puan yok)\n- Satır 1, sütun 3: Precision — 2/3 (kısmen alındı)\n- Satır 2, sütun 1: Ice Shards — 0/5 (puan yok)\n- Satır 2, sütun 2: Frostbite — 0/3 (puan yok)\n- Satır 2, sütun 3: Improved Frost Nova — 0/2 (puan yok)\n- Satır 2, sütun 4: Permafrost — 0/3 (puan yok)\n- Satır 3, sütun 1: Frost Channeling — 0/3 (puan yok)\n- Satır 3, sütun 2: Improved Blizzard — 0/3 (puan yok)\n- Satır 3, sütun 3: Ice Lance — 0/1 (puan yok)\n- Satır 4, sütun 1: Arctic Reach — 0/2 (puan yok)\n- Satır 4, sütun 2: Ice Block — 0/1 (puan yok)\n- Satır 4, sütun 4: Shatter — 0/3 (puan yok)\n- Satır 5, sütun 1: Improved Cone of Cold — 0/3 (puan yok)\n- Satır 5, sütun 2: Cold Snap — 0/1 (puan yok)\n- Satır 5, sütun 3: Fingers of Frost — 0/2 (puan yok; ön koşul oku: Ice Lance → Fingers of Frost)\n- Satır 6, sütun 3: Winter's Chill — 0/5 (puan yok)\n- Satır 7, sütun 2: Ice Barrier — 0/1 (puan yok; ön koşul oku: Cold Snap → Ice Barrier)\n\n## 60. Seviye Puan Dağılımı\n\n18 / 31 / 2 — Arcane 18, Fire 31, Frost 2. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–11 | Wand Specialization | Arcane | +2 | 2/2 | Wand hasarı +%25 |\n| 12–14 | Improved Channeling | Arcane | +3 | 3/5 | Vurulunca Arcane Missiles %60 gerilemez |\n| 15–16 | Missile Barrage | Arcane | +2 | 2/2 | %40 şansla hızlı, bedava Arcane Missiles |\n| 17–19 | Arcane Concentration | Arcane | +3 | 3/5 | %6 şansla sonraki büyü bedava |\n| 20 | Arcane Blast | Arcane | +1 | 1/1 | Intellect'in %12'si büyü gücü, pahalanır |\n| 21–22 | Precision | Frost | +2 | 2/3 | Büyü isabeti +%4 |\n| 23–24 | Improved Channeling | Arcane | +2 | 5/5 | Vurulunca Arcane Missiles hiç gerilemez |\n| 25–26 | Arcane Concentration | Arcane | +2 | 5/5 | %10 şansla sonraki büyü bedava |\n| 27–29 | Arcane Meditation | Arcane | +3 | 3/3 | Büyü yaparken mana yenilenmesi %50 |\n| 30–34 | Incineration | Fire | +5 | 5/5 | Scorch, Fire ve Arcane Blast kritik +%10 |\n| 35–39 | Accelerant | Fire | +5 | 5/5 | Fireball ve Arcane Wrath döküm −0,5 sn |\n| 40–41 | Improved Fire Blast | Fire | +2 | 2/2 | Bekleme −2 sn, menzil +15 metre |\n| 42–43 | Ignite | Fire | +2 | 2/5 | Fire kritiği hasarın %16'sı kadar yakar |\n| 44 | Pyroblast | Fire | +1 | 1/1 | Büyük ateş topu, ardından yanma |\n| 45 | Heating Up | Fire | +1 | 1/1 | Kritikler sonraki Pyroblast'ı hızlandırır |\n| 46–48 | Ignite | Fire | +3 | 5/5 | Fire kritiği hasarın %40'ı kadar yakar |\n| 49 | Improved Scorch | Fire | +1 | 1/3 | %33 şansla +%3 Fire hasarı, 5 yığın |\n| 50 | Blast Wave | Fire | +1 | 1/1 | Ateş dalgası, düşmanlar %50 yavaşlar |\n| 51–53 | Critical Mass | Fire | +3 | 3/3 | Fire büyü kritik şansı +%6 |\n| 54 | Improved Scorch | Fire | +1 | 2/3 | %67 şansla +%3 Fire hasarı, 5 yığın |\n| 55–57 | Fire Power | Fire | +3 | 3/3 | Hedefteki her Fire etkin için +%3 hasar |\n| 58 | Improved Scorch | Fire | +1 | 3/3 | Her Scorch +%3 Fire hasarı, 5 yığın |\n| 59 | Master of Elements | Fire | +1 | 1/3 | Fire ve Frost kritiği %10 mana geri verir |\n| 60 | Combustion | Fire | +1 | 1/1 | Her Fire isabeti Fire kritiği +%10 |"
+ },
+ {
+  "id": "mage-10-frost-leveling",
+  "category": "class",
+  "title": "Mage · Frost Leveling",
+  "file": "10-Frost-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "frost leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "mage",
+  "kind": "leveling",
+  "spec": "frost",
+  "text": "# Mage · Frost Leveling\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: MAGE — FROST. Kart başlığı: MAGE • FROST LEVELING. Sağ üst: TOTİK CHANNEL — TAVSİYE EDİLEN BUILD (rozet: Tavsiye edilen build).\nSeviye aralığı: Seviye 10 → 60.\n\n## Arcane — 9 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Wand Specialization — 2/2 (tamamlandı)\n- Satır 1, sütun 2: Improved Channeling — 3/5 (kısmen alındı)\n- Satır 1, sütun 3: Arcane Resilience — 0/3 (puan yok)\n- Satır 2, sütun 1: Arcane Subtlety — 2/2 (tamamlandı)\n- Satır 2, sütun 2: Magic Absorption — 0/2 (puan yok)\n- Satır 2, sütun 3: Arcane Concentration — 0/5 (puan yok)\n- Satır 2, sütun 4: Missile Barrage — 2/2 (tamamlandı)\n- Satır 3, sütun 1: Arcane Geometry — 0/2 (puan yok)\n- Satır 3, sütun 2: Arcane Impact — 0/3 (puan yok)\n- Satır 3, sütun 4: Arcane Blast — 0/1 (puan yok)\n- Satır 4, sütun 1: Arcane Shielding — 0/2 (puan yok)\n- Satır 4, sütun 2: Improved Counterspell — 0/2 (puan yok)\n- Satır 4, sütun 3: Arcane Meditation — 0/3 (puan yok; ön koşul oku: Arcane Concentration → Arcane Meditation)\n- Satır 4, sütun 4: Arcane Wrath — 0/1 (puan yok; ön koşul oku: Arcane Blast → Arcane Wrath)\n- Satır 5, sütun 2: Presence of Mind — 0/1 (puan yok)\n- Satır 5, sütun 3: Arcane Mind — 0/5 (puan yok)\n- Satır 6, sütun 3: Arcane Instability — 0/3 (puan yok)\n- Satır 7, sütun 2: Arcane Power — 0/1 (puan yok; ön koşul oku: Presence of Mind → Arcane Power)\n\n## Fire — 0 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Incineration — 0/5 (puan yok)\n- Satır 1, sütun 3: Accelerant — 0/5 (puan yok)\n- Satır 2, sütun 1: Ignite — 0/5 (puan yok)\n- Satır 2, sütun 2: Flame Throwing — 0/2 (puan yok)\n- Satır 2, sütun 3: Impact — 0/3 (puan yok)\n- Satır 3, sütun 1: Burning Soul — 0/3 (puan yok)\n- Satır 3, sütun 2: Improved Flamestrike — 0/3 (puan yok)\n- Satır 3, sütun 3: Pyroblast — 0/1 (puan yok)\n- Satır 3, sütun 4: Improved Fire Blast — 0/2 (puan yok)\n- Satır 4, sütun 1: Improved Scorch — 0/3 (puan yok)\n- Satır 4, sütun 2: Improved Fire Ward — 0/2 (puan yok)\n- Satır 4, sütun 3: Heating Up — 0/1 (puan yok; ön koşul oku: Pyroblast → Heating Up)\n- Satır 4, sütun 4: Master of Elements — 0/3 (puan yok)\n- Satır 5, sütun 2: Critical Mass — 0/3 (puan yok)\n- Satır 5, sütun 3: Blast Wave — 0/1 (puan yok)\n- Satır 6, sütun 3: Fire Power — 0/3 (puan yok)\n- Satır 7, sütun 2: Combustion — 0/1 (puan yok; ön koşul oku: Critical Mass → Combustion)\n\n## Frost — 42 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Frost Warding — 0/2 (puan yok)\n- Satır 1, sütun 2: Improved Frostbolt — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Precision — 3/3 (tamamlandı)\n- Satır 2, sütun 1: Ice Shards — 5/5 (tamamlandı)\n- Satır 2, sütun 2: Frostbite — 3/3 (tamamlandı)\n- Satır 2, sütun 3: Improved Frost Nova — 2/2 (tamamlandı)\n- Satır 2, sütun 4: Permafrost — 1/3 (kısmen alındı)\n- Satır 3, sütun 1: Frost Channeling — 3/3 (tamamlandı)\n- Satır 3, sütun 2: Improved Blizzard — 1/3 (kısmen alındı)\n- Satır 3, sütun 3: Ice Lance — 1/1 (tamamlandı)\n- Satır 4, sütun 1: Arctic Reach — 2/2 (tamamlandı)\n- Satır 4, sütun 2: Ice Block — 1/1 (tamamlandı)\n- Satır 4, sütun 4: Shatter — 3/3 (tamamlandı)\n- Satır 5, sütun 1: Improved Cone of Cold — 3/3 (tamamlandı)\n- Satır 5, sütun 2: Cold Snap — 1/1 (tamamlandı)\n- Satır 5, sütun 3: Fingers of Frost — 2/2 (tamamlandı; ön koşul oku: Ice Lance → Fingers of Frost)\n- Satır 6, sütun 3: Winter's Chill — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Ice Barrier — 1/1 (tamamlandı; ön koşul oku: Cold Snap → Ice Barrier)\n\n## 60. Seviye Puan Dağılımı\n\n9 / 0 / 42 — Arcane 9, Fire 0, Frost 42. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–11 | Precision | Frost | +2 | 2/3 | Büyü isabeti +%4 |\n| 12–13 | Wand Specialization | Arcane | +2 | 2/2 | Wand hasarı +%25 |\n| 14–16 | Improved Channeling | Arcane | +3 | 3/5 | Vurulunca Arcane Missiles %60 gerilemez |\n| 17–18 | Missile Barrage | Arcane | +2 | 2/2 | %40 şansla hızlı, bedava Arcane Missiles |\n| 19–21 | Improved Frostbolt | Frost | +3 | 3/5 | Frostbolt döküm −0,3 sn |\n| 22–24 | Frostbite | Frost | +3 | 3/3 | Chill %15 şansla 5 sn dondurur |\n| 25–26 | Improved Frostbolt | Frost | +2 | 5/5 | Frostbolt döküm −0,5 sn |\n| 27 | Ice Lance | Frost | +1 | 1/1 | Donmuş hedefe %300 fazla hasar |\n| 28–31 | Ice Shards | Frost | +4 | 4/5 | Frost kritik hasar bonusu +%80 |\n| 32–34 | Shatter | Frost | +3 | 3/3 | Donmuş hedefe kritik şansı +%50 |\n| 35 | Ice Shards | Frost | +1 | 5/5 | Frost kritik hasar bonusu +%100 |\n| 36 | Improved Blizzard | Frost | +1 | 1/3 | Blizzard hedefi yavaşlatır |\n| 37–38 | Fingers of Frost | Frost | +2 | 2/2 | %15 şansla 2 büyüde hedef donmuş sayılır |\n| 39–40 | Arctic Reach | Frost | +2 | 2/2 | Frost büyü menzili ve alanı +%20 |\n| 41–43 | Frost Channeling | Frost | +3 | 3/3 | Frost büyü maliyeti −%15, tehdit −%30 |\n| 44 | Ice Block | Frost | +1 | 1/1 | 10 sn bütün saldırılara bağışıklık |\n| 45 | Permafrost | Frost | +1 | 1/3 | Chill süresi +%11, %3 fazla yavaşlatma |\n| 46 | Cold Snap | Frost | +1 | 1/1 | Frost büyü beklemelerini sıfırlar |\n| 47 | Ice Barrier | Frost | +1 | 1/1 | Hasar emen kalkan, Frost hasarı +%15 |\n| 48–49 | Arcane Subtlety | Arcane | +2 | 2/2 | Hedef direnci −15, Arcane tehdidi −%30 |\n| 50 | Precision | Frost | +1 | 3/3 | Büyü isabeti +%6 |\n| 51–53 | Improved Cone of Cold | Frost | +3 | 3/3 | Cone of Cold hasarı +%35 |\n| 54–58 | Winter's Chill | Frost | +5 | 5/5 | Frostbolt, Cone of Cold'u güçlendirir |\n| 59–60 | Improved Frost Nova | Frost | +2 | 2/2 | Frost Nova bekleme −4 sn |"
+ },
+ {
+  "id": "paladin-01-irk-secimi",
+  "category": "class",
+  "title": "Paladin · Irk Secimi",
+  "file": "01-Irk-Secimi.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "irk secimi"
+  ],
+  "classKey": "paladin",
+  "kind": "race",
+  "text": "# Paladin · Irk Seçimi\n\nÜst bilgi: PALADIN — IRKLAR. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## Alliance\n\n### Human\nThe Human Spirit Spirit'ini %10 artırır; Spirit manayı daha hızlı doldurur, heal yaparken önemli. Ruthless kritik şansını her zaman %1 artırır. Will to Survive üstündeki stun'ı anında kaldırır.\n\n### Dwarf\nStoneform 8 saniye fiziksel hasarı %10 azaltır ve zehir, kanama, hastalık etkilerini temizler; tank için çok iyi. Artisan's Precision isabeti %1, Big Game Hunter hayvanlara hasarı %5 artırır.\n\n## Horde\n\n### Undead\nHorde'da Paladin olabilen tek ırk. Touch of the Grave vuruşlarında zaman zaman hedeften can çeker. Will of the Forsaken korku, büyüleme ve uyku etkilerini anında kırar."
+ },
+ {
+  "id": "paladin-02-yetenekler-1",
+  "category": "class",
+  "title": "Paladin · Yetenekler 1",
+  "file": "02-Yetenekler-1.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "yetenekler 1"
+  ],
+  "classKey": "paladin",
+  "kind": "abilities",
+  "part": 1,
+  "text": "# Paladin · Aura, Seal, Saldırı ve Blessing\n\nÜst bilgi: PALADIN — YETENEKLER 1/2. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## Auralar\n\nHer an tek aura açıktır. 30 metredeki bütün grup üyelerine etki eder.\n\n| Seviye | Yetenek | Açıklama |\n|---|---|---|\n| Seviye 1 | Devotion Aura | Grubun zırhı 735 artar. Tanklık ederken ya da çok vurulduğunda bunu aç. |\n| Seviye 16 | Retribution Aura | Gruptan birine vuran her düşman 20 Holy hasar alır. Forever'da bu hasar Spell Power'ınla artar. |\n| Seviye 22 | Concentration Aura | Hasar alınca büyünün kesilmeme şansı %35 olur. Healer'lar ve büyücüler için. |\n\nShadow, Frost ve Fire Resistance Aura (28, 32 ve 36. seviye): grubun o okula direnci 60 artar. O tür hasar vuran boss'larda aç.\n\n## Seal ve Judgement\n\nSeal 30 saniye vuruşlarına etki ekler. Judgement onun ikinci etkisini düşmana salar.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 1 | Seal of Righteousness | 8 rank | | Her vuruşa ek Holy hasar ekler, yavaş silahta daha çok. Judgement'ı düşmana 179 Holy hasar vurur. |\n| Seviye 4 | Judgement | | 10 metre; Forever | Açık Seal'in ikinci etkisini düşmana salar, 10 saniyede bir. Forever'da Seal'i harcamaz, mühür açık kalır. |\n| Seviye 6 | Seal of the Crusader | 6 rank | | Attack Power'ın 326 artar, %40 hızlı ama daha zayıf vurursun. Judgement'ı düşmanın aldığı Holy hasarı 161 artırır. |\n| Seviye 10 | Seal of Fury | 7 rank | Forever'da yeni | Tank mührü. Vuruşa 35 Holy hasar ekler, kalkan takılıysa bunun yarısı kadar hasar emer. Judgement'ı 3 saniye taunt yapar. |\n| Seviye 22 | Seal of Justice | | | Vuruşların şansla 2 saniye sersemletir. Judgement'ı düşmanın 10 saniye kaçmasını engeller. |\n| Seviye 30 | Seal of Light | 4 rank | | Vuruşların şansla seni 94 iyileştirir. Judgement'ı 40 saniye düşmana vuranları da iyileştirir. |\n| Seviye 38 | Seal of Wisdom | 3 rank | | Vuruşların şansla 90 mana geri verir. Judgement'ı 40 saniye düşmana vuranlara mana kazandırır. |\n\n## Saldırılar\n\nMana harcayıp Holy hasar verir.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 6 | Holy Strike | 8 rank | Forever'da yeni | Silah hasarının %50'si artı 93 Holy hasar vurur. 10 saniyede bir kullanılır ve ucuzdur. |\n| Seviye 20 | Exorcism | 6 rank | Undead ve Demon | Undead ya da Demon düşmana anında 502 Holy hasar vurur. 15 saniyede bir kullanılır. |\n| Seviye 20 | Consecration | 5 rank | Alan · 8 sn | Alana giren düşmanlar 8 saniyede 96, ilk 4 düşman 216 ek Holy hasar alır. Forever'da talent değil, eğitmende. |\n| Seviye 44 | Hammer of Wrath | 3 rank | Can %20 altı | Canı %20'nin altındaki düşmana 498 Holy hasar vurur. Kaçan düşmanı bitirmek için iyi. |\n| Seviye 50 | Holy Wrath | 2 rank | 20 metre | Çevredeki bütün Undead ve Demon düşmanlara 533 Holy hasar verir, 2 saniye sersemletir. |\n\n## Blessing'ler\n\nDostunu 1 saat güçlendirir. Her oyuncuya senden tek Blessing gider.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 4 | Blessing of Might | 6 rank | Dost · 1 saat | Attack Power'ı 112 artar. Warrior ve Rogue gibi yakın dövüşçülere ver. Forever'da 1 saat sürer. |\n| Seviye 14 | Blessing of Wisdom | 5 rank | Dost · 1 saat | Her 5 saniyede 36 mana kazandırır. Healer'lara ve mana kullananlara ver. |\n| Seviye 20 | Blessing of Kings | | Dost · 1 saat | Bütün statları %10 artırır. Forever'da talent değil, eğitmenden öğrenilir. |\n| Seviye 52 | Greater Blessing | | Sınıf · 1 saat | Might, Wisdom ve Kings'i raidde aynı sınıftan herkese verir. Forever'da Salvation ve Light blessing'leri yok. |"
+ },
+ {
+  "id": "paladin-03-yetenekler-2",
+  "category": "class",
+  "title": "Paladin · Yetenekler 2",
+  "file": "03-Yetenekler-2.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "yetenekler 2"
+  ],
+  "classKey": "paladin",
+  "kind": "abilities",
+  "part": 2,
+  "text": "# Paladin · İyileştirme, Kontrol ve Koruma\n\nÜst bilgi: PALADIN — YETENEKLER 2/2. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## İyileştirme ve Temizleme\n\nDostlarının canını doldurur ve üstlerindeki zararlı etkileri siler.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 1 | Holy Light | 8 rank | | 2,5 saniyede 1243 iyileştirir. Büyük ve verimli ana heal büyün. |\n| Seviye 8 | Purify | | | Dosttan bir hastalık ve bir zehir etkisi siler. |\n| Seviye 10 | Lay on Hands | 3 rank | | Hedefi senin en fazla canın kadar iyileştirir, 550 mana da verir. Bütün manan biter, 20 dakikada bir. |\n| Seviye 20 | Flash of Light | 6 rank | | 1,5 saniyede 309 iyileştirir. Az mana harcar, ara heal olarak kullan. |\n| Seviye 42 | Cleanse | | | Dosttan bir hastalık, bir zehir ve bir büyü etkisi siler. Purify'ın yerini alır. |\n\n## Kontrol\n\nDüşmanı durdurur ya da dostunu yavaşlatan etkilerden kurtarır.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 8 | Hammer of Justice | 4 rank | Düşman · 6 sn | Düşmanı 6 saniye sersemletir, 1 dakikada bir. Bu sürede heal yapabilir ya da kaçabilirsin. |\n| Seviye 18 | Blessing of Freedom | | Dost · 10 sn | Hedef 10 saniye yavaşlatma ve kök (root) etkilerinden etkilenmez. 20 saniyede bir. |\n| Seviye 24 | Turn Undead | 3 rank | Undead · 20 sn | Bir Undead düşmanı 20 saniyeye kadar kaçırır. Hasar alırsa kendine gelebilir. |\n\n## Tank ve Koruma\n\nTehdidi üstüne çeker ya da seni ve dostlarını hasardan korur.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 6 | Divine Protection | 2 rank | Sen · 8 sn | 8 saniye bütün saldırı ve büyülerden korunursun ama saldıramazsın. 5 dakikada bir. |\n| Seviye 10 | Righteous Fury | | Sen · 30 dk; Forever | Bütün tehdidin %33, Holy tehdidin %90 daha artar. Forever'da 10. seviyede gelir. Tanklık için şart. |\n| Seviye 10 | Blessing of Protection | 3 rank | Dost · 10 sn | Dost 10 saniye fiziksel saldırılardan etkilenmez ama saldıramaz. Healer'ını kurtarır. |\n| Seviye 30 | Divine Intervention | | Dost · 3 dk | Sen ölürsün, dostun 3 dakika her saldırıdan korunur ama bir şey yapamaz. Grup ölürken diriltecek kişiyi kurtarır. |\n| Seviye 34 | Divine Shield | 2 rank | Sen · 12 sn | 12 saniye bütün hasar ve büyülerden korunursun, ama verdiğin hasar %50 azalır. 5 dakikada bir. |\n| Seviye 46 | Blessing of Sacrifice | 2 rank | Dost · 30 sn | Dostun aldığı her vuruştan 55 hasarı sen üstlenirsin. Tanka ya da healer'a ver. |\n\n## Yardımcı\n\nSavaş dışında işine yarar.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 12 | Redemption | 5 rank | Sınıf görevi | Ölmüş bir oyuncuyu 600 can ve 800 manayla diriltir. Savaşta kullanılamaz. |\n| Seviye 40 | Summon Warhorse | | Sınıf görevi | Kendi bineğini çağırırsın. 60. seviyede yine sınıf göreviyle daha hızlı Charger bineği gelir. |"
+ },
+ {
+  "id": "paladin-04-holy-talentleri",
+  "category": "class",
+  "title": "Paladin · Holy Talentleri",
+  "file": "04-Holy-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "holy talentleri"
+  ],
+  "classKey": "paladin",
+  "kind": "talents",
+  "spec": "holy",
+  "text": "# Paladin · Holy Talent Ağacı\n\nÜst bilgi: PALADIN — HOLY. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## Holy (17 talent)\n\nAğaç yerleşimi (satır numarası → o satırdaki talent numaraları, soldan sağa):\n\n| Satır | Talentler |\n|---|---|\n| 1 | 1, 2 |\n| 2 | 3, 4, 5, 6 |\n| 3 | 7, 8, 9 |\n| 4 | 10, 11, 12 |\n| 5 | 13, 14, 15 |\n| 6 | 16 |\n| 7 | 17 |\n\nOklar: 4 → 8, 14 → 15, 14 → 17.\n\nHer satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nEn yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | Açıklama |\n|---|---|---|---|---|\n| 1 | Spiritual Focus | 5 rank | | Holy Light, Flash of Light ve Light's Vigil yaparken hasar alırsan %70 şansla döküm süresi uzamaz. |\n| 2 | Divine Strength | 5 rank | | Strength değerin %10 artar. |\n| 3 | Healing Light | 3 rank | | Holy Light, Flash of Light ve Holy Shock %12 daha fazla iyileştirir. |\n| 4 | Reverence | 2 rank | | Büyü yaparken de mana yenilenmenin %30'u devam eder. |\n| 5 | Improved Seals | 5 rank | | Seal ve Judgement hasarın %15 artar. |\n| 6 | Purifying Power | 2 rank | | Cleanse ve Purify %20 daha az mana harcar. Exorcism ve Holy Wrath'ın bekleme süresi %33 kısalır. |\n| 7 | Divine Favor | 1 rank | | Sonraki Flash of Light, Holy Light ya da Holy Shock büyün kesin kritik olur. |\n| 8 | Illumination | 5 rank | ← Reverence | Kritik heal yapınca büyünün temel mana bedelinin %50'si geri gelir. |\n| 9 | Holy Conduit | 2 rank | | Consecration, Holy Wrath, Exorcism ve Hammer of Wrath %40 daha az mana harcar. |\n| 10 | Divine Precision | 2 rank | | Holy büyülerinin isabet şansı %8 artar. Silence etkileri sende %20 daha kısa sürer. |\n| 11 | Infusion of Light | 2 rank | | Holy Shock ya da Flash of Light kritik olunca sonraki Holy Light'ın döküm süresi 1 saniye kısalır. |\n| 12 | Oath of Light | 1 rank | | Bir dosta yemin edersin. Ona yaptığın Holy Light, Flash of Light ve Holy Shock daha çok iyileştirir. |\n| 13 | Consecrated Ground | 2 rank | | Consecration alanına giren ilk 4 düşman Holy büyülerinden %10 daha fazla hasar alır. |\n| 14 | Holy Shock | 1 rank | | Anında atılır, düşmana Holy hasar verir ya da dostunu iyileştirir. |\n| 15 | Boundless Light | 2 rank | ← Holy Shock | Oath of Light yemin etmediğin dostlara yaptığın Holy Shock'un kritik şansı %30 artar. |\n| 16 | Holy Power | 5 rank | | Holy büyülerinin kritik heal bonusu %50 artar. |\n| 17 | Light's Vigil | 1 rank | ← Holy Shock | Bir dostu 30 saniye işaretler. Ona yaptığın sonraki Holy Shock bekleme süresi doldurmaz ve grubunu da iyileştirir. |"
+ },
+ {
+  "id": "paladin-05-protection-talentleri",
+  "category": "class",
+  "title": "Paladin · Protection Talentleri",
+  "file": "05-Protection-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "protection talentleri"
+  ],
+  "classKey": "paladin",
+  "kind": "talents",
+  "spec": "protection",
+  "text": "# Paladin · Protection Talent Ağacı\n\nÜst bilgi: PALADIN — PROTECTION. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## Protection (17 talent)\n\nAğaç yerleşimi (satır numarası → o satırdaki talent numaraları, soldan sağa):\n\n| Satır | Talentler |\n|---|---|\n| 1 | 1, 2 |\n| 2 | 3, 4, 5 |\n| 3 | 6, 7, 8, 9 |\n| 4 | 10, 11, 12 |\n| 5 | 13, 14, 15 |\n| 6 | 16 |\n| 7 | 17 |\n\nOklar: 2 → 8, 6 → 10, 14 → 17.\n\nHer satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nEn yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | Açıklama |\n|---|---|---|---|---|\n| 1 | Divine Intellect | 5 rank | | Toplam Intellect'in %10 artar. |\n| 2 | Redoubt | 5 rank | | Yakın dövüş darbesi yiyince %10 şansla blok şansın artar. Etki 10 saniye ya da 5 blok sürer. |\n| 3 | Precision | 3 rank | | İsabet şansın %3 artar. |\n| 4 | Guardian's Favor | 2 rank | | Blessing of Protection'ın bekleme süresi 2 dakika kısalır, Blessing of Freedom 6 saniye uzun sürer. |\n| 5 | Sacred Duty | 2 rank | | Divine Shield, Divine Protection ve Templar's Bulwark'ın bekleme süresi 60 saniye, Forbearance 10 saniye kısalır. |\n| 6 | Templar's Bulwark | 1 rank | | 8 saniye boyunca toplam canın kadar hasarı emen bir kalkan kurar. |\n| 7 | Improved Hammer of Justice | 3 rank | | Hammer of Justice'in bekleme süresi 15 saniye kısalır. |\n| 8 | Shield Specialization | 2 rank | ← Redoubt | Kalkanının blok değeri %30 artar. Blok yapınca toplam mananın %4'ü geri gelir, 3 saniyede en fazla bir kez. |\n| 9 | Toughness | 5 rank | | Eşyalardan gelen zırhın %10 artar. |\n| 10 | Swift Judgement | 1 rank | ← Templar's Bulwark | Kendi bekleme süresi olan ek bir Judgement kazanırsın. Mührünü harcamaz. |\n| 11 | Improved Righteous Fury | 3 rank | | Righteous Fury açıkken aldığın bütün hasar %9 azalır. |\n| 12 | Anticipation | 5 rank | | Defense değerin 20 artar. |\n| 13 | Stoicism | 2 rank | | Stun ve Charm etkileri sende %20 daha kısa sürer. |\n| 14 | Holy Shield | 1 rank | | 10 saniye blok şansın %30 artar. Her blok saldırana Holy hasar verir, 4 blokta biter. |\n| 15 | Reckoning | 5 rank | | Blok yapınca %40 şansla ya da kritik vuruş yiyince ek bir saldırı kazanırsın. En fazla 4 tane birikir. |\n| 16 | Iron Creed | 3 rank | | Holy Strike'ın tehdidi %30 artar. Righteous Fury açıkken Holy Strike 6 saniye aldığın hasarı %6 azaltır. |\n| 17 | Shieldsworn | 1 rank | ← Holy Shield | Holy Strike'ın bekleme süresi 4 saniye kısalır ve kalkanla vurursun. Sonra 6 saniye büyüleri de bloklarsın. |"
+ },
+ {
+  "id": "paladin-06-retribution-talentleri",
+  "category": "class",
+  "title": "Paladin · Retribution Talentleri",
+  "file": "06-Retribution-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "retribution talentleri"
+  ],
+  "classKey": "paladin",
+  "kind": "talents",
+  "spec": "retribution",
+  "text": "# Paladin · Retribution Talent Ağacı\n\nÜst bilgi: PALADIN — RETRIBUTION. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## Retribution (17 talent)\n\nAğaç yerleşimi (satır numarası → o satırdaki talent numaraları, soldan sağa):\n\n| Satır | Talentler |\n|---|---|\n| 1 | 1, 2 |\n| 2 | 3, 4, 5 |\n| 3 | 6, 7, 8, 9 |\n| 4 | 10, 11, 12 |\n| 5 | 13, 14, 15 |\n| 6 | 16 |\n| 7 | 17 |\n\nOklar: 8 → 15, 14 → 17.\n\nHer satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nEn yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | Açıklama |\n|---|---|---|---|---|\n| 1 | Deflection | 5 rank | | Parry (savuşturma) şansın %5 artar. |\n| 2 | Benediction | 5 rank | | Anlık büyü ve yeteneklerin %10 daha az mana harcar. |\n| 3 | Improved Judgement | 2 rank | | Judgement'ın bekleme süresi 2 saniye kısalır. |\n| 4 | Conviction | 3 rank | | Bütün büyü ve saldırılarının kritik şansı %6 artar. |\n| 5 | Sanctified Judgement | 3 rank | | Judgement yapınca mührün mana bedelinin %60'ı geri gelir. |\n| 6 | Vindication | 3 rank | | Yakın dövüş vuruşların şansla hedefin Attack Power'ını 30 saniye 204 azaltır. |\n| 7 | Unyielding Faith | 2 rank | | Fear ve Disorient etkileri sende %30 daha kısa sürer. |\n| 8 | Seal of Command | 1 rank | | Bu mühür açıkken vuruşların şansla silah hasarının %70'i kadar ek Holy hasar verir. |\n| 9 | Pursuit of Justice | 2 rank | | Koşu ve binek hızın %15 artar. |\n| 10 | Eye for an Eye | 2 rank | | Sana gelen kritik vuruşların hasarının %10'u saldırana geri döner. |\n| 11 | Sacred Arbiter | 1 rank | | Holy Strike %20 daha fazla hasar verir ve hedefteki Judgement etkilerini yeniler. |\n| 12 | Two-Handed Weapon Specialization | 3 rank | | İki elli silahla fiziksel ve Holy hasarın %6 artar, tehdidin %20 azalır. |\n| 13 | Turn Evil | 2 rank | | Turn Undead'in döküm süresi 1 saniye, bekleme süresi 10 saniye kısalır. Demon'lara da işler. |\n| 14 | Repentance | 1 rank | | Humanoid bir düşmanı 6 saniye etkisiz bırakır. Hasar alırsa kendine gelir. |\n| 15 | Vengeance | 3 rank | ← Seal of Command | Kritik vurduktan sonra 30 saniye fiziksel ve Holy hasarın %3 artar. 5 kez üst üste birikir. |\n| 16 | Champion of the Light | 5 rank | | Intellect'inin %60'ı kadar büyü hasarı kazanırsın. Hammer of Wrath'ın döküm süresi 1 saniye kısalır. |\n| 17 | Unsealed Wrath | 1 rank | ← Repentance | Vuruşların açık mührünü en fazla 3 kez saklar. Mühür değiştirince saklanan her mühür şansla tetiklenir. |"
+ },
+ {
+  "id": "paladin-07-oynanis",
+  "category": "class",
+  "title": "Paladin · Oynanis",
+  "file": "07-Oynanis.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "oynanis"
+  ],
+  "classKey": "paladin",
+  "kind": "gameplay",
+  "text": "# Paladin · Oynanış Önceliği\n\nÜst bilgi: PALADIN — OYNANIŞ. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## Holy\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Oath of Light | Tankın üstünde her zaman açık tut. |\n| 2 | Seal of Light | Başka Paladin açmadıysa kullan. Açtıysa Seal of Wisdom'a geç. |\n| 3 | Flash of Light | Ana heal büyün budur, mana başına en verimlisidir. |\n| 4 | Holy Light | Infusion of Light tetiklenince kullan. Büyük hasarda da işe yarar. |\n| 5 | Holy Shock | Acil durumda ya da hareket ederken kullan. |\n| 6 | Lay on Hands | Son çare olarak kullan, bütün mananı harcar. |\n\nGRUP İYİLEŞTİRME: Hasar gelmeden Light's Vigil koy, sonra aynı hedefe Holy Shock yap. Hedef ve grubu birlikte iyileşir. Çok mana harcar, idareli kullan.\n\n## Protection\n\nRozet: Righteous Fury\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Seal of Fury | Tanklık yaparken her zaman açık tut. |\n| 2 | Consecration | Mana yettikçe yerde tut. |\n| 3 | Judgement | Hazır olduğu an kullan. Seal of Fury açıkken 3 saniye taunt da yapar. |\n| 4 | Holy Shield | Hazır olduğu an kullan. |\n| 5 | Holy Strike | Hazır olduğu an kullan. Shieldsworn ile kalkanla vurursun. |\n| 6 | Exorcism | Yalnız Undead ve Demon düşmanlara kullan. |\n\nÇOK HEDEF: Consecration'ı her zaman yerde tut, tehdidin ana kaynağı odur. Tank değilken Undead ya da Demon grubuna Holy Wrath kullan.\n\n## Retribution\n\nRozet: Retribution Aura\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Seal of the Crusader | Hedefte Judgement of the Crusader yoksa mührü aç ve Judgement yap. |\n| 2 | Seal of Command | Ana mühür olarak kullan. 3 yük birikince Seal of Righteousness'a geç. |\n| 3 | Hammer of Wrath | Hedefin canı %20'nin altına inince kullan. |\n| 4 | Consecration | Hazır olduğu an kullan. |\n| 5 | Judgement | Hazır olduğu an kullan. |\n| 6 | Holy Strike | Hazır olduğu an kullan. |\n\nÇOK HEDEF: Sıra aynı kalır. Judgement of the Crusader'ı yalnız ana hedefe koy. Undead ya da Demon grubuna Exorcism ve Holy Wrath ekle.\n\n## Kural\n\nKURAL: Her uzmanlıkta gruptaki herkese bir Blessing ver (1 saat sürer), her Paladin farklı bir Aura açsın. Judgement mührünü harcamaz."
+ },
+ {
+  "id": "paladin-08-holy-leveling",
+  "category": "class",
+  "title": "Paladin · Holy Leveling",
+  "file": "08-Holy-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "holy leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "paladin",
+  "kind": "leveling",
+  "spec": "holy",
+  "text": "# Paladin · Holy Leveling\n\nÜst bilgi: PALADIN — HOLY. WOW FOREVER. TOTİK CHANNEL — TAVSİYE EDİLEN BUILD.\nSeviye aralığı: Seviye 10 → 60.\n\n## Holy — 34 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Spiritual Focus — 5/5 (tamamlandı)\n- Satır 1: Divine Strength — 0/5 (puan yok)\n- Satır 2: Healing Light — 3/3 (tamamlandı)\n- Satır 2: Reverence — 2/2 (tamamlandı)\n- Satır 2: Improved Seals — 2/5 (kısmen alındı)\n- Satır 2: Purifying Power — 0/2 (puan yok)\n- Satır 3: Divine Favor — 1/1 (tamamlandı)\n- Satır 3: Illumination — 5/5 (tamamlandı; ön koşul oku: Reverence → Illumination)\n- Satır 3: Holy Conduit — 2/2 (tamamlandı)\n- Satır 4: Divine Precision — 0/2 (puan yok)\n- Satır 4: Infusion of Light — 2/2 (tamamlandı)\n- Satır 4: Oath of Light — 1/1 (tamamlandı)\n- Satır 5: Consecrated Ground — 2/2 (tamamlandı)\n- Satır 5: Holy Shock — 1/1 (tamamlandı)\n- Satır 5: Boundless Light — 2/2 (tamamlandı; ön koşul oku: Holy Shock → Boundless Light)\n- Satır 6: Holy Power — 5/5 (tamamlandı)\n- Satır 7: Light's Vigil — 1/1 (tamamlandı; ön koşul oku: Holy Shock → Light's Vigil)\n\n## Protection — 5 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Divine Intellect — 5/5 (tamamlandı)\n- Satır 1: Redoubt — 0/5 (puan yok)\n- Satır 2: Precision — 0/3 (puan yok)\n- Satır 2: Guardian's Favor — 0/2 (puan yok)\n- Satır 2: Sacred Duty — 0/2 (puan yok)\n- Satır 3: Templar's Bulwark — 0/1 (puan yok)\n- Satır 3: Improved Hammer of Justice — 0/3 (puan yok)\n- Satır 3: Shield Specialization — 0/2 (puan yok; ön koşul oku: Redoubt → Shield Specialization)\n- Satır 3: Toughness — 0/5 (puan yok)\n- Satır 4: Swift Judgement — 0/1 (puan yok; ön koşul oku: Templar's Bulwark → Swift Judgement)\n- Satır 4: Improved Righteous Fury — 0/3 (puan yok)\n- Satır 4: Anticipation — 0/5 (puan yok)\n- Satır 5: Stoicism — 0/2 (puan yok)\n- Satır 5: Holy Shield — 0/1 (puan yok)\n- Satır 5: Reckoning — 0/5 (puan yok)\n- Satır 6: Iron Creed — 0/3 (puan yok)\n- Satır 7: Shieldsworn — 0/1 (puan yok; ön koşul oku: Holy Shield → Shieldsworn)\n\n## Retribution — 12 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Deflection — 0/5 (puan yok)\n- Satır 1: Benediction — 5/5 (tamamlandı)\n- Satır 2: Improved Judgement — 2/2 (tamamlandı)\n- Satır 2: Conviction — 3/3 (tamamlandı)\n- Satır 2: Sanctified Judgement — 0/3 (puan yok)\n- Satır 3: Vindication — 0/3 (puan yok)\n- Satır 3: Unyielding Faith — 0/2 (puan yok)\n- Satır 3: Seal of Command — 0/1 (puan yok)\n- Satır 3: Pursuit of Justice — 2/2 (tamamlandı)\n- Satır 4: Eye for an Eye — 0/2 (puan yok)\n- Satır 4: Sacred Arbiter — 0/1 (puan yok)\n- Satır 4: Two-Handed Weapon Specialization — 0/3 (puan yok)\n- Satır 5: Turn Evil — 0/2 (puan yok)\n- Satır 5: Repentance — 0/1 (puan yok)\n- Satır 5: Vengeance — 0/3 (puan yok; ön koşul oku: Seal of Command → Vengeance)\n- Satır 6: Champion of the Light — 0/5 (puan yok)\n- Satır 7: Unsealed Wrath — 0/1 (puan yok; ön koşul oku: Repentance → Unsealed Wrath)\n\n## 60. Seviye Puan Dağılımı\n\n34 / 5 / 12 — Holy 34, Protection 5, Retribution 12. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Benediction | Retribution | +5 | 5/5 | Anlık büyü ve yetenek manası −%10 |\n| 15–17 | Conviction | Retribution | +3 | 3/3 | Saldırı ve büyü kritik şansı +%6 |\n| 18–19 | Improved Judgement | Retribution | +2 | 2/2 | Judgement bekleme süresi −2 sn |\n| 20–21 | Pursuit of Justice | Retribution | +2 | 2/2 | Koşu ve binek hızı +%15 |\n| 22–26 | Spiritual Focus | Holy | +5 | 5/5 | Hasar alınca %70 şansla heal gecikmez |\n| 27–28 | Reverence | Holy | +2 | 2/2 | Büyü sırasında %30 mana yenilenmesi |\n| 29–31 | Healing Light | Holy | +3 | 3/3 | Holy heal büyüleri +%12 iyileştirir |\n| 32–36 | Illumination | Holy | +5 | 5/5 | Kritik heal'de mananın %50'si geri gelir |\n| 37 | Oath of Light | Holy | +1 | 1/1 | Yemin ettiğin dosta heal'ler güçlenir |\n| 38–39 | Infusion of Light | Holy | +2 | 2/2 | Kritikten sonra Holy Light 1 sn hızlı |\n| 40–41 | Holy Conduit | Holy | +2 | 2/2 | Consecration ve Exorcism manası −%40 |\n| 42 | Holy Shock | Holy | +1 | 1/1 | Anlık Holy hasar ya da iyileştirme |\n| 43–44 | Boundless Light | Holy | +2 | 2/2 | Yeminsiz dosta Holy Shock kritiği +%30 |\n| 45 | Divine Favor | Holy | +1 | 1/1 | Sonraki heal büyün kesin kritik olur |\n| 46 | Consecrated Ground | Holy | +1 | 1/2 (kısmen) | Consecration'da Holy hasarı +%5 |\n| 47–51 | Holy Power | Holy | +5 | 5/5 | Holy kritik heal bonusu +%50 |\n| 52 | Light's Vigil | Holy | +1 | 1/1 | Sonraki Holy Shock grubu da iyileştirir |\n| 53–57 | Divine Intellect | Protection | +5 | 5/5 | Toplam Intellect +%10 |\n| 58 | Consecrated Ground | Holy | +1 | 2/2 | Consecration'da Holy hasarı +%10 |\n| 59–60 | Improved Seals | Holy | +2 | 2/5 (kısmen) | Seal ve Judgement hasarı +%6 |"
+ },
+ {
+  "id": "paladin-09-protection-leveling",
+  "category": "class",
+  "title": "Paladin · Protection Leveling",
+  "file": "09-Protection-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "protection leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "paladin",
+  "kind": "leveling",
+  "spec": "protection",
+  "text": "# Paladin · Protection Leveling\n\nÜst bilgi: PALADIN — PROTECTION. WOW FOREVER. TOTİK CHANNEL — TAVSİYE EDİLEN BUILD.\nSeviye aralığı: Seviye 10 → 60.\n\n## Holy — 0 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Spiritual Focus — 0/5 (puan yok)\n- Satır 1: Divine Strength — 0/5 (puan yok)\n- Satır 2: Healing Light — 0/3 (puan yok)\n- Satır 2: Reverence — 0/2 (puan yok)\n- Satır 2: Improved Seals — 0/5 (puan yok)\n- Satır 2: Purifying Power — 0/2 (puan yok)\n- Satır 3: Divine Favor — 0/1 (puan yok)\n- Satır 3: Illumination — 0/5 (puan yok; ön koşul oku: Reverence → Illumination)\n- Satır 3: Holy Conduit — 0/2 (puan yok)\n- Satır 4: Divine Precision — 0/2 (puan yok)\n- Satır 4: Infusion of Light — 0/2 (puan yok)\n- Satır 4: Oath of Light — 0/1 (puan yok)\n- Satır 5: Consecrated Ground — 0/2 (puan yok)\n- Satır 5: Holy Shock — 0/1 (puan yok)\n- Satır 5: Boundless Light — 0/2 (puan yok; ön koşul oku: Holy Shock → Boundless Light)\n- Satır 6: Holy Power — 0/5 (puan yok)\n- Satır 7: Light's Vigil — 0/1 (puan yok; ön koşul oku: Holy Shock → Light's Vigil)\n\n## Protection — 35 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Divine Intellect — 0/5 (puan yok)\n- Satır 1: Redoubt — 5/5 (tamamlandı)\n- Satır 2: Precision — 3/3 (tamamlandı)\n- Satır 2: Guardian's Favor — 0/2 (puan yok)\n- Satır 2: Sacred Duty — 2/2 (tamamlandı)\n- Satır 3: Templar's Bulwark — 1/1 (tamamlandı)\n- Satır 3: Improved Hammer of Justice — 0/3 (puan yok)\n- Satır 3: Shield Specialization — 2/2 (tamamlandı; ön koşul oku: Redoubt → Shield Specialization)\n- Satır 3: Toughness — 3/5 (kısmen alındı)\n- Satır 4: Swift Judgement — 1/1 (tamamlandı; ön koşul oku: Templar's Bulwark → Swift Judgement)\n- Satır 4: Improved Righteous Fury — 3/3 (tamamlandı)\n- Satır 4: Anticipation — 5/5 (tamamlandı)\n- Satır 5: Stoicism — 0/2 (puan yok)\n- Satır 5: Holy Shield — 1/1 (tamamlandı)\n- Satır 5: Reckoning — 5/5 (tamamlandı)\n- Satır 6: Iron Creed — 3/3 (tamamlandı)\n- Satır 7: Shieldsworn — 1/1 (tamamlandı; ön koşul oku: Holy Shield → Shieldsworn)\n\n## Retribution — 16 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Deflection — 0/5 (puan yok)\n- Satır 1: Benediction — 5/5 (tamamlandı)\n- Satır 2: Improved Judgement — 2/2 (tamamlandı)\n- Satır 2: Conviction — 3/3 (tamamlandı)\n- Satır 2: Sanctified Judgement — 3/3 (tamamlandı)\n- Satır 3: Vindication — 0/3 (puan yok)\n- Satır 3: Unyielding Faith — 0/2 (puan yok)\n- Satır 3: Seal of Command — 0/1 (puan yok)\n- Satır 3: Pursuit of Justice — 2/2 (tamamlandı)\n- Satır 4: Eye for an Eye — 0/2 (puan yok)\n- Satır 4: Sacred Arbiter — 1/1 (tamamlandı)\n- Satır 4: Two-Handed Weapon Specialization — 0/3 (puan yok)\n- Satır 5: Turn Evil — 0/2 (puan yok)\n- Satır 5: Repentance — 0/1 (puan yok)\n- Satır 5: Vengeance — 0/3 (puan yok; ön koşul oku: Seal of Command → Vengeance)\n- Satır 6: Champion of the Light — 0/5 (puan yok)\n- Satır 7: Unsealed Wrath — 0/1 (puan yok; ön koşul oku: Repentance → Unsealed Wrath)\n\n## 60. Seviye Puan Dağılımı\n\n0 / 35 / 16 — Holy 0, Protection 35, Retribution 16. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Benediction | Retribution | +5 | 5/5 | Anlık büyü ve yetenek manası −%10 |\n| 15–17 | Conviction | Retribution | +3 | 3/3 | Saldırı ve büyü kritik şansı +%6 |\n| 18–19 | Improved Judgement | Retribution | +2 | 2/2 | Judgement bekleme süresi −2 sn |\n| 20–21 | Pursuit of Justice | Retribution | +2 | 2/2 | Koşu ve binek hızı +%15 |\n| 22–26 | Redoubt | Protection | +5 | 5/5 | Darbe alınca %10 şansla blok şansı artar |\n| 27–29 | Precision | Protection | +3 | 3/3 | İsabet şansı +%3 |\n| 30–31 | Sacred Duty | Protection | +2 | 2/2 | Koruma büyülerinin beklemesi −60 sn |\n| 32–33 | Shield Specialization | Protection | +2 | 2/2 | Blok değeri +%30, blokta %4 mana geri |\n| 34 | Templar's Bulwark | Protection | +1 | 1/1 | 8 sn canın kadar hasar emen kalkan |\n| 35–36 | Toughness | Protection | +2 | 2/5 (kısmen) | Eşyalardan gelen zırh +%4 |\n| 37 | Swift Judgement | Protection | +1 | 1/1 | Ayrı bekleme süreli ek Judgement |\n| 38–40 | Improved Righteous Fury | Protection | +3 | 3/3 | Righteous Fury'de alınan hasar −%9 |\n| 41 | Anticipation | Protection | +1 | 1/5 (kısmen) | Defense +4 |\n| 42 | Holy Shield | Protection | +1 | 1/1 | 10 sn blok şansı +%30, blokta Holy hasar |\n| 43–47 | Reckoning | Protection | +5 | 5/5 | Blok ya da kritik yiyince ek saldırı |\n| 48–50 | Iron Creed | Protection | +3 | 3/3 | Holy Strike tehdidi +%30, alınan hasar −%6 |\n| 51 | Anticipation | Protection | +1 | 2/5 (kısmen) | Defense +8 |\n| 52 | Shieldsworn | Protection | +1 | 1/1 | Holy Strike −4 sn, kalkanla vurur |\n| 53–55 | Anticipation | Protection | +3 | 5/5 | Defense +20 |\n| 56–58 | Sanctified Judgement | Retribution | +3 | 3/3 | Judgement'ta mühür manası %60 geri |\n| 59 | Sacred Arbiter | Retribution | +1 | 1/1 | Holy Strike %20 güçlü, Judgement'ı yeniler |\n| 60 | Toughness | Protection | +1 | 3/5 (kısmen) | Eşyalardan gelen zırh +%6 |"
+ },
+ {
+  "id": "paladin-10-retribution-leveling",
+  "category": "class",
+  "title": "Paladin · Retribution Leveling",
+  "file": "10-Retribution-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "retribution leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "paladin",
+  "kind": "leveling",
+  "spec": "retribution",
+  "text": "# Paladin · Retribution Leveling\n\nÜst bilgi: PALADIN — RETRIBUTION. WOW FOREVER. TOTİK CHANNEL — TAVSİYE EDİLEN BUILD.\nSeviye aralığı: Seviye 10 → 60.\n\n## Holy — 18 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Spiritual Focus — 0/5 (puan yok)\n- Satır 1: Divine Strength — 5/5 (tamamlandı)\n- Satır 2: Healing Light — 0/3 (puan yok)\n- Satır 2: Reverence — 2/2 (tamamlandı)\n- Satır 2: Improved Seals — 5/5 (tamamlandı)\n- Satır 2: Purifying Power — 2/2 (tamamlandı)\n- Satır 3: Divine Favor — 0/1 (puan yok)\n- Satır 3: Illumination — 0/5 (puan yok; ön koşul oku: Reverence → Illumination)\n- Satır 3: Holy Conduit — 2/2 (tamamlandı)\n- Satır 4: Divine Precision — 2/2 (tamamlandı)\n- Satır 4: Infusion of Light — 0/2 (puan yok)\n- Satır 4: Oath of Light — 0/1 (puan yok)\n- Satır 5: Consecrated Ground — 0/2 (puan yok)\n- Satır 5: Holy Shock — 0/1 (puan yok)\n- Satır 5: Boundless Light — 0/2 (puan yok; ön koşul oku: Holy Shock → Boundless Light)\n- Satır 6: Holy Power — 0/5 (puan yok)\n- Satır 7: Light's Vigil — 0/1 (puan yok; ön koşul oku: Holy Shock → Light's Vigil)\n\n## Protection — 0 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Divine Intellect — 0/5 (puan yok)\n- Satır 1: Redoubt — 0/5 (puan yok)\n- Satır 2: Precision — 0/3 (puan yok)\n- Satır 2: Guardian's Favor — 0/2 (puan yok)\n- Satır 2: Sacred Duty — 0/2 (puan yok)\n- Satır 3: Templar's Bulwark — 0/1 (puan yok)\n- Satır 3: Improved Hammer of Justice — 0/3 (puan yok)\n- Satır 3: Shield Specialization — 0/2 (puan yok; ön koşul oku: Redoubt → Shield Specialization)\n- Satır 3: Toughness — 0/5 (puan yok)\n- Satır 4: Swift Judgement — 0/1 (puan yok; ön koşul oku: Templar's Bulwark → Swift Judgement)\n- Satır 4: Improved Righteous Fury — 0/3 (puan yok)\n- Satır 4: Anticipation — 0/5 (puan yok)\n- Satır 5: Stoicism — 0/2 (puan yok)\n- Satır 5: Holy Shield — 0/1 (puan yok)\n- Satır 5: Reckoning — 0/5 (puan yok)\n- Satır 6: Iron Creed — 0/3 (puan yok)\n- Satır 7: Shieldsworn — 0/1 (puan yok; ön koşul oku: Holy Shield → Shieldsworn)\n\n## Retribution — 33 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Deflection — 5/5 (tamamlandı)\n- Satır 1: Benediction — 0/5 (puan yok)\n- Satır 2: Improved Judgement — 2/2 (tamamlandı)\n- Satır 2: Conviction — 3/3 (tamamlandı)\n- Satır 2: Sanctified Judgement — 3/3 (tamamlandı)\n- Satır 3: Vindication — 3/3 (tamamlandı)\n- Satır 3: Unyielding Faith — 0/2 (puan yok)\n- Satır 3: Seal of Command — 1/1 (tamamlandı)\n- Satır 3: Pursuit of Justice — 2/2 (tamamlandı)\n- Satır 4: Eye for an Eye — 0/2 (puan yok)\n- Satır 4: Sacred Arbiter — 1/1 (tamamlandı)\n- Satır 4: Two-Handed Weapon Specialization — 3/3 (tamamlandı)\n- Satır 5: Turn Evil — 0/2 (puan yok)\n- Satır 5: Repentance — 1/1 (tamamlandı)\n- Satır 5: Vengeance — 3/3 (tamamlandı; ön koşul oku: Seal of Command → Vengeance)\n- Satır 6: Champion of the Light — 5/5 (tamamlandı)\n- Satır 7: Unsealed Wrath — 1/1 (tamamlandı; ön koşul oku: Repentance → Unsealed Wrath)\n\n## 60. Seviye Puan Dağılımı\n\n18 / 0 / 33 — Holy 18, Protection 0, Retribution 33. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Deflection | Retribution | +5 | 5/5 | Parry şansı +%5 |\n| 15–16 | Improved Judgement | Retribution | +2 | 2/2 | Judgement bekleme süresi −2 sn |\n| 17–19 | Conviction | Retribution | +3 | 3/3 | Saldırı ve büyü kritik şansı +%6 |\n| 20–21 | Pursuit of Justice | Retribution | +2 | 2/2 | Koşu ve binek hızı +%15 |\n| 22 | Seal of Command | Retribution | +1 | 1/1 | Şansla silahın %70'i kadar Holy hasar |\n| 23–24 | Sanctified Judgement | Retribution | +2 | 2/3 (kısmen) | %66 şansla mühür manası %40 geri |\n| 25 | Sacred Arbiter | Retribution | +1 | 1/1 | Holy Strike %20 güçlü, Judgement'ı yeniler |\n| 26–28 | Two-Handed Weapon Specialization | Retribution | +3 | 3/3 | İki elliyle hasar +%6, tehdit −%20 |\n| 29 | Sanctified Judgement | Retribution | +1 | 3/3 | Judgement'ta mühür manası %60 geri |\n| 30–32 | Vengeance | Retribution | +3 | 3/3 | Kritikten sonra hasar +%3, 5 kez birikir |\n| 33 | Repentance | Retribution | +1 | 1/1 | Humanoid'i 6 sn etkisiz bırakır |\n| 34 | Vindication | Retribution | +1 | 1/3 (kısmen) | Hedefin Attack Power'ı −68, 30 sn |\n| 35–39 | Champion of the Light | Retribution | +5 | 5/5 | Intellect'in %60'ı büyü hasarına |\n| 40 | Unsealed Wrath | Retribution | +1 | 1/1 | 3 mühür yükü saklar, değişince tetikler |\n| 41–45 | Divine Strength | Holy | +5 | 5/5 | Strength +%10 |\n| 46–47 | Reverence | Holy | +2 | 2/2 | Büyü sırasında %30 mana yenilenmesi |\n| 48–50 | Improved Seals | Holy | +3 | 3/5 (kısmen) | Seal ve Judgement hasarı +%9 |\n| 51–52 | Holy Conduit | Holy | +2 | 2/2 | Consecration ve Exorcism manası −%40 |\n| 53–54 | Improved Seals | Holy | +2 | 5/5 | Seal ve Judgement hasarı +%15 |\n| 55–56 | Purifying Power | Holy | +2 | 2/2 | Exorcism ve Holy Wrath beklemesi −%33 |\n| 57–58 | Divine Precision | Holy | +2 | 2/2 | Holy büyü isabeti +%8 |\n| 59–60 | Vindication | Retribution | +2 | 3/3 | Hedefin Attack Power'ı −204, 30 sn |"
+ },
+ {
+  "id": "priest-01-irk-secimi",
+  "category": "class",
+  "title": "Priest · Irk Secimi",
+  "file": "01-Irk-Secimi.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "irk secimi"
+  ],
+  "classKey": "priest",
+  "kind": "race",
+  "text": "# Priest · Irk Seçimi\n\nÜst bilgi: PRIEST — IRKLAR. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## Alliance\n\n### Human\nThe Human Spirit Spirit'ini %10 artırır, böylece manan daha hızlı dolar. Ruthless kritik şansını her zaman %1 artırır.\n\n- Divine Grace: Canı %50'nin altındaki dosta anında heal yapar, Weakened Soul'u siler.\n- Feedback: 15 saniye boyunca sana büyü yapan düşmanın manası yanar.\n\n### Dwarf\nStoneform 8 saniye fiziksel hasarı %10 azaltır. Big Game Hunter hayvan türü düşmanlara %5 fazla hasar verdirir.\n\n- Desperate Prayer: Kendine anında büyük bir heal yapar. Bekleme süresi 10 dakikadır.\n- Chastise: İnsansı düşmana Holy hasar verir ve onu 2 saniye yerinde tutar.\n\n### Night Elf\nElune's Light 15 saniye kritik şansını %10 artırır. Shadowmeld ile kısa süre gizlenebilirsin.\n\n- Elune's Grace: 15 saniye boyunca sana gelen vuruşların isabeti %50 düşer. Etki 3 ıskadan sonra biter.\n- Starshards: 6 saniye boyunca hedefe Arcane hasar verir.\n\n### Gnome\nExpansive Mind en fazla manayı %5 artırır. Eureka! 8 saniye büyülerini %10 ucuz ve %10 güçlü yapar.\n\n- Confounding Flash: Yakındaki 5 düşmanı 3 saniye şaşkına çevirir.\n- Contingency Plan: Dostun canı %35'in altına inince otomatik kalkan ve heal alır.\n\n## Horde\n\n### Undead\nWill of the Forsaken korku etkisini anında kırar. Touch of the Grave zaman zaman hedeften can çeker.\n\n- Touch of Weakness: Sana ilk vuran düşman hasar alır ve saldırı gücü düşer.\n- Dark Sacrifice: 15 saniye boyunca can harcayıp mana kazanırsın.\n\n### Troll\nBerserking 15 saniye büyü hızını %10 artırır. Beast Slaying hayvan türü düşmanlara %5 fazla hasar verdirir.\n\n- Hex of Weakness: Düşmanın saldırı gücü düşer, aldığı heal %20 azalır.\n- Shadowguard: Seni vuran düşmana Shadow hasar verir, 3 kez işler."
+ },
+ {
+  "id": "priest-02-yetenekler-1",
+  "category": "class",
+  "title": "Priest · Yetenekler 1",
+  "file": "02-Yetenekler-1.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "yetenekler 1"
+  ],
+  "classKey": "priest",
+  "kind": "abilities",
+  "part": 1,
+  "text": "# Priest · İyileştirme, Buff ve Temizleme\n\nÜst bilgi: PRIEST — YETENEKLER 1/2. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## İyileştirme\n\nDostlarının canını doldurur ya da onları kalkanla korur.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 1 | Lesser Heal | 3 rank | | 2,5 saniyede 169 iyileştirir. Heal gelene kadar ana heal büyün. |\n| Seviye 6 | Power Word: Shield | 10 rank | Dost · 30 sn | 928 hasar emer, kalkan durdukça büyün kesilmez. Aynı hedefe 15 saniye yeniden atılamaz. |\n| Seviye 8 | Renew | 9 rank | Dost · 15 sn | 15 saniyede toplam 670 iyileştirir. Anlık atılır, hareket ederken kullan. |\n| Seviye 16 | Heal | 4 rank | | 3 saniyede 674 iyileştirir. 40. seviyede yerini Greater Heal alır. |\n| Seviye 20 | Flash Heal | 7 rank | | 1,5 saniyede 842 iyileştirir. Hızlıdır ama çok mana harcar, acil durumda kullan. |\n| Seviye 30 | Prayer of Healing | 4 rank | Grup | Hedefin grubundaki herkesi 583 iyileştirir. Birden çok kişi yaralıyken kullan. |\n| Seviye 40 | Greater Heal | 4 rank | | 3 saniyede 1797 iyileştirir. Tankı ayakta tutan büyük heal'in. |\n\n## Buff'lar\n\nSeni ya da grubunu uzun süre güçlendirir.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 1 | Power Word: Fortitude | 6 rank | Dost · 1 saat | Stamina'yı 70 artırır, en fazla can yükselir. Gruptaki herkese ver. |\n| Seviye 12 | Inner Fire | 6 rank | Sen · 10 dk | Zırhın 1395 artar. Sana gelen her vuruş bir yük harcar, 20 vuruşta biter. |\n| Seviye 20 | Fear Ward | | Dost · 3 dk; Forever | Hedefe gelen ilk Fear (korku) etkisini boşa çıkarır. 3 dakikada bir. Forever'da her ırk öğrenir. |\n| Seviye 30 | Divine Spirit | 4 rank | Dost · 1 saat; Forever | Spirit'i 40 artırır, mana daha hızlı dolar. Forever'da talent değil, eğitmenden öğrenilir. |\n| Seviye 30 | Shadow Protection | 3 rank | Dost · 10 dk | Shadow direncini 60 artırır. Shadow hasarı vuran boss'larda kullan. |\n| Seviye 48 | Prayer of Fortitude | 2 rank | Kitapla öğrenilir | Fortitude'u bütün raide birden verir, Sacred Candle harcar. Eğitmen öğretmez, Codex: Prayer of Fortitude kitabıyla öğrenilir. |\n\n## Temizleme\n\nZararlı etkileri dostlarından siler.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 14 | Cure Disease | | | Dosttan bir hastalık etkisi siler. |\n| Seviye 18 | Dispel Magic | 2 rank | | Dosttan 2 zararlı büyüyü ya da düşmandan 2 faydalı büyüyü siler. |\n| Seviye 32 | Abolish Disease | | Dost · 20 sn | Hemen bir hastalık siler, sonra 20 saniye boyunca 5 saniyede bir yeniden dener. |\n\n## Yardımcı\n\nSavaş dışında işine yarar.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 10 | Resurrection | 5 rank | | Ölmüş bir oyuncuyu 750 can ve 1000 manayla diriltir. Savaşta kullanılamaz. |\n| Seviye 22 | Mind Vision | 2 rank | | 1 dakika hedefin gözünden bakarsın. Keşif ve düşman izlemek için. |\n| Seviye 34 | Levitate | | Sen · 2 dk | Yavaş düşer ve suyun üstünde yürürsün. Light Feather harcar, hasar alınca biter. |"
+ },
+ {
+  "id": "priest-03-yetenekler-2",
+  "category": "class",
+  "title": "Priest · Yetenekler 2",
+  "file": "03-Yetenekler-2.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "yetenekler 2"
+  ],
+  "classKey": "priest",
+  "kind": "abilities",
+  "part": 2,
+  "text": "# Priest · Hasar, Debuff ve Kontrol\n\nÜst bilgi: PRIEST — YETENEKLER 2/2. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## Saldırılar\n\nMana harcayıp Holy ya da Shadow hasar verir.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 1 | Smite | 8 rank | | 2,5 saniyede 177 Holy hasar vurur. Düşük seviyede ana saldırın. |\n| Seviye 10 | Mind Blast | 9 rank | | 1,5 saniyede 491 Shadow hasar vurur ve yüksek tehdit üretir. 8 saniyede bir, çekişi bununla aç. |\n| Seviye 20 | Holy Fire | 8 rank | | 3,5 saniyede 208 Holy hasar vurur, sonra 10 saniyede 75 hasar daha yakar. |\n| Seviye 24 | Mana Burn | 5 rank | | Hedeften 768 mana yakar, yaktığın her 2 mana için 1 hasar verir. Büyücü düşmanlara karşı kullan. |\n| Seviye 32 | Shadow Word: Death | 4 rank | Forever'da yeni | Anında 458 Shadow hasar vurur. Hedef ölmezse canının %30'u kadar hasar alırsın. 18 saniyede bir. |\n\n## Debuff'lar\n\nDüşmanın üstünde kalıp zamanla hasar verir.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 4 | Shadow Word: Pain | 8 rank | Düşman · 18 sn | 18 saniyede toplam 762 Shadow hasar verir. Her düşmana ilk iş olarak at. |\n| Seviye 20 | Devouring Plague | 6 rank | Düşman · 24 sn; Forever | 24 saniyede 848 Shadow hasar verir, verdiği hasar kadar seni iyileştirir. Forever'da her ırk öğrenir. |\n\n## Kontrol ve Kaçış\n\nDüşmanı durdurur, kaçırır ya da senden uzak tutar.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| Seviye 8 | Fade | 6 rank | Sen · 10 sn | 10 saniye tehdidin düşer, düşmanlar başka hedefe döner. Healer olarak dikkat çektiysen bas. |\n| Seviye 14 | Psychic Scream | 4 rank | 8 metre · 8 sn | Yakındaki en fazla 5 düşman 8 saniye korkudan kaçar. Kaçanlar başka düşman çekebilir, dikkat et. |\n| Seviye 20 | Mind Soothe | 3 rank | Humanoid · 15 sn | Humanoid düşmanın seni fark etme mesafesi 10 metre kısalır. Düşmanların arasından geçmek için. |\n| Seviye 20 | Shackle Undead | 3 rank | Undead · 50 sn | Bir Undead düşmanı 50 saniye bağlar, kımıldayamaz ve büyü yapamaz. Hasar alırsa çözülür. |\n| Seviye 30 | Mind Control | 3 rank | Humanoid · 1 dk | 64. seviyeye kadar bir Humanoid'i 1 dakika yönetirsin. Saldırı hızı %25 yavaşlar. |"
+ },
+ {
+  "id": "priest-04-discipline-talentleri",
+  "category": "class",
+  "title": "Priest · Discipline Talentleri",
+  "file": "04-Discipline-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "discipline talentleri"
+  ],
+  "classKey": "priest",
+  "kind": "talents",
+  "spec": "discipline",
+  "text": "# Priest · Discipline Talent Ağacı\n\nÜst bilgi: PRIEST — DISCIPLINE. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## Discipline (18 talent)\n\nAğaç yerleşimi (satır numarası → o satırdaki talent numaraları, soldan sağa):\n\n| Satır | Talentler |\n|---|---|\n| 1 | 1, 2, 3 |\n| 2 | 4, 5, 6, 7 |\n| 3 | 8, 9, 10, 11 |\n| 4 | 12, 13, 14 |\n| 5 | 15, 16 |\n| 6 | 17 |\n| 7 | 18 |\n\nOklar: 10 → 14, 14 → 16, 15 → 18.\n\nHer satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nEn yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | Açıklama |\n|---|---|---|---|---|\n| 1 | Power in Light | 5 rank | | Holy Fire ya da Shadow Word: Pain olan hedefe Smite ve Penance %10 daha fazla hasar verir. |\n| 2 | Wand Specialization | 2 rank | | Wand hasarın %25 artar. |\n| 3 | Twin Disciplines | 5 rank | | Anlık büyülerin, Mind Flay ve Penance %5 daha fazla hasar verir ve iyileştirir. |\n| 4 | Silent Resolve | 3 rank | | Büyülerinin yarattığı tehdit %30 azalır. Stun, Fear ve Silence sende %15 daha kısa sürer. |\n| 5 | Holy Precision | 3 rank | | Holy büyülerinin isabet şansı %18 artar. |\n| 6 | Mental Strength | 5 rank | | Toplam Intellect'in %10 artar. |\n| 7 | Martyrdom | 2 rank | | Kritik vuruş yiyince 6 saniye büyülerin gecikmez ve kesilmeye karşı direncin %20 artar. |\n| 8 | Mental Agility | 3 rank | | Smite, Holy Fire ve anlık büyülerin %10 daha az mana harcar. |\n| 9 | Inner Focus | 1 rank | | Sonraki büyün mana harcamaz ve kritik şansı %25 artar. |\n| 10 | Improved Power Word: Shield | 3 rank | | Power Word: Shield %20 daha fazla hasar emer. |\n| 11 | Meditation | 3 rank | | Büyü yaparken de mana yenilenmenin %50'si devam eder. |\n| 12 | Improved Inner Fire | 3 rank | | Inner Fire'ın verdiği zırh %45 artar ve 12 yük daha fazla sürer. |\n| 13 | Improved Mana Burn | 2 rank | | Mana Burn'ün döküm süresi 1 saniye kısalır. |\n| 14 | Soul Warding | 1 rank | ← Improved Power Word: Shield | Power Word: Shield'ın bekleme süresi 4 saniye kısalır ve %15 daha az mana harcar. |\n| 15 | Penance | 1 rank | | Hedefe anında ve 2 saniye boyunca Holy ışık yağdırır. Düşmana hasar verir, dostu iyileştirir. |\n| 16 | Renewed Hope | 5 rank | ← Soul Warding | Weakened Soul olan hedefe heal'lerinin kritik şansı %10 artar. Weakened Soul 5 saniye daha kısa sürer. |\n| 17 | Divine Aegis | 3 rank | | Kritik heal, hedefe iyileştirdiğin miktarın %15'i kadar hasar emen bir kalkan bırakır. |\n| 18 | Power Infusion | 1 rank | ← Penance | Hedefin büyü hasarı ve heal'i 15 saniye %20 artar. |"
+ },
+ {
+  "id": "priest-05-holy-talentleri",
+  "category": "class",
+  "title": "Priest · Holy Talentleri",
+  "file": "05-Holy-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "holy talentleri"
+  ],
+  "classKey": "priest",
+  "kind": "talents",
+  "spec": "holy",
+  "text": "# Priest · Holy Talent Ağacı\n\nÜst bilgi: PRIEST — HOLY. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## Holy (17 talent)\n\nAğaç yerleşimi (satır numarası → o satırdaki talent numaraları, soldan sağa):\n\n| Satır | Talentler |\n|---|---|\n| 1 | 1, 2, 3 |\n| 2 | 4, 5 |\n| 3 | 6, 7, 8 |\n| 4 | 9, 10, 11, 12 |\n| 5 | 13, 14, 15 |\n| 6 | 16 |\n| 7 | 17 |\n\nOklar: 5 → 11, 14 → 17.\n\nHer satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nEn yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | Açıklama |\n|---|---|---|---|---|\n| 1 | Twilight Focus | 3 rank | | Büyü yaparken hasar alırsan %70 şansla döküm süresi uzamaz. |\n| 2 | Improved Renew | 3 rank | | Renew %15 daha fazla iyileştirir. |\n| 3 | Holy Specialization | 5 rank | | Holy büyülerinin kritik şansı %5 artar. |\n| 4 | Spell Warding | 5 rank | | Aldığın büyü hasarı %10 azalır. |\n| 5 | Divine Fury | 5 rank | | Smite, Holy Fire, Heal ve Greater Heal'in döküm süresi 0,5 saniye kısalır. |\n| 6 | Holy Nova | 1 rank | | 10 metre içindeki düşmanlara Holy hasar verir, grubunu iyileştirir. Tehdit yaratmaz. |\n| 7 | Blessed Recovery | 3 rank | | Kritik ya da büyük bir darbe yiyince aldığın hasarın %25'i 6 saniyede geri dolar. |\n| 8 | Inspiration | 3 rank | | Kritik heal, hedefin zırhını 15 saniye %25 artırır. |\n| 9 | Holy Reach | 2 rank | | Smite ve Holy Fire'ın menzili, Prayer of Healing ve Holy Nova'nın alanı %20 artar. |\n| 10 | Improved Healing | 3 rank | | Lesser Heal, Heal, Greater Heal, Penance ve Prayer of Mending %15 daha az mana harcar. |\n| 11 | Searing Light | 2 rank | ← Divine Fury | Holy hasarın %5 artar. Holy Fire şansla sonraki Holy Nova'nı bedava yapar. |\n| 12 | Holy Binding | 1 rank | | Başkasına Flash Heal yapınca sen de o heal'in %50'si kadar iyileşirsin. |\n| 13 | Litany of Light | 2 rank | | Bir önceki heal'den farklı bir heal yaparsan büyünün temel mana bedelinin %10'u geri gelir. |\n| 14 | Spirit of Redemption | 1 rank | | Ölünce 15 saniye ruh hâline geçersin. Bu sürede mana harcamadan heal yaparsın. |\n| 15 | Spiritual Guidance | 5 rank | | Spirit'inin %25'i kadar heal gücü, %8'i kadar büyü hasarı kazanırsın. |\n| 16 | Spiritual Healing | 3 rank | | Büyülerin %10 daha fazla iyileştirir. |\n| 17 | Prayer of Mending | 1 rank | ← Spirit of Redemption | Hedef hasar alınca onu iyileştirir, sonra yakındaki bir dosta zıplar. 5 kez zıplar. |"
+ },
+ {
+  "id": "priest-06-shadow-talentleri",
+  "category": "class",
+  "title": "Priest · Shadow Talentleri",
+  "file": "06-Shadow-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "shadow talentleri"
+  ],
+  "classKey": "priest",
+  "kind": "talents",
+  "spec": "shadow",
+  "text": "# Priest · Shadow Magic Talent Ağacı\n\nÜst bilgi: PRIEST — SHADOW MAGIC. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## Shadow Magic (17 talent)\n\nAğaç yerleşimi (satır numarası → o satırdaki talent numaraları, soldan sağa):\n\n| Satır | Talentler |\n|---|---|\n| 1 | 1, 2, 3 |\n| 2 | 4, 5, 6 |\n| 3 | 7, 8, 9 |\n| 4 | 10, 11, 12 |\n| 5 | 13, 14 |\n| 6 | 15, 16 |\n| 7 | 17 |\n\nOklar: 2 → 7, 8 → 9, 11 → 17.\n\nHer satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nEn yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | Açıklama |\n|---|---|---|---|---|\n| 1 | Shadow Focus | 5 rank | | Shadow büyülerinin isabet şansı %5 artar. |\n| 2 | Blackout | 5 rank | | Shadow büyülerin %10 şansla hedefi 3 saniye sersemletir. |\n| 3 | Spirit Tap | 5 rank | | Bir düşmanı öldürünce 15 saniye Spirit'in %100 artar. Bu sürede büyü yaparken de manan dolar. |\n| 4 | Improved Mind Blast | 5 rank | | Mind Blast'ın bekleme süresi 2,5 saniye kısalır. |\n| 5 | Improved Shadow Word: Pain | 2 rank | | Shadow Word: Pain 6 saniye daha uzun sürer. |\n| 6 | Shadow Reach | 2 rank | | Saldırı amaçlı Shadow büyülerinin menzili %20 artar. |\n| 7 | Improved Psychic Scream | 2 rank | ← Blackout | Psychic Scream'in bekleme süresi 4 saniye kısalır. |\n| 8 | Mind Flay | 1 rank | | 3 saniye boyunca kanal büyüsüyle Shadow hasar verir, hedefi %50 yavaşlatır. |\n| 9 | Improved Mind Flay | 2 rank | ← Mind Flay | Mind Flay'in her vuruşu bir öncekinden %20 daha güçlü olur. |\n| 10 | Dark Inspiration | 5 rank | | Mind Blast ya da sonuna kadar kanallanan Mind Flay grubunun Spirit'ini 10 saniye %15 artırır. |\n| 11 | Vampiric Embrace | 1 rank | | 30 saniye boyunca verdiğin Shadow hasarının %20'si kadar grubun iyileşir. |\n| 12 | Shadow Weaving | 3 rank | | Shadow büyülerin, hedefin senden aldığı Shadow hasarını %2 artırır. 5 kez birikir. |\n| 13 | Silence | 1 rank | | Hedefi 5 saniye susturur ve yaptığı büyüyü keser. |\n| 14 | Devouring Contagion | 2 rank | | Devouring Plague %50 daha az mana harcar. Hedef ölünce yakındaki 2 düşmana yayılır. |\n| 15 | Early Demise | 2 rank | | Canı %20'nin altındaki hedefe Shadow Word: Death'in kritik şansı %30 artar. |\n| 16 | Darkness | 5 rank | | Shadow hasarın %10 artar. |\n| 17 | Shadowform | 1 rank | ← Vampiric Embrace | Shadow hasarın %10, kritik hasarın %100 artar. Shadow büyüleri yarı mana harcar, aldığın fiziksel hasar %15 azalır. |"
+ },
+ {
+  "id": "priest-07-oynanis",
+  "category": "class",
+  "title": "Priest · Oynanis",
+  "file": "07-Oynanis.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "oynanis"
+  ],
+  "classKey": "priest",
+  "kind": "gameplay",
+  "text": "# Priest · Oynanış Önceliği\n\nÜst bilgi: PRIEST — OYNANIŞ. WOW FOREVER. TOTİK CHANNEL — SINIF REHBERİ.\n\n## Discipline\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Power Word: Shield | Hasar gelmeden at. Heal yapman için zaman kazandırır. |\n| 2 | Penance | Hazırsa kullan, hedefi anında iyileştirmeye başlar. |\n| 3 | Renew | Sürekli hasar alan hedefin üstünde tut. |\n| 4 | Heal | Ana heal büyün budur, mana başına verimlidir. |\n| 5 | Greater Heal | Büyük darbeden önce başlat, Inner Focus ile bedavadır. |\n| 6 | Flash Heal | Pahalıdır, yalnız acil durumda kullan. |\n\nGRUP İYİLEŞTİRME: Grup heal'in zayıf, çok kişi yaralıysa Prayer of Healing kullan. Power Infusion'ı büyü yapan DPS'e ya da healer'a ver.\n\n## Holy\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Renew | Hasar alan herkese at. |\n| 2 | Prayer of Mending | Her zaman birinin üstünde olsun. Hasar gelince iyileştirip zıplar. |\n| 3 | Power Word: Shield | Acil durumda sana zaman kazandırır. |\n| 4 | Heal | Ana heal büyün budur, mana başına verimlidir. |\n| 5 | Greater Heal | Büyük darbeden önce başlat, Inner Focus ile bedavadır. |\n| 6 | Flash Heal | Acil durumda kullan. Holy Binding ile sen de iyileşirsin. |\n\nGRUP İYİLEŞTİRME: Grup yaralıysa Prayer of Healing kullan. Holy Nova anında iyileştirir ama pahalıdır. Searing Light tetiklenince bedavaya gelir.\n\n## Shadow\n\nRozet: Shadowform\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Shadow Word: Pain | Hedefte her zaman açık tut. Süresi bitince yenile. |\n| 2 | Devouring Plague | Hedefte her zaman açık tut. Süresi bitince yenile. |\n| 3 | Mind Blast | Hazır olduğu an kullan. |\n| 4 | Shadow Word: Death | Hazırsa kullan. Hedef ölmezse toplam canının %30'unu kaybedersin. |\n| 5 | Vampiric Embrace | Hedefte açık tut, grubunu iyileştirir. |\n| 6 | Mind Flay | Ara büyü olarak kullan. Kanalı yarıda kesme. |\n\nÇOK HEDEF: Shadow Word: Pain'i her düşmana at, 9 saniyeden kısa yaşayacak olana atma. Devouring Plague'i en az canlıya at, ölünce yayılır.\n\n## Kural\n\nKURAL: Her uzmanlıkta Power Word: Fortitude ve Inner Fire açık olsun. Büyüden sonra 5 saniye mana dolmaz, boşa büyü atma."
+ },
+ {
+  "id": "priest-08-discipline-leveling",
+  "category": "class",
+  "title": "Priest · Discipline Leveling",
+  "file": "08-Discipline-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "discipline leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "priest",
+  "kind": "leveling",
+  "spec": "discipline",
+  "text": "# Priest · Discipline Leveling\n\nÜst bilgi: PRIEST — DISCIPLINE. WOW FOREVER. TOTİK CHANNEL — TAVSİYE EDİLEN BUILD.\nSeviye aralığı: Seviye 10 → 60.\n\n## Discipline — 33 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Power in Light — 5/5 (tamamlandı)\n- Satır 1: Wand Specialization — 2/2 (tamamlandı)\n- Satır 1: Twin Disciplines — 0/5 (puan yok)\n- Satır 2: Silent Resolve — 0/3 (puan yok)\n- Satır 2: Holy Precision — 0/3 (puan yok)\n- Satır 2: Mental Strength — 5/5 (tamamlandı)\n- Satır 2: Martyrdom — 0/2 (puan yok)\n- Satır 3: Mental Agility — 3/3 (tamamlandı)\n- Satır 3: Inner Focus — 1/1 (tamamlandı)\n- Satır 3: Improved Power Word: Shield — 3/3 (tamamlandı)\n- Satır 3: Meditation — 3/3 (tamamlandı)\n- Satır 4: Improved Inner Fire — 0/3 (puan yok)\n- Satır 4: Improved Mana Burn — 0/2 (puan yok)\n- Satır 4: Soul Warding — 1/1 (tamamlandı; ön koşul oku: Improved Power Word: Shield → Soul Warding)\n- Satır 5: Penance — 1/1 (tamamlandı)\n- Satır 5: Renewed Hope — 5/5 (tamamlandı; ön koşul oku: Soul Warding → Renewed Hope)\n- Satır 6: Divine Aegis — 3/3 (tamamlandı)\n- Satır 7: Power Infusion — 1/1 (tamamlandı; ön koşul oku: Penance → Power Infusion)\n\n## Holy — 13 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Twilight Focus — 3/3 (tamamlandı)\n- Satır 1: Improved Renew — 0/3 (puan yok)\n- Satır 1: Holy Specialization — 5/5 (tamamlandı)\n- Satır 2: Spell Warding — 0/5 (puan yok)\n- Satır 2: Divine Fury — 5/5 (tamamlandı)\n- Satır 3: Holy Nova — 0/1 (puan yok)\n- Satır 3: Blessed Recovery — 0/3 (puan yok)\n- Satır 3: Inspiration — 0/3 (puan yok)\n- Satır 4: Holy Reach — 0/2 (puan yok)\n- Satır 4: Improved Healing — 0/3 (puan yok)\n- Satır 4: Searing Light — 0/2 (puan yok; ön koşul oku: Divine Fury → Searing Light)\n- Satır 4: Holy Binding — 0/1 (puan yok)\n- Satır 5: Litany of Light — 0/2 (puan yok)\n- Satır 5: Spirit of Redemption — 0/1 (puan yok)\n- Satır 5: Spiritual Guidance — 0/5 (puan yok)\n- Satır 6: Spiritual Healing — 0/3 (puan yok)\n- Satır 7: Prayer of Mending — 0/1 (puan yok; ön koşul oku: Spirit of Redemption → Prayer of Mending)\n\n## Shadow Magic — 5 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Shadow Focus — 0/5 (puan yok)\n- Satır 1: Blackout — 0/5 (puan yok)\n- Satır 1: Spirit Tap — 5/5 (tamamlandı)\n- Satır 2: Improved Mind Blast — 0/5 (puan yok)\n- Satır 2: Improved Shadow Word: Pain — 0/2 (puan yok)\n- Satır 2: Shadow Reach — 0/2 (puan yok)\n- Satır 3: Improved Psychic Scream — 0/2 (puan yok; ön koşul oku: Blackout → Improved Psychic Scream)\n- Satır 3: Mind Flay — 0/1 (puan yok)\n- Satır 3: Improved Mind Flay — 0/2 (puan yok; ön koşul oku: Mind Flay → Improved Mind Flay)\n- Satır 4: Dark Inspiration — 0/5 (puan yok)\n- Satır 4: Vampiric Embrace — 0/1 (puan yok)\n- Satır 4: Shadow Weaving — 0/3 (puan yok)\n- Satır 5: Silence — 0/1 (puan yok)\n- Satır 5: Devouring Contagion — 0/2 (puan yok)\n- Satır 6: Early Demise — 0/2 (puan yok)\n- Satır 6: Darkness — 0/5 (puan yok)\n- Satır 7: Shadowform — 0/1 (puan yok; ön koşul oku: Vampiric Embrace → Shadowform)\n\n## 60. Seviye Puan Dağılımı\n\n33 / 13 / 5 — Discipline 33, Holy 13, Shadow Magic 5. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–11 | Wand Specialization | Discipline | +2 | 2/2 | Wand hasarı +%25 |\n| 12–16 | Spirit Tap | Shadow | +5 | 5/5 | Öldürünce 15 sn Spirit +%100 |\n| 17–19 | Twilight Focus | Holy | +3 | 3/3 | Hasar alınca %70 şansla büyü gecikmez |\n| 20–24 | Power in Light | Discipline | +5 | 5/5 | Holy Fire ya da Pain olan hedefe Smite +%10 |\n| 25–27 | Mental Strength | Discipline | +3 | 3/5 (kısmen) | Toplam Intellect +%6 |\n| 28–30 | Meditation | Discipline | +3 | 3/3 | Büyü sırasında %50 mana yenilenmesi |\n| 31–32 | Mental Strength | Discipline | +2 | 5/5 | Toplam Intellect +%10 |\n| 33–35 | Improved Power Word: Shield | Discipline | +3 | 3/3 | Power Word: Shield emilimi +%20 |\n| 36 | Soul Warding | Discipline | +1 | 1/1 | Power Word: Shield −4 sn, %15 ucuz |\n| 37 | Mental Agility | Discipline | +1 | 1/3 (kısmen) | Smite ve anlık büyüler %3 ucuz |\n| 38 | Penance | Discipline | +1 | 1/1 | Anında Holy hasar ya da heal yağdırır |\n| 39–42 | Renewed Hope | Discipline | +4 | 4/5 (kısmen) | Weakened Soul'lu hedefe heal kritiği +%8 |\n| 43 | Divine Aegis | Discipline | +1 | 1/3 (kısmen) | Kritik heal %5'i kadar kalkan bırakır |\n| 44 | Renewed Hope | Discipline | +1 | 5/5 | Heal kritiği +%10, Weakened Soul −5 sn |\n| 45–46 | Divine Aegis | Discipline | +2 | 3/3 | Kritik heal %15'i kadar kalkan bırakır |\n| 47 | Mental Agility | Discipline | +1 | 2/3 (kısmen) | Smite ve anlık büyüler %7 ucuz |\n| 48 | Power Infusion | Discipline | +1 | 1/1 | Hedefin büyü gücü 15 sn +%20 |\n| 49–53 | Holy Specialization | Holy | +5 | 5/5 | Holy büyü kritik şansı +%5 |\n| 54–58 | Divine Fury | Holy | +5 | 5/5 | Smite ve Heal döküm süresi −0,5 sn |\n| 59 | Mental Agility | Discipline | +1 | 3/3 | Smite ve anlık büyüler %10 ucuz |\n| 60 | Inner Focus | Discipline | +1 | 1/1 | Sonraki büyü bedava, kritiği +%25 |"
+ },
+ {
+  "id": "priest-09-holy-leveling",
+  "category": "class",
+  "title": "Priest · Holy Leveling",
+  "file": "09-Holy-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "holy leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "priest",
+  "kind": "leveling",
+  "spec": "holy",
+  "text": "# Priest · Holy Leveling\n\nÜst bilgi: PRIEST — HOLY. WOW FOREVER. TOTİK CHANNEL — TAVSİYE EDİLEN BUILD.\nSeviye aralığı: Seviye 10 → 60.\n\n## Discipline — 14 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Power in Light — 0/5 (puan yok)\n- Satır 1: Wand Specialization — 2/2 (tamamlandı)\n- Satır 1: Twin Disciplines — 3/5 (kısmen alındı)\n- Satır 2: Silent Resolve — 0/3 (puan yok)\n- Satır 2: Holy Precision — 0/3 (puan yok)\n- Satır 2: Mental Strength — 5/5 (tamamlandı)\n- Satır 2: Martyrdom — 0/2 (puan yok)\n- Satır 3: Mental Agility — 0/3 (puan yok)\n- Satır 3: Inner Focus — 1/1 (tamamlandı)\n- Satır 3: Improved Power Word: Shield — 0/3 (puan yok)\n- Satır 3: Meditation — 3/3 (tamamlandı)\n- Satır 4: Improved Inner Fire — 0/3 (puan yok)\n- Satır 4: Improved Mana Burn — 0/2 (puan yok)\n- Satır 4: Soul Warding — 0/1 (puan yok; ön koşul oku: Improved Power Word: Shield → Soul Warding)\n- Satır 5: Penance — 0/1 (puan yok)\n- Satır 5: Renewed Hope — 0/5 (puan yok; ön koşul oku: Soul Warding → Renewed Hope)\n- Satır 6: Divine Aegis — 0/3 (puan yok)\n- Satır 7: Power Infusion — 0/1 (puan yok; ön koşul oku: Penance → Power Infusion)\n\n## Holy — 32 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Twilight Focus — 3/3 (tamamlandı)\n- Satır 1: Improved Renew — 3/3 (tamamlandı)\n- Satır 1: Holy Specialization — 2/5 (kısmen alındı)\n- Satır 2: Spell Warding — 0/5 (puan yok)\n- Satır 2: Divine Fury — 5/5 (tamamlandı)\n- Satır 3: Holy Nova — 1/1 (tamamlandı)\n- Satır 3: Blessed Recovery — 0/3 (puan yok)\n- Satır 3: Inspiration — 1/3 (kısmen alındı)\n- Satır 4: Holy Reach — 0/2 (puan yok)\n- Satır 4: Improved Healing — 3/3 (tamamlandı)\n- Satır 4: Searing Light — 2/2 (tamamlandı; ön koşul oku: Divine Fury → Searing Light)\n- Satır 4: Holy Binding — 0/1 (puan yok)\n- Satır 5: Litany of Light — 2/2 (tamamlandı)\n- Satır 5: Spirit of Redemption — 1/1 (tamamlandı)\n- Satır 5: Spiritual Guidance — 5/5 (tamamlandı)\n- Satır 6: Spiritual Healing — 3/3 (tamamlandı)\n- Satır 7: Prayer of Mending — 1/1 (tamamlandı; ön koşul oku: Spirit of Redemption → Prayer of Mending)\n\n## Shadow Magic — 5 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Shadow Focus — 0/5 (puan yok)\n- Satır 1: Blackout — 0/5 (puan yok)\n- Satır 1: Spirit Tap — 5/5 (tamamlandı)\n- Satır 2: Improved Mind Blast — 0/5 (puan yok)\n- Satır 2: Improved Shadow Word: Pain — 0/2 (puan yok)\n- Satır 2: Shadow Reach — 0/2 (puan yok)\n- Satır 3: Improved Psychic Scream — 0/2 (puan yok; ön koşul oku: Blackout → Improved Psychic Scream)\n- Satır 3: Mind Flay — 0/1 (puan yok)\n- Satır 3: Improved Mind Flay — 0/2 (puan yok; ön koşul oku: Mind Flay → Improved Mind Flay)\n- Satır 4: Dark Inspiration — 0/5 (puan yok)\n- Satır 4: Vampiric Embrace — 0/1 (puan yok)\n- Satır 4: Shadow Weaving — 0/3 (puan yok)\n- Satır 5: Silence — 0/1 (puan yok)\n- Satır 5: Devouring Contagion — 0/2 (puan yok)\n- Satır 6: Early Demise — 0/2 (puan yok)\n- Satır 6: Darkness — 0/5 (puan yok)\n- Satır 7: Shadowform — 0/1 (puan yok; ön koşul oku: Vampiric Embrace → Shadowform)\n\n## 60. Seviye Puan Dağılımı\n\n14 / 32 / 5 — Discipline 14, Holy 32, Shadow Magic 5. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–11 | Wand Specialization | Discipline | +2 | 2/2 | Wand hasarı +%25 |\n| 12–16 | Spirit Tap | Shadow | +5 | 5/5 | Öldürünce 15 sn Spirit +%100 |\n| 17–19 | Twilight Focus | Holy | +3 | 3/3 | Hasar alınca %70 şansla büyü gecikmez |\n| 20–22 | Improved Renew | Holy | +3 | 3/3 | Renew iyileştirmesi +%15 |\n| 23–25 | Twin Disciplines | Discipline | +3 | 3/5 (kısmen) | Anlık büyü hasarı ve heal +%3 |\n| 26–30 | Mental Strength | Discipline | +5 | 5/5 | Toplam Intellect +%10 |\n| 31–33 | Meditation | Discipline | +3 | 3/3 | Büyü sırasında %50 mana yenilenmesi |\n| 34–37 | Divine Fury | Holy | +4 | 4/5 (kısmen) | Smite ve Heal döküm süresi −0,4 sn |\n| 38 | Holy Nova | Holy | +1 | 1/1 | Çevreye hasar verir, grubu iyileştirir |\n| 39 | Inspiration | Holy | +1 | 1/3 (kısmen) | Kritik heal hedefin zırhını +%8 |\n| 40 | Divine Fury | Holy | +1 | 5/5 | Smite ve Heal döküm süresi −0,5 sn |\n| 41–42 | Holy Specialization | Holy | +2 | 2/5 (kısmen) | Holy büyü kritik şansı +%2 |\n| 43–44 | Searing Light | Holy | +2 | 2/2 | Holy hasarı +%5, bedava Holy Nova şansı |\n| 45–47 | Improved Healing | Holy | +3 | 3/3 | Flash Heal hariç heal manası −%15 |\n| 48 | Spirit of Redemption | Holy | +1 | 1/1 | Ölünce 15 sn ruh olur, bedava heal |\n| 49–50 | Litany of Light | Holy | +2 | 2/2 | Heal değiştirince %10 mana geri |\n| 51–52 | Spiritual Guidance | Holy | +2 | 2/5 (kısmen) | Spirit'in %10'u heal gücüne |\n| 53–55 | Spiritual Healing | Holy | +3 | 3/3 | Heal büyüleri +%10 iyileştirir |\n| 56–57 | Spiritual Guidance | Holy | +2 | 4/5 (kısmen) | Spirit'in %20'si heal gücüne |\n| 58 | Prayer of Mending | Holy | +1 | 1/1 | Hasar alınca iyileştirip 5 kez zıplar |\n| 59 | Spiritual Guidance | Holy | +1 | 5/5 | Spirit'in %25'i heal gücüne |\n| 60 | Inner Focus | Discipline | +1 | 1/1 | Sonraki büyü bedava, kritiği +%25 |"
+ },
+ {
+  "id": "priest-10-shadow-leveling",
+  "category": "class",
+  "title": "Priest · Shadow Leveling",
+  "file": "10-Shadow-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "shadow leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "priest",
+  "kind": "leveling",
+  "spec": "shadow",
+  "text": "# Priest · Shadow Leveling\n\nÜst bilgi: PRIEST — SHADOW. WOW FOREVER. TOTİK CHANNEL — TAVSİYE EDİLEN BUILD.\nSeviye aralığı: Seviye 10 → 60.\n\n## Discipline — 13 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Power in Light — 0/5 (puan yok)\n- Satır 1: Wand Specialization — 2/2 (tamamlandı)\n- Satır 1: Twin Disciplines — 3/5 (kısmen alındı)\n- Satır 2: Silent Resolve — 0/3 (puan yok)\n- Satır 2: Holy Precision — 0/3 (puan yok)\n- Satır 2: Mental Strength — 5/5 (tamamlandı)\n- Satır 2: Martyrdom — 0/2 (puan yok)\n- Satır 3: Mental Agility — 0/3 (puan yok)\n- Satır 3: Inner Focus — 0/1 (puan yok)\n- Satır 3: Improved Power Word: Shield — 0/3 (puan yok)\n- Satır 3: Meditation — 3/3 (tamamlandı)\n- Satır 4: Improved Inner Fire — 0/3 (puan yok)\n- Satır 4: Improved Mana Burn — 0/2 (puan yok)\n- Satır 4: Soul Warding — 0/1 (puan yok; ön koşul oku: Improved Power Word: Shield → Soul Warding)\n- Satır 5: Penance — 0/1 (puan yok)\n- Satır 5: Renewed Hope — 0/5 (puan yok; ön koşul oku: Soul Warding → Renewed Hope)\n- Satır 6: Divine Aegis — 0/3 (puan yok)\n- Satır 7: Power Infusion — 0/1 (puan yok; ön koşul oku: Penance → Power Infusion)\n\n## Holy — 3 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Twilight Focus — 3/3 (tamamlandı)\n- Satır 1: Improved Renew — 0/3 (puan yok)\n- Satır 1: Holy Specialization — 0/5 (puan yok)\n- Satır 2: Spell Warding — 0/5 (puan yok)\n- Satır 2: Divine Fury — 0/5 (puan yok)\n- Satır 3: Holy Nova — 0/1 (puan yok)\n- Satır 3: Blessed Recovery — 0/3 (puan yok)\n- Satır 3: Inspiration — 0/3 (puan yok)\n- Satır 4: Holy Reach — 0/2 (puan yok)\n- Satır 4: Improved Healing — 0/3 (puan yok)\n- Satır 4: Searing Light — 0/2 (puan yok; ön koşul oku: Divine Fury → Searing Light)\n- Satır 4: Holy Binding — 0/1 (puan yok)\n- Satır 5: Litany of Light — 0/2 (puan yok)\n- Satır 5: Spirit of Redemption — 0/1 (puan yok)\n- Satır 5: Spiritual Guidance — 0/5 (puan yok)\n- Satır 6: Spiritual Healing — 0/3 (puan yok)\n- Satır 7: Prayer of Mending — 0/1 (puan yok; ön koşul oku: Spirit of Redemption → Prayer of Mending)\n\n## Shadow Magic — 35 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Shadow Focus — 2/5 (kısmen alındı)\n- Satır 1: Blackout — 0/5 (puan yok)\n- Satır 1: Spirit Tap — 5/5 (tamamlandı)\n- Satır 2: Improved Mind Blast — 4/5 (kısmen alındı)\n- Satır 2: Improved Shadow Word: Pain — 2/2 (tamamlandı)\n- Satır 2: Shadow Reach — 1/2 (kısmen alındı)\n- Satır 3: Improved Psychic Scream — 0/2 (puan yok; ön koşul oku: Blackout → Improved Psychic Scream)\n- Satır 3: Mind Flay — 1/1 (tamamlandı)\n- Satır 3: Improved Mind Flay — 2/2 (tamamlandı; ön koşul oku: Mind Flay → Improved Mind Flay)\n- Satır 4: Dark Inspiration — 5/5 (tamamlandı)\n- Satır 4: Vampiric Embrace — 1/1 (tamamlandı)\n- Satır 4: Shadow Weaving — 3/3 (tamamlandı)\n- Satır 5: Silence — 1/1 (tamamlandı)\n- Satır 5: Devouring Contagion — 2/2 (tamamlandı)\n- Satır 6: Early Demise — 0/2 (puan yok)\n- Satır 6: Darkness — 5/5 (tamamlandı)\n- Satır 7: Shadowform — 1/1 (tamamlandı; ön koşul oku: Vampiric Embrace → Shadowform)\n\n## 60. Seviye Puan Dağılımı\n\n13 / 3 / 35 — Discipline 13, Holy 3, Shadow Magic 35. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–11 | Wand Specialization | Discipline | +2 | 2/2 | Wand hasarı +%25 |\n| 12–16 | Spirit Tap | Shadow | +5 | 5/5 | Öldürünce 15 sn Spirit +%100 |\n| 17–18 | Improved Shadow Word: Pain | Shadow | +2 | 2/2 | Shadow Word: Pain süresi +6 sn |\n| 19–21 | Improved Mind Blast | Shadow | +3 | 3/5 (kısmen) | Mind Blast bekleme süresi −1,5 sn |\n| 22 | Mind Flay | Shadow | +1 | 1/1 | Shadow hasar verir, %50 yavaşlatır |\n| 23–24 | Improved Mind Flay | Shadow | +2 | 2/2 | Her Mind Flay vuruşu %20 daha güçlü |\n| 25 | Improved Mind Blast | Shadow | +1 | 4/5 (kısmen) | Mind Blast bekleme süresi −2 sn |\n| 26 | Shadow Reach | Shadow | +1 | 1/2 (kısmen) | Shadow büyü menzili +%10 |\n| 27 | Vampiric Embrace | Shadow | +1 | 1/1 | Hasarının %20'si grubu iyileştirir |\n| 28–32 | Dark Inspiration | Shadow | +5 | 5/5 | Mind Blast ve Mind Flay grup Spirit'i +%15 |\n| 33–34 | Devouring Contagion | Shadow | +2 | 2/2 | Devouring Plague %50 ucuz ve yayılır |\n| 35 | Silence | Shadow | +1 | 1/1 | 5 sn susturur, büyüyü keser |\n| 36 | Shadow Weaving | Shadow | +1 | 1/3 (kısmen) | %33 şansla Shadow hasarın +%2 |\n| 37–41 | Darkness | Shadow | +5 | 5/5 | Shadow hasarı +%10 |\n| 42 | Shadowform | Shadow | +1 | 1/1 | Shadow hasarı +%10, manası −%50 |\n| 43–45 | Twin Disciplines | Discipline | +3 | 3/5 (kısmen) | Anlık büyü hasarı ve heal +%3 |\n| 46–50 | Mental Strength | Discipline | +5 | 5/5 | Toplam Intellect +%10 |\n| 51–53 | Meditation | Discipline | +3 | 3/3 | Büyü sırasında %50 mana yenilenmesi |\n| 54–56 | Twilight Focus | Holy | +3 | 3/3 | Hasar alınca %70 şansla büyü gecikmez |\n| 57–58 | Shadow Weaving | Shadow | +2 | 3/3 | %100 şansla Shadow hasarın +%2 |\n| 59–60 | Shadow Focus | Shadow | +2 | 2/5 (kısmen) | Shadow büyü isabeti +%2 |"
+ },
+ {
+  "id": "rogue-01-irk-secimi",
+  "category": "class",
+  "title": "Rogue · Irk Secimi",
+  "file": "01-Irk-Secimi.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "irk secimi"
+  ],
+  "classKey": "rogue",
+  "kind": "race",
+  "text": "# Rogue · Irk Seçimi\n\nÜst bilgi: ROGUE — IRKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Alliance\n\n### Human\nRuthless kritik şansını her zaman %1 artırır. Perception gizlenen düşmanları kısa süre görmeni sağlar; başka Rogue'lara karşı işe yarar. Will to Survive üstündeki stun'ı anında kaldırır.\n\n### Dwarf\nArtisan's Precision isabet şansını %1 artırır, daha az ıskalarsın. Stoneform zehir, kanama ve hastalık etkilerini temizler ve 8 saniye fiziksel hasarı %10 azaltır.\n\n### Night Elf\nElune's Light 15 saniye kritik şansını %10 artırır; büyük hasar anları için. Shadowmeld ile savaşta gizlenip düşmanın dikkatini kısa süre üzerinden atabilirsin.\n\n### Gnome\nExpansive Mind en fazla Energy'ni %5 artırır. Eureka! 8 saniye yeteneklerini %10 daha ucuz ve %10 daha güçlü yapar. Escape Artist kökleri ve yavaşlatmaları kırar.\n\n### High Order Skyborne\nWind Blessed saldırı hızını her zaman %2 artırır; daha çok vuruş, zehirlerin de daha sık işler. Read Ley Line savaş arasında canını hızlı doldurur. Skyborne ayrıca satın alınır.\n\n## Horde\n\n### Orc\nBlood Fury 15 saniye Attack Power'ını %10 artırır (2 dakika bekleme). Hardiness stun sürelerini %20 kısaltır. Command yalnız Hunter ve Warlock petlerine işler.\n\n### Undead\nTouch of the Grave vuruşlarında zaman zaman hedeften can çeker ve ek hasar verir. Will of the Forsaken korku, büyüleme ve uyku etkilerini anında kırar.\n\n### Troll\nBerserking 15 saniye saldırı hızını %10 artırır (3 dakika bekleme). Beast Slaying hayvanlara %5 fazla hasar verdirir. Rapid Regeneration yalnız savaş dışında işe yarar; hasar alınca ya da hareket edince kesilir.\n\n### Windshaper Skyborne\nWind Blessed saldırı hızını her zaman %2 artırır; daha çok vuruş, zehirlerin de daha sık işler. Skysight 15 saniye koşu hızını %15 artırır. Skyborne ayrıca satın alınır."
+ },
+ {
+  "id": "rogue-02-yetenekler-1",
+  "category": "class",
+  "title": "Rogue · Yetenekler 1",
+  "file": "02-Yetenekler-1.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "yetenekler 1"
+  ],
+  "classKey": "rogue",
+  "kind": "abilities",
+  "part": 1,
+  "text": "# Rogue · Stealth, Bitirici ve Zehir\n\nÜst bilgi: ROGUE — YETENEKLER 1/2. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stealth ile Açılanlar\n\nStealth'te görünmeden yaklaşırsın. Aşağıdakiler yalnız Stealth'teyken kullanılır.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 1 | Stealth | 4 rank | — | Gizlenirsin ama koşu hızın %30 düşer. Her savaşa buradan başla; bekleme süresi 10 saniye. |\n| 4 | Pick Pocket | — | — | Düşmanın cebinden para ve eşya çalarsın. Bazı görev eşyaları yalnız böyle alınır. |\n| 10 | Sap | 3 rank | Humanoid · 45 sn | Savaşta olmayan bir Humanoid'i 45 saniye etkisiz bırakır. Hasar alınca uyanır, Stealth'in bozulmaz. |\n| 14 | Garrote | 6 rank | Düşman · 18 sn | Arkasından boğarsın, 18 saniyede 552 hasar verir. 1 combo puanı kazandırır. |\n| 18 | Ambush | 6 rank | Hançer gerekir | Arkasından silah hasarının %250'si artı 290 vurursun. 1 combo puanı kazandırır; en güçlü açılış. |\n| 26 | Cheap Shot | — | Düşman · 4 sn | Hedefi 4 saniye sersemletir ve 2 combo puanı kazandırır. Arkada olman gerekmez. |\n\n## Bitiriciler\n\nHedefteki combo puanlarını harcar. Puan arttıkça etki güçlenir; çoğunu 5 puanla kullan.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 1 | Eviscerate | 8 rank | — | 5 combo puanıyla 851 hasar vurur, Attack Power ile artar. Ana hasar bitiricin. |\n| 10 | Slice and Dice | 2 rank | Sen · 21 sn | Saldırı hızın %30 artar. 5 combo puanıyla 21 saniye sürer; hep açık tut. |\n| 14 | Expose Armor | 5 rank | Düşman · 30 sn | 5 combo puanıyla hedefin zırhı 2250 azalır. Yakın dövüşçüsü çok olan grupta boss'a at. |\n| 20 | Rupture | 6 rank | Düşman · 16 sn | 5 combo puanıyla 16 saniyede 469 kanama hasarı verir. Zırh bunu azaltmaz; uzun dövüşte kullan. |\n| 30 | Kidney Shot | 2 rank | Düşman · 6 sn | Hedefi sersemletir, 5 combo puanıyla 6 saniye. Büyüsünü de durdurur; 20 saniye bekleme süresi var. |\n\n## Zehirler\n\n20. seviyedeki sınıf göreviyle zehir yapmayı öğrenirsin. Silahına sürersin, 30 dakika kalır.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 20 | Instant Poison | 6 rank | Sınıf görevi | Vuruşların %20 şansla anında 88 Nature hasarı verir. Forever'da Attack Power'dan iki kat güç alır. |\n| 20 | Crippling Poison | 2 rank | Düşman · 12 sn; Sınıf görevi | Vuruşların %30 şansla hedefin koşu hızını %70 düşürür. Kaçan düşmanı tutar. |\n| 24 | Mind-numbing Poison | 3 rank | Düşman · 14 sn | Vuruşların %20 şansla hedefin büyü yapma süresini %60 uzatır. Büyücülere karşı kullan. |\n| 30 | Deadly Poison | 4 rank | 5 kat · 12 sn; Forever | Vuruşların %30 şansla 12 saniyede 72 Nature hasarı verir, 5 kez biner. Forever'da Attack Power'dan iki kat güç alır. |\n| 32 | Wound Poison | 4 rank | 5 kat · 15 sn | Vuruşların %30 şansla hedefe gelen iyileştirmeyi 165 azaltır, 5 kez biner. Şifacılara karşı kullan. |"
+ },
+ {
+  "id": "rogue-03-yetenekler-2",
+  "category": "class",
+  "title": "Rogue · Yetenekler 2",
+  "file": "03-Yetenekler-2.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "yetenekler 2"
+  ],
+  "classKey": "rogue",
+  "kind": "abilities",
+  "part": 2,
+  "text": "# Rogue · Saldırı, Kontrol ve Kaçış\n\nÜst bilgi: ROGUE — YETENEKLER 2/2. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Saldırılar\n\nEnergy harcayıp vurur, hedefe combo puanı ekler.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 1 | Sinister Strike | 8 rank | — | Silah hasarına 68 ekleyerek vurur, 1 combo puanı kazandırır. Hançersiz ana saldırın. |\n| 4 | Backstab | 8 rank | Hançer gerekir | Arkasından silah hasarının %150'si artı 140 vurursun. 1 combo puanı kazandırır. |\n| 18 | Poised | — | Forever'da yeni | Savaş dışında Energy'n doluyken sıradaki yeteneğin 10 Energy ucuza gelir. Kendiliğinden çalışır. |\n| 24 | Shank | 2 rank | Forever'da yeni | Yan el silahınla hasarının %50'sini vurursun ve 25 Energy kazanırsın. Iskalamaz, 10 saniyede bir. |\n\n## Yardımcı\n\nKilit açma, tuzak sökme ve düşüş.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 16 | Pick Lock | — | Thieves' Tools | Kilitli sandık ve kapıları açarsın. Gruptakilerin kilitli kutularını da aç, becerin artsın. |\n| 30 | Disarm Trap | — | Thieves' Tools | Zindan tuzaklarını sökersin. 24. seviyede gelen Detect Traps tuzakları görmeni kolaylaştırır. |\n| 40 | Safe Fall | — | — | Yüksekten düşünce aldığın hasar azalır. Kendiliğinden çalışır. |\n\n## Kontrol ve Kesme\n\nDüşmanı durdurur, büyüsünü keser ya da dikkatini dağıtır.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 6 | Gouge | 5 rank | Düşman · 4 sn | 75 hasar verir, önündeki hedefi 4 saniye etkisiz bırakır. Hasar alınca bozulur; bu arada arkasına geç. |\n| 12 | Kick | 4 rank | — | 80 hasar verir, büyüyü keser ve o okuldan büyüyü 5 saniye engeller. 10 saniyede bir kullanılır. |\n| 22 | Distract | — | Alan · 10 sn | Bir noktaya ses atarsın, yakındaki düşmanlar oraya döner. Devriyeyi durdurur, Stealth bozulmaz. |\n| 34 | Blind | — | Düşman · 10 sn | Hedef 10 saniye şaşkın dolaşır, hasar alınca kurtulur. Blinding Powder gerekir; 5 dakika bekleme. |\n\n## Savunma ve Kaçış\n\nHayatta kalmanı, tehdidini düşürmeni ya da savaştan çıkmanı sağlar.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 8 | Evasion | — | Sen · 15 sn | Dodge (kaçınma) şansın %50 artar. Birden çok düşman sana vururken ya da tank ölünce aç. |\n| 10 | Sprint | 3 rank | Sen · 15 sn | Koşu hızın %70 artar, Stealth bozulmaz. 5 dakika bekleme süresi var. |\n| 16 | Feint | 4 rank | — | Hasar vermeden tehdidini büyük ölçüde düşürürsün. Grupta düşman tanktan sana dönmeden bas. |\n| 22 | Vanish | 2 rank | Sen · 10 sn | Gözden kaybolup güçlü bir Stealth'e girersin, yavaşlatmalar kalkar. Flash Powder gerekir. |"
+ },
+ {
+  "id": "rogue-04-assassination-talentleri",
+  "category": "class",
+  "title": "Rogue · Assassination Talentleri",
+  "file": "04-Assassination-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "assassination talentleri"
+  ],
+  "classKey": "rogue",
+  "kind": "talents",
+  "spec": "assassination",
+  "text": "# Rogue · Assassination Talent Ağacı\n\nÜst bilgi: ROGUE — ASSASSINATION. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Assassination — 17 talent\n\nAğaç yerleşimi (satır numarası · soldan sağa talent numaraları):\n\n| Satır | Talentler (sütun sırasıyla) |\n|---|---|\n| 1 | 1 (sütun 1), 2 (sütun 2), 3 (sütun 3) |\n| 2 | 4 (sütun 1), 5 (sütun 2), 6 (sütun 4) |\n| 3 | 7 (sütun 1), 8 (sütun 2), 9 (sütun 3) |\n| 4 | 10 (sütun 1), 11 (sütun 2), 12 (sütun 3) |\n| 5 | 13 (sütun 1), 14 (sütun 2), 15 (sütun 3) |\n| 6 | 16 (sütun 3) |\n| 7 | 17 (sütun 2) |\n\nOklar: 3 → 9, 14 → 17.\n\nHer satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Improved Gouge | 3 rank | — | Gouge 1,5 saniye daha uzun sürer. |\n| 2 | Remorseless Attacks | 2 rank | — | Bir düşmanı öldürünce sonraki vuruş yeteneğinin kritik şansı %40 artar. |\n| 3 | Malice | 5 rank | — | Saldırılarının ve zehirlerinin kritik şansı %5 artar. |\n| 4 | Ruthlessness | 3 rank | — | Bitirici hareketlerin %60 şansla hedefe bir combo puanı ekler. |\n| 5 | Improved Expose Armor | 2 rank | — | Expose Armor 10 Energy daha ucuza mal olur. 5 combo puanıyla kullanınca 2 puanı geri alırsın. |\n| 6 | Improved Slice and Dice | 3 rank | — | Slice and Dice %45 daha uzun sürer. |\n| 7 | Vigor | 2 rank | — | En fazla Energy'n 10 artar. |\n| 8 | Blood Splatter | 1 rank | — | Rupture 6 saniye, Garrote 9 saniye daha uzun sürer. |\n| 9 | Lethality | 2 rank | ← Malice | Vuruş yeteneklerinin kritik hasar bonusu %20 artar. |\n| 10 | Vile Poisons | 5 rank | — | Zehirlerinin hasarı %20 artar. Silinmeye direnme şansları %40 artar. |\n| 11 | Cold Blood | 1 rank | — | Sonraki vuruş yeteneğin ya da Eviscerate'in kesin kritik vurur. |\n| 12 | Improved Poisons | 5 rank | — | Zehir bulaşma şansın %10 artar. Zehir bulaştığında %50 şansla şarj harcanmaz. |\n| 13 | Relentless Strikes | 5 rank | — | Bitirici hareketlerde her combo puanı için %20 şansla 25 Energy kazanırsın. |\n| 14 | Venom | 1 rank | — | Shank'ten sonra 6 saniye zehir hasarın %30, zehir bulaşma şansın %20 artar. |\n| 15 | Improved Kidney Shot | 2 rank | — | Kidney Shot ile sersemlettiğin hedef senden %10 fazla hasar alır. |\n| 16 | Seal Fate | 3 rank | — | Combo puanı veren bir yetenekle kritik vurunca bir combo puanı daha kazanırsın. |\n| 17 | Mutilate | 1 rank | ← Venom | İki silahla birden vurur ve 2 combo puanı verir. Zehirli hedefe %20 fazla hasar verir. |"
+ },
+ {
+  "id": "rogue-05-combat-talentleri",
+  "category": "class",
+  "title": "Rogue · Combat Talentleri",
+  "file": "05-Combat-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "combat talentleri"
+  ],
+  "classKey": "rogue",
+  "kind": "talents",
+  "spec": "combat",
+  "text": "# Rogue · Combat Talent Ağacı\n\nÜst bilgi: ROGUE — COMBAT. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Combat — 19 talent\n\nAğaç yerleşimi (satır numarası · soldan sağa talent numaraları):\n\n| Satır | Talentler (sütun sırasıyla) |\n|---|---|\n| 1 | 1 (sütun 1), 2 (sütun 2), 3 (sütun 3) |\n| 2 | 4 (sütun 1), 5 (sütun 2), 6 (sütun 3), 7 (sütun 4) |\n| 3 | 8 (sütun 1), 9 (sütun 2), 10 (sütun 4) |\n| 4 | 11 (sütun 1), 12 (sütun 2), 13 (sütun 3), 14 (sütun 4) |\n| 5 | 15 (sütun 1), 16 (sütun 2), 17 (sütun 3) |\n| 6 | 18 (sütun 3) |\n| 7 | 19 (sütun 2) |\n\nOklar: 5 → 9, 6 → 13, 16 → 19.\n\nHer satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Coup de Grace | 3 rank | — | Eviscerate ve Death Mark'ın hasarı %20 artar. |\n| 2 | Efficient Strikes | 2 rank | — | Sinister Strike ve Hemorrhage 5 Energy daha ucuz olur. |\n| 3 | Lightning Reflexes | 5 rank | — | Dodge (kaçınma) şansın %5 artar. |\n| 4 | Puncturing Wounds | 3 rank | — | Backstab'ın kritik şansı %30 artar ve %45 şansla bir combo puanı daha verir. Mutilate'in kritik şansı %15 artar. |\n| 5 | Deflection | 3 rank | — | Parry (savuşturma) şansın %6 artar. |\n| 6 | Precision | 3 rank | — | İsabet şansın %3 artar. |\n| 7 | Improved Sprint | 2 rank | — | Sprint açınca seni yavaşlatan bütün etkiler kalkar. |\n| 8 | Endurance | 2 rank | — | Sprint ve Evasion'ın bekleme süresi %60 kısalır. |\n| 9 | Riposte | 1 rank | ← Deflection | Parry yaptıktan sonra açılır. Silah hasarının %150'sini vurur ve hedefin silahını 6 saniye düşürür. |\n| 10 | Composure | 2 rank | — | Savaşa girmeden önce Energy'n doluyken ilk yeteneğin 20 Energy ucuza gelir (Poised'ın indirimi 10'dan 20'ye çıkar). |\n| 11 | Improved Kick | 2 rank | — | Kick hedefi ayrıca 2 saniye susturur. |\n| 12 | Flawless Execution | 1 rank | — | Eviscerate 15 Energy daha ucuz olur. |\n| 13 | Weapon Expertise | 2 rank | ← Precision | Saldırılarının dodge ya da parry edilme şansı %2 azalır. |\n| 14 | Aggression | 3 rank | — | Sinister Strike ve Eviscerate'in hasarı %15 artar. |\n| 15 | Dual Wield Specialization | 2 rank | — | Yan el silahının hasarı %50 artar. |\n| 16 | Blade Flurry | 1 rank | — | 15 saniye saldırı hızın %20 artar ve her vuruşun yandaki bir düşmana da gider. |\n| 17 | Hack and Slash | 5 rank | — | Kılıç ve baltada %5 şansla ek vuruş yaparsın. Hançer ve yumrukta kritik şansın %5 artar, topuzda zırhın %15'ini delersin. |\n| 18 | Flash of Steel | 5 rank | — | Shank 15 Energy daha fazla üretir ve bekleme süresi 2 saniye kısalır. |\n| 19 | Adrenaline Rush | 1 rank | ← Blade Flurry | 15 saniye Energy yenilenmen %100 artar. |"
+ },
+ {
+  "id": "rogue-06-subtlety-talentleri",
+  "category": "class",
+  "title": "Rogue · Subtlety Talentleri",
+  "file": "06-Subtlety-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "subtlety talentleri"
+  ],
+  "classKey": "rogue",
+  "kind": "talents",
+  "spec": "subtlety",
+  "text": "# Rogue · Subtlety Talent Ağacı\n\nÜst bilgi: ROGUE — SUBTLETY. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Subtlety — 18 talent\n\nAğaç yerleşimi (satır numarası · soldan sağa talent numaraları):\n\n| Satır | Talentler (sütun sırasıyla) |\n|---|---|\n| 1 | 1 (sütun 1), 2 (sütun 2), 3 (sütun 3) |\n| 2 | 4 (sütun 1), 5 (sütun 2), 6 (sütun 3), 7 (sütun 4) |\n| 3 | 8 (sütun 1), 9 (sütun 2), 10 (sütun 3) |\n| 4 | 11 (sütun 1), 12 (sütun 2), 13 (sütun 4) |\n| 5 | 14 (sütun 1), 15 (sütun 2), 16 (sütun 3) |\n| 6 | 17 (sütun 3) |\n| 7 | 18 (sütun 2) |\n\nOklar: 7 → 13, 10 → 16, 15 → 18.\n\nHer satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Setup | 3 rank | — | Bir saldırıdan dodge ile kaçınca ya da bir büyüye tam direnince %45 şansla bir combo puanı kazanırsın. |\n| 2 | Master of Deception | 3 rank | — | Stealth'teyken seni fark etmek, 3 seviye daha yüksekmişsin gibi zorlaşır. |\n| 3 | Opportunity | 5 rank | — | Backstab, Garrote, Ambush ve Mutilate'in hasarı %20 artar. |\n| 4 | Dirty Deeds | 2 rank | — | Cheap Shot ve Garrote 20 Energy daha ucuz olur. Garrote'u hedefin önünden de kullanabilirsin. |\n| 5 | Camouflage | 3 rank | — | Stealth'teki yavaşlaman %15 azalır, Stealth'in bekleme süresi 6 saniye kısalır. |\n| 6 | Improved Ambush | 3 rank | — | Ambush'ın kritik şansı %45 artar. |\n| 7 | Dirty Tricks | 2 rank | — | Sap ve Blind %50 daha az Energy harcar. |\n| 8 | Initiative | 3 rank | — | Ambush, Garrote ve Cheap Shot bir combo puanı daha verir. |\n| 9 | Premeditation | 1 rank | — | Hedefe 2 combo puanı ekler. Bunları 20 saniye içinde kullanmazsan kaybolur. |\n| 10 | Serrated Blades | 3 rank | — | Saldırıların hedefin zırhının %9'unu deler. Rupture'ın hasarı %30 artar. |\n| 11 | Elusiveness | 2 rank | — | Vanish ve Blind'ın bekleme süresi 90 saniye kısalır. |\n| 12 | Ghostly Strike | 1 rank | — | Vurur ve 7 saniye dodge şansını %15 artırır. Ardından Ambush ya da Garrote'u Stealth olmadan kullanabilirsin. |\n| 13 | Quick Getaway | 2 rank | ← Dirty Tricks | Aynı anda iki hedefe Sap atabilirsin. Sap'ten sonra 3 saniye koşu hızın %30 artar. |\n| 14 | Heightened Senses | 2 rank | — | Stealth'teki düşmanları 3 seviye daha yüksekmişsin gibi görürsün. Büyü ve atışların seni vurma şansı %4 azalır. |\n| 15 | Preparation | 1 rank | — | Diğer bütün Rogue yeteneklerinin bekleme süresini anında sıfırlar. |\n| 16 | Hemorrhage | 1 rank | ← Serrated Blades | Vurur ve 1 combo puanı verir. Hedef 15 saniye Rupture ve Garrote'tan %15 fazla hasar alır. |\n| 17 | Boot Knife | 5 rank | — | Shank hedefe 2 combo puanı ekler. |\n| 18 | Death Mark | 1 rank | ← Preparation | Bitirici bir harekettir. 5 combo puanıyla 6 saniye boyunca verdiğin hasarın %60'ını biriktirir, sonra hepsini birden vurur. |"
+ },
+ {
+  "id": "rogue-07-oynanis",
+  "category": "class",
+  "title": "Rogue · Oynanis",
+  "file": "07-Oynanis.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "oynanis"
+  ],
+  "classKey": "rogue",
+  "kind": "gameplay",
+  "text": "# Rogue · Oynanış Önceliği\n\nÜst bilgi: ROGUE — OYNANIŞ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Assassination\n\n| Öncelik | Yetenek | Açıklama |\n|---|---|---|\n| 1 | Slice and Dice | Hep açık tut. |\n| 2 | Rupture | Hedef uzun yaşayacaksa hep açık tut. |\n| 3 | Shank | Hazır olduğu an kullan, Venom'u açar. Energy'n doluyken kullanma. |\n| 4 | Mutilate | Combo puanı biriktirmek için kullan. |\n| 5 | Eviscerate | Slice and Dice ve Rupture açıksa, 5 combo puanı biriktirince kullan. |\n| 6 | Cold Blood | Hazırsa 5 combo puanlı Eviscerate'ten hemen önce aç. |\n\nÇOK HEDEF: Çok düşmana vuran bir yeteneği yok. En tehlikeli düşmana tek hedef sırasıyla vur.\n\n## Combat\n\n| Öncelik | Yetenek | Açıklama |\n|---|---|---|\n| 1 | Slice and Dice | Hep açık tut. |\n| 2 | Adrenaline Rush | Açılıştaki Energy bitince kullan. |\n| 3 | Blade Flurry | Hazır olduğu an kullan. İkinci düşman varsa hemen aç. |\n| 4 | Shank | Hazır olduğu an kullan, yeter ki Energy taşmasın. |\n| 5 | Sinister Strike | Combo puanı biriktirmek için kullan. Hançer taşıyorsan yerine Backstab bas. |\n| 6 | Eviscerate | Slice and Dice açıkken 5 combo puanıyla kullan. Uzun dövüşte önce Rupture aç. |\n\nÇOK HEDEF: Blade Flurry açıkken her vuruşun yandaki bir düşmana da gider. Başka çok hedef yeteneği yok.\n\n## Subtlety\n\n| Öncelik | Yetenek | Açıklama |\n|---|---|---|\n| 1 | Rupture | 5 combo puanıyla hep açık tut. |\n| 2 | Death Mark | 5 combo puanıyla, hazır olduğu an kullan. |\n| 3 | Slice and Dice | 5 combo puanıyla, olabildiğince açık tut. |\n| 4 | Shank | Combo puanın 0 ile 3 arasındayken kullan. Boot Knife sayesinde 2 puan ekler. |\n| 5 | Ghostly Strike | Hazır olduğu an kullan, ardından Garrote at. |\n| 6 | Hemorrhage | Combo puanını asıl bununla biriktir. |\n\nÇOK HEDEF: Çok hedef yeteneği yok. Energy yetiyorsa ikinci düşmana Ghostly Strike, Garrote ve Rupture at, ana hedefe dön.\n\n## Kural\n\nKURAL: Hepsinde ana ele Instant Poison, yan ele Deadly Poison sür. Savaşa Stealth'ten başla, boss'a hep arkadan vur. Combo puanları hedefte kalır."
+ },
+ {
+  "id": "rogue-08-assassination-leveling",
+  "category": "class",
+  "title": "Rogue · Assassination Leveling",
+  "file": "08-Assassination-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "assassination leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "rogue",
+  "kind": "leveling",
+  "spec": "assassination",
+  "text": "# Rogue · Assassination Leveling\n\nÜst bilgi: ROGUE — ASSASSINATION. WOW FOREVER · TOTİK CHANNEL. Rozet: TAVSİYE EDİLEN BUILD.\n\nSeviye aralığı: 10 → 60\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n### Assassination — 31 puan\n\n- Satır 1, sütun 1: Improved Gouge — 0/3 (puan yok)\n- Satır 1, sütun 2: Remorseless Attacks — 2/2 (tamamlandı)\n- Satır 1, sütun 3: Malice — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Ruthlessness — 3/3 (tamamlandı)\n- Satır 2, sütun 2: Improved Expose Armor — 0/2 (puan yok)\n- Satır 2, sütun 4: Improved Slice and Dice — 2/3 (kısmen alındı)\n- Satır 3, sütun 1: Vigor — 0/2 (puan yok)\n- Satır 3, sütun 2: Blood Splatter — 1/1 (tamamlandı)\n- Satır 3, sütun 3: Lethality — 2/2 (tamamlandı)\n- Satır 4, sütun 1: Vile Poisons — 5/5 (tamamlandı)\n- Satır 4, sütun 2: Cold Blood — 1/1 (tamamlandı)\n- Satır 4, sütun 3: Improved Poisons — 0/5 (puan yok)\n- Satır 5, sütun 1: Relentless Strikes — 5/5 (tamamlandı)\n- Satır 5, sütun 2: Venom — 1/1 (tamamlandı)\n- Satır 5, sütun 3: Improved Kidney Shot — 0/2 (puan yok)\n- Satır 6, sütun 3: Seal Fate — 3/3 (tamamlandı)\n- Satır 7, sütun 2: Mutilate — 1/1 (tamamlandı)\n\nÖn koşul okları: Malice → Lethality; Venom → Mutilate.\n\n### Combat — 15 puan\n\n- Satır 1, sütun 1: Coup de Grace — 3/3 (tamamlandı)\n- Satır 1, sütun 2: Efficient Strikes — 0/2 (puan yok)\n- Satır 1, sütun 3: Lightning Reflexes — 2/5 (kısmen alındı)\n- Satır 2, sütun 1: Puncturing Wounds — 3/3 (tamamlandı)\n- Satır 2, sütun 2: Deflection — 0/3 (puan yok)\n- Satır 2, sütun 3: Precision — 3/3 (tamamlandı)\n- Satır 2, sütun 4: Improved Sprint — 0/2 (puan yok)\n- Satır 3, sütun 1: Endurance — 2/2 (tamamlandı)\n- Satır 3, sütun 2: Riposte — 0/1 (puan yok)\n- Satır 3, sütun 4: Composure — 2/2 (tamamlandı)\n- Satır 4, sütun 1: Improved Kick — 0/2 (puan yok)\n- Satır 4, sütun 2: Flawless Execution — 0/1 (puan yok)\n- Satır 4, sütun 3: Weapon Expertise — 0/2 (puan yok)\n- Satır 4, sütun 4: Aggression — 0/3 (puan yok)\n- Satır 5, sütun 1: Dual Wield Specialization — 0/2 (puan yok)\n- Satır 5, sütun 2: Blade Flurry — 0/1 (puan yok)\n- Satır 5, sütun 3: Hack and Slash — 0/5 (puan yok)\n- Satır 6, sütun 3: Flash of Steel — 0/5 (puan yok)\n- Satır 7, sütun 2: Adrenaline Rush — 0/1 (puan yok)\n\nÖn koşul okları: Deflection → Riposte; Precision → Weapon Expertise; Blade Flurry → Adrenaline Rush.\n\n### Subtlety — 5 puan\n\n- Satır 1, sütun 1: Setup — 0/3 (puan yok)\n- Satır 1, sütun 2: Master of Deception — 0/3 (puan yok)\n- Satır 1, sütun 3: Opportunity — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Dirty Deeds — 0/2 (puan yok)\n- Satır 2, sütun 2: Camouflage — 0/3 (puan yok)\n- Satır 2, sütun 3: Improved Ambush — 0/3 (puan yok)\n- Satır 2, sütun 4: Dirty Tricks — 0/2 (puan yok)\n- Satır 3, sütun 1: Initiative — 0/3 (puan yok)\n- Satır 3, sütun 2: Premeditation — 0/1 (puan yok)\n- Satır 3, sütun 3: Serrated Blades — 0/3 (puan yok)\n- Satır 4, sütun 1: Elusiveness — 0/2 (puan yok)\n- Satır 4, sütun 2: Ghostly Strike — 0/1 (puan yok)\n- Satır 4, sütun 4: Quick Getaway — 0/2 (puan yok)\n- Satır 5, sütun 1: Heightened Senses — 0/2 (puan yok)\n- Satır 5, sütun 2: Preparation — 0/1 (puan yok)\n- Satır 5, sütun 3: Hemorrhage — 0/1 (puan yok)\n- Satır 6, sütun 3: Boot Knife — 0/5 (puan yok)\n- Satır 7, sütun 2: Death Mark — 0/1 (puan yok)\n\nÖn koşul okları: Dirty Tricks → Quick Getaway; Serrated Blades → Hemorrhage; Preparation → Death Mark.\n\n## 60. Seviye Puan Dağılımı\n\n31 / 15 / 5 — Assassination 31, Combat 15, Subtlety 5. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–11 | Remorseless Attacks | Assassination | +2 | 2/2 | Öldürünce sonraki vuruşa kritik +%40 |\n| 12–14 | Malice | Assassination | +3 | 3/5 | Saldırı ve zehir kritik şansı +%3 |\n| 15–17 | Ruthlessness | Assassination | +3 | 3/3 | Bitirici %60 şansla 1 combo puanı ekler |\n| 18–19 | Malice | Assassination | +2 | 5/5 | Saldırı ve zehir kritik şansı +%5 |\n| 20 | Blood Splatter | Assassination | +1 | 1/1 | Rupture 6 sn, Garrote 9 sn uzun |\n| 21–22 | Lethality | Assassination | +2 | 2/2 | Vuruş yeteneği kritik hasarı +%20 |\n| 23–24 | Improved Slice and Dice | Assassination | +2 | 2/3 | Slice and Dice süresi +%30 |\n| 25 | Cold Blood | Assassination | +1 | 1/1 | Sonraki vuruş kesin kritik |\n| 26–29 | Vile Poisons | Assassination | +4 | 4/5 | Zehir hasarı +%16 |\n| 30 | Venom | Assassination | +1 | 1/1 | Shank sonrası 6 sn zehir hasarı +%30 |\n| 31–34 | Relentless Strikes | Assassination | +4 | 4/5 | Combo puanı başına %16 şansla 25 Energy |\n| 35–37 | Seal Fate | Assassination | +3 | 3/3 | Kritik vuruş 1 combo puanı daha verir |\n| 38 | Relentless Strikes | Assassination | +1 | 5/5 | Combo puanı başına %20 şansla 25 Energy |\n| 39 | Vile Poisons | Assassination | +1 | 5/5 | Zehir hasarı +%20 |\n| 40 | Mutilate | Assassination | +1 | 1/1 | İki silahla vurur, 2 combo puanı verir |\n| 41–45 | Opportunity | Subtlety | +5 | 5/5 | Backstab, Garrote, Ambush, Mutilate +%20 |\n| 46–48 | Coup de Grace | Combat | +3 | 3/3 | Eviscerate hasarı +%20 |\n| 49–50 | Lightning Reflexes | Combat | +2 | 2/5 | Dodge şansı +%2 |\n| 51–53 | Precision | Combat | +3 | 3/3 | İsabet şansı +%3 |\n| 54–56 | Puncturing Wounds | Combat | +3 | 3/3 | Backstab kritiği +%30, Mutilate +%15 |\n| 57–58 | Composure | Combat | +2 | 2/2 | Poised Energy indirimi +10 |\n| 59–60 | Endurance | Combat | +2 | 2/2 | Sprint ve Evasion beklemesi −%60 |"
+ },
+ {
+  "id": "rogue-09-combat-leveling",
+  "category": "class",
+  "title": "Rogue · Combat Leveling",
+  "file": "09-Combat-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "combat leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "rogue",
+  "kind": "leveling",
+  "spec": "combat",
+  "text": "# Rogue · Combat Leveling\n\nÜst bilgi: ROGUE — COMBAT. WOW FOREVER · TOTİK CHANNEL. Rozet: TAVSİYE EDİLEN BUILD.\n\nSeviye aralığı: 10 → 60\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n### Assassination — 16 puan\n\n- Satır 1, sütun 1: Improved Gouge — 0/3 (puan yok)\n- Satır 1, sütun 2: Remorseless Attacks — 2/2 (tamamlandı)\n- Satır 1, sütun 3: Malice — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Ruthlessness — 3/3 (tamamlandı)\n- Satır 2, sütun 2: Improved Expose Armor — 0/2 (puan yok)\n- Satır 2, sütun 4: Improved Slice and Dice — 2/3 (kısmen alındı)\n- Satır 3, sütun 1: Vigor — 0/2 (puan yok)\n- Satır 3, sütun 2: Blood Splatter — 1/1 (tamamlandı)\n- Satır 3, sütun 3: Lethality — 2/2 (tamamlandı)\n- Satır 4, sütun 1: Vile Poisons — 0/5 (puan yok)\n- Satır 4, sütun 2: Cold Blood — 1/1 (tamamlandı)\n- Satır 4, sütun 3: Improved Poisons — 0/5 (puan yok)\n- Satır 5, sütun 1: Relentless Strikes — 0/5 (puan yok)\n- Satır 5, sütun 2: Venom — 0/1 (puan yok)\n- Satır 5, sütun 3: Improved Kidney Shot — 0/2 (puan yok)\n- Satır 6, sütun 3: Seal Fate — 0/3 (puan yok)\n- Satır 7, sütun 2: Mutilate — 0/1 (puan yok)\n\nÖn koşul okları: Malice → Lethality; Venom → Mutilate.\n\n### Combat — 35 puan\n\n- Satır 1, sütun 1: Coup de Grace — 3/3 (tamamlandı)\n- Satır 1, sütun 2: Efficient Strikes — 2/2 (tamamlandı)\n- Satır 1, sütun 3: Lightning Reflexes — 0/5 (puan yok)\n- Satır 2, sütun 1: Puncturing Wounds — 0/3 (puan yok)\n- Satır 2, sütun 2: Deflection — 3/3 (tamamlandı)\n- Satır 2, sütun 3: Precision — 3/3 (tamamlandı)\n- Satır 2, sütun 4: Improved Sprint — 0/2 (puan yok)\n- Satır 3, sütun 1: Endurance — 1/2 (kısmen alındı)\n- Satır 3, sütun 2: Riposte — 1/1 (tamamlandı)\n- Satır 3, sütun 4: Composure — 2/2 (tamamlandı)\n- Satır 4, sütun 1: Improved Kick — 0/2 (puan yok)\n- Satır 4, sütun 2: Flawless Execution — 1/1 (tamamlandı)\n- Satır 4, sütun 3: Weapon Expertise — 2/2 (tamamlandı)\n- Satır 4, sütun 4: Aggression — 3/3 (tamamlandı)\n- Satır 5, sütun 1: Dual Wield Specialization — 2/2 (tamamlandı)\n- Satır 5, sütun 2: Blade Flurry — 1/1 (tamamlandı)\n- Satır 5, sütun 3: Hack and Slash — 5/5 (tamamlandı)\n- Satır 6, sütun 3: Flash of Steel — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Adrenaline Rush — 1/1 (tamamlandı)\n\nÖn koşul okları: Deflection → Riposte; Precision → Weapon Expertise; Blade Flurry → Adrenaline Rush.\n\n### Subtlety — 0 puan\n\n- Satır 1, sütun 1: Setup — 0/3 (puan yok)\n- Satır 1, sütun 2: Master of Deception — 0/3 (puan yok)\n- Satır 1, sütun 3: Opportunity — 0/5 (puan yok)\n- Satır 2, sütun 1: Dirty Deeds — 0/2 (puan yok)\n- Satır 2, sütun 2: Camouflage — 0/3 (puan yok)\n- Satır 2, sütun 3: Improved Ambush — 0/3 (puan yok)\n- Satır 2, sütun 4: Dirty Tricks — 0/2 (puan yok)\n- Satır 3, sütun 1: Initiative — 0/3 (puan yok)\n- Satır 3, sütun 2: Premeditation — 0/1 (puan yok)\n- Satır 3, sütun 3: Serrated Blades — 0/3 (puan yok)\n- Satır 4, sütun 1: Elusiveness — 0/2 (puan yok)\n- Satır 4, sütun 2: Ghostly Strike — 0/1 (puan yok)\n- Satır 4, sütun 4: Quick Getaway — 0/2 (puan yok)\n- Satır 5, sütun 1: Heightened Senses — 0/2 (puan yok)\n- Satır 5, sütun 2: Preparation — 0/1 (puan yok)\n- Satır 5, sütun 3: Hemorrhage — 0/1 (puan yok)\n- Satır 6, sütun 3: Boot Knife — 0/5 (puan yok)\n- Satır 7, sütun 2: Death Mark — 0/1 (puan yok)\n\nÖn koşul okları: Dirty Tricks → Quick Getaway; Serrated Blades → Hemorrhage; Preparation → Death Mark.\n\n## 60. Seviye Puan Dağılımı\n\n16 / 35 / 0 — Assassination 16, Combat 35, Subtlety 0. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–11 | Efficient Strikes | Combat | +2 | 2/2 | Sinister Strike ve Hemorrhage −5 Energy |\n| 12–14 | Coup de Grace | Combat | +3 | 3/3 | Eviscerate hasarı +%20 |\n| 15–16 | Precision | Combat | +2 | 2/3 | İsabet şansı +%2 |\n| 17–19 | Deflection | Combat | +3 | 3/3 | Parry şansı +%6 |\n| 20 | Riposte | Combat | +1 | 1/1 | Parry sonrası %150 vuruş, silah düşürür |\n| 21 | Precision | Combat | +1 | 3/3 | İsabet şansı +%3 |\n| 22–23 | Composure | Combat | +2 | 2/2 | Poised Energy indirimi +10 |\n| 24 | Endurance | Combat | +1 | 1/2 | Sprint ve Evasion beklemesi −%30 |\n| 25 | Flawless Execution | Combat | +1 | 1/1 | Eviscerate −15 Energy |\n| 26–27 | Weapon Expertise | Combat | +2 | 2/2 | Dodge ve parry edilme şansı −%2 |\n| 28–29 | Aggression | Combat | +2 | 2/3 | Sinister Strike ve Eviscerate +%10 |\n| 30 | Blade Flurry | Combat | +1 | 1/1 | 15 sn hız +%20, yandaki hedefe de vurur |\n| 31–34 | Hack and Slash | Combat | +4 | 4/5 | Kılıç, balta %4 ek vuruş, hançer kritik +%4 |\n| 35–39 | Flash of Steel | Combat | +5 | 5/5 | Shank +15 Energy, bekleme −2 sn |\n| 40 | Adrenaline Rush | Combat | +1 | 1/1 | 15 sn Energy yenilenmesi +%100 |\n| 41 | Hack and Slash | Combat | +1 | 5/5 | Kılıç, balta %5 ek vuruş, hançer kritik +%5 |\n| 42 | Aggression | Combat | +1 | 3/3 | Sinister Strike ve Eviscerate +%15 |\n| 43–44 | Dual Wield Specialization | Combat | +2 | 2/2 | Yan el hasarı +%50 |\n| 45–46 | Remorseless Attacks | Assassination | +2 | 2/2 | Öldürünce sonraki vuruşa kritik +%40 |\n| 47–49 | Malice | Assassination | +3 | 3/5 | Saldırı ve zehir kritik şansı +%3 |\n| 50–52 | Ruthlessness | Assassination | +3 | 3/3 | Bitirici %60 şansla 1 combo puanı ekler |\n| 53–54 | Malice | Assassination | +2 | 5/5 | Saldırı ve zehir kritik şansı +%5 |\n| 55 | Blood Splatter | Assassination | +1 | 1/1 | Rupture 6 sn, Garrote 9 sn uzun |\n| 56–57 | Lethality | Assassination | +2 | 2/2 | Vuruş yeteneği kritik hasarı +%20 |\n| 58–59 | Improved Slice and Dice | Assassination | +2 | 2/3 | Slice and Dice süresi +%30 |\n| 60 | Cold Blood | Assassination | +1 | 1/1 | Sonraki vuruş kesin kritik |"
+ },
+ {
+  "id": "rogue-10-subtlety-leveling",
+  "category": "class",
+  "title": "Rogue · Subtlety Leveling",
+  "file": "10-Subtlety-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "subtlety leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "rogue",
+  "kind": "leveling",
+  "spec": "subtlety",
+  "text": "# Rogue · Subtlety Leveling\n\nÜst bilgi: ROGUE — SUBTLETY. WOW FOREVER · TOTİK CHANNEL. Rozet: TAVSİYE EDİLEN BUILD.\n\nSeviye aralığı: 10 → 60\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n### Assassination — 15 puan\n\n- Satır 1, sütun 1: Improved Gouge — 0/3 (puan yok)\n- Satır 1, sütun 2: Remorseless Attacks — 2/2 (tamamlandı)\n- Satır 1, sütun 3: Malice — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Ruthlessness — 3/3 (tamamlandı)\n- Satır 2, sütun 2: Improved Expose Armor — 0/2 (puan yok)\n- Satır 2, sütun 4: Improved Slice and Dice — 2/3 (kısmen alındı)\n- Satır 3, sütun 1: Vigor — 0/2 (puan yok)\n- Satır 3, sütun 2: Blood Splatter — 1/1 (tamamlandı)\n- Satır 3, sütun 3: Lethality — 2/2 (tamamlandı)\n- Satır 4, sütun 1: Vile Poisons — 0/5 (puan yok)\n- Satır 4, sütun 2: Cold Blood — 0/1 (puan yok)\n- Satır 4, sütun 3: Improved Poisons — 0/5 (puan yok)\n- Satır 5, sütun 1: Relentless Strikes — 0/5 (puan yok)\n- Satır 5, sütun 2: Venom — 0/1 (puan yok)\n- Satır 5, sütun 3: Improved Kidney Shot — 0/2 (puan yok)\n- Satır 6, sütun 3: Seal Fate — 0/3 (puan yok)\n- Satır 7, sütun 2: Mutilate — 0/1 (puan yok)\n\nÖn koşul okları: Malice → Lethality; Venom → Mutilate.\n\n### Combat — 5 puan\n\n- Satır 1, sütun 1: Coup de Grace — 3/3 (tamamlandı)\n- Satır 1, sütun 2: Efficient Strikes — 2/2 (tamamlandı)\n- Satır 1, sütun 3: Lightning Reflexes — 0/5 (puan yok)\n- Satır 2, sütun 1: Puncturing Wounds — 0/3 (puan yok)\n- Satır 2, sütun 2: Deflection — 0/3 (puan yok)\n- Satır 2, sütun 3: Precision — 0/3 (puan yok)\n- Satır 2, sütun 4: Improved Sprint — 0/2 (puan yok)\n- Satır 3, sütun 1: Endurance — 0/2 (puan yok)\n- Satır 3, sütun 2: Riposte — 0/1 (puan yok)\n- Satır 3, sütun 4: Composure — 0/2 (puan yok)\n- Satır 4, sütun 1: Improved Kick — 0/2 (puan yok)\n- Satır 4, sütun 2: Flawless Execution — 0/1 (puan yok)\n- Satır 4, sütun 3: Weapon Expertise — 0/2 (puan yok)\n- Satır 4, sütun 4: Aggression — 0/3 (puan yok)\n- Satır 5, sütun 1: Dual Wield Specialization — 0/2 (puan yok)\n- Satır 5, sütun 2: Blade Flurry — 0/1 (puan yok)\n- Satır 5, sütun 3: Hack and Slash — 0/5 (puan yok)\n- Satır 6, sütun 3: Flash of Steel — 0/5 (puan yok)\n- Satır 7, sütun 2: Adrenaline Rush — 0/1 (puan yok)\n\nÖn koşul okları: Deflection → Riposte; Precision → Weapon Expertise; Blade Flurry → Adrenaline Rush.\n\n### Subtlety — 31 puan\n\n- Satır 1, sütun 1: Setup — 3/3 (tamamlandı)\n- Satır 1, sütun 2: Master of Deception — 0/3 (puan yok)\n- Satır 1, sütun 3: Opportunity — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Dirty Deeds — 1/2 (kısmen alındı)\n- Satır 2, sütun 2: Camouflage — 3/3 (tamamlandı)\n- Satır 2, sütun 3: Improved Ambush — 3/3 (tamamlandı)\n- Satır 2, sütun 4: Dirty Tricks — 0/2 (puan yok)\n- Satır 3, sütun 1: Initiative — 3/3 (tamamlandı)\n- Satır 3, sütun 2: Premeditation — 1/1 (tamamlandı)\n- Satır 3, sütun 3: Serrated Blades — 3/3 (tamamlandı)\n- Satır 4, sütun 1: Elusiveness — 0/2 (puan yok)\n- Satır 4, sütun 2: Ghostly Strike — 1/1 (tamamlandı)\n- Satır 4, sütun 4: Quick Getaway — 0/2 (puan yok)\n- Satır 5, sütun 1: Heightened Senses — 0/2 (puan yok)\n- Satır 5, sütun 2: Preparation — 1/1 (tamamlandı)\n- Satır 5, sütun 3: Hemorrhage — 1/1 (tamamlandı)\n- Satır 6, sütun 3: Boot Knife — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Death Mark — 1/1 (tamamlandı)\n\nÖn koşul okları: Dirty Tricks → Quick Getaway; Serrated Blades → Hemorrhage; Preparation → Death Mark.\n\n## 60. Seviye Puan Dağılımı\n\n15 / 5 / 31 — Assassination 15, Combat 5, Subtlety 31. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Opportunity | Subtlety | +5 | 5/5 | Backstab, Garrote, Ambush, Mutilate +%20 |\n| 15–17 | Improved Ambush | Subtlety | +3 | 3/3 | Ambush kritik şansı +%45 |\n| 18–19 | Setup | Subtlety | +2 | 2/3 | Dodge sonrası %30 şansla 1 combo puanı |\n| 20–22 | Serrated Blades | Subtlety | +3 | 3/3 | Zırhın %9'unu deler, Rupture +%30 |\n| 23 | Premeditation | Subtlety | +1 | 1/1 | Hedefe 2 combo puanı ekler |\n| 24 | Dirty Deeds | Subtlety | +1 | 1/2 | Cheap Shot ve Garrote −10 Energy |\n| 25 | Ghostly Strike | Subtlety | +1 | 1/1 | Vurur, 7 sn dodge şansı +%15 |\n| 26 | Setup | Subtlety | +1 | 3/3 | Dodge sonrası %45 şansla 1 combo puanı |\n| 27–29 | Camouflage | Subtlety | +3 | 3/3 | Stealth yavaşlığı −%15, bekleme −6 sn |\n| 30 | Hemorrhage | Subtlety | +1 | 1/1 | Vurur, Rupture ve Garrote hasarı +%15 |\n| 31–32 | Efficient Strikes | Combat | +2 | 2/2 | Sinister Strike ve Hemorrhage −5 Energy |\n| 33 | Preparation | Subtlety | +1 | 1/1 | Diğer yeteneklerin beklemesini sıfırlar |\n| 34–36 | Initiative | Subtlety | +3 | 3/3 | Ambush, Garrote ve Cheap Shot +1 combo |\n| 37–41 | Boot Knife | Subtlety | +5 | 5/5 | Shank hedefe 2 combo puanı ekler |\n| 42 | Death Mark | Subtlety | +1 | 1/1 | Hasarı biriktirip 6 sn sonra patlatır |\n| 43–45 | Coup de Grace | Combat | +3 | 3/3 | Eviscerate ve Death Mark +%20 |\n| 46–47 | Remorseless Attacks | Assassination | +2 | 2/2 | Öldürünce sonraki vuruşa kritik +%40 |\n| 48–50 | Malice | Assassination | +3 | 3/5 | Saldırı ve zehir kritik şansı +%3 |\n| 51–53 | Ruthlessness | Assassination | +3 | 3/3 | Bitirici %60 şansla 1 combo puanı ekler |\n| 54–55 | Malice | Assassination | +2 | 5/5 | Saldırı ve zehir kritik şansı +%5 |\n| 56 | Blood Splatter | Assassination | +1 | 1/1 | Rupture 6 sn, Garrote 9 sn uzun |\n| 57–58 | Lethality | Assassination | +2 | 2/2 | Vuruş yeteneği kritik hasarı +%20 |\n| 59–60 | Improved Slice and Dice | Assassination | +2 | 2/3 | Slice and Dice süresi +%30 |"
+ },
+ {
+  "id": "shaman-01-irk-secimi",
+  "category": "class",
+  "title": "Shaman · Irk Secimi",
+  "file": "01-Irk-Secimi.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "irk secimi"
+  ],
+  "classKey": "shaman",
+  "kind": "race",
+  "text": "# Shaman · Irk Seçimi\n\nSol üst başlık: SHAMAN — IRKLAR\nMarka: WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ\n\n## ALLIANCE\n\n### Dwarf\nAlliance'ta Shaman olabilen tek ırk. Artisan's Precision isabet şansını %1 artırır. Stoneform zehir, kanama ve hastalık etkilerini temizler ve 8 saniye fiziksel hasarı %10 azaltır.\n\n## HORDE\n\n### Orc\nBlood Fury 15 saniye hem Attack Power'ı hem büyü gücünü %10 artırır; her uzmanlıkta işe yarar. Shatter Curse üstündeki lanetleri siler. Command Shaman'a işlemez.\n\n### Tauren\nEndurance toplam canını %5 artırır. War Stomp yakındaki düşmanları 2 saniye sersemletir. Plainsrunning koştukça seni hızlandırır; hasara doğrudan katkısı yok.\n\n### Troll\nBerserking 15 saniye saldırı ve büyü hızını %10 artırır (3 dakika bekleme). Beast Slaying hayvanlara %5 fazla hasar verdirir. Regeneration savaşta da can yeniler.\n\n### Windshaper Skyborne\nWind Blessed saldırı ve büyü hızını her zaman %2 artırır; üç uzmanlıkta da işe yarar. Skysight 15 saniye koşu hızını %15 artırır. Skyborne ayrıca satın alınır."
+ },
+ {
+  "id": "shaman-02-yetenekler-1",
+  "category": "class",
+  "title": "Shaman · Yetenekler 1",
+  "file": "02-Yetenekler-1.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "yetenekler 1"
+  ],
+  "classKey": "shaman",
+  "kind": "abilities",
+  "part": 1,
+  "text": "# Shaman · Hasar, Shock, Silah Büyüsü ve Buff\n\nSol üst başlık: SHAMAN — YETENEKLER 1/3\nMarka: WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ\n\n## HASAR BÜYÜLERİ\nUzaktan Nature ve Fire hasarı verir. Elemental'in ana büyüleri bunlardır.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 1 | Lightning Bolt | 10 rank | | Hedefe 362 Nature hasarı vurur. Forever'da döküm süresi Classic'ten kısadır, son rank 2,5 saniyede dökülür. |\n| 12 | Fire Nova | 5 rank | Fire totemi gerekir · Forever | Yerdeki Fire toteminin 10 metre çevresindeki bütün düşmanlara 246 Fire hasarı vurur. Forever'da totem değil, 10 saniye bekleme süreli bir büyüdür. |\n| 32 | Chain Lightning | 4 rank | 3 hedef | Hedefe 524 Nature hasarı vurur, sonra iki düşmana daha sıçrar. Her sıçramada hasar %30 düşer, 6 saniye bekleme süresi var. |\n\n## SHOCK'LAR\nAnlık büyüler. Üçü 6 saniyelik ortak bekleme süresini paylaşır, birini atınca öbürleri de bekler.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 4 | Earth Shock | 7 rank | Kesme | 531 Nature hasarı vurur, büyüyü keser ve o okuldan büyüyü 2 saniye engeller. Yüksek tehdit üretir. |\n| 10 | Flame Shock | 5 rank | Düşman · 12 sn | Anında 254 Fire hasarı vurur, ardından 12 saniyede 256 hasar daha yakar. Uzun dövüşte hedefte açık tut. |\n| 20 | Frost Shock | 4 rank | Düşman · 8 sn | 510 Frost hasarı vurur ve düşmanı 8 saniye %50 yavaşlatır. Kaçan düşmanı durdurur, Earth Shock gibi fazladan tehdit üretmez. |\n\n## SİLAH BÜYÜLERİ\nSilahına 60 dakika işlenir. Her silahta aynı anda tek büyü durur; yakın dövüşte hep biri açık olsun.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 1 | Rockbiter Weapon | 7 rank | Silah · 60 dk | Bu silahla vururken Attack Power'ın 653 artar ve vuruşların daha çok tehdit üretir. 30. seviyeye kadar ana silah büyün budur. |\n| 10 | Flametongue Weapon | 6 rank | Silah · 60 dk | Her vuruş 35 ile 112 arası ek Fire hasarı verir, yavaş silahta daha fazla. Ana eldeyken Flametongue Totem sana işlemez. |\n| 20 | Frostbrand Weapon | 5 rank | Silah · 60 dk | Vuruşların şansla 170 ek Frost hasarı verir ve düşmanı 8 saniye %25 yavaşlatır. Kaçan düşmanlara karşı iyidir. |\n| 30 | Windfury Weapon | 4 rank | Silah · 60 dk | Her vuruşta %20 şansla 333 ek Attack Power'la 2 ekstra saldırı yaparsın. Enhancement'ın ana büyüsü; ana eldeyken Windfury Totem sana işlemez. |\n\n## BUFF'LAR\nKendi üstünde tuttuğun etkiler.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 8 | Lightning Shield | 7 rank | Sen · 10 dk | Seni 3 yıldırım küresi sarar. Sana vuran düşman 178 Nature hasarı alır ve bir küre harcanır. |\n| 20 | Ghost Wolf | | Sen | Hayalet kurda dönüşürsün, koşu hızın %40 artar. Yalnız açık alanda kullanılır, 3 saniyede dökülür; kurtken saldıramazsın. |"
+ },
+ {
+  "id": "shaman-03-yetenekler-2",
+  "category": "class",
+  "title": "Shaman · Yetenekler 2",
+  "file": "03-Yetenekler-2.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "yetenekler 2"
+  ],
+  "classKey": "shaman",
+  "kind": "abilities",
+  "part": 2,
+  "text": "# Shaman · Totemler\n\nSol üst başlık: SHAMAN — YETENEKLER 2/3\nMarka: WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ\n\n## TOTEM KURMA\nHer elementten aynı anda tek totem durur. Totem eşyalarını 4, 10, 20 ve 30. seviye sınıf görevleri verir.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 20 | Call of the Elements | | Forever'da yeni | Totem çubuğunda seçtiğin 4 totemi tek büyüyle kurar. 30 ve 40. seviyede iki ayrı totem dizisi daha gelir. |\n| 20 | Totemic Recall | | Forever'da yeni | Yerdeki totemlerini toplar ve her birinin mana bedelinin %25'ini geri verir. |\n| 22 | Totemic Call | | Forever'da yeni | Kurulu totemlerini bulunduğun yere taşır, yeniden kurman gerekmez. 30 saniye bekleme süresi var. |\n\n## EARTH TOTEMLERİ\nToprak totemleri: savunma, yavaşlatma ve Strength.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 4 | Stoneskin Totem | 6 rank | Grup · 5 dk · Sınıf görevi | 30 metredeki grup üyelerinin aldığı fiziksel hasar her vuruşta 30 azalır. |\n| 6 | Earthbind Totem | | 10 metre · 45 sn | Yakındaki düşmanları %50 yavaşlatır. 15 saniye bekleme süresi var; kaçarken kur. |\n| 8 | Stoneclaw Totem | 6 rank | 8 metre · 15 sn | 486 canlı totem yakındaki düşmanları kendine çeker. Fazladan düşman gelince seni rahatlatır. |\n| 10 | Strength of Earth Totem | 4 rank | Raid · 5 dk | Strength 42 artar. Forever'da bütün raide etki eder. |\n| 18 | Tremor Totem | | Grup · 5 dk | 30 metredeki grup üyelerinden Fear, Charm ve Sleep etkilerini düzenli olarak kaldırır. |\n\n## FIRE TOTEMLERİ\nAteş totemleri: hasar verir. Fire Nova için yerde bir Fire totemi olmalı.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 10 | Searing Totem | 6 rank | 55 sn · Sınıf görevi | 20 metredeki bir düşmana sürekli 47 Fire hasarı vurur. Tek hedefte ucuz Fire totemin. |\n| 24 | Frost Resistance Totem | 3 rank | Raid · 5 dk | 30 metredeki grup ve raid üyelerinin Frost direnci 60 artar. |\n| 26 | Magma Totem | 4 rank | 8 metre · 20 sn | 2 saniyede bir 8 metredeki bütün düşmanlara 73 Fire hasarı vurur. Çok düşmanda kur, mana ister. |\n| 28 | Flametongue Totem | 4 rank | Raid | Ana el vuruşlarına 17 ile 55 arası ek Fire hasarı ekler. Forever'da bütün raide etki eder, Windfury Totem ile birleşmez. |\n\n## WATER TOTEMLERİ\nSu totemleri: iyileştirme, mana ve arındırma.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 20 | Healing Stream Totem | 5 rank | Grup · Sınıf görevi | 5 dakika boyunca 30 metredeki grup üyelerini 2 saniyede bir 11 can iyileştirir. |\n| 22 | Poison Cleansing Totem | | Grup · 5 dk | 30 metredeki grup üyelerinden 5 saniyede bir zehir etkisi kaldırır. |\n| 26 | Mana Spring Totem | 4 rank | Grup · 5 dk | 30 metredeki grup üyelerine 2 saniyede bir 10 mana verir. Büyücülü grupta en çok kurulan Water totemi. |\n| 28 | Fire Resistance Totem | 3 rank | Raid · 5 dk | 30 metredeki grup ve raid üyelerinin Fire direnci 60 artar. |\n| 38 | Disease Cleansing Totem | | Grup · 5 dk | 30 metredeki grup üyelerinden 5 saniyede bir hastalık etkisi kaldırır. |\n\n## AIR TOTEMLERİ\nHava totemleri: saldırı buff'ları ve büyü koruması. Air Totem eşyası 30. seviye sınıf göreviyle gelir.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 30 | Grounding Totem | | 45 sn | Grubuna atılan bir zararlı büyüyü kendine çeker ve yok olur. Alan büyülerini çekmez. 15 saniye bekleme süresi var. |\n| 30 | Nature Resistance Totem | 3 rank | Raid · 5 dk | 30 metredeki grup ve raid üyelerinin Nature direnci 60 artar. |\n| 32 | Windfury Totem | 3 rank | Raid · 5 dk | Ana el vuruşu %20 şansla 246 ek Attack Power'la bir ekstra saldırı yapar. Forever'da bütün raide etki eder. Yakın dövüşçülerin en güçlü buff'ı. |\n| 34 | Sentry Totem | | 5 dk | Totemin çevresini görmeni sağlar. Totem saldırıya uğrarsa seni uyarır. |\n| 36 | Windwall Totem | 3 rank | Grup · 5 dk | 30 metredeki grup üyelerinin aldığı menzilli hasar her vuruşta 64 azalır. |\n| 42 | Grace of Air Totem | 2 rank | Raid · 5 dk | Agility 77 artar. Forever'da bütün raide etki eder. |"
+ },
+ {
+  "id": "shaman-04-yetenekler-3",
+  "category": "class",
+  "title": "Shaman · Yetenekler 3",
+  "file": "04-Yetenekler-3.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "yetenekler 3"
+  ],
+  "classKey": "shaman",
+  "kind": "abilities",
+  "part": 3,
+  "text": "# Shaman · İyileştirme ve Yardımcı\n\nSol üst başlık: SHAMAN — YETENEKLER 3/3\nMarka: WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ\n\n## İYİLEŞTİRME\nCan doldurur. Restoration'ın ana büyüleri; her Shaman acil durumda kullanabilir.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 1 | Healing Wave | 9 rank | | 3 saniyede dökülür, 1366 can doldurur. Mana başına en çok iyileştiren büyün. |\n| 20 | Lesser Healing Wave | 6 rank | | 1,5 saniyede dökülür, 820 can doldurur. Daha pahalıdır ama hasar alırken daha az gecikir. |\n| 40 | Chain Heal | 3 rank | 3 hedef | Hedefi 507 iyileştirir, sonra iki yaralıya sıçrar. Her sıçramada etki yarıya iner. Grup iyileştirmenin temeli. |\n\n## ARINDIRMA\nDostundan kötü etkiyi, düşmandan faydalı etkiyi siler.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 12 | Purge | 2 rank | Düşman | Düşmanın üstündeki 2 faydalı büyü etkisini siler. Kalkanını ya da iyileştirmesini kaldırmak için kullan. |\n| 16 | Cure Poison | | Dost | Hedeften bir zehir etkisi kaldırır. Bütün grup için Poison Cleansing Totem var. |\n| 22 | Cure Disease | | Dost | Hedeften bir hastalık etkisi kaldırır. Bütün grup için Disease Cleansing Totem var. |\n\n## YARDIMCI\nDiriltme, eve dönüş, suda yolculuk ve keşif.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 12 | Ancestral Spirit | 5 rank | | Ölü bir dostu 600 can ve 800 manayla diriltir. 10 saniyede dökülür, savaşta kullanılamaz. |\n| 22 | Water Breathing | | Dost · 10 dk | Hedef 10 dakika su altında nefes alır. Her atış bir Shiny Fish Scales harcar. |\n| 26 | Far Sight | | 1 dk | Bakışını uzaktaki bir noktaya taşırsın, bu sırada hareket edemezsin. Yalnız açık alanda kullanılır. |\n| 28 | Water Walking | | Dost · 10 dk | Hedef 10 dakika suyun üstünde yürür. Fish Oil harcar; hasar alınca ya da binek çağırınca biter. |\n| 30 | Astral Recall | | | Hearthstone'unun kayıtlı olduğu yere ışınlanırsın. 15 dakikalık bekleme süresi Hearthstone'la ortak değildir, ikinci bir eve dönüş taşı gibidir. |\n| 30 | Reincarnation | | | Ölünce kendini %20 can ve manayla diriltirsin. Bir Ankh harcar, 1 saat bekleme süresi var. Kalktığın yerde seni öldüren düşman olabilir. |"
+ },
+ {
+  "id": "shaman-05-elemental-talentleri",
+  "category": "class",
+  "title": "Shaman · Elemental Talentleri",
+  "file": "05-Elemental-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "elemental talentleri"
+  ],
+  "classKey": "shaman",
+  "kind": "talents",
+  "spec": "elemental",
+  "text": "# Shaman · Elemental Combat Talent Ağacı\n\nSol üst başlık: SHAMAN — ELEMENTAL COMBAT\nMarka: WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ\n\n## ELEMENTAL COMBAT — 16 talent (ağaç yerleşimi)\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki TALENTLER listesindeki numaralarla aynıdır. Satır numaraları (1–7) ağacın solunda yazar.\n\n| Satır | Sütun | No | Talent |\n|---|---|---|---|\n| 1 | 2 | 1 | Convection |\n| 1 | 3 | 2 | Concussion |\n| 2 | 1 | 3 | Elemental Devastation |\n| 2 | 2 | 4 | Reverberation |\n| 2 | 3 | 5 | Elemental Alacrity |\n| 2 | 4 | 6 | Call of Flame |\n| 3 | 1 | 7 | Elemental Focus |\n| 3 | 2 | 8 | Elemental Warding |\n| 4 | 1 | 9 | Trial by Fire |\n| 4 | 2 | 10 | Eye of the Storm |\n| 4 | 4 | 11 | Earthbound |\n| 5 | 1 | 12 | Elemental Reach |\n| 5 | 2 | 13 | Call of Thunder |\n| 5 | 3 | 14 | Lightning Overload |\n| 6 | 3 | 15 | Elemental Fury |\n| 7 | 2 | 16 | Lightning Mastery |\n\nOklar (ön koşul): 5 → 14 (Elemental Alacrity → Lightning Overload), 14 → 15 (Lightning Overload → Elemental Fury), 13 → 16 (Call of Thunder → Lightning Mastery).\n\nAğaç altı not: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## TALENTLER\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Convection | 5 rank | | Shock büyülerin, Lightning Bolt ve Chain Lightning %10 daha az mana harcar. |\n| 2 | Concussion | 5 rank | | Lightning Bolt, Chain Lightning ve Earth Shock %5 daha fazla hasar verir. |\n| 3 | Elemental Devastation | 3 rank | | Hasar büyün kritik vurunca 10 saniye boyunca yakın dövüş kritik şansın %9 artar. |\n| 4 | Reverberation | 5 rank | | Shock büyülerinin bekleme süresi 1 saniye kısalır. |\n| 5 | Elemental Alacrity | 3 rank | | Lightning Bolt ve Chain Lightning'in döküm süresi 0,5 saniye kısalır. |\n| 6 | Call of Flame | 3 rank | | Ateş totemlerinin, Flame Shock'un ve Fire Nova'nın hasarı %15 artar. Flame Shock 9 saniye daha uzun sürer. |\n| 7 | Elemental Focus | 1 rank | | Hasar büyülerinden sonra %10 şansla Clearcasting açılır, sonraki hasar büyün bedava olur. |\n| 8 | Elemental Warding | 3 rank | | Aldığın Fire, Frost ve Nature hasarı %10 azalır. |\n| 9 | Trial by Fire | 2 rank | | Fire Nova'nın hasarı %20 artar, bekleme süresi 4 saniye kısalır. Magma Totem 20 saniye daha uzun sürer. |\n| 10 | Eye of the Storm | 3 rank | | Hasar alırken Lightning Bolt ve Chain Lightning %70 şansla gecikmez. |\n| 11 | Earthbound | 1 rank | | Earthbind Totem'i koyduğun an yakındaki düşmanlar 5 saniye yerinde köklenir. |\n| 12 | Elemental Reach | 2 rank | | Lightning Bolt, Chain Lightning ve Fire Nova'nın menzili 6 metre artar. |\n| 13 | Call of Thunder | 1 rank | | Lightning Bolt ve Chain Lightning'in kritik şansı %5 artar. |\n| 14 | Lightning Overload | 3 rank | ← Elemental Alacrity | Lightning Bolt ve Chain Lightning %30 şansla ikinci bir kopya atar. Kopya bedavadır, yarım hasar verir. |\n| 15 | Elemental Fury | 5 rank | ← Lightning Overload | Fire, Frost ve Nature büyülerinin, Searing ve Magma Totem'in kritik hasar bonusu %100 artar. |\n| 16 | Lightning Mastery | 1 rank | ← Call of Thunder | 15 saniye boyunca Lightning Bolt 0,5 saniye daha hızlı dökülür, Chain Lightning beklemesiz atılır. |"
+ },
+ {
+  "id": "shaman-06-enhancement-talentleri",
+  "category": "class",
+  "title": "Shaman · Enhancement Talentleri",
+  "file": "06-Enhancement-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "enhancement talentleri"
+  ],
+  "classKey": "shaman",
+  "kind": "talents",
+  "spec": "enhancement",
+  "text": "# Shaman · Enhancement Talent Ağacı\n\nSol üst başlık: SHAMAN — ENHANCEMENT\nMarka: WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ\n\n## ENHANCEMENT — 18 talent (ağaç yerleşimi)\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki TALENTLER listesindeki numaralarla aynıdır. Satır numaraları (1–7) ağacın solunda yazar.\n\n| Satır | Sütun | No | Talent |\n|---|---|---|---|\n| 1 | 1 | 1 | Earth's Grasp |\n| 1 | 2 | 2 | Thundering Strikes |\n| 1 | 3 | 3 | Ancestral Knowledge |\n| 2 | 1 | 4 | Guardian Totems |\n| 2 | 2 | 5 | Mental Dexterity |\n| 2 | 3 | 6 | Improved Lightning Shield |\n| 3 | 1 | 7 | Elemental Weapons |\n| 3 | 3 | 8 | Shamanistic Focus |\n| 3 | 4 | 9 | Anticipation |\n| 4 | 1 | 10 | Toughness |\n| 4 | 2 | 11 | Flurry |\n| 4 | 3 | 12 | Stormstrike |\n| 4 | 4 | 13 | Improved Ghost Wolf |\n| 5 | 1 | 14 | Spirit Weapons |\n| 5 | 2 | 15 | Mental Quickness |\n| 5 | 3 | 16 | Improved Stormstrike |\n| 6 | 3 | 17 | Maelstrom Weapon |\n| 7 | 2 | 18 | Rage of the Farseer |\n\nOklar (ön koşul): 5 → 11 (Mental Dexterity → Flurry), 12 → 16 (Stormstrike → Improved Stormstrike), 15 → 18 (Mental Quickness → Rage of the Farseer).\n\nAğaç altı not: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## TALENTLER\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Earth's Grasp | 2 rank | | Stoneclaw Totem'in canı %50, Earthbind Totem'in etki alanı %20 artar. |\n| 2 | Thundering Strikes | 5 rank | | Bütün büyü ve saldırılarının kritik şansı %5 artar. |\n| 3 | Ancestral Knowledge | 5 rank | | Intellect'in %10 artar. |\n| 4 | Guardian Totems | 2 rank | | Stoneskin ve Windwall Totem %20 daha çok hasar keser. Grounding Totem'in bekleme süresi 2 saniye kısalır. |\n| 5 | Mental Dexterity | 3 rank | | Intellect'inin %150'si kadar Attack Power kazanırsın. |\n| 6 | Improved Lightning Shield | 3 rank | | Lightning Shield kürelerinin hasarı %15 artar. |\n| 7 | Elemental Weapons | 3 rank | | Rockbiter Weapon %20, Windfury Weapon %40, Flametongue ve Frostbrand Weapon %15 güçlenir. |\n| 8 | Shamanistic Focus | 1 rank | | Shock büyülerin ve Lightning Shield %45 daha az mana harcar. |\n| 9 | Anticipation | 3 rank | | Dodge (kaçınma) şansın %6 artar. |\n| 10 | Toughness | 5 rank | | Stamina'n %10 artar. |\n| 11 | Flurry | 5 rank | ← Mental Dexterity | Yakın dövüşte kritik vurunca sonraki 3 vuruşun hızı %30 artar. |\n| 12 | Stormstrike | 1 rank | | Silah hasarının %150'siyle vurur. Sonraki Lightning Bolt, Chain Lightning ya da Earth Shock %20 fazla vurur. |\n| 13 | Improved Ghost Wolf | 2 rank | | Ghost Wolf anında açılır ve kapalı alanlarda da kullanılabilir. |\n| 14 | Spirit Weapons | 1 rank | | Parry yapabilirsin. Rockbiter Weapon yokken tehdidin %30 azalır, varken %30 artar. |\n| 15 | Mental Quickness | 2 rank | | Intellect'inin %30'u kadar büyü hasarı ve iyileştirme gücü kazanırsın. |\n| 16 | Improved Stormstrike | 2 rank | ← Stormstrike | Stormstrike'tan sonra 15 saniye büyü yaparken de manan %50 yenilenir. Dodge ya da parry yapınca Stormstrike'ın bekleme süresi sıfırlanır. |\n| 17 | Maelstrom Weapon | 5 rank | | Yakın dövüş vuruşların şansla yığın biriktirir. 5 yığında sonraki Lightning Bolt anlık ve bedava olur. |\n| 18 | Rage of the Farseer | 1 rank | ← Mental Quickness | 25 saniye boyunca saldırı hızın %30 artar. |"
+ },
+ {
+  "id": "shaman-07-restoration-talentleri",
+  "category": "class",
+  "title": "Shaman · Restoration Talentleri",
+  "file": "07-Restoration-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "restoration talentleri"
+  ],
+  "classKey": "shaman",
+  "kind": "talents",
+  "spec": "restoration",
+  "text": "# Shaman · Restoration Talent Ağacı\n\nSol üst başlık: SHAMAN — RESTORATION\nMarka: WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ\n\n## RESTORATION — 16 talent (ağaç yerleşimi)\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki TALENTLER listesindeki numaralarla aynıdır. Satır numaraları (1–7) ağacın solunda yazar.\n\n| Satır | Sütun | No | Talent |\n|---|---|---|---|\n| 1 | 2 | 1 | Improved Healing Wave |\n| 1 | 3 | 2 | Tidal Focus |\n| 2 | 1 | 3 | Mindfulness |\n| 2 | 2 | 4 | Natural Grace |\n| 2 | 3 | 5 | Totemic Focus |\n| 2 | 4 | 6 | Improved Reincarnation |\n| 3 | 1 | 7 | Ancestral Healing |\n| 3 | 2 | 8 | Healing Focus |\n| 3 | 3 | 9 | Water Shield |\n| 4 | 1 | 10 | Tidal Mastery |\n| 4 | 2 | 11 | Restorative Totems |\n| 4 | 3 | 12 | Mana Tide Totem |\n| 5 | 2 | 13 | Healing Way |\n| 5 | 3 | 14 | Nature's Swiftness |\n| 6 | 3 | 15 | Purification |\n| 7 | 2 | 16 | Riptide |\n\nOklar (ön koşul): 13 → 16 (Healing Way → Riptide).\n\nAğaç altı not: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## TALENTLER\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Improved Healing Wave | 5 rank | | Healing Wave'in döküm süresi 0,5 saniye kısalır. |\n| 2 | Tidal Focus | 5 rank | | İyileştirme büyülerin %5 daha az mana harcar, isabet şansın %5 artar. |\n| 3 | Mindfulness | 3 rank | | Büyü yaparken de mana yenilenmenin %50'si devam eder. |\n| 4 | Natural Grace | 3 rank | | Büyülerinin ürettiği tehdit %15 azalır. |\n| 5 | Totemic Focus | 5 rank | | Totemler %25 daha az mana harcar. |\n| 6 | Improved Reincarnation | 2 rank | | Reincarnation'ın bekleme süresi 20 dakika kısalır, en yüksek canın %4 artar. |\n| 7 | Ancestral Healing | 3 rank | | İyileştirmen kritik gelince hedefin zırhı 15 saniye boyunca %25 artar. |\n| 8 | Healing Focus | 3 rank | | Hasar alırken iyileştirme büyülerin %70 şansla döküm süresi kaybetmez. |\n| 9 | Water Shield | 1 rank | | Seni 3 su küresi sarar. Vurulunca ya da büyün kritik gelince en yüksek mananın %2'si geri gelir. |\n| 10 | Tidal Mastery | 5 rank | | İyileştirme büyülerinin kritik şansı %5 artar. |\n| 11 | Restorative Totems | 5 rank | | Mana Spring Totem %25, Healing Stream Totem %50 daha güçlü olur. |\n| 12 | Mana Tide Totem | 1 rank | | 12 saniye boyunca 30 metre içindeki grup üyelerine mana veren bir totem kurar. |\n| 13 | Healing Way | 3 rank | | Healing Wave'in iyileştirmesi %25 artar. |\n| 14 | Nature's Swiftness | 1 rank | | Sonraki Nature büyün anında atılır. |\n| 15 | Purification | 5 rank | | İyileştirme büyülerinin etkisi %10 artar. |\n| 16 | Riptide | 1 rank | ← Healing Way | Hedefi 15 saniye boyunca zamanla iyileştirir (HoT). Bu hedefe atılan Chain Heal %25 fazla iyileştirir. |"
+ },
+ {
+  "id": "shaman-08-oynanis",
+  "category": "class",
+  "title": "Shaman · Oynanis",
+  "file": "08-Oynanis.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "oynanis"
+  ],
+  "classKey": "shaman",
+  "kind": "gameplay",
+  "text": "# Shaman · Oynanış Önceliği\n\nSol üst başlık: SHAMAN — OYNANIŞ\nMarka: WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ\n\n## ELEMENTAL\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Call of the Elements | Totemleri savaştan önce kur, Searing Totem'i en son koy. |\n| 2 | Flame Shock | Hedefte hep açık tut, süresi bitince yenile. |\n| 3 | Lightning Mastery | Hazır olunca ırk yeteneğin ve trinket'inle birlikte kullan. |\n| 4 | Chain Lightning | Hazır olunca at. Uzun dövüşte yalnız Clearcasting açıkken kullan. |\n| 5 | Lightning Bolt | Ana büyün budur, üsttekiler hazır değilken at. |\n| 6 | Earth Shock | Düşmanın büyüsünü kesmek için kullan. |\n\nÇOK HEDEF: Üç ya da daha fazla düşmanda Magma Totem kur. Chain Lightning ve Fire Nova'yı hazır oldukça at. Aralarda Flame Shock'u olmayan hedefe Flame Shock, sonra Lightning Bolt at.\n\n## ENHANCEMENT\nBaşlık rozeti (sağ üst): Windfury Weapon\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Magma Totem | Yerde yoksa kur. Manan azsa yerine Searing Totem koy. |\n| 2 | Flame Shock | Hedefte yoksa at. Varsa Shock'u Earth Shock'a harca. |\n| 3 | Rage of the Farseer | Hazır olunca ırk yeteneğin ve trinket'inle birlikte kullan. |\n| 4 | Stormstrike | Hazır olduğu an kullan, 6 saniyede bir açılır. |\n| 5 | Lightning Bolt | Yalnız 5 Maelstrom Weapon yığını dolunca at. |\n| 6 | Fire Nova | Ateş totemi yerdeyken hazır olduğu an kullan. |\n\nÇOK HEDEF: Magma Totem'i açık tut, Fire Nova'yı hazır oldukça kullan. Flame Shock'u hedefler arasında dağıt. Aralarda Stormstrike ve 5 yığınla Lightning Bolt at.\n\n## RESTORATION\nBaşlık rozeti (sağ üst): Water Shield\n\n| Sıra | Yetenek | Not |\n|---|---|---|\n| 1 | Call of the Elements | Totemleri savaştan önce kur. |\n| 2 | Riptide | 12 saniyede bir, en çok can kaybedene at. |\n| 3 | Healing Wave | Ana iyileştirme büyün. Hasar azsa düşük rank'ını kullan. |\n| 4 | Nature's Swiftness | Acil durumda kullan, sonraki iyileştirmen anında atılır. |\n| 5 | Mana Tide Totem | Manan %80 civarına inince kur. |\n| 6 | Lightning Bolt | İyileştirme gerekmiyorsa ve manan yetiyorsa at. |\n\nGRUP İYİLEŞTİRME: Riptide olan hedefe Chain Heal at, %25 fazla iyileştirir. Boşta kalınca Fire Nova ve Chain Lightning ile hasar ver.\n\n## KURAL\nÜç uzmanlıkta da en büyük sınır manadır. Totemleri Call of the Elements ile tek tuşta kur, gerekmeyen totemi koyma."
+ },
+ {
+  "id": "shaman-09-elemental-leveling",
+  "category": "class",
+  "title": "Shaman · Elemental Leveling",
+  "file": "09-Elemental-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "elemental leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "shaman",
+  "kind": "leveling",
+  "spec": "elemental",
+  "text": "# Shaman · Elemental Leveling\n\nSol üst başlık: SHAMAN — ELEMENTAL\nRozet: TOTİK CHANNEL — TAVSİYE EDİLEN BUILD\nSeviye aralığı: 10 → 60\nMarka: WOW FOREVER · TOTİK CHANNEL\n\n## ELEMENTAL COMBAT — 33 puan\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Convection — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Concussion — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Elemental Devastation — 0/3 (puan yok)\n- Satır 2, sütun 2: Reverberation — 0/5 (puan yok)\n- Satır 2, sütun 3: Elemental Alacrity — 3/3 (tamamlandı)\n- Satır 2, sütun 4: Call of Flame — 3/3 (tamamlandı)\n- Satır 3, sütun 1: Elemental Focus — 1/1 (tamamlandı)\n- Satır 3, sütun 2: Elemental Warding — 0/3 (puan yok)\n- Satır 4, sütun 1: Trial by Fire — 2/2 (tamamlandı)\n- Satır 4, sütun 2: Eye of the Storm — 3/3 (tamamlandı)\n- Satır 4, sütun 4: Earthbound — 1/1 (tamamlandı)\n- Satır 5, sütun 1: Elemental Reach — 0/2 (puan yok)\n- Satır 5, sütun 2: Call of Thunder — 1/1 (tamamlandı)\n- Satır 5, sütun 3: Lightning Overload — 3/3 (tamamlandı)\n- Satır 6, sütun 3: Elemental Fury — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Lightning Mastery — 1/1 (tamamlandı)\n\nÖn koşul okları: Elemental Alacrity → Lightning Overload; Lightning Overload → Elemental Fury; Call of Thunder → Lightning Mastery.\n\n## ENHANCEMENT — 7 puan\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Earth's Grasp — 0/2 (puan yok)\n- Satır 1, sütun 2: Thundering Strikes — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Ancestral Knowledge — 2/5 (kısmen alındı)\n- Satır 2, sütun 1: Guardian Totems — 0/2 (puan yok)\n- Satır 2, sütun 2: Mental Dexterity — 0/3 (puan yok)\n- Satır 2, sütun 3: Improved Lightning Shield — 0/3 (puan yok)\n- Satır 3, sütun 1: Elemental Weapons — 0/3 (puan yok)\n- Satır 3, sütun 3: Shamanistic Focus — 0/1 (puan yok)\n- Satır 3, sütun 4: Anticipation — 0/3 (puan yok)\n- Satır 4, sütun 1: Toughness — 0/5 (puan yok)\n- Satır 4, sütun 2: Flurry — 0/5 (puan yok)\n- Satır 4, sütun 3: Stormstrike — 0/1 (puan yok)\n- Satır 4, sütun 4: Improved Ghost Wolf — 0/2 (puan yok)\n- Satır 5, sütun 1: Spirit Weapons — 0/1 (puan yok)\n- Satır 5, sütun 2: Mental Quickness — 0/2 (puan yok)\n- Satır 5, sütun 3: Improved Stormstrike — 0/2 (puan yok)\n- Satır 6, sütun 3: Maelstrom Weapon — 0/5 (puan yok)\n- Satır 7, sütun 2: Rage of the Farseer — 0/1 (puan yok)\n\nÖn koşul okları: Mental Dexterity → Flurry; Stormstrike → Improved Stormstrike; Mental Quickness → Rage of the Farseer.\n\n## RESTORATION — 11 puan\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Improved Healing Wave — 0/5 (puan yok)\n- Satır 1, sütun 3: Tidal Focus — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Mindfulness — 3/3 (tamamlandı)\n- Satır 2, sütun 2: Natural Grace — 0/3 (puan yok)\n- Satır 2, sütun 3: Totemic Focus — 0/5 (puan yok)\n- Satır 2, sütun 4: Improved Reincarnation — 2/2 (tamamlandı)\n- Satır 3, sütun 1: Ancestral Healing — 0/3 (puan yok)\n- Satır 3, sütun 2: Healing Focus — 0/3 (puan yok)\n- Satır 3, sütun 3: Water Shield — 1/1 (tamamlandı)\n- Satır 4, sütun 1: Tidal Mastery — 0/5 (puan yok)\n- Satır 4, sütun 2: Restorative Totems — 0/5 (puan yok)\n- Satır 4, sütun 3: Mana Tide Totem — 0/1 (puan yok)\n- Satır 5, sütun 2: Healing Way — 0/3 (puan yok)\n- Satır 5, sütun 3: Nature's Swiftness — 0/1 (puan yok)\n- Satır 6, sütun 3: Purification — 0/5 (puan yok)\n- Satır 7, sütun 2: Riptide — 0/1 (puan yok)\n\nÖn koşul okları: Healing Way → Riptide.\n\n## 60. SEVİYE PUAN DAĞILIMI\n33 / 7 / 11 — Elemental Combat 33 · Enhancement 7 · Restoration 11\nTOPLAM 51 PUAN\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok)\n\n## PUAN SIRASI · SEVİYE 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Concussion | Elemental | +5 | 5/5 | Yıldırımlar ve Earth Shock hasarı +%5 |\n| 15–17 | Elemental Alacrity | Elemental | +3 | 3/3 | Yıldırımların döküm süresi −0,5 sn |\n| 18–19 | Call of Flame | Elemental | +2 | 2/3 | Ateş totemi, Flame Shock, Fire Nova +%10 |\n| 20 | Elemental Focus | Elemental | +1 | 1/1 | %10 şansla sonraki hasar büyüsü bedava |\n| 21 | Call of Flame | Elemental | +1 | 3/3 | Ateş totemi, Flame Shock, Fire Nova +%15 |\n| 22–24 | Convection | Elemental | +3 | 3/5 | Shock ve yıldırımların manası −%6 |\n| 25 | Earthbound | Elemental | +1 | 1/1 | Earthbind Totem 5 sn köklendirir |\n| 26–27 | Trial by Fire | Elemental | +2 | 2/2 | Fire Nova hasarı +%20, bekleme −4 sn |\n| 28–29 | Eye of the Storm | Elemental | +2 | 2/3 | Yıldırım %47 şansla hasardan gecikmez |\n| 30 | Call of Thunder | Elemental | +1 | 1/1 | Yıldırımların kritik şansı +%5 |\n| 31–33 | Lightning Overload | Elemental | +3 | 3/3 | %30 şansla bedava ikinci yıldırım |\n| 34 | Eye of the Storm | Elemental | +1 | 3/3 | Yıldırım %70 şansla hasardan gecikmez |\n| 35–39 | Elemental Fury | Elemental | +5 | 5/5 | Büyü kritik hasar bonusu +%100 |\n| 40 | Lightning Mastery | Elemental | +1 | 1/1 | 15 sn yıldırımlar hızlı ve beklemesiz |\n| 41–45 | Tidal Focus | Restoration | +5 | 5/5 | İyileştirme manası −%5, isabet +%5 |\n| 46–48 | Mindfulness | Restoration | +3 | 3/3 | Büyü yaparken mana yenilenmesi %50 |\n| 49–50 | Improved Reincarnation | Restoration | +2 | 2/2 | Reincarnation −20 dk, en fazla can +%4 |\n| 51 | Water Shield | Restoration | +1 | 1/1 | Vurulunca ya da büyü kritiğinde %2 mana |\n| 52–56 | Thundering Strikes | Enhancement | +5 | 5/5 | Büyü ve saldırı kritik şansı +%5 |\n| 57–58 | Convection | Elemental | +2 | 5/5 | Shock ve yıldırımların manası −%10 |\n| 59–60 | Ancestral Knowledge | Enhancement | +2 | 2/5 | Intellect +%4 |"
+ },
+ {
+  "id": "shaman-10-enhancement-leveling",
+  "category": "class",
+  "title": "Shaman · Enhancement Leveling",
+  "file": "10-Enhancement-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "enhancement leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "shaman",
+  "kind": "leveling",
+  "spec": "enhancement",
+  "text": "# Shaman · Enhancement Leveling\n\nSol üst başlık: SHAMAN — ENHANCEMENT\nRozet: TOTİK CHANNEL — TAVSİYE EDİLEN BUILD\nSeviye aralığı: 10 → 60\nMarka: WOW FOREVER · TOTİK CHANNEL\n\n## ELEMENTAL COMBAT — 9 puan\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Convection — 0/5 (puan yok)\n- Satır 1, sütun 3: Concussion — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Elemental Devastation — 3/3 (tamamlandı)\n- Satır 2, sütun 2: Reverberation — 0/5 (puan yok)\n- Satır 2, sütun 3: Elemental Alacrity — 0/3 (puan yok)\n- Satır 2, sütun 4: Call of Flame — 1/3 (kısmen alındı)\n- Satır 3, sütun 1: Elemental Focus — 0/1 (puan yok)\n- Satır 3, sütun 2: Elemental Warding — 0/3 (puan yok)\n- Satır 4, sütun 1: Trial by Fire — 0/2 (puan yok)\n- Satır 4, sütun 2: Eye of the Storm — 0/3 (puan yok)\n- Satır 4, sütun 4: Earthbound — 0/1 (puan yok)\n- Satır 5, sütun 1: Elemental Reach — 0/2 (puan yok)\n- Satır 5, sütun 2: Call of Thunder — 0/1 (puan yok)\n- Satır 5, sütun 3: Lightning Overload — 0/3 (puan yok)\n- Satır 6, sütun 3: Elemental Fury — 0/5 (puan yok)\n- Satır 7, sütun 2: Lightning Mastery — 0/1 (puan yok)\n\nÖn koşul okları: Elemental Alacrity → Lightning Overload; Lightning Overload → Elemental Fury; Call of Thunder → Lightning Mastery.\n\n## ENHANCEMENT — 34 puan\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Earth's Grasp — 0/2 (puan yok)\n- Satır 1, sütun 2: Thundering Strikes — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Ancestral Knowledge — 3/5 (kısmen alındı)\n- Satır 2, sütun 1: Guardian Totems — 0/2 (puan yok)\n- Satır 2, sütun 2: Mental Dexterity — 3/3 (tamamlandı)\n- Satır 2, sütun 3: Improved Lightning Shield — 0/3 (puan yok)\n- Satır 3, sütun 1: Elemental Weapons — 3/3 (tamamlandı)\n- Satır 3, sütun 3: Shamanistic Focus — 1/1 (tamamlandı)\n- Satır 3, sütun 4: Anticipation — 0/3 (puan yok)\n- Satır 4, sütun 1: Toughness — 0/5 (puan yok)\n- Satır 4, sütun 2: Flurry — 5/5 (tamamlandı)\n- Satır 4, sütun 3: Stormstrike — 1/1 (tamamlandı)\n- Satır 4, sütun 4: Improved Ghost Wolf — 2/2 (tamamlandı)\n- Satır 5, sütun 1: Spirit Weapons — 1/1 (tamamlandı)\n- Satır 5, sütun 2: Mental Quickness — 2/2 (tamamlandı)\n- Satır 5, sütun 3: Improved Stormstrike — 2/2 (tamamlandı)\n- Satır 6, sütun 3: Maelstrom Weapon — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Rage of the Farseer — 1/1 (tamamlandı)\n\nÖn koşul okları: Mental Dexterity → Flurry; Stormstrike → Improved Stormstrike; Mental Quickness → Rage of the Farseer.\n\n## RESTORATION — 8 puan\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Improved Healing Wave — 0/5 (puan yok)\n- Satır 1, sütun 3: Tidal Focus — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Mindfulness — 3/3 (tamamlandı)\n- Satır 2, sütun 2: Natural Grace — 0/3 (puan yok)\n- Satır 2, sütun 3: Totemic Focus — 0/5 (puan yok)\n- Satır 2, sütun 4: Improved Reincarnation — 0/2 (puan yok)\n- Satır 3, sütun 1: Ancestral Healing — 0/3 (puan yok)\n- Satır 3, sütun 2: Healing Focus — 0/3 (puan yok)\n- Satır 3, sütun 3: Water Shield — 0/1 (puan yok)\n- Satır 4, sütun 1: Tidal Mastery — 0/5 (puan yok)\n- Satır 4, sütun 2: Restorative Totems — 0/5 (puan yok)\n- Satır 4, sütun 3: Mana Tide Totem — 0/1 (puan yok)\n- Satır 5, sütun 2: Healing Way — 0/3 (puan yok)\n- Satır 5, sütun 3: Nature's Swiftness — 0/1 (puan yok)\n- Satır 6, sütun 3: Purification — 0/5 (puan yok)\n- Satır 7, sütun 2: Riptide — 0/1 (puan yok)\n\nÖn koşul okları: Healing Way → Riptide.\n\n## 60. SEVİYE PUAN DAĞILIMI\n9 / 34 / 8 — Elemental Combat 9 · Enhancement 34 · Restoration 8\nTOPLAM 51 PUAN\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok)\n\n## PUAN SIRASI · SEVİYE 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Thundering Strikes | Enhancement | +5 | 5/5 | Büyü ve saldırı kritik şansı +%5 |\n| 15–17 | Mental Dexterity | Enhancement | +3 | 3/3 | Intellect'in %150'si kadar Attack Power |\n| 18–19 | Ancestral Knowledge | Enhancement | +2 | 2/5 | Intellect +%4 |\n| 20 | Shamanistic Focus | Enhancement | +1 | 1/1 | Shock ve Lightning Shield manası −%45 |\n| 21–23 | Elemental Weapons | Enhancement | +3 | 3/3 | Silah büyüleri güçlenir, Windfury +%40 |\n| 24 | Ancestral Knowledge | Enhancement | +1 | 3/5 | Intellect +%6 |\n| 25 | Stormstrike | Enhancement | +1 | 1/1 | %150 silah hasarı, sonraki büyü +%20 |\n| 26–27 | Improved Ghost Wolf | Enhancement | +2 | 2/2 | Ghost Wolf anında açılır, kapalı alanda da |\n| 28–29 | Flurry | Enhancement | +2 | 2/5 | Kritikten sonra 3 vuruşun hızı +%12 |\n| 30–31 | Improved Stormstrike | Enhancement | +2 | 2/2 | 15 sn büyü yaparken %50 mana yenilenir |\n| 32–33 | Mental Quickness | Enhancement | +2 | 2/2 | Intellect'in %30'u kadar büyü gücü |\n| 34 | Spirit Weapons | Enhancement | +1 | 1/1 | Parry şansı verir, tehdidi ayarlar |\n| 35–39 | Tidal Focus | Restoration | +5 | 5/5 | İyileştirme manası −%5, isabet +%5 |\n| 40–42 | Mindfulness | Restoration | +3 | 3/3 | Büyü yaparken mana yenilenmesi %50 |\n| 43–45 | Flurry | Enhancement | +3 | 5/5 | Kritikten sonra 3 vuruşun hızı +%30 |\n| 46–50 | Maelstrom Weapon | Enhancement | +5 | 5/5 | 5 yığında Lightning Bolt anlık ve bedava |\n| 51 | Rage of the Farseer | Enhancement | +1 | 1/1 | 25 sn saldırı hızı +%30 |\n| 52–56 | Concussion | Elemental | +5 | 5/5 | Yıldırımlar ve Earth Shock hasarı +%5 |\n| 57–59 | Elemental Devastation | Elemental | +3 | 3/3 | Büyü kritiğinden sonra yakın kritik +%9 |\n| 60 | Call of Flame | Elemental | +1 | 1/3 | Ateş totemi, Flame Shock, Fire Nova +%5 |"
+ },
+ {
+  "id": "shaman-11-restoration-leveling",
+  "category": "class",
+  "title": "Shaman · Restoration Leveling",
+  "file": "11-Restoration-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "restoration leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "shaman",
+  "kind": "leveling",
+  "spec": "restoration",
+  "text": "# Shaman · Restoration Leveling\n\nSol üst başlık: SHAMAN — RESTORATION\nRozet: TOTİK CHANNEL — TAVSİYE EDİLEN BUILD\nSeviye aralığı: 10 → 60\nMarka: WOW FOREVER · TOTİK CHANNEL\n\n## ELEMENTAL COMBAT — 0 puan\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Convection — 0/5 (puan yok)\n- Satır 1, sütun 3: Concussion — 0/5 (puan yok)\n- Satır 2, sütun 1: Elemental Devastation — 0/3 (puan yok)\n- Satır 2, sütun 2: Reverberation — 0/5 (puan yok)\n- Satır 2, sütun 3: Elemental Alacrity — 0/3 (puan yok)\n- Satır 2, sütun 4: Call of Flame — 0/3 (puan yok)\n- Satır 3, sütun 1: Elemental Focus — 0/1 (puan yok)\n- Satır 3, sütun 2: Elemental Warding — 0/3 (puan yok)\n- Satır 4, sütun 1: Trial by Fire — 0/2 (puan yok)\n- Satır 4, sütun 2: Eye of the Storm — 0/3 (puan yok)\n- Satır 4, sütun 4: Earthbound — 0/1 (puan yok)\n- Satır 5, sütun 1: Elemental Reach — 0/2 (puan yok)\n- Satır 5, sütun 2: Call of Thunder — 0/1 (puan yok)\n- Satır 5, sütun 3: Lightning Overload — 0/3 (puan yok)\n- Satır 6, sütun 3: Elemental Fury — 0/5 (puan yok)\n- Satır 7, sütun 2: Lightning Mastery — 0/1 (puan yok)\n\nÖn koşul okları: Elemental Alacrity → Lightning Overload; Lightning Overload → Elemental Fury; Call of Thunder → Lightning Mastery.\n\n## ENHANCEMENT — 10 puan\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Earth's Grasp — 0/2 (puan yok)\n- Satır 1, sütun 2: Thundering Strikes — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Ancestral Knowledge — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Guardian Totems — 0/2 (puan yok)\n- Satır 2, sütun 2: Mental Dexterity — 0/3 (puan yok)\n- Satır 2, sütun 3: Improved Lightning Shield — 0/3 (puan yok)\n- Satır 3, sütun 1: Elemental Weapons — 0/3 (puan yok)\n- Satır 3, sütun 3: Shamanistic Focus — 0/1 (puan yok)\n- Satır 3, sütun 4: Anticipation — 0/3 (puan yok)\n- Satır 4, sütun 1: Toughness — 0/5 (puan yok)\n- Satır 4, sütun 2: Flurry — 0/5 (puan yok)\n- Satır 4, sütun 3: Stormstrike — 0/1 (puan yok)\n- Satır 4, sütun 4: Improved Ghost Wolf — 0/2 (puan yok)\n- Satır 5, sütun 1: Spirit Weapons — 0/1 (puan yok)\n- Satır 5, sütun 2: Mental Quickness — 0/2 (puan yok)\n- Satır 5, sütun 3: Improved Stormstrike — 0/2 (puan yok)\n- Satır 6, sütun 3: Maelstrom Weapon — 0/5 (puan yok)\n- Satır 7, sütun 2: Rage of the Farseer — 0/1 (puan yok)\n\nÖn koşul okları: Mental Dexterity → Flurry; Stormstrike → Improved Stormstrike; Mental Quickness → Rage of the Farseer.\n\n## RESTORATION — 41 puan\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Improved Healing Wave — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Tidal Focus — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Mindfulness — 3/3 (tamamlandı)\n- Satır 2, sütun 2: Natural Grace — 0/3 (puan yok)\n- Satır 2, sütun 3: Totemic Focus — 0/5 (puan yok)\n- Satır 2, sütun 4: Improved Reincarnation — 0/2 (puan yok)\n- Satır 3, sütun 1: Ancestral Healing — 3/3 (tamamlandı)\n- Satır 3, sütun 2: Healing Focus — 3/3 (tamamlandı)\n- Satır 3, sütun 3: Water Shield — 1/1 (tamamlandı)\n- Satır 4, sütun 1: Tidal Mastery — 5/5 (tamamlandı)\n- Satır 4, sütun 2: Restorative Totems — 5/5 (tamamlandı)\n- Satır 4, sütun 3: Mana Tide Totem — 1/1 (tamamlandı)\n- Satır 5, sütun 2: Healing Way — 3/3 (tamamlandı)\n- Satır 5, sütun 3: Nature's Swiftness — 1/1 (tamamlandı)\n- Satır 6, sütun 3: Purification — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Riptide — 1/1 (tamamlandı)\n\nÖn koşul okları: Healing Way → Riptide.\n\n## 60. SEVİYE PUAN DAĞILIMI\n0 / 10 / 41 — Elemental Combat 0 · Enhancement 10 · Restoration 41\nTOPLAM 51 PUAN\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok)\n\n## PUAN SIRASI · SEVİYE 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Tidal Focus | Restoration | +5 | 5/5 | İyileştirme manası −%5, isabet +%5 |\n| 15–17 | Mindfulness | Restoration | +3 | 3/3 | Büyü yaparken mana yenilenmesi %50 |\n| 18–19 | Improved Healing Wave | Restoration | +2 | 2/5 | Healing Wave döküm süresi −0,2 sn |\n| 20 | Water Shield | Restoration | +1 | 1/1 | Vurulunca ya da büyü kritiğinde %2 mana |\n| 21–23 | Improved Healing Wave | Restoration | +3 | 5/5 | Healing Wave döküm süresi −0,5 sn |\n| 24 | Healing Focus | Restoration | +1 | 1/3 | Heal %23 şansla hasardan gecikmez |\n| 25 | Mana Tide Totem | Restoration | +1 | 1/1 | 12 sn gruba Mana veren totem |\n| 26–29 | Tidal Mastery | Restoration | +4 | 4/5 | Heal kritik şansı +%4 |\n| 30 | Nature's Swiftness | Restoration | +1 | 1/1 | Sonraki Nature büyüsü anında atılır |\n| 31–33 | Healing Way | Restoration | +3 | 3/3 | Healing Wave iyileştirmesi +%25 |\n| 34 | Tidal Mastery | Restoration | +1 | 5/5 | Heal kritik şansı +%5 |\n| 35–39 | Purification | Restoration | +5 | 5/5 | İyileştirme etkisi +%10 |\n| 40 | Riptide | Restoration | +1 | 1/1 | 15 sn HoT, o hedefe Chain Heal +%25 |\n| 41–42 | Healing Focus | Restoration | +2 | 3/3 | Heal %70 şansla hasardan gecikmez |\n| 43–45 | Ancestral Healing | Restoration | +3 | 3/3 | Kritik healden sonra hedef zırhı +%25 |\n| 46–50 | Thundering Strikes | Enhancement | +5 | 5/5 | Büyü ve saldırı kritik şansı +%5 |\n| 51–55 | Restorative Totems | Restoration | +5 | 5/5 | Mana Spring +%25, Healing Stream +%50 |\n| 56–60 | Ancestral Knowledge | Enhancement | +5 | 5/5 | Intellect +%10 |"
+ },
+ {
+  "id": "warlock-01-irk-secimi",
+  "category": "class",
+  "title": "Warlock · Irk Secimi",
+  "file": "01-Irk-Secimi.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "irk secimi"
+  ],
+  "classKey": "warlock",
+  "kind": "race",
+  "text": "# Warlock · Irk Seçimi\n\nÜst bilgi: WARLOCK — IRKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Alliance\n\n### Human\nRuthless kritik şansını her zaman %1 artırır. The Human Spirit Spirit'ini %10 artırır, böylece manan daha hızlı dolar. Will to Survive üstündeki stun'ı anında kaldırır.\n\n### Gnome\nExpansive Mind en fazla manayı %5 artırır. Eureka! 8 saniye büyülerini %10 ucuz ve %10 güçlü yapar; DoT'lara işlemez, Shadow Bolt ve Incinerate ile kullan.\n\n## Horde\n\n### Orc\nCommand petinin hasarını %5 artırır; Warlock'un iblisleri de buna dahil. Blood Fury 15 saniye büyü gücünü %10 artırır (2 dakika bekleme).\n\n### Undead\nWill of the Forsaken korku, büyüleme ve uyku etkilerini anında kırar; PvP'de çok değerli. Touch of the Grave büyülerinde de zaman zaman hedeften can çeker.\n\n### Troll\nBerserking 15 saniye büyü döküm hızını %10 artırır; DoT'ların hızını değiştirmez. Beast Slaying hayvan türü düşmanlara %5 fazla hasar verdirir."
+ },
+ {
+  "id": "warlock-02-yetenekler-1",
+  "category": "class",
+  "title": "Warlock · Yetenekler 1",
+  "file": "02-Yetenekler-1.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "yetenekler 1"
+  ],
+  "classKey": "warlock",
+  "kind": "abilities",
+  "part": 1,
+  "text": "# Warlock · Hasar, Lanet ve Kontrol\n\nÜst bilgi: WARLOCK — YETENEKLER 1/2. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Saldırı Büyüleri\n\nTek hedefe ya da alana doğrudan hasar verir.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 1 | Shadow Bolt | 9 rank | — | Ana büyün. 3 saniyede atılır, tek hedefe Shadow hasarı vurur. |\n| 18 | Searing Pain | 6 rank | — | 1,5 saniyede atılan Fire büyüsü. Yüksek tehdit üretir, grupta dikkatli kullan. |\n| 20 | Rain of Fire | 4 rank | Alan · 8 sn | Kanal büyüsü. Hedef alana 8 saniye ateş yağdırır, içindeki bütün düşmanlara vurur. |\n| 30 | Hellfire | 3 rank | Çevren · 15 sn | Çevrendeki bütün düşmanları 15 saniye yakar, sen de aynı hasarı alırsın. Forever'da kritik vurabilir. |\n| 48 | Soul Fire | 2 rank | 1 Soul Shard | 6 saniyede atılan, çok güçlü tek Fire vuruşu. Dakikada bir kullanılır. |\n\n## Bane'ler ve DoT'lar\n\nDüşmanda kalıp zamanla hasar verir. Bane ile Curse ayrı sayılır, ikisi birlikte durur.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 1 | Immolate | 7 rank | Düşman · 15 sn | Hedefi anında yakar, sonra 15 saniye boyunca Fire hasarı vermeye devam eder. |\n| 4 | Corruption | 6 rank | Düşman · 18 sn | 18 saniye boyunca Shadow hasarı verir. 2 saniyede atılır. |\n| 8 | Bane of Agony | 6 rank | Düşman · 24 sn; Forever | 24 saniye Shadow hasarı verir, başta az, sona doğru çok vurur. Curse of Agony'nin Forever'daki adı. |\n| 60 | Bane of Doom | — | Düşman · 1 dk | 1 dakika sonra büyük Shadow hasarı vurur. Hedef bundan ölürse şansla bir Doomguard çıkar. Oyunculara atılmaz. |\n\n## Lanetler (Curse)\n\nHer düşmanda senden yalnız bir Curse olur. Duruma göre birini seç.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 4 | Curse of Weakness | 6 rank | Düşman · 2 dk | Düşmanın fiziksel hasarı 37 azalır. Tanka vuran düşmana at. |\n| 14 | Curse of Recklessness | 4 rank | Düşman · 2 dk | Düşmanın zırhı 505 azalır ama korkmaz, kaçmaz. Fear kullanacaksan atma. |\n| 20 | Curse of the Elements | 4 rank | Düşman · 5 dk | Düşmanın büyü dirençleri 75 düşer, aldığı büyü hasarı %10 artar. Forever'da bütün büyü okullarına işler. |\n| 26 | Curse of Tongues | 2 rank | Düşman · 30 sn | Düşmanın büyü atma süresi %60 uzar. Büyü yapan düşmanlarda kullan. |\n\n## Kontrol ve Kaçış\n\nDüşmanı korkutur, etkisiz bırakır ya da senden uzaklaştırır.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 8 | Fear | 3 rank | Düşman · 20 sn | Düşman 20 saniyeye kadar korkup kaçar, hasar alınca kurtulabilir. Aynı anda tek hedef. |\n| 28 | Banish | 2 rank | Düşman · 30 sn | Demon ya da Elemental düşmanı 30 saniye etkisiz bırakır. Bu sürede ona hasar da işlemez. |\n| 40 | Howl of Terror | 2 rank | 5 düşman · 15 sn | 10 metredeki en fazla 5 düşman 15 saniye korkup kaçar. 40 saniyede bir kullanılır. |\n| 42 | Death Coil | 3 rank | Düşman · 3 sn | Düşmanı 3 saniye korkuyla kaçırır, Shadow hasarı verir ve vurduğun kadar seni iyileştirir. 2 dakikada bir. |\n\n## Can, Mana ve Ruh\n\nMana, can ve Soul Shard kaynakların.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 6 | Life Tap | 6 rank | — | Canını Mana'ya çevirir: 466 artı Spirit'inin 1,1 katı kadar. Asıl Mana kaynağın budur. |\n| 10 | Drain Soul | 4 rank | Düşman · 15 sn; Forever | Kanal büyüsü. Düşman bu büyüyle ölürse kesin 1 Soul Shard alırsın. Forever'da vurdukça da düşük şansla gelir. |\n| 14 | Drain Life | 6 rank | Düşman · 5 sn | Kanal büyüsü. 5 saniye boyunca düşmanın canını çekip sana aktarır. |\n| 24 | Drain Mana | 4 rank | Düşman · 5 sn | Kanal büyüsü. 5 saniye boyunca düşmanın Mana'sını çekip sana aktarır. |\n\n## Zırh ve Kalkan\n\nKendine attığın koruma büyüleri. Her an birini açık tut.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 1 | Demon Skin | 2 rank | Sen · 30 dk | Zırhın 120 artar, 5 saniyede 5 can yenilersin. 20. seviyede yerini Demon Armor alır. |\n| 20 | Demon Armor | 5 rank | Sen · 30 dk | Zırhın 570, Shadow direncin 15 artar, 5 saniyede 15 can yenilersin. |\n| 32 | Shadow Ward | 3 rank | Sen · 30 sn | 675 Shadow hasarını emer. 30 saniyede bir kullanılır. |"
+ },
+ {
+  "id": "warlock-03-yetenekler-2",
+  "category": "class",
+  "title": "Warlock · Yetenekler 2",
+  "file": "03-Yetenekler-2.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "yetenekler 2"
+  ],
+  "classKey": "warlock",
+  "kind": "abilities",
+  "part": 2,
+  "text": "# Warlock · Demonlar, Taşlar ve Yardımcı\n\nÜst bilgi: WARLOCK — YETENEKLER 2/2. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Demonlar\n\nYanında savaşan demon'u çağırırsın. Aynı anda yalnız bir demon'un olur.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 1 | Summon Imp | — | Sınıf görevi | Uzaktan ateşle vuran küçük demon. Grubun Stamina'sını artıran Blood Pact buff'ını verir. |\n| 10 | Summon Voidwalker | — | 1 Soul Shard; Sınıf görevi | Tank demon. Düşmanı üstünde tutar, sen arkadan büyü atarsın. Tek başına en güvenli seçim. |\n| 12 | Health Funnel | 7 rank | Demon · 10 sn | Kanal büyüsü. 10 saniye boyunca kendi canından demon'una saniyede 153 can aktarırsın. |\n| 20 | Summon Succubus | — | 1 Soul Shard; Sınıf görevi | Yüksek hasar verir. Seduction ile insansı bir düşmanı uzun süre etkisiz bırakır. |\n| 20 | Summon Incubus | — | 1 Soul Shard; Sınıf görevi; Forever'da yeni | Succubus ile aynı seviyede gelen erkek demon. Kendi sınıf görevi vardır. |\n| 30 | Summon Felhunter | — | 1 Soul Shard; Sınıf görevi | Büyücülere karşı demon. Spell Lock ile büyü keser, Devour Magic ile büyü etkisini temizler. |\n| 30 | Subjugate Demon | 3 rank | 1 Soul Shard; Forever | Bir demon'u 5 dakikaya kadar kontrol edersin. Enslave Demon'ın Forever'daki adıdır. |\n| 50 | Inferno | — | Infernal Stone | Gökten Infernal indirir. Alandaki düşmanlar 2 saniye sersemler, Infernal 5 dakika senin için savaşır. |\n| 60 | Ritual of Doom | — | 5 kişi | 4 arkadaşınla Doomguard çağırırsın. Ritüel birini kurban eder, Doomguard'ı hemen Subjugate et. |\n\n## Taşlar (Soul Shard)\n\nHer taş 1 Soul Shard harcar. Taşları gruptakilere de verebilirsin.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 10 | Create Healthstone | 5 rank | — | Kullanınca anında 1440 can dolduran taş yaratır. Zor anda can iksiri gibi kullan. |\n| 18 | Create Soulstone | 5 rank | — | Bir oyuncunun ruhunu taşta saklar. O ölürse 2200 can ve 2800 Mana ile kendini diriltir. |\n| 28 | Create Firestone | 4 rank | — | Silahına takılır. Büyü kritik şansın %2, Fire büyü hasarın 21'e kadar artar. |\n| 36 | Create Spellstone | 3 rank | Forever | Silahına takılır. Büyü hızın %2, Shadow büyü hasarın 21'e kadar artar. Forever'da silah büyüsü oldu. |\n\n## Yardımcı\n\nÇağırma, keşif ve binek.\n\n| Seviye | Yetenek | Rank | Etiket | Açıklama |\n|---|---|---|---|---|\n| 16 | Unending Breath | — | Hedef · 10 dk | Hedef 10 dakika su altında nefes alır. |\n| 20 | Ritual of Summoning | — | 1 Soul Shard | Sen ve 2 grup arkadaşın portala tıklayınca uzaktaki bir grup üyesini yanınıza çağırırsınız. |\n| 22 | Eye of Kilrogg | — | 45 sn | Hızlı ama kırılgan bir göz çağırır, onun gözünden bakarak ilerideki yolu keşfedersin. |\n| 24 | Sense Demons | — | — | Yakındaki demon'ları mini haritada gösterir. |\n| 26 | Detect Invisibility | 3 rank | Hedef · 10 dk | Dost hedef 10 dakika boyunca güçlü görünmezliği görebilir. |\n| 40 | Summon Felsteed | — | Sınıf görevi | Warlock'a özel binek çağırırsın. |\n| 60 | Summon Dreadsteed | — | — | Felsteed'den hızlı, Warlock'a özel epik binek. |"
+ },
+ {
+  "id": "warlock-04-affliction-talentleri",
+  "category": "class",
+  "title": "Warlock · Affliction Talentleri",
+  "file": "04-Affliction-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "affliction talentleri"
+  ],
+  "classKey": "warlock",
+  "kind": "talents",
+  "spec": "affliction",
+  "text": "# Warlock · Affliction Talent Ağacı\n\nÜst bilgi: WARLOCK — AFFLICTION. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Affliction — 17 talent\n\nAğaç yerleşimi (satır numarası · soldan sağa talent numaraları):\n\n| Satır | Talentler (sütun sırasıyla) |\n|---|---|\n| 1 | 1 (sütun 1), 2 (sütun 2), 3 (sütun 3) |\n| 2 | 4 (sütun 1), 5 (sütun 2), 6 (sütun 3) |\n| 3 | 7 (sütun 1), 8 (sütun 2), 9 (sütun 3), 10 (sütun 4) |\n| 4 | 11 (sütun 1), 12 (sütun 2), 13 (sütun 3) |\n| 5 | 14 (sütun 2), 15 (sütun 3) |\n| 6 | 16 (sütun 3) |\n| 7 | 17 (sütun 2) |\n\nOklar: 9 → 13, 14 → 17.\n\nHer satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Improved Life Tap | 2 rank | — | Life Tap'in verdiği mana %20 artar. |\n| 2 | Suppression | 5 rank | — | Büyü isabet şansın %5 artar, ürettiğin bütün tehdit %20 azalır. |\n| 3 | Improved Corruption | 5 rank | — | Corruption anında atılır (döküm süresi 2 saniye kısalır) ve %10 fazla hasar verir. |\n| 4 | Grim Reach | 2 rank | — | Affliction büyülerinin menzili %20 artar. |\n| 5 | Soul Harvest | 2 rank | — | Drain Soul altındaki hedef ölünce 10 saniye mana yenilenmen iki katına çıkar ve büyü yaparken de sürer. |\n| 6 | Improved Drains | 3 rank | — | Drain Life, Drain Soul ve Drain Mana'nın etkisi %20 artar. |\n| 7 | Improved Bane of Agony | 2 rank | — | Bane of Agony'nin hasarı %10 artar. |\n| 8 | Fel Concentration | 3 rank | — | Hasar alınca Drain Life, Drain Mana, Drain Soul ve Wrack %70 şansla gerilemez. |\n| 9 | Amplify Curse | 1 rank | — | Sonraki Curse of Weakness ya da Bane of Agony %50, Curse of Exhaustion %20 daha güçlü olur. Bu güçlenme 30 saniye sürer. |\n| 10 | Pandemic | 3 rank | — | Corruption, Bane of Agony, Bane of Doom, Drain Life, Drain Soul, Siphon Life ve Wrack'ın kritik hasar bonusu %100 artar. |\n| 11 | Malevolence | 5 rank | — | Shadow büyülerinin kritik şansı %5 artar. |\n| 12 | Nightfall | 2 rank | — | Corruption, Drain Life, Drain Soul ve Wrack vurdukça %4 şansla sonraki Shadow Bolt'un anında çıkar. |\n| 13 | Curse of Exhaustion | 1 rank | ← Amplify Curse | Hedefi 12 saniye %30 yavaşlatır. |\n| 14 | Siphon Life | 1 rank | — | 30 saniye boyunca her 3 saniyede hedeften can çekersin. |\n| 15 | Soul Siphon | 3 rank | — | Drain Life, Drain Soul ve Wrack, hedefteki diğer her Affliction etkin için %12 güçlenir, en fazla %36. |\n| 16 | Shadow Mastery | 5 rank | — | Shadow büyülerinin hasarı ve çektiği can %10 artar. |\n| 17 | Wrack | 1 rank | ← Siphon Life | 6 saniye kanalize edilen bir büyüdür, her saniye Shadow hasarı verir. Bu sürede diğer Shadow DoT'ların %10 fazla vurur. |"
+ },
+ {
+  "id": "warlock-05-demonology-talentleri",
+  "category": "class",
+  "title": "Warlock · Demonology Talentleri",
+  "file": "05-Demonology-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "demonology talentleri"
+  ],
+  "classKey": "warlock",
+  "kind": "talents",
+  "spec": "demonology",
+  "text": "# Warlock · Demonology Talent Ağacı\n\nÜst bilgi: WARLOCK — DEMONOLOGY. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Demonology — 19 talent\n\nAğaç yerleşimi (satır numarası · soldan sağa talent numaraları):\n\n| Satır | Talentler (sütun sırasıyla) |\n|---|---|\n| 1 | 1 (sütun 1), 2 (sütun 2), 3 (sütun 3), 4 (sütun 4) |\n| 2 | 5 (sütun 1), 6 (sütun 2), 7 (sütun 3), 8 (sütun 4) |\n| 3 | 9 (sütun 1), 10 (sütun 2), 11 (sütun 3) |\n| 4 | 12 (sütun 1), 13 (sütun 3), 14 (sütun 4) |\n| 5 | 15 (sütun 1), 16 (sütun 2), 17 (sütun 3) |\n| 6 | 18 (sütun 3) |\n| 7 | 19 (sütun 2) |\n\nOklar: 10 → 16, 11 → 13, 16 → 19.\n\nHer satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Improved Health Funnel | 2 rank | — | Health Funnel %40 fazla can aktarır, %30 daha az can harcar ve tehdit üretmez. |\n| 2 | Improved Imp | 3 rank | — | Imp'in Firebolt hasarı ve Fire Shield etkisi %30 artar. |\n| 3 | Demonic Embrace | 5 rank | — | Toplam Stamina'n %15 artar. |\n| 4 | Unholy Power | 5 rank | — | Imp, Voidwalker, Succubus ve Felhunter'ın hasarı %10 artar. |\n| 5 | Demonic Aegis | 2 rank | — | Demon Skin ve Demon Armor'un etkisi %30 artar. |\n| 6 | Improved Voidwalker | 3 rank | — | Voidwalker'ın yeteneklerinin etkisi %30 artar. |\n| 7 | Fel Vitality | 3 rank | — | Petinin canı ve manası %15, senin toplam manan %15 artar. |\n| 8 | Demonic Energies | 2 rank | — | Verdiğin büyü hasarının %15'i kadar petini iyileştirirsin. Life Tap'ten aldığın mana petine de gider. |\n| 9 | Improved Sayaad | 3 rank | — | Succubus'ın Lash of Pain ve Soothing Kiss etkisi ile Seduction süresi %30 artar. |\n| 10 | Demonic Sacrifice | 1 rank | — | Petini feda edip 2 saat bonus alırsın. Imp'i feda edersen Shadow, Succubus'ı feda edersen Fire hasarın %15 artar. |\n| 11 | Master Summoner | 2 rank | — | Pet çağırmanın döküm süresi 4 saniye kısalır, mana maliyeti %40 azalır. |\n| 12 | Decimation | 2 rank | — | Soul Fire'ın bekleme süresi %90 kısalır. Canı %35'in altındaki hedefe vurunca Soul Fire %40 daha hızlı dökülür ve Soul Shard harcamaz. |\n| 13 | Fel Domination | 1 rank | ← Master Summoner | Sonraki pet çağırman 5,5 saniye daha kısa sürer ve %50 daha az mana harcar. |\n| 14 | Demonic Brand | 3 rank | — | Searing Pain hedefi damgalar. Petinin o hedefe sonraki 6 saldırısı ek hasar verir. |\n| 15 | Improved Felhunter | 3 rank | — | Felhunter'ın yetenekleri %30 güçlenir, Spell Lock'un bekleme süresi 6 saniye kısalır. |\n| 16 | Soul Link | 1 rank | ← Demonic Sacrifice | Aldığın hasarın %30'unu petin üstlenir. Sen ve petin %3 fazla hasar verirsiniz. |\n| 17 | Demonic Knowledge | 3 rank | — | Petin açıkken sen ve petin seviyen kadar büyü gücü kazanırsınız. |\n| 18 | Master Demonologist | 5 rank | — | Açık pete göre ikiniz de güçlenirsiniz. Imp Fire, Succubus Shadow hasarını %10 artırır. Voidwalker fiziksel, Felhunter büyü hasarını %10 azaltır. |\n| 19 | Demonic Pact | 1 rank | ← Soul Link | Başka pet çağırınca Demonic Sacrifice bonusu sürer. Feda ettiğin peti yeniden çağırırsan biter. |"
+ },
+ {
+  "id": "warlock-06-destruction-talentleri",
+  "category": "class",
+  "title": "Warlock · Destruction Talentleri",
+  "file": "06-Destruction-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "destruction talentleri"
+  ],
+  "classKey": "warlock",
+  "kind": "talents",
+  "spec": "destruction",
+  "text": "# Warlock · Destruction Talent Ağacı\n\nÜst bilgi: WARLOCK — DESTRUCTION. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Destruction — 16 talent\n\nAğaç yerleşimi (satır numarası · soldan sağa talent numaraları):\n\n| Satır | Talentler (sütun sırasıyla) |\n|---|---|\n| 1 | 1 (sütun 1), 2 (sütun 2), 3 (sütun 3) |\n| 2 | 4 (sütun 1), 5 (sütun 2), 6 (sütun 3) |\n| 3 | 7 (sütun 2), 8 (sütun 3) |\n| 4 | 9 (sütun 1), 10 (sütun 2), 11 (sütun 3) |\n| 5 | 12 (sütun 1), 13 (sütun 2), 14 (sütun 3) |\n| 6 | 15 (sütun 3) |\n| 7 | 16 (sütun 2) |\n\nOklar: 9 → 12, 11 → 14, 13 → 16.\n\nHer satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Destructive Reach | 2 rank | — | Destruction büyülerinin menzili %20 artar. |\n| 2 | Improved Shadow Bolt | 5 rank | — | Shadow Bolt kritik vurunca hedef 12 saniye senden %20 fazla Shadow hasarı alır. |\n| 3 | Bane | 5 rank | — | Shadow Bolt, Immolate ve Incinerate 0,5 saniye, Soul Fire 2 saniye daha hızlı dökülür. |\n| 4 | Molten Skin | 5 rank | — | Aldığın bütün hasar %10 azalır. |\n| 5 | Cataclysm | 3 rank | — | Destruction büyülerinin mana maliyeti %10 azalır. |\n| 6 | Aftermath | 5 rank | — | Immolate'in ilk hasarı %50 artar. Conflagrate hedefi yavaşlatır. |\n| 7 | Ruin | 5 rank | — | Destruction büyülerinin kritik hasar bonusu %100 artar. |\n| 8 | Shadowburn | 1 rank | — | Anında Shadow hasarı verir. Hedef 8 saniye içinde ölürse Soul Shard kazanırsın. |\n| 9 | Intensity | 3 rank | — | Hasar alınca Destruction büyülerin %70 şansla gerilemez. |\n| 10 | Agonizing Flames | 3 rank | — | Destruction büyülerinin hasarı %10, Searing Pain'in kritik şansı %10 artar. |\n| 11 | Conflagrate | 1 rank | — | Immolate'li hedefe anında Fire hasarı verir ve Immolate'i tüketir. |\n| 12 | Pyroclasm | 2 rank | ← Intensity | Soul Fire, Rain of Fire ve Hellfire %26 şansla hedefi 3 saniye sersemletir. |\n| 13 | Bane of Havoc | 1 rank | — | 5 dakika boyunca başka hedeflere verdiğin hasarın %15'i bu hedefe de gider. |\n| 14 | Fire and Brimstone | 3 rank | ← Conflagrate | Conflagrate'in kritik şansı %25 artar. |\n| 15 | Shadow and Flame | 5 rank | — | Conflagrate Shadow hasarını, Shadowburn Fire hasarını %20 artırır. Conflagrate Immolate'i tüketmez, Shadowburn Soul Shard'ı geri verir. |\n| 16 | Incinerate | 1 rank | ← Bane of Havoc | Fire hasarı verir. Hedefte Immolate varsa %25 fazla vurur. |"
+ },
+ {
+  "id": "warlock-07-oynanis",
+  "category": "class",
+  "title": "Warlock · Oynanis",
+  "file": "07-Oynanis.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "oynanis"
+  ],
+  "classKey": "warlock",
+  "kind": "gameplay",
+  "text": "# Warlock · Oynanış Önceliği\n\nÜst bilgi: WARLOCK — OYNANIŞ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Affliction\n\nPet rozeti: Succubus\n\n| Öncelik | Yetenek | Açıklama |\n|---|---|---|\n| 1 | Bane of Doom | Bane of Agony yerine, hedef 60 saniyeden uzun yaşayacaksa bunu at. |\n| 2 | Corruption | Hedefte yoksa at, bitince yenile. |\n| 3 | Siphon Life | Hedefte yoksa at, bitince yenile. |\n| 4 | Immolate | Bitmek üzereyken yenile. |\n| 5 | Shadow Bolt | Yalnız Nightfall onu anında yapınca at. |\n| 6 | Wrack | Yapacak başka iş yokken kanalize et. Üstteki bir büyü gerekince kes. |\n\nÇOK HEDEF: İki düşmanda ikinciye Corruption, 30 saniyeden uzun yaşayacaksa Bane of Agony ve Siphon Life at. Üç ya da daha fazla düşmanda Hellfire kullan, içine girmek tehlikeliyse Rain of Fire at.\n\n## Demonology\n\nPet rozeti: Imp feda, Succubus açık\n\n| Öncelik | Yetenek | Açıklama |\n|---|---|---|\n| 1 | Bane of Doom | Bane of Agony yerine, hedef 60 saniyeden uzun yaşayacaksa bunu at. |\n| 2 | Searing Pain | Petinin hedefinde Demonic Brand yoksa at. |\n| 3 | Immolate | Bitmek üzereyken yenile. |\n| 4 | Corruption | Bitmek üzereyken yenile. |\n| 5 | Life Tap | Mana gerektiğinde kullan. |\n| 6 | Shadow Bolt | Ara büyün budur, yapacak başka bir şey yokken at. |\n\nÇOK HEDEF: İki düşmanda ikinciye Corruption ve Immolate, 30 saniyeden uzun yaşayacaksa Bane of Agony at. Üç ya da daha fazla düşmanda Hellfire kullan, tehlikeliyse Rain of Fire at.\n\n## Destruction\n\nPet rozeti: Succubus feda ya da açık\n\n| Öncelik | Yetenek | Açıklama |\n|---|---|---|\n| 1 | Bane of Doom | Bane of Agony yerine, hedef 60 saniyeden uzun yaşayacaksa bunu at. |\n| 2 | Immolate | Bitmek üzereyken yenile. |\n| 3 | Corruption | Bitince yenile. |\n| 4 | Conflagrate | Hazır olduğu an kullan. Hedefte Immolate olmalı. |\n| 5 | Shadowburn | Shadow and Flame'in Fire güçlendirmesi yoksa ya da 3 saniyeden az kaldıysa at. |\n| 6 | Incinerate | Ara büyün budur, yapacak başka bir şey yokken at. |\n\nÇOK HEDEF: İki düşmanda ikinciye Bane of Havoc at, öbürüne vurduğun hasarın %15'i ona da gider. Üç ya da daha fazla düşmanda Hellfire kullan, tehlikeliyse Rain of Fire at.\n\n## Kural\n\nKURAL: Grubun istediği Curse hedefte olsun, yoksa Curse of the Elements at. Curse ile Bane birlikte durabilir. Mana için Life Tap kullan, tercihen yürürken."
+ },
+ {
+  "id": "warlock-08-affliction-leveling",
+  "category": "class",
+  "title": "Warlock · Affliction Leveling",
+  "file": "08-Affliction-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "affliction leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "warlock",
+  "kind": "leveling",
+  "spec": "affliction",
+  "text": "# Warlock · Affliction Leveling\n\nÜst bilgi: WARLOCK — AFFLICTION. WOW FOREVER · TOTİK CHANNEL. Rozet: TAVSİYE EDİLEN BUILD.\n\nSeviye aralığı: 10 → 60\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n### Affliction — 40 puan\n\n- Satır 1, sütun 1: Improved Life Tap — 2/2 (tamamlandı)\n- Satır 1, sütun 2: Suppression — 4/5 (kısmen alındı)\n- Satır 1, sütun 3: Improved Corruption — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Grim Reach — 2/2 (tamamlandı)\n- Satır 2, sütun 2: Soul Harvest — 0/2 (puan yok)\n- Satır 2, sütun 3: Improved Drains — 3/3 (tamamlandı)\n- Satır 3, sütun 1: Improved Bane of Agony — 2/2 (tamamlandı)\n- Satır 3, sütun 2: Fel Concentration — 2/3 (kısmen alındı)\n- Satır 3, sütun 3: Amplify Curse — 0/1 (puan yok)\n- Satır 3, sütun 4: Pandemic — 3/3 (tamamlandı)\n- Satır 4, sütun 1: Malevolence — 5/5 (tamamlandı)\n- Satır 4, sütun 2: Nightfall — 2/2 (tamamlandı)\n- Satır 4, sütun 3: Curse of Exhaustion — 0/1 (puan yok)\n- Satır 5, sütun 2: Siphon Life — 1/1 (tamamlandı)\n- Satır 5, sütun 3: Soul Siphon — 3/3 (tamamlandı)\n- Satır 6, sütun 3: Shadow Mastery — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Wrack — 1/1 (tamamlandı)\n\nÖn koşul okları: Amplify Curse → Curse of Exhaustion; Siphon Life → Wrack.\n\n### Demonology — 11 puan\n\n- Satır 1, sütun 1: Improved Health Funnel — 0/2 (puan yok)\n- Satır 1, sütun 2: Improved Imp — 0/3 (puan yok)\n- Satır 1, sütun 3: Demonic Embrace — 5/5 (tamamlandı)\n- Satır 1, sütun 4: Unholy Power — 0/5 (puan yok)\n- Satır 2, sütun 1: Demonic Aegis — 2/2 (tamamlandı)\n- Satır 2, sütun 2: Improved Voidwalker — 0/3 (puan yok)\n- Satır 2, sütun 3: Fel Vitality — 3/3 (tamamlandı)\n- Satır 2, sütun 4: Demonic Energies — 0/2 (puan yok)\n- Satır 3, sütun 1: Improved Sayaad — 0/3 (puan yok)\n- Satır 3, sütun 2: Demonic Sacrifice — 1/1 (tamamlandı)\n- Satır 3, sütun 3: Master Summoner — 0/2 (puan yok)\n- Satır 4, sütun 1: Decimation — 0/2 (puan yok)\n- Satır 4, sütun 3: Fel Domination — 0/1 (puan yok)\n- Satır 4, sütun 4: Demonic Brand — 0/3 (puan yok)\n- Satır 5, sütun 1: Improved Felhunter — 0/3 (puan yok)\n- Satır 5, sütun 2: Soul Link — 0/1 (puan yok)\n- Satır 5, sütun 3: Demonic Knowledge — 0/3 (puan yok)\n- Satır 6, sütun 3: Master Demonologist — 0/5 (puan yok)\n- Satır 7, sütun 2: Demonic Pact — 0/1 (puan yok)\n\nÖn koşul okları: Master Summoner → Fel Domination; Demonic Sacrifice → Soul Link; Soul Link → Demonic Pact.\n\n### Destruction — 0 puan\n\n- Satır 1, sütun 1: Destructive Reach — 0/2 (puan yok)\n- Satır 1, sütun 2: Improved Shadow Bolt — 0/5 (puan yok)\n- Satır 1, sütun 3: Bane — 0/5 (puan yok)\n- Satır 2, sütun 1: Molten Skin — 0/5 (puan yok)\n- Satır 2, sütun 2: Cataclysm — 0/3 (puan yok)\n- Satır 2, sütun 3: Aftermath — 0/5 (puan yok)\n- Satır 3, sütun 2: Ruin — 0/5 (puan yok)\n- Satır 3, sütun 3: Shadowburn — 0/1 (puan yok)\n- Satır 4, sütun 1: Intensity — 0/3 (puan yok)\n- Satır 4, sütun 2: Agonizing Flames — 0/3 (puan yok)\n- Satır 4, sütun 3: Conflagrate — 0/1 (puan yok)\n- Satır 5, sütun 1: Pyroclasm — 0/2 (puan yok)\n- Satır 5, sütun 2: Bane of Havoc — 0/1 (puan yok)\n- Satır 5, sütun 3: Fire and Brimstone — 0/3 (puan yok)\n- Satır 6, sütun 3: Shadow and Flame — 0/5 (puan yok)\n- Satır 7, sütun 2: Incinerate — 0/1 (puan yok)\n\nÖn koşul okları: Intensity → Pyroclasm; Conflagrate → Fire and Brimstone; Bane of Havoc → Incinerate.\n\n## 60. Seviye Puan Dağılımı\n\n40 / 11 / 0 — Affliction 40, Demonology 11, Destruction 0. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–13 | Suppression | Affliction | +4 | 4/5 | İsabet +%4, tehdit −%16 |\n| 14–18 | Improved Corruption | Affliction | +5 | 5/5 | Corruption anında, hasarı +%10 |\n| 19 | Grim Reach | Affliction | +1 | 1/2 | Affliction büyü menzili +%10 |\n| 20–21 | Improved Bane of Agony | Affliction | +2 | 2/2 | Bane of Agony hasarı +%10 |\n| 22–24 | Pandemic | Affliction | +3 | 3/3 | DoT ve Drain kritik hasarı +%100 |\n| 25–26 | Nightfall | Affliction | +2 | 2/2 | %4 şansla sonraki Shadow Bolt anında |\n| 27–29 | Malevolence | Affliction | +3 | 3/5 | Shadow kritik şansı +%3 |\n| 30 | Siphon Life | Affliction | +1 | 1/1 | 30 sn boyunca hedeften can çeker |\n| 31–35 | Demonic Embrace | Demonology | +5 | 5/5 | Toplam Stamina +%15 |\n| 36–37 | Demonic Aegis | Demonology | +2 | 2/2 | Demon Skin ve Demon Armor +%30 |\n| 38–40 | Fel Vitality | Demonology | +3 | 3/3 | Petin can ve manası, senin manan +%15 |\n| 41 | Demonic Sacrifice | Demonology | +1 | 1/1 | Imp'ten Shadow, Succubus'tan Fire +%15 |\n| 42–43 | Malevolence | Affliction | +2 | 5/5 | Shadow kritik şansı +%5 |\n| 44 | Grim Reach | Affliction | +1 | 2/2 | Affliction büyü menzili +%20 |\n| 45 | Improved Life Tap | Affliction | +1 | 1/2 | Life Tap manası +%10 |\n| 46–50 | Shadow Mastery | Affliction | +5 | 5/5 | Shadow hasarı ve can çekme +%10 |\n| 51 | Wrack | Affliction | +1 | 1/1 | Kanal büyüsü, DoT'lar %10 fazla vurur |\n| 52 | Improved Life Tap | Affliction | +1 | 2/2 | Life Tap manası +%20 |\n| 53–55 | Soul Siphon | Affliction | +3 | 3/3 | Diğer her etki için Drain ve Wrack +%12 |\n| 56–58 | Improved Drains | Affliction | +3 | 3/3 | Üç Drain büyüsünün etkisi +%20 |\n| 59–60 | Fel Concentration | Affliction | +2 | 2/3 | Drain ve Wrack %47 şansla gerilemez |"
+ },
+ {
+  "id": "warlock-09-demonology-leveling",
+  "category": "class",
+  "title": "Warlock · Demonology Leveling",
+  "file": "09-Demonology-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "demonology leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "warlock",
+  "kind": "leveling",
+  "spec": "demonology",
+  "text": "# Warlock · Demonology Leveling\n\nÜst bilgi: WARLOCK — DEMONOLOGY. WOW FOREVER · TOTİK CHANNEL. Rozet: TAVSİYE EDİLEN BUILD.\n\nSeviye aralığı: 10 → 60\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n### Affliction — 20 puan\n\n- Satır 1, sütun 1: Improved Life Tap — 1/2 (kısmen alındı)\n- Satır 1, sütun 2: Suppression — 4/5 (kısmen alındı)\n- Satır 1, sütun 3: Improved Corruption — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Grim Reach — 0/2 (puan yok)\n- Satır 2, sütun 2: Soul Harvest — 0/2 (puan yok)\n- Satır 2, sütun 3: Improved Drains — 0/3 (puan yok)\n- Satır 3, sütun 1: Improved Bane of Agony — 2/2 (tamamlandı)\n- Satır 3, sütun 2: Fel Concentration — 0/3 (puan yok)\n- Satır 3, sütun 3: Amplify Curse — 0/1 (puan yok)\n- Satır 3, sütun 4: Pandemic — 3/3 (tamamlandı)\n- Satır 4, sütun 1: Malevolence — 5/5 (tamamlandı)\n- Satır 4, sütun 2: Nightfall — 0/2 (puan yok)\n- Satır 4, sütun 3: Curse of Exhaustion — 0/1 (puan yok)\n- Satır 5, sütun 2: Siphon Life — 0/1 (puan yok)\n- Satır 5, sütun 3: Soul Siphon — 0/3 (puan yok)\n- Satır 6, sütun 3: Shadow Mastery — 0/5 (puan yok)\n- Satır 7, sütun 2: Wrack — 0/1 (puan yok)\n\nÖn koşul okları: Amplify Curse → Curse of Exhaustion; Siphon Life → Wrack.\n\n### Demonology — 31 puan\n\n- Satır 1, sütun 1: Improved Health Funnel — 0/2 (puan yok)\n- Satır 1, sütun 2: Improved Imp — 0/3 (puan yok)\n- Satır 1, sütun 3: Demonic Embrace — 0/5 (puan yok)\n- Satır 1, sütun 4: Unholy Power — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Demonic Aegis — 1/2 (kısmen alındı)\n- Satır 2, sütun 2: Improved Voidwalker — 3/3 (tamamlandı)\n- Satır 2, sütun 3: Fel Vitality — 3/3 (tamamlandı)\n- Satır 2, sütun 4: Demonic Energies — 2/2 (tamamlandı)\n- Satır 3, sütun 1: Improved Sayaad — 0/3 (puan yok)\n- Satır 3, sütun 2: Demonic Sacrifice — 1/1 (tamamlandı)\n- Satır 3, sütun 3: Master Summoner — 2/2 (tamamlandı)\n- Satır 4, sütun 1: Decimation — 0/2 (puan yok)\n- Satır 4, sütun 3: Fel Domination — 1/1 (tamamlandı)\n- Satır 4, sütun 4: Demonic Brand — 3/3 (tamamlandı)\n- Satır 5, sütun 1: Improved Felhunter — 0/3 (puan yok)\n- Satır 5, sütun 2: Soul Link — 1/1 (tamamlandı)\n- Satır 5, sütun 3: Demonic Knowledge — 3/3 (tamamlandı)\n- Satır 6, sütun 3: Master Demonologist — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Demonic Pact — 1/1 (tamamlandı)\n\nÖn koşul okları: Master Summoner → Fel Domination; Demonic Sacrifice → Soul Link; Soul Link → Demonic Pact.\n\n### Destruction — 0 puan\n\n- Satır 1, sütun 1: Destructive Reach — 0/2 (puan yok)\n- Satır 1, sütun 2: Improved Shadow Bolt — 0/5 (puan yok)\n- Satır 1, sütun 3: Bane — 0/5 (puan yok)\n- Satır 2, sütun 1: Molten Skin — 0/5 (puan yok)\n- Satır 2, sütun 2: Cataclysm — 0/3 (puan yok)\n- Satır 2, sütun 3: Aftermath — 0/5 (puan yok)\n- Satır 3, sütun 2: Ruin — 0/5 (puan yok)\n- Satır 3, sütun 3: Shadowburn — 0/1 (puan yok)\n- Satır 4, sütun 1: Intensity — 0/3 (puan yok)\n- Satır 4, sütun 2: Agonizing Flames — 0/3 (puan yok)\n- Satır 4, sütun 3: Conflagrate — 0/1 (puan yok)\n- Satır 5, sütun 1: Pyroclasm — 0/2 (puan yok)\n- Satır 5, sütun 2: Bane of Havoc — 0/1 (puan yok)\n- Satır 5, sütun 3: Fire and Brimstone — 0/3 (puan yok)\n- Satır 6, sütun 3: Shadow and Flame — 0/5 (puan yok)\n- Satır 7, sütun 2: Incinerate — 0/1 (puan yok)\n\nÖn koşul okları: Intensity → Pyroclasm; Conflagrate → Fire and Brimstone; Bane of Havoc → Incinerate.\n\n## 60. Seviye Puan Dağılımı\n\n20 / 31 / 0 — Affliction 20, Demonology 31, Destruction 0. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Unholy Power | Demonology | +5 | 5/5 | Pet hasarı +%10 |\n| 15–16 | Demonic Energies | Demonology | +2 | 2/2 | Büyü hasarının %15'i peti iyileştirir |\n| 17–19 | Fel Vitality | Demonology | +3 | 3/3 | Petin can ve manası, senin manan +%15 |\n| 20–21 | Master Summoner | Demonology | +2 | 2/2 | Pet çağırma −4 sn, %40 daha ucuz |\n| 22–24 | Improved Voidwalker | Demonology | +3 | 3/3 | Voidwalker yetenekleri +%30 |\n| 25–27 | Demonic Brand | Demonology | +3 | 3/3 | Searing Pain damgası petine ek hasar |\n| 28 | Fel Domination | Demonology | +1 | 1/1 | Sonraki pet çağırma hızlı ve ucuz |\n| 29 | Demonic Sacrifice | Demonology | +1 | 1/1 | Imp'ten Shadow, Succubus'tan Fire +%15 |\n| 30 | Soul Link | Demonology | +1 | 1/1 | Hasarın %30'unu pet alır, hasar +%3 |\n| 31–33 | Demonic Knowledge | Demonology | +3 | 3/3 | Pet varken seviyen kadar büyü gücü |\n| 34 | Demonic Aegis | Demonology | +1 | 1/2 | Demon Skin ve Demon Armor +%15 |\n| 35–39 | Master Demonologist | Demonology | +5 | 5/5 | Açık pete göre ikinize de bonus |\n| 40 | Demonic Pact | Demonology | +1 | 1/1 | Başka pet çağırınca feda bonusu kalır |\n| 41–44 | Suppression | Affliction | +4 | 4/5 | İsabet +%4, tehdit −%16 |\n| 45–49 | Improved Corruption | Affliction | +5 | 5/5 | Corruption anında, hasarı +%10 |\n| 50 | Improved Life Tap | Affliction | +1 | 1/2 | Life Tap manası +%10 |\n| 51–52 | Improved Bane of Agony | Affliction | +2 | 2/2 | Bane of Agony hasarı +%10 |\n| 53–55 | Pandemic | Affliction | +3 | 3/3 | DoT ve Drain kritik hasarı +%100 |\n| 56–60 | Malevolence | Affliction | +5 | 5/5 | Shadow kritik şansı +%5 |"
+ },
+ {
+  "id": "warlock-10-destruction-leveling",
+  "category": "class",
+  "title": "Warlock · Destruction Leveling",
+  "file": "10-Destruction-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "destruction leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "warlock",
+  "kind": "leveling",
+  "spec": "destruction",
+  "text": "# Warlock · Destruction Leveling\n\nÜst bilgi: WARLOCK — DESTRUCTION. WOW FOREVER · TOTİK CHANNEL. Rozet: TAVSİYE EDİLEN BUILD.\n\nSeviye aralığı: 10 → 60\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n### Affliction — 6 puan\n\n- Satır 1, sütun 1: Improved Life Tap — 2/2 (tamamlandı)\n- Satır 1, sütun 2: Suppression — 4/5 (kısmen alındı)\n- Satır 1, sütun 3: Improved Corruption — 0/5 (puan yok)\n- Satır 2, sütun 1: Grim Reach — 0/2 (puan yok)\n- Satır 2, sütun 2: Soul Harvest — 0/2 (puan yok)\n- Satır 2, sütun 3: Improved Drains — 0/3 (puan yok)\n- Satır 3, sütun 1: Improved Bane of Agony — 0/2 (puan yok)\n- Satır 3, sütun 2: Fel Concentration — 0/3 (puan yok)\n- Satır 3, sütun 3: Amplify Curse — 0/1 (puan yok)\n- Satır 3, sütun 4: Pandemic — 0/3 (puan yok)\n- Satır 4, sütun 1: Malevolence — 0/5 (puan yok)\n- Satır 4, sütun 2: Nightfall — 0/2 (puan yok)\n- Satır 4, sütun 3: Curse of Exhaustion — 0/1 (puan yok)\n- Satır 5, sütun 2: Siphon Life — 0/1 (puan yok)\n- Satır 5, sütun 3: Soul Siphon — 0/3 (puan yok)\n- Satır 6, sütun 3: Shadow Mastery — 0/5 (puan yok)\n- Satır 7, sütun 2: Wrack — 0/1 (puan yok)\n\nÖn koşul okları: Amplify Curse → Curse of Exhaustion; Siphon Life → Wrack.\n\n### Demonology — 11 puan\n\n- Satır 1, sütun 1: Improved Health Funnel — 0/2 (puan yok)\n- Satır 1, sütun 2: Improved Imp — 0/3 (puan yok)\n- Satır 1, sütun 3: Demonic Embrace — 5/5 (tamamlandı)\n- Satır 1, sütun 4: Unholy Power — 0/5 (puan yok)\n- Satır 2, sütun 1: Demonic Aegis — 2/2 (tamamlandı)\n- Satır 2, sütun 2: Improved Voidwalker — 0/3 (puan yok)\n- Satır 2, sütun 3: Fel Vitality — 3/3 (tamamlandı)\n- Satır 2, sütun 4: Demonic Energies — 0/2 (puan yok)\n- Satır 3, sütun 1: Improved Sayaad — 0/3 (puan yok)\n- Satır 3, sütun 2: Demonic Sacrifice — 1/1 (tamamlandı)\n- Satır 3, sütun 3: Master Summoner — 0/2 (puan yok)\n- Satır 4, sütun 1: Decimation — 0/2 (puan yok)\n- Satır 4, sütun 3: Fel Domination — 0/1 (puan yok)\n- Satır 4, sütun 4: Demonic Brand — 0/3 (puan yok)\n- Satır 5, sütun 1: Improved Felhunter — 0/3 (puan yok)\n- Satır 5, sütun 2: Soul Link — 0/1 (puan yok)\n- Satır 5, sütun 3: Demonic Knowledge — 0/3 (puan yok)\n- Satır 6, sütun 3: Master Demonologist — 0/5 (puan yok)\n- Satır 7, sütun 2: Demonic Pact — 0/1 (puan yok)\n\nÖn koşul okları: Master Summoner → Fel Domination; Demonic Sacrifice → Soul Link; Soul Link → Demonic Pact.\n\n### Destruction — 34 puan\n\n- Satır 1, sütun 1: Destructive Reach — 2/2 (tamamlandı)\n- Satır 1, sütun 2: Improved Shadow Bolt — 0/5 (puan yok)\n- Satır 1, sütun 3: Bane — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Molten Skin — 0/5 (puan yok)\n- Satır 2, sütun 2: Cataclysm — 0/3 (puan yok)\n- Satır 2, sütun 3: Aftermath — 5/5 (tamamlandı)\n- Satır 3, sütun 2: Ruin — 4/5 (kısmen alındı)\n- Satır 3, sütun 3: Shadowburn — 1/1 (tamamlandı)\n- Satır 4, sütun 1: Intensity — 3/3 (tamamlandı)\n- Satır 4, sütun 2: Agonizing Flames — 3/3 (tamamlandı)\n- Satır 4, sütun 3: Conflagrate — 1/1 (tamamlandı)\n- Satır 5, sütun 1: Pyroclasm — 0/2 (puan yok)\n- Satır 5, sütun 2: Bane of Havoc — 1/1 (tamamlandı)\n- Satır 5, sütun 3: Fire and Brimstone — 3/3 (tamamlandı)\n- Satır 6, sütun 3: Shadow and Flame — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Incinerate — 1/1 (tamamlandı)\n\nÖn koşul okları: Intensity → Pyroclasm; Conflagrate → Fire and Brimstone; Bane of Havoc → Incinerate.\n\n## 60. Seviye Puan Dağılımı\n\n6 / 11 / 34 — Affliction 6, Demonology 11, Destruction 34. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Bane | Destruction | +5 | 5/5 | Shadow Bolt ve Immolate döküm −0,5 sn |\n| 15–19 | Aftermath | Destruction | +5 | 5/5 | Immolate ilk hasarı +%50 |\n| 20 | Shadowburn | Destruction | +1 | 1/1 | Anında vuruş, öldürürse Soul Shard |\n| 21–22 | Destructive Reach | Destruction | +2 | 2/2 | Destruction büyü menzili +%20 |\n| 23–24 | Ruin | Destruction | +2 | 2/5 | Destruction kritik hasarı +%40 |\n| 25 | Conflagrate | Destruction | +1 | 1/1 | Immolate'i patlatır, anında Fire hasarı |\n| 26–28 | Intensity | Destruction | +3 | 3/3 | Vurulunca büyüler %70 şansla gerilemez |\n| 29 | Agonizing Flames | Destruction | +1 | 1/3 | Destruction hasarı +%3 |\n| 30–32 | Fire and Brimstone | Destruction | +3 | 3/3 | Conflagrate kritik şansı +%25 |\n| 33 | Bane of Havoc | Destruction | +1 | 1/1 | Başka hedefe vurduğunun %15'i buna da |\n| 34 | Agonizing Flames | Destruction | +1 | 2/3 | Destruction hasarı +%7 |\n| 35–39 | Shadow and Flame | Destruction | +5 | 5/5 | Conflagrate ve Shadowburn sonrası +%20 |\n| 40 | Incinerate | Destruction | +1 | 1/1 | Fire vuruşu, Immolate'li hedefe +%25 |\n| 41 | Agonizing Flames | Destruction | +1 | 3/3 | Destruction hasarı +%10 |\n| 42–45 | Suppression | Affliction | +4 | 4/5 | İsabet +%4, tehdit −%16 |\n| 46–50 | Demonic Embrace | Demonology | +5 | 5/5 | Toplam Stamina +%15 |\n| 51–52 | Demonic Aegis | Demonology | +2 | 2/2 | Demon Skin ve Demon Armor +%30 |\n| 53–55 | Fel Vitality | Demonology | +3 | 3/3 | Petin can ve manası, senin manan +%15 |\n| 56 | Demonic Sacrifice | Demonology | +1 | 1/1 | Imp'ten Shadow, Succubus'tan Fire +%15 |\n| 57–58 | Improved Life Tap | Affliction | +2 | 2/2 | Life Tap manası +%20 |\n| 59–60 | Ruin | Destruction | +2 | 4/5 | Destruction kritik hasarı +%80 |"
+ },
+ {
+  "id": "warrior-01-irk-secimi",
+  "category": "class",
+  "title": "Warrior · Irk Secimi",
+  "file": "01-Irk-Secimi.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "irk secimi"
+  ],
+  "classKey": "warrior",
+  "kind": "race",
+  "text": "# Warrior · Irk Seçimi\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: WARRIOR — IRKLAR\n\n## Alliance\n\n### Human\n\nRuthless kritik şansını her zaman %1 artırır. Warrior'da kritik oto saldırı iki kat Rage verdiği için bu hem hasar hem Rage demek. Will to Survive üstündeki stun'ı anında kaldırır.\n\n### Dwarf\n\nArtisan's Precision isabet şansını %1 artırır, daha az ıskalarsın. Stoneform 8 saniye fiziksel hasarı %10 azaltır; tank için iyi bir savunma.\n\n### Night Elf\n\nElune's Light 15 saniye kritik şansını %10 artırır; daha çok kritik, daha çok Rage demek. Quickness dodge şansını biraz artırır, tankken işe yarar.\n\n### Gnome\n\nExpansive Mind en fazla Rage'ini %5 artırır. Eureka! 8 saniye yeteneklerini %10 daha ucuz ve %10 daha güçlü yapar. Escape Artist kökleri ve yavaşlatmaları kırar.\n\n### High Order Skyborne\n\nWind Blessed saldırı hızını her zaman %2 artırır; daha çok vuruş, daha çok Rage. Read Ley Line savaş arasında canını hızlı doldurur. Skyborne ayrıca satın alınır.\n\n## Horde\n\n### Orc\n\nBlood Fury 15 saniye Attack Power'ını %10 artırır (2 dakika bekleme). Hardiness stun sürelerini %20 kısaltır. Command yalnız Hunter ve Warlock petlerine işler.\n\n### Undead\n\nTouch of the Grave vuruşlarında zaman zaman hedeften can çeker ve ek hasar verir; tankken faydalı. Will of the Forsaken korku etkisini anında kırar.\n\n### Tauren\n\nEndurance toplam canını %5 artırır. War Stomp yakındaki düşmanları 2 saniye sersemletir. Plainsrunning koştukça seni hızlandırır, leveling'de çok işe yarar.\n\n### Troll\n\nBerserking 15 saniye saldırı hızını %10 artırır (3 dakika bekleme). Beast Slaying hayvan türü düşmanlara %5 fazla hasar verdirir. Regeneration savaşta da can yeniler.\n\n### Windshaper Skyborne\n\nWind Blessed saldırı hızını her zaman %2 artırır; daha çok vuruş, daha çok Rage. Skysight 15 saniye koşu hızını %15 artırır, hedefe çabuk dönersin. Skyborne ayrıca satın alınır."
+ },
+ {
+  "id": "warrior-02-yetenekler-1",
+  "category": "class",
+  "title": "Warrior · Yetenekler 1",
+  "file": "02-Yetenekler-1.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "yetenekler 1"
+  ],
+  "classKey": "warrior",
+  "kind": "abilities",
+  "part": 1,
+  "text": "# Warrior · Duruş, Saldırı, Buff ve Debuff\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: WARRIOR — YETENEKLER 1/2\n\n## Duruşlar\n\nHer an tek duruş açıktır. Hangi yetenekleri kullanabileceğini duruşun belirler.\n\n### Battle Stance — Seviye 1\n\nBaşlangıç duruşu. Saldırı ve Rage biriktirme için kullanılır. Ürettiğin tehdit %20 azalır.\n\nYalnız bu duruşta: Overpower, Charge, Mocking Blow, Retaliation\n\n### Defensive Stance — Seviye 10\n\nRozetler: Sınıf görevi, Forever\n\nTank duruşu. Aldığın ve verdiğin hasar %10 azalır, ürettiğin tehdit %80 artar (Forever'da %30'dan yükseltildi).\n\nYalnız bu duruşta: Revenge, Disarm, Taunt, Shield Block, Shield Wall\n\n### Berserker Stance — Seviye 30\n\nRozetler: Sınıf görevi\n\nSaldırgan duruş. Kritik vuruş şansın %3 artar, ürettiğin tehdit %20 azalır ama aldığın bütün hasar %10 artar.\n\nYalnız bu duruşta: Whirlwind, Berserker Rage, Recklessness, Intercept, Pummel\n\nDipnot: Tactical Mastery (14. seviye, Forever'da herkese verilir): duruş değiştirince Rage'inin 10'a kadarı korunur.\n\n## Saldırılar\n\nRage harcayıp hasar verir.\n\n| Seviye | Yetenek | Rank | Rozetler | Açıklama |\n|---|---|---|---|---|\n| 1 | Heroic Strike | 8 rank | — | Sıradaki silah vuruşuna 138 hasar ekler ve yüksek tehdit üretir. Rage'in fazla biriktiğinde bas. |\n| 12 | Overpower | 4 rank | Battle | Düşman dodge (kaçınma) yapınca açılır. Silah hasarı artı 35 vurur; bloklanamaz, kaçınılamaz, savuşturulamaz. |\n| 14 | Revenge | 5 rank | Defensive | Blok, dodge ya da parry yaptıktan sonra açılır. 121 hasar artı Attack Power'ınla artan ek hasar ve yüksek tehdit verir. |\n| 20 | Cleave | 5 rank | 2 hedef | Sıradaki vuruşun hedefe ve yanındaki ikinci düşmana silah hasarı artı 50 vurur. |\n| 20 | Slam | 5 rank | — | Silah hasarı artı 87 vurur. Forever'da 20. seviyede gelir, 15 saniye bekleme süresi vardır ve hasar alınca yavaşlamaz. |\n| 20 | Victory Rush | — | — | Gri olmayan bir düşmanı öldürünce 20 saniye açılır. Attack Power'ınla artan hasar vurur ve canının %10'unu doldurur. |\n| 24 | Execute | 5 rank | Battle, Berserker | Yalnız canı %20'nin altındaki düşmana. 600 hasar vurur, üstündeki fazla Rage de ek hasara dönüşür. |\n| 36 | Whirlwind | — | 4 hedef, Berserker | 8 metredeki en fazla 4 düşmana silah hasarı vurur. Forever'da talent gerekmeden iki silahınla da vurur. |\n\n## Buff'lar\n\nSeni ya da grubunu güçlendirir.\n\n| Seviye | Yetenek | Rank | Rozetler | Açıklama |\n|---|---|---|---|---|\n| 1 | Battle Shout | 6 rank | Raid · 3 dk, Forever | 20 metredeki grup ve raid üyelerinin Attack Power'ı 116 artar. Forever'da bütün raide etki eder. |\n| 10 | Bloodrage | — | Sen · 10 sn | Biraz can harcarsın: hemen 10 Rage, sonraki 10 saniyede 10 Rage daha gelir. Savaştan önce Rage toplamak için iyi. |\n| 30 | Berserker Rage | — | Sen · 10 sn, Berserker | Fear (korku) ve Incapacitate (etkisiz kalma) seni tutmaz, hasar aldıkça daha çok Rage gelir. |\n| 50 | Recklessness | — | Sen · 15 sn, Berserker | Kritik vuruş şansın %100 artar ve Fear seni tutmaz. Karşılığında aldığın bütün hasar %20 artar. |\n\n## Debuff'lar\n\nDüşmanın üstünde kalır ve onu zayıflatır.\n\n| Seviye | Yetenek | Rank | Rozetler | Açıklama |\n|---|---|---|---|---|\n| 4 | Rend | 7 rank | Düşman · 21 sn, Battle, Defensive, Forever | 21 saniyede toplam 147 kanama hasarı. Forever'da vurduğun an düşman senin sayılır, başkası kapamaz. |\n| 6 | Thunder Clap | 6 rank | 4 düşman · 30 sn, Battle, Defensive | Yakındaki en fazla 4 düşmana 103 hasar verir, saldırı hızlarını %20 yavaşlatır. |\n| 8 | Hamstring | 3 rank | Düşman · 15 sn, Battle, Berserker | 45 hasar verir ve düşmanın koşu hızını %50 düşürür. Kaçan düşmanı durdurur. |\n| 10 | Sunder Armor | 5 rank | Düşman · 30 sn, Sınıf görevi, Forever | Zırhını her basışta 450 azaltır, 5 kez üst üste biner, yüksek tehdit üretir. Forever'da düşmanı hemen sana ayırır. |\n| 14 | Demoralizing Shout | 5 rank | 10 metre · 45 sn | Yakındaki bütün düşmanların Attack Power'ı 204 azalır, sana daha az vururlar. |"
+ },
+ {
+  "id": "warrior-03-yetenekler-2",
+  "category": "class",
+  "title": "Warrior · Yetenekler 2",
+  "file": "03-Yetenekler-2.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "yetenekler 2"
+  ],
+  "classKey": "warrior",
+  "kind": "abilities",
+  "part": 2,
+  "text": "# Warrior · Kontrol ve Savunma\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: WARRIOR — YETENEKLER 2/2\n\n## Kontrol ve Kesme\n\nDüşmana ulaşır, onu durdurur ya da büyüsünü keser.\n\n| Seviye | Yetenek | Rank | Rozetler | Açıklama |\n|---|---|---|---|---|\n| 4 | Charge | 3 rank | Savaş dışında, Battle | Düşmana koşarsın, 15 Rage kazanırsın ve onu 1 saniye sersemletirsin. Her çekişi bununla aç. |\n| 12 | Shield Bash | 3 rank | Kalkan gerekir, Battle, Defensive | 45 hasar verir, büyüyü keser ve o okuldan büyüyü 6 saniye engeller. Pummel'e kadar tek kesme yeteneğin. |\n| 18 | Disarm | — | Düşman · 10 sn, Defensive | Düşmanın silahını 10 saniye elinden alır. Silahla vuran düşmanın hasarı çok düşer. |\n| 22 | Intimidating Shout | — | 8 metre · 8 sn | Hedefin korkudan sinip kalır, yakındaki en fazla 5 düşman kaçar. Kaçanlar başka düşman çekebilir, dikkat et. |\n| 30 | Intercept | 3 rank | Savaş içinde, Berserker | Savaştayken de düşmana atılırsın. 65 hasar verir ve onu 3 saniye sersemletir. |\n| 38 | Pummel | 2 rank | Berserker | 50 hasar verir, büyüyü keser ve o okuldan büyüyü 4 saniye engeller. Kalkan gerekmez. |\n\n## Tank ve Savunma\n\nDüşmanı üstüne çeker ya da aldığın hasarı azaltır.\n\n| Seviye | Yetenek | Rank | Rozetler | Açıklama |\n|---|---|---|---|---|\n| 10 | Taunt | — | Tek hedef, Defensive, Sınıf görevi | Düşmanı sana saldırmaya zorlar. Düşman zaten sana vuruyorsa işe yaramaz. |\n| 16 | Mocking Blow | 5 rank | Tek hedef · 6 sn, Battle | 93 hasar verir ve hedefi 6 saniye sana saldırmaya zorlar. |\n| 16 | Shield Block | — | Sen · 7 sn, Defensive | Blok şansın %75 artar, sıradaki en fazla 2 saldırıyı bloklarsın. Kalkan gerekir. |\n| 20 | Retaliation | — | Sen · 15 sn, Battle | Sana önden vuran her yakın dövüş saldırısına anında karşılık verirsin, en fazla 30 kez. |\n| 26 | Challenging Shout | — | 10 metre · 6 sn | Yakındaki bütün düşmanlar 6 saniye sana saldırmak zorunda kalır. Grup dağılınca kurtarır. |\n| 28 | Shield Wall | — | Sen · 12 sn, Defensive | Aldığın bütün hasar %60 azalır. Kalkan gerekir. Zor anlar için sakla. |"
+ },
+ {
+  "id": "warrior-04-arms-talentleri",
+  "category": "class",
+  "title": "Warrior · Arms Talentleri",
+  "file": "04-Arms-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "arms talentleri"
+  ],
+  "classKey": "warrior",
+  "kind": "talents",
+  "spec": "arms",
+  "text": "# Warrior · Arms Talent Ağacı\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: WARRIOR — ARMS\n\n## Arms (ağaç şeması) — 17 talent\n\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki Talentler listesindeki numaralarla aynıdır. Satır numaraları ağacın solunda yazar (1–7).\n\n| Satır | Talent numaraları (soldan sağa) | Talentler |\n|---|---|---|\n| 1 | 1, 2, 3 | Improved Heroic Strike, Deflection, Improved Rend |\n| 2 | 4, 5, 6 | Improved Charge, Improved Tactical Mastery, Improved Overpower |\n| 3 | 7, 8 | Anger Management, Deep Wounds |\n| 4 | 9, 10, 11 | Spearing Strike, Two-Handed Weapon Specialization, Impale |\n| 5 | 12, 13, 14 | Bloodthrill, Sweeping Strikes, Weaponmaster |\n| 6 | 15, 16 | Improved Slam, Improved Hamstring |\n| 7 | 17 | Mortal Strike |\n\nOklar: 5 → 7 (Improved Tactical Mastery → Anger Management), 3 → 8 (Improved Rend → Deep Wounds), 8 → 11 (Deep Wounds → Impale), 13 → 17 (Sweeping Strikes → Mortal Strike).\n\nDipnot: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Improved Heroic Strike | 3 rank | — | Heroic Strike 3 Rage daha ucuza mal olur. |\n| 2 | Deflection | 5 rank | — | Parry (savuşturma) şansın %5 artar. |\n| 3 | Improved Rend | 3 rank | — | Rend'in kanama hasarı %35 artar. |\n| 4 | Improved Charge | 2 rank | — | Charge 6 Rage daha fazla üretir. |\n| 5 | Improved Tactical Mastery | 3 rank | — | Duruş değiştirince 15 Rage daha korunur, toplam 25 Rage'in elinde kalır. |\n| 6 | Improved Overpower | 2 rank | — | Overpower'ın kritik vuruş şansı %50 artar. |\n| 7 | Anger Management | 1 rank | ← Improved Tactical Mastery | Savaşta her 3 saniyede 1 Rage gelir. Savaş dışında Rage %30 daha yavaş azalır. |\n| 8 | Deep Wounds | 3 rank | ← Improved Rend | Kritik vuruşun 12 saniyelik kanama açar, silah hasarının %60'ı kadar vurur. |\n| 9 | Spearing Strike | 1 rank | — | Silahınla vuran bir saldırı. Giant, Dragonkin ve binekli düşmanlara çok daha sert vurur ve bineği düşürür. |\n| 10 | Two-Handed Weapon Specialization | 3 rank | — | İki elli silahla verdiğin hasar %6 artar. |\n| 11 | Impale | 2 rank | ← Deep Wounds | Yeteneklerin kritik vurduğunda verdiği ek hasar %20 artar. |\n| 12 | Bloodthrill | 2 rank | — | Rend'li hedefe ana el vuruşun %20 şansla Overpower'ı açar. |\n| 13 | Sweeping Strikes | 1 rank | — | Sonraki 5 yakın dövüş vuruşun yanındaki ikinci düşmana da isabet eder. |\n| 14 | Weaponmaster | 5 rank | — | Balta ve mızrakta kritik şansın %5 artar, topuz ve asada zırhın %15'ini delersin, kılıçta %5 şansla ek vuruş yaparsın. |\n| 15 | Improved Slam | 2 rank | — | Slam'in bekleme süresi 5, döküm süresi 0,5 saniye kısalır. Oto saldırın da gecikmez. |\n| 16 | Improved Hamstring | 3 rank | — | Hamstring %15 şansla hedefi 5 saniye olduğu yere köklendirir. |\n| 17 | Mortal Strike | 1 rank | ← Sweeping Strikes | Silah hasarının 85 fazlasıyla vurur. Hedefin aldığı iyileştirme 10 saniye %50 azalır. |"
+ },
+ {
+  "id": "warrior-05-fury-talentleri",
+  "category": "class",
+  "title": "Warrior · Fury Talentleri",
+  "file": "05-Fury-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "fury talentleri"
+  ],
+  "classKey": "warrior",
+  "kind": "talents",
+  "spec": "fury",
+  "text": "# Warrior · Fury Talent Ağacı\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: WARRIOR — FURY\n\n## Fury (ağaç şeması) — 18 talent\n\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki Talentler listesindeki numaralarla aynıdır. Satır numaraları ağacın solunda yazar (1–7).\n\n| Satır | Talent numaraları (soldan sağa) | Talentler |\n|---|---|---|\n| 1 | 1, 2 | Booming Voice, Cruelty |\n| 2 | 3, 4 | Lingering Rage, Unbridled Wrath |\n| 3 | 5, 6, 7, 8 | Furious Precision, Piercing Howl, Blood Craze, Enrage |\n| 4 | 9, 10, 11 | Dual Wield Specialization, Reckless Swings, Improved Execute |\n| 5 | 12, 13, 14, 15 | Improved Berserker Rage, Death Wish, Gore Drinker, Improved Intercept |\n| 6 | 16, 17 | Improved Whirlwind, Flurry |\n| 7 | 18 | Bloodthirst |\n\nOklar: 7 → 14 (Blood Craze → Gore Drinker), 13 → 18 (Death Wish → Bloodthirst).\n\nDipnot: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Booming Voice | 5 rank | — | Shout'ların etki alanı %50 genişler, Shout ve Howl yeteneklerinin maliyeti %25 azalır. |\n| 2 | Cruelty | 5 rank | — | Yakın dövüşte kritik vuruş şansın %5 artar. |\n| 3 | Lingering Rage | 5 rank | — | Savaş bitince Rage'in 10 saniye daha geç azalmaya başlar. |\n| 4 | Unbridled Wrath | 5 rank | — | Silahınla her vuruşta %60 şansla 1 ek Rage kazanırsın. |\n| 5 | Furious Precision | 3 rank | — | Yan el silahının isabet şansı %10 artar. |\n| 6 | Piercing Howl | 1 rank | — | 10 metre içindeki bütün düşmanları 6 saniye %50 yavaşlatır. |\n| 7 | Blood Craze | 3 rank | — | Kritik darbe ya da canının %20'sinden büyük bir darbe alınca 6 saniyede canının %3'ü geri gelir. |\n| 8 | Enrage | 5 rank | — | Darbe aldığında %30 şansla 12 saniye boyunca fiziksel hasarın %10 artar. |\n| 9 | Dual Wield Specialization | 5 rank | — | Yan el silahının hasarı %25, ürettiği Rage %50 artar. |\n| 10 | Reckless Swings | 1 rank | — | 8 saniye içinde sonraki 4 vuruşun 5'er Rage fazla üretir. Temel canının %25'ine mal olur, 15 saniye bekler. |\n| 11 | Improved Execute | 2 rank | — | Execute 5 Rage daha ucuza mal olur. |\n| 12 | Improved Berserker Rage | 2 rank | — | Berserker Rage anında 10 Rage verir ve üstündeki yavaşlatmaları temizler. |\n| 13 | Death Wish | 1 rank | — | 30 saniye fiziksel hasarın %20 artar ve korkmazsın, ama aldığın hasar da %5 artar. |\n| 14 | Gore Drinker | 2 rank | ← Blood Craze | Enrage, Bloodrage, Berserker Rage, Death Wish, Bloodthirst ve Reckless Swings sonrası 3 vuruşun her biri canının %1'ini yeniler. |\n| 15 | Improved Intercept | 2 rank | — | Intercept'in bekleme süresi 10 saniye kısalır. |\n| 16 | Improved Whirlwind | 2 rank | — | Whirlwind'in bekleme süresi 2 saniye kısalır, en yakın hedefe %30 fazla hasar verir. |\n| 17 | Flurry | 3 rank | — | Yakın dövüşte kritik vurunca sonraki 3 vuruşun %30 daha hızlı olur. |\n| 18 | Bloodthirst | 1 rank | ← Death Wish | Attack Power'ının %45'i artı 30 hasar vurur. 10 saniye boyunca koşu hızın %10 artar. |"
+ },
+ {
+  "id": "warrior-06-protection-talentleri",
+  "category": "class",
+  "title": "Warrior · Protection Talentleri",
+  "file": "06-Protection-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "protection talentleri"
+  ],
+  "classKey": "warrior",
+  "kind": "talents",
+  "spec": "protection",
+  "text": "# Warrior · Protection Talent Ağacı\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: WARRIOR — PROTECTION\n\n## Protection (ağaç şeması) — 18 talent\n\nAğaçtaki ikonlar numaralıdır; numaralar sağdaki Talentler listesindeki numaralarla aynıdır. Satır numaraları ağacın solunda yazar (1–7).\n\n| Satır | Talent numaraları (soldan sağa) | Talentler |\n|---|---|---|\n| 1 | 1, 2, 3 | Improved Bloodrage, Shield Specialization, Iron Will |\n| 2 | 4, 5, 6 | Anticipation, Improved Revenge, Improved Thunder Clap |\n| 3 | 7, 8, 9, 10 | Last Stand, Master of Defense, Improved Disarm, Defiance |\n| 4 | 11, 12, 13 | Improved Sunder Armor, Vanguard, Improved Shield Bash |\n| 5 | 14, 15, 16 | Improved Shield Wall, Concussion Blow, Focused Rage |\n| 6 | 17 | Bastion |\n| 7 | 18 | Shield Slam |\n\nOklar: 2 → 8 (Shield Specialization → Master of Defense), 15 → 18 (Concussion Blow → Shield Slam).\n\nDipnot: Her satır, ağaca 5 puan daha koyunca açılır. Ok olan talent için üstteki talent tam rank olmalı.\n\n## Talentler\n\nSütun başlığı: En yüksek rank etkisi\n\n| No | Talent | Rank | Ön koşul | En yüksek rank etkisi |\n|---|---|---|---|---|\n| 1 | Improved Bloodrage | 2 rank | — | Bloodrage'in ürettiği Rage %50 artar. |\n| 2 | Shield Specialization | 5 rank | — | Blok şansın %5 artar ve her blokta 5 Rage kazanırsın. |\n| 3 | Iron Will | 5 rank | — | Stun (sersemletme) ve Fear (korku) etkileri sende %15 daha kısa sürer. |\n| 4 | Anticipation | 5 rank | — | Defense (savunma) değerin 20 artar. |\n| 5 | Improved Revenge | 3 rank | — | Revenge'in hasarı %60 artar. |\n| 6 | Improved Thunder Clap | 3 rank | — | Thunder Clap 6 Rage daha ucuza mal olur. |\n| 7 | Last Stand | 1 rank | — | 20 saniyeliğine en fazla canının %30'u kadar geçici can kazanırsın. |\n| 8 | Master of Defense | 2 rank | ← Shield Specialization | Kalkan takılıyken her dodge (kaçınma) ya da parry'de 5 Rage kazanırsın. |\n| 9 | Improved Disarm | 3 rank | — | Disarm'ın bekleme süresi 20 saniye kısalır. |\n| 10 | Defiance | 3 rank | — | Kalkanla Defensive Stance'teyken ürettiğin tehdit %20 artar. |\n| 11 | Improved Sunder Armor | 3 rank | — | Sunder Armor 3 Rage daha ucuza mal olur. |\n| 12 | Vanguard | 1 rank | — | Charge'ı Defensive Stance'teyken de kullanabilirsin. |\n| 13 | Improved Shield Bash | 2 rank | — | Shield Bash hedefi 3 saniye susturur, bu sürede büyü yapamaz. |\n| 14 | Improved Shield Wall | 2 rank | — | Shield Wall'un bekleme süresi 15 dakikadan 4 dakikaya iner. |\n| 15 | Concussion Blow | 1 rank | — | Hedefi 5 saniye sersemletir. |\n| 16 | Focused Rage | 3 rank | — | Saldırı yeteneklerin 3 Rage daha ucuza mal olur. |\n| 17 | Bastion | 5 rank | — | Kalkan takılıyken verdiğin bütün hasar %10 artar. |\n| 18 | Shield Slam | 1 rank | ← Concussion Blow | Kalkanla vurur, hasarı Block Value ile artar. %50 şansla hedeften 1 büyü siler ve çok tehdit üretir. |"
+ },
+ {
+  "id": "warrior-07-oynanis",
+  "category": "class",
+  "title": "Warrior · Oynanis",
+  "file": "07-Oynanis.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "oynanis"
+  ],
+  "classKey": "warrior",
+  "kind": "gameplay",
+  "text": "# Warrior · Oynanış Önceliği\n\nWOW FOREVER · TOTİK CHANNEL · Sınıf Rehberi\n\nSol üst başlık: WARRIOR — OYNANIŞ\n\n## Arms\n\nDuruş: Battle Stance\n\n| Öncelik | Yetenek | Açıklama |\n|---|---|---|\n| 1 | Overpower | Şansla açıldığı an hemen kullan. |\n| 2 | Mortal Strike | 30 Rage biriktirip bekle, hazır olunca hemen bas. |\n| 3 | Execute | Hedefin canı %20'nin altına inince kullan. |\n| 4 | Slam | Hareket etmen gerekmiyorsa kullan. |\n| 5 | Rend | Bloodthrill çalışsın diye hedefte hep açık tut. |\n| 6 | Heroic Strike | Yalnız artan Rage'i harcamak için kullan. |\n\nÇOK HEDEF: İki düşmanda Sweeping Strikes aç. Üç ya da daha fazla düşmanda Berserker Stance'e geçip Whirlwind kullan. İkinci hedef varken Heroic Strike yerine Cleave bas.\n\n## Fury\n\nDuruş: Berserker Stance\n\n| Öncelik | Yetenek | Açıklama |\n|---|---|---|\n| 1 | Whirlwind | Hazır olduğu an kullan, iki silahınla birden vurur. |\n| 2 | Bloodthirst | Hazır olduğu an kullan, bunun için 30 Rage sakla. |\n| 3 | Execute | Hedefin canı %20'nin altındayken kullan. Attack Power 2000'i geçince önce Bloodthirst bas. |\n| 4 | Overpower | Şansla açıldıysa ve Rage'in 25'in altındaysa kullan. |\n| 5 | Hamstring | Boşta Rage varsa Flurry'yi tetikleyecek kritik için bas. |\n| 6 | Heroic Strike | Yalnız artan Rage'i harcamak için kullan. |\n\nÇOK HEDEF: Whirlwind en fazla 4 düşmana vurur, aralarda Bloodthirst bas. İki düşmanda Heroic Strike yerine Cleave bas.\n\n## Protection\n\nDuruş: Defensive Stance\n\n| Öncelik | Yetenek | Açıklama |\n|---|---|---|\n| 1 | Shield Block | Yakın dövüşçüye karşı hazır olduğu an kullan. |\n| 2 | Shield Slam | Rage biriktirip bekle, hazır olunca hemen bas. |\n| 3 | Revenge | Blok, dodge ya da parry sonrası açılır, hemen kullan. |\n| 4 | Thunder Clap | Hazır olduğu an kullan. |\n| 5 | Sunder Armor | Aralarda bas, 5 yığından sonra da devam et. |\n| 6 | Heroic Strike | Yalnız artan Rage'i harcamak için kullan. |\n\nÇOK HEDEF: Thunder Clap ile başla, en fazla 4 düşmana vurur. Kalan düşmanlara Revenge, Shield Slam ve Sunder Armor dağıt.\n\n## Kural\n\nKURAL: Her uzmanlıkta Battle Shout'u açık tut, gerekiyorsa 5 yığın Sunder Armor koy. Üstteki yeteneğe Rage lazımsa alttakine harcama."
+ },
+ {
+  "id": "warrior-08-arms-leveling",
+  "category": "class",
+  "title": "Warrior · Arms Leveling",
+  "file": "08-Arms-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "arms leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "warrior",
+  "kind": "leveling",
+  "spec": "arms",
+  "text": "# Warrior · Arms Leveling\n\nWOW FOREVER · TOTİK CHANNEL · Tavsiye edilen build\n\nSol üst başlık: WARRIOR — ARMS\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\nAğaç başlıkları: ARMS 33 puan · FURY 16 puan · PROTECTION 2 puan\n\n### Arms — 33 puan\n\n- Improved Heroic Strike — 0/3 (satır 1, sütun 1; puan yok)\n- Deflection — 2/5 (satır 1, sütun 2; kısmen alındı)\n- Improved Rend — 3/3 (satır 1, sütun 3; tamamlandı)\n- Improved Charge — 2/2 (satır 2, sütun 1; tamamlandı)\n- Improved Tactical Mastery — 3/3 (satır 2, sütun 2; tamamlandı)\n- Improved Overpower — 2/2 (satır 2, sütun 4; tamamlandı)\n- Anger Management — 1/1 (satır 3, sütun 2; tamamlandı)\n- Deep Wounds — 3/3 (satır 3, sütun 3; tamamlandı)\n- Spearing Strike — 1/1 (satır 4, sütun 1; tamamlandı)\n- Two-Handed Weapon Specialization — 3/3 (satır 4, sütun 2; tamamlandı)\n- Impale — 2/2 (satır 4, sütun 3; tamamlandı)\n- Bloodthrill — 2/2 (satır 5, sütun 1; tamamlandı)\n- Sweeping Strikes — 1/1 (satır 5, sütun 2; tamamlandı)\n- Weaponmaster — 5/5 (satır 5, sütun 3; tamamlandı)\n- Improved Slam — 2/2 (satır 6, sütun 1; tamamlandı)\n- Improved Hamstring — 0/3 (satır 6, sütun 3; puan yok)\n- Mortal Strike — 1/1 (satır 7, sütun 2; tamamlandı)\n\nÖn koşul okları: Improved Tactical Mastery → Anger Management; Improved Rend → Deep Wounds; Deep Wounds → Impale; Sweeping Strikes → Mortal Strike.\n\n### Fury — 16 puan\n\n- Booming Voice — 0/5 (satır 1, sütun 2; puan yok)\n- Cruelty — 5/5 (satır 1, sütun 3; tamamlandı)\n- Lingering Rage — 5/5 (satır 2, sütun 2; tamamlandı)\n- Unbridled Wrath — 0/5 (satır 2, sütun 3; puan yok)\n- Furious Precision — 0/3 (satır 3, sütun 1; puan yok)\n- Piercing Howl — 0/1 (satır 3, sütun 2; puan yok)\n- Blood Craze — 0/3 (satır 3, sütun 3; puan yok)\n- Enrage — 5/5 (satır 3, sütun 4; tamamlandı)\n- Dual Wield Specialization — 0/5 (satır 4, sütun 1; puan yok)\n- Reckless Swings — 1/1 (satır 4, sütun 2; tamamlandı)\n- Improved Execute — 0/2 (satır 4, sütun 4; puan yok)\n- Improved Berserker Rage — 0/2 (satır 5, sütun 1; puan yok)\n- Death Wish — 0/1 (satır 5, sütun 2; puan yok)\n- Gore Drinker — 0/2 (satır 5, sütun 3; puan yok)\n- Improved Intercept — 0/2 (satır 5, sütun 4; puan yok)\n- Improved Whirlwind — 0/2 (satır 6, sütun 1; puan yok)\n- Flurry — 0/3 (satır 6, sütun 3; puan yok)\n- Bloodthirst — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Blood Craze → Gore Drinker; Death Wish → Bloodthirst.\n\n### Protection — 2 puan\n\n- Improved Bloodrage — 2/2 (satır 1, sütun 1; tamamlandı)\n- Shield Specialization — 0/5 (satır 1, sütun 2; puan yok)\n- Iron Will — 0/5 (satır 1, sütun 3; puan yok)\n- Anticipation — 0/5 (satır 2, sütun 1; puan yok)\n- Improved Revenge — 0/3 (satır 2, sütun 3; puan yok)\n- Improved Thunder Clap — 0/3 (satır 2, sütun 4; puan yok)\n- Last Stand — 0/1 (satır 3, sütun 1; puan yok)\n- Master of Defense — 0/2 (satır 3, sütun 2; puan yok)\n- Improved Disarm — 0/3 (satır 3, sütun 3; puan yok)\n- Defiance — 0/3 (satır 3, sütun 4; puan yok)\n- Improved Sunder Armor — 0/3 (satır 4, sütun 1; puan yok)\n- Vanguard — 0/1 (satır 4, sütun 2; puan yok)\n- Improved Shield Bash — 0/2 (satır 4, sütun 3; puan yok)\n- Improved Shield Wall — 0/2 (satır 5, sütun 1; puan yok)\n- Concussion Blow — 0/1 (satır 5, sütun 2; puan yok)\n- Focused Rage — 0/3 (satır 5, sütun 3; puan yok)\n- Bastion — 0/5 (satır 6, sütun 3; puan yok)\n- Shield Slam — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Shield Specialization → Master of Defense; Concussion Blow → Shield Slam.\n\n## 60. seviye puan dağılımı\n\n33 Arms / 16 Fury / 2 Protection — TOPLAM 51 PUAN\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–12 | Improved Rend | Arms | +3 | 3/3 | Rend kanama hasarı +%35 |\n| 13–14 | Deflection | Arms | +2 | 2/5 | Parry şansı +%2 |\n| 15–16 | Improved Overpower | Arms | +2 | 2/2 | Overpower kritik şansı +%50 |\n| 17–18 | Improved Charge | Arms | +2 | 2/2 | Charge 6 Rage fazla üretir |\n| 19–21 | Improved Tactical Mastery | Arms | +3 | 3/3 | Duruş değişince 15 Rage daha kalır |\n| 22 | Anger Management | Arms | +1 | 1/1 | Savaşta 3 sn'de 1 Rage |\n| 23–24 | Deep Wounds | Arms | +2 | 2/3 | Kritikte kanama, silahın %40'ı |\n| 25 | Spearing Strike | Arms | +1 | 1/1 | Giant, Dragonkin ve binekliye ek hasar |\n| 26–28 | Two-Handed Weapon Specialization | Arms | +3 | 3/3 | İki elli silah hasarı +%6 |\n| 29 | Deep Wounds | Arms | +1 | 3/3 | Kritikte kanama, silahın %60'ı |\n| 30 | Sweeping Strikes | Arms | +1 | 1/1 | 5 vuruş yandaki düşmana da vurur |\n| 31–32 | Bloodthrill | Arms | +2 | 2/2 | Rend'li hedefte %20 şansla Overpower |\n| 33–34 | Weaponmaster | Arms | +2 | 2/5 | Kritik %2, zırh delme %6, ek vuruş %2 |\n| 35–36 | Improved Slam | Arms | +2 | 2/2 | Slam −5 sn, oto saldırı gecikmez |\n| 37–39 | Weaponmaster | Arms | +3 | 5/5 | Kritik %5, zırh delme %15, ek vuruş %5 |\n| 40 | Mortal Strike | Arms | +1 | 1/1 | Ana saldırı, iyileşmeyi %50 keser |\n| 41–45 | Cruelty | Fury | +5 | 5/5 | Kritik şansı +%5 |\n| 46–50 | Lingering Rage | Fury | +5 | 5/5 | Savaştan sonra Rage 10 sn geç düşer |\n| 51–55 | Enrage | Fury | +5 | 5/5 | Darbe alınca %30 şansla hasar +%10 |\n| 56 | Reckless Swings | Fury | +1 | 1/1 | 4 vuruşa +5 Rage, bedeli %25 temel can |\n| 57–58 | Improved Bloodrage | Protection | +2 | 2/2 | Bloodrage %50 fazla Rage üretir |\n| 59–60 | Impale | Arms | +2 | 2/2 | Kritik hasar bonusu +%20 |"
+ },
+ {
+  "id": "warrior-09-fury-leveling",
+  "category": "class",
+  "title": "Warrior · Fury Leveling",
+  "file": "09-Fury-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "fury leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "warrior",
+  "kind": "leveling",
+  "spec": "fury",
+  "text": "# Warrior · Fury Leveling\n\nWOW FOREVER · TOTİK CHANNEL · Tavsiye edilen build\n\nSol üst başlık: WARRIOR — FURY\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\nAğaç başlıkları: ARMS 16 puan · FURY 33 puan · PROTECTION 2 puan\n\n### Arms — 16 puan\n\n- Improved Heroic Strike — 0/3 (satır 1, sütun 1; puan yok)\n- Deflection — 2/5 (satır 1, sütun 2; kısmen alındı)\n- Improved Rend — 3/3 (satır 1, sütun 3; tamamlandı)\n- Improved Charge — 2/2 (satır 2, sütun 1; tamamlandı)\n- Improved Tactical Mastery — 3/3 (satır 2, sütun 2; tamamlandı)\n- Improved Overpower — 2/2 (satır 2, sütun 4; tamamlandı)\n- Anger Management — 1/1 (satır 3, sütun 2; tamamlandı)\n- Deep Wounds — 3/3 (satır 3, sütun 3; tamamlandı)\n- Spearing Strike — 0/1 (satır 4, sütun 1; puan yok)\n- Two-Handed Weapon Specialization — 0/3 (satır 4, sütun 2; puan yok)\n- Impale — 0/2 (satır 4, sütun 3; puan yok)\n- Bloodthrill — 0/2 (satır 5, sütun 1; puan yok)\n- Sweeping Strikes — 0/1 (satır 5, sütun 2; puan yok)\n- Weaponmaster — 0/5 (satır 5, sütun 3; puan yok)\n- Improved Slam — 0/2 (satır 6, sütun 1; puan yok)\n- Improved Hamstring — 0/3 (satır 6, sütun 3; puan yok)\n- Mortal Strike — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Improved Tactical Mastery → Anger Management; Improved Rend → Deep Wounds; Deep Wounds → Impale; Sweeping Strikes → Mortal Strike.\n\n### Fury — 33 puan\n\n- Booming Voice — 0/5 (satır 1, sütun 2; puan yok)\n- Cruelty — 5/5 (satır 1, sütun 3; tamamlandı)\n- Lingering Rage — 0/5 (satır 2, sütun 2; puan yok)\n- Unbridled Wrath — 5/5 (satır 2, sütun 3; tamamlandı)\n- Furious Precision — 3/3 (satır 3, sütun 1; tamamlandı)\n- Piercing Howl — 0/1 (satır 3, sütun 2; puan yok)\n- Blood Craze — 0/3 (satır 3, sütun 3; puan yok)\n- Enrage — 5/5 (satır 3, sütun 4; tamamlandı)\n- Dual Wield Specialization — 5/5 (satır 4, sütun 1; tamamlandı)\n- Reckless Swings — 1/1 (satır 4, sütun 2; tamamlandı)\n- Improved Execute — 0/2 (satır 4, sütun 4; puan yok)\n- Improved Berserker Rage — 2/2 (satır 5, sütun 1; tamamlandı)\n- Death Wish — 1/1 (satır 5, sütun 2; tamamlandı)\n- Gore Drinker — 0/2 (satır 5, sütun 3; puan yok)\n- Improved Intercept — 0/2 (satır 5, sütun 4; puan yok)\n- Improved Whirlwind — 2/2 (satır 6, sütun 1; tamamlandı)\n- Flurry — 3/3 (satır 6, sütun 3; tamamlandı)\n- Bloodthirst — 1/1 (satır 7, sütun 2; tamamlandı)\n\nÖn koşul okları: Blood Craze → Gore Drinker; Death Wish → Bloodthirst.\n\n### Protection — 2 puan\n\n- Improved Bloodrage — 2/2 (satır 1, sütun 1; tamamlandı)\n- Shield Specialization — 0/5 (satır 1, sütun 2; puan yok)\n- Iron Will — 0/5 (satır 1, sütun 3; puan yok)\n- Anticipation — 0/5 (satır 2, sütun 1; puan yok)\n- Improved Revenge — 0/3 (satır 2, sütun 3; puan yok)\n- Improved Thunder Clap — 0/3 (satır 2, sütun 4; puan yok)\n- Last Stand — 0/1 (satır 3, sütun 1; puan yok)\n- Master of Defense — 0/2 (satır 3, sütun 2; puan yok)\n- Improved Disarm — 0/3 (satır 3, sütun 3; puan yok)\n- Defiance — 0/3 (satır 3, sütun 4; puan yok)\n- Improved Sunder Armor — 0/3 (satır 4, sütun 1; puan yok)\n- Vanguard — 0/1 (satır 4, sütun 2; puan yok)\n- Improved Shield Bash — 0/2 (satır 4, sütun 3; puan yok)\n- Improved Shield Wall — 0/2 (satır 5, sütun 1; puan yok)\n- Concussion Blow — 0/1 (satır 5, sütun 2; puan yok)\n- Focused Rage — 0/3 (satır 5, sütun 3; puan yok)\n- Bastion — 0/5 (satır 6, sütun 3; puan yok)\n- Shield Slam — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Shield Specialization → Master of Defense; Concussion Blow → Shield Slam.\n\n## 60. seviye puan dağılımı\n\n16 Arms / 33 Fury / 2 Protection — TOPLAM 51 PUAN\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Cruelty | Fury | +5 | 5/5 | Kritik şansı +%5 |\n| 15–19 | Unbridled Wrath | Fury | +5 | 5/5 | Vuruşta %60 şansla 1 Rage |\n| 20–22 | Furious Precision | Fury | +3 | 3/3 | Yan el isabeti +%10 |\n| 23–24 | Enrage | Fury | +2 | 2/5 | Darbe alınca %30 şansla hasar +%4 |\n| 25–29 | Dual Wield Specialization | Fury | +5 | 5/5 | Yan el hasarı +%25, ürettiği Rage +%50 |\n| 30 | Death Wish | Fury | +1 | 1/1 | 30 sn hasar +%20, korkuya bağışık |\n| 31 | Reckless Swings | Fury | +1 | 1/1 | 4 vuruşa +5 Rage, bedeli %25 temel can |\n| 32–33 | Improved Berserker Rage | Fury | +2 | 2/2 | 10 Rage verir, yavaşlatmaları temizler |\n| 34 | Enrage | Fury | +1 | 3/5 | Darbe alınca %30 şansla hasar +%6 |\n| 35–36 | Improved Whirlwind | Fury | +2 | 2/2 | Whirlwind −2 sn, yakın hedefe +%30 |\n| 37–39 | Flurry | Fury | +3 | 3/3 | Kritikten sonra 3 vuruş %30 hızlı |\n| 40 | Bloodthirst | Fury | +1 | 1/1 | Ana saldırı, Attack Power'ın %45'i |\n| 41–43 | Improved Rend | Arms | +3 | 3/3 | Rend kanama hasarı +%35 |\n| 44–45 | Deflection | Arms | +2 | 2/5 | Parry şansı +%2 |\n| 46–47 | Improved Charge | Arms | +2 | 2/2 | Charge 6 Rage fazla üretir |\n| 48–49 | Improved Overpower | Arms | +2 | 2/2 | Overpower kritik şansı +%50 |\n| 50–52 | Improved Tactical Mastery | Arms | +3 | 3/3 | Duruş değişince 15 Rage daha kalır |\n| 53 | Anger Management | Arms | +1 | 1/1 | Savaşta 3 sn'de 1 Rage |\n| 54–55 | Improved Bloodrage | Protection | +2 | 2/2 | Bloodrage %50 fazla Rage üretir |\n| 56–57 | Enrage | Fury | +2 | 5/5 | Darbe alınca %30 şansla hasar +%10 |\n| 58–60 | Deep Wounds | Arms | +3 | 3/3 | Kritikte kanama, silahın %60'ı |"
+ },
+ {
+  "id": "warrior-10-protection-leveling",
+  "category": "class",
+  "title": "Warrior · Protection Leveling",
+  "file": "10-Protection-Leveling.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "protection leveling",
+   "talent",
+   "build",
+   "leveling",
+   "puan sırası 10-60"
+  ],
+  "classKey": "warrior",
+  "kind": "leveling",
+  "spec": "protection",
+  "text": "# Warrior · Protection Leveling\n\nWOW FOREVER · TOTİK CHANNEL · Tavsiye edilen build\n\nSol üst başlık: WARRIOR — PROTECTION\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\nAğaç başlıkları: ARMS 4 puan · FURY 16 puan · PROTECTION 31 puan\n\n### Arms — 4 puan\n\n- Improved Heroic Strike — 0/3 (satır 1, sütun 1; puan yok)\n- Deflection — 1/5 (satır 1, sütun 2; kısmen alındı)\n- Improved Rend — 3/3 (satır 1, sütun 3; tamamlandı)\n- Improved Charge — 0/2 (satır 2, sütun 1; puan yok)\n- Improved Tactical Mastery — 0/3 (satır 2, sütun 2; puan yok)\n- Improved Overpower — 0/2 (satır 2, sütun 4; puan yok)\n- Anger Management — 0/1 (satır 3, sütun 2; puan yok)\n- Deep Wounds — 0/3 (satır 3, sütun 3; puan yok)\n- Spearing Strike — 0/1 (satır 4, sütun 1; puan yok)\n- Two-Handed Weapon Specialization — 0/3 (satır 4, sütun 2; puan yok)\n- Impale — 0/2 (satır 4, sütun 3; puan yok)\n- Bloodthrill — 0/2 (satır 5, sütun 1; puan yok)\n- Sweeping Strikes — 0/1 (satır 5, sütun 2; puan yok)\n- Weaponmaster — 0/5 (satır 5, sütun 3; puan yok)\n- Improved Slam — 0/2 (satır 6, sütun 1; puan yok)\n- Improved Hamstring — 0/3 (satır 6, sütun 3; puan yok)\n- Mortal Strike — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Improved Tactical Mastery → Anger Management; Improved Rend → Deep Wounds; Deep Wounds → Impale; Sweeping Strikes → Mortal Strike.\n\n### Fury — 16 puan\n\n- Booming Voice — 0/5 (satır 1, sütun 2; puan yok)\n- Cruelty — 5/5 (satır 1, sütun 3; tamamlandı)\n- Lingering Rage — 0/5 (satır 2, sütun 2; puan yok)\n- Unbridled Wrath — 5/5 (satır 2, sütun 3; tamamlandı)\n- Furious Precision — 0/3 (satır 3, sütun 1; puan yok)\n- Piercing Howl — 0/1 (satır 3, sütun 2; puan yok)\n- Blood Craze — 0/3 (satır 3, sütun 3; puan yok)\n- Enrage — 5/5 (satır 3, sütun 4; tamamlandı)\n- Dual Wield Specialization — 0/5 (satır 4, sütun 1; puan yok)\n- Reckless Swings — 1/1 (satır 4, sütun 2; tamamlandı)\n- Improved Execute — 0/2 (satır 4, sütun 4; puan yok)\n- Improved Berserker Rage — 0/2 (satır 5, sütun 1; puan yok)\n- Death Wish — 0/1 (satır 5, sütun 2; puan yok)\n- Gore Drinker — 0/2 (satır 5, sütun 3; puan yok)\n- Improved Intercept — 0/2 (satır 5, sütun 4; puan yok)\n- Improved Whirlwind — 0/2 (satır 6, sütun 1; puan yok)\n- Flurry — 0/3 (satır 6, sütun 3; puan yok)\n- Bloodthirst — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Blood Craze → Gore Drinker; Death Wish → Bloodthirst.\n\n### Protection — 31 puan\n\n- Improved Bloodrage — 0/2 (satır 1, sütun 1; puan yok)\n- Shield Specialization — 5/5 (satır 1, sütun 2; tamamlandı)\n- Iron Will — 0/5 (satır 1, sütun 3; puan yok)\n- Anticipation — 0/5 (satır 2, sütun 1; puan yok)\n- Improved Revenge — 3/3 (satır 2, sütun 3; tamamlandı)\n- Improved Thunder Clap — 3/3 (satır 2, sütun 4; tamamlandı)\n- Last Stand — 1/1 (satır 3, sütun 1; tamamlandı)\n- Master of Defense — 2/2 (satır 3, sütun 2; tamamlandı)\n- Improved Disarm — 0/3 (satır 3, sütun 3; puan yok)\n- Defiance — 3/3 (satır 3, sütun 4; tamamlandı)\n- Improved Sunder Armor — 3/3 (satır 4, sütun 1; tamamlandı)\n- Vanguard — 1/1 (satır 4, sütun 2; tamamlandı)\n- Improved Shield Bash — 0/2 (satır 4, sütun 3; puan yok)\n- Improved Shield Wall — 0/2 (satır 5, sütun 1; puan yok)\n- Concussion Blow — 1/1 (satır 5, sütun 2; tamamlandı)\n- Focused Rage — 3/3 (satır 5, sütun 3; tamamlandı)\n- Bastion — 5/5 (satır 6, sütun 3; tamamlandı)\n- Shield Slam — 1/1 (satır 7, sütun 2; tamamlandı)\n\nÖn koşul okları: Shield Specialization → Master of Defense; Concussion Blow → Shield Slam.\n\n## 60. seviye puan dağılımı\n\n4 Arms / 16 Fury / 31 Protection — TOPLAM 51 PUAN\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Shield Specialization | Protection | +5 | 5/5 | Blok şansı +%5, her blokta 5 Rage |\n| 15–17 | Improved Revenge | Protection | +3 | 3/3 | Revenge hasarı +%60 |\n| 18–19 | Improved Thunder Clap | Protection | +2 | 2/3 | Thunder Clap 4 Rage daha ucuz |\n| 20–21 | Master of Defense | Protection | +2 | 2/2 | Kalkanla dodge ya da parry'de 5 Rage |\n| 22 | Improved Thunder Clap | Protection | +1 | 3/3 | Thunder Clap 6 Rage daha ucuz |\n| 23 | Last Stand | Protection | +1 | 1/1 | 20 sn canın %30'u kadar geçici can |\n| 24 | Defiance | Protection | +1 | 1/3 | Defensive Stance tehdidi +%7 |\n| 25 | Vanguard | Protection | +1 | 1/1 | Charge Defensive Stance'te de çalışır |\n| 26–28 | Improved Sunder Armor | Protection | +3 | 3/3 | Sunder Armor 3 Rage daha ucuz |\n| 29 | Defiance | Protection | +1 | 2/3 | Defensive Stance tehdidi +%13 |\n| 30–32 | Focused Rage | Protection | +3 | 3/3 | Saldırı yetenekleri 3 Rage daha ucuz |\n| 33 | Concussion Blow | Protection | +1 | 1/1 | Hedefi 5 sn sersemletir |\n| 34 | Defiance | Protection | +1 | 3/3 | Defensive Stance tehdidi +%20 |\n| 35–39 | Bastion | Protection | +5 | 5/5 | Kalkan takılıyken tüm hasar +%10 |\n| 40 | Shield Slam | Protection | +1 | 1/1 | Kalkanla vurur, büyü siler |\n| 41–43 | Improved Rend | Arms | +3 | 3/3 | Rend kanama hasarı +%35 |\n| 44–48 | Cruelty | Fury | +5 | 5/5 | Kritik şansı +%5 |\n| 49–53 | Unbridled Wrath | Fury | +5 | 5/5 | Vuruşta %60 şansla 1 Rage |\n| 54–58 | Enrage | Fury | +5 | 5/5 | Darbe alınca %30 şansla hasar +%10 |\n| 59 | Reckless Swings | Fury | +1 | 1/1 | 4 vuruşa +5 Rage, bedeli %25 temel can |\n| 60 | Deflection | Arms | +1 | 1/5 | Parry şansı +%1 |"
+ },
+ {
+  "id": "zindan-01-ragefire-chasm",
+  "category": "dungeon",
+  "title": "Lv 14 · Ragefire Chasm (RFC)",
+  "file": "01 - Ragefire Chasm (Lv 14).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 14 · Ragefire Chasm (RFC)",
+  "keywords": [
+   "ragefire-chasm",
+   "RFC"
+  ],
+  "dungeon": "ragefire-chasm",
+  "level": 14,
+  "zone": "Orgrimmar",
+  "bosses": [
+   "Oggleflint",
+   "Taragaman the Hungerer",
+   "Jergosh the Invoker",
+   "Bazzalan"
+  ],
+  "hordeQuests": 5,
+  "allianceQuests": 0,
+  "text": "# RAGEFIRE CHASM\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 14\n- Horde görevi: 5\n- Alliance görevi: 0\n- Bölge (küçük harita etiketi): Orgrimmar\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Oggleflint\n- 2 — Taragaman the Hungerer\n- 3 — Jergosh the Invoker\n- 4 — Bazzalan\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- ⇣ AŞAĞI İN (2 kez)\n- ⇡ YUKARI ÇIK (3 kez)\n\n## Adım 1 — Yokuştan dibe in, geri dönüp rampayla küçük odaya\n\n- ☠ Oggleflint\n- Yolda: ⇣ aşağı in → ⇡ yukarı çık\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ; ⇣ AŞAĞI İN; ⇡ YUKARI ÇIK\n\n## Adım 2 — Çukura in, duvar rampasıyla lav odasına çık\n\n- ☠ Taragaman the Hungerer · lavın ortasındaki platformda\n- Yolda: ⇣ aşağı in → ⇡ yukarı çık\n- Panel haritasındaki rota: 1 → 2\n- Panel haritasındaki etiketler: ⇣ AŞAĞI İN; ⇡ YUKARI ÇIK\n\n## Adım 3 — Lav adalarının arasından aşağı ilerle\n\n- ☠ Jergosh the Invoker · önce muhafızları temizle\n- Panel haritasındaki rota: 2 → 3\n\n## Adım 4 — Rampayı dolanıp yukarı çık\n\n- ☠ Bazzalan · son boss\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: 3 → 4\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK"
+ },
+ {
+  "id": "zindan-02-hall-of-thanes",
+  "category": "dungeon",
+  "title": "Lv 18 · Hall of Thanes",
+  "file": "02 - Hall of Thanes (Lv 18).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 18 · Hall of Thanes",
+  "keywords": [
+   "hall-of-thanes",
+   "HoT",
+   "Thanes",
+   "Infurnus"
+  ],
+  "dungeon": "hall-of-thanes",
+  "level": 18,
+  "zone": "Ironforge",
+  "bosses": [
+   "Faldrim Anvilmar",
+   "Magmatus",
+   "Plunder",
+   "Durgen Dirgehammer"
+  ],
+  "hordeQuests": 0,
+  "allianceQuests": 5,
+  "text": "# THE HALL OF THANES\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 18\n- Horde görevi: 0\n- Alliance görevi: 5\n- Bölge (küçük harita etiketi): Ironforge\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Faldrim Anvilmar\n- 2 — Magmatus\n- 3 — Plunder\n- 4 — Durgen Dirgehammer\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- ⇡ YUKARI ÇIK\n- ⇣ AŞAĞI İN\n\n## Adım 1 — Girişten sol (batı) koridora, oradan mezar salonuna\n\n- ☠ Faldrim Anvilmar · mezarın etrafında dolaşır\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ; ⇡ YUKARI ÇIK\n\n## Adım 2 — Güneydoğu koridorundan doğu kanadına, mağaraya\n\n- ☠ Magmatus · yanında Dark Iron Summoner\n- Yolda: ⇣ aşağı in\n- Panel haritasındaki rota: 1 → 2\n- Panel haritasındaki etiketler: ⇣ AŞAĞI İN\n\n## Adım 3 — Mağara tünelinden salona geri dön\n\n- ☠ Plunder · koridorda dolaşır, sırtını duvara ver\n- Panel haritasındaki rota: 2 → 3\n\n## Adım 4 — Kuzeye, köprüyü geçip en tepedeki salona\n\n- ☠ Durgen Dirgehammer · son boss\n- Panel haritasındaki rota: 3 → 4"
+ },
+ {
+  "id": "zindan-03-deadmines",
+  "category": "dungeon",
+  "title": "Lv 19 · Deadmines (DM)",
+  "file": "03 - Deadmines (Lv 19).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 19 · Deadmines (DM)",
+  "keywords": [
+   "deadmines",
+   "VC",
+   "Van Cleef",
+   "DM"
+  ],
+  "dungeon": "deadmines",
+  "level": 19,
+  "zone": "Westfall",
+  "bosses": [
+   "Rhahk'Zor",
+   "Miner Johnson",
+   "Sneed's Shredder",
+   "Gilnid",
+   "Mr. Smite",
+   "Cookie",
+   "Captain Greenskin",
+   "Edwin VanCleef"
+  ],
+  "hordeQuests": 0,
+  "allianceQuests": 6,
+  "text": "# THE DEADMINES\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 19\n- Horde görevi: 0\n- Alliance görevi: 6\n- Bölge (küçük harita etiketi): Westfall\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Rhahk'Zor\n- 2 — Miner Johnson\n- 3 — Sneed's Shredder\n- 4 — Gilnid\n- 5 — Mr. Smite\n- 6 — Cookie\n- 7 — Captain Greenskin\n- 8 — Edwin VanCleef\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- ⇣ AŞAĞI İN\n- ☠ Barut (… — etiketin devamı, üstüne binen \"Top\" etiketiyle kapalı; kartta yalnız \"Barut (\" okunuyor\n- ☠ Top: demir kapıyı patlat\n- ⇡ YUKARI ÇIK (2 kez)\n\n## Adım 1 — Girişten aşağı, ilk büyük odaya in\n\n- ☠ Rhahk'Zor · ilk boss · ölünce kapı açılır\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ\n\n## Adım 2 — Kapısından geç, soldaki küçük tünele bak\n\n- ☠ Miner Johnson · nadir, her zaman çıkmaz\n- Panel haritasındaki rota: 1 → 2\n\n## Adım 3 — Aşağıdaki kereste deposuna in\n\n- ☠ Sneed's Shredder\n- Panel haritasındaki rota: 2 → 3\n\n## Adım 4 — Dökümhaneye geç, döner rampayla dibe in\n\n- ☠ Gilnid\n- Yolda: ⇣ aşağı in\n- Panel haritasındaki rota: 3 → 4\n- Panel haritasındaki etiketler: ⇣ AŞAĞI İN\n\n## Adım 5 — Tünelden koya çık, iskele boyunca gemi rampasına\n\n- ☠ Mr. Smite · 2 adamı rampanın dibinde\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: 4 → 5\n- Panel haritasındaki etiketler: ☠ Barut… (devamı \"Top\" etiketiyle kapalı); ☠ Top: demir kapıyı patlat; ⇡ YUKARI ÇIK\n\n## Adım 6 — Rampadan gemiye çık, sola dön\n\n- ☠ Cookie · isteğe bağlı\n- Panel haritasındaki rota: 5 → 6\n\n## Adım 7 — Sağ tarafı temizle, üst güverteye çık\n\n- ☠ Captain Greenskin\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: 6 → 7\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK\n\n## Adım 8 — Hemen yanında, kaptan köşkü\n\n- ☠ Edwin VanCleef · son boss\n- Panel haritasındaki rota: 7 → 8"
+ },
+ {
+  "id": "zindan-04-wailing-caverns",
+  "category": "dungeon",
+  "title": "Lv 20 · Wailing Caverns (WC)",
+  "file": "04 - Wailing Caverns (Lv 20).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 20 · Wailing Caverns (WC)",
+  "keywords": [
+   "wailing-caverns",
+   "WC"
+  ],
+  "dungeon": "wailing-caverns",
+  "level": 20,
+  "zone": "The Barrens",
+  "bosses": [
+   "Lady Anacondra",
+   "Lord Cobrahn",
+   "Kresh",
+   "Lord Pythas",
+   "Skum",
+   "Lord Serpentis",
+   "Verdan the Everliving",
+   "Mutanus the Devourer"
+  ],
+  "hordeQuests": 7,
+  "allianceQuests": 5,
+  "text": "# WAILING CAVERNS\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 20\n- Horde görevi: 7\n- Alliance görevi: 5\n- Bölge (küçük harita etiketi): The Barrens\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Lady Anacondra\n- 2 — Lord Cobrahn\n- 3 — Kresh\n- 4 — Lord Pythas\n- 5 — Skum\n- 6 — Lord Serpentis\n- 7 — Verdan the Everliving\n- D — Disciple of Naralex\n- 8 — Mutanus the Devourer\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- D (yeşil işaret)\n- ⇡ YUKARI ÇIK (6 kez)\n- ↓ SUYA ATLA (2 kez)\n- ↓ AŞAĞI ATLA\n- ⇣ AŞAĞI İN (2 kez)\n- ☠ Deviate Faerie Dragon (nadir)\n\n## Adım 1 — Girişten yukarı, büyük mağaraya çık\n\n- ☠ Lady Anacondra · yeri değişebilir\n- Yolda: ⇣ aşağı in\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ; ⇣ AŞAĞI İN\n\n## Adım 2 — Sola git, kıvrılan yoldan yukarı çık\n\n- ☠ Lord Cobrahn\n- Yolda: ↓ suya atla → ⇡ yukarı çık → ⇡ yukarı çık\n- Panel haritasındaki rota: 1 → 2\n- Panel haritasındaki etiketler: ↓ SUYA ATLA; ⇡ YUKARI ÇIK (2 kez)\n\n## Adım 3 — Aşağı atla, nehre in\n\n- ☠ Kresh · nehirde dolaşır\n- Yolda: ↓ aşağı atla → ⇣ aşağı in\n- Panel haritasındaki rota: 2 → 3\n- Panel haritasındaki etiketler: ↓ AŞAĞI ATLA; ⇣ AŞAĞI İN\n\n## Adım 4 — Nehirde güneye yüz, rampadan çık, kuzeydoğuya\n\n- ☠ Lord Pythas\n- Yolda: ⇡ yukarı çık → ⇡ yukarı çık\n- Panel haritasındaki rota: 3 → 4\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK (2 kez)\n\n## Adım 5 — Sağ kenardan aşağı in\n\n- ☠ Skum\n- Panel haritasındaki rota: 4 → 5\n\n## Adım 6 — Alttaki tünelden sola, sonra yukarı çık\n\n- ☠ Lord Serpentis\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: 5 → 6\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK\n\n## Adım 7 — Birkaç adım sola\n\n- ☠ Verdan the Everliving\n- Panel haritasındaki rota: 6 → 7\n\n## Adım 8 — Havuza atla, girişe dön, Disciple'ı takip et\n\n- D: Disciple of Naralex · 4 Fanglord ölünce konuş → ☠ Mutanus\n- Yolda: ↓ suya atla → ⇡ yukarı çık\n- Panel haritasındaki rota: 7 → D → 8\n- Panel haritasındaki etiketler: ↓ SUYA ATLA; ⇡ YUKARI ÇIK; D"
+ },
+ {
+  "id": "zindan-05-ruins-of-lordaeron",
+  "category": "dungeon",
+  "title": "Lv 20 · Ruins of Lordaeron",
+  "file": "05 - Ruins of Lordaeron (Lv 20).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 20 · Ruins of Lordaeron",
+  "keywords": [
+   "ruins-of-lordaeron",
+   "Lordaeron",
+   "The Butcher"
+  ],
+  "dungeon": "ruins-of-lordaeron",
+  "level": 20,
+  "zone": "Tirisfal Glades",
+  "bosses": [
+   "Witherfang",
+   "The Baron",
+   "Viktor the Vile",
+   "The Abandoned",
+   "Bjork",
+   "Rath'mael"
+  ],
+  "hordeQuests": 6,
+  "allianceQuests": 4,
+  "text": "# THE RUINS OF LORDAERON\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 20\n- Horde görevi: 6\n- Alliance görevi: 4\n- Bölge (küçük harita etiketi): Tirisfal Glades\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Witherfang\n- 2 — The Baron\n- 3 — Viktor the Vile\n- 4 — The Abandoned\n- 5 — Bjork\n- 6 — Rath'mael\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- → KARŞIYA ATLA\n- ☠ Lordaeron Captain (nadir)\n\n## Adım 1 — Merdivenle doğuya in, sağ pencereden atla\n\n- ☠ Witherfang · ağlı kapıya girme · boss dolaşır\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ\n\n## Adım 2 — Güneye, sol duvarı izle; sağa, batı geçidine\n\n- ☠ The Baron · üç Ghostly Citizen'da sağa dön\n- Panel haritasındaki rota: 1 → 2\n\n## Adım 3 — Duvarı kırık sütundan atla, mezarlığı geç\n\n- ☠ Viktor the Vile · gizli: şömineye tıkla, 5 dalga gelir\n- Yolda: → karşıya atla\n- Panel haritasındaki rota: 2 → 3\n- Panel haritasındaki etiketler: → KARŞIYA ATLA\n\n## Adım 4 — Aynı avluda parlayan gözlü heykele\n\n- ☠ The Abandoned · gizli: heykele tıkla · 3 dalga, iki yandan\n- Panel haritasındaki rota: 3 → 4\n\n## Adım 5 — Dar merdivenden geç, sağa, pencereden atla\n\n- ☠ Bjork · batıda nadir Lordaeron Captain · Horde'a düşman\n- Panel haritasındaki rota: 4 → 5\n- Panel haritasındaki etiketler: ☠ Lordaeron Captain (nadir)\n\n## Adım 6 — Dümdüz güneye, demir çitli mezarlığa\n\n- ☠ Rath'mael · son boss\n- Panel haritasındaki rota: 5 → 6"
+ },
+ {
+  "id": "zindan-06-shadowfang-keep",
+  "category": "dungeon",
+  "title": "Lv 24 · Shadowfang Keep (SFK)",
+  "file": "06 - Shadowfang Keep (Lv 24).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 24 · Shadowfang Keep (SFK)",
+  "keywords": [
+   "shadowfang-keep",
+   "SFK"
+  ],
+  "dungeon": "shadowfang-keep",
+  "level": 24,
+  "zone": "Silverpine Forest",
+  "bosses": [
+   "Rethilgore",
+   "Razorclaw the Butcher",
+   "Baron Silverlaine",
+   "Commander Springvale",
+   "Odo the Blindwatcher",
+   "Fenrus the Devourer",
+   "Wolf Master Nandos",
+   "Archmage Arugal"
+  ],
+  "hordeQuests": 3,
+  "allianceQuests": 0,
+  "text": "# SHADOWFANG KEEP\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 24\n- Horde görevi: 3\n- Alliance görevi: 0\n- Bölge (küçük harita etiketi): Silverpine Forest\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Rethilgore\n- 2 — Razorclaw the Butcher\n- 3 — Baron Silverlaine\n- 4 — Commander Springvale\n- 5 — Odo the Blindwatcher\n- 6 — Fenrus the Devourer\n- 7 — Wolf Master Nandos\n- 8 — Archmage Arugal\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- ☠ Ashcrombe (Alliance tutsak)\n- ☠ Adamant (Horde tutsak)\n- ☠ Deathsworn Captain (nadir)\n- ⇡ YUKARI ÇIK (3 kez)\n\n## Adım 1 — Girişten hücrelerin olduğu koridora\n\n- ☠ Rethilgore · ölünce tutsağı kurtar: avlu kapısını açar\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ; ☠ Ashcrombe (Alliance tutsak); ☠ Adamant (Horde tutsak) (bu panelde Ashcrombe etiketinin altında, kısmen kapalı)\n\n## Adım 2 — Avludan şatoya gir, mutfağa\n\n- ☠ Razorclaw the Butcher\n- Panel haritasındaki rota: 1 → 2\n\n## Adım 3 — Yandaki yemek salonuna\n\n- ☠ Baron Silverlaine · salon kalabalık, önce temizle\n- Panel haritasındaki rota: 2 → 3\n\n## Adım 4 — Merdivenden üst kata çık\n\n- ☠ Commander Springvale · odası kalabalık\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: 3 → 4\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK\n\n## Adım 5 — Surlara çık, avlunun üstündeki duvardan ilerle\n\n- ☠ Odo the Blindwatcher · yarasalarla\n- Panel haritasındaki rota: 4 → 5\n\n## Adım 6 — Sur boyunca kuleye, döner merdivenle yukarı\n\n- ☠ Fenrus the Devourer · Arugal'ın odalarının girişinde\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: 5 → 6\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK; ☠ Deathsworn Captain (nadir)\n\n## Adım 7 — Döner rampadan iki tur yukarı çık\n\n- ☠ Wolf Master Nandos · ölünce Arugal'ın kapısı açılır\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: 6 → 7\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK\n\n## Adım 8 — Kapıdan en üstteki odaya\n\n- ☠ Archmage Arugal · son boss · önce 3 worgen\n- Panel haritasındaki rota: 7 → 8"
+ },
+ {
+  "id": "zindan-07-blackfathom-deeps",
+  "category": "dungeon",
+  "title": "Lv 26 · Blackfathom Deeps (BFD)",
+  "file": "07 - Blackfathom Deeps (Lv 26).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 26 · Blackfathom Deeps (BFD)",
+  "keywords": [
+   "blackfathom-deeps",
+   "BFD",
+   "Geilhast"
+  ],
+  "dungeon": "blackfathom-deeps",
+  "level": 26,
+  "zone": "Ashenvale",
+  "bosses": [
+   "Ghamoo-ra",
+   "Lady Sarevess",
+   "Gelihast",
+   "Lorgus Jett",
+   "Old Serra'kis",
+   "Twilight Lord Kelris",
+   "Aku'mai"
+  ],
+  "hordeQuests": 5,
+  "allianceQuests": 5,
+  "text": "# BLACKFATHOM DEEPS\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 26\n- Horde görevi: 5\n- Alliance görevi: 5\n- Bölge (küçük harita etiketi): Ashenvale\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Ghamoo-ra\n- 2 — Lady Sarevess\n- 3 — Gelihast\n- 4 — Lorgus Jett\n- 5 — Old Serra'kis\n- 6 — Twilight Lord Kelris\n- 7 — Aku'mai\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- → KARŞIYA ATLA\n- ☠ Lorgus olası yer (4 kez)\n- ⇡ YUKARI ÇIK (2 kez; 5 numaranın yanındaki, Fathom Stone etiketiyle kısmen kapalı)\n- ⇣ AŞAĞI İN (5 numaranın yanında; büyük bölümü Fathom Stone ve YUKARI ÇIK etiketlerinin altında kalıyor)\n- ☠ Fathom Stone: Baron Aquanis (Horde, isteğe bağlı)\n\n## Adım 1 — Tünelden in, sudaki taşlardan atlayarak geç\n\n- ☠ Ghamoo-ra · ilk boss · suya düşen başa döner\n- Yolda: → karşıya atla\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ; → KARŞIYA ATLA\n\n## Adım 2 — Salonun kuzeybatısındaki mağaraya\n\n- ☠ Lady Sarevess\n- Panel haritasındaki rota: 1 → 2\n\n## Adım 3 — Güney mağarasından tünele, çatalda düz\n\n- ☠ Gelihast · isteğe bağlı\n- Panel haritasındaki rota: 2 → 3\n\n## Adım 4 — Geri dön, çataldaki öbür tünele\n\n- ☠ Lorgus Jett · yeri değişebilir · Horde görevi\n- Panel haritasındaki rota: 3 → 4\n- Panel haritasındaki etiketler: ☠ Lorgus olası yer (2 kez; biri panelin sağ kenarında kesik)\n\n## Adım 5 — Güneydeki açık mağarada suya dal, harabelerin altı\n\n- ☠ Old Serra'kis · su altında, isteğe bağlı\n- Yolda: ⇡ yukarı çık → ⇣ aşağı in\n- Panel haritasındaki rota: 4 → 5\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK; ⇣ AŞAĞI İN (Fathom Stone etiketinin altında, neredeyse tamamen kapalı); ☠ Fathom Stone: Baron Aquanis (Horde, isteğe bağlı)\n\n## Adım 6 — Batıdaki basamaktan sudan çık, tapınağa gir\n\n- ☠ Twilight Lord Kelris\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: 5 → 6\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK\n\n## Adım 7 — Heykelin çevresindeki mangalları yak, açılan kapıdan\n\n- ☠ Aku'mai · son boss · her mangalda çıkan dalgayı kes\n- Panel haritasındaki rota: 6 → 7"
+ },
+ {
+  "id": "zindan-08-stormwind-stockade",
+  "category": "dungeon",
+  "title": "Lv 27 · Stormwind Stockade (Stocks)",
+  "file": "08 - Stormwind Stockade (Lv 27).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 27 · Stormwind Stockade (Stocks)",
+  "keywords": [
+   "stormwind-stockade",
+   "Stocks",
+   "Stockade"
+  ],
+  "dungeon": "stormwind-stockade",
+  "level": 27,
+  "zone": "Stormwind City",
+  "bosses": [
+   "Targorr the Dread",
+   "Dextren Ward",
+   "Kam Deepfury",
+   "Hamhock",
+   "Bazil Thredd"
+  ],
+  "hordeQuests": 0,
+  "allianceQuests": 6,
+  "text": "# THE STOCKADE\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 27\n- Horde görevi: 0\n- Alliance görevi: 6\n- Bölge (küçük harita etiketi): Stormwind City\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Targorr the Dread\n- 2 — Dextren Ward\n- 3 — Kam Deepfury\n- 4 — Hamhock\n- 5 — Bazil Thredd\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- ☠ Bruegal (nadir) (4 kez; dört ayrı hücrede)\n\n## Adım 1 — Girişten düz koridora\n\n- ☠ Targorr the Dread · yeri değişebilir\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ; ☠ Bruegal (nadir) (4 kez)\n\n## Adım 2 — Kavşaktan sol koridora\n\n- ☠ Dextren Ward · yeri değişebilir\n- Panel haritasındaki rota: 1 → 2\n\n## Adım 3 — Sağ koridor boyunca sona kadar\n\n- ☠ Kam Deepfury\n- Panel haritasındaki rota: 2 → 3\n\n## Adım 4 — Sağdaki yuvarlak oda\n\n- ☠ Hamhock\n- Panel haritasındaki rota: 3 → 4\n\n## Adım 5 — Hemen yanında\n\n- ☠ Bazil Thredd · son boss\n- Panel haritasındaki rota: 4 → 5"
+ },
+ {
+  "id": "zindan-09-razorfen-kraul",
+  "category": "dungeon",
+  "title": "Lv 31 · Razorfen Kraul (RFK)",
+  "file": "09 - Razorfen Kraul (Lv 31).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 31 · Razorfen Kraul (RFK)",
+  "keywords": [
+   "razorfen-kraul",
+   "RFK"
+  ],
+  "dungeon": "razorfen-kraul",
+  "level": 31,
+  "zone": "The Barrens",
+  "bosses": [
+   "Roogug",
+   "Aggem Thorncurse",
+   "Death Speaker Jargba",
+   "Overlord Ramtusk",
+   "Agathelos the Raging",
+   "Charlga Razorflank"
+  ],
+  "hordeQuests": 6,
+  "allianceQuests": 5,
+  "text": "# RAZORFEN KRAUL\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 31\n- Horde görevi: 6\n- Alliance görevi: 5\n- Bölge (küçük harita etiketi): The Barrens\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Roogug\n- 2 — Aggem Thorncurse\n- 3 — Death Speaker Jargba\n- 4 — Overlord Ramtusk\n- 5 — Agathelos the Raging\n- 6 — Charlga Razorflank\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- ⇣ AŞAĞI İN\n- ⇡ YUKARI ÇIK\n- ☠ Earthcaller Halmgar (nadir)\n- ☠ Blind Hunter (nadir)\n\n## Adım 1 — Dikenli yolu izle\n\n- ☠ Roogug · ilk boss\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ\n\n## Adım 2 — İlk kavşakta düz devam et\n\n- ☠ Aggem Thorncurse\n- Yolda: ⇣ aşağı in → ⇡ yukarı çık\n- Panel haritasındaki rota: 1 → 2\n- Panel haritasındaki etiketler: ⇣ AŞAĞI İN; ⇡ YUKARI ÇIK\n\n## Adım 3 — Yolu izle, üst seviyede kal\n\n- ☠ Death Speaker Jargba\n- Panel haritasındaki rota: 2 → 3\n\n## Adım 4 — Yolu izle, kenardan aşağı düşme\n\n- ☠ Overlord Ramtusk\n- Panel haritasındaki rota: 3 → 4\n\n## Adım 5 — Rampadan aşağı in\n\n- ☠ Agathelos the Raging · önce mühürcüleri öldür\n- Panel haritasındaki rota: 4 → 5\n- Panel haritasındaki etiketler: ☠ Earthcaller Halmgar (nadir)\n\n## Adım 6 — Rampadan kulübesine çık\n\n- ☠ Charlga Razorflank · son boss · kulübenin önündeki rampada\n- Panel haritasındaki rota: 5 → 6\n- Panel haritasındaki etiketler: ☠ Blind Hunter (nadir)"
+ },
+ {
+  "id": "zindan-10-excavation-site-wetlands",
+  "category": "dungeon",
+  "title": "Lv 31 · Excavation Site: Wetlands",
+  "file": "10 - Excavation Site Wetlands (Lv 31).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 31 · Excavation Site: Wetlands",
+  "keywords": [
+   "excavation-site-wetlands",
+   "Excavation",
+   "Wetlands"
+  ],
+  "dungeon": "excavation-site-wetlands",
+  "level": 31,
+  "zone": "Wetlands",
+  "bosses": [
+   "Saltspine",
+   "Shadetooth",
+   "Highland Horror",
+   "Relic Guardian"
+  ],
+  "hordeQuests": 3,
+  "allianceQuests": 5,
+  "text": "# EXCAVATION SITE: WETLANDS\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 31\n- Horde görevi: 3\n- Alliance görevi: 5\n- Bölge (küçük harita etiketi): Wetlands\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Saltspine\n- 2 — Shadetooth\n- 3 — Highland Horror\n- 4 — Relic Guardian\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- ⇣ AŞAĞI İN\n- ⇡ YUKARI ÇIK\n\n## Adım 1 — Yokuştan aşağı, timsahlı bataklığa in\n\n- ☠ Saltspine · bataklıkta dolaşır, kuru yere çek\n- Yolda: ⇣ aşağı in\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ; ⇣ AŞAĞI İN\n\n## Adım 2 — Bataklığın karşı yakasından çalılığa\n\n- ☠ Shadetooth · sazlık yolda dolaşır, önce 2 Thicket Hunter\n- Panel haritasındaki rota: 1 → 2\n\n## Adım 3 — Batıdaki kazı alanından kuzeydeki çukura\n\n- ☠ Highland Horror · isteğe bağlı, Alliance görevi\n- Panel haritasındaki rota: 2 → 3\n\n## Adım 4 — Kazı alanından güneye, sütunlu alana\n\n- ☠ Relic Guardian · sağdaki sütunda Archival Panel ile başlar\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: 3 → 4\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK"
+ },
+ {
+  "id": "zindan-11-gnomeregan",
+  "category": "dungeon",
+  "title": "Lv 32 · Gnomeregan (Gnomer)",
+  "file": "11 - Gnomeregan (Lv 32).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 32 · Gnomeregan (Gnomer)",
+  "keywords": [
+   "gnomeregan",
+   "Gnomer"
+  ],
+  "dungeon": "gnomeregan",
+  "level": 32,
+  "zone": "Dun Morogh",
+  "bosses": [
+   "Grubbis",
+   "Viscous Fallout",
+   "Electrocutioner 6000",
+   "Crowd Pummeler 9-60",
+   "Mekgineer Thermaplugg"
+  ],
+  "hordeQuests": 6,
+  "allianceQuests": 10,
+  "text": "# GNOMEREGAN\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 32\n- Horde görevi: 6\n- Alliance görevi: 10\n- Bölge (küçük harita etiketi): Dun Morogh\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Grubbis\n- 2 — Viscous Fallout\n- 3 — Electrocutioner 6000\n- 4 — Crowd Pummeler 9-60\n- 5 — Mekgineer Thermaplugg\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- ↓ AŞAĞI ATLA\n- ⇣ AŞAĞI İN (5 kez)\n- ⇡ YUKARI ÇIK\n- ☠ Dark Iron Ambassador (nadir)\n\n## Adım 1 — Tüneli izle, salonun üstünden sola dön\n\n- ☠ Grubbis · Emi ile konuş, mağaraları kaparken koru\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ\n\n## Adım 2 — Geri dön, yukarıdan salona aşağı atla\n\n- ☠ Viscous Fallout · salonda dolaşır · atlayınca çok can gider\n- Yolda: ↓ aşağı atla\n- Panel haritasındaki rota: 1 → 2\n- Panel haritasındaki etiketler: ↓ AŞAĞI ATLA\n\n## Adım 3 — Batı tünelinden Launch Bay platformuna\n\n- ☠ Electrocutioner 6000 · arka kapı anahtarını düşürür\n- Yolda: ⇣ aşağı in → ⇡ yukarı çık\n- Panel haritasındaki rota: 2 → 3\n- Panel haritasındaki etiketler: ⇣ AŞAĞI İN; ⇡ YUKARI ÇIK\n\n## Adım 4 — Halkanın güneydoğu merdiveninden in, dar tünele gir\n\n- ☠ Crowd Pummeler 9-60\n- Yolda: ⇣ aşağı in → ⇣ aşağı in\n- Panel haritasındaki rota: 3 → 4\n- Panel haritasındaki etiketler: ⇣ AŞAĞI İN (2 kez)\n\n## Adım 5 — Dar tünelden geri çık, ana tünelden devam et\n\n- ☠ Mekgineer Thermaplugg · son boss · sütun düğmeleri bombaları keser\n- Yolda: ⇣ aşağı in → ⇣ aşağı in\n- Panel haritasındaki rota: 4 → 5\n- Panel haritasındaki etiketler: ☠ Dark Iron Ambassador (nadir); ⇣ AŞAĞI İN (2 kez)"
+ },
+ {
+  "id": "zindan-12-scarlet-monastery-graveyard",
+  "category": "dungeon",
+  "title": "Lv 32 · Scarlet Monastery (SM) · Graveyard",
+  "file": "12 - Scarlet Monastery Graveyard (Lv 32).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 32 · Scarlet Monastery (SM) · Graveyard",
+  "keywords": [
+   "scarlet-monastery-graveyard",
+   "SM GY",
+   "SM"
+  ],
+  "dungeon": "scarlet-monastery-graveyard",
+  "level": 32,
+  "zone": "Tirisfal Glades",
+  "bosses": [
+   "Interrogator Vishas",
+   "Bloodmage Thalnos"
+  ],
+  "hordeQuests": 2,
+  "allianceQuests": 0,
+  "text": "# SCARLET MONASTERY\n\nWOW FOREVER • MEZARLIK\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 32\n- Horde görevi: 2\n- Alliance görevi: 0\n- Bölge (küçük harita etiketi): Tirisfal Glades\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Interrogator Vishas\n- 2 — Bloodmage Thalnos\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- ⇣ AŞAĞI İN\n- ☠ nadir (5 kez; mezarlığın beş ayrı noktasında)\n- ☠ Nadir: Ironspine / Azshir / Fallen Champion\n\n## Adım 1 — Koridoru izle, ilk büyük oda\n\n- ☠ Interrogator Vishas\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ\n\n## Adım 2 — Açık mezarlığı geç, sondaki türbede merdivenden in\n\n- ☠ Bloodmage Thalnos · son boss\n- Yolda: ⇣ aşağı in\n- Panel haritasındaki rota: 1 → 2\n- Panel haritasındaki etiketler: ⇣ AŞAĞI İN; ☠ nadir (5 kez); ☠ Nadir: Ironspine / Azshir / Fallen Champion"
+ },
+ {
+  "id": "zindan-13-city-of-dalaran",
+  "category": "dungeon",
+  "title": "Lv 33 · City of Dalaran",
+  "file": "13 - City of Dalaran (Lv 33).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 33 · City of Dalaran",
+  "keywords": [
+   "city-of-dalaran",
+   "Dalaran",
+   "Mana Elemental"
+  ],
+  "dungeon": "city-of-dalaran",
+  "level": 33,
+  "zone": "Silverpine Forest",
+  "bosses": [
+   "Atrexis the Grave Knight",
+   "Lyn the Ignored",
+   "Mana Devourer",
+   "Arcane Anomaly",
+   "Fel Ancient",
+   "Arcanic Enigma",
+   "Unstable Sentinel",
+   "Shade of the Archmage"
+  ],
+  "hordeQuests": 4,
+  "allianceQuests": 4,
+  "text": "# CITY OF DALARAN\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 33\n- Horde görevi: 4\n- Alliance görevi: 4\n- Bölge (küçük harita etiketi): Silverpine Forest\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Atrexis the Grave Knight\n- 2 — Lyn the Ignored\n- Ç — Kanalizasyon çıkışı\n- 3 — Mana Devourer\n- 4 — Arcane Anomaly\n- 5 — Fel Ancient\n- 6 — Arcanic Enigma\n- 7 — Unstable Sentinel\n- 8 — Shade of the Archmage\n\nGenel harita iki bölümdür:\n- Sol üstteki ayrı kutu, alt yazısı: KANALİZASYON (YER ALTI) · ŞEHRİN ALTINDA. Bu kutudaki işaret ve etiketler: GİRİŞ, 1, 2, ⇡ YUKARI ÇIK, Ç.\n- Ana harita (şehir). İşaret ve etiketler: Ç, 3, 4, 5, 6, 7, ⇡ YUKARI ÇIK, 8.\n\nAdım panelleri 1–9 diye numaralıdır; haritadaki boss işaretleri ise 1–8 ve Ç'dir. Adım 3 Ç işaretine (Kanalizasyon çıkışı) gider; bu yüzden Adım 4'ten itibaren panel numarası haritadaki boss numarasından bir fazladır (her adımın \"Panel haritasındaki rota\" satırına bak).\n\n## Adım 1 — Bardan köprüyü geç, sağa: borulardan salona\n\n- ☠ Atrexis the Grave Knight · giriş: Dalaran Sewer Key (Modera görevi)\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ\n\n## Adım 2 — Karşı borulardan çık, yan geçitteki odaya\n\n- ☠ Lyn the Ignored · gizli, isteğe bağlı: Tome of Dalaran ile\n- Panel haritasındaki rota: 1 → 2\n\n## Adım 3 — Geri dön, rampadan yüzeye çık\n\n- ☠ Kanalizasyon çıkışı · şehirde yeşil Ç noktasından çıkarsın\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: 2 → Ç\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK; Ç\n\n## Adım 4 — Çıkıştan sola, Violet Hold avlusuna\n\n- ☠ Mana Devourer · önce avludaki bütün yaratıkları temizle\n- Panel haritasındaki rota: Ç → 3\n- Panel haritasındaki etiketler: Ç\n\n## Adım 5 — Avludan çık, sağa: eski Krasus' Landing\n\n- ☠ Arcane Anomaly · önce etrafındakileri temizle\n- Panel haritasındaki rota: 3 → 4\n\n## Adım 6 — Merkeze, Runeweaver Square'e doğudan gir\n\n- ☠ Fel Ancient · Magus Fansy Goodbringer bariyeri indirir\n- Panel haritasındaki rota: 4 → 5\n\n## Adım 7 — Doğudan çık, saat yönü tersine köşeye\n\n- ☠ Arcanic Enigma · önce 2 Mana Phantom'u öldür\n- Panel haritasındaki rota: 5 → 6\n\n## Adım 8 — Batıya, Magus Commerce Exchange girintisine\n\n- ☠ Unstable Sentinel · WT'de adı Unstable Sentry\n- Panel haritasındaki rota: 6 → 7\n\n## Adım 9 — Citadel basamaklarında Modera ile konuş\n\n- ☠ Shade of the Archmage · açtığı portaldan Violet Chamber'a geç\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: 7 → 8\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK\n- Not (transkript): Bu panelin harita kırpımının sol üst köşesinde kanalizasyon kutusunun alt yazısından \"…N ALTINDA\" parçası görünüyor."
+ },
+ {
+  "id": "zindan-14-scarlet-monastery-library",
+  "category": "dungeon",
+  "title": "Lv 35 · Scarlet Monastery (SM) · Library",
+  "file": "14 - Scarlet Monastery Library (Lv 35).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 35 · Scarlet Monastery (SM) · Library",
+  "keywords": [
+   "scarlet-monastery-library",
+   "SM Lib",
+   "SM"
+  ],
+  "dungeon": "scarlet-monastery-library",
+  "level": 35,
+  "zone": "Tirisfal Glades",
+  "bosses": [
+   "Houndmaster Loksey",
+   "Arcanist Doan"
+  ],
+  "hordeQuests": 4,
+  "allianceQuests": 3,
+  "text": "# SCARLET MONASTERY\n\nWOW FOREVER • KÜTÜPHANE\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 35\n- Horde görevi: 4\n- Alliance görevi: 3\n- Bölge (küçük harita etiketi): Tirisfal Glades\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Houndmaster Loksey\n- 2 — Arcanist Doan\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- ☠ Scarlet Key sandığı (2 numaranın yanında)\n\n## Adım 1 — İlk koridordan avluya, sağdaki oda\n\n- ☠ Houndmaster Loksey · köpekleriyle\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ\n\n## Adım 2 — Avluya dön, karşı taraftaki kapıdan kütüphaneye\n\n- ☠ Arcanist Doan · son boss · arkadaki sandıkta Scarlet Key\n- Panel haritasındaki rota: 1 → 2\n- Panel haritasındaki etiketler: ☠ Scarlet Key sandığı"
+ },
+ {
+  "id": "zindan-15-scarlet-monastery-armory",
+  "category": "dungeon",
+  "title": "Lv 38 · Scarlet Monastery (SM) · Armory",
+  "file": "15 - Scarlet Monastery Armory (Lv 38).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 38 · Scarlet Monastery (SM) · Armory",
+  "keywords": [
+   "scarlet-monastery-armory",
+   "SM Arm",
+   "SM"
+  ],
+  "dungeon": "scarlet-monastery-armory",
+  "level": 38,
+  "zone": "Tirisfal Glades",
+  "bosses": [
+   "Herod"
+  ],
+  "hordeQuests": 2,
+  "allianceQuests": 1,
+  "text": "# SCARLET MONASTERY\n\nWOW FOREVER • CEPHANELİK\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 38\n- Horde görevi: 2\n- Alliance görevi: 1\n- Bölge (küçük harita etiketi): Tirisfal Glades\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- P — Herod'un platformu\n- 1 — Herod\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- P (yeşil işaret)\n- ↓ AŞAĞI ATLA\n\n## Adım 1 — Yolu izle: eğitim salonu ve silah odaları\n\n- ☠ Herod'un platformu · kapı: Scarlet Key (Kütüphane'den)\n- Panel haritasındaki rota: GİRİŞ → P\n- Panel haritasındaki etiketler: GİRİŞ; P\n\n## Adım 2 — Platformdan aşağı atla\n\n- ☠ Herod · son boss · ölünce asker dalgası gelir\n- Yolda: ↓ aşağı atla\n- Panel haritasındaki rota: P → 1\n- Panel haritasındaki etiketler: ↓ AŞAĞI ATLA; P"
+ },
+ {
+  "id": "zindan-16-the-drowned-city",
+  "category": "dungeon",
+  "title": "Lv 38 · The Drowned City",
+  "file": "16 - The Drowned City (Lv 38).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 38 · The Drowned City",
+  "keywords": [
+   "the-drowned-city",
+   "Drowned",
+   "STV"
+  ],
+  "dungeon": "the-drowned-city",
+  "level": 38,
+  "zone": "Stranglethorn Vale",
+  "bosses": [
+   "Zul'Alai",
+   "Var'Taka",
+   "Captain Dreadrise",
+   "Deathless Guardians",
+   "Min'loth the Serpent"
+  ],
+  "text": "# THE DROWNED CITY\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 38\n- (Bu kartta Horde görevi / Alliance görevi kutuları ve küçük bölge haritası yok; üst bilgide yalnız önerilen seviye yazıyor.)\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Zul'Alai\n- 2 — Var'Taka\n- 3 — Captain Dreadrise\n- 4 — Deathless Guardians\n- 5 — Min'loth the Serpent\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- ☠ Primeval Elemental (gizli)\n\n## Adım 1 — Mağara yolunu batıya, avlu kapısına\n\n- ☠ Zul'Alai · Lv 37\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ\n\n## Adım 2 — Avludan güney kanada, batı odaya\n\n- ☠ Var'Taka · 2 iyileştirici yardımcısı · önce onlar\n- Panel haritasındaki rota: 1 → 2\n\n## Adım 3 — Havuzun batısından kuzey binaya\n\n- ☠ Captain Dreadrise · gizli boss: merkez havuza dal (isteğe bağlı)\n- Panel haritasındaki rota: 2 → 3\n- Panel haritasındaki etiketler: ☠ Primeval Elemental (gizli)\n\n## Adım 4 — Batı köprüsünün başındaki meydana\n\n- ☠ Deathless Guardians\n- Panel haritasındaki rota: 3 → 4\n\n## Adım 5 — Köprüden batıdaki tapınağa\n\n- ☠ Min'loth the Serpent · son boss · Lv 40\n- Panel haritasındaki rota: 4 → 5"
+ },
+ {
+  "id": "zindan-17-razorfen-downs",
+  "category": "dungeon",
+  "title": "Lv 39 · Razorfen Downs (RFD)",
+  "file": "17 - Razorfen Downs (Lv 39).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 39 · Razorfen Downs (RFD)",
+  "keywords": [
+   "razorfen-downs",
+   "RFD"
+  ],
+  "dungeon": "razorfen-downs",
+  "level": 39,
+  "zone": "The Barrens",
+  "bosses": [
+   "Tuten'kash",
+   "Mordresh Fire Eye",
+   "Glutton",
+   "Ragglesnout",
+   "Amnennar the Coldbringer"
+  ],
+  "hordeQuests": 5,
+  "allianceQuests": 4,
+  "text": "# RAZORFEN DOWNS\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 39\n- Horde görevi: 5\n- Alliance görevi: 4\n- Bölge (küçük harita etiketi): The Barrens\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Tuten'kash\n- 2 — Mordresh Fire Eye\n- 3 — Glutton\n- 4 — Ragglesnout\n- 5 — Amnennar the Coldbringer\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- ☠ Plaguemaw the Rotting (Belnistrasz görevi, isteğe bağlı)\n- ☠ Belnist… — etiketin devamı numaralı liste kutusunun altında kalıyor; kartta yalnız \"Belnist\" okunuyor\n- ⇡ YUKARI ÇIK (2 kez)\n- ⇣ AŞAĞI İN (2 kez)\n\n## Adım 1 — Dikenli yoldan gong odasına\n\n- ☠ Tuten'kash · gongu 3 kez çal\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ\n\n## Adım 2 — Yolu izle, kemik yığınının tepesi\n\n- ☠ Mordresh Fire Eye · Belnistrasz'ı idole götür, sonda Plaguemaw\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: 1 → 2\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK\n\n## Adım 3 — Yolu izle\n\n- ☠ Glutton\n- Yolda: ⇣ aşağı in → ⇣ aşağı in\n- Panel haritasındaki rota: 2 → 3\n- Panel haritasındaki etiketler: ⇣ AŞAĞI İN (2 kez)\n\n## Adım 4 — Yandaki odaya bak\n\n- ☠ Ragglesnout · nadir, her zaman çıkmaz\n- Panel haritasındaki rota: 3 → 4\n\n## Adım 5 — Tepeye dolanarak çık, çadırlı platform\n\n- ☠ Amnennar the Coldbringer · son boss\n- Yolda: ⇡ yukarı çık\n- Panel haritasındaki rota: 4 → 5\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK"
+ },
+ {
+  "id": "zindan-18-scarlet-monastery-cathedral",
+  "category": "dungeon",
+  "title": "Lv 40 · Scarlet Monastery (SM) · Cathedral",
+  "file": "18 - Scarlet Monastery Cathedral (Lv 40).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 40 · Scarlet Monastery (SM) · Cathedral",
+  "keywords": [
+   "scarlet-monastery-cathedral",
+   "SM Cath",
+   "SM"
+  ],
+  "dungeon": "scarlet-monastery-cathedral",
+  "level": 40,
+  "zone": "Tirisfal Glades",
+  "bosses": [
+   "High Inquisitor Whitemane",
+   "High Inquisitor Fairbanks"
+  ],
+  "hordeQuests": 2,
+  "allianceQuests": 1,
+  "text": "# SCARLET MONASTERY\n\nWOW FOREVER • KATEDRAL\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 40\n- Horde görevi: 2\n- Alliance görevi: 1\n- Bölge (küçük harita etiketi): Tirisfal Glades\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — High Inquisitor Whitemane\n- 2 — High Inquisitor Fairbanks\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n\n## Adım 1 — Kapı Scarlet Key ister; bahçeden katedrale, sunağa\n\n- ☠ High Inquisitor Whitemane · önce Mograine; Whitemane arkadaki kapıdan gelir\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ\n\n## Adım 2 — Sunağın sağındaki odada duvardaki meşaleyi çek\n\n- ☠ High Inquisitor Fairbanks · isteğe bağlı gizli boss\n- Panel haritasındaki rota: 1 → 2"
+ },
+ {
+  "id": "zindan-19-krol-dok-stronghold",
+  "category": "dungeon",
+  "title": "Lv 43 · Krol'dok Stronghold",
+  "file": "19 - Krol'dok Stronghold (Lv 43).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 43 · Krol'dok Stronghold",
+  "keywords": [
+   "krol-dok-stronghold",
+   "Krol'dok",
+   "Kroldok",
+   "Overseer Mugg"
+  ],
+  "dungeon": "krol-dok-stronghold",
+  "level": 43,
+  "zone": "Riverglades",
+  "bosses": [
+   "Slavecrusher Grox",
+   "Twilight Commander Zarmok",
+   "War Handler Ashka",
+   "Nar'gurk",
+   "Overlord Mugg"
+  ],
+  "text": "# KROL'DOK STRONGHOLD\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 43\n- (Bu kartta Horde görevi / Alliance görevi kutuları ve küçük bölge haritası yok; üst bilgide yalnız önerilen seviye yazıyor.)\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — Slavecrusher Grox\n- 2 — Twilight Commander Zarmok\n- 3 — War Handler Ashka\n- 4 — Nar'gurk\n- 5 — Overlord Mugg\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n\n## Adım 1 — Girişten kuzeydoğuya, ilk avluya\n\n- ☠ Slavecrusher Grox · Lv 42\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ\n\n## Adım 2 — Doğuya, kale kapısının önüne\n\n- ☠ Twilight Commander Zarmok · ölünce kapı açılır\n- Panel haritasındaki rota: 1 → 2\n\n## Adım 3 — Kapıdan vadiye, doğu yamaca\n\n- ☠ War Handler Ashka · Lv 43\n- Panel haritasındaki rota: 2 → 3\n\n## Adım 4 — Kuzeye dolan, sonra batıya\n\n- ☠ Nar'gurk · Lv 44\n- Panel haritasındaki rota: 3 → 4\n\n## Adım 5 — Köprüden geç, kuzeydeki kuleye\n\n- ☠ Overlord Mugg · son boss · Lv 45 · köprüden sonra Bossman Toof (Lv 42)\n- Panel haritasındaki rota: 4 → 5"
+ },
+ {
+  "id": "zindan-20-uldaman",
+  "category": "dungeon",
+  "title": "Lv 45 · Uldaman (Ulda)",
+  "file": "20 - Uldaman (Lv 45).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 45 · Uldaman (Ulda)",
+  "keywords": [
+   "uldaman",
+   "Ulda"
+  ],
+  "dungeon": "uldaman",
+  "level": 45,
+  "zone": "Badlands",
+  "bosses": [
+   "The Lost Dwarves",
+   "Revelosh",
+   "Ironaya",
+   "Obsidian Sentinel",
+   "Ancient Stone Keeper",
+   "Galgann Firehammer",
+   "Grimlok",
+   "Archaedas"
+  ],
+  "hordeQuests": 5,
+  "allianceQuests": 10,
+  "text": "# ULDAMAN\n\nWOW FOREVER • ADIM ADIM ROTA\n\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 45\n- Horde görevi: 5\n- Alliance görevi: 10\n- Bölge (küçük harita etiketi): Badlands\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı liste:\n\n- 1 — The Lost Dwarves\n- 2 — Revelosh\n- 3 — Ironaya\n- 4 — Obsidian Sentinel\n- 5 — Ancient Stone Keeper\n- 6 — Galgann Firehammer\n- 7 — Grimlok\n- 8 — Archaedas\n\nHarita üzerindeki etiketler (numaralı işaretler dışında):\n\n- GİRİŞ\n- ☠ Keystone (asayı koy)\n- ⇡ YUKARI ÇIK\n- ☠ Altar of the Keepers (alt kenarı Altar of Archaedas etiketiyle kısmen kapalı)\n- ☠ Altar of Archaedas (uyandır)\n- ⇣ AŞAĞI İN\n\n## Adım 1 — Soldaki iki odayı geç, tüneldeki üç cüce\n\n- ☠ The Lost Dwarves · sandıktan Gni'kiv Medallion\n- Panel haritasındaki rota: GİRİŞ → 1\n- Panel haritasındaki etiketler: GİRİŞ\n\n## Adım 2 — Titan odasına dön, koridoru izle\n\n- ☠ Revelosh · Shaft of Tsol düşürür\n- Panel haritasındaki rota: 1 → 2\n\n## Adım 3 — Asayı Harita Odası'ndaki Keystone'a koy, kapı açılır\n\n- ☠ Ironaya · asa = Shaft of Tsol + Medallion\n- Panel haritasındaki rota: 2 → 3\n- Panel haritasındaki etiketler: ☠ Keystone (asayı koy)\n\n## Adım 4 — Büyük odaya dön, kuzey tüneli, çatalda sola\n\n- ☠ Obsidian Sentinel · isteğe bağlı (büyücü görevi)\n- Panel haritasındaki rota: 3 → 4\n\n## Adım 5 — Geri dön, doğudaki odalardan geç\n\n- ☠ Ancient Stone Keeper\n- Panel haritasındaki rota: 4 → 5\n\n## Adım 6 — Kuzeybatı köşesindeki tünel, küçük oyuk\n\n- ☠ Galgann Firehammer\n- Panel haritasındaki rota: 5 → 6\n\n## Adım 7 — Kuzeydeki Titan odasına\n\n- ☠ Grimlok\n- Panel haritasındaki rota: 6 → 7\n\n## Adım 8 — Sütunlu salondan doğu rampasıyla alt kata in\n\n- ☠ Archaedas · son boss · önce üst sunak: 4 Stone Keeper\n- Yolda: ⇡ yukarı çık → ⇣ aşağı in\n- Panel haritasındaki rota: 7 → 8\n- Panel haritasındaki etiketler: ⇡ YUKARI ÇIK; ☠ Altar of the Keepers; ☠ Altar of Archaedas (uyandır); ⇣ AŞAĞI İN"
+ },
+ {
+  "id": "zindan-21-zulfarrak",
+  "category": "dungeon",
+  "title": "Lv 46 · Zul'Farrak (ZF)",
+  "file": "21 - Zul'Farrak (Lv 46).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 46 · Zul'Farrak (ZF)",
+  "keywords": [
+   "zulfarrak",
+   "ZF"
+  ],
+  "dungeon": "zulfarrak",
+  "level": 46,
+  "zone": "Tanaris",
+  "bosses": [
+   "Theka the Martyr",
+   "Antu'sul",
+   "Witch Doctor Zum'rah",
+   "Shadowpriest Sezz'ziz",
+   "Chief Ukorz Sandscalp",
+   "Hydromancer Velratha",
+   "Gahz'rilla"
+  ],
+  "hordeQuests": 7,
+  "allianceQuests": 8,
+  "text": "# Zul'Farrak\n\nWOW FOREVER • ADIM ADIM ROTA\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 46\n- Horde görevi: 7\n- Alliance görevi: 8\n- Bölge (küçük harita etiketi): Tanaris\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Theka the Martyr\n2. Antu'sul\n3. Witch Doctor Zum'rah\n4. Shadowpriest Sezz'ziz\n5. Chief Ukorz Sandscalp\n6. Hydromancer Velratha\n7. Gahz'rilla\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4, 5, 6, 7 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↓ AŞAĞI İN (Sandarr Dunereaver ile Zerillis arasında, 1. durağa giden yolda)\n- Zerillis (nadir)\n- Sandarr Dunereaver (nadir)\n- ↑ YUKARI ÇIK (4. durağın yanında)\n- ↓ AŞAĞI İN (4. durağın yanında)\n- Sandfury Executioner (anahtar) (4. durağın yanında)\n- Dustwraith (nadir) (7. durağın yanında)\n\n## 1 — Düz yoldan meydana çık, sağa Theka'nın odasına\n\n- Boss: Theka the Martyr\n- Yolda: ↓ aşağı in\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, Zerillis (nadir), ↓ AŞAĞI İN, Sandarr Dunereaver (nadir)\n\n## 2 — Odada sağdaki duvar çatlağından mağaraya\n\n- Boss: Antu'sul\n- Not: mağaranın önüne çekip kes\n- Panel haritası: 1 → 2\n\n## 3 — Geri dön, Theka'dan sonraki mezarlık odası\n\n- Boss: Witch Doctor Zum'rah\n- Not: odaya girince düşman olur\n- Panel haritası: 2 → 3\n\n## 4 — Piramidin merdivenine çık, Bly'ı kurtar\n\n- Boss: Shadowpriest Sezz'ziz\n- Not: kafesleri aç · sonda Nekrum gelir\n- Yolda: ↑ yukarı çık\n- Panel haritası: 3 → 4. Etiketler: ↑ YUKARI ÇIK, Sandfury Executioner (anahtar)\n\n## 5 — Weegli ile konuş, kapı patlayınca rampadan çık\n\n- Boss: Chief Ukorz Sandscalp\n- Not: Bly'dan önce Weegli ile konuş · Ruuzlu ile\n- Yolda: ↓ aşağı in\n- Panel haritası: 4 → 5. Etiketler: ↓ AŞAĞI İN\n\n## 6 — Rampadan in, sola dön, yan koridordan avluya\n\n- Boss: Hydromancer Velratha\n- Not: avlunun köşesinde\n- Panel haritası: 5 → 6\n\n## 7 — Havuzun başındaki gonga Mallet ile vur\n\n- Boss: Gahz'rilla\n- Not: isteğe bağlı · Mallet: Jintha'Alor sunağı\n- Panel haritası: 6 → 7. Etiketler: Dustwraith (nadir)"
+ },
+ {
+  "id": "zindan-22-maraudon-orange",
+  "category": "dungeon",
+  "title": "Lv 47 · Maraudon (Mara) · Turuncu Kanat",
+  "file": "22 - Maraudon - Turuncu Kanat (Lv 47).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 47 · Maraudon (Mara) · Turuncu Kanat",
+  "keywords": [
+   "maraudon-orange",
+   "Mara",
+   "Mara Orange"
+  ],
+  "dungeon": "maraudon-orange",
+  "level": 47,
+  "zone": "Desolace",
+  "bosses": [
+   "Noxxion",
+   "Razorlash",
+   "Celebras the Cursed"
+  ],
+  "hordeQuests": 7,
+  "allianceQuests": 7,
+  "text": "# Maraudon · Turuncu Kanat\n\nWOW FOREVER • TURUNCU KANAT\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 47\n- Horde görevi: 7\n- Alliance görevi: 7\n- Bölge (küçük harita etiketi): Desolace\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Noxxion\n2. Razorlash\n3. Celebras the Cursed\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↓ AŞAĞI İN (GİRİŞ ile 1. durak arasında)\n- ↓ AŞAĞI İN (2. durak ile 3. durak arasında)\n\n## 1 — Turuncu girişten gir, kristalli yolu izle\n\n- Boss: Noxxion\n- Not: turuncu kanat\n- Yolda: ↓ aşağı in\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, ↓ AŞAĞI İN\n\n## 2 — Kanadın sonuna kadar ilerle\n\n- Boss: Razorlash\n- Not: turuncu kanadın sonu\n- Panel haritası: 1 → 2\n\n## 3 — Razorlash'tan ilerle, ön bölümün son odası\n\n- Boss: Celebras the Cursed\n- Not: son boss · Celebras asası iç bölüme götürür\n- Yolda: ↓ aşağı in\n- Panel haritası: 2 → 3. Etiketler: ↓ AŞAĞI İN"
+ },
+ {
+  "id": "zindan-23-maraudon-purple",
+  "category": "dungeon",
+  "title": "Lv 47 · Maraudon (Mara) · Mor Kanat",
+  "file": "23 - Maraudon - Mor Kanat (Lv 47).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 47 · Maraudon (Mara) · Mor Kanat",
+  "keywords": [
+   "maraudon-purple",
+   "Mara",
+   "Mara Purple"
+  ],
+  "dungeon": "maraudon-purple",
+  "level": 47,
+  "zone": "Desolace",
+  "bosses": [
+   "Lord Vyletongue",
+   "Celebras the Cursed"
+  ],
+  "hordeQuests": 7,
+  "allianceQuests": 7,
+  "text": "# Maraudon · Mor Kanat\n\nWOW FOREVER • MOR KANAT\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 47\n- Horde görevi: 7\n- Alliance görevi: 7\n- Bölge (küçük harita etiketi): Desolace\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Lord Vyletongue\n2. Celebras the Cursed\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↓ AŞAĞI İN (GİRİŞ'in yakınında, 1. durağa giden yolda)\n- ↑ YUKARI ÇIK (1. durağın yanında)\n- Meshlok the Harvester (nadir) (1. durak ile 2. durak arasında)\n- ↓ AŞAĞI İN (1. durak ile 2. durak arasında)\n- ↓ AŞAĞI İN (1. durak ile 2. durak arasında, ikinci etiket)\n\n## 1 — Mor girişten gir, üst seviyede kal, kanadın sonuna\n\n- Boss: Lord Vyletongue\n- Not: mor kanat\n- Yolda: ↓ aşağı in → ↑ yukarı çık\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, ↓ AŞAĞI İN, ↑ YUKARI ÇIK\n\n## 2 — Yolun sonundaki odaya, kanatlar burada birleşir\n\n- Boss: Celebras the Cursed\n- Not: ön bölümün son bossu · ruhu asayı yapar\n- Yolda: ↓ aşağı in → ↓ aşağı in\n- Panel haritası: 1 → 2. Etiketler: Meshlok the Harvester (nadir), ↓ AŞAĞI İN, ↓ AŞAĞI İN"
+ },
+ {
+  "id": "zindan-24-maraudon",
+  "category": "dungeon",
+  "title": "Lv 49 · Maraudon (Mara) · Tam",
+  "file": "24 - Maraudon (Lv 49).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 49 · Maraudon (Mara) · Tam",
+  "keywords": [
+   "maraudon",
+   "Mara"
+  ],
+  "dungeon": "maraudon",
+  "level": 49,
+  "zone": "Desolace",
+  "bosses": [
+   "Noxxion",
+   "Razorlash",
+   "Lord Vyletongue",
+   "Celebras the Cursed",
+   "Landslide",
+   "Rotgrip",
+   "Tinkerer Gizlock",
+   "Princess Theradras"
+  ],
+  "hordeQuests": 7,
+  "allianceQuests": 7,
+  "text": "# Maraudon\n\nWOW FOREVER • ADIM ADIM ROTA\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 49\n- Horde görevi: 7\n- Alliance görevi: 7\n- Bölge (küçük harita etiketi): Desolace\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Noxxion\n2. Razorlash\n3. Lord Vyletongue\n4. Celebras the Cursed\n5. Landslide\n6. Rotgrip\n7. Tinkerer Gizlock\n8. Princess Theradras\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4, 5, 6, 7, 8 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↓ AŞAĞI İN (GİRİŞ ile 1. durak arasında)\n- Meshlok the Harvester (nadir) (3. durak ile 4. durak arasında)\n- ↓ AŞAĞI İN (3. durak ile 4. durak arasında)\n- ↓ AŞAĞI İN (3. durak ile 4. durak arasında, ikinci etiket; üst üste binmiş)\n- ↑ YUKARI ÇIK (5. durağın altında; yarısı başka etiketin altında kalmış)\n- ↑ YUKARI ÇIK (5. durağın altında, ikinci etiket)\n- ↓ AŞAĞI İN (5. durağın altında)\n- ↑ YUKARI ÇIK (7. durağın üstünde)\n- ↑ YUKARI ÇIK (7. durağın üstünde, ikinci etiket)\n- ↓ SUYA ATLA (6. durağın yanında; yarısı başka etiketin altında kalmış)\n- ↓ AŞAĞI İN (6. durağın yanında)\n- ↑ YUKARI ÇIK (6. durağın sağ altında, göl kenarında)\n\n## 1 — Turuncu girişten gir, kristalli yolu izle\n\n- Boss: Noxxion\n- Not: turuncu kanat\n- Yolda: ↓ aşağı in\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, ↓ AŞAĞI İN\n\n## 2 — Kanadın sonuna kadar ilerle\n\n- Boss: Razorlash\n- Not: turuncu kanadın sonu\n- Panel haritası: 1 → 2\n\n## 3 — Geri dön, çukurdan mor kanadın sonuna\n\n- Boss: Lord Vyletongue\n- Not: mor kanat\n- Panel haritası: 2 → 3\n\n## 4 — Yolun sonundaki odaya, kanatlar burada birleşir\n\n- Boss: Celebras the Cursed\n- Not: ön bölümün son bossu · ruhu asayı yapar\n- Yolda: ↓ aşağı in → ↓ aşağı in\n- Panel haritası: 3 → 4. Etiketler: Meshlok the Harvester (nadir), ↓ AŞAĞI İN, ↓ AŞAĞI İN\n\n## 5 — Şelaleden in, köprüden sağa, sarmal rampaya çık\n\n- Boss: Landslide\n- Not: en yüksek noktada\n- Yolda: ↑ yukarı çık → ↑ yukarı çık\n- Panel haritası: 4 → 5. Etiketler: ↑ YUKARI ÇIK, ↑ YUKARI ÇIK\n\n## 6 — Geri in, Prenses yolundan aşağıdaki göle atla\n\n- Boss: Rotgrip\n- Not: gölde, hidralarla\n- Yolda: ↓ suya atla → ↓ aşağı in → ↓ aşağı in\n- Panel haritası: 5 → 6. Etiketler: ↓ AŞAĞI İN (5. durağın yanında), ↓ SUYA ATLA, ↓ AŞAĞI İN (6. durağın yanında)\n\n## 7 — Gölde doğuya yüz, rampadan çıkıp çıkıntıyı izle\n\n- Boss: Tinkerer Gizlock\n- Not: isteğe bağlı\n- Yolda: ↑ yukarı çık\n- Panel haritası: 6 → 7. Etiketler: ↑ YUKARI ÇIK\n\n## 8 — Rampadan çık, Prenses'in platformuna\n\n- Boss: Princess Theradras\n- Not: son boss\n- Yolda: ↑ yukarı çık → ↑ yukarı çık\n- Panel haritası: 7 → 8. Etiketler: ↑ YUKARI ÇIK, ↑ YUKARI ÇIK"
+ },
+ {
+  "id": "zindan-25-maraudon-inner",
+  "category": "dungeon",
+  "title": "Lv 49 · Maraudon (Mara) · İç Bölüm (Prenses)",
+  "file": "25 - Maraudon - Ic Bolum (Prenses) (Lv 49).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 49 · Maraudon (Mara) · İç Bölüm (Prenses)",
+  "keywords": [
+   "maraudon-inner",
+   "Mara",
+   "Princess",
+   "Prenses"
+  ],
+  "dungeon": "maraudon-inner",
+  "level": 49,
+  "zone": "Desolace",
+  "bosses": [
+   "Landslide",
+   "Rotgrip",
+   "Tinkerer Gizlock",
+   "Princess Theradras"
+  ],
+  "hordeQuests": 7,
+  "allianceQuests": 7,
+  "text": "# Maraudon · İç Bölüm (Prenses)\n\nWOW FOREVER • İÇ BÖLÜM (PRENSES)\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 49\n- Horde görevi: 7\n- Alliance görevi: 7\n- Bölge (küçük harita etiketi): Desolace\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Landslide\n2. Rotgrip\n3. Tinkerer Gizlock\n4. Princess Theradras\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↓ AŞAĞI İN (1. durağın altında)\n- ↑ YUKARI ÇIK (1. durağın sol altında)\n- ↑ YUKARI ÇIK (1. durağın altında, ikinci etiket)\n- ↑ YUKARI ÇIK (3. durağın üstünde)\n- ↑ YUKARI ÇIK (3. durağın üstünde, ikinci etiket)\n- ↓ SUYA ATLA (2. durağın yanında)\n- ↓ AŞAĞI İN (2. durağın yanında)\n- ↑ YUKARI ÇIK (2. durağın sağ altında, göl kenarında)\n\n## 1 — Şelaleden in, köprüden sağa, sarmal rampaya çık\n\n- Boss: Landslide\n- Not: en yüksek noktada\n- Yolda: ↑ yukarı çık → ↑ yukarı çık\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, ↑ YUKARI ÇIK, ↑ YUKARI ÇIK\n\n## 2 — Geri in, Prenses yolundan aşağıdaki göle atla\n\n- Boss: Rotgrip\n- Not: gölde, hidralarla\n- Yolda: ↓ suya atla → ↓ aşağı in → ↓ aşağı in\n- Panel haritası: 1 → 2. Etiketler: ↓ AŞAĞI İN (1. durağın yanında), ↓ SUYA ATLA, ↓ AŞAĞI İN (2. durağın yanında)\n\n## 3 — Gölde doğuya yüz, rampadan çıkıp çıkıntıyı izle\n\n- Boss: Tinkerer Gizlock\n- Not: isteğe bağlı\n- Yolda: ↑ yukarı çık\n- Panel haritası: 2 → 3. Etiketler: ↑ YUKARI ÇIK\n\n## 4 — Rampadan çık, Prenses'in platformuna\n\n- Boss: Princess Theradras\n- Not: son boss\n- Yolda: ↑ yukarı çık → ↑ yukarı çık\n- Panel haritası: 3 → 4. Etiketler: ↑ YUKARI ÇIK, ↑ YUKARI ÇIK"
+ },
+ {
+  "id": "zindan-26-alcaz-prison",
+  "category": "dungeon",
+  "title": "Lv 51 · Alcaz Prison",
+  "file": "26 - Alcaz Prison (Lv 51).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 51 · Alcaz Prison",
+  "keywords": [
+   "alcaz-prison",
+   "Alcaz"
+  ],
+  "dungeon": "alcaz-prison",
+  "level": 51,
+  "zone": "Dustwallow Marsh",
+  "bosses": [
+   "Tidemistress Ca'zass",
+   "Overseer Wrex",
+   "Katerina the Cleaner",
+   "The Questioner",
+   "Blazeroar"
+  ],
+  "text": "# Alcaz Prison\n\nWOW FOREVER • ADIM ADIM ROTA\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 51\n- Horde görevi: (kartta bu kutu yok)\n- Alliance görevi: (kartta bu kutu yok)\n- Bölge (küçük harita etiketi): (kartta küçük harita yok)\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Tidemistress Ca'zass\n2. Overseer Wrex\n3. Katerina the Cleaner\n4. The Questioner\n5. Blazeroar\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4, 5 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n\n## 1 — Giriş koridorundan batıya, kavşağa\n\n- Boss: Tidemistress Ca'zass\n- Not: Lv 50\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ\n\n## 2 — Güneye, güneydoğu yuvarlak odasına\n\n- Boss: Overseer Wrex\n- Not: anahtarı alt katı açar\n- Panel haritası: 1 → 2\n\n## 3 — Alt kata in, batıdaki yuvarlak odaya\n\n- Boss: Katerina the Cleaner\n- Not: Lv 52\n- Panel haritası: 2 → 3\n\n## 4 — Kuzey koridorundan kuzeydoğu odasına\n\n- Boss: The Questioner\n- Not: Lv 51\n- Panel haritası: 3 → 4\n\n## 5 — Batıdan güneybatıdaki büyük odaya\n\n- Boss: Blazeroar\n- Not: son boss · önce Zarla Ober olarak görünür\n- Panel haritası: 4 → 5"
+ },
+ {
+  "id": "zindan-27-blackrock-depths-lower",
+  "category": "dungeon",
+  "title": "Lv 52 · Blackrock Depths (BRD) · Alt (Detention Block)",
+  "file": "27 - Blackrock Depths - Alt (Detention Block) (Lv 52).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 52 · Blackrock Depths (BRD) · Alt (Detention Block)",
+  "keywords": [
+   "blackrock-depths-lower",
+   "BRD",
+   "Prison",
+   "Arena"
+  ],
+  "dungeon": "blackrock-depths-lower",
+  "level": 52,
+  "zone": "Searing Gorge",
+  "bosses": [
+   "High Interrogator Gerstahn",
+   "Lord Roccor",
+   "Houndmaster Grebmar",
+   "Ring of Law",
+   "Pyromancer Loregrain",
+   "Warder Stilgiss",
+   "The Vault",
+   "Fineous Darkvire",
+   "Lord Incendius",
+   "Bael'Gar"
+  ],
+  "hordeQuests": 21,
+  "allianceQuests": 16,
+  "text": "# Blackrock Depths · Alt BRD (Detention Block)\n\nWOW FOREVER • ALT BRD (DETENTION BLOCK)\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 52\n- Horde görevi: 21\n- Alliance görevi: 16\n- Bölge (küçük harita etiketi): Searing Gorge\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. High Interrogator Gerstahn\n2. Lord Roccor\n3. Houndmaster Grebmar\n4. Ring of Law\n5. Pyromancer Loregrain\n6. Warder Stilgiss\n7. The Vault\n8. Fineous Darkvire\n9. Lord Incendius\n10. Bael'Gar\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↑ YUKARI ÇIK (3. durağın yanında; yarısı durak numarasının altında kalmış)\n- ↑ YUKARI ÇIK (2. durak ile 4. durak arasında, sağda)\n- ↑ YUKARI ÇIK (4. durak ile 5. durak arasında)\n- Anıt: Ironfel koy = Shadowforge Key (5. durağın altında)\n- ↓ AŞAĞI İN (8. durağın yanında)\n\n## 1 — Kemerden geç, en güneydeki oda\n\n- Boss: High Interrogator Gerstahn\n- Not: Prison Cell Key düşürür\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ\n\n## 2 — Kuzey halkada dolaşır\n\n- Boss: Lord Roccor\n- Not: yeri değişebilir\n- Panel haritası: 1 → 2\n\n## 3 — Koridorun en alçak yerine in (arenanın altı)\n\n- Boss: Houndmaster Grebmar\n- Panel haritası: 2 → 3\n\n## 4 — Doğudaki açık kapıdan arenaya gir\n\n- Boss: Ring of Law\n- Not: 2 dalga + rastgele boss\n- Yolda: ↑ yukarı çık → ↑ yukarı çık\n- Panel haritası: 3 → 4. Etiketler: ↑ YUKARI ÇIK, ↑ YUKARI ÇIK\n\n## 5 — Ring'in yanındaki merdivenle çık, halkayı dolan\n\n- Boss: Pyromancer Loregrain\n- Not: seyircilere dikkat · iç korkuluğa yakın yürü\n- Yolda: ↑ yukarı çık\n- Panel haritası: 4 → 5. Etiketler: ↑ YUKARI ÇIK\n\n## 6 — Domicile köprüsünden Black Vault'a\n\n- Boss: Warder Stilgiss\n- Not: yanında Verek\n- Panel haritası: 5 → 6\n\n## 7 — Aynı odada, 12 Relic Coffer açılınca\n\n- Boss: The Vault\n- Not: isteğe bağlı · kapılar Relic Coffer Key ister\n- Panel haritası: 6 → 7\n\n## 8 — Sarmal rampadan aşağı\n\n- Boss: Fineous Darkvire\n- Not: rampada dolaşır\n- Yolda: ↓ aşağı in\n- Panel haritası: 7 → 8. Etiketler: ↓ AŞAĞI İN\n\n## 9 — Rampanın dibinden dar köprüyle lavın ortasına\n\n- Boss: Lord Incendius\n- Not: platformda, düşme\n- Panel haritası: 8 → 9\n\n## 10 — Dev kapılardan Dark Iron Highway'in batı ucu\n\n- Boss: Bael'Gar\n- Panel haritası: 9 → 10"
+ },
+ {
+  "id": "zindan-28-sunken-temple",
+  "category": "dungeon",
+  "title": "Lv 53 · Sunken Temple (ST)",
+  "file": "28 - Sunken Temple (Lv 53).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 53 · Sunken Temple (ST)",
+  "keywords": [
+   "sunken-temple",
+   "ST",
+   "Atal'Hakkar"
+  ],
+  "dungeon": "sunken-temple",
+  "level": 53,
+  "zone": "Swamp of Sorrows",
+  "bosses": [
+   "Atal'alarion",
+   "6 trol (Atal'ai Defenders)",
+   "Jammal'an the Prophet",
+   "Dreamscythe + Weaver",
+   "Avatar of Hakkar",
+   "Morphaz + Hazzas",
+   "Shade of Eranikus"
+  ],
+  "hordeQuests": 9,
+  "allianceQuests": 9,
+  "text": "# The Temple of Atal'Hakkar\n\nWOW FOREVER • ADIM ADIM ROTA\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 53\n- Horde görevi: 9\n- Alliance görevi: 9\n- Bölge (küçük harita etiketi): Swamp of Sorrows\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi (kartta ilk satır yeşil daire içinde 6, diğerleri kırmızı daire içinde 1–7):\n\n- (yeşil) 6 — Heykel bulmacası\n- 1 — Atal'alarion\n- 2 — 6 trol (Atal'ai Defenders)\n- 3 — Jammal'an the Prophet\n- 4 — Dreamscythe + Weaver\n- 5 — Avatar of Hakkar\n- 6 — Morphaz + Hazzas\n- 7 — Shade of Eranikus\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: yeşil 6, sonra kırmızı 1, 2, 3, 4, 5, 6, 7\n- ↑ YUKARI ÇIK (GİRİŞ'in altında, solda)\n- ↑ YUKARI ÇIK (GİRİŞ'in altında, sağda)\n- ↓ AŞAĞI İN (GİRİŞ'in altında)\n- ↓ AŞAĞI İN (GİRİŞ'in altında, ikinci etiket)\n- Mijan\n- Hukku\n- Heykel 2\n- Heykel 5\n- Heykel 6 (son) (yeşil 6 durağının yanında)\n- Zul'Lor\n- Heykel 3\n- Heykel 4\n- Heykel 1\n- Zolo\n- Gasher\n- Spawn of Hakkar (elit) (2. durağın altında)\n- ↓ AŞAĞI ATLA (2. durağın altında)\n- Ebedi Alev (5. durağın çevresinde, 4 ayrı etiket)\n\n## 1 — Merdivenle orta kattaki heykel halkasına\n\n- Boss: Heykel bulmacası\n- Not: 6 heykele numara sırasıyla tıkla\n- Yolda: ↓ aşağı in\n- Panel haritası: GİRİŞ → yeşil 6. Etiketler: GİRİŞ, ↓ AŞAĞI İN, Heykel 1, Heykel 2, Heykel 3, Heykel 4, Heykel 5, Heykel 6 (son)\n\n## 2 — Heykel halkasından en alt kata, çukura\n\n- Boss: Atal'alarion\n- Not: bulmaca bitince çıkar · delikten atlama\n- Yolda: ↓ aşağı in\n- Panel haritası: yeşil 6 → 1. Etiketler: ↓ AŞAĞI İN\n\n## 3 — Portala dön, solundaki merdivenle üst halkaya\n\n- Boss: 6 trol (Atal'ai Defenders)\n- Not: sıra haritada: her platformdan aynı yoldan dön\n- Yolda: ↑ yukarı çık → ↑ yukarı çık\n- Panel haritası: 1 → 2. Etiketler: ↑ YUKARI ÇIK, ↑ YUKARI ÇIK, Mijan, Hukku, Zul'Lor, Zolo, Gasher\n\n## 4 — Loro'nun platformundan aşağı atla, doğudaki geçide\n\n- Boss: Jammal'an the Prophet\n- Not: 6 trol ölünce kalkan açılır · Ogom ile\n- Yolda: ↓ aşağı atla\n- Panel haritası: 2 → 3. Etiketler: Spawn of Hakkar (elit), ↓ AŞAĞI ATLA\n\n## 5 — Kurban Çukuru'na dön\n\n- Boss: Dreamscythe + Weaver\n- Not: Jammal'an ölünce çıkarlar, tek tek çek\n- Panel haritası: 3 → 4\n\n## 6 — Çukurun batısındaki alevli salona\n\n- Boss: Avatar of Hakkar\n- Not: isteğe bağlı · 4 Bloodkeeper kanıyla alevleri söndür\n- Panel haritası: 4 → 5. Etiketler: Ebedi Alev (4 ayrı etiket)\n\n## 7 — Çukurun güneyindeki salona geç\n\n- Boss: Morphaz + Hazzas\n- Not: ikisi birlikte gelir\n- Panel haritası: 5 → 6\n\n## 8 — Doğudaki son odaya\n\n- Boss: Shade of Eranikus\n- Not: son boss · önce bütün ejderhaları temizle\n- Panel haritası: 6 → 7"
+ },
+ {
+  "id": "zindan-29-dire-maul-east",
+  "category": "dungeon",
+  "title": "Lv 56 · Dire Maul (DM) · Doğu",
+  "file": "29 - Dire Maul East (Lv 56).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 56 · Dire Maul (DM) · Doğu",
+  "keywords": [
+   "dire-maul-east",
+   "DM East",
+   "DME"
+  ],
+  "dungeon": "dire-maul-east",
+  "level": 56,
+  "zone": "Feralas",
+  "bosses": [
+   "Pusillin",
+   "Lethtendris",
+   "Hydrospawn",
+   "Zevrim Thornhoof",
+   "Alzzin the Wildshaper"
+  ],
+  "hordeQuests": 3,
+  "allianceQuests": 3,
+  "text": "# Dire Maul · Doğu Kanadı\n\nWOW FOREVER • DOĞU KANADI\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 56\n- Horde görevi: 3\n- Alliance görevi: 3\n- Bölge (küçük harita etiketi): Feralas\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Pusillin\n2. Lethtendris\n3. Hydrospawn\n4. Zevrim Thornhoof\n5. Alzzin the Wildshaper\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4, 5 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↓ AŞAĞI İN (1. durağın yanında)\n- ↑ YUKARI ÇIK (2-3-4. durakların bulunduğu odanın üst ucunda)\n- ↓ SUYA ATLA (4. durağın solunda)\n- ↓ AŞAĞI İN (4. durağın altında)\n- ↑ YUKARI ÇIK (4. durağın altında, spiral tünelin başında)\n- ↓ AŞAĞI İN (spiral tünelde)\n- Isalien (çağrılır, isteğe bağlı) (5. durağın yanında)\n- ↓ AŞAĞI İN (5. durağın altında)\n\n## 1 — Girişte sola, Pusillin'le konuş; kaçtığı yoldan izle\n\n- Boss: Pusillin\n- Not: rampada savaşılır · Crescent Key düşürür\n- Yolda: ↑ yukarı çık\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, ↑ YUKARI ÇIK\n\n## 2 — Geri dön, atladığın odadaki rampadan yukarı\n\n- Boss: Lethtendris\n- Yolda: ↓ aşağı in → ↑ yukarı çık\n- Panel haritası: 1 → 2. Etiketler: ↓ AŞAĞI İN, ↑ YUKARI ÇIK\n\n## 3 — Spiral tünelden in, solda havuzda\n\n- Boss: Hydrospawn\n- Yolda: ↓ aşağı in → ↓ aşağı in\n- Panel haritası: 2 → 3. Etiketler: ↓ AŞAĞI İN, ↓ AŞAĞI İN\n\n## 4 — Havuzun ucundaki rampadan kenara, düz ileri\n\n- Boss: Zevrim Thornhoof\n- Not: havuzun üstündeki sunakta\n- Yolda: ↑ yukarı çık\n- Panel haritası: 3 → 4. Etiketler: ↑ YUKARI ÇIK\n\n## 5 — Havuza atla, tünelden açık alana, kapıdan kenar boyunca in\n\n- Boss: Alzzin the Wildshaper\n- Not: son boss · Zevrim ölünce Ironbark kapıyı açar\n- Yolda: ↓ suya atla → ↓ aşağı in\n- Panel haritası: 4 → 5. Etiketler: ↓ SUYA ATLA, Isalien (çağrılır, isteğe bağlı)"
+ },
+ {
+  "id": "zindan-30-blackmaw-hold",
+  "category": "dungeon",
+  "title": "Lv 57 · Blackmaw Hold",
+  "file": "30 - Blackmaw Hold (Lv 57).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 57 · Blackmaw Hold",
+  "keywords": [
+   "blackmaw-hold",
+   "Blackmaw"
+  ],
+  "dungeon": "blackmaw-hold",
+  "level": 57,
+  "zone": "Azshara",
+  "bosses": [
+   "Impaan the Imprisoner",
+   "Withermaw",
+   "Bonesnout the Unbroken",
+   "Blackmaw Behemoth",
+   "Varrox Bleakhoof",
+   "Elder Shaman Bloodmane",
+   "Unbound Spirit"
+  ],
+  "text": "# Blackmaw Hold\n\nWOW FOREVER • ADIM ADIM ROTA\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 57\n- Horde görevi: (kartta bu kutu yok)\n- Alliance görevi: (kartta bu kutu yok)\n- Bölge (küçük harita etiketi): (kartta küçük harita yok)\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Impaan the Imprisoner\n2. Withermaw\n3. Bonesnout the Unbroken\n4. Blackmaw Behemoth\n5. Varrox Bleakhoof\n6. Elder Shaman Bloodmane\n7. Unbound Spirit\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4, 5, 6, 7 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↓ AŞAĞI İN (GİRİŞ'in üstünde)\n- ↑ YUKARI ÇIK (1. durağın sağ üstünde)\n- Moontouched Wanderer (nadir, Lv 55) (3. durağın altında)\n- Gortek the Apprentice (nadir, Lv 55) (4. durağın üstünde; altında başka bir mavi etiket kalmış, yazısı görünmüyor)\n- ↓ AŞAĞI İN (4. durağın sağ üstünde)\n- ↑ YUKARI ÇIK (7. ve 5. durakların üstünde)\n\n## 1 — Girişten dış halkayı dolan, spiral yoldan tepeye\n\n- Boss: Impaan the Imprisoner\n- Not: isteğe bağlı · Lv 57 · sonra girişe dön\n- Yolda: ↓ aşağı in → ↑ yukarı çık\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, ↓ AŞAĞI İN, ↑ YUKARI ÇIK\n\n## 2 — Köyden kuzeydoğuya, mağaraya gir; batı ucuna\n\n- Boss: Withermaw\n- Not: Lv 58\n- Panel haritası: GİRİŞ → 2. Etiketler: GİRİŞ\n\n## 3 — Mağaradan çık, köyün güneyine\n\n- Boss: Bonesnout the Unbroken\n- Not: Lv 58\n- Panel haritası: 2 → 3. Etiketler: Moontouched Wanderer (nadir, Lv 55)\n\n## 4 — Doğudaki köprüden tünellere, sütunlu salona\n\n- Boss: Blackmaw Behemoth\n- Not: Lv 59\n- Panel haritası: 3 → 4\n\n## 5 — Salonun yanındaki delikten suya atla, çukurun dibine\n\n- Boss: Varrox Bleakhoof\n- Not: Lv 60\n- Yolda: ↓ suya atla\n- Panel haritası: 4 → 5. Etiketler: ↓ SUYA ATLA\n\n## 6 — Beyaz sütunla yukarı çık, kuzeydoğu salonuna\n\n- Boss: Elder Shaman Bloodmane\n- Not: Lv 58\n- Yolda: ↑ yukarı çık\n- Panel haritası: 5 → 6. Etiketler: ↑ YUKARI ÇIK, Gortek the Apprentice (nadir, Lv 55)\n\n## 7 — Doğu tünelinden rampayla çukura in\n\n- Boss: Unbound Spirit\n- Not: son boss · Lv 59\n- Yolda: ↓ aşağı in\n- Panel haritası: 6 → 7. Etiketler: ↓ AŞAĞI İN"
+ },
+ {
+  "id": "zindan-31-blackrock-depths",
+  "category": "dungeon",
+  "title": "Lv 57 · Blackrock Depths (BRD) · Tam",
+  "file": "31 - Blackrock Depths (Lv 57).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 57 · Blackrock Depths (BRD) · Tam",
+  "keywords": [
+   "blackrock-depths",
+   "BRD"
+  ],
+  "dungeon": "blackrock-depths",
+  "level": 57,
+  "zone": "Searing Gorge",
+  "bosses": [
+   "High Interrogator Gerstahn",
+   "Lord Roccor",
+   "Houndmaster Grebmar",
+   "Ring of Law",
+   "Pyromancer Loregrain",
+   "Warder Stilgiss",
+   "The Vault",
+   "Fineous Darkvire",
+   "Lord Incendius",
+   "Bael'Gar",
+   "General Angerforge",
+   "Golem Lord Argelmach",
+   "Hurley Blackbreath",
+   "Ribbly Screwspigot",
+   "Plugger Spazzring",
+   "Phalanx",
+   "Ambassador Flamelash",
+   "The Seven",
+   "Magmus",
+   "Emperor Dagran Thaurissan"
+  ],
+  "hordeQuests": 21,
+  "allianceQuests": 16,
+  "text": "# Blackrock Depths\n\nWOW FOREVER • ADIM ADIM ROTA\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 57\n- Horde görevi: 21\n- Alliance görevi: 16\n- Bölge (küçük harita etiketi): Searing Gorge\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. High Interrogator Gerstahn\n2. Lord Roccor\n3. Houndmaster Grebmar\n4. Ring of Law\n5. Pyromancer Loregrain\n6. Warder Stilgiss\n7. The Vault\n8. Fineous Darkvire\n9. Lord Incendius\n10. Bael'Gar\n11. General Angerforge\n12. Golem Lord Argelmach\n13. Hurley Blackbreath\n14. Ribbly Screwspigot\n15. Plugger Spazzring\n16. Phalanx\n17. Ambassador Flamelash\n18. The Seven\n19. Magmus\n20. Emperor Dagran Thaurissan\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1–20 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↑ YUKARI ÇIK (3. durağın yanında; yarısı durak numarasının altında kalmış)\n- ↑ YUKARI ÇIK (2. durak ile 4. durak arasında, sağda)\n- ↑ YUKARI ÇIK (4. durak ile 5. durak arasında; büyük kısmı boss listesi kutusunun altında kalmış)\n- Anıt: Ironfel koy = Shadowf… (5. durağın altında; etiketin sonu boss listesi kutusunun altında kalmış)\n- ↓ AŞAĞI İN (8. durağın yanında)\n- ↑ YUKARI ÇIK (10. duraktan 11. durağa giden yolda, sağda)\n- ↑ YUKARI ÇIK (11. durağın üstünde)\n- ↓ AŞAĞI İN (11. durağın üstünde)\n- Shadowforge Lock (çark) (11. durağın altında)\n- Rocknot (15. durağın üstünde)\n- Panzor the Invincible (nadir) (17. durak ile 18. durak arasında)\n- ↓ AŞAĞI İN (17. durak ile 18. durak arasında)\n- ↓ AŞAĞI İN (18. durağın üstünde)\n- Mangal (18. durak ile 19. durak arasında)\n\n## 1 — Kemerden geç, en güneydeki oda\n\n- Boss: High Interrogator Gerstahn\n- Not: Prison Cell Key düşürür\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ\n\n## 2 — Kuzey halkada dolaşır\n\n- Boss: Lord Roccor\n- Not: yeri değişebilir\n- Panel haritası: 1 → 2\n\n## 3 — Koridorun en alçak yerine in (arenanın altı)\n\n- Boss: Houndmaster Grebmar\n- Panel haritası: 2 → 3\n\n## 4 — Doğudaki açık kapıdan arenaya gir\n\n- Boss: Ring of Law\n- Not: 2 dalga + rastgele boss\n- Yolda: ↑ yukarı çık → ↑ yukarı çık\n- Panel haritası: 3 → 4. Etiketler: ↑ YUKARI ÇIK, ↑ YUKARI ÇIK\n\n## 5 — Ring'in yanındaki merdivenle çık, halkayı dolan\n\n- Boss: Pyromancer Loregrain\n- Not: seyircilere dikkat · iç korkuluğa yakın yürü\n- Yolda: ↑ yukarı çık\n- Panel haritası: 4 → 5. Etiketler: ↑ YUKARI ÇIK\n\n## 6 — Domicile köprüsünden Black Vault'a\n\n- Boss: Warder Stilgiss\n- Not: yanında Verek\n- Panel haritası: 5 → 6\n\n## 7 — Aynı odada, 12 Relic Coffer açılınca\n\n- Boss: The Vault\n- Not: isteğe bağlı · kapılar Relic Coffer Key ister\n- Panel haritası: 6 → 7\n\n## 8 — Sarmal rampadan aşağı\n\n- Boss: Fineous Darkvire\n- Not: rampada dolaşır\n- Yolda: ↓ aşağı in\n- Panel haritası: 7 → 8. Etiketler: ↓ AŞAĞI İN\n\n## 9 — Rampanın dibinden dar köprüyle lavın ortasına\n\n- Boss: Lord Incendius\n- Not: platformda, düşme\n- Panel haritası: 8 → 9\n\n## 10 — Dev kapılardan Dark Iron Highway'in batı ucu\n\n- Boss: Bael'Gar\n- Panel haritası: 9 → 10\n\n## 11 — Üst koridordan batıya, soldaki merdivenle in\n\n- Boss: General Angerforge\n- Not: Shadowforge Key gerekir (Shadowforge Lock)\n- Yolda: ↑ yukarı çık → ↓ aşağı in\n- Panel haritası: 10 → 11. Etiketler: ↑ YUKARI ÇIK, ↓ AŞAĞI İN, Shadowforge Lock (çark)\n\n## 12 — Sağdaki merdiven: Manufactory, karşı oda\n\n- Boss: Golem Lord Argelmach\n- Yolda: ↑ yukarı çık\n- Panel haritası: 11 → 12. Etiketler: ↑ YUKARI ÇIK\n\n## 13 — Doğudaki köprüden Grim Guzzler'a\n\n- Boss: Hurley Blackbreath\n- Not: alt kattaki depoda Thunderbrew fıçılarını kır\n- Panel haritası: 12 → 13\n\n## 14 — Barın içinde\n\n- Boss: Ribbly Screwspigot\n- Not: konuşup tehdit et\n- Panel haritası: 13 → 14\n\n## 15 — Barın üstünde\n\n- Boss: Plugger Spazzring\n- Not: önce bira al: saldırınca bar düşman olur\n- Panel haritası: 14 → 15\n\n## 16 — Bar kapısının dışında bekler\n\n- Boss: Phalanx\n- Not: Rocknot'a 3 kez bira ver: Phalanx kapıyı kırar\n- Panel haritası: 15 → 16. Etiketler: Rocknot\n\n## 17 — Bar kapısından balkona, soldaki kapıdan\n\n- Boss: Ambassador Flamelash\n- Panel haritası: 16 → 17\n\n## 18 — Öbür kapıdan Mold Foundry, rampadan Summoners' Tomb\n\n- Boss: The Seven\n- Not: Doom'rel ile konuş · 7'si ölünce kapı açılır\n- Yolda: ↓ aşağı in\n- Panel haritası: 17 → 18. Etiketler: ↓ AŞAĞI İN, Panzor the Invincible (nadir)\n\n## 19 — Lyceum: Flame Keeper meşalesiyle 2 mangalı yak\n\n- Boss: Magmus\n- Not: yanlardaki ateşlerden kaç\n- Yolda: ↓ aşağı in\n- Panel haritası: 18 → 19. Etiketler: ↓ AŞAĞI İN, Mangal, Mangal\n\n## 20 — Magmus'un arkasındaki kapıdan\n\n- Boss: Emperor Dagran Thaurissan\n- Not: son boss · Moira'yı öldürme\n- Panel haritası: 19 → 20"
+ },
+ {
+  "id": "zindan-32-blackrock-depths-upper",
+  "category": "dungeon",
+  "title": "Lv 57 · Blackrock Depths (BRD) · Üst (Upper City)",
+  "file": "32 - Blackrock Depths - Ust (Upper City) (Lv 57).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 57 · Blackrock Depths (BRD) · Üst (Upper City)",
+  "keywords": [
+   "blackrock-depths-upper",
+   "BRD",
+   "Emperor"
+  ],
+  "dungeon": "blackrock-depths-upper",
+  "level": 57,
+  "zone": "Searing Gorge",
+  "bosses": [
+   "General Angerforge",
+   "Golem Lord Argelmach",
+   "Hurley Blackbreath",
+   "Ribbly Screwspigot",
+   "Plugger Spazzring",
+   "Phalanx",
+   "Ambassador Flamelash",
+   "The Seven",
+   "Magmus",
+   "Emperor Dagran Thaurissan"
+  ],
+  "hordeQuests": 21,
+  "allianceQuests": 16,
+  "text": "# Blackrock Depths · Üst BRD (Upper City)\n\nWOW FOREVER • ÜST BRD (UPPER CITY)\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 57\n- Horde görevi: 21\n- Alliance görevi: 16\n- Bölge (küçük harita etiketi): Searing Gorge\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. General Angerforge\n2. Golem Lord Argelmach\n3. Hurley Blackbreath\n4. Ribbly Screwspigot\n5. Plugger Spazzring\n6. Phalanx\n7. Ambassador Flamelash\n8. The Seven\n9. Magmus\n10. Emperor Dagran Thaurissan\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↑ YUKARI ÇIK (GİRİŞ ile 1. durak arasında)\n- Shadowforge Lock (çark) (1. durağın altında)\n- ↑ YUKARI ÇIK (1. durağın üstünde)\n- ↓ AŞAĞI İN (1. durağın üstünde)\n- Rocknot (5. ve 6. durakların yanında)\n- Panzor the Invincible (nadir) (7. durak ile 8. durak arasında)\n- ↓ AŞAĞI İN (7. durak ile 8. durak arasında)\n- ↓ AŞAĞI İN (8. durağın üstünde)\n- Mangal (8. durak ile 9. durak arasında)\n\n## 1 — Kuzeydeki kapıdan garnizona, üst koridordan in\n\n- Boss: General Angerforge\n- Not: Shadowforge Key · garnizonda kilidi çevir\n- Yolda: ↑ yukarı çık → ↓ aşağı in\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, ↑ YUKARI ÇIK, Shadowforge Lock (çark), ↓ AŞAĞI İN\n\n## 2 — Sağdaki merdiven: Manufactory, karşı oda\n\n- Boss: Golem Lord Argelmach\n- Yolda: ↑ yukarı çık\n- Panel haritası: 1 → 2. Etiketler: ↑ YUKARI ÇIK\n\n## 3 — Doğudaki köprüden Grim Guzzler'a\n\n- Boss: Hurley Blackbreath\n- Not: alt kattaki depoda Thunderbrew fıçılarını kır\n- Panel haritası: 2 → 3\n\n## 4 — Barın içinde\n\n- Boss: Ribbly Screwspigot\n- Not: konuşup tehdit et\n- Panel haritası: 3 → 4\n\n## 5 — Barın üstünde\n\n- Boss: Plugger Spazzring\n- Not: önce bira al: saldırınca bar düşman olur\n- Panel haritası: 4 → 5\n\n## 6 — Bar kapısının dışında bekler\n\n- Boss: Phalanx\n- Not: Rocknot'a 3 kez bira ver: Phalanx kapıyı kırar\n- Panel haritası: 5 → 6. Etiketler: Rocknot\n\n## 7 — Bar kapısından balkona, soldaki kapıdan\n\n- Boss: Ambassador Flamelash\n- Panel haritası: 6 → 7\n\n## 8 — Öbür kapıdan Mold Foundry, rampadan Summoners' Tomb\n\n- Boss: The Seven\n- Not: Doom'rel ile konuş · 7'si ölünce kapı açılır\n- Yolda: ↓ aşağı in\n- Panel haritası: 7 → 8. Etiketler: ↓ AŞAĞI İN, Panzor the Invincible (nadir)\n\n## 9 — Lyceum: Flame Keeper meşalesiyle 2 mangalı yak\n\n- Boss: Magmus\n- Not: yanlardaki ateşlerden kaç\n- Yolda: ↓ aşağı in\n- Panel haritası: 8 → 9. Etiketler: ↓ AŞAĞI İN, Mangal, Mangal\n\n## 10 — Magmus'un arkasındaki kapıdan\n\n- Boss: Emperor Dagran Thaurissan\n- Not: son boss · Moira'yı öldürme\n- Panel haritası: 9 → 10"
+ },
+ {
+  "id": "zindan-33-blackrock-spire-lower",
+  "category": "dungeon",
+  "title": "Lv 58 · Lower Blackrock Spire (LBRS)",
+  "file": "33 - Lower Blackrock Spire (Lv 58).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 58 · Lower Blackrock Spire (LBRS)",
+  "keywords": [
+   "blackrock-spire-lower",
+   "LBRS"
+  ],
+  "dungeon": "blackrock-spire-lower",
+  "level": 58,
+  "zone": "Burning Steppes",
+  "bosses": [
+   "Highlord Omokk",
+   "Shadow Hunter Vosh'gajin",
+   "War Master Voone",
+   "Mother Smolderweb",
+   "Urok Doomhowl",
+   "Quartermaster Zigris",
+   "Halycon",
+   "Overlord Wyrmthalak"
+  ],
+  "hordeQuests": 10,
+  "allianceQuests": 11,
+  "text": "# Lower Blackrock Spire · Alt Kule (LBRS)\n\nWOW FOREVER • ALT KULE (LBRS)\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 58\n- Horde görevi: 10\n- Alliance görevi: 11\n- Bölge (küçük harita etiketi): Burning Steppes\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Highlord Omokk\n2. Shadow Hunter Vosh'gajin\n3. War Master Voone\n4. Mother Smolderweb\n5. Urok Doomhowl\n6. Quartermaster Zigris\n7. Halycon\n8. Overlord Wyrmthalak\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4, 5, 6, 7, 8 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- Vaelan (UBRS mührü) (GİRİŞ ile 1. durak arasındaki yolda)\n- ↓ AŞAĞI İN (Vaelan etiketinin altında)\n- ↓ AŞAĞI İN (3. durağın sağ üstünde)\n- Spirestone Butcher (nadir) (5. durağın altında)\n- Mor Grayhoof (çağrılır, isteğe bağlı) (3. durağın altında)\n- ↓ AŞAĞI İN (8. durağın altında; yarısı Mor Grayhoof etiketinin altında kalmış)\n- ↑ YUKARI ÇIK (8. durağın altında)\n- Roughshod Pike (… (haritanın sağ kenarında; etiketin devamı kesik)\n- Ghok Bashguud (nadir) (1. durağın altında)\n- Battle Lord / Lord Magus (nadir) (1. durağın altında)\n- Bannok Grimaxe (nadir)\n- ↑ YUKARI ÇIK (2. durağın sağ üstünde, 4. durağa giden yolda)\n- Crystal Fang (nadir) (2. durağın altında)\n- ↑ YUKARI ÇIK (Crystal Fang etiketinin altında, yarısı kapalı)\n- ↑ YUKARI ÇIK (5. duraktan 6. durağa inen yolda)\n- ↓ AŞAĞI İN (6. durağın yanında)\n- Gizrul the Slavener (Halycon ölünce) (7. durağın üstünde)\n\n## 1 — Girişten ilerle, yukarıdaki sol kapıya girme\n\n- Boss: Highlord Omokk\n- Not: ilk boss · UBRS mührü: Vaelan ile konuş\n- Yolda: ↓ aşağı in\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, Vaelan (UBRS mührü) (altında bir mavi etiket kalmış, yazısı görünmüyor), Battle Lord / Lord Magus (nadir), Spirestone Butcher (nadir) (baş kısmı kapalı)\n\n## 2 — Troll bölümü: koridor sonundaki rampadan in\n\n- Boss: Shadow Hunter Vosh'gajin\n- Yolda: ↓ aşağı in\n- Panel haritası: 1 → 2. Etiketler: ↓ AŞAĞI İN\n\n## 3 — Büyük rampadan in, koridorun sonu\n\n- Boss: War Master Voone\n- Not: mühür taşı düşürür\n- Yolda: ↓ aşağı in\n- Panel haritası: 2 → 3. Etiketler: Mor Grayhoof (çağrılır, isteğe bağlı), ↓ AŞAĞI İN (yarısı kapalı)\n\n## 4 — Örümcek ağlı bölgenin tepesine\n\n- Boss: Mother Smolderweb\n- Yolda: ↑ yukarı çık\n- Panel haritası: 3 → 4. Etiketler: Bannok Grimaxe (nadir), ↑ YUKARI ÇIK\n\n## 5 — Sonraki ogre odası, haraç yığını\n\n- Boss: Urok Doomhowl\n- Not: Omokk'un başı ve mızrakla çağrılır\n- Yolda: ↑ yukarı çık\n- Panel haritası: 4 → 5. Etiketler: Crystal Fang (nadir), ↑ YUKARI ÇIK (yarısı kapalı), Roughshod Pike (panel kenarında devamı kesik)\n\n## 6 — Urok'un odasından sonra\n\n- Boss: Quartermaster Zigris\n- Yolda: ↑ yukarı çık\n- Panel haritası: 5 → 6. Etiketler: ↑ YUKARI ÇIK\n\n## 7 — Kurt salonuna\n\n- Boss: Halycon\n- Not: ölünce Gizrul the Slavener hemen gelir\n- Yolda: ↓ aşağı in\n- Panel haritası: 6 → 7. Etiketler: ↓ AŞAĞI İN, Gizrul the Slavener (Halycon ölünce)\n\n## 8 — Son salona\n\n- Boss: Overlord Wyrmthalak\n- Not: son boss · mühür taşı düşürür\n- Yolda: ↑ yukarı çık\n- Panel haritası: 7 → 8. Etiketler: Ghok Bashguud (nadir), ↑ YUKARI ÇIK"
+ },
+ {
+  "id": "zindan-34-dire-maul-west",
+  "category": "dungeon",
+  "title": "Lv 59 · Dire Maul (DM) · Batı",
+  "file": "34 - Dire Maul West (Lv 59).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 59 · Dire Maul (DM) · Batı",
+  "keywords": [
+   "dire-maul-west",
+   "DM West",
+   "DMW"
+  ],
+  "dungeon": "dire-maul-west",
+  "level": 59,
+  "zone": "Feralas",
+  "bosses": [
+   "Magister Kalendris",
+   "Tsu'zee",
+   "Illyanna Ravenoak",
+   "Tendris Warpwood",
+   "Immol'thar",
+   "Prince Tortheldrin"
+  ],
+  "hordeQuests": 3,
+  "allianceQuests": 3,
+  "text": "# Dire Maul · Batı Kanadı\n\nWOW FOREVER • BATI KANADI\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 59\n- Horde görevi: 3\n- Alliance görevi: 3\n- Bölge (küçük harita etiketi): Feralas\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Magister Kalendris\n2. Tsu'zee\n3. Illyanna Ravenoak\n4. Tendris Warpwood\n5. Immol'thar\n6. Prince Tortheldrin\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4, 5, 6 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↑ YUKARI ÇIK (1. durak ile 3. durak arasında)\n- ↓ AŞAĞI İN (3. durağın üstünde)\n- ↓ AŞAĞI İN (4. durağın sağ üstünde)\n- …el'nurath (çağrılır, isteğe bağlı) (5. durağın altında; etiketin başı harita kenarında kesik)\n- ↓ AŞAĞI İN (2. ve 6. durakların üstünde)\n\n## 1 — İlk kristali kapat, yan binada rampaların dibine\n\n- Boss: Magister Kalendris\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ\n\n## 2 — Yan binada\n\n- Boss: Tsu'zee\n- Not: nadir, her zaman çıkmaz\n- Panel haritası: 1 → 2\n\n## 3 — Tsu'zee'nin köşesindeki rampadan üst kata\n\n- Boss: Illyanna Ravenoak\n- Not: 2 kristal de üst katta\n- Yolda: ↑ yukarı çık\n- Panel haritası: 2 → 3. Etiketler: ↑ YUKARI ÇIK\n\n## 4 — Aşağıdaki avluda\n\n- Boss: Tendris Warpwood\n- Yolda: ↓ aşağı in → ↓ aşağı in\n- Panel haritası: 3 → 4. Etiketler: ↓ AŞAĞI İN, ↓ AŞAĞI İN\n\n## 5 — Arkasındaki tünelden odaya, 2 kristali kapat\n\n- Boss: Immol'thar\n- Not: 5 kristal kapanınca saldırılabilir · Hel'nurath isteğe bağlı\n- Panel haritası: 4 → 5. Etiketler: …el'nurath (çağrılır, isteğe bağlı) (etiketin başı panel kenarında kesik)\n\n## 6 — Girdiğin yere dön, kuzeydeki tünel\n\n- Boss: Prince Tortheldrin\n- Not: son boss · kapı: Crescent Key ya da Rogue\n- Yolda: ↓ aşağı in\n- Panel haritası: 5 → 6. Etiketler: ↓ AŞAĞI İN"
+ },
+ {
+  "id": "zindan-35-shapers-terrace",
+  "category": "dungeon",
+  "title": "Lv 60 · Shaper's Terrace",
+  "file": "35 - Shaper's Terrace (Lv 60).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 60 · Shaper's Terrace",
+  "keywords": [
+   "shapers-terrace",
+   "Shaper",
+   "Shapers",
+   "Un'Goro"
+  ],
+  "dungeon": "shapers-terrace",
+  "level": 60,
+  "zone": "Un'Goro Crater",
+  "bosses": [
+   "Ravasaur Hunters",
+   "Direhorn Matriarch",
+   "King Op",
+   "Thunderhoof",
+   "Venomridge",
+   "Cinder",
+   "Bolt",
+   "Snowtalon",
+   "Titanosaur",
+   "Vitrix",
+   "Nanaya"
+  ],
+  "text": "# Shaper's Terrace\n\nWOW FOREVER • ADIM ADIM ROTA\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 60\n- Horde görevi: (kartta bu kutu yok)\n- Alliance görevi: (kartta bu kutu yok)\n- Bölge (küçük harita etiketi): (kartta küçük harita yok)\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Ravasaur Hunters\n2. Direhorn Matriarch\n3. King Op\n4. Thunderhoof\n5. Venomridge\n6. Cinder\n7. Bolt\n8. Snowtalon\n9. Titanosaur\n10. Vitrix\n11. Nanaya\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n\n## 1 — Kuzeye çık, kuzey yolundan doğuya\n\n- Boss: Ravasaur Hunters\n- Not: Tor'Rel + Izha'Rel · Lv 61\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ\n\n## 2 — Doğuya, gölün doğu kıyısına\n\n- Boss: Direhorn Matriarch\n- Not: Lv 61\n- Panel haritası: 1 → 2\n\n## 3 — Güneydoğudaki goril mağarasına gir\n\n- Boss: King Op\n- Not: mağaradaki gorillerin kralı\n- Panel haritası: 2 → 3\n\n## 4 — Mağaradan çık, gölün güneyinden batıya\n\n- Boss: Thunderhoof\n- Not: Lv 61\n- Panel haritası: 3 → 4\n\n## 5 — Batıya, katran çukurlarının güneyine\n\n- Boss: Venomridge\n- Not: Lv 61\n- Panel haritası: 4 → 5\n\n## 6 — Batıya, girişin yanındaki ateş alanına\n\n- Boss: Cinder\n- Not: önce ateş elementallerini kes · Lv 61\n- Panel haritası: 5 → 6\n\n## 7 — Doğuya dön, çukurların arasına\n\n- Boss: Bolt\n- Not: Lv 62\n- Panel haritası: 6 → 7\n\n## 8 — Batı yolundan kuzeybatı mağarasına\n\n- Boss: Snowtalon\n- Not: mağarada · Lv 62\n- Panel haritası: 7 → 8\n\n## 9 — Mağaradan çık, güneydeki açıklığa\n\n- Boss: Titanosaur\n- Not: Lv 61\n- Panel haritası: 8 → 9\n\n## 10 — Kuzey yolundan doğuya\n\n- Boss: Vitrix\n- Not: Lv 62\n- Panel haritası: 9 → 10\n\n## 11 — Gölün ortasındaki adaya\n\n- Boss: Nanaya\n- Not: son boss · Lv 62\n- Panel haritası: 10 → 11"
+ },
+ {
+  "id": "zindan-36-blackrock-spire-upper",
+  "category": "dungeon",
+  "title": "Lv 60 · Upper Blackrock Spire (UBRS)",
+  "file": "36 - Upper Blackrock Spire (Lv 60).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 60 · Upper Blackrock Spire (UBRS)",
+  "keywords": [
+   "blackrock-spire-upper",
+   "UBRS"
+  ],
+  "dungeon": "blackrock-spire-upper",
+  "level": 60,
+  "zone": "Burning Steppes",
+  "bosses": [
+   "Pyroguard Emberseer",
+   "Warchief Rend Blackhand",
+   "The Beast",
+   "General Drakkisath"
+  ],
+  "hordeQuests": 5,
+  "allianceQuests": 4,
+  "text": "# Upper Blackrock Spire · Üst Kule (UBRS)\n\nWOW FOREVER • ÜST KULE (UBRS)\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 60\n- Horde görevi: 5\n- Alliance görevi: 4\n- Bölge (küçük harita etiketi): Burning Steppes\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Pyroguard Emberseer\n2. Warchief Rend Blackhand\n3. The Beast\n4. General Drakkisath\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↑ YUKARI ÇIK (haritanın üstünde, 1. durağa giden yolda)\n- Jed Runewatcher (nadir) (1. durağın üstünde)\n- Goraluk Anvilcrack (1. durağın altında)\n- ↑ YUKARI ÇIK (GİRİŞ'in üstünde)\n- ↑ YUKARI ÇIK (1. durak ile 2. durak arasında)\n- ↓ AŞAĞI ATLA (2. durağın yanında)\n- Solakar (Father Flame'e tıkla)\n- Lord Valthalak (çağrılır, isteğe bağlı) (3. durak ile 4. durak arasındaki yolun yanında)\n\n## 1 — Yukarıdaki sol kapı (mühür); ilk odayı temizle, kapı açılır\n\n- Boss: Pyroguard Emberseer\n- Not: 3 kişi sunağa tıklar\n- Yolda: ↑ yukarı çık\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, ↑ YUKARI ÇIK\n\n## 2 — Kuluçkada molozdan üst kata çık, sağ duvarı izle\n\n- Boss: Warchief Rend Blackhand\n- Not: Rend'in önündeki çukura atla; dalgalardan sonra Gyth ile gelir\n- Yolda: ↓ aşağı atla → ↑ yukarı çık → ↑ yukarı çık\n- Panel haritası: 1 → 2. Etiketler: Jed Runewatcher (nadir), Goraluk Anvilcrack, ↑ YUKARI ÇIK, ↑ YUKARI ÇIK, ↓ AŞAĞI ATLA, Solakar (Father Flame'e tıkla)\n\n## 3 — Furnace bölümüne\n\n- Boss: The Beast\n- Not: görünmez suikastçılara dikkat · Valthalak isteğe bağlı\n- Panel haritası: 2 → 3. Etiketler: Lord Valthalak (çağrılır, isteğe bağlı)\n\n## 4 — Uzun salondan batıya, son salona\n\n- Boss: General Drakkisath\n- Not: son boss\n- Panel haritası: 3 → 4"
+ },
+ {
+  "id": "zindan-37-dire-maul-north",
+  "category": "dungeon",
+  "title": "Lv 60 · Dire Maul (DM) · Kuzey",
+  "file": "37 - Dire Maul North (Lv 60).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 60 · Dire Maul (DM) · Kuzey",
+  "keywords": [
+   "dire-maul-north",
+   "DM North",
+   "DMN",
+   "Tribute"
+  ],
+  "dungeon": "dire-maul-north",
+  "level": 60,
+  "zone": "Feralas",
+  "bosses": [
+   "Guard Mol'dar",
+   "Stomper Kreeg",
+   "Guard Fengus",
+   "Guard Slip'kik",
+   "Captain Kromcrush",
+   "Cho'Rush the Observer",
+   "King Gordok"
+  ],
+  "hordeQuests": 4,
+  "allianceQuests": 4,
+  "text": "# Dire Maul · Kuzey Kanadı (Tribute)\n\nWOW FOREVER • KUZEY KANADI (TRIBUTE)\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 60\n- Horde görevi: 4\n- Alliance görevi: 4\n- Bölge (küçük harita etiketi): Feralas\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Guard Mol'dar\n2. Stomper Kreeg\n3. Guard Fengus\n4. Guard Slip'kik\n5. Captain Kromcrush\n6. Cho'Rush the Observer\n7. King Gordok\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4, 5, 6, 7 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↓ AŞAĞI İN (GİRİŞ ile 1. durak arasında)\n- ↑ YUKARI ÇIK (1. durağın üstünde)\n- ↑ RAMPALARDAN ÇIK (4. durağın üstünde)\n\n## 1 — İlk odanın ortası, girişe çekip kes\n\n- Boss: Guard Mol'dar\n- Not: giriş kapısı: Crescent Key (DM Doğu)\n- Yolda: ↓ aşağı in\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, ↓ AŞAĞI İN\n\n## 2 — Sola, sonraki odaya\n\n- Boss: Stomper Kreeg\n- Yolda: ↑ yukarı çık\n- Panel haritası: 1 → 2. Etiketler: ↑ YUKARI ÇIK\n\n## 3 — Aynı bölümde\n\n- Boss: Guard Fengus\n- Panel haritası: 2 → 3\n\n## 4 — Sola dön, koridoru izle\n\n- Boss: Guard Slip'kik\n- Not: avlu kapısı: Fengus'un sandığındaki anahtar\n- Panel haritası: 3 → 4\n\n## 5 — Rampalardan yukarı, iç kapıdan koridora\n\n- Boss: Captain Kromcrush\n- Not: iç kapı: Mol'dar'ın anahtarı ya da kilit açma\n- Yolda: ↑ rampalardan çık\n- Panel haritası: 4 → 5. Etiketler: ↑ RAMPALARDAN ÇIK\n\n## 6 — Sondaki salona\n\n- Boss: Cho'Rush the Observer\n- Not: Gordok ile birlikte\n- Panel haritası: 5 → 6\n\n## 7 — Aynı salonda\n\n- Boss: King Gordok\n- Not: son boss\n- Panel haritası: 6 → 7"
+ },
+ {
+  "id": "zindan-38-stratholme-living",
+  "category": "dungeon",
+  "title": "Lv 60 · Stratholme (Strat) · Canlı (Scarlet)",
+  "file": "38 - Stratholme Living (Lv 60).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 60 · Stratholme (Strat) · Canlı (Scarlet)",
+  "keywords": [
+   "stratholme-living",
+   "Strat",
+   "Strat Live"
+  ],
+  "dungeon": "stratholme-living",
+  "level": 60,
+  "zone": "Eastern Plaguelands",
+  "bosses": [
+   "The Unforgiven",
+   "Timmy the Cruel",
+   "Malor the Zealous",
+   "Cannon Master Willey",
+   "Archivist Galford",
+   "Balnazzar"
+  ],
+  "hordeQuests": 6,
+  "allianceQuests": 6,
+  "text": "# Stratholme · Scarlet Tarafı (Canlı)\n\nWOW FOREVER • SCARLET TARAFI (CANLI)\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 60\n- Horde görevi: 6\n- Alliance görevi: 6\n- Bölge (küçük harita etiketi): Eastern Plaguelands\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. The Unforgiven\n2. Timmy the Cruel\n3. Malor the Zealous\n4. Cannon Master Willey\n5. Archivist Galford\n6. Balnazzar\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4, 5, 6 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- Ezra Grimm (tütün dükkânı, isteğe bağlı) (GİRİŞ'in sol üstünde)\n- Skul (nadir) (GİRİŞ'in sol üstünde)\n- Crimson Hammersmith (plana tıkla, isteğe bağlı) (4. durağın üstünde)\n- Jarien ve Sothos (çağrılır, isteğe bağlı) (6. durağın üstünde)\n\n## 1 — Ana yoldan kuzeye, kapıdan sonra doğuya\n\n- Boss: The Unforgiven\n- Not: isteğe bağlı · nadir: Hearthsinger, Skul\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, Hearthsinger Forresten (nadir), Ezra Grimm (tütün dükkânı, isteğe bağlı), Skul (nadir)\n\n## 2 — Geri dön, batı yoluna\n\n- Boss: Timmy the Cruel\n- Not: Malown: 3 posta kutusu aç, 3.'de çıkar\n- Panel haritası: 1 → 2\n\n## 3 — Scarlet üssüne gir\n\n- Boss: Malor the Zealous\n- Not: kapı için The Scarlet Key gerekir\n- Panel haritası: 2 → 3\n\n## 4 — Koridorun ilk çıkışı\n\n- Boss: Cannon Master Willey\n- Not: Crimson Hammersmith isteğe bağlı\n- Panel haritası: 3 → 4. Etiketler: Crimson Hammersmith (plana tıkla, isteğe bağlı)\n\n## 5 — Geri dön, koridorun ikinci çıkışı\n\n- Boss: Archivist Galford\n- Panel haritası: 4 → 5\n\n## 6 — Galford'un karşısındaki salon\n\n- Boss: Balnazzar\n- Not: son boss · Grand Crusader Dathrohan\n- Panel haritası: 5 → 6. Etiketler: Jarien ve Sothos (çağrılır, isteğe bağlı)"
+ },
+ {
+  "id": "zindan-39-stratholme-undead",
+  "category": "dungeon",
+  "title": "Lv 60 · Stratholme (Strat) · Ölü (Baron)",
+  "file": "39 - Stratholme Undead (Lv 60).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 60 · Stratholme (Strat) · Ölü (Baron)",
+  "keywords": [
+   "stratholme-undead",
+   "Strat",
+   "Strat UD",
+   "Baron"
+  ],
+  "dungeon": "stratholme-undead",
+  "level": 60,
+  "zone": "Eastern Plaguelands",
+  "bosses": [
+   "Nerub'enkan",
+   "Baroness Anastari",
+   "Maleki the Pallid",
+   "Magistrate Barthilas",
+   "Baron Rivendare"
+  ],
+  "hordeQuests": 7,
+  "allianceQuests": 6,
+  "text": "# Stratholme · Ölü Taraf (Baron)\n\nWOW FOREVER • ÖLÜ TARAF (BARON)\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 60\n- Horde görevi: 7\n- Alliance görevi: 6\n- Bölge (küçük harita etiketi): Eastern Plaguelands\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Nerub'enkan\n2. Baroness Anastari\n3. Maleki the Pallid\n4. Magistrate Barthilas\n5. Baron Rivendare\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1, 2, 3, 4, 5 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- Stonespine (nadir) (1. durağın sağ altında)\n- Black Guard Swordsmith (plana tıkla, isteğe bağlı) (1. ve 2. durakların altında)\n- Stonespine (nadir) (3. durak ile 4. durak arasında, yolun altında)\n\n## 1 — Arka kapıdan koridor, kapıyı aç; soldaki (batı) zigurat\n\n- Boss: Nerub'enkan\n- Not: kapı: Key to the City / Rogue · Acolyte'leri öldür\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, Stonespine (nadir)\n\n## 2 — Doğudaki zigurat\n\n- Boss: Baroness Anastari\n- Not: içerideki Acolyte'leri öldür\n- Panel haritası: 1 → 2. Etiketler: Black Guard Swordsmith (plana tıkla, isteğe bağlı)\n\n## 3 — Kuzeydoğudaki zigurat\n\n- Boss: Maleki the Pallid\n- Not: içerideki Acolyte'leri öldür\n- Panel haritası: 2 → 3\n\n## 4 — Kuzeyde, mezbaha kapısının önünde\n\n- Boss: Magistrate Barthilas\n- Not: Key to the City düşürür\n- Panel haritası: 3 → 4\n\n## 5 — Batı kapısından Ramstein, mahzenin dibine\n\n- Boss: Baron Rivendare\n- Not: son boss · önce mezbahada Ramstein the Gorger\n- Panel haritası: 4 → 5"
+ },
+ {
+  "id": "zindan-40-scholomance",
+  "category": "dungeon",
+  "title": "Lv 60 · Scholomance (Scholo)",
+  "file": "40 - Scholomance (Lv 60).png",
+  "forum": "Zindan rehberleri",
+  "thread": "Lv 60 · Scholomance (Scholo)",
+  "keywords": [
+   "scholomance",
+   "Scholo"
+  ],
+  "dungeon": "scholomance",
+  "level": 60,
+  "zone": "Western Plaguelands",
+  "bosses": [
+   "Kirtonos",
+   "Jandice Barov",
+   "Rattlegore",
+   "Vectus",
+   "Marduk Blackpool",
+   "Ras Frostwhisperer",
+   "Lady Illucia Barov",
+   "Lord Alexei Barov",
+   "The Ravenian",
+   "Lorekeeper Polkelt",
+   "Doctor Theolen Krastinov",
+   "Instructor Malicia",
+   "Darkmaster Gandling"
+  ],
+  "hordeQuests": 8,
+  "allianceQuests": 8,
+  "text": "# Scholomance\n\nWOW FOREVER • ADIM ADIM ROTA\nTOTİK CHANNEL · ZİNDAN REHBERİ\n\n- Önerilen seviye: 60\n- Horde görevi: 8\n- Alliance görevi: 8\n- Bölge (küçük harita etiketi): Western Plaguelands\n\n## Genel harita: bütün rota\n\nNumaraları sırayla izle · her adım yanda büyük çizili\n\nNumaralı boss listesi:\n\n1. Kirtonos\n2. Jandice Barov\n3. Rattlegore\n4. Vectus\n5. Marduk Blackpool\n6. Ras Frostwhisperer\n7. Lady Illucia Barov\n8. Lord Alexei Barov\n9. The Ravenian\n10. Lorekeeper Polkelt\n11. Doctor Theolen Krastinov\n12. Instructor Malicia\n13. Darkmaster Gandling\n\nHarita etiketleri:\n\n- GİRİŞ\n- Duraklar: 1–13 (rota GİRİŞ'ten başlar, numara sırasıyla ilerler)\n- ↓ MERDİVENDEN İN (GİRİŞ ile 1. durak arasında)\n- ↓ AŞAĞI İN (1. durak ile 2. durak arasında)\n- ↑ YUKARI ÇIK (2. duraktan 3. durağa giden yolda, sol üstte)\n- ↓ AŞAĞI İN (3. durağın altında; yarısı başka etiketin altında kalmış)\n- ↑ YUKARI ÇIK (3. durağın altında)\n- ↓ AŞAĞI İN (5. durağın altında)\n- ↑ YUKARI ÇIK (haritanın altında, 6. duraktan dönüş yolunda)\n- Kormok (çağrılır, isteğe bağlı) (6. durağın üstünde)\n- ↓ AŞAĞI İN (4./5. duraklar ile 13. durak arasında)\n- ↓ AŞAĞI İN (13. durağın solunda)\n- ↑ YUKARI ÇIK (13. durağın altında)\n\n## 1 — Köprüyü geç, soldaki merdivenden in; sağdaki balkon\n\n- Boss: Kirtonos\n- Not: dış kapı: Skeleton Key · Kirtonos: Blood of Innocents\n- Yolda: ↓ merdivenden in\n- Panel haritası: GİRİŞ → 1. Etiketler: GİRİŞ, ↓ MERDİVENDEN İN\n\n## 2 — Öbür büyük odaya, sağdaki merdivenden aşağı\n\n- Boss: Jandice Barov\n- Not: isteğe bağlı, genelde atlanır\n- Yolda: ↓ aşağı in\n- Panel haritası: 1 → 2. Etiketler: ↓ AŞAĞI İN\n\n## 3 — Geri çık, düz kapıdan merdivenle aşağı\n\n- Boss: Rattlegore\n- Not: Viewing Room Key düşürür\n- Yolda: ↑ yukarı çık → ↓ aşağı in\n- Panel haritası: 2 → 3. Etiketler: ↑ YUKARI ÇIK, ↓ AŞAĞI İN\n\n## 4 — Sol çıkıştaki kapıyı anahtarla aç: Viewing Room\n\n- Boss: Vectus\n- Not: isteğe bağlı: yalnız Dawn's Gambit ile\n- Yolda: ↑ yukarı çık\n- Panel haritası: 3 → 4. Etiketler: ↑ YUKARI ÇIK\n\n## 5 — Aynı odada\n\n- Boss: Marduk Blackpool\n- Not: isteğe bağlı\n- Panel haritası: 4 → 5\n\n## 6 — Odanın karşı ucundaki kapıdan\n\n- Boss: Ras Frostwhisperer\n- Not: genelde öldürülür · Kormok isteğe bağlı\n- Yolda: ↓ aşağı in\n- Panel haritası: 5 → 6. Etiketler: ↓ AŞAĞI İN, Kormok (çağrılır, isteğe bağlı)\n\n## 7 — Geri dön, sağ duvardaki merdivenden aşağı\n\n- Boss: Lady Illucia Barov\n- Not: 6 odadan biri\n- Yolda: ↑ yukarı çık → ↓ aşağı in\n- Panel haritası: 6 → 7. Etiketler: ↑ YUKARI ÇIK, ↓ AŞAĞI İN\n\n## 8 — Alt kattaki sonraki oda\n\n- Boss: Lord Alexei Barov\n- Not: 6 odadan biri\n- Panel haritası: 7 → 8\n\n## 9 — Alt kattaki son oda\n\n- Boss: The Ravenian\n- Not: 6 odadan biri\n- Panel haritası: 8 → 9\n\n## 10 — Üst kata çık: ilk oda\n\n- Boss: Lorekeeper Polkelt\n- Not: 6 odadan biri\n- Yolda: ↑ yukarı çık\n- Panel haritası: 9 → 10. Etiketler: ↑ YUKARI ÇIK\n\n## 11 — Üst kattaki sonraki oda\n\n- Boss: Doctor Theolen Krastinov\n- Not: 6 odadan biri\n- Panel haritası: 10 → 11\n\n## 12 — Üst kattaki son oda\n\n- Boss: Instructor Malicia\n- Not: 6 odadan biri\n- Panel haritası: 11 → 12\n\n## 13 — 6 oda temizlenince salonun ortasında çıkar\n\n- Boss: Darkmaster Gandling\n- Not: son boss\n- Yolda: ↓ aşağı in\n- Panel haritası: 12 → 13. Etiketler: ↓ AŞAĞI İN"
+ },
+ {
+  "id": "aid-1-150",
+  "category": "profession",
+  "title": "First Aid · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "file": "aid-1-150.png",
+  "forum": "Meslek rehberleri",
+  "thread": "First Aid",
+  "keywords": [
+   "first aid",
+   "ilk yardım, bandaj"
+  ],
+  "professionName": "First Aid",
+  "profession": "first-aid",
+  "part": "range",
+  "range": [
+   1,
+   150
+  ],
+  "faction": null,
+  "text": "# FIRST AID · 1 → 150 İKSİR YOLU · BANDAJ YOLU\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: First Aid\n- Alt başlık (skill aralığı): 1 → 150 İKSİR YOLU · BANDAJ YOLU\n\n## HANGİ YOLU SEÇEYİM?\n\n- `YOL A` — İksir yolu (önerilen): 1 → 150 iyileştirme iksiri yaparsın. Bitki, şişe ve baharat alırsın; çıkan iksirleri içersin.\n- `YOL B` — Yalnız bandaj: elinde kumaş varsa ya da sunucunda bitki pahalıysa. Bütün tarifleri eğitmen öğretir.\n- `150` — İki yol 150'de birleşir: 150 → 300 herkes bandaj yapar (sonraki kart).\n\n## RÜTBE ADIMLARI (İKİ YOLDA DA)\n\n- `50` — Eğitmenden Journeyman'i al (5 gümüş), 75'e gelmeden: yoksa skill 75'te durur.\n- `125` — Expert First Aid - Under Wraps kitabını oku (1 altın). Alliance Deneb Walker (Stromgarde Keep, Arathi), Horde Balai Lok'Wein (Brackenwall, Dustwallow). 150'ye gelmeden oku.\n- `150` — Eğitmenden Silk Bandage'ı öğren (50 gümüş): eğitmenlerin öğrettiği son bandaj.\n- `SATICI` — Şişe (vial): Alchemy Supplies ya da Trade Supplies satıcısı. Baharat (spices): Cooking Supplies ya da Trade Supplies satıcısı.\n\n## YOL A: İKSİR (ÖNERİLEN)\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 1 → 75 | Minor Healing Potion | 85 | 85 Peacebloom + 85 Empty Vial + 85 Mild Spices | Eğitmen, baştan (1 gümüş) |\n| 75 → 110 | Lesser Healing Potion | 50 | 50 Briarthorn + 50 Empty Vial + 100 Mild Spices | Eğitmen, 55'te (1 gümüş 50 bakır) |\n| 110 → 150 | Healing Potion | 45 | 45 Bruiseweed + 45 Leaded Vial + 45 Hot Spices | Eğitmen, 110'da (8 gümüş) |\n\nPeacebloom, Briarthorn ve Bruiseweed'i Herbalism'le toplarsın ya da AH'den alırsın. Lesser Healing Potion bir iksire 2 Mild Spices ister. Yaptığın iksirler: Minor 80, Lesser 160, Healing 320 can.\n\n## YOL B: YALNIZ BANDAJ\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 1 → 40 | Linen Bandage | 50 | 50 Linen Cloth | Baştan bilinir |\n| 40 → 80 | Heavy Linen Bandage | 52 | 104 Linen Cloth | Eğitmen, 40'ta (1 gümüş) |\n| 80 → 115 | Wool Bandage | 50 | 50 Wool Cloth | Eğitmen, 80'de (2 gümüş 50 bakır) |\n| 115 → 150 | Heavy Wool Bandage | 50 | 100 Wool Cloth | Eğitmen, 115'te (10 gümüş) |\n\nKumaş insansı moblardan düşer: Linen seviye 1–19, Wool 15–30 mob. Heavy bandajlar bir bandaja 2 kumaş ister.\n\n## ALIŞVERİŞ LİSTESİ (1 → 150)\n\n| MALZEME | YOL A: İKSİR | YOL B: BANDAJ |\n|---|---|---|\n| Peacebloom | 85 | — |\n| Briarthorn | 50 | — |\n| Bruiseweed | 45 | — |\n| Empty Vial | 135 | — |\n| Leaded Vial | 45 | — |\n| Mild Spices | 185 | — |\n| Hot Spices | 45 | — |\n| Linen Cloth | — | 154 |\n| Wool Cloth | — | 150 |\n\nÜstüne: Journeyman 5 gümüş, Expert kitabı 1 altın. 150 → 300 için kumaş listesi sonraki kartta.\n\n## İPUÇLARI · SAKLA\n\n- `20` — 20'de eğitmenden First Aid Kit (kamp objesi, 1 gümüş): 3 Linen Bandage + 1 Refreshing Spring Water. 3 Linen Bandage'ı sakla.\n- `İKSİR` — Yaptığın iksirleri sakla: savaşta içilir, içmek için meslek gerekmez (2 dk bekleme).\n- `BANDAJ` — Bandajları kullan: Warrior ve Rogue yemek yemeden iyileşir, healer mana biriktirir. Sararken kıpırdama.\n- `80` — Anti-Venom (80) ve Simple Poultice (90) da eğitmende: 1 Anti-Venom'u ileride Toxin Study kampı için sakla.\n- `SANDIK` — First Aid'in Waylaid Crate'i yok. Herbs ve Textiles sandıkları aynı Peacebloom, Briarthorn ve Linen Cloth'u ister.\n- `TAVAN` — Tavanda üretmek skill vermez: 75'ten önce Journeyman, 150'den önce Expert kitabı."
+ },
+ {
+  "id": "aid-150-300",
+  "category": "profession",
+  "title": "First Aid · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "file": "aid-150-300.png",
+  "forum": "Meslek rehberleri",
+  "thread": "First Aid",
+  "keywords": [
+   "first aid",
+   "ilk yardım, bandaj"
+  ],
+  "professionName": "First Aid",
+  "profession": "first-aid",
+  "part": "range",
+  "range": [
+   150,
+   300
+  ],
+  "faction": null,
+  "text": "# FIRST AID · 150 → 300 BANDAJ\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: First Aid\n- Alt başlık (skill aralığı): 150 → 300 BANDAJ\n\n## EXPERT: KİTAP + İKİ TARİF (125'TE)\n\n| TARAF | SATICI | YER | /MAPPIN |\n|---|---|---|---|\n| Alliance | Deneb Walker | Stromgarde Keep, Arathi Highlands | 1417 27.0 58.8 |\n| Horde | Balai Lok'Wein | Brackenwall Village, Dustwallow Marsh | 1445 36.4 30.4 |\n\nTek seferde üçünü al: Expert First Aid - Under Wraps (1 altın, 125'te oku) · Manual: Heavy Silk Bandage (180'de oku, 22 gümüş) · Manual: Mageweave Bandage (210'da oku, 50 gümüş). Ruha bağlı değiller: AH'den de alınır.\n\n## ARTISAN: TRIAGE (SEVİYE 35)\n\n| TARAF | GÖREVİ VEREN | YER | /MAPPIN |\n|---|---|---|---|\n| Alliance | Doctor Gustaf VanHowzen | Foothold Citadel, Theramore Isle | 1445 67.6 48.8 |\n| Horde | Doctor Gregory Victor | Hammerfall, Arathi Highlands | 1417 73.4 36.8 |\n\nFirst Aid 225 + seviye 35. 6 hasta ölmeden 15 hastayı kurtar; Triage Bandage görevde verilir. Sıra: Critically Injured → Badly Injured → Injured. Dost isim plakaları: SHIFT+V. Başaramazsan görevi yeniden al.\n\n## 150 → 225\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 150 → 180 | Silk Bandage | 45 | 45 Silk Cloth | Eğitmen, 150'de (50 gümüş) |\n| 180 → 210 | Heavy Silk Bandage | 45 | 90 Silk Cloth | Manual: Heavy Silk Bandage, Expert kitabı satıcısı (22 gümüş) |\n| 210 → 225 | Mageweave Bandage | 20 | 20 Mageweave Cloth | Manual: Mageweave Bandage, Expert kitabı satıcısı (50 gümüş) |\n\nManual'la öğrenilen tarifler okunduğu anda sarıdır: her üretim skill vermez. 225'te skill durur: Artisan için seviye 35 ve Triage görevi gerekir.\n\n## 225 → 300\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 225 | Triage görevi → Artisan | — | Triage Bandage görevde verilir | Alliance VanHowzen (Theramore) · Horde Victor (Hammerfall) |\n| 225 → 240 | Mageweave Bandage | 25 | 25 Mageweave Cloth | Zaten biliyorsun |\n| 240 → 260 | Heavy Mageweave Bandage | 25 | 50 Mageweave Cloth | Triage doktoru * |\n| 260 → 290 | Runecloth Bandage | 45 | 45 Runecloth | Triage doktoru * |\n| 290 → 300 | Heavy Runecloth Bandage | 15 | 30 Runecloth | Triage doktoru * |\n\n* Bu üç bandajı Triage görevini veren doktor öğretir: 240, 260 ve 290'da ona dön. Kumaş insansı moblardan düşer: Silk seviye 26–40, Mageweave 41–50, Runecloth 51–60 mob.\n\n## ALIŞVERİŞ LİSTESİ (150 → 300)\n\n| MALZEME | 150 → 225 | 225 → 300 | TOPLAM |\n|---|---|---|---|\n| Silk Cloth | 135 | — | 135 |\n| Mageweave Cloth | 20 | 75 | 95 |\n| Runecloth | — | 75 | 75 |\n| 2 manual (Heavy Silk + Mageweave) | 72 gümüş | — | 72 gümüş |\n| Silk Bandage tarifi | 50 gümüş | — | 50 gümüş |\n\nKamp objeleri için ayrıca: 2 Mageweave Bandage (Toxin Study) ve 5 Heavy Runecloth Bandage (Plague Doctor's Laboratory) fazladan yap.\n\n## İPUÇLARI · SAKLA\n\n- `140` — Toxin Study kampı: 1 Anti-Venom + 2 Mageweave Bandage + 2 Simple Wood. Blueprint: Shadowfang Keep, Commander Springvale (%6,3).\n- `300` — Plague Doctor's Laboratory: 2 Strong Anti-Venom + 5 Heavy Runecloth Bandage + 2 Simple Wood. Blueprint: Plague Doctor's Laboratory ile öğrenilir.\n- `GÖREV` — AQ savaş hazırlığı (War Effort) açılınca görevleri 20'şer Silk / Mageweave / Runecloth Bandage ister.\n- `300` — 300'de Dense Runecloth Bandage: 2 Heavy Runecloth Bandage → 3400 can, sarmak için seviye 50. Manual Silithus'ta satılır.\n- `SARMAK` — Yapmak ve sarmak ayrı: Heavy Runecloth Bandage'ı yapmak 290 ister, sarmak 225. Aynı hedefe 1 dakika yeni bandaj sarılmaz.\n- `225` — Seviyen 35 değilse 225'te dur, kumaşı biriktir: tavanda üretmek skill vermez."
+ },
+ {
+  "id": "aid-genel",
+  "category": "profession",
+  "title": "First Aid · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "file": "aid-genel.png",
+  "forum": "Meslek rehberleri",
+  "thread": "First Aid",
+  "keywords": [
+   "first aid",
+   "ilk yardım, bandaj"
+  ],
+  "professionName": "First Aid",
+  "profession": "first-aid",
+  "part": "genel",
+  "text": "# FIRST AID · 1 → 300 BAŞLAMADAN ÖNCE\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: First Aid\n- Alt başlık (skill aralığı): 1 → 300 BAŞLAMADAN ÖNCE\n\n## NASIL BAŞLARIM?\n\n- `İKİNCİL` — First Aid ikincil meslek: iki ana meslek yerinden birini kullanmaz. Cooking, Fishing ve First Aid'i aynı anda öğrenebilirsin.\n- (ikon) — Bir First Aid eğitmeninden Apprentice'i öğren (1 gümüş). Linen Bandage tarifini baştan bilirsin.\n- `NEREDE` — Alet ya da tezgâh gerekmez: her yerde meslek penceresinden (K → First Aid sekmesi) üretirsin.\n- `SARMAK` — Bandajı kendine ya da dost hedefe (pet dahil) sar, kıpırdama: hareket ya da hasar kanalı keser. Sarılan kişinin First Aid bilmesi gerekmez. Sonra hedefe Recently Bandaged gelir: 1 dakika yeni bandaj sarılmaz, kanal kesilse bile.\n- `KİMİN İŞİ` — Warrior ve Rogue yemek yemeden iki çekiş arasında iyileşir; healer mana biriktirir.\n- `TAVAN` — Tavana gelmeden sonraki rütbeyi al: tavandayken üretmek skill vermez.\n\n## RÜTBELER\n\n| RÜTBE | TAVAN | NASIL ALINIR | ŞART |\n|---|---|---|---|\n| Apprentice | 75 | First Aid eğitmeni (1 gümüş) | — |\n| Journeyman | 150 | First Aid eğitmeni (5 gümüş) | 50 skill |\n| Expert | 225 | Kitap: Expert First Aid - Under Wraps (1 altın) | 125 skill · kitapta seviye şartı yok |\n| Artisan | 300 | Görev: Triage | 225 skill + seviye 35 |\n\nEğitmenler yalnız Apprentice ve Journeyman'i öğretir. Expert kitabını satan NPC'ler ve Triage görevini veren doktorlar aşağıda. Kitap ruha bağlı değil: AH'den de alınabilir, düşük seviyeli karakter de satın alabilir.\n\n## EĞİTMENLER: ALLIANCE\n\n| TARAF | EĞİTMEN | YER | /MAPPIN |\n|---|---|---|---|\n| Alliance | Shaina Fuller | Stormwind, Cathedral of Light | 1453 42.8 26.6 |\n| Alliance | Nissa Firestone | Ironforge, Great Forge | 1455 54.8 58.6 |\n| Alliance | Dannelor | Darnassus, Craftsmen's Terrace | 1457 51.6 12.6 |\n| Alliance | Michelle Belle | Elwynn Forest, Goldshire | 1429 43.4 65.6 |\n| Alliance | Thamner Pol | Dun Morogh, Kharanos | 1426 47.2 52.6 |\n| Alliance | Byancie | Teldrassil, Dolanaar | 1438 55.2 56.8 |\n| Alliance | Fremal Doohickey | Wetlands, Menethil Harbor | 1437 10.8 61.2 |\n| Alliance | Angelique Butler | Alterac Mountains, Dalaran | 1416 17.2 61.0 |\n\n## EĞİTMENLER: HORDE + İKİ TARAF\n\n| TARAF | EĞİTMEN | YER | /MAPPIN |\n|---|---|---|---|\n| Horde | Arnok | Orgrimmar, Valley of Spirits | 1454 34.0 84.4 |\n| Horde | Mary Edras | Undercity, Rogues' Quarter | 1458 73.6 55.6 |\n| Horde | Pand Stonebinder | Thunder Bluff, Spirit Rise | 1456 29.6 21.4 |\n| Horde | Rawrk | Durotar, Razor Hill | 1411 54.0 42.0 |\n| Horde | Nurse Neela | Tirisfal Glades, Brill | 1420 61.8 52.8 |\n| Horde | Vira Younghoof | Mulgore, Bloodhoof Village | 1412 46.8 60.8 |\n| İki taraf | Naleeia Tattermend | Zephras Isle, Shen'dar Village | 2521 43.0 46.2 |\n| İki taraf | Melasa Fairmend | Zephras Isle, Valanaar | 2521 63.0 72.6 |\n\n## EXPERT: KİTABI KİM SATAR?\n\n| TARAF | SATICI | YER | /MAPPIN |\n|---|---|---|---|\n| Alliance | Deneb Walker | Stromgarde Keep, Arathi Highlands | 1417 27.0 58.8 |\n| Horde | Balai Lok'Wein | Brackenwall Village, Dustwallow Marsh | 1445 36.4 30.4 |\n\nExpert First Aid - Under Wraps: 1 altın, First Aid 125. Aynı satıcıdan iki tarifi de al: Manual: Heavy Silk Bandage (180, 22 gümüş) ve Manual: Mageweave Bandage (210, 50 gümüş). Üçü de ruha bağlı değil, AH'de de satılır. Yola çıkmadan önce 150'de eğitmenden Silk Bandage'ı öğren: eğitmenler ondan sonra yeni bandaj öğretmez.\n\n## ARTISAN: TRIAGE GÖREVİ\n\n| TARAF | GÖREVİ VEREN | YER | /MAPPIN |\n|---|---|---|---|\n| Alliance | Doctor Gustaf VanHowzen | Foothold Citadel, Theramore Isle (Dustwallow Marsh) | 1445 67.6 48.8 |\n| Horde | Doctor Gregory Victor | Hammerfall, Arathi Highlands | 1417 73.4 36.8 |\n\nŞart: seviye 35 + First Aid 225. Ödül: Artisan First Aid + 3.900 XP. Görev: 6 hasta ölmeden 15 hastayı kurtar. Triage Bandage görevde verilir, kendi bandajın gitmez. Sıra: Critically Injured → Badly Injured → Injured. Bandajı aksiyon çubuğuna koy, yatakların yanında dur, dost isim plakalarını aç (SHIFT+V); bandaj sürerken sıradaki hastayı seç. Başaramazsan görevi yeniden al. Ön görev Alliance Trauma / Horde Trauma (Ironforge / Orgrimmar eğitmeni) atlanabilir.\n\n## FOREVER'DA YENİ\n\n- (ikon) — İyileştirme iksirleri Alchemy'den First Aid'e geçti: Minor, Lesser, Healing, Greater, Superior, Major. Sabit iyileştirme: 80 · 160 · 320 · 520 · 800 · 1400.\n- (ikon) — Poultice (yeni): hastalık (disease) kaldırır. Simple, Clever, Superior, Powerful. Savaşta kullanılmaz.\n- (ikon) — Tourniquet (yeni): kanama (bleed) kaldırır. Woolen, Leather, Surgical. Savaşta kullanılmaz.\n- (ikon) — Anti-Venom zehir kaldırır, savaşta da kullanılır. Yeni tarif: Potent Anti-Venom.\n- `1 DK` — Anti-venom, poultice ve tourniquet 1 dakikalık ortak bekleme süresi paylaşır. İksirler kendi 2 dakikalık iksir beklemesini kullanır.\n- `LEGACY` — Field Medicine: Recently Bandaged süresini kısaltır (en çok 10 sn); zindan, raid ve battleground'da çalışmaz. Working Overtime: daha çok skill şansı. Dedicated Study: 23 saatte bir en düşük mesleğine +1 skill.\n\n## KAMP OBJELERİ\n\n| OBJE | SKILL | MALZEME | NEREDEN | NE YAPAR |\n|---|---|---|---|---|\n| First Aid Kit | 20 | 3 Linen Bandage + 1 Refreshing Spring Water | Eğitmen (1 gümüş) | Oturanlara Stamina (seviyeye göre +3 → +56) |\n| Toxin Study | 140 | 1 Anti-Venom + 2 Mageweave Bandage + 2 Simple Wood | Blueprint: Shadowfang Keep, Commander Springvale (%6,3) | Aynı buff + içinde iyileştirme iksiri ve anti-venom |\n| Plague Doctor's Laboratory | 300 | 2 Strong Anti-Venom + 5 Heavy Runecloth Bandage + 2 Simple Wood | Blueprint: Plague Doctor's Laboratory | Aynı buff + içinde iyileştirme iksiri ve poultice |\n\nKamp ateşini Cooking kurar; objeler yanına, açık havada ve savaş dışında konur, 1 saatlik ortak bekleme süresi paylaşır. Stamina buff'ı Power Word: Fortitude ile birikmez. Toxin Study ve Laboratory, First Aid Kit'in üstüne konup onun yerini alır. Toxin Study 140'ta öğrenilir ama 210 skill isteyen Mageweave Bandage ister: bandajı sakla ya da AH'den al. Simple Wood: Trade Supplies satıcısı.\n\n## BANKA: WAYLAID CRATE\n\n- `YOK` — Bu mesleğin sandığı yok. First Aid için Waylaid Crate çıkmaz, meslek unvanı (Certification) da yok.\n- `HERBS` — Herbs sandıkları da iksir bitkisi ister (Apprentice Herbs: 20 Peacebloom ya da 10 Briarthorn...). Bitkiyi ikisine bölüştür.\n- `TEXTILES` — Apprentice Textiles sandığı 40 Linen Cloth (ya da 20 Light Leather) ister: bandaj yolundaysan kumaşı hesapla.\n- `SANDIK` — Sandık moblardan ve sandıklardan düşer ya da AH'den alınır; içine tek bir deste konur. Teslim: Alliance Marcy Baker (Redridge, Three Corners), Horde Dokimi (Barrens, Crossroads yanı).\n\n## SAKLA, KULLAN, SIRA\n\n- `KAMP` — Kamp objeleri için: 3 Linen Bandage (First Aid Kit) · 2 Mageweave Bandage + Anti-Venom (Toxin Study) · 5 Heavy Runecloth Bandage + 2 Strong Anti-Venom (Laboratory).\n- `GÖREV` — AQ savaş hazırlığı (War Effort) açılınca görevleri 20'şer Linen / Wool / Silk / Mageweave / Runecloth Bandage ister. Powerful Anti-Venom: Desert Survival Kits (4 tane).\n- `İKSİR` — İksir içmek için First Aid gerekmez; yalnız bandaj sarmak skill ister. İksirler artık yalnız First Aid'den gelir.\n- `EŞ` — Herbalism iksir bitkilerini toplar; Alchemy aynı bitkileri kullanır. First Aid ikisiyle iyi gider.\n- `SIRA` — Kartlar: Tarifler → 1–150 (iksir yolu ya da bandaj yolu) → 150–300 (bandaj)."
+ },
+ {
+  "id": "aid-tarifler",
+  "category": "profession",
+  "title": "First Aid · Önemli tarifler",
+  "file": "aid-tarifler.png",
+  "forum": "Meslek rehberleri",
+  "thread": "First Aid",
+  "keywords": [
+   "first aid",
+   "ilk yardım, bandaj"
+  ],
+  "professionName": "First Aid",
+  "profession": "first-aid",
+  "part": "tarifler",
+  "text": "# FIRST AID · 1 → 300 TÜM TARİFLER\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: First Aid\n- Alt başlık (skill aralığı): 1 → 300 TÜM TARİFLER\n\n## BANDAJLAR (8 SN KANAL, AKSİ YAZILMADIKÇA)\n\n| BANDAJ | ÖĞREN | SARI · YEŞİL · GRİ | MALZEME | İYİLEŞTİRİR | SARMAK İÇİN | NEREDEN |\n|---|---|---|---|---|---|---|\n| Linen Bandage | 1 | 30 · 45 · 60 | 1 Linen Cloth | 66 (6 sn) | 1 skill | Baştan bilinir |\n| Heavy Linen Bandage | 40 | 50 · 75 · 100 | 2 Linen Cloth | 114 (6 sn) | 20 skill | Eğitmen (1 gümüş) |\n| Wool Bandage | 80 | 80 · 115 · 150 | 1 Wool Cloth | 161 (7 sn) | 50 skill | Eğitmen (2 gümüş 50 bakır) |\n| Heavy Wool Bandage | 115 | 115 · 150 · 185 | 2 Wool Cloth | 301 (7 sn) | 75 skill | Eğitmen (10 gümüş) |\n| Silk Bandage | 150 | 150 · 180 · 210 | 1 Silk Cloth | 400 | 100 skill | Eğitmen (50 gümüş) |\n| Heavy Silk Bandage | 180 | 180 · 210 · 240 | 2 Silk Cloth | 640 | 125 skill | Manual: Expert kitabı satıcısı (22 gümüş) |\n| Mageweave Bandage | 210 | 210 · 240 · 270 | 1 Mageweave Cloth | 800 | 150 skill | Manual: Expert kitabı satıcısı (50 gümüş) |\n| Heavy Mageweave Bandage | 240 | 240 · 270 · 300 | 2 Mageweave Cloth | 1104 | 175 skill | Triage doktoru * |\n| Runecloth Bandage | 260 | 260 · 290 · 320 | 1 Runecloth | 1360 | 200 skill | Triage doktoru * |\n| Heavy Runecloth Bandage | 290 | 290 · 320 · 350 | 2 Runecloth | 2000 | 225 skill | Triage doktoru * |\n| Dense Runecloth Bandage | 300 | 315 · 327 · 340 | 2 Heavy Runecloth Bandage | 3400 | 300 skill + seviye 50 | Manual: Silithus, Chief Expeditionary Requisitioner Enkles · Apothecary Quinard |\n\nÖĞREN = tarifin turuncu olduğu skill: her üretim skill verir. Sarı çoğu zaman, yeşil bazen skill verir, gri hiç vermez. * 240 / 260 / 290 bandajlarını Triage görevini veren doktor öğretir: Alliance Doctor Gustaf VanHowzen (Theramore) · Horde Doctor Gregory Victor (Hammerfall). Recently Bandaged: aynı hedefe 1 dakika yeni bandaj sarılmaz, kanal kesilse bile.\n\n## İYİLEŞTİRME İKSİRLERİ (YENİ: ALCHEMY'DEN GEÇTİ)\n\n| İKSİR | ÖĞREN | SARI · YEŞİL · GRİ | MALZEME | İYİLEŞTİRİR | İÇMEK İÇİN | NEREDEN |\n|---|---|---|---|---|---|---|\n| Minor Healing Potion | 1 | 55 · 75 · 95 | 1 Peacebloom + 1 Mild Spices + 1 Empty Vial | 80 | — | Eğitmen (1 gümüş) |\n| Lesser Healing Potion | 55 | 85 · 105 · 125 | 1 Briarthorn + 2 Mild Spices + 1 Empty Vial | 160 | seviye 3 | Eğitmen (1 gümüş 50 bakır) |\n| Healing Potion | 110 | 135 · 155 · 175 | 1 Bruiseweed + 1 Hot Spices + 1 Leaded Vial | 320 | seviye 12 | Eğitmen (8 gümüş) |\n| Greater Healing Potion | 155 | 175 · 195 · 215 | 1 Liferoot + 3 Hot Spices + 1 Leaded Vial | 520 | seviye 21 | Manual: Syndicate Mercenary düşürür, Arathi Highlands (%12,3) |\n| Superior Healing Potion | 215 | 230 · 250 · 270 | 1 Sungrass + 1 Soothing Spices + 1 Crystal Vial | 800 | seviye 35 | Manual: Gordunni Shaman düşürür, Feralas |\n| Major Healing Potion | 275 | 290 · 310 · 330 | 1 Golden Sansam + 3 Soothing Spices + 1 Crystal Vial | 1400 | seviye 45 | Manual: Pexmit satar, 8 altın (Mount Hyjal'da rare demon satıcı, /mappin 2482 59.6 49.2) · Horde: görev A Rest Without Pain (Elderwild, seviye 54+) |\n\nBütün iksirler 2 dakikalık ortak iksir beklemesini paylaşır, 5'li yığılır, savaşta içilir. İçmek için First Aid gerekmez, yalnız karakter seviyesi ister. Minor, Lesser ve Healing Potion 1 → 150 iksir yolunun tarifleri.\n\n## ANTI-VENOM: ZEHİR (SAVAŞTA DA, 3'ER ÇIKAR)\n\n| TARİF | ÖĞREN | SARI · YEŞİL · GRİ | MALZEME | KALDIRIR | NEREDEN |\n|---|---|---|---|---|---|\n| Anti-Venom | 80 | 80 · 115 · 150 | 1 Small Venom Sac | seviye ≤ 25 | Eğitmen (2 gümüş 50 bakır) |\n| Strong Anti-Venom | 130 | 130 · 165 · 200 | 1 Large Venom Sac | seviye ≤ 35 | Manual: birçok mobdan nadir düşer (en çok %1,2) |\n| Potent Anti-Venom YENİ | 215 | 230 · 260 · 290 | 1 Swollen Venom Sac | seviye ≤ 45 | Manual: Lost One Muckdweller, Swamp of Sorrows (%8,5) |\n| Powerful Anti-Venom | 300 | 300 · 330 · 360 | 1 Huge Venom Sac | seviye ≤ 65 (kullanmak 300 skill) | Formula: Argent Dawn Honored, Argent Quartermaster Hasana · Lightspark |\n\n## POULTICE: HASTALIK (YENİ, SAVAŞ DIŞI, 3'ER ÇIKAR)\n\n| TARİF | ÖĞREN | SARI · YEŞİL · GRİ | MALZEME | KALDIRIR | NEREDEN |\n|---|---|---|---|---|---|\n| Simple Poultice | 90 | 90 · 125 · 160 | Spider Ichor + Mild Spices + Bottle of Dalaran Noir | seviye ≤ 25 | Eğitmen (2 gümüş 50 bakır) |\n| Clever Poultice | 140 | 160 · 190 · 220 | Murloc Fin + Soothing Spices + Thunder Ale | seviye ≤ 35 | Manual: Defias Enchanter, Duskwood (%10,8) |\n| Superior Poultice | 210 | 225 · 255 · 285 | Elemental Water + Hot Spices + Skin of Dwarven Stout | seviye ≤ 45 | Manual: Syndicate Sentry, Alterac Mountains (%11,1) |\n| Powerful Poultice | 280 | 295 · 325 · 355 | Essence of Water + Hot Spices + Flagon of Dwarven Honeymead | seviye ≤ 65 | Manual: görev Transmuted Tincture ödülü |\n\n## TOURNIQUET: KANAMA (YENİ, SAVAŞ DIŞI, 1 ÇIKAR)\n\n| TARİF | ÖĞREN | SARI · YEŞİL · GRİ | MALZEME | KALDIRIR | NEREDEN |\n|---|---|---|---|---|---|\n| Woolen Tourniquet | 120 | 120 · 155 · 190 | 2 Wool Cloth + 2 Fine Thread | seviye ≤ 30 | Eğitmen (12 gümüş) |\n| Leather Tourniquet | 200 | 220 · 250 · 280 | 2 Thick Leather + 2 Silken Thread | seviye ≤ 45 | Manual: Shadowforge Tunneler, Badlands (%10) |\n| Surgical Tourniquet | 265 | 280 · 310 · 340 | 2 Rugged Leather + 2 Runecloth + 2 Heavy Silken Thread | seviye ≤ 65 | Manual: Scarlet Trainee düşürür (%6,7), Scarlet Monastery, Armory kanadı |\n\n## BUNLARI BİL\n\n- `1 DK` — Anti-venom, poultice ve tourniquet 1 dakikalık ortak bekleme paylaşır: birini kullanınca diğerleri de bekler.\n- `SAVAŞ` — Poultice ve tourniquet savaşta kullanılmaz. Anti-venom savaşta da kullanılır.\n- `KAMP` — 2 Strong Anti-Venom'u Plague Doctor's Laboratory için sakla; 1 Anti-Venom Toxin Study'ye gider."
+ },
+ {
+  "id": "alch-1-150",
+  "category": "profession",
+  "title": "Alchemy · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "file": "alch-1-150.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Alchemy",
+  "keywords": [
+   "alchemy",
+   "simya, iksir, flask"
+  ],
+  "professionName": "Alchemy",
+  "profession": "alchemy",
+  "part": "range",
+  "range": [
+   1,
+   150
+  ],
+  "faction": null,
+  "text": "# ALCHEMY · 1 → 150 APPRENTICE · JOURNEYMAN\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Alchemy\n- Alt başlık (skill aralığı): 1 → 150 APPRENTICE · JOURNEYMAN\n\n## 1 → 75 · APPRENTICE\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 1 → 10 | Minor Arcane Elixir | 9 | 9 Peacebloom · 9 Empty Vial | Başta bilinir |\n| 10 → 55 | Elixir of Minor Defense | 45 | 45 Silverleaf · 45 Peacebloom · 45 Empty Vial | Eğitmen |\n| 55 → 65 | Minor Mana Potion | 10 | 10 Mageroyal · 10 Peacebloom · 10 Empty Vial | Eğitmen |\n| 65 → 75 | Elixir of Minor Fortitude | 10 | 20 Earthroot · 10 Peacebloom · 10 Empty Vial | Eğitmen |\n| 75'ten önce | JOURNEYMAN ÖĞREN | — | 50 skill + seviye 10 | Sylvanna Forestmoon (Darnassus) · Doctor Marsh (Undercity) |\n\n(Renk kodu: Sylvanna Forestmoon mavi = Alliance, Doctor Marsh kırmızı = Horde.)\n\nHer tarifi tablodaki skill'e gelince bırak, sonrakine geç. Mageroyal, Silverleaf'ten ucuzsa 25'ten itibaren Minor Mana Potion'a geçebilirsin.\n\n## 75 → 150 · JOURNEYMAN\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 75 → 90 | Elixir of Minor Fortitude | 17 | 34 Earthroot · 17 Peacebloom · 17 Empty Vial | Eğitmen |\n| 90 → 120 | Elixir of Wisdom | 30 | 30 Mageroyal · 60 Briarthorn · 30 Empty Vial | Eğitmen |\n| 120 → 150 | Lesser Mana Potion | 31 | 31 Mageroyal · 31 Stranglekelp · 31 Empty Vial | Eğitmen |\n| 150'den önce | EXPERT ÖĞREN | — | 125 skill + seviye 20 | Ainethil (Darnassus) · Doctor Herbert Halsey (Undercity) |\n\n(Renk kodu: Ainethil mavi = Alliance, Doctor Herbert Halsey kırmızı = Horde.)\n\nElixir of Minor Fortitude 80'de sarı olur, yine de 90'a kadar devam et. Elixir of Wisdom 90 → 120 arası her üretimde puan verir.\n\n## ALIŞVERİŞ LİSTESİ\n\n| MALZEME | 1 → 75 | 75 → 150 | TOPLAM |\n|---|---|---|---|\n| Peacebloom | 74 | 17 | 91 |\n| Silverleaf | 45 | — | 45 |\n| Mageroyal | 10 | 61 | 71 |\n| Earthroot | 20 | 34 | 54 |\n| Briarthorn | — | 60 | 60 |\n| Stranglekelp | — | 31 | 31 |\n| Empty Vial | 74 | 78 | 152 |\n\nEmpty Vial: Alchemy Supplies ya da Trade Supplies satıcısı, AH'den alma.\n\n## İPUÇLARI / SAT-SAKLA\n\n- `RÜTBE` — Rütbeyi tavana gelmeden al: tavanda kazanılan puan boşa gider.\n- (ikon) — 20 skill'de eğitmenden Camping 101: Alchemy görevini al: Mana Well'i öğretir (1 Peacebloom + 1 Empty Vial), kampta oturanlara mana yenilenmesi.\n- (ikon) — Seviye 10'da Discolored Healing Potion görevini yap: 3 Murloc Eye → ilk tarif (50 skill ister; ayrıntı genel kartta).\n- (ikon) — Stranglekelp su altında ve kıyıda biter (Wetlands, Stranglethorn, Ashenvale, Desolace, Westfall). 150 → 300'de de çok lazım.\n- `TAILOR` — Tailoring da kasıyorsan Elixir of Wisdom'ı sakla (Gloves of Meditation).\n- `SAT` — Mana iksirleri düzenli satar.\n- `LEGACY` — Working Overtime: sarı ve yeşil tarifte daha çok puan, daha az bitki.\n- `SONRA` — Sıradaki kart: 150 → 300."
+ },
+ {
+  "id": "alch-150-300",
+  "category": "profession",
+  "title": "Alchemy · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "file": "alch-150-300.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Alchemy",
+  "keywords": [
+   "alchemy",
+   "simya, iksir, flask"
+  ],
+  "professionName": "Alchemy",
+  "profession": "alchemy",
+  "part": "range",
+  "range": [
+   150,
+   300
+  ],
+  "faction": null,
+  "text": "# ALCHEMY · 150 → 300 EXPERT · ARTISAN\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Alchemy\n- Alt başlık (skill aralığı): 150 → 300 EXPERT · ARTISAN\n\n## 150 → 225 · EXPERT\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 150 → 160 | Lesser Mana Potion | 14 | 14 Mageroyal · 14 Stranglekelp · 14 Empty Vial | Eğitmen |\n| 160 → 185 | Mana Potion | 26 | 26 Kingsblood · 26 Stranglekelp · 26 Leaded Vial | Eğitmen |\n| 185 → 205 | Elixir of Agility | 20 | 20 Goldthorn · 20 Stranglekelp · 20 Leaded Vial | Eğitmen (185'te öğren) |\n| 205 → 225 | Greater Mana Potion | 21 | 21 Goldthorn · 21 Khadgar's Whisker · 21 Leaded Vial | Eğitmen |\n| 225'ten önce | ARTISAN ÖĞREN | — | 200 skill + seviye 35 | Kylanna Windwhisper (Feralas, Feathermoon) · Rogvar (Swamp of Sorrows, Stonard) · Master Mycologist Shurome (Felwood, iki taraf) |\n\n(Renk kodu: Kylanna Windwhisper mavi = Alliance, Rogvar kırmızı = Horde.)\n\n160'tan sonra her üretime 1 Leaded Vial. Elixir of Agility 205'e kadar turuncu: her üretim puan. Artisan'ı yalnız bu 3 eğitmen öğretir.\n\n## 225 → 300 · ARTISAN\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 225 → 244 | Nature Protection Potion | 55 | 55 Liferoot · 55 Stranglekelp · 55 Leaded Vial | Satıcı tarifi, stok sınırlı: Alchemist Pestlezugg (Gadgetzan) · Glyx Brewright (Booty Bay) · Logannas (Feathermoon) · Bronk (Camp Mojache) |\n| 244 → 250 | Elixir of Greater Intellect | 6 | 6 Blindweed · 6 Khadgar's Whisker · 6 Crystal Vial | Artisan eğitmeni |\n| 250 → 260 | Stonescale Oil | 34 | 34 Stonescale Eel · 34 Leaded Vial | Eğitmen |\n| 260 → 274 | Elixir of Greater Intellect | 25 | 25 Blindweed · 25 Khadgar's Whisker · 25 Crystal Vial | Artisan eğitmeni |\n| 274 → 300 | Elixir of Greater Defense | 34 | 68 Stonescale Oil · 34 Sungrass · 34 Crystal Vial | Satıcı tarifi: Soolie Berryfizz (Ironforge) · Kor'geld (Orgrimmar), 1g 30s |\n\n(Renk kodu: Logannas ve Soolie Berryfizz mavi = Alliance; Bronk ve Kor'geld kırmızı = Horde.)\n\nNature Protection Potion tarifi 190 skill ister ve satıcıda az durur: görünce hemen al. 230'dan sonra yeşil olur, puan seyrek gelir; adet bu yüzden 55. Stonescale Oil her üretimde 2 tane çıkar: 34 üretim seni 260'a getirir ve 274 → 300 için gereken 68 Oil'i verir. Elixir of Greater Defense'in tarifinin adı Recipe: Elixir of Superior Defense (265 skill): 274'ten önce al.\n\n## ALIŞVERİŞ LİSTESİ\n\n| MALZEME | 150 → 225 | 225 → 300 | TOPLAM |\n|---|---|---|---|\n| Mageroyal | 14 | — | 14 |\n| Stranglekelp | 60 | 55 | 115 |\n| Kingsblood | 26 | — | 26 |\n| Goldthorn | 41 | — | 41 |\n| Khadgar's Whisker | 21 | 31 | 52 |\n| Liferoot | — | 55 | 55 |\n| Blindweed | — | 31 | 31 |\n| Sungrass | — | 34 | 34 |\n| Stonescale Eel | — | 34 | 34 |\n| Empty Vial | 14 | — | 14 |\n| Leaded Vial | 67 | 89 | 156 |\n| Crystal Vial | — | 65 | 65 |\n\nŞişeleri satıcıdan tek seferde al, AH'den alma. En zor bulunan: Stranglekelp (su altı ve kıyı).\n\n## İPUÇLARI / SAT-SAKLA\n\n- `STOK YOK` — Nature Protection tarifini bulamazsan yalnız eğitmen tarifleriyle: Catseye Draught 225 → 245 (34 Goldthorn · 34 Fadeleaf · 34 Leaded Vial) → Draught of Detect Undead 245 → 265 (28 Arthas' Tears · 28 Crystal Vial) → Draught of Detect Demon 265 → 300 (81 üretim: 162 Gromsblood + 81 Crystal Vial; 285'ten sonra yeşil).\n- (ikon) — 225'te Philosopher's Stone (Pestlezugg, Gadgetzan): transmute için bir tane şart; 225 → 240 arası turuncu.\n- `TURUNCU` — Her üretimde puan veren başka tarifler: Draught of Detect Undead 230 → 245 ve Elixir of Greater Agility 240 → 255 (eğitmen) · Elixir of Shadow Power 250 → 265 (tarif: Maria Lumere Stormwind · Algernon Undercity) · Superior Mana Potion 260 → 275 (tarif: Ulthir Darnassus · Algernon Undercity).\n- (ikon) — Alchemist Pestlezugg (Gadgetzan) dört şişeyi de satar: Empty, Leaded, Crystal, Imbued Vial.\n- `OIL` — Stonescale Oil'i satma: Elixir of Greater Defense, Flask of the Titans ve Petrification ister.\n- `SAT` — Mana ve savaş iksirleri, boyalar düzenli satar. 300'de flask'lar ve Legionite transmute para getirir.\n- `LEGACY` — Working Overtime: yeşil Nature Protection ve Greater Intellect'te bitki kazandırır.\n- `300` — Transmute, Natural flask, boya ve kamp objeleri: genel kartta.\n\n(Renk kodu, TURUNCU satırı: Maria Lumere ve Ulthir mavi = Alliance; Algernon kırmızı = Horde.)"
+ },
+ {
+  "id": "alch-genel",
+  "category": "profession",
+  "title": "Alchemy · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "file": "alch-genel.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Alchemy",
+  "keywords": [
+   "alchemy",
+   "simya, iksir, flask"
+  ],
+  "professionName": "Alchemy",
+  "profession": "alchemy",
+  "part": "genel",
+  "text": "# ALCHEMY · 1 → 300 BAŞLAMADAN ÖNCE\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Alchemy\n- Alt başlık (skill aralığı): 1 → 300 BAŞLAMADAN ÖNCE\n\n## NASIL BAŞLARIM?\n\n- `1` — Mesleği öğren: herhangi bir Alchemy eğitmeni Apprentice'i öğretir; karakter seviyesi şartı yok.\n- (ikon) — Herbalism ile eşleştir: neredeyse her tarif bitki ister. Herbalism alet istemez.\n- (ikon) — Şişeler (Empty, Leaded, Crystal, Imbued Vial) Alchemy Supplies ya da Trade Supplies satıcısında. AH'den alma, satıcı ucuz.\n- `ALET` — Normal üretim alet istemez. Transmute için Philosopher's Stone, flask'lar için Alchemy Laboratory gerekir.\n- `UZMANLIK` — Forever'da uzmanlık yok: Elixir, Potion ya da Transmutation Master seçilmez.\n- `İKSİR` — Normal healing potion'ları First Aid yapar. Alchemist yalnız Discolored healing potion yapar (aşağıda).\n\n## RÜTBELER\n\n| RÜTBE | TAVAN | SKILL ŞARTI | KARAKTER SEVİYESİ |\n|---|---|---|---|\n| Apprentice | 75 | Şart yok | Şart yok |\n| Journeyman | 150 | 50 | 10 |\n| Expert | 225 | 125 | 20 |\n| Artisan | 300 | 200 | 35 |\n\nİki şart birden: hem skill hem karakter seviyesi. Kitap ya da görev gerekmez. Artisan'ı yalnız 3 eğitmen öğretir (aşağıda). Bir sonraki rütbeyi tavana gelmeden al: tavanda kazanılan puan boşa gider. 150, 225 ve 300'e ilk ulaştığında Legacy puanı kazanırsın.\n\n## EĞİTMENLER\n\n| EN ÇOK | TARAF | EĞİTMEN | YER |\n|---|---|---|---|\n| Apprentice | Alliance | Tel'Athir · Vosur Brakthel · Milla Fairancora | Stormwind, Mage Quarter · Ironforge, Tinker Town · Darnassus, Craftsmen's Terrace |\n| Apprentice | Alliance | Cyndra Kindwhisper · Ghak Healtouch · Iaadaria Bitterwind | Teldrassil, Dolanaar · Loch Modan, Thelsamar · Zephras Isle, Valanaar |\n| Apprentice | Alliance | Alchemist Mallory | Elwynn Forest, Stormwind ile Northshire arasındaki tepeler |\n| Apprentice | Horde | Whuut · Doctor Martin Felben · Kray | Orgrimmar, The Drag · Undercity, Apothecarium · Thunder Bluff, Middle Rise |\n| Apprentice | Horde | Carolai Anise · Miao'zan | Tirisfal Glades, Brill · Durotar, Sen'jin Village |\n| Apprentice | İki taraf | Nyassa Swiftdraught · Valiena Swiftgale | Zephras Isle: Shen'dar Village · Valanaar |\n| Journeyman | Alliance | Lilyssia Nightbreeze · Sylvanna Forestmoon · Tally Berryfizz | Stormwind, Mage Quarter · Darnassus, Craftsmen's Terrace · Ironforge, Tinker Town |\n| Journeyman | Alliance | Alchemist Narett · Kylanna | Dustwallow Marsh, Theramore Isle · Ashenvale, Silverwind Refuge |\n| Journeyman | Horde | Yelmak · Doctor Marsh | Orgrimmar, The Drag · Undercity, Apothecarium |\n| Journeyman | Horde | Bena Winterhoof · Serge Hinott | Thunder Bluff, Middle Rise · Hillsbrad Foothills, Tarren Mill |\n| Journeyman | İki taraf | Jaxin Chong | Stranglethorn Vale, Booty Bay |\n| Expert | Alliance | Ainethil · Linzy Blackbolt · Patricia Egan | Darnassus, Craftsmen's Terrace · Alterac Mountains, Dalaran (ikisi de) |\n| Expert | Horde | Doctor Herbert Halsey | Undercity, Apothecarium |\n| Artisan | Alliance | Kylanna Windwhisper | Feralas, Feathermoon Stronghold · /mappin 1444 32.6 43.8 |\n| Artisan | Horde | Rogvar | Swamp of Sorrows, Stonard · /mappin 1435 48.5 55.8 |\n| Artisan | İki taraf | Master Mycologist Shurome | Felwood, Emerald Sanctuary · /mappin 1448 51.4 82.0 |\n\nEN ÇOK = eğitmenin öğrettiği en yüksek rütbe. Kolay yol: Alliance Darnassus, Craftsmen's Terrace: Milla Fairancora → Sylvanna Forestmoon → Ainethil. Horde Undercity, Apothecarium: Doctor Martin Felben → Doctor Marsh → Doctor Herbert Halsey. Oyunda /mappin <harita> X Y yazarak haritaya işaret koyabilirsin.\n\n## DISCOLORED HEALING POTION (FOREVER)\n\n| İKSİR | SKILL VERİR | MALZEME | TARİF NEREDEN |\n|---|---|---|---|\n| Minor Discolored | 50 → 95 | Murloc Eye + Peacebloom + Empty Vial | Görev ödülü (yanda) |\n| Lesser Discolored | 85 → 125 | Murloc Eye + Briarthorn + Empty Vial | Odd Child · Renferrel* |\n| Discolored | 135 → 175 | Murloc Eye + Bruiseweed + Leaded Vial | Odd Child · Renferrel* |\n| Greater Discolored | 175 → 215 | Murloc Eye + Kingsblood + Leaded Vial | Odd Child · Renferrel* |\n| Superior Discolored | 230 → 270 | Murloc Eye + Sungrass + Crystal Vial | Odd Child · Renferrel* |\n| Major Discolored | 250 → 330 | Murloc Eye + Plaguebloom + Crystal Vial | Odd Child · Renferrel* |\n\nHepsine 1 Murloc Eye gerekir. Etki: canı hemen doldurur, ama o miktarın %75'ini sonradan hasar olarak alırsın (6 sn zehir ya da 12 sn hastalık). Bekleme 2 dakika. Major: 2800 can, seviye 60. *Bu tarifleri normal eğitmen öğretmez: Alliance Odd Child (Westfall, Moonbrook ahırı) ve Horde Apothecary Renferrel (Silverpine, The Sepulcher) öğretir. Önce yandaki görevi bitir, sonra skill'in yettikçe aynı NPC'ye dön.\n\n## İLK TARİF: GÖREVLE\n\n- (ikon) — Görev 3 Murloc Eye ister, ödül Recipe: Minor Discolored Healing Potion.\n- `ALLIANCE` — Seviye 10: Westfall, Moonbrook'taki ahırda Odd Child. Önce My First Alchemy Set (5 Empty Vial + 5 Silverleaf + 5 Peacebloom), sonra My First Real Potion (3 Murloc Eye).\n- `HORDE` — Wild Eyes (seviye 10+): Silverpine'da kuzeydeki çiftlikte Quinn Yorick (53.4 12.7) başlatır: Lost Deathstalkers → Wild Hearts → Return to Quinn → Wild Eyes. 3 Murloc Eye'ı The Sepulcher'daki Apothecary Renferrel'e (42.9 40.9) götür. +50 Undercity itibarı.\n\n## MERCHANT'S FAVOR TARİFLERİ (29 YENİ TARİF)\n\n| İTİBAR | FAVOR | TARİFLER (ÖĞRENME SKILL'İ) |\n|---|---|---|\n| Gerekmez | 45 | Elixir of Lesser Spirit (65) · Lesser Mageblood Elixir (75) · Elixir of Lesser Intellect (95) · Lesser Cleric's Elixir (95) · Lesser Arcane Elixir (120) · Mender's Potion (130) · Spellblasting Potion (135) · Frenzy Potion (140) |\n| Friendly | 120 | Elixir of Greater Spirit (165) · Greater Mageblood Elixir (175) · Disorienting Smog Potion (180) · Greater Cleric's Elixir (195) · Elixir of Greater Fortitude (200) · Dragonfire Potion (245) |\n| Honored | 180 | Elixir of the Phalanx (250) · Caustic Smog Potion (265) · Elixir of Cunning, Ferocity, Sages, the Whale (275) · Potion of Venomous Blood (275) · Elixir of the Owl, Major Mender's Potion, Potion of Elemental Purging (280) · Elixir of Nature Power, Wicked Regeneration, Major Spellblasting Potion (285) |\n| Honored | 240 | Major Frenzy Potion (290) · Elixir of the Grizzly (300) |\n\nSatıcı: Alliance Nina Surefire (Redridge Mountains, Three Corners kampı · Azeroth Commerce Authority) · Horde Apothecary Durelle (The Barrens, Crossroads'un hemen batısı · Durotar Supply and Logistics). Ödeme Merchant's Favor, fiyat tarif başına; Favor'ı Waylaid Crate teslim ederek kazanırsın. Tarifler BoP. Örnek: Mender's Potion 30 sn +31 iyileştirme gücü · Elixir of Sages 30 dk +25 Spirit ve %2 crit · Elixir of the Grizzly Strength + crit · Elixir of Cunning Agility + Intellect.\n\n## PHILOSOPHER'S STONE VE TRANSMUTE\n\n| TARİF | SKILL | MALZEME | BEKLEME | TARİF NEREDEN |\n|---|---|---|---|---|\n| Philosopher's Stone | 225 | 4 Iron Bar + 4 Firebloom + 4 Purple Lotus + 1 Black Vitriol | — | Alchemist Pestlezugg |\n| Iron to Gold | 225 | 1 Iron Bar | 1 saat | Alchemist Pestlezugg |\n| Mithril to Truesilver | 225 | 1 Mithril Bar | 1 saat | Alchemist Pestlezugg |\n| Arcanite | 275 | 1 Thorium Bar + 1 Arcane Crystal | 47 saat | Alchemist Pestlezugg |\n| Legionite (YENİ) | 275 | 1 Heavy Thorium Bar + 1 Fel Crystal | 47 saat | Tarif eşyası: Recipe: Transmute Legionite |\n| Elemental (8 çeşit) | 275 | 1 essence → başka essence | 23 saat | Çeşitli satıcı ve düşüş |\n| Elemental Fire ×3 | 300 | 1 Heart of Fire | 10 dk | Lokhtos Darkbargainer (BRD) |\n\nTaş alet: çantanda dursun, bütün transmute'lar onu ister; bir tane yeter (BoP). Alchemist Pestlezugg: Gadgetzan, Tanaris (50.9 27.0). Heavy Thorium Bar: Mining 300, Molten Foundry kamp objesinde eritilir. Fel Crystal: Mister Graphed satar (Riverglades kara borsası, 78.2 51.9). Legionite Bar birçok 300 Blacksmithing ve Engineering tarifinde kullanılır.\n\n## NATURAL FLASK'LAR (YENİ, 300)\n\n| FLASK | HYJAL'DA EK | MALZEME (+1 IMBUED VIAL) |\n|---|---|---|\n| Natural Accuracy | %2 Hit | 1 Death Lotus · 12 Demonsage · 9 Golden Sansam |\n| Natural Aggression | %2 Crit | 1 Death Lotus · 18 Demonsage · 6 Mountain Silversage |\n| Natural Precision | %2 az dodge/parry | 1 Death Lotus · 12 Marefoil · 9 Dreamfoil |\n| Natural Swiftness | %2 Haste | 1 Death Lotus · 18 Marefoil · 6 Icecap |\n\nHepsi +30 Stamina, 2 saat, ölünce gitmez, aynı anda tek flask, seviye 55. Ek bonus yalnız Mount Hyjal, Hyjal Summit ve Barrow Deeps'te. Alchemy Laboratory'de yapılır. Her flask'ın tarifi ayrı bir BoP eşya (ör. Recipe: Flask of Natural Accuracy). Death Lotus'u Mister Graphed (Riverglades kara borsası) satar; Mount Hyjal'da bitki toplarken de çıkabilir (Lotus Claw enchant'ı).\n\n## BOYA VE ASİT (YENİ: BAŞKA MESLEKLERE MALZEME)\n\n| ÜRÜN | SKILL | MALZEME | KİM ALIR |\n|---|---|---|---|\n| Cerulean Dye | 40 | 2 Frilled Lichen + 1 Empty Vial | Tailoring, Enchanting, Engineering |\n| Sulfuric Acid | 40 | 2 Pyrite + 1 Empty Vial | Blacksmithing, Enchanting, Engineering |\n| Magenta Dye | 120 | 2 Rosecap + 1 Leaded Vial | Tailoring, Enchanting |\n| Viridian Dye | 215 | 2 Stranglevine + 1 Crystal Vial · Fermenter | Tailoring (Archmage, Mooncloth çantaları) · Engineering |\n\nNadir malzemeler doğrudan toplanmaz, başka düğümden bonus düşer. Frilled Lichen: Briarthorn, Bruiseweed, Earthroot, Kingsblood, Stranglekelp, Wild Steelbloom, Mageroyal, Grave Moss. Rosecap: Khadgar's Whisker, Liferoot, Fadeleaf, Goldthorn, Purple Lotus, Firebloom. Stranglevine: Golden Sansam, Sungrass. Pyrite: Copper, Tin, Silver, Iron, Incendicite damarları (Mining). İlk üçünü Mister Graphed da satar.\n\n## BANKA: WAYLAID CRATE\n\n- `SANDIK` — Bu mesleğin sandığı yok: iksir, elixir ve flask sandığa girmez. Topladığın bitkiler Herbalism sandıklarına girer (Herbalism kartında).\n- `KURAL` — Sandık moblardan ve sandıklardan düşer ya da AH'den alınır; içine tek bir deste koyup mühürlersin. Teslim: Alliance Marcy Baker (Redridge, Three Corners), Horde Dokimi (Barrens, Crossroads yanı). Ödül: Merchant's Favor.\n\n## KAMP OBJELERİ\n\n| OBJE | SKILL | MALZEME | NEREDEN ÖĞRENİLİR | NE YAPAR |\n|---|---|---|---|---|\n| Mana Well | 20 | 1 Peacebloom + 1 Empty Vial | Eğitmenin görevi Camping 101: Alchemy (20 skill) | Oturanlara 5 sn'de 10–29 mana |\n| Fermenter | 140 | 1 Swiftthistle + 1 Kingsblood + 1 Leaded Vial | Blueprint: Fermenter: Ruins of Lordaeron zindanı, Rath'mael (%7,7) | Fermenter tarifleri + Mana Well buff'ı |\n| Alchemy Laboratory | 300 | 1 Lich's Index Finger + 1 Crystal Vial + 2 Dreamfoil | Blueprint: Alchemy Laboratory (300 skill) | Laboratuvar tarifleri + Mana Well buff'ı |\n\nKamp ateşini Cooking kurar; objeler onun yanına konur ve 1 saatlik ortak bekleme süresi paylaşır. Buff için ateşin başında 1 dakika otur. Mana Well, Blessing of Wisdom ile birikmez. Fermenter ya da Laboratuvar Mana Well'in üstüne konabilir. Her oyuncu bir kampa tek obje ekler.\n\n## HANGİ TARİF HANGİ OBJEDE?\n\n- (ikon) — Fermenter: Viridian Dye · Ghost Dye · Goblin Rocket Fuel · Frost Oil · Shadow Oil.\n- (ikon) — Alchemy Laboratory: 4 Natural flask · Flask of the Titans · Distilled Wisdom · Supreme Power · Chromatic Resistance · Petrification · Alchemist's Stone. Laboratuvar Scholomance'ta da var; kamp objesiyle oraya gitmen gerekmez.\n\n## SAT / SAKLA\n\n- `SAT` — Boyalar ve Sulfuric Acid (Tailoring, Blacksmithing, Enchanting, Engineering alır), mana ve savaş iksirleri düzenli satar.\n- `300` — Flask'lar ve Legionite transmute 300'ün para kaynağı. Arcanite ve Legionite 47 saatte bir.\n- `SAKLA` — Bir Philosopher's Stone · Stonescale Oil (Greater Defense, Flask of the Titans, Petrification) · nadir bitkiler (boya) · Lich's Index Finger (Laboratuvar) · Death Lotus, Marefoil, Demonsage (flask).\n- `TAILOR` — Tailoring da kasıyorsan Elixir of Wisdom'ı sakla (Gloves of Meditation).\n\n## İŞE YARAYAN / LEGACY\n\n- (ikon) — Unvan: 300'de Alchemy Certification al (1000 Merchant's Favor, Nina Surefire / Apothecary Durelle): hesabındaki bütün karakterlere the Alchemist unvanını açar; takmak için o karakter de 300 olmalı.\n- `EŞYA` — Alchemy skill'ini artıran eşya ya da enchant yok: puan yalnız üretimden gelir.\n- `OVERTIME` — Working Overtime (5 rütbe): skill puanı şansı %4'ten %20'ye. Sarı ve yeşil tarifte bitki kazandırır.\n- `STUDY` — Dedicated Study: 23 saatte bir en düşük mesleğine +1 skill. Alchemy'yi en düşük tut.\n- `BARTERING` — Bartering: satıcı altın fiyatları %5 / %10 ucuz (şişe, tarif).\n- `SIRA` — Rota kartları: 1–150 → 150–300."
+ },
+ {
+  "id": "bs-1-150",
+  "category": "profession",
+  "title": "Blacksmithing · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "file": "bs-1-150.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Blacksmithing",
+  "keywords": [
+   "blacksmithing",
+   "demircilik, silah, zırh"
+  ],
+  "professionName": "Blacksmithing",
+  "profession": "blacksmithing",
+  "part": "range",
+  "range": [
+   1,
+   150
+  ],
+  "faction": null,
+  "text": "# BLACKSMITHING · 1 → 150 LEVELING\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Blacksmithing\n- Alt başlık (skill aralığı): 1 → 150 LEVELING\n\n## 1 → 75 · APPRENTICE\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 1 → 25 | Rough Sharpening Stone | 30 | 30 Rough Stone | Eğitmen |\n| 25 → 50 | Rough Grinding Stone | 30 | 60 Rough Stone | Eğitmen |\n| 50 → 67 | Coarse Grinding Stone | 36 | 72 Coarse Stone | Eğitmen |\n| 67 → 75 | Runed Copper Gauntlets | 8 | 64 Copper Bar + 16 Rough Grinding Stone | Eğitmen |\n\n25'te Rough Grinding Stone'a geç. Taşları satma: 16 Rough Grinding Stone eldivenlere gider (Silver Rod yapacaksan +10). 50'de Coarse Grinding Stone: 36'sının hepsi 95–125'teki bileziklere lazım. 36'yı bitirince 75'e yetecek kadar eldiven yap. 50'de Journeyman'i al (seviye 10): 75'i geçmeden önce şart.\n\n## 75 → 150 · JOURNEYMAN\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 75 → 80 | Runed Copper Belt | 5 | 50 Copper Bar | Eğitmen |\n| 80 → 95 | Rough Bronze Leggings | 15 | 90 Bronze Bar | Eğitmen |\n| 95 → 100 | Patterned Bronze Bracers | 5 | 25 Bronze Bar + 10 Coarse Grinding Stone | Eğitmen |\n| 100 → 112 | Heavy Grinding Stone | 20 | 60 Heavy Stone · 20'sini de sakla | Eğitmen |\n| 112 → 125 | Patterned Bronze Bracers | 13 | 65 Bronze Bar + 26 Coarse Grinding Stone | Eğitmen |\n| 125 → 150 | Bronze Warhammer | 25 | 200 Bronze Bar + 25 Medium Leather + 25 Strong Flux | Eğitmen |\n\nSilver Rod seçeneği: 1 Silver Bar 10 Copper Bar'dan ucuzsa 75–80'de 5 Runed Copper Belt yerine 5 Silver Rod yap (5 Silver Bar + elindeki 10 Rough Grinding Stone); Copper Bar ihtiyacı 114'ten 64'e iner. 100'de Heavy Grinding Stone: hepsini 175'teki Golden Scale Bracers için sakla. Bronze Warhammer 150'ye kadar her üretimde puan verir. 125'te Expert'i al (seviye 20).\n\n## ALIŞVERİŞ LİSTESİ (1 → 150)\n\n- 90 Rough Stone\n- 72 Coarse Stone\n- 60 Heavy Stone\n- 114 Copper Bar (Silver Rod yaparsan 64 Copper + 5 Silver Bar)\n- 380 Bronze Bar\n- 25 Medium Leather\n- 25 Strong Flux (Blacksmithing Supplies satıcısı)\n- 1 Blacksmith Hammer (aynı satıcı)\n- `DUR` — Tablodaki skill'e gelince o tarifi bırak, sonrakine geç.\n\n## İPUÇLARI / SAT-SAKLA\n\n- `TAŞ` — Rough Grinding Stone'dan 16, Coarse'tan 36, Heavy'den 20: yaptıkça satma, rotada kullanılıyor.\n- `KAMP` — 20'de Sharpening Wheel (1 Rough Stone + 1 Copper Bar) · 140'ta Anvil (5 Bronze Bar + 2 Coarse Grinding Stone + 2 Medium Leather, blueprint gerekir): malzemesini ayır.\n- `TAŞLAR` — 1–25'te yaptığın Rough Sharpening Stone'lar: silah kullanan birine sat. Forever'da Poison ve Windfury ile birikir.\n- `SANDIK` — Fazla bar: Apprentice Ingots (20 Copper · 10 Bronze), Journeyman Ingots (20 Iron) sandıklarına.\n- `RÜTBE` — Journeyman 50 skill + seviye 10, Expert 125 skill + seviye 20. Expert: Bengus Deepforge (Ironforge), Alard Schmied (Dalaran), Saru Steelfury (Orgrimmar).\n- `SONRA` — Devamı: 150 → 300 kartı."
+ },
+ {
+  "id": "bs-150-300",
+  "category": "profession",
+  "title": "Blacksmithing · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "file": "bs-150-300.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Blacksmithing",
+  "keywords": [
+   "blacksmithing",
+   "demircilik, silah, zırh"
+  ],
+  "professionName": "Blacksmithing",
+  "profession": "blacksmithing",
+  "part": "range",
+  "range": [
+   150,
+   300
+  ],
+  "faction": null,
+  "text": "# BLACKSMITHING · 150 → 300 LEVELING\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Blacksmithing\n- Alt başlık (skill aralığı): 150 → 300 LEVELING\n\n## 150 → 225 · EXPERT\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 150 → 165 | Bronze Warhammer | 19 | 152 Bronze Bar + 19 Medium Leather + 19 Strong Flux | Eğitmen |\n| 165 → 175 | Green Iron Bracers | 15 | 90 Iron Bar + 15 Green Dye | Eğitmen |\n| 175 → 185 | Golden Scale Bracers | 10 | 50 Steel Bar + 20 Heavy Grinding Stone (sakladığın) | Eğitmen |\n| 185 → 200 | Heavy Mithril Gauntlet | 15 | 90 Mithril Bar + 60 Mageweave Cloth | Eğitmen |\n| 200 → 215 | Mithril Plate Pants | 19 | 228 Mithril Bar | Eğitmen |\n| 215 → 225 | Heavy Mithril Breastplate | 10 | 160 Mithril Bar | Eğitmen |\n\n150'yi geçmeden Expert al. 165–175 ve 200–215'te adet puandan fazla: tarif sarı/yeşile döner. Heavy Mithril Gauntlet, Mithril Plate Pants'a göre her üretimde 6 Mithril Bar tasarruf ettirir. 200'de Artisan'ı al (seviye 35): Brikk Keencraft, Booty Bay.\n\n## 225 → 265 · ARTISAN (EĞİTMEN TARİFLERİ)\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 225 → 230 | Dense Sharpening Stone | 5 | 5 Dense Stone | Eğitmen: Brikk Keencraft |\n| 230 → 245 | Heavy Mithril Boots | 27 | 378 Mithril Bar + 108 Thick Leather | Eğitmen: Brikk Keencraft |\n| 245 → 250 | Phantom Blade | 6 | 168 Mithril Bar + 48 Truesilver Bar + 36 Breath of Wind + 36 Aquamarine + 24 Solid Grinding Stone + 12 Lesser Invisibility Potion + 12 Thick Leather | Eğitmen: Brikk Keencraft |\n| 250 → 260 | Blight | 13 | 364 Mithril Bar + 130 Truesilver Bar + 130 Ichor of Undeath + 78 Solid Grinding Stone + 78 Thick Leather | Eğitmen: Brikk Keencraft |\n| 260 → 265 | Truesilver Champion | 6 | 180 Mithril Bar + 96 Truesilver Bar + 36 Star Ruby + 24 Breath of Wind + 48 Solid Grinding Stone + 36 Thick Leather | Eğitmen: Brikk Keencraft |\n\nBeş tarifin hepsi Brikk Keencraft'ta (Booty Bay): skill'in yetince öğren. Öğrenme skill'leri: Dense Sharpening Stone 225, Phantom Blade 245, Blight 250, Truesilver Champion 260. 230'dan sonra tarifler sarı: adetler kaçan puanları da karşılar. Solid Grinding Stone'u kendin yap: her biri 4 Solid Stone (eğitmen tarifi). Truesilver Bar, Breath of Wind, Ichor of Undeath ve Lesser Invisibility Potion AH'den.\n\n## 265 → 300 · IMPERIAL PLATE\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 265 → 270 | Imperial Plate Bracers | 6 | 120 Thorium Bar + 6 Star Ruby | Görev Imperial Plate Bracer: Derotain Mudsipper, Gadgetzan · 20 Thorium Bar |\n| 270 → 290 | Imperial Plate Boots | 20 | 680 Thorium Bar + 20 Star Ruby + 20 Aquamarine | Görev Imperial Plate Boots: Derotain Mudsipper, Gadgetzan · 40 Thorium Bar |\n| 290 → 300 | Imperial Plate Leggings | 10 | 440 Thorium Bar + 20 Star Ruby | Görev Imperial Plate Leggings: Derotain Mudsipper, Gadgetzan · 60 Thorium Bar |\n\nPlan skill'leri: Bracers 245, Boots 270, Leggings 280. Boots 290'a, Leggings 300'e kadar turuncu: her üretim 1 puan. Hepsi örs + çekiç ister.\n\n## DEROTAIN'İN GÖREVLERİ\n\n- `265` — Imperial görevleri 265 skill ve seviye 50 ister.\n- `YER` — Derotain Mudsipper (The Thorium Brotherhood): Gadgetzan, Tanaris 50.9 29.2, iki taraf.\n- `1` — Önce Derotain'in A Blue Light Bargain görevini bitir; Imperial görevleri ondan sonra açılır.\n- `2` — 265'te üç görevi birden yap: Bracer, Boots, Leggings. Gadgetzan'a en az 240 Thorium Bar ile git: görevlerin 120 barı + 6 Bracers.\n\n## ALIŞVERİŞ LİSTESİ\n\n| 150 → 225 | ADET | 225 → 300 | ADET |\n|---|---|---|---|\n| Bronze Bar | 152 | Thorium Bar | 1.360 (1.240 üretim + 120 görev) |\n| Iron Bar | 90 | Mithril Bar | 1.090 |\n| Steel Bar | 50 | Truesilver Bar | 274 |\n| Mithril Bar | 478 | Thick Leather | 234 |\n| Medium Leather | 19 | Solid Grinding Stone | 150 |\n| Mageweave Cloth | 60 | Ichor of Undeath | 130 |\n| Strong Flux | 19 | Star Ruby | 82 |\n| Green Dye | 15 | Breath of Wind | 60 |\n|  |  | Aquamarine | 56 |\n|  |  | Lesser Invisibility Potion | 12 |\n|  |  | Dense Stone | 5 |\n\n150–225'te ayrıca 1–150'den sakladığın 20 Heavy Grinding Stone. 150 Solid Grinding Stone için 600 Solid Stone.\n\n## İPUÇLARI / SAT-SAKLA\n\n- `ARMOR` — Armorsmith olacaksan: 2 Heavy Mithril Breastplate ve 2 Heavy Mithril Boots sakla. Alliance zinciri (The Origins of Smithing, 210) 6 Golden Scale Bracers ister.\n- `WEAPON` — Weaponsmith olacaksan: 2 Heavy Mithril Axe gerekir (185, eğitmen). Uzmanlık şartı seviye 40 + 200 skill (genel kart).\n- `SANDIK` — Fazla bar: Expert Ingots (20 Mithril · 15 Steel), Artisan Ingots (20 Thorium) sandıklarına.\n- `SPURS` — Mithril Spurs (çizme eki, binek hızı) ve Dense Sharpening Stone satılır.\n- `BAR` — 225–300 için 1.360 Thorium ve 1.090 Mithril Bar: Mining'li bir yardımcı ya da AH'yi önceden ayarla.\n- `300` — 300'de: Master Forge, \"the Blacksmith\" unvanı ve endgame planları: tarifler kartı."
+ },
+ {
+  "id": "bs-genel",
+  "category": "profession",
+  "title": "Blacksmithing · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "file": "bs-genel.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Blacksmithing",
+  "keywords": [
+   "blacksmithing",
+   "demircilik, silah, zırh"
+  ],
+  "professionName": "Blacksmithing",
+  "profession": "blacksmithing",
+  "part": "genel",
+  "text": "# BLACKSMITHING · 1 → 300 BAŞLAMADAN ÖNCE\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Blacksmithing\n- Alt başlık (skill aralığı): 1 → 300 BAŞLAMADAN ÖNCE\n\n## NASIL BAŞLARIM?\n\n- `1` — Mesleği öğren: aşağıdaki eğitmenlerden birinden Apprentice'i al. Blacksmithing ana meslek: iki ana meslek yerinden birini kullanır.\n- (ikon) — Blacksmith Hammer al: Blacksmithing Supplies satıcısından. Çantada dursun: zırh ve silahları örs (anvil) başında çekiçle yaparsın, bazı tarifler ocak (forge) ister. Bileme taşları ve kamp objeleri örs istemez.\n- (ikon) — Strong Flux aynı satıcıda. Green Dye: Orgrimmar'da Tamar, Ironforge'da Bombus Finespindle.\n- `UNDEAD` — Bandarion Keep'te (Angus Hammerhand) çekiç satan yok: önce Deathknell'de Walter Mason ya da Brill'de Abigail Shiel'den çekiç al.\n- `RENK` — Tarif rengi: turuncu her üretimde puan verir, sarı çoğu zaman, yeşil nadiren, gri hiç.\n- `MINING` — En iyi ikili Mining (cevher + taş). Mining'in yoksa barları ve taşları AH'den alırsın.\n\n## RÜTBELER\n\n| RÜTBE | TAVAN | SKILL ŞARTI | KARAKTER SEVİYESİ | NEREDEN |\n|---|---|---|---|---|\n| Apprentice | 75 | Şart yok | Şart yok | Her eğitmen |\n| Journeyman | 150 | 50 | 10 | Journeyman eğitmeni |\n| Expert | 225 | 125 | 20 | Expert eğitmeni |\n| Artisan | 300 | 200 | 35 | Brikk Keencraft, Booty Bay |\n\nİki şart birden: hem skill hem karakter seviyesi. Örneğin 200 skill olsan bile 35 seviye olmadan Artisan alamazsın. Sonraki rütbeyi tavana gelmeden alabilirsin: 75, 150, 225'te takılmamak için önceden al. Dört rütbe de eğitmenden; kitap ya da görev yok. 150, 225 ve 300'e ilk ulaştığında Legacy puanı kazanırsın.\n\n## EXPERT VE ARTISAN EĞİTMENLERİ\n\n| RÜTBE | TARAF | EĞİTMEN | YER | /MAPPIN |\n|---|---|---|---|---|\n| Expert (225) | Alliance | Bengus Deepforge | Ironforge, The Great Forge | 1455 52.5 41.5 |\n| Expert (225) | Alliance | Alard Schmied | Dalaran (Alterac Mountains), Violet Plates and Framing | 1416 19.6 63.3 |\n| Expert (225) | Horde | Saru Steelfury | Orgrimmar, Valley of Honor: Burning Anvil kulübesinin içi | 1454 82.3 23.0 |\n| Artisan (300) | İki taraf | Brikk Keencraft | Booty Bay, Stranglethorn Vale (tek Artisan eğitmeni) | 1434 29.0 75.6 |\n\nBrikk'i bulmak: dükkânların arkasında. Booty Bay'den çıkan mağaraya doğru yürü, mağaraya girmeden sağdaki patikaya dön; yolun sonundaki evin içinde. Oyunda /mappin <harita> X Y yazarak haritaya işaret koyarsın.\n\n## APPRENTICE EĞİTMENLERİ (75'E KADAR)\n\n| TARAF | EĞİTMEN | YER | /MAPPIN |\n|---|---|---|---|\n| Alliance | Dane Lindgren | Stormwind, Dwarven District | 1453 64.1 37.0 |\n| Alliance | Groum Stonebeard | Ironforge, The Great Forge | 1455 52.3 41.9 |\n| Alliance | Smith Argus | Elwynn Forest, Goldshire | 1429 41.7 65.5 |\n| Alliance | Tognus Flintfire | Dun Morogh, Kharanos | 1426 45.3 51.9 |\n| Alliance | Delfrum Flintbeard | Darkshore, Auberdine | 1439 38.2 40.9 |\n| Alliance | Alphonse Dumas | Riverglades, Farholde Keep | 2548 64.4 82.0 |\n| Horde | Ug'thok | Orgrimmar, Valley of Honor | 1454 80.8 23.7 |\n| Horde | Basil Frye | Undercity, War Quarter | 1458 60.2 29.1 |\n| Horde | Thrag Stonehoof | Thunder Bluff, Lower Rise | 1456 39.4 56.7 |\n| Horde | Dwukk | Durotar, Razor Hill | 1411 52.0 40.7 |\n| Horde | Guillaume Sorouy | Silverpine, The Sepulcher | 1421 43.2 41.1 |\n| Horde | Gur'dok | Riverglades, Rog'mar | 2548 60.0 46.2 |\n| İki taraf | Aedi Thriceforged | Zephras Isle, Shen'dar Village | 2521 44.8 44.4 |\n\nTeldrassil, Darnassus ve Mulgore'da eğitmen yok: Night Elf Auberdine'e, Tauren Thunder Bluff'a gider.\n\n## JOURNEYMAN EĞİTMENLERİ (150'YE KADAR)\n\n| TARAF | EĞİTMEN | YER | /MAPPIN |\n|---|---|---|---|\n| Alliance | Therum Deepforge | Stormwind, Dwarven District | 1453 63.7 37.0 |\n| Alliance | Rotgath Stonebeard | Ironforge, The Great Forge | 1455 52.4 42.6 |\n| Alliance | Clarise Gnarltree | Duskwood, Darkshire | 1431 74.0 48.5 |\n| Horde | Snarl | Orgrimmar, Valley of Honor | 1454 79.6 23.3 |\n| Horde | James Van Brunt | Undercity, War Quarter | 1458 61.3 30.6 |\n| Horde | Karn Stonehoof | Thunder Bluff, Lower Rise | 1456 39.4 55.1 |\n| Horde | Traugh | The Barrens, The Crossroads | 1413 51.3 28.9 |\n| Horde | Angus Hammerhand | Tirisfal Glades, Bandarion Keep | 1420 21.1 46.2 |\n| İki taraf | Daeann Steelwind | Zephras Isle, Valanaar | 2521 65.4 80.2 |\n\nHer eğitmen tabloda öğrettiği en yüksek rütbeyle yazılı. Skyborne karakterler Zephras Isle'daki iki eğitmenle başlar.\n\n## UZMANLIK: ARMORSMITH YA DA WEAPONSMITH (SEVİYE 40 + 200 SKILL)\n\n| UZMANLIK | GÖREV | GÖREVİ VEREN | GETİR (ÇANTANDA OLSUN) |\n|---|---|---|---|\n| Armorsmith | The Art of the Armorsmith | Alliance Grumnus Steelshaper, Ironforge 49.4 42.7<br>Horde Okothos Ironrager, Orgrimmar 79.8 23.8 | 4 Ornate Mithril Helm · 2 Ornate Mithril Boots · 1 Ornate Mithril Breastplate |\n| Weaponsmith | The Way of the Weaponsmith | Alliance Ironus Coldsteel, Ironforge 50.1 44.5<br>Horde Borgosh Corebender, Orgrimmar 79.6 23.6 | 4 Moonsteel Broadsword · 4 Massive Iron Axe · 2 Heavy Mithril Axe · 2 Big Black Mace |\n\nİsteğe bağlı: meslek kasmak için gerekmez, sonra da seçebilirsin. Önce Ironforge'da Myolor Sunderfury (Great Forge 51.8 40.8) ya da Orgrimmar'da Krathok Moltenfist (Valley of Honor 80.0 23.3) ile konuş, \"I wish to become an armorsmith / a weaponsmith\" seç: konuşmazsan görev görünmez. Eşyaları kendin yapmak zorunda değilsin: AH'den alınabilir ya da başkası yapabilir. Ödül: uzmanlık + 3.150 XP. Görevi verenler aynı zamanda o uzmanlığın tarif eğitmenidir.\n\n## ARMORSMITH: ORNATE MITHRIL PLANLARI\n\n- `1` — Alliance: The Origins of Smithing: Hank the Hammer, Stormwind (210 skill, 6 Golden Scale Bracers). Horde: The Old Ways: Aturk the Anvil, Orgrimmar (210 skill, 4 Steel Breastplate + 4 Steel Plate Helm), sonra Ox → Booty Bay or Bust!\n- `2` — Booty Bay'de McGavan (28.8 75.4, dükkânların arkası) → The Mithril Order → Stranglethorn'da Galvan the Ancient (50.6 20.6): üç görev, Ornate Mithril Pants / Shoulders / Gloves planları.\n- `3` — Gadgetzan'da Trenton Lighthammer (51.4 28.6, 235 skill): Boots / Helm / Breastplate planları. Zincir isteğe bağlı: eşyaları satın alabilirsin.\n\n## WEAPONSMITH: SİLAH PLANLARI\n\n- `185` — Heavy Mithril Axe: eğitmen (Saru Steelfury, Alard Schmied, Brikk Keencraft).\n- `205` — Big Black Mace: Brikk Keencraft, Booty Bay.\n- `SATICI` — Massive Iron Axe: Jaquilina Dramet, Nesingwary's Camp (Horde ayrıca Vharr, Grom'gol) · Moonsteel Broadsword: Zarena Cromwind, Booty Bay Old Port Authority.\n\n## MASTER UZMANLIK (WEAPONSMITH'TEN SONRA)\n\n| UZMANLIK | NPC | GÖREV | HEDEF (ZİNDAN) |\n|---|---|---|---|\n| Axesmith | Kilram | Snakestone of the Shadow Huntress | Shadow Hunter Vosh'gajin, Lower Blackrock Spire |\n| Hammersmith | Lilith the Lithe | Sweet Serenity | Crimson Hammersmith, Stratholme (Living) |\n| Swordsmith | Seril Scourgebane | Corruption | Black Guard Swordsmith, Stratholme (Undead) |\n\nÜç NPC de Everlook, Winterspring 61.3 37.1'de aynı evde. Önce Weaponsmith olmalısın; yalnız birini seçersin. Görevler seviye 50 ister. Ödül planı: Axesmith → Dawn's Edge, Hammersmith → Enchanted Battlehammer, Swordsmith → Blazing Rapier.\n\n## FOREVER'DA YENİ\n\n- `BOP` — Kendine BoP mail ve plate yaparsın: başka demirciden alınamayan parçalar (ör. tank ayakkabısı Sentinel's Sabatons). Ayrıntı tarifler kartında.\n- `FAVOR` — Waylaid Crate'ten gelen Merchant's Favor ile yeni planlar ve 1.000 Favor'a \"the Blacksmith\" unvanı.\n- `TAŞLAR` — Sharpening Stone ve Weightstone artık Poison, Windfury Weapon ve Windfury Totem ile birikir: alıcısı arttı.\n- `TARİF` — 197 yeni plan (toplam 462). Yeni barlar: Azerothium, Heavy Thorium, Legionite.\n- `ARAYÜZ` — Yeni üretim penceresi: Create / Create All ve daha net skill göstergesi.\n- `SATICI` — Üretilen birçok eşyanın satıcı fiyatı 15 Ekim'de düşürüldü: satıcıya satarak kâr bekleme.\n\n## KAMP OBJELERİ\n\n| OBJE | SKILL | MALZEME | NEREDEN ÖĞRENİLİR | NE YAPAR |\n|---|---|---|---|---|\n| Sharpening Wheel | 20 | 1 Rough Stone + 1 Copper Bar | 20 skill'de görev Camping 101: Blacksmithing; eğitmende biter | Oturanlara Strength |\n| Anvil | 140 | 5 Bronze Bar + 2 Coarse Grinding Stone + 2 Medium Leather | Blueprint: Anvil: Deadmines, Gilnid (%7) · AH'de satılır | Kampa örs koyar + Wheel buff'ı |\n| Master Forge | 300 | 1 Golem Heart + 5 Thorium Bar + 2 Rugged Leather | Blueprint: Master Forge: bağlanmaz, AH'den alınır (Golem Heart da) | Master Forge ocağı + Wheel buff'ı: endgame planları bunun başında yapılır |\n\nKamp ateşini Cooking kurar; objeler yanına konur ve 1 saatlik ortak bekleme süresi paylaşır. Buff için ateşin başında 1 dakika otur, sonra 1 saat sürer. Sharpening Wheel Shaman'ın Strength of Earth Totem'iyle birikmez. Anvil ve Master Forge, Wheel'in yerine konabilir. Camping 101 görevi şu eğitmenlerde biter: Tognus Flintfire (Kharanos), Smith Argus (Goldshire), Elisa Steelhand (Auberdine), Dwukk (Razor Hill), Thrag Stonehoof (Thunder Bluff), Basil Frye (Undercity), Aedi Thriceforged (Shen'dar). Master Forge isteyenler: Enriched Thorium, Justice / Glory, Nature, Clutchlord's / Goregasher planları ve Arcanite Reaper gibi eski epikler.\n\n## BANKA: WAYLAID CRATE (INGOTS)\n\n| SANDIK | SEVİYE | İÇİNE ŞUNLARDAN BİRİNİ KOY |\n|---|---|---|\n| Apprentice Ingots | 10 | 20 Copper Bar · ya da 20 Tin Bar · ya da 10 Bronze Bar |\n| Journeyman Ingots | 10 | 10 Silver Bar · ya da 20 Iron Bar |\n| Expert Ingots | 20 | 20 Mithril Bar · ya da 15 Steel Bar · ya da 10 Gold Bar |\n| Artisan Ingots | 35 | 2 Dark Iron · ya da 10 Truesilver · ya da 20 Thorium Bar |\n\nSandığı sen yapamazsın: moblardan ve sandıklardan düşer ya da AH'den alınır. İçine tek bir deste koyup mühürlersin. Teslim: Alliance Marcy Baker (Redridge, Three Corners), Horde Dokimi (Barrens, Crossroads yanı). Ödül Merchant's Favor: demirci planlarını ve unvanı bununla alırsın. Ürettiğin zırh/silah için sandık yok; Ingots sandıkları bar alır.\n\n## İŞE YARAYAN EŞYALAR\n\n- (ikon) — Mithril Blacksmith Hammer (195, 60 Favor) ve Arcanite Blacksmith Hammer (270, 90 Favor): BoP fırlatma silahı, Blacksmith Hammer yerine geçer. Cracked Blacksmith Hammer (110, 30 Favor) çekiç yerine geçmez.\n- `SIRA` — Kartlar: genel → tarifler (Favor, BoP, yeni barlar) → 1–150 → 150–300.\n\n## LEGACY PERK'LERİ (MESLEK AĞACI)\n\n- `OVERTIME` — Working Overtime (5 rütbe): her üretimde skill puanı şansı +%4 … +%20.\n- `STUDY` — Dedicated Study: 23 saatte bir en düşük mesleğine +1 skill.\n- `BARTERING` — Bartering: satıcı fiyatları −%5 / −%10 (flux, dye, çekiç).\n- `BONUS` — Performance Bonus: sandık başına %5 / %10 / %15 şansla 2 kat Merchant's Favor.\n- `PERMANENCE` — Permanence: kamp buff'ları daha uzun · Field Guide: kamp bekleme süresi kısalır."
+ },
+ {
+  "id": "bs-tarifler",
+  "category": "profession",
+  "title": "Blacksmithing · Önemli tarifler",
+  "file": "bs-tarifler.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Blacksmithing",
+  "keywords": [
+   "blacksmithing",
+   "demircilik, silah, zırh"
+  ],
+  "professionName": "Blacksmithing",
+  "profession": "blacksmithing",
+  "part": "tarifler",
+  "text": "# BLACKSMITHING · TARİFLER FAVOR · BoP · ENDGAME\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Blacksmithing\n- Alt başlık: TARİFLER FAVOR · BoP · ENDGAME\n\n## MERCHANT'S FAVOR PLAN SATICILARI\n\n- `ALLIANCE` — Stondry Darkhammer <Blacksmith>: Redridge Mountains 10.4 74.7, Azeroth Commerce Authority kampı.\n- `HORDE` — Gor'mak <Blacksmith>: The Barrens 49.8 29.7, Crossroads'un dışında Durotar Supply and Logistics.\n- `FAVOR` — Merchant's Favor Waylaid Crate teslim edince gelir (genel kart). Üst rütbe sandık daha çok Favor verir: fazla Thorium'u Artisan Ingots'a koy.\n- `İTİBAR` — 60 Favor ve üstü planlar Friendly ya da Honored itibar ister (Azeroth Commerce Authority / Durotar Supply and Logistics; tabloda).\n\n## UNVAN: \"THE BLACKSMITH\"\n\n- (ikon) — Blacksmithing Certification: aynı satıcılardan 1.000 Merchant's Favor. Almak için Blacksmithing 300 gerekir, BoP.\n- `HESAP` — Unvan hesaptaki bütün karakterlere açılır; takmak için o karakterin de 300 Blacksmithing'i olmalı.\n- `LEGACY` — 300'e ilk kez ulaşmak ayrıca Legacy meydan okuması Artisan Blacksmith'i tamamlar.\n\n## MERCHANT'S FAVOR PLANLARI\n\n| FAVOR | İTİBAR | PLANLAR (ÖĞRENME SKILL'İ) |\n|---|---|---|\n| 30 | — | Acolyte's / Crusader's / Guard's / Protector's / Veteran's setleri: Chain Belt (45), Gloves (80), Boots (85), Silvered Chain Helm (95), Silvered Chain Shirt (110), Silvered Chain Leggings (125) · Cracked Blacksmith Hammer (110) |\n| 60 | Friendly | Justicar's / Officer's / Prefect's / Sentinel's / Warder's setleri: Gauntlet (175), Pauldrons (210) · Mithril Blacksmith Hammer (195) |\n| 90 | Honored | Aynı 5 set: Wristguards (225), Sabatons (240), Waistguard (250) · Thorium Cestus (250) · Thorium Greatmace (250) · Arcanite Blacksmith Hammer (270) |\n| 120 | Honored | Enriched Thorium Breastplate / Helm / Leggings · Legionite Glaive (hepsi 300) |\n| 1.000 | — | Blacksmithing Certification → \"the Blacksmith\" unvanı (300) |\n\nMithril ve Arcanite Blacksmith Hammer Blacksmith Hammer yerine geçer (BoP fırlatma silahı); Cracked Blacksmith Hammer geçmez.\n\n## KENDİNE ÖZEL BoP ZIRH\n\n- `BOP` — Blacksmith kendine BoP mail ve plate yapar. Bunları başka demirciden alamazsın: tank parçası istiyorsan kendin yap.\n- (ikon) — Sentinel's Sabatons: plan 90 Favor (Honored), 240 skill. Plate ayak, seviye 47: 376 armor, +12 Str, +13 Sta, +9 Defense. Malzeme: 20 Thorium Bar, 3 Solid Grinding Stone, 4 Sandpaper, 4 Sulfuric Acid, 6 Purple Lotus, 4 Pristine Leather.\n- `5 SET` — Justicar's / Officer's / Prefect's / Sentinel's / Warder's: Belt (150, eğitmen), Gauntlet, Pauldrons, Wristguards, Sabatons, Waistguard (Favor). Boots (200) ve Gloves (250) planları zindanda düşer, BoP: Officer's Boots → Tuten'kash, Warder's Boots → Mordresh Fire Eye (ikisi Razorfen Downs, %3) · Officer's Gloves → Antu'sul (Zul'Farrak).\n- `BAŞLANGIÇ` — Gemmed / Glowing / Strange Copper Boots: 35 skill, eğitmen. BoP mail ayak, seviye 10. Chain setleri (Veteran's Chain Shirt vb.) de BoP.\n\n## YENİ BARLAR VE MALZEMELER\n\n| MALZEME | NASIL ELDE EDİLİR | NEREDE KULLANILIR |\n|---|---|---|\n| Azerothium Bar | Mining 275: ocakta 1 Coal + 2 Pitchblende (Pitchblende nadir) | Enriched Thorium seti, Legionite Glaive |\n| Heavy Thorium Bar | Mining 300: 1 Heavy Thorium Ore, Molten Foundry'de (Mining kamp objesi) | Nature planları, Justice / Glory plate, Enriched Thorium, Glaive |\n| Legionite Bar | Alchemy 275: Transmute: Legionite = 1 Fel Crystal + 1 Heavy Thorium Bar | Nature planları, Enriched Thorium, Glaive |\n| Malleable Essence of Nature | Hyjal Summit ya da Barrow Deeps eşyalarını disenchant; satılamaz | Nature planları, Justice / Glory plate |\n\nMining ya da Alchemy'n yoksa bu barları Miner'dan ve Alchemist'ten (AH) alırsın.\n\n## ENDGAME PLANLARI (300 SKILL)\n\n| PLAN | NEREDEN | MALZEME | EŞYA |\n|---|---|---|---|\n| Enriched Thorium Breastplate | 120 Favor | 8 Legionite, 24 Heavy Thorium, 4 Essence of Air, 4 Essence of Fire, 4 Azerothium | BoP plate göğüs: 647 armor, +25 Sta, +9 Defense |\n| Enriched Thorium Helm | 120 Favor | 6 Legionite, 16 Heavy Thorium, 6 Essence of Fire, 3 Azerothium | Plate kask |\n| Enriched Thorium Leggings | 120 Favor | 10 Legionite, 20 Heavy Thorium, 6 Essence of Air, 3 Azerothium | Plate bacak |\n| Legionite Glaive | 120 Favor | 15 Legionite, 8 Heavy Thorium, 10 Azerothium, 4 Torbernite, 1 Death Lotus | BoP polearm 138–207: +16 Agi, +%1 hit, +54 AP, seviye 58 |\n| Justice (12) · of Glory (8) plate | Aisarra Nightmeadow, Mount Hyjal | 3–5 Malleable Essence of Nature, 2–4 Arcanite Bar, 12–18 Heavy Thorium, 1 Elemental Flux | Glory = Battlegear of Glory, yalnız Warrior, \"Unique-Equipped: Artisan's Tier\" |\n| Nature planları (7) | Plan BoP; malzemesi 9 Aralık'ta açılan raidlerden | 2–4 Malleable Essence of Nature, 1 Legionite, 10–20 Heavy Thorium | BoE, item level 65, seviye 60: satılabilir |\n\nHepsi Master Forge başında yapılır (genel kart). Nature planları: Azerothium Legplates, Heavy Thorium Gauntlets, Depleted Thorium Sabatons, Ironwood Blade, Forest Defender's Axe, Greenhammer, Evergreen Shield. Malleable Essence of Nature yalnız Hyjal Summit ve Barrow Deeps eşyalarını disenchant ederek çıkar; bu raidler 9 Aralık 2026'da açılır, o güne kadar Nature ve Justice / Glory parçaları yapılamaz.\n\n## DİĞER PLAN SATICILARI\n\n| SATICI | YER | PLANLAR (SKILL) |\n|---|---|---|\n| Vayn Moongaze | Zephras Isle | Azure / Cloudy Skyforged: Wristguards (50), Gauntlets, Greaves (55), Chainmail, Legguards (60) · bazıları Nightclaw Druids Honored ister |\n| Archmage Alvareaux | Alterac Mountains | Azure Skyforged Helm ve Pauldrons (175) |\n| Sutara Plainstalker | Mulgore | Cloudy Skyforged Helm ve Pauldrons (175) |\n| Gorhak · Molkar | Desolace | Hard Gold Gauntlet (175), Iron Morningstar (165) |\n| Martha Wellsworth | Riverglades | Mithril Warhammer (190) |\n| Pexmit | Mount Hyjal | Bold Dirk (270) |\n| Vargus | Silithus | Clutchlord's / Goregasher: Grips (285), Support (290), Stompers (295) |\n\nBazı planlar mob ve zindan düşüşü (ör. Hard Gold Cuirass, Shining Mithril Breastplate); Forever'da zindanlara rastgele demirci planı düşüşü eklendi. Vargus'un Clutchlord's / Goregasher parçaları Master Forge başında yapılır.\n\n## GÖREV VE EĞİTMEN PLANLARI (YENİ)\n\n- `50` — Rough Copper Chain Boots planı görev ödülü: Dun Morogh'da The Quarry's Smith (Frast Dokner 68.9 55.9; 12 Copper Bar + 4 Toughened Boar Hide; seviye 7) · Horde: This Is Spinal Axe (Ug'thok, Orgrimmar; 5 Weathered Spine + 5 Rough Grinding Stone; seviye 6).\n- `EĞİTMEN` — Copper Rod (1) · Gemmed / Glowing / Strange Copper Boots (35) · 5 setin Belt'i (150).\n\n## SAT / SAKLA\n\n- `SAT` — Enchanter'lara rod, skeleton key, Mithril Spurs (binek hızı için çizme eki), bileme ve ağırlık taşları, shield spike, weapon chain. BoE zırh (Nature plate) satılır; BoP plan eşyası satılmaz.\n- `BAR` — Fazla barları Waylaid Crate için sakla: Favor → planlar ve unvan.\n- `SATICI` — Üretilen eşyanın satıcı fiyatı düşük: satıcıya satarak altın kasma."
+ },
+ {
+  "id": "cook-1-150",
+  "category": "profession",
+  "title": "Cooking · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "file": "cook-1-150.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Cooking",
+  "keywords": [
+   "cooking",
+   "yemek, aşçılık, kamp"
+  ],
+  "professionName": "Cooking",
+  "profession": "cooking",
+  "part": "range",
+  "range": [
+   1,
+   150
+  ],
+  "faction": null,
+  "text": "# COOKING · 1 → 150 APPRENTICE + JOURNEYMAN\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Cooking\n- Alt başlık (skill aralığı): 1 → 150 APPRENTICE + JOURNEYMAN\n\n## 1 → 75 · APPRENTICE\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 1 → 50 | Roasted Boar Meat | 52 | 52 Chunk of Boar Meat | Başta biliyorsun |\n| 50 | Journeyman rütbesini ve Coyote Steak'i öğren | — | — | Cooking eğitmeni (seviye 10) |\n| 50 → 75 | Coyote Steak | 25 | 25 Coyote Meat | Cooking eğitmeni |\n\nSeçenek: 1→50 Charred Wolf Meat (Stringy Wolf Meat; o da başta bilinir) · 50→75 Boiled Clams (1 Clam Meat + 1 Refreshing Spring Water). Bütün rota normal ateşte pişer: kasabadaki ocak ya da kendi Basic Campfire'ın.\n\n## 75 → 150 · JOURNEYMAN\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 75 → 90 | Coyote Steak | 15 | 15 Coyote Meat | Cooking eğitmeni |\n| 90 → 130 | Dry Pork Ribs | 42 | 42 Boar Ribs + 42 Mild Spices | Cooking eğitmeni (80'de açılır) |\n| 125 | Expert Cookbook'u oku | 1 | 1 altın | Shandrina (Ashenvale, Silverwind Refuge) · Wulan (Desolace, Shadowprey) · AH |\n| 130 → 150 | Curiously Tasty Omelet | 20 | 20 Raptor Egg + 20 Hot Spices | Tarif: Kendor Kabonka (Stormwind, Old Town) · Keena (Arathi, Hammerfall) ya da Nerrist (Stranglethorn, Grom'gol) |\n\n(Renk kodu: Shandrina ve Kendor Kabonka mavi = Alliance; Wulan, Keena ve Nerrist kırmızı = Horde.)\n\nExpert Cookbook için karakter seviye 20 gerekir. Kitabı 150'ye gelmeden oku, yoksa skill durur. Mild ve Hot Spices: Cooking Supplies satıcıları.\n\n## TARİF RENKLERİ\n\n| TARİF | TURUNCU | SARI | YEŞİL | GRİ |\n|---|---|---|---|---|\n| Roasted Boar Meat | 1 | 45 | 65 | 85 |\n| Coyote Steak | 50 | 90 | 110 | 130 |\n| Dry Pork Ribs | 80 | 120 | 140 | 160 |\n| Curiously Tasty Omelet | 130 | 170 | 190 | 210 |\n\nTuruncu: her pişirme skill verir · sarı: çoğu zaman · yeşil: bazen · gri: hiç. Pişirme 3 sn.\n\n## ALIŞVERİŞ LİSTESİ (1 → 150)\n\n- 52 Chunk of Boar Meat\n- 40 Coyote Meat\n- 42 Boar Ribs + 42 Mild Spices\n- 20 Raptor Egg + 20 Hot Spices\n- Expert Cookbook (1 altın)\n- Flint and Tinder + birkaç Simple Wood (ateş kiti için)\n\n## BALIK DA TUTUYORSAN: 1 → 150\n\n| SKILL | TARİF | ADET | TARİF NEREDEN |\n|---|---|---|---|\n| 1 → 50 | Brilliant Smallfish | 55 | Catherine Leland (Stormwind kanalları) · Sewa Mistrunner (Thunder Bluff, High Rise) |\n| 50 → 100 | Longjaw Mud Snapper | 60 | Tansy Puddlefizz (Ironforge, Forlorn Cavern) · Naal Mistrunner (Thunder Bluff) |\n| 100 → 150 | Bristle Whisker Catfish | 60 | Catherine Leland · Naal Mistrunner |\n\n(Renk kodu: Catherine Leland ve Tansy Puddlefizz mavi = Alliance; Sewa Mistrunner ve Naal Mistrunner kırmızı = Horde.)\n\nFishing'i de kasıyorsan tuttuğun balığı pişirerek gidebilirsin. Fishing kasmıyorsan yukarıdaki et rotası yeter.\n\n## İPUÇLARI / SAT-SAKLA\n\n- `RÜTBE` — Tavana (75, 150) gelmeden sonraki rütbeyi al: tavandayken pişirmek skill vermez.\n- (ikon) — Dışarıda Basic Campfire Kit kur: 1 Simple Wood + Flint and Tinder. Kasabada birkaç tane yap; ateş kitlerinin beklemesi 5 dk.\n- `YE` — Pişirdiğini ye: +%5 öldürme XP'si (Well Fed XP Boost).\n- `AH` — Fazla yemeği AH'de satabilirsin.\n- `COOKIE` — Deadmines'a gidersen Cookie: Cookie's Stirring Rod (pişirme %25 hızlı) ve Cookie's Feast blueprint'i düşürür."
+ },
+ {
+  "id": "cook-150-300",
+  "category": "profession",
+  "title": "Cooking · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "file": "cook-150-300.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Cooking",
+  "keywords": [
+   "cooking",
+   "yemek, aşçılık, kamp"
+  ],
+  "professionName": "Cooking",
+  "profession": "cooking",
+  "part": "range",
+  "range": [
+   150,
+   300
+  ],
+  "faction": null,
+  "text": "# COOKING · 150 → 300 EXPERT + ARTISAN\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Cooking\n- Alt başlık (skill aralığı): 150 → 300 EXPERT + ARTISAN\n\n## 150 → 225 · EXPERT\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 150 → 175 | Curiously Tasty Omelet | 26 | 26 Raptor Egg + 26 Hot Spices | Tarif: Kendor Kabonka (Stormwind, Old Town) · Keena (Arathi, Hammerfall) ya da Nerrist (Grom'gol) |\n| 175 → 225 | Roast Raptor | 52 | 52 Raptor Flesh + 52 Hot Spices | Tarif: Hammon Karwn (Arathi, Refuge Pointe) · Keena (Arathi, Hammerfall) ya da Nerrist (Grom'gol) |\n\n(Renk kodu: Kendor Kabonka ve Hammon Karwn mavi = Alliance; Keena ve Nerrist kırmızı = Horde.)\n\nRoast Raptor 215'te sarıya döner. 225'e gelince Artisan görevine git; görev malzemelerini önceden topla.\n\n## 225 → 300 · ARTISAN\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 225 | Clamlette Surprise görevi | 1 | 12 Giant Egg + 10 Zesty Clam Meat + 20 Alterac Swiss | Dirge Quikcleave: Tanaris, Gadgetzan hanı (/mappin 1446 52.6 28.0) · seviye 35 |\n| 225 → 285 | Tender Wolf Steak | 68 | 68 Tender Wolf Meat + 68 Soothing Spices | Tarif: Dirge Quikcleave (Gadgetzan), iki taraf |\n| 285 → 300 | Tender Wolf Steak | 52 | 52 Tender Wolf Meat + 52 Soothing Spices | — |\n\nGörev ödülü: Artisan + 20 Clamlette Surprise + 3.900 XP. Tender Wolf Steak 265'te sarı, 285'te yeşil olur: son 15 puan tek başına 52 Tender Wolf Meat yer.\n\n## TARİF RENKLERİ\n\n| TARİF | TURUNCU | SARI | YEŞİL | GRİ |\n|---|---|---|---|---|\n| Curiously Tasty Omelet | 130 | 170 | 190 | 210 |\n| Roast Raptor | 175 | 215 | 235 | 255 |\n| Tender Wolf Steak | 225 | 265 | 285 | 305 |\n| Monster Omelet | 225 | 265 | 285 | 305 |\n\nTuruncu: her pişirme skill verir · sarı: çoğu zaman · yeşil: bazen · gri: hiç.\n\n## SEÇENEKLER: 175 → 300\n\n- (ikon) — Monster Omelet (225→300): Tender Wolf Steak yerine. Pişirme başına 1 Giant Egg + 2 Soothing Spices; renkleri aynı. Tarif: Himmik, Everlook (Winterspring), iki taraf.\n- `AYIR` — Monster Omelet yapıyorsan görevin 12 Giant Egg'ini ayrı tut.\n- (ikon) — Balık da tutuyorsan: 175→225 Mithril Head Trout ×60 (Tansy Puddlefizz, Ironforge · iki tarafa Kelsey Yance, Booty Bay) · 225→250 Filet of Redgill ×25 (Kelsey Yance).\n- `IRON OVEN` — 250→300 balık tarifi Poached Sunscale Salmon Iron Oven ister: fırının yoksa 250'den sonra Tender Wolf Steak'le devam et.\n\n(Renk kodu: Tansy Puddlefizz mavi = Alliance.)\n\n## ALIŞVERİŞ LİSTESİ (150 → 300)\n\n- 26 Raptor Egg\n- 52 Raptor Flesh\n- 78 Hot Spices (26 + 52)\n- 120 Tender Wolf Meat + 120 Soothing Spices\n- Görev: 12 Giant Egg · 10 Zesty Clam Meat · 20 Alterac Swiss\n- `1→300` — Toplam: 52 Boar Meat · 40 Coyote Meat · 42 Boar Ribs · 46 Raptor Egg · 52 Raptor Flesh · 120 Tender Wolf Meat · 42 Mild · 98 Hot · 120 Soothing Spices.\n\n## İPUÇLARI / SAT-SAKLA\n\n- `GÖREV` — Giant Egg: Tanaris roc'ları, Hinterlands owlbeast'leri, AH · Zesty Clam Meat: Big-mouth Clam (Tanaris, Azshara su mobları) · Alterac Swiss: Alliance Ben Trias (Stormwind) · Horde Innkeeper Abeqwa (Freewind Post) ya da Innkeeper Pala (Thunder Bluff).\n- `SEVİYE` — Artisan görevi için karakter seviye 35. 225'te seviyen yetmiyorsa skill orada durur.\n- (ikon) — Journeyman Campfire Kit'i 140'ta, Expert'i 220'de kurabilirsin (5 / 10 obje yeri). Ayrıntı: KAMP kartı.\n- `140` — Cookie's Feast (140) için Mystery Meat, Heavy Kodo Meat ve Soothing Spices sakla.\n- `300` — 300'e Iron Oven gerekmez. 300'deki en güçlü buff yemekleri ise Iron Oven ister: YEMEKLER kartı."
+ },
+ {
+  "id": "cook-genel",
+  "category": "profession",
+  "title": "Cooking · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "file": "cook-genel.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Cooking",
+  "keywords": [
+   "cooking",
+   "yemek, aşçılık, kamp"
+  ],
+  "professionName": "Cooking",
+  "profession": "cooking",
+  "part": "genel",
+  "text": "# COOKING · 1 → 300 BAŞLAMADAN ÖNCE\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Cooking\n- Alt başlık (skill aralığı): 1 → 300 BAŞLAMADAN ÖNCE\n\n## NASIL BAŞLARIM?\n\n- `İKİNCİL` — Cooking ikincil meslek: iki ana meslek yerinden birini kullanmaz. Fishing ve First Aid ile birlikte alınabilir.\n- `1` — Herhangi bir Cooking eğitmeninden Apprentice'i öğren. Başlangıçtaki kamp görevinden sonra gelen Cooking 101 seni en yakın eğitmene yollar.\n- (ikon) — Pişirmek için ateş gerekir: kasabalardaki ocak ve ateşler iş görür. Dışarıda kendi Basic Campfire Kit'ini kurarsın: 1 Simple Wood + Flint and Tinder (satıcıdan).\n- `2` — Tarifi seç, pişir (3 sn). Turuncu tarif her seferinde skill verir, sarı çoğu zaman, yeşil bazen, gri hiç.\n- `EŞ` — En iyi eş Fishing: ikisi de ikincil. Ama 1→300 rotası balık istemez: et ve yumurtayla gider.\n\n## RÜTBELER\n\n| RÜTBE | TAVAN | NASIL ALINIR | ŞART |\n|---|---|---|---|\n| Apprentice | 75 | Cooking eğitmeni | — |\n| Journeyman | 150 | Cooking eğitmeni | Seviye 10, 50 skill |\n| Expert | 225 | Kitap: Expert Cookbook (1 altın) | Seviye 20, 125 skill |\n| Artisan | 300 | Görev: Clamlette Surprise | Seviye 35, 225 skill |\n\nEğitmenler yalnız Apprentice ve Journeyman öğretir. Tavana gelmeden sonraki rütbeyi al: tavandayken pişirmek skill vermez.\n\n## EĞİTMENLER: ALLIANCE\n\n| EĞİTMEN | YER | /MAPPIN |\n|---|---|---|\n| Stephen Ryback | Stormwind, Old Town (Pig and Whistle) | 1453 78.2 53.0 |\n| Tomas | Elwynn Forest, Goldshire | 1429 44.2 66.0 |\n| Daryl Riknussun | Ironforge, The Great Forge | 1455 60.4 38.0 |\n| Gremlock Pilsnor | Dun Morogh, Kharanos | 1426 47.6 52.4 |\n| Cook Ghilm | Dun Morogh, Gol'bolar Quarry | 1426 68.4 54.6 |\n| Alegorn | Darnassus, Craftsmen's Terrace | 1457 49.8 21.0 |\n| Zarrin | Teldrassil, Dolanaar | 1438 57.0 61.2 |\n| Crystal Boughman | Redridge Mountains, Lakeshire | 1433 22.8 43.6 |\n| Katherine Lee | Alterac Mountains, Dalaran | 1416 12.6 65.8 |\n| Hnaz Blunderflame | Mount Hyjal, Elderwild | 2482 15.6 50.2 |\n| Nyalah Brightfire | Zephras Isle, Valanaar (iki taraf) | 2521 60.6 72.6 |\n| Zerril Softbreeze | Zephras Isle, Shen'dar Village (iki taraf) | 2521 43.8 43.8 |\n\nOyunda /mappin <harita> X Y yazarak haritaya işaret koyarsın (ör. /mappin 1453 78.2 53.0).\n\n## EĞİTMENLER: HORDE\n\n| EĞİTMEN | YER | /MAPPIN |\n|---|---|---|\n| Zamja | Orgrimmar, The Drag (Borstan's Firepit, üst kat) | 1454 57.6 53.6 |\n| Cook Torka | Durotar, Razor Hill | 1411 51.2 42.6 |\n| Duhng | The Barrens, Crossroads'un güneydoğusu | 1413 55.2 31.8 |\n| Aska Mistrunner | Thunder Bluff, Central Rise | 1456 51.0 52.8 |\n| Pyall Silentstride | Mulgore, Bloodhoof Village | 1412 45.0 61.6 |\n| Eunice Burch | Undercity, Trade Quarter | 1458 62.6 44.6 |\n| William Pickman | Tirisfal Glades, Brill | 1420 61.8 51.6 |\n| Mudduk | Stranglethorn Vale, Grom'gol | 1434 31.4 28.0 |\n| Gorg | Riverglades, Rog'mar | 2548 58.6 44.6 |\n| Ortak Lomgok | Mount Hyjal, Elderwild | 2482 13.2 52.8 |\n| Nyalah Brightfire | Zephras Isle, Valanaar (iki taraf) | 2521 60.6 72.6 |\n| Zerril Softbreeze | Zephras Isle, Shen'dar Village (iki taraf) | 2521 43.8 43.8 |\n\nZephras Isle (Skyborne başlangıç adası), Mount Hyjal ve Riverglades eğitmenleri Forever'da yeni.\n\n## EXPERT (225): KİTAPLA ALINIR\n\n- (ikon) — Expert Cookbook: Cooking 125, karakter seviyesi 20, 1 altın. Okuyunca tavan 225 olur.\n- `ALLIANCE` — Shandrina: Ashenvale, Silverwind Refuge (Mystral Lake yanı) · /mappin 1440 49.6 67.0\n- `HORDE` — Wulan (Cooking Supplies satıcısı): Desolace, Shadowprey Village · /mappin 1443 26.2 69.8\n- `AH` — Kitap takas edilir: AH'den de alabilirsin. Ucuz: seviye 20 olunca erkenden al.\n- `150'DEN ÖNCE` — Kitabı 150'ye gelmeden oku, yoksa skill durur.\n\n## ARTISAN (300): CLAMLETTE SURPRISE GÖREVİ\n\n- (ikon) — Cooking 225, karakter seviyesi 35. Görev para istemez, yalnız malzeme. İki taraf da alır.\n- `NEREDE` — Dirge Quikcleave: Tanaris, Gadgetzan hanı · /mappin 1446 52.6 28.0\n- (ikon) — 12 Giant Egg: Tanaris'teki roc'lar, Hinterlands'deki owlbeast'ler ve büyük kuşlar düşürür · AH\n- (ikon) — 10 Zesty Clam Meat: Big-mouth Clam'den çıkar; Tanaris ve Azshara'daki su mobları düşürür (ör. Tanaris doğu kıyısında Steeljaw Snapper).\n- (ikon) — 20 Alterac Swiss: yiyecek satıcıları. Alliance Ben Trias (Stormwind girişindeki peynirci) · Horde Innkeeper Abeqwa (Freewind Post) ya da Innkeeper Pala (Thunder Bluff hanı).\n- `ÖDÜL` — Artisan + 20 Clamlette Surprise (seviye 40 yemeği: 15 dk +12 Stamina ve Spirit) + 3.900 XP. Ayrılmadan Dirge'den Recipe: Tender Wolf Steak'i al: 225→300 tarifi.\n\n## KAMP OBJELERİ\n\n| OBJE | SKILL | MALZEME | NEREDEN | NE YAPAR |\n|---|---|---|---|---|\n| Basic Campfire Kit | 1 | 1 Simple Wood | Cooking ile gelir (eğitmen) | Ateş + 3 obje yeri |\n| Journeyman Campfire Kit | yap 90 · kur 140 | 1 Star Wood | Blueprint: Wailing Caverns, Lord Serpentis | Ateş + 5 obje yeri |\n| Expert Campfire Kit | yap 200 · kur 220 | 1 Thick Logs (20 altın) | Blueprint: Krol'dok Stronghold (Riverglades), Slavecrusher Grox | Ateş + 10 obje yeri |\n| Cookie's Feast | 140 | 2 Mystery Meat + 1 Heavy Kodo Meat + 1 Soothing Spices | Blueprint: Deadmines, Cookie | Ziyafet: Stamina veren yemek |\n| Iron Oven | 300 | 10 Simple Flour + 5 Refreshing Spring Water + 4 Soothing Spices | Blueprint: Iron Oven (Cooking 300) | İleri tarifler için fırın |\n\nKamp ateşini Cooking kurar; bütün mesleklerin kamp objeleri onun yanına konur ve 1 saatlik ortak bekleme süresi paylaşır. Ateş kitlerinin kendi ortak beklemesi 5 dakika. Ateş kitlerine Flint and Tinder gerekir. Nasıl kurulur, nasıl buff alınır: KAMP kartı.\n\n## FOREVER'DA YENİ\n\n- `+%5 XP` — Pişmiş yemeklerin çoğu Well Fed XP Boost verir: öldürmeden gelen XP %5 artar (görev XP'si hariç).\n- `TEK STAT` — Eski tarifler artık tek bir ana stat verir (ör. Roast Raptor +5 Int, Tender Wolf Steak +15 Agi).\n- `ÇAY` — Yeni çaylar (mana + Healing Power) ve smoothie'ler (Spirit; tarifi Merchant's Favor ile).\n- `MASTER CHEF` — Legacy perk'i Master Chef: fazladan ürün şansı %10, en üst rütbede %50.\n- `KAMP` — Kamp ateşi Cooking'den gelir; Iron Oven 300'de ileri yemeklerin fırını.\n- `KART` — Ayrıntı: YEMEKLER kartı (buff yemekleri, çaylar, smoothie'ler, perk'ler).\n\n## BANKA: WAYLAID CRATE\n\n- `SANDIK` — Cooking'in Waylaid Crate sandığı yok.\n- `GÖREV` — Artisan görevi için ayır: 12 Giant Egg, 10 Zesty Clam Meat, 20 Alterac Swiss.\n- `KAMP` — Cookie's Feast için: Mystery Meat, Heavy Kodo Meat, Soothing Spices. Iron Oven için: Simple Flour, Refreshing Spring Water, Soothing Spices.\n- `AH` — Kamp kitleri satıcıya satılmaz, ama takas edilir ve AH'de satılır. Yemek de AH'de satılır; yemek için Cooking bilmek gerekmez.\n\n## İŞE YARAYAN EŞYALAR\n\n- `%25 HIZ` — Cookie's Stirring Rod: wand, seviye 17, BoP. Pişirme %25 hızlı. Deadmines'ta Cookie düşürür (%30); Mage, Priest, Warlock takar.\n- (ikon) — Flint and Tinder: kalıcı alet, ateş kitleri için şart. Trade Supplies satıcıları, 1 gümüş 35 bakır.\n- `+SKILL` — Cooking skill'ini artıran eşya yok: skill yalnız pişirerek artar.\n- `FİLTRE` — Meslek penceresinde Has skill up filtresi, Track Recipe kutusu alışveriş listesi çıkarır.\n- `SIRA` — Kartlar: Genel → Kamp → Yemekler → rota 1–150 → 150–300."
+ },
+ {
+  "id": "cook-kamp",
+  "category": "profession",
+  "title": "Cooking · Kamp objeleri ve buffları",
+  "file": "cook-kamp.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Cooking",
+  "keywords": [
+   "cooking",
+   "yemek, aşçılık, kamp"
+  ],
+  "professionName": "Cooking",
+  "profession": "cooking",
+  "part": "kamp",
+  "text": "# COOKING · KAMP NASIL KURULUR?\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Cooking\n- Alt başlık: KAMP NASIL KURULUR?\n\n## KAMP NEDİR?\n\n- `YENİ` — Kamp, Forever'ın yeni sistemi. Ortada Cooking'in kamp ateşi durur; diğer meslekler yanına kendi kamp objesini koyar.\n- `BUFF` — Ateşin başında dinlenen herkes yandaki objelerin buff'ını alır. Başkasının objesinden de alırsın: o mesleği bilmen gerekmez.\n- `İLK GÖREV` — Seviye 4'te The Great Outdoors görevi kampı tanıtır (ör. Sam Sarsaparilla, Elwynn; Lyreena Duskblade, Teldrassil): NPC'nin ateşi başında Boosted Rest gelene kadar oturursun.\n- `SONRA` — Ardından eğitmenler mesleğinin kamp objesini öğretir; Cooking 101 görevi seni Cooking eğitmenine yollar.\n- `TEK ATEŞ` — Yalnız ateş yakmak buff vermez: buff, yanına konan objelerden gelir.\n\n## ADIM ADIM KAMP\n\n- `1` — Çantada Flint and Tinder (kalıcı alet) ve Simple Wood olsun. Kasabada birkaç Basic Campfire Kit yap (Cooking 1, 10 sn).\n- `2` — Dışarıda, savaş dışında kite sağ tıkla, yere hedefle: 10 sn'de ateş yanar.\n- `3` — Herkes kendi objesini ateşin yanına koyar: kampta karakter başına tek obje.\n- `4` — Ateşin yanında /sit ile otur ya da pişir: Welcoming Campfire sayacı 1 dakika sayar.\n- `5` — Sayaç bitince Camp Benefits: kamp buff'ları 1 saat sürer. Sonra yeni obje konup yine oturursan eski buff'lar kalır, yenisi eklenir.\n- `OLMAZ` — Zindan, raid, battleground, arena ve büyük şehirlerde kurulmaz. İki kamp ateşi arasında en az bir mesafe olmalı.\n\n## KAMP ATEŞİ KİTLERİ\n\n| KİT | OBJE YERİ | YAPMA SKILL | KURMA SKILL | MALZEME | TARİF NEREDEN |\n|---|---|---|---|---|---|\n| Basic Campfire Kit | 3 | 1 | 1 | 1 Simple Wood | Cooking'le birlikte gelir (eğitmen) |\n| Journeyman Campfire Kit | 5 | 90 | 140 | 1 Star Wood | Blueprint: Journeyman Campfire: Wailing Caverns, Lord Serpentis (%5,7) |\n| Expert Campfire Kit | 10 | 200 | 220 | 1 Thick Logs | Blueprint: Expert Campfire: Krol'dok Stronghold'un ilk boss'u Slavecrusher Grox (Riverglades, seviye 40–45 zindanı) |\n\nYapma skill'i kiti üretmek, kurma skill'i kiti yere koymak için. Örnek: Journeyman kitini 90'da yapabilirsin ama 140 olmadan kuramazsın. Üçü de pişirmek için aynı ateş; fark yalnız kaç obje sığdığı. Hepsine Flint and Tinder gerekir. Kitler tek kullanımlık, 20'li yığılır; satıcıya satılmaz, takas ve AH olur.\n\n## BEKLEME SÜRELERİ\n\n- `5 DK` — Üç ateş kiti 5 dakikalık ortak bekleme paylaşır.\n- `1 SAAT` — Kamp objeleri (Cookie's Feast, Iron Oven ve bütün mesleklerinkiler) 1 saatlik ortak bekleme paylaşır: saatte bir obje.\n- `ÜST OBJE` — Aynı mesleğin üst objesi alttakinin üstüne beklemeye takılmadan konur.\n- `ATEŞ` — Ateş 15 dakika yanar. Buff ise aldığın andan itibaren 1 saat sürer.\n\n## BUFF KURALLARI VE PERK'LER\n\n- `BİRİKMEZ` — Bir sınıf buff'ının aynısını veren kamp buff'ı onunla birikmez; sınıf buff'ı gelince kamp buff'ının yerine geçer.\n- `XP` — Yemeğin Well Fed XP Boost'u (+%5 öldürme XP'si), kamp buff'ları ve Cozy Sleeping Bag birlikte çalışır.\n- `TENT` — Leatherworking Camp Tent: %5 rested XP; kendi 1 saatlik Boosted Rest beklemesi var.\n- `FIELD GUIDE` — Legacy perk'i (Adventure ağacı): obje beklemesi −%8, en çok −%25 (1 saat → 45 dk).\n- `PERMANENCE` — Legacy perk'i: kamp dinlenme buff'ları +%50, en çok +%100.\n- `REAGENT ECON.` — Reagent Economy (Resourcefulness ağacı): Tier 1 objeler malzeme istemez.\n\n## BÜTÜN MESLEKLERİN KAMP OBJELERİ\n\n| MESLEK | TIER 1 · SKILL 20 (BUFF) | TIER 2 · SKILL 140 | TIER 3 · SKILL 300 |\n|---|---|---|---|\n| Alchemy | Mana Well (mana yenileme) | Fermenter | Alchemy Laboratory |\n| Blacksmithing | Sharpening Wheel (Strength) | Anvil | Master Forge |\n| Enchanting | Enchanted Lute (zırh + stat + direnç) | Arcane Salvager | Arcane Forge |\n| Engineering | Reagent Bot (satıcı) | Repair Bot | Anarchist's Workbench |\n| First Aid | First Aid Kit (Stamina) | Toxin Study | Plague Doctor's Laboratory |\n| Fishing | Fish Bowl (bütün statlar) | Fishing Rack | Fishing Hut |\n| Herbalism | Incense Candle (Intellect) | Greenhouse | Seed Hybridizer |\n| Leatherworking | Camp Tent (%5 rested XP) | Tanning Rack | Sewing Machine |\n| Mining | Lodestone (Attack Power) | Rock Garden | Molten Foundry |\n| Skinning | Camp Chair (crit) | Field Guide (Track Beasts) | Trapper's Workbench (Brittle Trap) |\n| Tailoring | Faction Banner (Spirit) | Spinning Wheel | Loom |\n| Cooking | Buff objesi yok: üç ateş kiti | Cookie's Feast (140) | Iron Oven (300) |\n\nÜst tier, alttakinin buff'ını da verir; 140 ve 300 objelerinin çoğu o mesleğin tezgâhı. Tier 1: meslek eğitmeni ya da Camping 101: <meslek> görevi. Tier 2: zindanda düşen blueprint. Tier 3: 300'de okunan blueprint.\n\n## COOKING'İN KAMP OBJELERİ\n\n- (ikon) — Cookie's Feast (yap 140, kur 140): ziyafet kurar, oyuncular Stamina veren yemek alır. Yanında ateş olmalı, 15 dk durur. 2 Mystery Meat + 1 Heavy Kodo Meat + 1 Soothing Spices. Blueprint: Deadmines, Cookie (%6,5).\n- (ikon) — Iron Oven (300): ileri tarifler için fırın (275+ buff yemeklerinin çoğu). Yanında ateş olmalı. 10 Simple Flour + 5 Refreshing Spring Water + 4 Soothing Spices. Blueprint: Iron Oven ile öğrenilir.\n- `BAŞKASININ` — Başkasının Iron Oven'ını da kullanırsın: tarifi bilmen ve skill'in yetmesi yeter. Kendin kurmak için 300 gerekir.\n- `300'E` — 300'e çıkmak için Iron Oven gerekmez: rota normal ateşle gider.\n\n## KAMP MALZEMELERİ\n\n| MALZEME | FİYAT | NEREDEN |\n|---|---|---|\n| Flint and Tinder | 1 gümüş 35 bakır | Trade Supplies / genel satıcılar (kalıcı alet) |\n| Simple Wood | 38 bakır | Aynı satıcılar |\n| Star Wood | 45 gümüş | Aynı satıcılar |\n| Thick Logs | 20 altın | Erika Tate (SW) · Emrul Riknussun (IF) · Fyldan (Darn.) · Gloria Femmel, Kalsey Sanden (Redridge) · Naal Mistrunner (TB) · Aza'bek (Barrens) · Kelsey Yance (Booty Bay) · Derak Nightfall, Micha Yance (Hillsbrad) · Otho Moji'ko (Hinterlands) |\n| Simple Flour | 2 gümüş | Cooking Supplies satıcıları |\n| Mystery Meat | — | Akbaba, timsah, scorpid gibi moblar (Thousand Needles, Barrens, Desolace) |\n| Heavy Kodo Meat | — | Desolace: Aged Kodo, Dying Kodo |\n\nEngineering'in Reagent Bot'u kampta sınırlı sayıda su, baharat, Simple Flour, Flint and Tinder ve odun (Thick Logs dahil) satar."
+ },
+ {
+  "id": "cook-yemek",
+  "category": "profession",
+  "title": "Cooking · Yemekler ve buffları",
+  "file": "cook-yemek.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Cooking",
+  "keywords": [
+   "cooking",
+   "yemek, aşçılık, kamp"
+  ],
+  "professionName": "Cooking",
+  "profession": "cooking",
+  "part": "yemek",
+  "text": "# COOKING · BUFF YEMEKLERİ VE İÇECEKLER\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Cooking\n- Alt başlık: BUFF YEMEKLERİ VE İÇECEKLER\n\n## WELL FED: +%5 XP\n\n- `+%5 XP` — Pişmiş yemeklerin çoğu Well Fed XP Boost verir: öldürmeden gelen XP %5 artar. Görev ödülü XP'sine etkimez.\n- `YE` — Buff için savaş dışında oturup en az 10 sn ye. Buff'ların çoğu 15 dk sürer. Yemeği yemek için Cooking bilmen gerekmez.\n- `KASARKEN` — Kasarken kendi yaptığın yemeği ye: leveling yemekleri de +%5 XP verir. Kamp buff'larıyla birlikte çalışır.\n- `TEK STAT` — Eski tarifler artık tek ana stat verir: Roasted Boar Meat +1 Str · Coyote Steak +3 Agi · Dry Pork Ribs +3 Str · Curiously Tasty Omelet +5 Sta · Roast Raptor +5 Int · Tender Wolf Steak +15 Agi · Monster Omelet +15 Sta.\n- `TARİF` — 100'den fazla tarif var; eğitmenler yalnız bir düzinesini öğretir. Gerisi satıcıdan, görevden ve düşüşten.\n\n## LEGACY PERK'LERİ (MESLEK AĞACI)\n\n| PERK | 1. RÜTBE | EN ÜST RÜTBE |\n|---|---|---|\n| Master Chef | %10 şansla fazladan ürün | %50 |\n| Gourmand | Yemek buff'ı +%33 uzun | +%100 (15 → 30 dk) |\n| Working Overtime | Skill gelme şansı +%4 (her meslek) | +%20 |\n| Permanence | Kamp buff'ları +%50 | +%100 |\n| Dedicated Study | 23 saatte bir en düşük mesleğe +1 skill | — |\n\nLegacy puanıyla açılır. Dedicated Study 25 sn döküm; iki ana meslek ve üç ikincil meslek 300 ise +1 skill yerine 2–4 rastgele Elemental Essence verir. Bekleme süresi 23 saat.\n\n## SAVAŞ BUFF YEMEKLERİ (15 DK)\n\n| YEMEK | ETKİ | SKILL | IRON OVEN | TARİF NEREDEN |\n|---|---|---|---|---|\n| Dirge's Kickin' Chimaerok Chops | +25 Stamina | 300 | Evet | Scepter of the Shifting Sands görev zinciri |\n| Smoked Desert Dumplings | +20 Strength | 285 | Evet | Görev: Sharing the Knowledge |\n| Steaming Stag Steak | +20 Strength | 275 | Evet | Görev Now We're Cooking (seviye 54; 6 Savory Stag Sliders getir): Hnaz Blunderflame · Ortak Lomgok, Elderwild (Mount Hyjal) |\n| Wicked Smoothie | +20 Spirit | 250 | Hayır | Merchant's Favor ile (Honored; aşağıdaki smoothie tablosu) |\n| Poached Sunscale Salmon | +40 Attack Power | 250 | Evet | Gikkix, Tanaris (Steamwheedle Port) |\n| Mightfish Steak | +40 Attack Power | 275 | Evet | Vivianna / Sheendra Tallgrass, Feralas |\n| Grilled Squid | +%1 crit | 240 | Evet | Gikkix, Tanaris |\n| Hot Smoked Bass | +%1 crit | 240 | Evet | Kelsey Yance, Booty Bay |\n| Baked Salmon | +28 Spell Damage | 275 | Evet | Vivianna / Sheendra Tallgrass, Feralas |\n| Lobster Stew | +28 Spell Damage | 275 | Evet | Vivianna / Sheendra Tallgrass, Feralas |\n| Plated Armorfish | +150 Armor | 225 | Hayır | Deadwind Pass'teki Recipe: Raw Plated Armorfish objesi (BoP) |\n\n(Renk kodu: Hnaz Blunderflame mavi = Alliance, Ortak Lomgok kırmızı = Horde.)\n\nGourmand perk'iyle süre 30 dk'ya çıkar. Iron Oven isteyen yemeği başkasının fırınında da pişirirsin: KAMP kartı.\n\n## YENİ ÇAYLAR (MANA + HEALING POWER)\n\n| ÇAY | SKILL | MANA | HEALING | MALZEME | TARİF NEREDEN |\n|---|---|---|---|---|---|\n| Peace Tea | 25 | 151 | +2 | 1 Refreshing Spring Water + 2 Peacebloom | Düşer: Frostmane Seer |\n| Royal Tea | 100 | 437 | +7 | 1 Ice Cold Milk + 2 Mageroyal | Düşer: Windshear Geomancer |\n| Root Tea | 125 | 835 | +11 | 1 Melon Juice + 2 Liferoot | Düşer: Torn Fin Oracle |\n\nEtki: içince gelen mana + Healing Power buff'ı. Healer'lar için. Bitkileri Herbalism ya da Tauren'in Cultivation'ı ile toplarsın.\n\n## YENİ SMOOTHIE'LER (SPIRIT)\n\n| SMOOTHIE | SKILL | FAVOR | ETKİ |\n|---|---|---|---|\n| Venomous Smoothie | 25 | 30 | +1 Spirit |\n| Slimy Smoothie | 100 | 30 | +3 Spirit |\n| Mrrggl Smrrthle | 125 | 30 | +5 Spirit |\n| Calcified Smoothie | 180 | 60 | +10 Spirit |\n| Spicy Smoothie | 200 | 60 | +15 Spirit |\n| Wicked Smoothie | 250 | 90 | +20 Spirit |\n\nTarifler Merchant's Favor ile alınır: Alliance Kalsey Sanden (Redridge, Three Corners, Azeroth Commerce Authority kampı) · Horde Aza'bek (The Barrens, Durotar Supply and Logistics). Wicked Smoothie için o grupla Honored gerekir.\n\n## MESLEK VE ÖZEL YEMEKLER\n\n- (ikon) — Goldthorn Tea (175): +15 Herbalism (15 dk) + 1345 mana, seviye 25. 1 Refreshing Spring Water + 1 Goldthorn → 4 çay. Tarif: Razorfen Downs, Henry Stern.\n- (ikon) — Filet of Redgill (225): +18 Fishing (15 dk). Tarif: Booty Bay, Kelsey Yance.\n- (ikon) — Savory Whimsyfin Delight (yeni, 85): 1 saat Orc ninja ya da korsan görünümü. Whimsyfin + Mild Spices. Tarif Redridge moblarından nadir düşer (ör. Seeker Aqualon, Snarlflare).\n- (ikon) — Savory Deviate Delight (85): insan ninja ya da korsan görünümü. Tarif The Barrens'ta düşer.\n- (ikon) — Dragonbreath Chili (200): vururken ateş püskürtme şansı (10 dk). Tarif: Helenia Olden / Ogg'marr (Dustwallow), Super-Seller 680 (Desolace).\n- (ikon) — Thistle Tea (60): anında 100 Energy (Rogue, Druid; 5 dk bekleme). Rogue görevlerinden (Klaven's Tower / Mission: Possible But Not Probable). Cat Form'daki Druid satın alınanı içebilir.\n- (ikon) — Sweetpaw Jam (yeni, 275, Iron Oven): Hyjal'da +%15 hareket hızı (15 dk). 3 Hyjal Berries + Soothing Spices. Tarif: Dala Fairmaw satar, 10 Deadwood Tribal Beads (Mount Hyjal, /mappin 2482 21.0 78.6).\n\n## YENİ TARİFLER: NEREDEN ALINIR\n\n| TARİF | SKILL | NEREDEN |\n|---|---|---|\n| Skywall Souffle | 25 | Görev Restocking the Larders: Zerril Softbreeze (Zephras Isle) |\n| Pincer Bites | 35 | Görev Crab Season: Nyalah Brightfire (Zephras Isle) |\n| Tasty Raptor Bites | 25 | Düşer: Mottled Raptor, Sunscale Screecher |\n| Breakfast Omelette | 75 | Düşer: Dire Condor |\n| Twice-Spiced Raptor Slice | 75 | Horde zindan görevi Changing Tastes (Borstan, Orgrimmar; Excavation Site: Wetlands) · düşer: Young Stranglethorn Raptor |\n| Bear Brisket | 175 | Düşer: Ashenvale Bear |\n| Plain Ol' Paletusk | 185 | Horde görevi Paletusk Harvesting (Na'zok) · Martha Wellsworth, 20 gümüş (Riverglades) |\n| Briny Seafood Stew | 200 | Görev A Taste of the Sea: Fimbo Greasemitz (Riverglades) |\n| Raptor Rouladen | 225 | Düşer: Bloodfen Lashtail |\n| Savory Stag Sliders | 225 | Qia, Winterspring (2 altın) |\n| Specklefin Feast · Grand Lobster Banquet | 280 | Carrie's Cookbook: 40 kişilik raid ziyafeti, 45 dk |"
+ },
+ {
+  "id": "ench-1-150",
+  "category": "profession",
+  "title": "Enchanting · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "file": "ench-1-150.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Enchanting",
+  "keywords": [
+   "enchanting",
+   "büyü, enchant"
+  ],
+  "professionName": "Enchanting",
+  "profession": "enchanting",
+  "part": "range",
+  "range": [
+   1,
+   150
+  ],
+  "faction": null,
+  "text": "# ENCHANTING · 1 → 150 APPRENTICE + JOURNEYMAN\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Enchanting\n- Alt başlık (skill aralığı): 1 → 150 APPRENTICE + JOURNEYMAN\n\n## 1 → 75 · APPRENTICE\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 1 → 2 | Runed Copper Rod | 1 | 1 Copper Rod + 1 Mote of Magic | Apprentice ile gelir |\n| 2 → 20 | Enchant Bracer - Inferior Stamina | 18 | 18 Mote of Magic | Apprentice ile gelir |\n| 20 → 70 | Enchant Chest - Inferior Stamina | 50 | 50 Strange Dust | Eğitmen |\n| 70 → 75 | Enchant Bracer - Minor Stamina | 5 | 10 Strange Dust | Eğitmen |\n\nJourneyman'i 50 skill ve 10 seviyede alabilirsin: 75'e gelmeden eğitmene uğra. 20 → 70 başka yol: Lesser Magic Essence, Strange Dust'tan ucuzsa Enchant Bracer - Minor Deflect bas (baştan bilinir; her biri 1 esans, 50 tane); o zaman 50 Strange Dust az alırsın.\n\n## 75 → 150 · JOURNEYMAN\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 75 → 100 | Enchant Bracer - Minor Stamina | 25 | 50 Strange Dust | Eğitmen |\n| 100 → 129 | Enchant Cloak - Minor Protection | 36 | 72 Strange Dust | Eğitmen (110'da sarı olur) |\n| 129 → 130 | Runed Silver Rod | 1 | 1 Silver Rod + 3 Strange Dust + 4 Lesser Magic Essence + 1 Shadowgem | Eğitmen |\n| 130 → 150 | Enchant Bracer - Lesser Stamina | 20 | 20 Soul Dust | Eğitmen |\n\nExpert'i 125 skill ve 20 seviyede alırsın, ama yalnız üç eğitmen öğretir: Alliance Kitta Firewind (Elwynn, Tower of Azora) · Vanessa Sellers (Alterac, Dalaran), Horde Hgarth (Stonetalon, Sun Rock Retreat). 150'ye gelmeden git.\n\n## ALIŞVERİŞ LİSTESİ (1 → 150)\n\n| MALZEME | ADET | NEREDEN |\n|---|---|---|\n| Strange Dust | 185 | Disenchant (1–20 seviye yeşiller) · AH |\n| Soul Dust | 20 | Disenchant (21–30 seviye yeşiller) · AH |\n| Mote of Magic | 19 | Enchanting satıcısı (10 bakır) · ya da 1 Strange Dust → 3 Mote |\n| Lesser Magic Essence | 4 | Disenchant (1–10 seviye) · AH |\n| Copper Rod | 1 | Enchanting Supplies satıcısı |\n| Silver Rod | 1 | Blacksmith yapar · AH |\n| Shadowgem | 1 | AH |\n\n## İPUÇLARI / SAT-SAKLA\n\n- `PARÇA` — Bir bracer, bir chest ve bir cloak sakla: hep aynı parçayı tekrar enchant edersin.\n- `ÖNCE` — Malzeme almadan önce çantadaki yeşilleri bozar, eksik kalanı AH'den alırsın.\n- `SARI` — Enchant sarıya dönünce bazı basışlar puan vermez. Sonraki aralığa gelince hemen sonraki tarife geç.\n- `ÇUBUK` — Runed Copper ve Runed Silver Rod'u sakla: sonraki enchant'lar ister.\n- `LUTE` — 20'de Enchanted Lute (kamp objesi): 1 Simple Wood + 1 Strange Dust. Görev Camping 101: Enchanting eğitmenden.\n- `SANDIK` — Fazla 20 Strange Dust ya da 20 Soul Dust: Curiosities sandığına koyup Merchant's Favor al."
+ },
+ {
+  "id": "ench-150-300",
+  "category": "profession",
+  "title": "Enchanting · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "file": "ench-150-300.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Enchanting",
+  "keywords": [
+   "enchanting",
+   "büyü, enchant"
+  ],
+  "professionName": "Enchanting",
+  "profession": "enchanting",
+  "part": "range",
+  "range": [
+   150,
+   300
+  ],
+  "faction": null,
+  "text": "# ENCHANTING · 150 → 300 EXPERT + ARTISAN\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Enchanting\n- Alt başlık (skill aralığı): 150 → 300 EXPERT + ARTISAN\n\n## 150 → 225 · EXPERT\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 150 → 159 | Enchant Bracer - Lesser Stamina | 10 | 10 Soul Dust | Eğitmen |\n| 159 → 160 | Runed Golden Rod | 1 | 1 Golden Rod + 1 Iridescent Pearl + 1 Greater Astral Essence + 1 Soul Dust | Eğitmen |\n| 160 → 180 | Enchant Boots - Lesser Agility | 20 | 20 Soul Dust | Eğitmen (her basış 1 puan) |\n| 180 → 204 | Enchant Bracer - Strength | 25 | 25 Vision Dust | Eğitmen |\n| 204 → 205 | Runed Truesilver Rod | 1 | 1 Truesilver Rod + 1 Black Pearl + 1 Greater Mystic Essence + 1 Vision Dust | Eğitmen |\n| 205 → 225 | Enchant Cloak - Greater Defense | 20 | 20 Vision Dust | Kitta Firewind (Elwynn) · Hgarth (Stonetalon) |\n\nExpert eğitmenleri: Alliance Kitta Firewind (Elwynn, Tower of Azora) · Vanessa Sellers (Alterac, Dalaran), Horde Hgarth (Stonetalon, Sun Rock Retreat). Artisan'ı 200 skill ve 35 seviyede alırsın.\n\n## 225 → 300 · ARTISAN\n\n| SKILL | NE YAP | ADET | MALZEME (TOPLAM) | TARİF NEREDEN |\n|---|---|---|---|---|\n| 225 | Artisan'ı öğren: Annora | — | 5 altın | Uldaman, arka giriş · /mappin 1418 66.0 43.0 |\n| 225 → 262 | Enchant Gloves - Agility | 68 | 68 Vision Dust | Expert eğitmeni (skill 210). Annora öğretmez: Uldaman'dan önce al |\n| 262 → 277 | Enchant Bracer - Greater Strength | 20 | 20 Dream Dust + 40 Lesser Nether Essence | Annora (skill 240'ta öğrenilir) |\n| 277 → 300 | Enchant Shield - Greater Stamina | 27 | 162 Dream Dust | Formül (skill 265, BoP): Alliance Mythrin'dir, Darnassus 61.0 17.4 · Horde Daniel Bartlett, Undercity 64.0 38.8 |\n\n225 → 300'ün hepsi Runed Truesilver Rod'la yapılır; Runed Arcanite Rod 300'e gerekmez. Shield formülü satıcıda tek tane durur, fiyatı 1 altın 20 gümüş.\n\n## ANNORA'YA GİTMEDEN\n\n- `GRUP` — Annora Uldaman'ın içinde, odasındaki scorpid'ler ve muhafızlar ölünce çıkar. 35 seviyede tek başına olmaz: grupla git, arka girişten (doğu Badlands) gir.\n- `GÖTÜR` — Runed Truesilver Rod, Vision Dust ve altın götür: Gloves - Agility'yi orada basıp 240'a çık, Bracer - Greater Strength'i ondan öğren.\n- `TARİF` — 230 ve üstü tariflerini başka kimse öğretmez. Çıkmadan öğrenebildiğin her şeyi al.\n- `İPUCU` — Gloves - Agility (skill 210) Annora'nın listesinde yok: Uldaman'dan önce Expert eğitmeninden öğren.\n\n## ALIŞVERİŞ LİSTESİ (150 → 300)\n\n| MALZEME | ADET | NEREDEN |\n|---|---|---|\n| Vision Dust | 114 | Disenchant (31–40 seviye yeşiller) · AH |\n| Dream Dust | 182 | Disenchant (41–50 seviye) · AH |\n| Lesser Nether Essence | 40 | Disenchant (36–40 seviye) · AH |\n| Soul Dust | 31 | Disenchant (21–30 seviye) · AH |\n| Golden Rod · Truesilver Rod | 1 + 1 | Blacksmith yapar · AH |\n| Iridescent Pearl · Black Pearl | 1 + 1 | Balıkçılıkta istiridye (clam) · AH |\n| Greater Astral · Greater Mystic Essence | 1 + 1 | Disenchant · AH |\n| Formula: Shield - Greater Stamina | 1 | Mythrin'dir (Darnassus) · Daniel Bartlett (Undercity), 1 altın 20 gümüş |\n\n## İPUÇLARI / SAT-SAKLA\n\n- `200 → 225` — Başka yol: Enchant Chest - Greater Intellect (Expert eğitmeni), 35 Lesser Mystic Essence (Runed Golden Rod'la). Lesser Mystic ucuzsa 200'den sonra Bracer - Strength ve Cloak - Greater Defense yerine bunu bas; Truesilver Rod'u o zaman 225'te yap.\n- `BOP` — Shield - Greater Stamina formülü BoP: alt karakterle alma, Enchanter'ın kendisi alsın. Satıcıda tek tane durur: 277'ye gelmeden al.\n- `PARÇA` — 225'ten sonra bir eldiven ve bir kalkan (shield) sakla: Gloves - Agility ve Shield - Greater Stamina bunlara basılır.\n- `ÇUBUK` — Runed Truesilver Rod'u sakla: 300'e kadar her enchant ister.\n- `SANDIK` — Fazla 20 Vision ya da 20 Dream Dust: Expert / Artisan Curiosities sandığı → Merchant's Favor.\n\n## 300'DEN SONRA\n\n- (ikon) — Enchanting Certification (1.000 Favor, Alynsia / Beneris): \"the Enchanter\" unvanı.\n- (ikon) — Brilliant Wand (275, 180 Favor): kendi wand'ın, BoP.\n- (ikon) — Runed Arcanite Rod: formül Lorelae Wintersong (Moonglade), skill 290. Lotus Claw için şart.\n- (ikon) — Lotus Claw (295): Dala Fairmaw, Mount Hyjal 21.0 78.6. Hyjal'da bitkiden Death Lotus şansı."
+ },
+ {
+  "id": "ench-genel",
+  "category": "profession",
+  "title": "Enchanting · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "file": "ench-genel.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Enchanting",
+  "keywords": [
+   "enchanting",
+   "büyü, enchant"
+  ],
+  "professionName": "Enchanting",
+  "profession": "enchanting",
+  "part": "genel",
+  "text": "# ENCHANTING · 1 → 300 BAŞLAMADAN ÖNCE\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Enchanting\n- Alt başlık (skill aralığı): 1 → 300 BAŞLAMADAN ÖNCE\n\n## NASIL BAŞLARIM?\n\n- `1` — Mesleği öğren: bir Enchanting eğitmeninden Apprentice'i al. Karakter seviyesi şartı yok.\n- (ikon) — İlk iş çubuk: Enchanting Supplies satıcısından 1 Copper Rod + 1 Mote of Magic al, Runed Copper Rod yap. Enchant'lar çubuk ister: çantada dursun.\n- (ikon) — Mote of Magic (yeni): Enchanting satıcıları 10 bakıra satar. 1 Strange Dust → 3 Mote (Dust to Motes, baştan bilinir, Runed Copper Rod ister).\n- `DISENCHANT` — Disenchant büyü kitabında yok: Professions penceresinde, Enchanting kutusunda. Oradan aksiyon barına sürükle.\n- `2` — Malzeme almadan önce çantandaki yeşil eşyaları bozar, eksik tozu AH'den alırsın. Bir bracer, chest, cloak ve boots sakla (225'ten sonra eldiven ve kalkan da): hep aynı parçayı enchant edersin.\n- `KİM` — Mage, Priest, Warlock (wand yapar) ve sık zindana giren herkes. En iyi eş meslek Tailoring: yaptığın yeşilleri bozarsın.\n\n## RÜTBELER\n\n| RÜTBE | TAVAN | SKILL ŞARTI | KARAKTER SEVİYESİ | KİMDEN |\n|---|---|---|---|---|\n| Apprentice | 75 | Şart yok | Şart yok | Şehir eğitmeni |\n| Journeyman | 150 | 50 | 10 | Şehir eğitmeni |\n| Expert | 225 | 125 | 20 | Kitta Firewind · Vanessa Sellers · Hgarth |\n| Artisan | 300 | 200 | 35 | Annora (Uldaman içinde) |\n\nİki şart birden: hem skill hem karakter seviyesi. Sonraki rütbeyi tavana gelmeden alabilirsin. Kitap ya da görev gerekmez. Journeyman 5 gümüş, Expert 50 gümüş, Artisan 5 altın. Tavanda takılıp boşa enchant basma: önce sonraki rütbeyi öğren.\n\n## EĞİTMENLER: APPRENTICE + JOURNEYMAN\n\n| TARAF | YER | APPRENTICE (75) | JOURNEYMAN (150) | /MAPPIN |\n|---|---|---|---|---|\n| Alliance | Stormwind, Mage Quarter | Betty Quin | Lucan Cordell | 1453 43.2 63.8 |\n| Alliance | Ironforge, The Great Forge | Thonys Pillarstone | Gimble Thistlefuzz | 1455 60.6 44.2 |\n| Alliance | Darnassus, Craftsmen's Terrace | Lalina Summermoon | Taladan | 1457 59.6 12.6 |\n| Alliance | Teldrassil, Oracle Glade | Alanna Raveneye | — | 1438 36.8 34.2 |\n| Alliance | Feralas, Feathermoon Stronghold | — | Xylinnia Starshine | 1444 31.6 44.2 |\n| Horde | Orgrimmar, The Drag | Jhag | Godan | 1454 53.6 38.2 |\n| Horde | Undercity, The Apothecarium | Malcomb Wynn | Lavinia Crowe | 1458 62.6 60.4 |\n| Horde | Thunder Bluff | Mot Dawnstrider | Teg Dawnstrider | 1456 45.0 38.4 |\n| Horde | Tirisfal, Brill (hanın üst katı) | Vance Undergloom | — | 1420 61.6 51.6 |\n| Horde | Durotar, Sen'jin Village | Pa'zula | — | 1411 56.4 73.6 |\n| İki taraf | Zephras Isle, Shen'dar Village | Nasalanna Windsinger | — | 2521 43.2 43.2 |\n| İki taraf | Zephras Isle, Valanaar | Eaysaa Brightgust | — | 2521 59.2 76.2 |\n\nElwynn, Dun Morogh ve Mulgore'da eğitmen yok: en yakın başkente git. Şehirde iki eğitmen yan yana durur. Oyunda /mappin <harita> X Y yazınca haritaya işaret koyar.\n\n## EXPERT VE ARTISAN EĞİTMENLERİ\n\n| TARAF | EĞİTMEN | YER | /MAPPIN |\n|---|---|---|---|\n| Alliance | Kitta Firewind | Elwynn, Tower of Azora (kulenin tepesi) | 1429 64.8 70.6 |\n| Alliance | Vanessa Sellers | Alterac Mountains, Dalaran | 1416 16.6 62.6 |\n| Horde | Hgarth | Stonetalon, Sun Rock Retreat (uçurumun üstü) | 1442 49.2 57.2 |\n| İki taraf | Annora (Artisan) | Uldaman, arka giriş (doğu Badlands) | 1418 66.0 43.0 |\n\nHgarth: patika Sun Rock Retreat'teki en büyük çadırın kuzeydoğusundan başlar. Annora tek Artisan eğitmeni, iki taraf için: zindanın içinde, odasındaki bütün mobları (scorpid'ler ve muhafızlar) öldürünce ortaya çıkar. 35 seviyede tek başına olmaz: grupla git. 230 ve üstü tariflerini başka kimse öğretmez: çıkmadan hepsini al, yanına malzeme ve altın götür (150 → 300 kartına bak).\n\n## ÇUBUKLAR (RUNED ROD): ENCHANT'LAR İÇİN ARAÇ\n\n| ÇUBUK | ROTADA | MALZEME | ANA ÇUBUK NEREDEN |\n|---|---|---|---|\n| Runed Copper Rod | 1 | 1 Copper Rod + 1 Mote of Magic | Copper Rod: Enchanting Supplies satıcısı |\n| Runed Silver Rod | 129 | 1 Silver Rod + 3 Strange Dust + 4 Lesser Magic Essence + 1 Shadowgem | Silver Rod: Blacksmith yapar ya da AH |\n| Runed Golden Rod | 159 | 1 Golden Rod + 1 Iridescent Pearl + 1 Greater Astral Essence + 1 Soul Dust | Golden Rod: Blacksmith ya da AH |\n| Runed Truesilver Rod | 204 | 1 Truesilver Rod + 1 Black Pearl + 1 Greater Mystic Essence + 1 Vision Dust | Truesilver Rod: Blacksmith ya da AH |\n| Runed Arcanite Rod | 300'e gerekmez | 1 Arcanite Rod + 1 Golden Pearl + 10 Illusion Dust + 4 Greater Eternal Essence + 4 Small Brilliant Shard + 2 Large Brilliant Shard | Formül yalnız Lorelae Wintersong (Moonglade, Nighthaven), skill 290, BoP |\n\nİlk dört çubuğun tarifi eğitmenden. Çubuklar BoP ve araç: hepsini sakla. Sonraki enchant yeni çubuğu ister, doğru skill'de yapmayı unutma. İnciler balıkçılıkta çıkan istiridyelerden (clam) de gelir. Lotus Claw enchant'ı Runed Arcanite Rod ister.\n\n## 1 → 300 TOPLAM MALZEME\n\n- 185 Strange Dust\n- 51 Soul Dust\n- 114 Vision Dust\n- 182 Dream Dust\n- 40 Lesser Nether Essence · 4 Lesser Magic Essence\n- 19 Mote of Magic (satıcı)\n- `ÇUBUK` — Copper, Silver, Golden, Truesilver Rod + Shadowgem, Iridescent Pearl, Black Pearl, Greater Astral ve Greater Mystic Essence (1'er).\n- `SHARD` — Rota shard istemez.\n\n## DISENCHANT: NASIL BOZULUR?\n\n- `1` — Disenchant Apprentice ile gelir. Yeşil (uncommon) ya da daha iyi eşyayı yok eder, yerine malzeme verir.\n- `2` — Professions → Enchanting kutusu → Disenchant'ı bara sürükle. Bas, sonra eşyaya tıkla. Auto Loot'u aç. Makro: /cast Disenchant + /use <eşya>.\n- `SKILL` — Forever'da skill şartı yok: 1 skill'de bile her seviyedeki eşyayı bozabilirsin.\n- `KURAL` — Yeşil zırh → çoğu toz (%75), biraz esans. Yeşil silah → çoğu esans (%75). Mavi → her zaman shard. 50 seviyeye kadar epik → shard, yüksek epik → Nexus Crystal. Yeşilden shard %3–5.\n- `SAT` — Giymeyeceğin soulbound eşyayı boz. Satılabilen eşyada AH fiyatı malzemeden yüksekse sat.\n- `PUAN` — Disenchant 20 skill'e kadar Enchanting puanı da verir.\n- `ESANS` — Greater esansa sağ tıkla → 3 Lesser (ör. Greater Magic → 3 Lesser Magic Essence).\n\n## HANGİ EŞYADAN NE ÇIKAR? (EŞYANIN SEVİYESİ)\n\n| SEVİYE | TOZ | ESANS | SHARD |\n|---|---|---|---|\n| 1–10 | Strange Dust | Lesser Magic | — |\n| 11–15 | Strange Dust | Greater Magic | Small Glimmering |\n| 16–20 | Strange Dust | Lesser Astral | Small Glimmering |\n| 21–25 | Soul Dust | Greater Astral | Large Glimmering |\n| 26–30 | Soul Dust | Lesser Mystic | Small Glowing |\n| 31–35 | Vision Dust | Greater Mystic | Large Glowing |\n| 36–40 | Vision Dust | Lesser Nether | Small Radiant |\n| 41–45 | Dream Dust | Greater Nether | Large Radiant |\n| 46–50 | Dream Dust | Lesser Eternal | Small Brilliant |\n| 51–60 | Illusion Dust | Greater Eternal | Large Brilliant · Nexus Crystal |\n\n## MOTE OF MAGIC SATICILARI\n\n| TARAF | SATICI (YER) |\n|---|---|\n| Alliance | Jessara Cordell (Stormwind) · Tilli Thistlefuzz (Ironforge) · Vaean (Darnassus) |\n| Horde | Kithas (Orgrimmar) · Thaddeus Webb (Undercity) · Nata Dawnstrider (Thunder Bluff) |\n| Horde | Vance Undergloom (Brill) · Leo Sarn ve Lilly (Silverpine) |\n| İki taraf | Nasalanna Windsinger ve Eaysaa Brightgust (Zephras Isle) |\n| Kutu | Crate of Enchanting Supplies: The Barrens ve Redridge |\n\nTanesi 10 bakır, en çok 20'li yığılır; satılamaz, bozulamaz. Copper Rod'u başkentteki Enchanting Supplies satıcısı satar.\n\n## KAMP OBJELERİ\n\n| OBJE | SKILL | MALZEME | NEREDEN ÖĞRENİLİR | NE YAPAR |\n|---|---|---|---|---|\n| Enchanted Lute | 20 | 1 Simple Wood + 1 Strange Dust | Görev Camping 101: Enchanting (seviye 4+, 20 skill): Enchanting eğitmeni öğretir (ör. Thonys Pillarstone, Jhag) | Oturanlara zırh, tüm stat, tüm direnç |\n| Arcane Salvager | 140 | 2 Vision Dust + 1 Lesser Nether Essence | Blueprint: Shade of the Archmage (elit, City of Dalaran) %7,5 · Charlga Razorflank (Razorfen Kraul) %5 | Daha verimli disenchant + Lute buff'ı. 15 dk, yalnız açık alanda |\n| Arcane Forge | 300 | 1 Maker's Spark + 2 Large Brilliant Shard + 4 Greater Eternal Essence | Blueprint: Arcane Forge (300 skill) | Bazı tariflerin istediği istasyon + Lute buff'ı |\n\nKamp ateşini Cooking kurar; objeler yanına konur ve 1 saatlik ortak bekleme süresi paylaşır. Kasabada değil, açık arazide kurulur. Lute buff'ı Mark of the Wild ile birikmez; Salvager ve Forge aynı buff'ı daha güçlü verir ve Lute'un üstüne konup onun yerini alır.\n\n## BANKA: WAYLAID CRATE (CURIOSITIES)\n\n| SANDIK | SEVİYE | İÇİNE ŞUNLARDAN BİRİNİ KOY |\n|---|---|---|\n| Apprentice Curiosities | 10 | 20 Strange Dust · 4 Greater Magic Essence · 6 Small Glimmering Shard · 2 Large Glimmering Shard |\n| Journeyman Curiosities | 10 | 20 Soul Dust · 4 Greater Astral Essence · 6 Small Glowing Shard · 2 Large Glowing Shard |\n| Expert Curiosities | 20 | 20 Vision Dust · 4 Greater Mystic Essence · 6 Small Radiant Shard · 2 Large Radiant Shard |\n| Artisan Curiosities | 35 | 20 Dream Dust · 4 Greater Nether Essence · 6 Small Brilliant Shard · 2 Large Brilliant Shard |\n\nSandığı sen yapamazsın: moblardan ve sandıklardan düşer ya da AH'den alınır. İçine tek bir deste koyup mühürlersin. Teslim: Alliance Marcy Baker (Redridge, Three Corners), Horde Dokimi (Barrens, Crossroads yanı). Ödül Merchant's Favor. İlk sandığı doldurunca Shipping Label çıkar: tek seferlik görev, 50 Favor + 2.000 itibar.\n\n## SAKLA / SAT\n\n- `ÇUBUK` — Bütün Runed Rod'ları sakla (BoP, araç).\n- `STRANGE` — Biraz Strange Dust: Lute ve Mote of Magic için.\n- `KAMP` — Salvager için Vision Dust + Lesser Nether Essence; Forge için Large Brilliant Shard + Greater Eternal Essence.\n- `SANDIK` — Fazla toz, esans ve shard'ı Curiosities sandığına koy: Favor'la yeni tarifleri ve unvanı alırsın.\n- `LOTUS` — Death Lotus: Alchemy flask'larında da kullanılır.\n\n## SIK YAPILAN HATALAR\n\n- `RÜTBE` — Tavana gelip sonraki rütbeyi almamak (75, 150, 225).\n- `ÇUBUK` — Çubuğu zamanında yapmamak: sonraki enchant onu ister.\n- `BOP` — BoP formülü (Shield - Greater Stamina, Runed Arcanite Rod, Brilliant Wand) alt karakterle almak.\n- `ULDAMAN` — Annora'dan bütün tarifleri almadan Uldaman'dan çıkmak.\n- `BÖLGE` — Elwynn, Dun Morogh ve Mulgore'da eğitmen aramak: yok, başkente git.\n\n## KARTLAR SIRASI\n\n- `1` — Genel (bu kart): başlangıç, eğitmenler, çubuklar, disenchant, kamp, sandık.\n- `2` — Yeni tarifler ve unvan: Merchant's Favor listesi, Lotus Claw, Brilliant Wand, the Enchanter.\n- `3` — 1 → 150: Apprentice + Journeyman rotası ve alışveriş listesi.\n- `4` — 150 → 300: Expert + Artisan rotası, Annora (Uldaman) ve alışveriş listesi."
+ },
+ {
+  "id": "ench-tarifler",
+  "category": "profession",
+  "title": "Enchanting · Önemli tarifler",
+  "file": "ench-tarifler.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Enchanting",
+  "keywords": [
+   "enchanting",
+   "büyü, enchant"
+  ],
+  "professionName": "Enchanting",
+  "profession": "enchanting",
+  "part": "tarifler",
+  "text": "# ENCHANTING · YENİ TARİFLER VE UNVAN\n\n- Marka: WOW FOREVER · MESLEK · TOTİK CHANNEL\n- Rozet: TAVSİYE EDİLEN ROTA\n- Meslek: Enchanting\n- Alt başlık: YENİ TARİFLER VE UNVAN\n\n## MERCHANT'S FAVOR TARİFLERİ: ALYNSIA / BENERIS\n\n| FAVOR | İTİBAR | NE ALIRSIN (FORMÜL BAŞINA FİYAT) |\n|---|---|---|\n| 45 | — | Weapon - Insight · Recovery · Revelation · Glimmering Staff · Soulstaff · Orb of Mystic Insight · Orb of Souls · Mystic Mushroom (idol) · Polished Driftwood Icon (totem) · Tenets of the Silver Hand (libram) |\n| 120 | Friendly | Necklace - Agility · Deflection · Healing Power · Spell Power · Strength · Chest - Absorption · Dreamstaff · Radiant Staff · Truesilver Conduit · Twisting Essence Jar · Talons of Wrath · Libram of Invocation · Totem of Ancestral Protection |\n| 180 | Honored | Brilliant Wand · Boots - Speed |\n| 240 | Honored | Gloves - Natural Power · Arcane Power · Holy Power · Superior Strength · Bracer - Superior Intellect · Superior Deflection · Greater Spellpower · Cloak - Agility · 2H Weapon - Mighty Spell Power · Mighty Healing Power · Spellblasting · Off Hand - Wisdom · Idol of the Dream · Libram of Holy Alacrity · Totem of Thunder |\n| 1.000 | — | Enchanting Certification: \"the Enchanter\" unvanı |\n\nAlliance Alynsia <Enchanter>: Redridge 11.2 71.5, Three Corners (Azeroth Commerce Authority). Horde Beneris <Enchanter>: The Barrens 49.7 29.8, Crossroads yanı (Durotar Supply and Logistics). İkisi aynı listeyi satar. 45 Favor'lık formüller itibar istemez.\n\n## FAVOR VE UNVAN\n\n- `FAVOR` — Merchant's Favor'ı Waylaid Crate doldurarak kazanırsın (Enchanting için Curiosities sandıkları, genel kartta).\n- `İLK` — İlk sandığı doldurunca Shipping Label çıkar: tek seferlik görev, 50 Favor + 2.000 itibar.\n- (ikon) — Enchanting Certification: 1.000 Favor. Almak için 300 Enchanting gerekir, BoP.\n- `HESAP` — \"the Enchanter\" unvanı hesaptaki bütün karakterlere açılır. Göstermek için o karakterin de 300 Enchanting'i olmalı.\n\n## ÖNEMLİ YENİ TARİFLER\n\n| TARİF | SKILL | MALZEME | NEREDEN | NOT |\n|---|---|---|---|---|\n| Enchant Gloves - Lotus Claw | 295 | 1 Death Lotus + 2 Small Brilliant Shard + 12 Illusion Dust + 4 Lesser Eternal Essence | Dala Fairmaw <Quartermaster>, Mount Hyjal 21.0 78.6 | Hyjal'da bitki toplarken küçük şansla Death Lotus. Runed Arcanite Rod ister. Formül BoP, fiyatı 10 Deadwood Tribal Beads, itibar istemez |\n| Enchant Gloves - Natural Power | 300 | 2 Nexus Crystal + 5 Large Brilliant Shard + 4 Death Lotus | Alynsia / Beneris, 240 Favor | +20 Nature hasarı. Formül BoP |\n| Enchant Necklace - Spell Power | 210 | 5 Greater Nether Essence + 3 Large Radiant Shard + 8 Dream Dust + 4 Cerulean Dye + 4 Magenta Dye | Alynsia / Beneris, 120 Favor | +6 büyü hasarı ve iyileştirme. Formül BoP |\n| Brilliant Wand | 275 | 1 Greater Eternal Essence + 3 Illusion Dust + 2 Large Brilliant Shard + 1 Star Wood | Alynsia / Beneris, 180 Favor | 50–93 Fire, 1.20 hız, +7 Int, +9 büyü hasarı ve iyileştirme, seviye 55. Formül de wand da BoP: yalnız kendine yaparsın |\n| Enchant Boots - Speed | 280 | 2 Large Radiant Shard + 8 Dream Dust + 2 Greater Nether Essence + 1 Blue Sapphire | Alynsia / Beneris, 180 Favor | Formül BoP değil |\n\nDeath Lotus yeni bir bitki (Mount Hyjal); Alchemy'nin yeni Natural flask'larında da kullanılır. Kolye enchant'ları boya da ister (Cerulean, Magenta Dye).\n\n## DİĞER TARİFLER NEREDEN?\n\n| TARİF | SKILL | NEREDEN |\n|---|---|---|\n| Minor Mana Oil<br>Lesser Wizard Oil<br>2H Weapon - Lesser Intellect | 150<br>200<br>100 | Şehirlerdeki Enchanting satıcıları: Alliance Jessara Cordell, Tilli Thistlefuzz, Vaean · Horde Kithas, Thaddeus Webb, Nata Dawnstrider, Leo Sarn |\n| Bracer - Minor Intellect<br>Bracer - Minor Healing Power | 70<br>90 | Düşüş: Silverpine<br>Düşüş: Ashenvale |\n| Bracer - Lesser Agility<br>Bracer - Lesser Healing Power | 140<br>205 | Desolace'ta Molkar ve Gorhak · ya da görev Mysterious Mysticism |\n| Enchant 2H Weapon - Agility | 290 | Meilosh (Felwood) |\n| Lesser Mana Oil<br>Wizard Oil | 250<br>275 | Kania (Silithus, hanın üst katı) · Lokhtos Darkbargainer (Blackrock Depths) |\n| Runed Arcanite Rod (BoP)<br>Cloak - Superior Defense | 290<br>285 | Lorelae Wintersong (Moonglade, Nighthaven) |\n| Shield - Greater Stamina (BoP) | 265 | Alliance Mythrin'dir (Darnassus) · Horde Daniel Bartlett (Undercity) |\n| Smoking Heart of the Mountain | 265 | Formülü Lord Roccor düşürür (Blackrock Depths) |\n\n## FOREVER'DA YENİ\n\n- (ikon) — Novice's Practice Wand: 1 Simple Wood + 1 Mote of Magic (skill 10). Mage, Priest, Warlock ilk seviyelerde hemen wand kullanır. BoE: başka bir Enchanter'a da yaptırabilirsin.\n- `YAPAR` — Enchanter artık wand, staff, off-hand ve class relic'i (idol, libram, totem) yapar. Weapon oil'ler duruyor.\n- `KOLYE` — Yeni Necklace enchant'ları: Agility, Deflection, Healing Power, Spell Power, Strength.\n- `UCUZ` — İlk 70 puan daha ucuz: Inferior Stamina bracer Mote of Magic, chest 1 Strange Dust ister (ikisi de değişti).\n- `LEGACY` — Working Overtime: skill gelme şansı artar · Dedicated Study: en düşük mesleğine skill ekler."
+ },
+ {
+  "id": "eng-1-150",
+  "category": "profession",
+  "title": "Engineering · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "file": "eng-1-150.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Engineering",
+  "keywords": [
+   "engineering",
+   "mühendislik"
+  ],
+  "professionName": "Engineering",
+  "profession": "engineering",
+  "part": "range",
+  "range": [
+   1,
+   150
+  ],
+  "faction": null,
+  "text": "# Engineering · 1 → 150 Apprentice + Journeyman\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 1 → 150 (Apprentice + Journeyman)\n\n## 1 → 75 · Apprentice\n\n| Skill | Ne yap | Adet | Malzeme (toplam) | Tarif nereden |\n|---|---|---|---|---|\n| 1 → 30 | Rough Blasting Powder | 60 | 60 Rough Stone | Eğitmen |\n| 30 → 50 | Handful of Copper Bolts | 30 | 30 Copper Bar | Eğitmen |\n| 50'de | Arclight Spanner (alet) | 1 | 6 Copper Bar | Eğitmen (1 gümüş 50 bakır) |\n| 50 → 75 | Rough Copper Bomb | 30 | 30 Copper Bar + 30 Handful of Copper Bolts + 60 Rough Blasting Powder + 30 Linen Cloth | Eğitmen |\n\nMalzeme sütunu partinin tamamını gösterir: bombalar, önceden yaptığın 30 bolt ve 60 tozu kullanır. Yani 1–50 arası yaptıklarının hepsini sakla.\n\n## 1 → 75 Notları\n\n- ÖNCE: Bombaya başlamadan önce 60 toz ve 30 bolt'un hepsini yap; skill aralığı geçse bile partiyi bitir. İkisi birlikte tam 30 Rough Copper Bomb'a yeter (her bomba 1 bolt + 2 toz).\n- (ikon) 50'de Arclight Spanner'ı yap, çantada tut: sonraki tariflerin çoğu ister.\n- 50'DE: Karakter seviyen 10 ise aynı ziyarette Journeyman'i al (5 gümüş). Yoksa 75'te skill durur.\n- (ikon) 20'de başlangıç şehrindeki eğitmene git: Camping 101: Engineering görevi Reagent Bot'u öğretir (seviye 4).\n\n## 75 → 150 · Journeyman\n\n| Skill | Ne yap | Adet | Malzeme (toplam) | Tarif nereden |\n|---|---|---|---|---|\n| 75 → 90 | Coarse Blasting Powder | 45 | 45 Coarse Stone | Eğitmen |\n| 90 → 100 | Coarse Dynamite | 15 | 45 Coarse Blasting Powder + 15 Linen Cloth | Eğitmen |\n| 100 → 105 | Silver Contact | 5 | 5 Silver Bar | Eğitmen |\n| 105 → 115 | Bronze Tube | 12 | 24 Bronze Bar + 12 Weak Flux | Eğitmen |\n| 115 → 125 | Standard Scope | 10 | 10 Bronze Tube + 10 Moss Agate | Eğitmen |\n| 125'te | Heavy Blasting Powder | 42 | 42 Heavy Stone | Eğitmen |\n| → 150 | Whirring Bronze Gizmo | 15 | 30 Bronze Bar + 15 Wool Cloth | Eğitmen |\n\nCoarse Dynamite, Coarse Blasting Powder'ın 45'ini de kullanır. Heavy Blasting Powder 145'te griye döner; partiyi yine bitir, tozu sonraki kartta kullanacaksın.\n\n## 75 → 150 Notları\n\n- 90 → 100: Dinamit birkaç puan erken biterse Silver Contact'a geçebilirsin (her fazla üretim 1 Silver Bar).\n- 10 TÜP: Bronze Tube'dan en az 10'unu Standard Scope için sakla. Moss Agate pahalıysa dürbünü atla, 125'e kadar tüp yap (her fazla tüp 2 Bronze Bar + 1 Weak Flux).\n- 42 TOZ: 42 Heavy Blasting Powder: 30'u Explosive Sheep, 12'si Iron Grenade için.\n- 15 GİZMO: 15 Whirring Bronze Gizmo'nun hepsini koyunlar için sakla.\n- EXPERT: Expert'i 150'den önce al: seviye 20, skill 125, 50 gümüş. Springspindle Fizzlegear (Ironforge) / Roxxik (Orgrimmar). İki parti 150'ye yetmezse 145'te Bronze Framework'e başla.\n\n## Alışveriş Listesi · 1 → 150\n\n| Malzeme | Adet | Ne için |\n|---|---|---|\n| Rough Stone | 60 | Rough Blasting Powder |\n| Copper Bar | 66 | 30 bolt + 6 Arclight Spanner + 30 bomba |\n| Linen Cloth | 45 | 30 bomba + 15 dinamit |\n| Coarse Stone | 45 | Coarse Blasting Powder |\n| Silver Bar | 5 | Silver Contact |\n| Bronze Bar | 54 | 24 tüp + 30 gizmo |\n| Weak Flux | 12 | Bronze Tube (Engineering Supplies satıcısı) |\n| Moss Agate | 10 | Standard Scope |\n| Heavy Stone | 42 | Heavy Blasting Powder |\n| Wool Cloth | 15 | Whirring Bronze Gizmo |\n| Blacksmith Hammer | 1 | Alet: Blacksmithing / Trade Supplies satıcısı |\n\nReagent Bot kurmak için ayrıca: 1 Handful of Copper Bolts + 1 Copper Tube (2 Copper Bar + 1 Weak Flux).\n\n## İpuçları · Sat / Sakla\n\n- MINING: Mining ile kas: cevheri de taşı da sakla. Külçe metal parçaya, taş patlayıcı toza gider.\n- (ikon) 140'ta Repair Bot kurabilirsin: 2 Whirring Bronze Gizmo + 1 Bronze Tube + 1 Heavy Leather. Bunun için 135 civarında 2 fazla gizmo yap. Şema: Deadmines, Sneed düşürür (%9).\n- SANDIK: Fazla parçalar Waylaid Parts sandığını doldurur: 16 Copper Bolts ya da 16 Copper Tube (Apprentice), 8 Bronze Tube ya da 7 gizmo (Journeyman).\n- DÜRBÜN: Standard Scope'u avcılar alır: yayına ya da tüfeğine dürbün isteyen Engineer olmayan oyuncular.\n- SIRA: Sonraki kart: 150 → 300. Uzmanlık ve Merchant's Favor için genel karta bak."
+ },
+ {
+  "id": "eng-150-300",
+  "category": "profession",
+  "title": "Engineering · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "file": "eng-150-300.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Engineering",
+  "keywords": [
+   "engineering",
+   "mühendislik"
+  ],
+  "professionName": "Engineering",
+  "profession": "engineering",
+  "part": "range",
+  "range": [
+   150,
+   300
+  ],
+  "faction": null,
+  "text": "# Engineering · 150 → 300 Expert + Artisan\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 150 → 300 (Expert + Artisan)\n\n## 150 → 225 · Expert\n\n| Skill | Ne yap | Adet | Malzeme (toplam) | Tarif nereden |\n|---|---|---|---|---|\n| 150 → 160 | Bronze Framework | 15 | 30 Bronze Bar + 15 Medium Leather + 15 Wool Cloth | Eğitmen |\n| 160 → 175 | Explosive Sheep | 15 | 15 Bronze Framework + 15 Whirring Bronze Gizmo + 30 Heavy Blasting Powder + 30 Wool Cloth | Eğitmen |\n| 175 → 190 | Solid Blasting Powder | 26 | 52 Solid Stone | Eğitmen |\n| 190 → 195 | Iron Grenade | 12 | 12 Iron Bar + 12 Heavy Blasting Powder + 12 Silk Cloth | Eğitmen |\n| 195 → 200 | Mithril Tube | 6 | 18 Mithril Bar | Eğitmen |\n| 200 → 215 | Unstable Trigger | 20 | 20 Mithril Bar + 20 Mageweave Cloth + 20 Solid Blasting Powder | Expert eğitmeni: Springspindle Fizzlegear · Roxxik |\n| 215 → 225 | Mithril Casing | 6 | 18 Mithril Bar | Expert eğitmeni |\n| 215 → 225 | Mithril Frag Bomb | 6 | 6 Mithril Casing + 6 Unstable Trigger + 6 Solid Blasting Powder | Expert eğitmeni |\n\nKoyunlar önceki karttan sakladığın 15 gizmo ve 30 Heavy Blasting Powder'ı, Iron Grenade kalan 12 tozu kullanır. 215–225 arasında 1 kovan, 1 bomba sırayla yap (ikisi de puan verebilir); 225'te dur.\n\n## 150 → 225 Notları\n\n- ÇERÇEVE: 150'den önce yaptığın Bronze Framework'ler de 15'e sayılır. Koyun 175'e kadar her üretimde 1 puan verir; çerçevelerden sonra skill'ine bak. Fazla koyun = 1 çerçeve + 1 gizmo + 2 toz + 2 Wool Cloth.\n- GOBLIN: Goblin seçeceksen 5 Explosive Sheep'i ayrıca yap ve sakla (uzmanlık görevi).\n- (ikon) 175'te Gyromatic Micro-Adjustor'ı yap (4 Steel Bar, eğitmen tarifi): Forever'ın yeni aletleri ister.\n- 26 TOZ: 26 Solid Blasting Powder'ı sakla: 20'si tetik, 6'sı son bombalar. Fazla toz = 2 Solid Stone.\n- GNOMISH: Gnomish seçeceksen 195–200'de yaptığın 6 Mithril Tube'u sakla.\n\n## 225 → 300 · Artisan\n\n| Skill | Ne yap | Adet | Malzeme (toplam) | Tarif nereden |\n|---|---|---|---|---|\n| 225 → 245 | Hi-Impact Mithril Slugs | 60 | 60 Mithril Bar + 60 Solid Blasting Powder | Eğitmen |\n| 245 → 250 | Mithril Gyro-Shot | 6 | 12 Mithril Bar + 12 Solid Blasting Powder | Eğitmen |\n| 250 → 260 | Dense Blasting Powder | 30 | 60 Dense Stone | Eğitmen |\n| 260 → 300 | Thorium Widget | 92 | 276 Thorium Bar + 92 Runecloth | Satıcı: Gearcutter Cogspinner (Ironforge) · Sovik (Orgrimmar) |\n\nSlug'ı 245'e kadar yap, 245'te dur. Her üretim 1 Mithril Bar + 1 Solid Blasting Powder, 200 mermi çıkar: mermileri avcılara sat.\n\n## 225 → 300 Notları\n\n- ARTISAN: 225'ten önce Artisan'ı al: seviye 35, skill 200, 5 altın. Buzzek Bracketswing (Gadgetzan, Tanaris) ya da Kaylaena Springwhisper (Mount Hyjal); ikisi de iki tarafa öğretir.\n- (ikon) Solid Blasting Powder bitince yenisini yap: her toz 2 Solid Stone. Bu aralık 72 toz ister (60 slug + 12 Gyro-Shot).\n- (ikon) Thorium Widget 260'tan 300'e tek tarif: 280'e kadar her üretim puan verir, sonra sarıya döner (bu yüzden 92 üretim). Şemayı satıcıdan al: Alliance Gearcutter Cogspinner (Ironforge), Horde Sovik (Orgrimmar).\n- WIDGET: 2 Thorium Widget Anarchist's Workbench (300) için; 5 Widget bir Artisan Parts sandığını doldurur.\n\n## Alışveriş Listesi · 150 → 300\n\n| Malzeme | 150 → 225 | 225 → 300 |\n|---|---|---|\n| Bronze Bar | 30 | — |\n| Medium Leather | 15 | — |\n| Wool Cloth | 45 | — |\n| Solid Stone | 52 | 144 |\n| Iron Bar | 12 | — |\n| Silk Cloth | 12 | — |\n| Mithril Bar | 56 | 72 |\n| Mageweave Cloth | 20 | — |\n| Steel Bar | 4 (Gyromatic) | — |\n| Dense Stone | — | 60 |\n| Thorium Bar | — | 276 |\n| Runecloth | — | 92 |\n\nÖnceki karttan sakladıkların: 15 Whirring Bronze Gizmo, 42 Heavy Blasting Powder. Uzmanlık görevi için ek: Goblin → 20 Big Iron Bomb (10 üretim: 30 Iron Bar + 30 Heavy Blasting Powder + 10 Silver Contact) + 20 Solid Dynamite (10 üretim: 10 Solid Blasting Powder + 10 Silk Cloth) + 5 Explosive Sheep · Gnomish → 6 Mithril Tube + 1 Accurate Scope (1 Bronze Tube + 1 Jade + 1 Citrine) + 2 Advanced Target Dummy (her biri 1 Iron Strut + 1 Bronze Framework + 1 Gyrochronatom + 4 Heavy Leather).\n\n## İpuçları · Sat / Sakla\n\n- UZMANLIK: Seviye 30 + skill 200'de uzmanlık görevi. Goblin: Tinkerwiz (Ratchet) → Nixx Sprocketspring (Gadgetzan). Gnomish: Horde Oglethorpe Obnoticus (Booty Bay), Alliance Tinkmaster Overspark (Ironforge). Seçim kalıcı.\n- SANDIK: Artan 14 Unstable Trigger'ın 12'si bir Expert Parts sandığını doldurur. 5 Mithril Tube ya da 5 Mithril Casing de olur.\n- (ikon) Merchant's Favor şemaları açılır: 225'te Emergency Field Cloak, 300'de Stealthman 52 ve Ultralight Goblin Glider (Fritz Fizzle / Fizzlefuse, Honored).\n- (ikon) 300'de Anarchist's Workbench: 1 Essence of Anarchy + 2 Thorium Widget. Blueprint de Essence de bağlanmaz: AH'den alınır. Gözlük ve kemer serisi bu tezgâhın başında yapılır.\n- UNVAN: 300'de 1000 Merchant's Favor'la Engineering Certification: hesaptaki tüm karakterlere \"the Engineer\" unvanı."
+ },
+ {
+  "id": "eng-genel",
+  "category": "profession",
+  "title": "Engineering · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "file": "eng-genel.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Engineering",
+  "keywords": [
+   "engineering",
+   "mühendislik"
+  ],
+  "professionName": "Engineering",
+  "profession": "engineering",
+  "part": "genel",
+  "text": "# Engineering · 1 → 300 Başlamadan Önce\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 1 → 300 (Başlamadan önce)\n\n## Nasıl Başlarım?\n\n- 1: Mesleği öğren: bir Engineering eğitmeninden Apprentice'i al. Engineering ana (primary) meslektir: iki meslek yerinden birini kullanır.\n- 2: En iyi eş: Mining. Cevheri de taşı da sakla: külçe → metal parça, taş → patlayıcı toz (blasting powder). Bazı tariflere kumaş ya da deri de gerekir.\n- (ikon) Blacksmith Hammer ve Weak Flux al, örsün (anvil) yanında çalış: tariflerin çoğu örs ister.\n- 3: Bir üretim yalnız bir skill şansı verir, birden çok eşya çıksa bile.\n- 200'DEN ÖNCE: Uzmanlığını (Goblin ya da Gnomish) 200'den önce seç: teslim edeceğin eşyaları ona göre saklarsın. Seçim kalıcıdır.\n\n## Rütbeler\n\n| Rütbe | Tavan | Skill şartı | Karakter seviyesi | Ücret |\n|---|---|---|---|---|\n| Apprentice | 75 | Şart yok | Şart yok | — |\n| Journeyman | 150 | 50 | 10 | 5 gümüş |\n| Expert | 225 | 125 | 20 | 50 gümüş |\n| Artisan | 300 | 200 | 35 | 5 altın |\n\nİki şart birden: hem skill hem karakter seviyesi. Dört rütbeyi de eğitmen öğretir; kitap ya da görev gerekmez. Şartları tutuyorsan bir sonraki rütbeyi tavana gelmeden alabilirsin: Journeyman'i 50'de, Expert'i 150'den, Artisan'ı 225'ten önce al ki skill durmasın.\n\n## Eğitmenler · Alliance\n\n| En çok | Eğitmen | Yer | /mappin |\n|---|---|---|---|\n| Artisan | Buzzek Bracketswing · iki taraf | Tanaris, Gadgetzan | 1446 52.2 27.6 |\n| Artisan | Kaylaena Springwhisper · iki taraf | Mount Hyjal (yeni bölge) | 2482 60.2 61.4 |\n| Expert | Springspindle Fizzlegear | Ironforge, Tinker Town | 1455 68.4 44.0 |\n| Journeyman | Trixie Quikswitch | Ironforge, Tinker Town | 1455 67.8 43.2 |\n| Journeyman | Lilliam Sparkspindle | Stormwind, Dwarven District | 1453 62.2 30.4 |\n| Journeyman | Finbus Geargrind | Duskwood, Darkshire | 1431 77.4 48.4 |\n| Apprentice | Jemma Quikswitch | Ironforge, Tinker Town | 1455 67.8 43.8 |\n| Apprentice | Sprite Jumpsprocket | Stormwind, Dwarven District | 1453 61.8 30.8 |\n| Apprentice | Bronk Guzzlegear | Dun Morogh, Steelgrill's Depot | 1426 50.2 50.4 |\n| Apprentice | Deek Fizzlebizz | Loch Modan, Stonewrought Dam | 1432 45.8 13.6 |\n| Apprentice | Jenna Lemkenilli | Darkshore, Auberdine | 1439 38.2 41.0 |\n| Apprentice | Tinkerwiz · iki taraf | The Barrens, Ratchet | 1413 62.6 36.2 |\n| Apprentice | Strange Hermit · iki taraf | Zephras Isle, Shadowgale Forest | 2521 54.0 39.0 |\n\n## Eğitmenler · Horde\n\n| En çok | Eğitmen | Yer | /mappin |\n|---|---|---|---|\n| Artisan | Buzzek Bracketswing · iki taraf | Tanaris, Gadgetzan | 1446 52.2 27.6 |\n| Artisan | Kaylaena Springwhisper · iki taraf | Mount Hyjal (yeni bölge) | 2482 60.2 61.4 |\n| Expert | Roxxik | Orgrimmar, Valley of Honor | 1454 76.0 25.0 |\n| Journeyman | Nogg | Orgrimmar, Valley of Honor | 1454 75.8 25.2 |\n| Journeyman | Franklin Lloyd | Undercity, Rogues' Quarter | 1458 76.0 73.4 |\n| Apprentice | Thund | Orgrimmar, Valley of Honor | 1454 75.8 24.6 |\n| Apprentice | Graham Van Talen | Undercity, Rogues' Quarter | 1458 75.6 73.2 |\n| Apprentice | Mukdrak | Durotar, Razor Hill | 1411 52.2 40.8 |\n| Apprentice | Twizwick Sprocketgrind | Mulgore, Venture Co. Mine | 1412 61.8 31.4 |\n| Apprentice | Tinkerwiz · iki taraf | The Barrens, Ratchet | 1413 62.6 36.2 |\n| Apprentice | Strange Hermit · iki taraf | Zephras Isle, Shadowgale Forest | 2521 54.0 39.0 |\n\nEN ÇOK = eğitmenin öğrettiği en yüksek rütbe; altındakileri de öğretir. 200'deki Unstable Trigger, 215'teki Mithril Casing ve Mithril Frag Bomb tarifleri Expert eğitmenlerinde (Springspindle Fizzlegear / Roxxik). Oyunda /mappin <harita> X Y yazarak haritaya işaret koyabilirsin.\n\n## Araçlar (Çantada Dursun)\n\n- (ikon) Blacksmith Hammer: Blacksmithing ya da Trade Supplies satıcısı, birkaç bakır. 30'dan (Copper Bolts) itibaren çantada dursun.\n- (ikon) Weak Flux: Engineering Supplies satıcısı. Copper Tube ve Bronze Tube için gerekir.\n- (ikon) Arclight Spanner: 50'de yap, 6 Copper Bar (tarif eğitmende, 1 gümüş 50 bakır). Dürbün, gizmo, koyun, tetik ve kovan tarifleri ister.\n- (ikon) Gyromatic Micro-Adjustor: 175'te yap, 4 Steel Bar (tarif eğitmende, 10 gümüş). Forever'ın yeni aletlerinin neredeyse hepsi ister: gözlük ve kemer serisi, SAF-T serisi, Stealthman 52, Loot-A-Rang…\n- ÖRS: Örs (anvil) şehirlerde ve demirci ocaklarında. Tariflerin çoğu yanında durmanı ister.\n\n## Uzmanlık: Goblin mi, Gnomish mi?\n\n| | Goblin | Gnomish |\n|---|---|---|\n| Ne verir | Bomba ve patlayıcılar: zindan / PvP'de ek hasar | Alet ve kullanışlı cihazlar: yolculuk, fayda |\n| Örnek | Goblin Sapper Charge: alan hasarı | Gnomish Shrink Ray: hedefin Attack Power'ını düşürür |\n| Işınlanma (yapım 285) | Dimensional Ripper - Everlook | Ultrasafe Transporter: Gadgetzan |\n| Görevi veren | Tinkerwiz, Ratchet (iki taraf) | Horde Tinkerwiz, Ratchet · Alliance Springspindle Fizzlegear (Ironforge), Lilliam Sparkspindle (Stormwind) ya da Tinkerwiz |\n| Teslim NPC'si | Nixx Sprocketspring, Gadgetzan (Tanaris) | Horde Oglethorpe Obnoticus, Booty Bay · Alliance Tinkmaster Overspark, Ironforge |\n| Getireceğin | 20 Big Iron Bomb + 20 Solid Dynamite + 5 Explosive Sheep | 6 Mithril Tube + 1 Accurate Scope + 2 Advanced Target Dummy |\n| Ödül | Goblin Engineer Membership Card + Goblin tarifleri | Gnome Engineer Membership Card + Gnomish tarifleri |\n\nŞart: karakter seviyesi 30 + Engineering 200. Zincir 3 görev: (1) Manual of Engineering Disciplines'i teslim NPC'sine götür, (2) The Pledge of Secrecy: yemin kâğıdına sağ tıkla, imzalı hâliyle NPC ile yeniden konuş, (3) Show Your Work: eşyaları teslim et (3.150 XP). Işınlanma cihazları 4 saatte bir kullanılır, kullanmak için Engineering 260 gerekir. Tarifini konuşarak öğrenirsin: Goblin → Zap Farflinger (Everlook, Winterspring 61.3 37.1), Gnomish → Jhordy Lapforge (Gadgetzan, Tanaris 52.3 26.9).\n\n## Uzmanlık: Bilmen Gerekenler\n\n- KALICI: Görev metni: üyelik kalıcıdır ve diğer uzmanlığa katılmanı engeller. Değiştirmek için Engineering'i bırakıp (unlearn) 1'den yeniden kasarsın; bütün tarifler de gider.\n- (ikon) Membership Card: alınca bağlanır, tektir, 14 gün sürer. Süresi bitince Membership Card Renewal göreviyle 2 altına yenilenir (Goblin: Nixx Sprocketspring). Gnome kartı tüm Gnomish eğitmenlerine erişim için şarttır.\n- ALLIANCE: Gnomish görevini Alliance'ta Springspindle Fizzlegear (Ironforge), Lilliam Sparkspindle (Stormwind) ya da Tinkerwiz (Ratchet) verir; görev Tinkmaster Overspark'ta (Ironforge, Tinker Town) biter.\n- (ikon) Accurate Scope tarifini satıcı satar: Mazk Snipeshot (Booty Bay, Stranglethorn) ya da Super-Seller 680 (Desolace). Advanced Target Dummy eğitmen tarifi (185).\n- (ikon) Goblin için 5 Explosive Sheep'i 160–175 arasında ayır; Gnomish için 195–200'de yaptığın 6 Mithril Tube'u sakla.\n- GNOME: Gnome ırk yeteneği değişti: eski +15 Engineering yok. Artık cihazların arıza ya da geri tepme ihtimalini %20 azaltır.\n\n## Uzmanlık Tarifleri\n\n| Skill | Goblin · Nixx Sprocketspring | Gnomish |\n|---|---|---|\n| 205 | Goblin Sapper Charge · Goblin Mortar · Goblin Mining Helmet · Goblin Construction Helmet · Recipe: Goblin Rocket Fuel | Gnomish Shrink Ray |\n| 210 | — | Gnomish Goggles · Gnomish Net-o-Matic Projector |\n| 215 | — | Gnomish Harm Prevention Belt |\n| 225 | Goblin Rocket Boots | Gnomish Rocket Boots |\n| 230 | Goblin Bomb Dispenser | Gnomish Battle Chicken |\n| 235 | The Big One | Gnomish Mind Control Cap |\n| 240 | Goblin Dragon Gun | Gnomish Death Ray |\n| 245 | Goblin Rocket Helmet | — |\n| 285 | Dimensional Ripper - Everlook (Zap Farflinger, Everlook) | Ultrasafe Transporter: Gadgetzan (Jhordy Lapforge, Gadgetzan) |\n\nGoblin tariflerini Gadgetzan'da Nixx Sprocketspring öğretir (10–30 gümüş). Gnomish tariflerini Tinkmaster Overspark (Ironforge, Tinker Town) ve Oglethorpe Obnoticus (Booty Bay 28.3 76.3) öğretir; ikisi de Gnome Membership Card ister. Gnomish'e özel bir başka eşya: World Enlarger (260; şeması Blackrock Depths'te düşer).\n\n## Kamp Objeleri\n\n| Obje | Skill | Malzeme | Nereden öğrenilir | Ne yapar |\n|---|---|---|---|---|\n| Reagent Bot | 20 | 1 Handful of Copper Bolts + 1 Copper Tube | Görev Camping 101: Engineering (seviye 4) · eğitmen | Sen ve yakındakiler reagent alır, eşya satar |\n| Repair Bot | 140 | 2 Whirring Bronze Gizmo + 1 Bronze Tube + 1 Heavy Leather | Blueprint: Repair Bot · Deadmines, Sneed (%9) | Reagent + tamir. Reagent Bot'un yerine konabilir |\n| Anarchist's Workbench | 300 | 1 Essence of Anarchy + 2 Thorium Widget | Blueprint: Anarchist's Workbench: bağlanmaz, AH'den alınır (Essence of Anarchy da) | Reagent + tamir + tezgâh: gözlük ve kemer serisi, Serrated Strap ve 300'lük EZ-Thro / SAF-T tarifleri bunun başında yapılır |\n\nKamp ateşini Cooking kurar (Cooking kasmak gerekmez); objeler ateşin yanına konur ve 1 saatlik ortak bekleme paylaşır. Her oyuncu bir kampa tek obje ekler (saatte bir); aynı kampa başkaları da koyar, herkes yararlanır. Engineering objeleri buff değil hizmet verir. Camping 101'i başlangıç şehrinin eğitmeni verir: Bronk Guzzlegear · Sprite Jumpsprocket · Jenna Lemkenilli (A), Mukdrak · Twizwick Sprocketgrind · Graham Van Talen (H), Strange Hermit (iki taraf). Arclight Spanner'ı çantada tut.\n\n## Merchant's Favor Nedir?\n\n- PARA: Merchant's Favor karaktere özel bir para. Waylaid Crate doldurup teslim ederek kazanırsın; Forever'ın yeni şemalarını (schematic) bununla alırsın.\n- ALLIANCE: Fritz Fizzle: Redridge Mountains'ın batı ucu, Three Corners (Azeroth Commerce Authority kampı).\n- HORDE: Fizzlefuse: The Barrens, Crossroads'un batı kapısının hemen dışı (Durotar Supply and Logistics kampı).\n- İTİBAR: Pahalı şemalar kamp itibarı da ister: Friendly ya da Honored. İtibar Craftsman's Writ'lerden (+125) ve bir kez Shipping Label görevinden (2.000) gelir.\n- UNVAN: Engineering Certification: 1000 Favor, Engineering 300. Hesaptaki tüm karakterlere \"the Engineer\" unvanını açar.\n\n## Merchant's Favor Şemaları (Fritz Fizzle / Fizzlefuse)\n\n| Şema | Skill | Favor | İtibar | Ne işe yarar |\n|---|---|---|---|---|\n| SAF-T Dynamite | 25 | 45 | — | SAF-T atılabilirleri Engineer olmayan da kullanır |\n| Satchel of Copper Bombs | 85 | 45 | — | Fırlatma silahı yuvası: cephanesiz alan patlayıcısı, uzaktan mob çeker |\n| Clanking Cord · Gizmo Girdle · Whimsical Waistwrap | 175 | 180 | Friendly | Kemer serisi (Clanking Cord'un her zırh türüne sürümü var). Anarchist's Workbench başında yapılır |\n| Bent · Dented · Floppy · Stuckbutton Goggles | 200 | 180 | Friendly | Gözlük serisi. Anarchist's Workbench başında yapılır |\n| Emergency Field Cloak | 225 | 270 | Honored | 10 sn görünmezlik |\n| Ultralight Goblin Glider | 300 | 360 | Honored | 10 sn yön verilebilen süzülme, 5 dk bekleme |\n| Stealthman 52 | 300 | 360 | Honored | 1 dk'ya kadar gizlilik alanı |\n\nFiyat kademesi: 25–145 skill şemaları 45 Favor · 165–200 180 Favor + Friendly · 225–285 270 Favor + Honored · 300 360 Favor + Honored. Diğerleri: SAF-T Tabs, SAF-T Copper Bomb, EZ-Thro Wrap, EZ-Thro Copper Bomb XL, No Slip SAF-T Padding, Satchel of Bronze Bombs, SAF-T Bell, EZ-Thro Fireproof Fuse, Compact Critter Carrier, Satchel of Iron Bombs, SAF-T Disposable Parachute, Satchel of Dark Iron Bombs, Gnomish Poultryizer, Ultrasafe Rechargeable Battery.\n\n## Stealthman 52 · Emergency Field Cloak\n\n- (ikon) Stealthman 52 (skill 300): 1 dk'ya kadar gizlilik; savaşta kullanılmaz, hareket edince alan en çok 6 sn daha sürer, 5 dk bekleme. Kullanmak için seviye 55 + Engineering 250.\n- MALZEME: 6 Essence of Air · 6 Illusion Dust · 2 Torbernite · 2 Legionite Bar · 4 Marefoil. Örs + Gyromatic Micro-Adjustor.\n- (ikon) Emergency Field Cloak (skill 225): takı (trinket), 10 sn görünmezlik, 1 saat bekleme, 3 kullanım. Alınca bağlanır, tek takılır.\n- MALZEME: 1 Gnomish Cloaking Device (skill 200; şeması düşer ya da Zan Shivsproket satar, Alterac Mountains) + 1 SAF-T Casing (skill 215: 1 Mithril Casing + 1 Heavy Leather; Casing de şeması da bağlanmaz: AH'den alınır). Örs gerekir.\n\n## Banka: Waylaid Crate (Parts)\n\n| Sandık | Seviye | İçine şunlardan birini koy |\n|---|---|---|\n| Apprentice Parts | 10 | 16 Handful of Copper Bolts · ya da 16 Copper Tube · ya da 4 Copper Modulator |\n| Journeyman Parts | 10 | 8 Bronze Tube · ya da 7 Whirring Bronze Gizmo · ya da 4 Bronze Framework · ya da 45 Gold Power Core (skill 150; 1 Gold Bar 3 tane yapar → 15 Gold Bar, pahalı) |\n| Expert Parts | 20 | 8 Iron Strut · ya da 5 Mithril Tube · ya da 12 Unstable Trigger · ya da 5 Mithril Casing |\n| Artisan Parts | 35 | 5 Thorium Widget · ya da 5 Truesilver Transformer · ya da 2 Thorium Tube |\n\nSandığı sen yapamazsın: moblardan ve sandıklardan düşer ya da AH'den alınır. İçine tek bir deste koyup mühürlersin. Teslim: Alliance Marcy Baker (Redridge, Three Corners), Horde Dokimi (Barrens, Crossroads yanı). Ödül Merchant's Favor. Rotada yaptığın parçalar (bolt, tüp, gizmo, tetik, widget) bu sandıkları doldurur.\n\n## İşe Yarayan · Forever'da Yeni\n\n- 252 TARİF: Forever'da 252 tarif var, 78'i yeni: SAF-T ve EZ-Thro atılabilirleri, gözlük ve kemer serileri.\n- (ikon) Iron Grenade: Fire hasarı + 3 sn'ye kadar sersemletme (hasar bozar). Parachute Cloak: yavaş düşüş. Goblin Jumper Cables: savaş dışında müttefiki diriltme şansı. Target Dummy: fazla mob çekince üzerinden alır.\n- SAT: Dürbünleri avcılar alır. SAF-T atılabilirleri herkes kullanır. Aletlerin çoğunu kullanmak için ise Engineering gerekir.\n- (ikon) Dimensional Transporter - Mt. Hyjal (300): şemayı Pexmit (Mount Hyjal) satar.\n- YOK: Gnomish Weather Machine (300) oyunda henüz çalışmıyor: eşya \"NYI\" işaretli, etkisi yok. Şemasına para harcama.\n- SIRA: Rota kartları: 1–150 → 150–300."
+ },
+ {
+  "id": "fish-1-75",
+  "category": "profession",
+  "title": "Fishing · Skill 1–75 kasma rotası: nerede, ne yapılır",
+  "file": "fish-1-75.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Fishing",
+  "keywords": [
+   "fishing",
+   "balıkçılık, balık tutma"
+  ],
+  "professionName": "Fishing",
+  "profession": "fishing",
+  "part": "range",
+  "range": [
+   1,
+   75
+  ],
+  "faction": null,
+  "text": "# Fishing · 1 → 75 Başlangıç Bölgeleri\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 1 → 75 (Başlangıç bölgeleri)\n\n## Elwynn Forest (Alliance)\n\nHarita durakları: 1 = GOLDSHIRE, 2 = CRYSTAL LAKE\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1: Goldshire'da Tharynn Bouden'dan olta al.\n- 1→2: Kuzeydoğuya, Crystal Lake'in batı kıyısında Lee Brown'ın yanına.\n- 2: Raw Brilliant Smallfish ve Raw Longjaw Mud Snapper. Journeyman'i de Lee'den alırsın.\n\n## Dun Morogh (Alliance)\n\nHarita durakları: 1 = BREWNALL, 2 = ICEFLOW LAKE\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1: Brewnall Village: Gretta Ganter olta satar.\n- 1→2: Iceflow Lake'in buzuna çık; Paxton Ganter buzdaki açıklığın yanında eğitir.\n- 2: Açıklığın kenarında dur, suya at.\n\n## Teldrassil (Alliance)\n\nHarita durakları: 1 = DOLANAAR, 2 = LAKE AL'AMETH\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- EĞİT: Darnassus'ta Astaia ya da Rut'theran'da Androl Oakhand.\n- 1: Dolanaar'da Narret Shadowgrove olta satar.\n- 1→2: Patikadan güneye, Lake Al'Ameth'in kuzey kıyısı: 75'e kadar burada.\n\n## Durotar (Horde)\n\nHarita durakları: 1 = SEN'JIN, 2 = LAU'TIKI KUMSALI\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1: Sen'jin Village'da Zansoa'dan olta al.\n- 1→2: Güneye, kumsalda Lau'Tiki'nin yanına; açık denize at.\n- 2: Raw Slitherskin Mackerel. 75'e kadar bu kumsalda kalabilirsin.\n\n## Mulgore (Horde)\n\nHarita durakları: 1 = BLOODHOOF, 2 = STONEBULL LAKE\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1: Bloodhoof Village'da Harn Longcast'tan olta al.\n- 1→2: Kıyıyı izleyip Uthan Stillwater'a; Stonebull Lake'e at.\n- 2: Raw Brilliant Smallfish ve Raw Longjaw Mud Snapper. Uthan iki rütbeyi de öğretir.\n\n## Tirisfal Glades (Horde)\n\nHarita durakları: 1 = BRILL, 2 = BRIGHTWATER LAKE\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1→2: Olta ile Brill'den doğuya, Brightwater Lake.\n- 2: Clyde Kellen güneybatı kıyısında, Apprentice ve Journeyman öğretir. Yanında kur, göle at.\n\n## Zephras Isle (İki Taraf)\n\n- 1: Shen'dar Village'da Belandiel Farflight'tan olta al, Fenn Fairweather'ın yanında balık tut.\n- 2: Valanaar'daysan Baelann Swiftcurrent hem olta satar hem eğitir. Hangisi yakınsa: ikisi de 75'e kadar yeter.\n\n## Nasıl Balık Tutulur?\n\n- (ikon) Oltayı tak, yeme (lure) uygula, kıyıdan Fishing at. Şamandıra sıçrayınca ona sağ tıkla.\n- (ikon) Shiny Bauble (+25, 10 dk): başlangıç sularında ilk atışta bile balık kaçmaz. 25 skill'den sonra yemi zor sulara sakla.\n- BİLGİ: Yalnız tutulan balık skill verir. Başlangıç gölündeki balık Tanaris'tekiyle aynı sayılır: 1→300 aynı gölde kasılabilir.\n\n## 75'ten Önce\n\n- 50'DE: Journeyman al (50 skill): eğitmenler Apprentice ve Journeyman öğretir. Yoksa 75'te takılırsın.\n- SAKLA: 1 Empty Vial + 1 Raw Brilliant Smallfish: 20'de Fish Bowl kampı (eğitmenden ya da Camping 101: Fishing görevinden), oturanlara %8 stat (Blessing of Kings ile birikmez).\n- COOKING: Cooking de kasıyorsan haritalardan sıradaki tarifin balığını veren yeri seç."
+ },
+ {
+  "id": "fish-225-300",
+  "category": "profession",
+  "title": "Fishing · Skill 225–300 kasma rotası: nerede, ne yapılır",
+  "file": "fish-225-300.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Fishing",
+  "keywords": [
+   "fishing",
+   "balıkçılık, balık tutma"
+  ],
+  "professionName": "Fishing",
+  "profession": "fishing",
+  "part": "range",
+  "range": [
+   225,
+   300
+  ],
+  "faction": null,
+  "text": "# Fishing · 225 → 300 Artisan Görevi\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 225 → 300 (Artisan görevi)\n\n## 1 · Feralas Ahi · GÖREV (Feralas · Verdantis River)\n\nHarita durakları: 1 = YOL, 2 = VERDANTIS KÖPRÜSÜ\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1→2: High Wilderness'tan ana yolu doğuya, Verdantis River. Köprüde yoldan çık, nehre at.\n- 225: Burada Bright Baubles kullan. Artisan'dan sonra da normal balık için iyi kıyı: Raw Redgill.\n\n## 2 · Sar'theris Striker · GÖREV (Desolace · Sar'theris Strand)\n\nHarita durakları: 1 (etiketsiz), 2 = SAR'THERIS STRAND\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1→2: Shadowprey Village'ın güneyindeki kumsalı izle; mini harita Sar'theris Strand yazınca denize dön, at.\n- ALLIANCE: Alliance: Horde köyüne girmeden kumsala güneyden gel.\n\n## 3 · Savage Coast Blue Sailfin · GÖREV (Stranglethorn · Grom'gol güneyi)\n\nHarita durakları: 1 = BOOTY BAY, 2 = SAVAGE COAST\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- →2: Grom'gol Base Camp'in hemen güneyinde batı kıyısı. Kampın dışında kal; mini harita The Savage Coast yazmalı.\n- 1: (Haritadaki 1: Old Man Heming, daha güneyde Booty Bay alt iskelesinde.)\n\n## 4 · Misty Reed Mahi Mahi · GÖREV (Swamp of Sorrows · doğu kıyısı)\n\nHarita durakları: 1 (etiketsiz), 2 = MISTY REED STRAND\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 2: Bölgenin doğu kenarındaki Misty Reed Strand: kumsaldan açık denize at.\n- !: Temple of Atal'Hakkar çevresindeki kanallar görev suyu değil, iç tarafta kalır.\n\n## Tanaris · 225 → 300 (İki taraf · Steamwheedle Port)\n\nHarita durakları: 1 = GADGETZAN, 2 = STEAMWHEEDLE PORT\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1→2: Gadgetzan'dan doğu yolunu Steamwheedle Port'a, köyün yanındaki kıyıdan at: Raw Glossy Mightfish.\n- 225: Bright Baubles seni 300 etkili skill'e çıkarır: bu kıyıda balık kaçmaz.\n\n## The Hinterlands · 225 → 300 (Horde · Revantusk)\n\nHarita durakları: 1 = REVANTUSK, 2 = İSKELE\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1→2: Revantusk Village'da iskeledeki Katoom the Angler'a git, denize at.\n- 2: Raw Glossy Mightfish; mevsiminde Raw Winter Squid ya da Raw Summer Bass. Etkili skill 300'ün altındaysa yem kullan.\n\n## Artisan: Nat Pagle Görevi\n\n- ŞART: Karakter seviyesi 35, Fishing 225. Eğitmenler Artisan öğretmez.\n- 1: Dustwallow Marsh'ta, Theramore'un güneybatısında Tidefury Cove'daki adaya yüz: Nat Pagle (/mappin 1445 58.6 60.0). Nat Pagle, Angler Extreme görevini al.\n- ÖNCE AL: Görevi balık yerlerine gitmeden önce al: görev balıkları için önce görevin üstünde olmalı.\n- (ikon) Birer tane getir, sıra fark etmez, açık sudan: Feralas Ahi · Sar'theris Striker · Savage Coast Blue Sailfin · Misty Reed Mahi Mahi.\n- 2: Adaya dönüp teslim et: tavan 300 olur. Sonra adada yemsiz 300'e kadar balık tutabilirsin.\n\n## Sat mı, Sakla mı?\n\n- 300'DE: Fishing Hut: 5 Simple Wood + 2 Bolt of Runecloth + 1 Seasonal Fish Steaks. 1 saat rare (mavi) balık. Steaks: 275'te Fishing Supplies satıcısından Chef's Knife al, Raw Winter Squid ya da Raw Summer Bass'a kullan.\n- (ikon) Stonescale Eel (Azshara, Tanaris, Feralas kıyıları): Stonescale Oil, Alchemist alır.\n- DEĞERLİ: Raw Sunscale Salmon, Large Raw Mightfish (+40 AP yemek), Raw Whitescale Salmon, Darkclaw Lobster (+28 büyü), Raw Plated Armorfish (+150 zırh)."
+ },
+ {
+  "id": "fish-75-225",
+  "category": "profession",
+  "title": "Fishing · Skill 75–225 kasma rotası: nerede, ne yapılır",
+  "file": "fish-75-225.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Fishing",
+  "keywords": [
+   "fishing",
+   "balıkçılık, balık tutma"
+  ],
+  "professionName": "Fishing",
+  "profession": "fishing",
+  "part": "range",
+  "range": [
+   75,
+   225
+  ],
+  "faction": null,
+  "text": "# Fishing · 75 → 225 Expert Kitabı\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 75 → 225 (Expert kitabı)\n\n## The Barrens · 75 → 150 (Horde)\n\nHarita durakları: 1 = CROSSROADS YOLU, 2 = LUSHWATER OASIS\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1→2: Crossroads'tan Gold Road'u güneye, sonra batıya: Wailing Caverns dışındaki Lushwater Oasis.\n- 2: Güney kıyıdan Deviate Fish. Sürü varsa halkalara at; bitince açık suda da çıkar.\n\n## Silverpine Forest · 75 → 150 (Horde)\n\nHarita durakları: 1 = NORTH TIDE'S RUN, 2 = KILLIAN'IN YANI\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1→2: North Tide's Run kumsalını kuzeye, Killian Sanatha'ya.\n- 2: Batıya, Great Sea'ye at: Raw Rainbow Fin Albacore. Doğu Krallıkları'ndaki Horde için sahil seçeneği.\n\n## Loch Modan · 75 → 150 (Alliance)\n\nHarita durakları: 1 = THELSAMAR, 2 = WARG'IN YANI\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1→2: Thelsamar'dan kuzeydoğuya, gölün batı kıyısında Warg Deepwater.\n- 2: Gerekirse Journeyman'i ondan al, göle at: Raw Loch Frenzy.\n\n## Darkshore · 75 → 150 (Alliance)\n\nHarita durakları: 1 = AUBERDINE, 2 = KIYI\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1→2: Auberdine'de kıyıya in, Gubber Blump'ın yanında açık denize at: Raw Rainbow Fin Albacore.\n- GÖREV: Onun görevini alırsan istediği 6 Darkshore Grouper da aynı yerden çıkar.\n\n## Stranglethorn Vale · 150 → 225 (İki taraf · Booty Bay)\n\nHarita durakları: 1 = BOOTY BAY, 2 = SAVAGE COAST\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1: Booty Bay alt iskelesinde Old Man Heming: Expert kitabı. Kasabanın iskelelerinden balık tutabilirsin.\n- 2: Savage Coast: 225'te Artisan görevinin balığı için buraya döneceksin.\n\n## Dustwallow Marsh · 150 → 225 (İki taraf · Theramore'un güneybatısı)\n\nHarita durakları: 1 = KIYI, 2 = NAT PAGLE ADASI\n\nHarita notu: Kıyıda dur, açık suya olta at · sürü (school) aramak gerekmez\n\n- 1→2: Tidefury Cove'daki küçük adaya yüz: Nat Pagle orada.\n- 2: Adada dur, çevredeki suya at. 225'e gelince Artisan görevini de burada alırsın (seviye 35).\n\n## Expert: Kitapla Alınır\n\n- (ikon) Expert Fishing - The Bass and You: karakter seviyesi 20, Fishing 125, 1 altın.\n- NEREDE: Old Man Heming, Booty Bay alt iskelesi (Stranglethorn, /mappin 1434 27.4 77.0). Eğitmenler Expert öğretmez.\n- 150'DEN ÖNCE: Kitabı 150'yi geçmeden oku, yoksa skill durur.\n\n## Yem ve Olta\n\n- (ikon) 150'de Bright Baubles (+75) seni bu suların istediği 225 etkili skill'e çıkarır: balık kaçmaz.\n- (ikon) Nightcrawlers (+50, Fishing 50) · Aquadynamic Fish Attractor (+100, 5 dk, Fishing 100).\n- (ikon) Big Iron Fishing Pole (+20, seviye 25, Fishing 100): Desolace'ta Shadowprey açıklarında, su altındaki Shellfish Trap'lerden; AH'de de satılır.\n- DİKKAT: Yem ve olta bonusu balığın kaçmasını önler ama rütbe için sayılmaz: kitap ve görev ana skill ister.\n\n## Sat mı, Sakla mı?\n\n- 140'TA: Fishing Rack: 2 Simple Wood + 2 Raw Mithril Head Trout + 1 Crystal Vial. Blueprint: Blackfathom Deeps, Gelihast. 1 saat uncommon (yeşil) balık + yem verir.\n- (ikon) Oily Blackmouth ve Firefin Snapper: Alchemist yağ yapar (Blackmouth Oil, Fire Oil).\n- (ikon) Deviate Fish: Savory Deviate Delight ve Elixir of Giant Growth malzemesi."
+ },
+ {
+  "id": "fish-genel",
+  "category": "profession",
+  "title": "Fishing · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "file": "fish-genel.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Fishing",
+  "keywords": [
+   "fishing",
+   "balıkçılık, balık tutma"
+  ],
+  "professionName": "Fishing",
+  "profession": "fishing",
+  "part": "genel",
+  "text": "# Fishing · 1 → 300 Başlamadan Önce\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 1 → 300 (Başlamadan önce)\n\n## Nasıl Başlarım?\n\n- İKİNCİL: Fishing ikincil meslek: iki ana meslek yerinden birini kullanmaz.\n- (ikon) Eğitmenden Apprentice'i öğren, Fishing Supplies satıcısından Fishing Pole ve Shiny Bauble al.\n- NASIL: Oltayı tak, yemi uygula, kıyıdan Fishing at. Şamandıra sıçrayınca sağ tıkla. Yalnız tutulan balık skill verir.\n- YER: Bölge hızı değiştirmez: 1→300 aynı gölde kasılabilir. Yalnız rütbe ve Artisan görevi için yolculuk yaparsın.\n- SÜRÜ: Sürü (school) belli balığı verir; enkaz (wreckage) balık yerine sandık ve eşya verir. Skill için sürü şart değil.\n\n## Rütbeler\n\n| Rütbe | Tavan | Nasıl alınır | Şart |\n|---|---|---|---|\n| Apprentice | 75 | Fishing eğitmeni | — |\n| Journeyman | 150 | Fishing eğitmeni | 50 skill |\n| Expert | 225 | Kitap: Expert Fishing - The Bass and You (1 altın) | Seviye 20, 125 skill |\n| Artisan | 300 | Görev: Nat Pagle, Angler Extreme | Seviye 35, 225 skill |\n\nKitabı Old Man Heming satar: Booty Bay alt iskelesi (Stranglethorn). Görevi Nat Pagle verir: Dustwallow Marsh, Theramore'un güneybatısında Tidefury Cove'daki ada; dört görev balığı getirirsin. Yem ve olta bonusu rütbe için sayılmaz.\n\n## Eğitmenler (Apprentice + Journeyman)\n\n| Taraf | Eğitmen | Yer |\n|---|---|---|\n| Alliance | Arnold Leland · Lee Brown | Stormwind, Trade District kanalı · Elwynn, Goldshire |\n| Alliance | Grimnur Stonebrand · Paxton Ganter | Ironforge, Forlorn Cavern · Dun Morogh, Brewnall |\n| Alliance | Astaia · Androl Oakhand | Darnassus, Temple Gardens · Teldrassil, Rut'theran |\n| Alliance | Warg Deepwater · Matthew Hooper · Harold Riggs | Thelsamar · Lakeshire · Menethil Harbor |\n| Alliance | Donald Rabonne · Hunter Moore · Brannock | Southshore · Hillsbrad · Feathermoon (Feralas) |\n| Horde | Lumak · Kah Mistrunner · Armand Cromwell | Orgrimmar · Thunder Bluff · Undercity |\n| Horde | Lau'Tiki · Uthan Stillwater · Clyde Kellen | Sen'jin güneyi · Bloodhoof · Brightwater Lake |\n| Horde | Kil'Hiwana · Lui'Mala · Katoom the Angler | Ashenvale (BFD güneyi) · Shadowprey · Revantusk |\n| İki taraf | Fenn Fairweather · Baelann Swiftcurrent | Zephras Isle: Shen'dar · Valanaar |\n| İki taraf | Myizz Luckycatch · Krix | Booty Bay · Powderfuse Port (Riverglades) |\n\n## Yemler (10 dk)\n\n| Yem | Bonus | Şart | Nereden |\n|---|---|---|---|\n| Shiny Bauble | +25 | — | Fishing Supplies satıcısı |\n| Nightcrawlers | +50 | Fishing 50 | Satıcı, mob düşüşü |\n| Aquadynamic Fish Lens | +50 | Fishing 50 | Alliance görevi Electropellers (Loch Modan) · Fishing Rack |\n| Bright Baubles | +75 | Fishing 100 | Satıcı · Fishing Rack |\n| Flesh Eating Worm | +75 | Fishing 100 | Duskwood, Rotted One'lar |\n| Aquadynamic Fish Attractor | +100 (5 dk) | Fishing 100 | Engineering 150 · satıcı |\n\n## Oltalar ve Eşyalar\n\n| Eşya | Bonus | Nereden |\n|---|---|---|\n| Blump Family Fishing Pole | +3 | Alliance görevi, Gubber Blump (Auberdine) |\n| Strong Fishing Pole | +5 | Fishing Supplies satıcısı (seviye 5, Fishing 10) |\n| Big Iron Fishing Pole | +20 | Desolace, Shadowprey açıklarında su altındaki Shellfish Trap'ler · AH (seviye 25, Fishing 100) |\n| Nat Pagle's Extreme Angler FC-5000 | +25 | Horde görevi Snapjaws, Mon! (Katoom, Revantusk) |\n| Arcanite Fishing Pole | +35 | Fishing Extravaganza kazananı (Fishing 300) |\n| Lucky Fishing Hat · Anglin' Boots | +5 · +5 | Extravaganza nadir balık teslimleri (kazanmak gerekmez) |\n| High Test Eternium Fishing Line | +5 kalıcı | Oltaya takılır (Fishing 150): Extravaganza nadir balık teslimi |\n| Enchant Gloves - Fishing | +2 | Enchanting 145 |\n\n## Forever'da Yeni\n\n- YEMEK: Balık yemekleri Fishing skill verir (15 dk): Loch Frenzy Delight +3, Fillet of Frenzy +5, Bristle Whisker Catfish +8, Rockscale Cod +12, Filet of Redgill +18, Spinefin Halibut +18. En az 10 sn yemelisin; seviye şartı karakter seviyesidir.\n- LUREMASTER: Legacy perk'i Luremaster: yem takılıyken ekstra balık şansı %25 / %50 (2 rütbe).\n- WHIMSYFIN: Yeni balık Whimsyfin: Redridge, Lake Everstill'in doğusundaki nehir ve küçük göl. Savory Whimsyfin Delight yapılır.\n- EXTRAVAGANZA: Stranglethorn Fishing Extravaganza (her Pazar 14–16 sunucu saati): 40 Speckled Tastyfish → Riggle Bassbait. Forever'da 50 kazanan ve Extravagant Extravaganza Coin var; coin'le Jang'dan ödül alınır.\n\n## Kamp Objeleri\n\n| Obje | Skill | Malzeme | Nereden | Ne yapar |\n|---|---|---|---|---|\n| Fish Bowl | 20 | 1 Empty Vial + 1 Raw Brilliant Smallfish | Fishing eğitmeni · görev Camping 101: Fishing | Oturanlara %8 stat |\n| Fishing Rack | 140 | 2 Simple Wood + 2 Raw Mithril Head Trout + 1 Crystal Vial | Blueprint: Blackfathom Deeps, Gelihast | 1 saat uncommon (yeşil) balık + yem |\n| Fishing Hut | 300 | 5 Simple Wood + 2 Bolt of Runecloth + 1 Seasonal Fish Steaks | Blueprint: Fishing Hut (eğitmen öğretmez) | 1 saat rare (mavi) balık + yem |\n\nKamp ateşini Cooking kurar; objeler yanına konur, 1 saatlik ortak bekleme paylaşır. Fish Bowl, Blessing of Kings ile birikmez. Üst obje alttakinin yerine konabilir. Seasonal Fish Steaks: Fishing Supplies satıcısından Chef's Knife al (seviye 35, Fishing 275), Raw Winter Squid ya da Raw Summer Bass'a kullan. Fishing için Waylaid Crate yok."
+ },
+ {
+  "id": "herb-1-70-alliance",
+  "category": "profession",
+  "title": "Herbalism · Skill 1–70 kasma rotası: nerede, ne yapılır (Alliance)",
+  "file": "herb-1-70-alliance.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Herbalism",
+  "keywords": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "professionName": "Herbalism",
+  "profession": "herbalism",
+  "part": "range",
+  "range": [
+   1,
+   70
+  ],
+  "faction": "alliance",
+  "text": "# Herbalism · 1 → 70 Peacebloom & Silverleaf · Alliance\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 1 → 70 (Peacebloom & Silverleaf) · Fraksiyon: Alliance\n\n## Hangi Damar Ne Zamana Kadar Skill Verir\n\nBeyaz çerçeve = bu kartın aralığı (1 → 70)\n\nEksen değerleri: 1 · 15 · 50 · 70 · 100 · 115 · 150\n\nLejant: kesin skill (turuncu) · çoğu zaman (sarı) · bazen (yeşil) · skill vermez (gri)\n\n(Renk sınırları çubukların eksendeki konumundan ölçüldü; kartta sayı olarak yalnız eksen değerleri yazıyor.)\n\n| Bitki | kesin skill | çoğu zaman | bazen | skill vermez |\n|---|---|---|---|---|\n| Peacebloom | 1 → 26 | 26 → 51 | 51 → 101 | 101 → 150 (gri) |\n| Silverleaf | 1 → 26 | 26 → 51 | 51 → 101 | 101 → 150 (gri) |\n| Earthroot | 15 → 40 | 40 → 65 | 65 → 115 | 115 → 150 (gri) |\n| Mageroyal | 50 → 75 | 75 → 100 | 100 → 150 | — |\n| Briarthorn | 70 → 95 | 95 → 120 | 120 → 150 | — |\n\n## 1 · Elwynn Forest (Stormwind'e en yakın)\n\nHarita durakları: 1 = GOLDSHIRE, 2, 3 = MIRROR LAKE, 4, 5 = FOREST'S EDGE\n\nHarita lejantı: Peacebloom · Silverleaf · Earthroot · Mageroyal — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Goldshire'dan kuzeybatıya, Stormwind yönüne.\n- 2→3: Batıya dön, Mirror Lake'in üstündeki ağaçlardan geç.\n- 3→5: Gölün batı kıyısından güneye, Forest's Edge tarlalarına.\n- 5→1: Doğuya dönüp Goldshire'a. Açıkta Peacebloom, ağaç dibinde Silverleaf.\n\n## 2 · Dun Morogh (Ironforge'a yakın)\n\nHarita durakları: 1 = KHARANOS, 2, 3, 4 = GOL'BOLAR, 5\n\nHarita lejantı: Peacebloom · Silverleaf · Earthroot · Mageroyal — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Kharanos'tan yolu kuzeye çık.\n- 2→4: Doğu çatala sap, Gol'Bolar Quarry'nin üstündeki açıklığı dolaş.\n- 4→1: Dönüşte ocağın batı girişini tara. Yamaçlarda Earthroot.\n\n## 3 · Teldrassil (Darnassus'a yakın)\n\nHarita durakları: 1 = DOLANAAR, 2, 3 = STARBREEZE, 4 = AL'AMETH, 5\n\nHarita lejantı: Peacebloom · Silverleaf · Earthroot · Mageroyal — çıkabilen nokta · soluk = rota dışı\n\n- 1→3: Dolanaar'dan doğuya, Starbreeze Village çevresindeki orman kenarı.\n- 3→5: Güneybatıya, Lake Al'Ameth'in güney kıyısı. Ağaçlarda Silverleaf.\n- 5→1: Gölün batı ucundan kuzeye, açıklıktan Dolanaar'a.\n- 50: Bu rotada Mageroyal da topla.\n\n## 4 · Zephras Isle (İki tarafa açık)\n\nHarita durakları: 1 = SHEN'DAR, 2 = THENDAL, 3\n\nHarita notu: Açıklıkta Peacebloom, ağaç dibinde Silverleaf · rotayı izle\n\n- 1→2: Shen'dar Village'dan koyun batı yakasından kuzeye, Thendal Village'a.\n- 2: Köyün altındaki açıklıkta Peacebloom ve Silverleaf.\n- 2→3: Dar sırtın yanından geri dön, Shen'dar'ın güneybatısındaki ağaçlara.\n- 3→1: Köye dön.\n\n## Ne Topla, Ne Yap\n\n- (ikon) Peacebloom açıklıklarda, Silverleaf ağaç hattında. İkisi de 1'de açık.\n- (ikon) Earthroot 15'te açılır, kayalık yamaçlarda.\n- 50'DE: Journeyman al. Başlangıç eğitmenleri yalnız Apprentice öğretir.\n- BEDAVA: Başlangıç görevinden Wild Harvest'i seç: boş meslek yerin varsa Apprentice Herbalism öğretir, +2 skill verir.\n\n## Sat mı, Sakla mı?\n\n- SAKLA: 1 Peacebloom + 1 Silverleaf: 20'de Incense Candle kamp mumu. Ateşin başında oturanlara Intellect verir.\n- SAKLA: Topladıkça çıkan Herb Seeds'i sakla: Greenhouse kampında ekip bitki yetiştirirsin.\n- BANKA: Waylaid Crate bulursan (moblardan, sandıklardan düşer): 20 Peacebloom · 20 Silverleaf · 10 Earthroot · 10 Mageroyal'dan birini koy (seviye 10).\n- SAT: Kalanını AH'ye koy: Alchemy, Enchanting ve First Aid (Forever'da iksir yapar) bitki kullanır.\n\n## İşini Hızlandır\n\n- (ikon) Find Herbs açık olsun. Herbalism alet istemez.\n- BİLGİ: Northshire gibi başlangıç alanlarında da Peacebloom ve Silverleaf var.\n- İKİLİ: Mining aynı rotada damar kazar. Find Herbs ile Find Minerals aynı anda açık olmaz, arada geçiş yap.\n- BİLGİ: Turu iki yönde de dönebilirsin; yolun iki yanından topla."
+ },
+ {
+  "id": "herb-1-70-horde",
+  "category": "profession",
+  "title": "Herbalism · Skill 1–70 kasma rotası: nerede, ne yapılır (Horde)",
+  "file": "herb-1-70-horde.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Herbalism",
+  "keywords": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "professionName": "Herbalism",
+  "profession": "herbalism",
+  "part": "range",
+  "range": [
+   1,
+   70
+  ],
+  "faction": "horde",
+  "text": "# Herbalism · 1 → 70 Peacebloom & Silverleaf · Horde\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 1 → 70 (Peacebloom & Silverleaf) · Fraksiyon: Horde\n\n## Hangi Damar Ne Zamana Kadar Skill Verir\n\nBeyaz çerçeve = bu kartın aralığı (1 → 70)\n\nEksen değerleri: 1 · 15 · 50 · 70 · 100 · 115 · 150\n\nLejant: kesin skill (turuncu) · çoğu zaman (sarı) · bazen (yeşil) · skill vermez (gri)\n\n(Renk sınırları çubukların eksendeki konumundan ölçüldü; kartta sayı olarak yalnız eksen değerleri yazıyor.)\n\n| Bitki | kesin skill | çoğu zaman | bazen | skill vermez |\n|---|---|---|---|---|\n| Peacebloom | 1 → 26 | 26 → 51 | 51 → 101 | 101 → 150 (gri) |\n| Silverleaf | 1 → 26 | 26 → 51 | 51 → 101 | 101 → 150 (gri) |\n| Earthroot | 15 → 40 | 40 → 65 | 65 → 115 | 115 → 150 (gri) |\n| Mageroyal | 50 → 75 | 75 → 100 | 100 → 150 | — |\n| Briarthorn | 70 → 95 | 95 → 120 | 120 → 150 | — |\n\n## 1 · Durotar (Orgrimmar'a yakın)\n\nHarita durakları: 1 = SEN'JIN, 2, 3 = RAZOR HILL, 4 = TIRAGARDE, 5\n\nHarita lejantı: Peacebloom · Silverleaf · Earthroot · Mageroyal — çıkabilen nokta · soluk = rota dışı\n\n- 1→3: Sen'jin Village'dan yolun batı yakasından Razor Hill'e.\n- 3→4: Doğu yakadan geri dön, Tiragarde Keep ile sahil arasından geç.\n- 4→1: Kalenin altından içeri kes, Sen'jin'e dön. Alçak sırtlarda Earthroot.\n\n## 2 · Mulgore (Thunder Bluff'a yakın)\n\nHarita durakları: 1 = BLOODHOOF, 2, 3, 4, 5\n\nHarita lejantı: Peacebloom · Silverleaf · Earthroot · Mageroyal — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Bloodhoof'tan Stonebull Lake'in güney ucunu dolaş.\n- 2→4: Batı eteklerini kuzeye izle. Yamaçlarda Earthroot.\n- 4→5: Thunder Bluff'ın güneyindeki çayırdan doğuya geç.\n- 5→1: Gölün doğu kıyısından Bloodhoof'a in.\n\n## 3 · Tirisfal Glades (Undercity'ye yakın)\n\nHarita durakları: 1 = BRILL, 2, 3, 4 = BRIGHTWATER, 5\n\nHarita lejantı: Peacebloom · Silverleaf · Earthroot · Mageroyal — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Brill'den ağaçların arasından kuzeybatıya.\n- 2→3: Brightwater Lake'in kuzeyindeki tarlalardan doğuya.\n- 3→5: Doğu kıyıdan güneye. Doğu kolda tepelerde Earthroot.\n- 5→1: Gölün altından Brill'e dön.\n\n## 4 · Zephras Isle (İki tarafa açık)\n\nHarita durakları: 1 = SHEN'DAR, 2 = THENDAL, 3\n\nHarita notu: Açıklıkta Peacebloom, ağaç dibinde Silverleaf · rotayı izle\n\n- 1→2: Shen'dar Village'dan koyun batı yakasından kuzeye, Thendal Village'a.\n- 2: Köyün altındaki açıklıkta Peacebloom ve Silverleaf.\n- 2→3: Dar sırtın yanından geri dön, Shen'dar'ın güneybatısındaki ağaçlara.\n- 3→1: Köye dön.\n\n## Ne Topla, Ne Yap\n\n- (ikon) Peacebloom açıklıklarda, Silverleaf ağaç hattında. İkisi de 1'de açık.\n- (ikon) Earthroot 15'te açılır, kayalık yamaçlarda.\n- 50'DE: Journeyman al. Başlangıç eğitmenleri yalnız Apprentice öğretir.\n- BEDAVA: Başlangıç görevinden Wild Harvest'i seç: boş meslek yerin varsa Apprentice Herbalism öğretir, +2 skill verir.\n\n## Sat mı, Sakla mı?\n\n- SAKLA: 1 Peacebloom + 1 Silverleaf: 20'de Incense Candle kamp mumu. Ateşin başında oturanlara Intellect verir.\n- SAKLA: Topladıkça çıkan Herb Seeds'i sakla: Greenhouse kampında ekip bitki yetiştirirsin.\n- BANKA: Waylaid Crate bulursan (moblardan, sandıklardan düşer): 20 Peacebloom · 20 Silverleaf · 10 Earthroot · 10 Mageroyal'dan birini koy (seviye 10).\n- SAT: Kalanını AH'ye koy: Alchemy, Enchanting ve First Aid (Forever'da iksir yapar) bitki kullanır.\n\n## İşini Hızlandır\n\n- (ikon) Find Herbs açık olsun. Herbalism alet istemez.\n- TAUREN: Cultivation: yakındaki bitkinin bir kopyasını çıkarır (15 dakikada bir). Skill bonusu vermez.\n- İKİLİ: Mining aynı rotada damar kazar. Find Herbs ile Find Minerals aynı anda açık olmaz, arada geçiş yap.\n- BİLGİ: Turu iki yönde de dönebilirsin; yolun iki yanından topla."
+ },
+ {
+  "id": "herb-115-170",
+  "category": "profession",
+  "title": "Herbalism · Skill 115–170 kasma rotası: nerede, ne yapılır",
+  "file": "herb-115-170.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Herbalism",
+  "keywords": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "professionName": "Herbalism",
+  "profession": "herbalism",
+  "part": "range",
+  "range": [
+   115,
+   170
+  ],
+  "faction": null,
+  "text": "# Herbalism · 115 → 170 Steelbloom & Kingsblood\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 115 → 170 (Steelbloom & Kingsblood)\n\n## Hangi Damar Ne Zamana Kadar Skill Verir\n\nBeyaz çerçeve = bu kartın aralığı (115 → 170)\n\nEksen değerleri: 100 · 115 · 125 · 150 · 160 · 170 · 200 · 225 · 250\n\nLejant: kesin skill (turuncu) · çoğu zaman (sarı) · bazen (yeşil) · skill vermez (gri)\n\n(Renk sınırları çubukların eksendeki konumundan ölçüldü; kartta sayı olarak yalnız eksen değerleri yazıyor.)\n\n| Bitki | kesin skill | çoğu zaman | bazen | skill vermez |\n|---|---|---|---|---|\n| Bruiseweed | 100 → 125 | 125 → 150 | 150 → 200 | 200 → 250 (gri) |\n| Wild Steelbloom | 115 → 140 | 140 → 165 | 165 → 215 | 215 → 250 (gri) |\n| Grave Moss | 120 → 145 | 145 → 170 | 170 → 220 | 220 → 250 (gri) |\n| Kingsblood | 125 → 150 | 150 → 175 | 175 → 225 | 225 → 250 (gri) |\n| Liferoot | 150 → 175 | 175 → 200 | 200 → 250 | — |\n| Fadeleaf | 160 → 185 | 185 → 210 | 210 → 250 | — |\n\n## 1 · Hillsbrad Foothills (İki taraf · Tarren Mill köprüsü)\n\nHarita durakları: 1 = KÖPRÜ, 2, 3 = DURNHOLDE, 4, 5\n\nHarita lejantı: Bruiseweed · Wild Steelbloom · Kingsblood · Liferoot — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Tarren Mill ile Durnholde arasındaki köprüden doğu kıyıyı kuzeye izle.\n- 2→3: Durnholde'nin dışını dolaş: Bruiseweed, Wild Steelbloom.\n- 3→1: Kalenin güneyindeki tarlalardan batıya, köprüye.\n- 150: Nehir kıyısında Liferoot; 125'ten sonra Kingsblood.\n\n## 2 · Stonetalon Mountains (İki taraf · Windshear Crag)\n\nHarita durakları: 1 = ANA YOL, 2, 3, 4 = WINDSHEAR CRAG\n\nHarita lejantı: Bruiseweed · Wild Steelbloom · Kingsblood — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Ana yoldan kuzeydoğuya ayrılan patikadan Windshear Crag'e.\n- 2→4: Kesim alanlarında Bruiseweed, kayalık yamaçlarda Wild Steelbloom.\n- 4→1: 125'ten sonra dönüşte açıklıkta Kingsblood. Patikadan geri.\n\n## 3 · Wetlands (Alliance · Menethil'e yakın)\n\nHarita durakları: 1, 2 = DUN MODR, 3, 4\n\nHarita lejantı: Bruiseweed · Wild Steelbloom · Kingsblood · Liferoot — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Whelgar's Excavation Site'ın kuzeyindeki yoldan Dun Modr'a doğru.\n- 2→3: Kasabadan önce batıya dön, eteklerde Bruiseweed ve Wild Steelbloom.\n- 3→1: Bataklık kanallarından dön: 125'ten Kingsblood, 150'den Liferoot.\n\n## Ne Topla, Ne Yap\n\n- (ikon) Wild Steelbloom 115'te açılır, yamaçlarda. Yolda Bruiseweed.\n- (ikon) Kingsblood 125'te, Liferoot 150'de (nehir ve kanal kıyısı).\n- (ikon) Grave Moss (120) mezarlıklarda çıkar.\n- 125'TE: Expert al (karakter seviyesi 10): 150'yi geçmek için şart.\n\n## Sat mı, Sakla mı?\n\n- 140'TA: Greenhouse: 2 Simple Wood + 1 Arthas' Tears + 1 Purple Lotus. Blueprint'i Excavation Site: Wetlands zindanında Shadetooth düşürür. Arthas' Tears (220) ve Purple Lotus'u (210) şimdilik AH'den alırsın.\n- BANKA: Waylaid Crate bulursan: Journeyman Herbs'e 10 Wild Steelbloom, 10 Grave Moss ya da 10 Kingsblood (seviye 10); Earthly Expert Herbs'e 20 Liferoot (seviye 20). Her sandığa tek deste.\n- SAT: Kalanını AH'ye koy: Alchemist'ler bu aralığın bitkilerini çok kullanır.\n\n## İşini Hızlandır\n\n- (ikon) Find Herbs açık olsun.\n- +5: Herbalist's Gloves (Leatherworking) bitkiyi 5 skill erken açar.\n- İKİLİ: Mining aynı rotada damar kazar. Find Herbs ile Find Minerals aynı anda açık olmaz, arada geçiş yap."
+ },
+ {
+  "id": "herb-170-205",
+  "category": "profession",
+  "title": "Herbalism · Skill 170–205 kasma rotası: nerede, ne yapılır",
+  "file": "herb-170-205.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Herbalism",
+  "keywords": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "professionName": "Herbalism",
+  "profession": "herbalism",
+  "part": "range",
+  "range": [
+   170,
+   205
+  ],
+  "faction": null,
+  "text": "# Herbalism · 170 → 205 Goldthorn & Khadgar's Whisker\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 170 → 205 (Goldthorn & Khadgar's Whisker)\n\n## Hangi Damar Ne Zamana Kadar Skill Verir\n\nBeyaz çerçeve = bu kartın aralığı (170 → 205)\n\nEksen değerleri: 150 · 160 · 170 · 185 · 205 · 225 · 250 · 275 · 300\n\nLejant: kesin skill (turuncu) · çoğu zaman (sarı) · bazen (yeşil) · skill vermez (gri)\n\n(Renk sınırları çubukların eksendeki konumundan ölçüldü; kartta sayı olarak yalnız eksen değerleri yazıyor.)\n\n| Bitki | kesin skill | çoğu zaman | bazen | skill vermez |\n|---|---|---|---|---|\n| Liferoot | 150 → 175 | 175 → 200 | 200 → 250 | 250 → 300 (gri) |\n| Fadeleaf | 160 → 185 | 185 → 210 | 210 → 260 | 260 → 300 (gri) |\n| Goldthorn | 170 → 195 | 195 → 220 | 220 → 270 | 270 → 300 (gri) |\n| Khadgar's Whisker | 185 → 210 | 210 → 235 | 235 → 285 | 285 → 300 (gri) |\n\n## 1 · Arathi Highlands (İki taraf · Stromgarde göletleri)\n\nHarita durakları: 1 = STROMGARDE GÖLETLERİ, 2, 3 = NORTHFOLD, 4, 5, 6\n\nHarita lejantı: Liferoot · Fadeleaf · Goldthorn · Khadgar's Whisker — çıkabilen nokta · soluk = rota dışı\n\n- 1: Stromgarde Keep'in kuzeyindeki göletlerin kıyısında Liferoot.\n- 1→3: Kuzeye, Northfold Manor'un çevresine.\n- 3→5: Eteklerden doğuya: Goldthorn; 185'ten sonra ağaçlarda Khadgar's Whisker.\n- 5→1: Yoldan batıya dön.\n\n## 2 · Stranglethorn Vale (İki taraf · Grom'gol yakını)\n\nHarita durakları: 1 = NEHİR, 2 = NAZFERITI, 3, 4, 5 = MOSH'OGG\n\nHarita lejantı: Liferoot · Fadeleaf · Goldthorn · Khadgar's Whisker — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Nehri yukarı Lake Nazferiti'ye izle, kıyıda Liferoot.\n- 2→4: Doğuya, ormana gir; etekleri güneye izle: Goldthorn, 185'ten Khadgar's Whisker.\n- 4→5: Mosh'Ogg Ogre Mound'a girmeden batıya dön.\n- 5→1: Grom'gol'ün yukarısında nehre katıl.\n\n## Ne Topla, Ne Yap\n\n- (ikon) Goldthorn 170'te açılır, kayalık yamaçlarda.\n- (ikon) Fadeleaf (160) ağaç çevresinde.\n- (ikon) Khadgar's Whisker 185'te açılır.\n- 200'DE: Artisan al (karakter seviyesi 25): eğitmene uğrarsan sonraki rotadan önce öğren.\n\n## Sat mı, Sakla mı?\n\n- BANKA: Waylaid Crate bulursan (seviye 20): 10 Fadeleaf · 10 Goldthorn · 10 Khadgar's Whisker · 20 Liferoot'tan birini koy.\n- SAKLA: Nadir bitkiler: Frilled Lichen (Cerulean Dye), Rosecap (Magenta Dye), Stranglevine (Viridian Dye). Alchemist boya yapar.\n- SAT: Kalanını AH'ye koy. Alchemist'ler bu bitkilerle iksir yapar.\n\n## İşini Hızlandır\n\n- (ikon) Find Herbs açık olsun.\n- +15: Goldthorn Tea (Cooking, yeni): 15 dakika +15 Herbalism.\n- İKİLİ: Mining aynı rotada damar kazar. Find Herbs ile Find Minerals aynı anda açık olmaz, arada geçiş yap."
+ },
+ {
+  "id": "herb-205-230",
+  "category": "profession",
+  "title": "Herbalism · Skill 205–230 kasma rotası: nerede, ne yapılır",
+  "file": "herb-205-230.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Herbalism",
+  "keywords": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "professionName": "Herbalism",
+  "profession": "herbalism",
+  "part": "range",
+  "range": [
+   205,
+   230
+  ],
+  "faction": null,
+  "text": "# Herbalism · 205 → 230 Firebloom & Purple Lotus\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 205 → 230 (Firebloom & Purple Lotus)\n\n## Hangi Damar Ne Zamana Kadar Skill Verir\n\nBeyaz çerçeve = bu kartın aralığı (205 → 230)\n\nEksen değerleri: 185 · 195 · 205 · 210 · 220 · 230 · 250 · 275 · 300\n\nLejant: kesin skill (turuncu) · çoğu zaman (sarı) · bazen (yeşil) · skill vermez (gri)\n\n(Renk sınırları çubukların eksendeki konumundan ölçüldü; kartta sayı olarak yalnız eksen değerleri yazıyor.)\n\n| Bitki | kesin skill | çoğu zaman | bazen | skill vermez |\n|---|---|---|---|---|\n| Wintersbite | 195 → 220 | 220 → 245 | 245 → 295 | 295 → 300 (gri) |\n| Firebloom | 205 → 230 | 230 → 255 | 255 → 300 | — |\n| Purple Lotus | 210 → 235 | 235 → 260 | 260 → 300 | — |\n| Arthas' Tears | 220 → 245 | 245 → 270 | 270 → 300 | — |\n\n## 1 · Tanaris (İki taraf · Gadgetzan'ın güneyi)\n\nHarita durakları: 1 = DUNEMAUL GÜNEYİ, 2, 3 = SOUTHMOON, 4 = EASTMOON\n\nHarita lejantı: Firebloom · Purple Lotus — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Dunemaul Compound'un güneyindeki kumdan batıya: Firebloom.\n- 2→3: Güneydoğuya, Southmoon Ruins'e.\n- 3→4: Kuzeydoğuya, Eastmoon Ruins'e; tur kapanır.\n- 210: İki harabenin yıkık duvarlarında Purple Lotus.\n\n## 2 · Searing Gorge (İki taraf · Cauldron'un güneyi)\n\nHarita durakları: 1 = CAULDRON KENARI, 2, 3, 4\n\nHarita lejantı: Firebloom — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Cauldron'un güney kenarında Firebloom, yüksek zeminden batıya.\n- 2→3: Sea of Cinders'tan doğuya geri dön.\n- 3→1: Kuzeye dönüp kenara katıl. Slag Pit'e inme.\n\n## 3 · Alterac Mountains (Hillsbrad'dan kısa yol)\n\nHarita durakları: 1 = HILLSBRAD YOLU, 2, 3, 4\n\nHarita lejantı: Wintersbite — çıkabilen nokta · soluk = rota dışı\n\n- 1→3: Hillsbrad'dan yolu kuzeye, Ruins of Alterac'ın güneydoğusundaki karlara: Wintersbite.\n- 3→4: Doğu duvarın dışından kuzeyi dolaş.\n- 4→1: Yoldan in. Ogre kalesine hiç girmeden tur biter.\n- !: Wintersbite yalnız Alterac'ın karlarında çıkar.\n\n## Ne Topla, Ne Yap\n\n- (ikon) Firebloom 205'te açılır: Tanaris ya da Searing Gorge.\n- (ikon) Purple Lotus 210'da, harabe duvarlarında (yalnız Tanaris turunda). Bazen yanında Wildvine çıkar.\n- (ikon) Wintersbite (195): Hillsbrad'daysan Alterac daha kısa.\n- 200'DE: Artisan yoksa al (karakter seviyesi 25): 225'i geçmek için şart.\n\n## Sat mı, Sakla mı?\n\n- SAKLA: 1 Purple Lotus + 1 Arthas' Tears (+2 Simple Wood): Greenhouse kampı. Tohumlarını ekip bitki yetiştirirsin.\n- BANKA: Waylaid Crate bulursan (seviye 20): 10 Wintersbite · 10 Firebloom · 20 Purple Lotus · 10 Arthas' Tears'tan birini koy.\n- SAT: Kalanını AH'ye koy. Önce sandığın istediğini ayır.\n\n## İşini Hızlandır\n\n- (ikon) Find Herbs açık olsun.\n- +5: Enchant Gloves - Advanced Herbalism (Enchanting 225).\n- İKİLİ: Mining: Tanaris'te aynı bölgede Mithril turu da var."
+ },
+ {
+  "id": "herb-230-300",
+  "category": "profession",
+  "title": "Herbalism · Skill 230–300 kasma rotası: nerede, ne yapılır",
+  "file": "herb-230-300.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Herbalism",
+  "keywords": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "professionName": "Herbalism",
+  "profession": "herbalism",
+  "part": "range",
+  "range": [
+   230,
+   300
+  ],
+  "faction": null,
+  "text": "# Herbalism · 230 → 300 Sungrass'tan Dreamfoil'e\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 230 → 300 (Sungrass'tan Dreamfoil'e)\n\n## Hangi Damar Ne Zamana Kadar Skill Verir\n\nBeyaz çerçeve = bu kartın aralığı (230 → 300)\n\nEksen değerleri: 220 · 230 · 245 · 260 · 270 · 280 · 290 · 300\n\nLejant: kesin skill (turuncu) · çoğu zaman (sarı) · bazen (yeşil) · skill vermez (gri)\n\n(Renk sınırları çubukların eksendeki konumundan ölçüldü; kartta sayı olarak yalnız eksen değerleri yazıyor.)\n\n| Bitki | kesin skill | çoğu zaman | bazen | skill vermez |\n|---|---|---|---|---|\n| Sungrass | 230 → 255 | 255 → 280 | 280 → 300 | — |\n| Ghost Mushroom | 245 → 270 | 270 → 295 | 295 → 300 | — |\n| Gromsblood | 250 → 275 | 275 → 300 | — | — |\n| Golden Sansam | 260 → 285 | 285 → 300 | — | — |\n| Dreamfoil | 270 → 295 | 295 → 300 | — | — |\n| Mountain Silversage | 280 → 300 | — | — | — |\n| Plaguebloom | 285 → 300 | — | — | — |\n| Icecap | 290 → 300 | — | — | — |\n\n## 1 · Feralas · 230 → 270 (Dire Maul'un güneyi)\n\nHarita durakları: 1 = HIGH WILDERNESS, 2, 3 = ISILDIEN, 4\n\nHarita lejantı: Sungrass · Purple Lotus · Golden Sansam — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Dire Maul'un güneyinde doğu yolundan ayrıl, High Wilderness'a gir; batı açıklıklarında Sungrass.\n- 2→3: Güneye, Ruins of Isildien'de doğuya dön.\n- 3→1: Kuzeye dönerken yıkık duvarlarda Purple Lotus.\n- 260: Bu turda Golden Sansam da çıkar.\n\n## 2 · The Hinterlands · 230 → 270 (Skulk Rock)\n\nHarita durakları: 1 = SKULK ROCK, 2, 3, 4, 5\n\nHarita lejantı: Sungrass · Ghost Mushroom · Golden Sansam — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Skulk Rock'tan nehrin altındaki çayırdan doğuya.\n- 2→3: Sahil kayalıklarından önce güneye dön.\n- 3→1: Açıklıklardan batıya: Sungrass.\n- 245: Skulk Rock mağarasına kısa sapma: Ghost Mushroom. 260'tan Golden Sansam.\n\n## 3 · Felwood · 270 → 300 (Irontree Woods)\n\nHarita durakları: 1, 2, 3 = FELPAW, 4 = IRONTREE\n\nHarita lejantı: Dreamfoil · Mountain Silversage · Plaguebloom — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Irontree Woods'tan geçen kuzey yolu Felpaw Village'a doğru izle.\n- 2→3: Köyden önce geri dön.\n- 3→4: Ormanın doğu tarafında Dreamfoil.\n- 280: Kayalık çıkıntılarda Mountain Silversage, 285'ten açıklıklarda Plaguebloom.\n\n## 4 · Eastern Plaguelands · 270 → 300 (Darrowshire · Lake Mereldar)\n\nHarita durakları: 1 = DARROWSHIRE, 2 = KULE, 3 = CORIN'S CROSSING, 4, 5 = MERELDAR\n\nHarita lejantı: Dreamfoil · Mountain Silversage · Plaguebloom — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Darrowshire kavşağından kuzeye, yıkık kuleye: Dreamfoil.\n- 2→3: Doğuya, Corin's Crossing yoluna katıl.\n- 3→4: Kasabanın doğusundaki açık araziyi tara.\n- 4→1: Lake Mereldar'ın kuzey ve batı kıyısından Darrowshire'a: 285'ten Plaguebloom.\n\n## Ne Topla, Ne Yap\n\n- (ikon) Sungrass 230'da, Golden Sansam 260'ta açılır.\n- (ikon) Ghost Mushroom (245) yalnız mağarada: Hinterlands'te Skulk Rock.\n- (ikon) Dreamfoil 270'te, Mountain Silversage 280'de, Plaguebloom 285'te.\n- (ikon) Icecap (290) yalnız Winterspring'de. Black Lotus 300 ister, skill vermez.\n\n## Sat mı, Sakla mı?\n\n- SAKLA: 4 Mountain Silversage (+1 Crystal Vial, 2 Runecloth): 300'de Seed Hybridizer. Tohumları çoğaltır ya da üst seviyeye çevirir.\n- BANKA: Waylaid Crate bulursan (seviye 35): Earthly Artisan'a 20 Sungrass, 10 Golden Sansam, 10 Ghost Mushroom ya da 10 Gromsblood; Flowering Artisan'a 20 Dreamfoil, 20 Silversage, 20 Plaguebloom ya da 20 Icecap. Her sandığa tek deste.\n- SAT: Kalanını AH'ye koy: Alchemist'ler flask ve iksir, First Aid iksir için ister.\n\n## İşini Hızlandır\n\n- (ikon) Find Herbs açık olsun.\n- +25: Herbalist's Gloves +5 (deri giyebilmen gerekir), eldiven enchant'ı +5, Goldthorn Tea +15: bitkiyi 25 skill erken açarsın.\n- YENİ: Death Lotus: Mount Hyjal'da eldivende Lotus Claw enchant'ı varken bitki toplarken düşer. Riverglades'te Mister Graphed da satar."
+ },
+ {
+  "id": "herb-70-115",
+  "category": "profession",
+  "title": "Herbalism · Skill 70–115 kasma rotası: nerede, ne yapılır",
+  "file": "herb-70-115.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Herbalism",
+  "keywords": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "professionName": "Herbalism",
+  "profession": "herbalism",
+  "part": "range",
+  "range": [
+   70,
+   115
+  ],
+  "faction": null,
+  "text": "# Herbalism · 70 → 115 Mageroyal & Briarthorn\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 70 → 115 (Mageroyal & Briarthorn)\n\n## Hangi Damar Ne Zamana Kadar Skill Verir\n\nBeyaz çerçeve = bu kartın aralığı (70 → 115)\n\nEksen değerleri: 50 · 70 · 85 · 100 · 115 · 125 · 150 · 175 · 200\n\nLejant: kesin skill (turuncu) · çoğu zaman (sarı) · bazen (yeşil) · skill vermez (gri)\n\n(Renk sınırları çubukların eksendeki konumundan ölçüldü; kartta sayı olarak yalnız eksen değerleri yazıyor.)\n\n| Bitki | kesin skill | çoğu zaman | bazen | skill vermez |\n|---|---|---|---|---|\n| Mageroyal | 50 → 75 | 75 → 100 | 100 → 150 | 150 → 200 (gri) |\n| Briarthorn | 70 → 95 | 95 → 120 | 120 → 170 | 170 → 200 (gri) |\n| Stranglekelp | 85 → 110 | 110 → 135 | 135 → 185 | 185 → 200 (gri) |\n| Bruiseweed | 100 → 125 | 125 → 150 | 150 → 200 | — |\n| Wild Steelbloom | 115 → 140 | 140 → 165 | 165 → 200 | — |\n\n## 1 · The Barrens (Horde · Crossroads)\n\nHarita durakları: 1 = CROSSROADS, 2, 3, 4\n\nHarita lejantı: Mageroyal · Briarthorn · Bruiseweed — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Crossroads'tan batıya çık, dağlara girmeden kuzeye dön.\n- 2→3: Sırt ile Gold Road arasındaki açıklıkta Mageroyal ve Briarthorn.\n- 3→4: Kuzey uçta doğuya dön.\n- 4→1: Dağınık ağaç ve çalıları takip edip Crossroads'a dön.\n\n## 2 · Silverpine Forest (Horde · The Sepulcher)\n\nHarita durakları: 1 = THE SEPULCHER, 2 = LORDAMERE, 3, 4\n\nHarita lejantı: Mageroyal · Briarthorn · Bruiseweed — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: The Sepulcher'dan doğu yolundan çık, Lordamere Lake'in batısındaki tarlalara.\n- 2→4: Açıklıklarda Mageroyal, ağaç hattında Briarthorn.\n- 4→1: Göl tarafından geri dön. Fenris Isle'a geçme.\n\n## 3 · Darkshore (Alliance · Auberdine)\n\nHarita durakları: 1 = AUBERDINE, 2 = AMETH'ARAN, 3, 4\n\nHarita ek etiketi: YÜZEREK (kesikli yol)\n\nHarita lejantı: Mageroyal · Briarthorn · Stranglekelp · Bruiseweed — çıkabilen nokta · soluk = rota dışı\n\n- 1→2: Auberdine'den yolun iç tarafından güneye, Ameth'Aran'ı geç.\n- 2→3: Grove of the Ancients'ın kuzeyindeki nehirden önce dön.\n- 3→1: Yol ile kumsal arasındaki şeritten geri dön.\n- 85: Dönüşte sahil boyunca yüz: Stranglekelp (kesikli yol).\n\n## 4 · Loch Modan (Alliance · Thelsamar)\n\nHarita durakları: 1, 2, 3, 4 = MO'GROSH ÖNCESİ, 5\n\nHarita ek etiketi: THELSAMAR'DAN (kesikli yol)\n\nHarita lejantı: Mageroyal · Briarthorn · Bruiseweed — çıkabilen nokta · soluk = rota dışı\n\n- ALLIANCE: Thelsamar'dan gölün güney ucunu dolaşıp doğu kıyıya geç.\n- 1→3: Ironband's Excavation Site'ın üstündeki ağaçlardan kuzeye.\n- 3→4: Mo'grosh Stronghold'dan önce batıya dön.\n- 4→1: Göl kıyısını tarayarak dön.\n\n## Ne Topla, Ne Yap\n\n- (ikon) Mageroyal ağaç arasındaki açıklıkta, Briarthorn (70) ağaç diplerinde.\n- (ikon) Stranglekelp 85'te açılır, su altında ya da su kıyısında çıkar.\n- (ikon) Bruiseweed 100'de açılır, öbek gördükçe al.\n- 75'TEN ÖNCE: Journeyman yoksa al: Apprentice tavanı 75.\n\n## Sat mı, Sakla mı?\n\n- SAKLA: Herb Seeds: 140'ta Greenhouse'ta ekersin.\n- BANKA: Waylaid Crate bulursan (seviye 10): Apprentice Herbs'e 10 Mageroyal ya da 10 Briarthorn, Journeyman Herbs'e 10 Stranglekelp ya da 10 Bruiseweed koy. Her sandığa tek deste.\n- SAT: Kalanını AH'ye koy: Alchemy, Enchanting ve First Aid (Forever'da iksir yapar) bitki kullanır.\n\n## İşini Hızlandır\n\n- (ikon) Find Herbs açık olsun.\n- +2: Enchant Gloves - Herbalism (Enchanting 145) bitkiyi 2 skill erken açar.\n- İKİLİ: Mining aynı rotada damar kazar. Find Herbs ile Find Minerals aynı anda açık olmaz, arada geçiş yap."
+ },
+ {
+  "id": "herb-genel",
+  "category": "profession",
+  "title": "Herbalism · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "file": "herb-genel.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Herbalism",
+  "keywords": [
+   "herbalism",
+   "bitki toplama, ot"
+  ],
+  "professionName": "Herbalism",
+  "profession": "herbalism",
+  "part": "genel",
+  "text": "# Herbalism · 1 → 300 Başlamadan Önce\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 1 → 300 (Başlamadan önce)\n\n## Bitkiler: 1 → 205\n\n| Bitki | Skill | Nerede (ana bölgeler · nasıl bir yerde) |\n|---|---|---|\n| Peacebloom | 1 | Elwynn, Dun Morogh, Teldrassil, Durotar, Mulgore, Tirisfal, Zephras Isle, Barrens (açık arazi) |\n| Silverleaf | 1 | Elwynn, Dun Morogh, Teldrassil, Durotar, Mulgore, Tirisfal, Zephras Isle, Barrens (ağaç dibi) |\n| Earthroot | 15 | Başlangıç bölgelerinin hepsi, Barrens (tepe ve yamaçlar) |\n| Mageroyal | 50 | Barrens, Silverpine, Loch Modan, Westfall, Redridge (açık arazi) |\n| Briarthorn | 70 | Barrens, Duskwood, Silverpine, Redridge, Westfall (ağaç dibi) |\n| Stranglekelp | 85 | Wetlands, Stranglethorn, Ashenvale, Desolace, Westfall (su altı ve kıyı) |\n| Bruiseweed | 100 | Stonetalon, Barrens, Ashenvale, Duskwood, Redridge (bina ve tepe yanı) |\n| Wild Steelbloom | 115 | Stranglethorn, Stonetalon, Arathi, Wetlands, Thousand Needles (tepe ve yamaçlar) |\n| Grave Moss | 120 | Desolace, Duskwood (mezarlık ve mahzenler) |\n| Kingsblood | 125 | Stranglethorn, Wetlands, Hillsbrad, Ashenvale, Stonetalon (açık arazi) |\n| Liferoot | 150 | Dustwallow, Stranglethorn, Swamp of Sorrows, Wetlands, Alterac, Desolace (su kenarı) |\n| Fadeleaf | 160 | Dustwallow, Stranglethorn, Arathi, Alterac, Swamp of Sorrows (ağaç dibi) |\n| Goldthorn | 170 | Stranglethorn, Feralas, Arathi, Dustwallow, Swamp of Sorrows (tepe ve yamaçlar) |\n| Khadgar's Whisker | 185 | Stranglethorn, Feralas, Arathi, Dustwallow, Swamp of Sorrows (ağaç dibi) |\n| Wintersbite | 195 | Yalnız Alterac Mountains (karlı açık arazi) |\n\n## Bitkiler: 205 → 300\n\n| Bitki | Skill | Nerede (ana bölgeler · nasıl bir yerde) |\n|---|---|---|\n| Firebloom | 205 | Tanaris, Searing Gorge, Blasted Lands, Badlands (açık arazi) |\n| Purple Lotus | 210 | Azshara, Hinterlands, Feralas, Tanaris, Stranglethorn (harabe içi ve yanı) |\n| Arthas' Tears | 220 | Eastern Plaguelands, Western Plaguelands, Felwood (açık arazi) |\n| Sungrass | 230 | Feralas, Azshara, Hinterlands, Un'Goro, Western Plaguelands (açık arazi) |\n| Blindweed | 235 | Swamp of Sorrows, Un'Goro (su kenarı) |\n| Ghost Mushroom | 245 | Hinterlands (yalnız mağara içi) |\n| Gromsblood | 250 | Felwood, Blasted Lands, Desolace (açık arazi) |\n| Golden Sansam | 260 | Azshara, Un'Goro, Eastern Plaguelands, Felwood, Burning Steppes (açık arazi) |\n| Dreamfoil | 270 | Azshara, Eastern Plaguelands, Un'Goro, Felwood, Burning Steppes, Silithus, Western Plaguelands (açık arazi) |\n| Mountain Silversage | 280 | Winterspring, Eastern Plaguelands, Azshara, Un'Goro, Burning Steppes (yüksek yer ve yamaçlar) |\n| Plaguebloom | 285 | Eastern Plaguelands, Western Plaguelands, Felwood (açık arazi) |\n| Icecap | 290 | Yalnız Winterspring (tepe ve yamaçlar) |\n| Black Lotus | 300 | Burning Steppes, Silithus, Winterspring, Eastern Plaguelands (açık arazi · skill vermez) |\n\nBitki açıldığı skill'den 100 sonra gri olur. Gri bitki skill vermez, sonraki aralığa geç.\n\n## Forever'ın Yeni Bitkileri\n\n| Bitki | Ne için |\n|---|---|\n| Marefoil | Flask of Natural Precision · Flask of Natural Swiftness · Engineering: Stealthman 52 |\n| Demonsage | Flask of Natural Accuracy · Flask of Natural Aggression |\n| Death Lotus | 4 Natural flask'ın hepsi · Legionite Glaive · Enchant Gloves - Lotus Claw ve Natural Power · Gnomish Weather Machine |\n\nFlask'lar: Precision 12, Swiftness 18 Marefoil; Accuracy 12, Aggression 18 Demonsage; hepsine 1 Death Lotus. Death Lotus: Mount Hyjal'da eldivende Lotus Claw enchant'ı varken topladığın her bitkiden düşebilir; formülü (Enchanting 295) Mount Hyjal'da Dala Fairmaw satar. Riverglades'te Mister Graphed (Agent of the Black Market) da Death Lotus satar.\n\n## Nasıl Başlarım?\n\n- 1: Mesleği öğren: başlangıç görevinden Wild Harvest'i seç (boş meslek yerin varsa Herbalism öğretir, +2 skill) ya da bir eğitmene git.\n- (ikon) Find Herbs'i aç: bitkiler mini haritada çıkar. Herbalism alet istemez. Find Minerals ile aynı anda açık olmaz; öldükten sonra yeniden aç.\n- 2: Bitkiye sağ tıkla. Skill'in yetmiyorsa ekranda gereken skill yazar.\n- EK: Mageroyal ve Briarthorn'dan bazen Swiftthistle, Purple Lotus'tan Wildvine çıkar.\n\n## Rütbeler\n\n| Rütbe | Tavan | Skill şartı | Karakter seviyesi |\n|---|---|---|---|\n| Apprentice | 75 | Şart yok | Şart yok |\n| Journeyman | 150 | 50 | Şart yok |\n| Expert | 225 | 125 | 10 |\n| Artisan | 300 | 200 | 25 |\n\nİki şart birden: hem skill hem karakter seviyesi. Herbalism'de dört rütbeyi de aşağıdaki şehir ve kasaba eğitmenleri öğretir; kitap ya da görev gerekmez. 150, 225 ve 300'e ilk ulaştığında Legacy puanı kazanırsın.\n\n## Tüm Rütbeleri Öğreten Eğitmenler\n\n| Taraf | Eğitmen | Yer |\n|---|---|---|\n| Alliance | Tannysa · Shylamiir | Stormwind: Mage Quarter · The Park |\n| Alliance | Herbalist Pomeroy | Elwynn Forest, Stormwind kapısı |\n| Alliance | Reyna Stonebranch | Ironforge, The Great Forge |\n| Alliance | Firodren Mooncaller · Malorne Bladeleaf | Darnassus, Temple Gardens · Teldrassil, Dolanaar |\n| Alliance | Kali Healtouch · Alma Jainrose | Loch Modan, Thelsamar · Redridge, Lakeshire |\n| Alliance | Telurinon Moonshadow · Cylania Rootstalker | Wetlands, Menethil Harbor · Ashenvale, Silverwind Refuge |\n| Alliance | Brant Jasperbloom · Edward Egan | Dustwallow, Theramore Isle · Alterac, Dalaran |\n| Horde | Jandi · Komin Winterhoof · Martha Alliestar | Orgrimmar, The Drag · Thunder Bluff · Undercity, Apothecarium |\n| Horde | Mishiki · Faruza | Durotar, Sen'jin Village · Tirisfal, Brill |\n| Horde | Aranae Venomblood · Angrun · Ruw | Hillsbrad, Tarren Mill · Stranglethorn, Grom'gol · Feralas, Camp Mojache |\n| İki taraf | Flora Silverwind · Malvor | Stranglethorn, Booty Bay · Moonglade, Nighthaven |\n| İki taraf | Halassa Fernbreeze · Syriel Nightrain | Zephras Isle: Shen'dar Village · Valanaar |\n\nYalnız Apprentice öğretenler: Nancy Songflower (Northshire) · Emrys Flintbeard (Coldridge) · Eleyna Duskbreeze (Shadowglen) · Zor'la (Valley of Trials) · Garan Sunstrider (Red Cloud Mesa) · Florence Nightshade (Deathknell).\n\n## Kamp Objeleri\n\n| Obje | Skill | Malzeme | Nereden öğrenilir | Ne yapar |\n|---|---|---|---|---|\n| Incense Candle | 20 | 1 Peacebloom + 1 Silverleaf | Herbalism eğitmeni | Oturanlara Intellect |\n| Greenhouse | 140 | 2 Simple Wood + 1 Arthas' Tears + 1 Purple Lotus | Blueprint: Excavation Site: Wetlands, Shadetooth | Tohumdan bitki yetiştirir |\n| Seed Hybridizer | 300 | 4 Mountain Silversage + 1 Crystal Vial + 2 Runecloth | Blueprint: Seed Hybridizer (eğitmen öğretmez) | Tohumu çoğaltır / üst seviyeye çevirir |\n\nKamp ateşini Cooking kurar; objeler onun yanına konur ve 1 saatlik ortak bekleme süresi paylaşır. Incense Candle Arcane Intellect ile birikmez; Greenhouse ve Seed Hybridizer de aynı buff'ı verir. Greenhouse malzemeleri 210–220 skill bitkisi: 140'ta AH'den alırsın.\n\n## Forever'da Yeni\n\n- TOHUM: Toplarken bazen Commonplace / Uncommon / Unusual / Scarce Herb Seeds düşer: Greenhouse'ta ekersin, Hybridizer'da çoğaltırsın.\n- NADİR: Frilled Lichen → Cerulean Dye, Rosecap → Magenta Dye, Stranglevine → Viridian Dye (Alchemist yapar).\n- FIRST AID: Forever'da First Aid bitkiden iksir yapar: bitki alıcısı artık daha çok.\n- TAUREN: Cultivation: yakındaki bitkinin bir kopyasını çıkarır (15 dakikada bir). Skill bonusu vermez.\n- LEGACY: Bountiful Harvest: daha çok nadir malzeme · Working Overtime: daha çok skill şansı.\n\n## Banka: Waylaid Crate\n\n| Sandık | Seviye | İçine şunlardan birini koy |\n|---|---|---|\n| Apprentice Herbs | 10 | 20 Peacebloom · 20 Silverleaf · 10 Earthroot · 10 Mageroyal · 10 Briarthorn |\n| Journeyman Herbs | 10 | 10 Stranglekelp · 10 Bruiseweed · 10 Wild Steelbloom · 10 Grave Moss · 10 Kingsblood |\n| Earthly Expert Herbs | 20 | 20 Liferoot · 10 Fadeleaf · 10 Goldthorn · 10 Khadgar's Whisker |\n| Flowering Expert Herbs | 20 | 10 Wintersbite · 10 Firebloom · 20 Purple Lotus · 10 Arthas' Tears |\n| Earthly Artisan Herbs | 35 | 10 Golden Sansam · 20 Sungrass · 10 Blindweed · 10 Ghost Mushroom · 10 Gromsblood |\n| Flowering Artisan Herbs | 35 | 20 Dreamfoil · 20 Mountain Silversage · 20 Plaguebloom · 20 Icecap |\n\nSandığı sen yapamazsın: moblardan ve sandıklardan düşer ya da AH'den alınır. İçine tek bir deste koyup mühürlersin. Teslim: Alliance Marcy Baker (Redridge, Three Corners), Horde Dokimi (Barrens, Crossroads yanı). Ödül Merchant's Favor: Apprentice 5 · Journeyman 10 · Expert 15. İlk sandığı doldurunca Shipping Label çıkar: tek seferlik görev, 50 Favor + 2.000 itibar.\n\n## İşe Yarayan Eşyalar\n\n- +5: Herbalist's Gloves: Leatherworking 135, deri zırh giyebilmen gerekir.\n- +5: Enchant Gloves - Advanced Herbalism (Enchanting 225). Basit hali (Enchanting 145) +2.\n- +15: Goldthorn Tea (Cooking 175, yeni): 15 dakika.\n- +2: Apothecary Gloves: Horde, Wailing Caverns Serpentbloom görevi ödülü (eldiven: Herbalist's Gloves ile birlikte takılmaz).\n- TOPLAM: Herbalist's Gloves + eldiven enchant'ı + Goldthorn Tea = +25: bitkiyi 25 skill erken açarsın.\n- KÜREK: Graverobber's Shovel: Stockade'de Dextren Ward düşürür; mezarlardan Grave Moss çıkarır (10 kullanım).\n- SIRA: Rotalar: 1–70 (Alliance / Horde) → 70–115 → 115–170 → 170–205 → 205–230 → 230–300."
+ },
+ {
+  "id": "lw-1-150",
+  "category": "profession",
+  "title": "Leatherworking · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "file": "lw-1-150.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Leatherworking",
+  "keywords": [
+   "leatherworking",
+   "deri işleme"
+  ],
+  "professionName": "Leatherworking",
+  "profession": "leatherworking",
+  "part": "range",
+  "range": [
+   1,
+   150
+  ],
+  "faction": null,
+  "text": "# Leatherworking · 1 → 150 Apprentice · Journeyman\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 1 → 150 (Apprentice · Journeyman)\n\n## 1 → 75 · Apprentice\n\n| Skill | Ne yap | Adet | Malzeme (toplam) | Tarif nereden |\n|---|---|---|---|---|\n| 1 → 30 | Light Armor Kit | 29 | 29 Light Leather | Baştan bilinir |\n| 30 → 55 | Cured Light Hide · hepsini sakla | 27 | 27 Light Hide + 27 Salt | Eğitmen · 50 bakır |\n| 55 → 75 | Embossed Leather Gloves | 21 | 63 Light Leather + 42 Coarse Thread | Eğitmen · 1 gümüş 50 bakır |\n\nSkinning yapıyorsan önce 3 Ruined Leather Scraps → 1 Light Leather yap (baştan bilinir), skill verdiği sürece. Tablo hurda deri olmadan hesaplandı. Cured Light Hide'ları 100'de Light Leather Pants için sakla. Seviye 10 + 50 skill olunca Journeyman'i al (5 gümüş).\n\n## 75 → 150 · Journeyman\n\n| Skill | Ne yap | Adet | Malzeme (toplam) | Tarif nereden |\n|---|---|---|---|---|\n| 75 → 80 | Medium Leather · çıkanı sakla | 8 | 32 Light Leather | Eğitmen · 5 gümüş |\n| 80 → 90 | Cured Medium Hide · 10'u sakla | 10 | 10 Medium Hide + 10 Salt | Eğitmen · 2 gümüş |\n| 90 → 100 | Fine Leather Belt · 10 kemer sakla | 16 | 96 Light Leather + 32 Coarse Thread | Eğitmen · 3 gümüş |\n| 100 → 115 | Light Leather Pants | 22 | 220 Light Leather + 22 Cured Light Hide + 22 Fine Thread | Eğitmen · 4 gümüş |\n| 115 → 125 | Dark Leather Belt | 10 | 10 Fine Leather Belt + 10 Cured Medium Hide + 20 Fine Thread + 10 Gray Dye | Eğitmen · 4 gümüş |\n| 125 → 130 | Heavy Leather | 7 | 35 Medium Leather | Eğitmen · 10 gümüş |\n| 130'da | Cured Heavy Hide · 20'sini sakla | 20 | 20 Heavy Hide + 60 Salt | Eğitmen · 5 gümüş |\n| → 150 | Heavy Armor Kit | 9 | 45 Heavy Leather + 9 Fine Thread | Eğitmen · 7 gümüş 50 bakır |\n\nHer Dark Leather Belt 1 Fine Leather Belt + 1 Cured Medium Hide yer. 115'ten önce Cured Light Hide biterse bir Light Hide daha işle (1 Salt). 125'te 5 Medium Leather → 1 Heavy Leather. 130'da 20 Cured Heavy Hide'ın son birkaçı skill vermese de 20'yi tamamla: 10'u omuzluk, 10'u eldiven için. Seviye 20 + 125 skill: Expert'i 150'ye gelmeden al, yalnız Telonis (Darnassus, /mappin 1457 64.4 21.4) ya da Una (Thunder Bluff, /mappin 1456 41.4 42.6) öğretir, 50 gümüş.\n\n## Alışveriş Listesi (1 → 150)\n\n| Malzeme | Adet | Nereden |\n|---|---|---|\n| Light Leather | 440 | Skinning · AH |\n| Light Hide | 27 | Skinning · AH |\n| Medium Leather | 27 | Skinning · AH (75–80'de yaptığın 8 tanenin üstüne) |\n| Medium Hide | 10 | Skinning · AH |\n| Heavy Leather | 38 | Skinning · AH (125–130'da yaptığın 7 tanenin üstüne) |\n| Heavy Hide | 20 | Skinning · AH |\n| Salt | 97 | Leatherworking Supply satıcısı (50 bakır) |\n| Coarse Thread | 74 | Leatherworking Supply satıcısı |\n| Fine Thread | 51 | Leatherworking Supply satıcısı |\n| Gray Dye | 10 | Leatherworking Supply satıcısı |\n\nSarı ve yeşil tarif her üretimde puan vermez: birkaç fazla malzeme al.\n\n## İpuçları · Sat / Sakla\n\n- SAKLA: Bütün Cured Light Hide'lar → 100'de Light Leather Pants. 10 Fine Leather Belt + 10 Cured Medium Hide → 115'te Dark Leather Belt.\n- 150'YE: 20 Cured Heavy Hide'ı bir sonraki karta sakla: 10 Barbaric Shoulders + 10 Guardian Gloves.\n- SATICI: Salt, iplik ve boya eğitmenin yanındaki Leatherworking Supply satıcısında. Elwynn ve Tirisfal'da yok: Tharynn Bouden (Goldshire) ya da Abigail Shiel (Brill).\n- (ikon) 20'de Camp Tent (5 Light Leather): Camping 101: Leatherworking göreviyle bedava öğrenirsin. Grubun rested XP toplar.\n- (ikon) 140'ta Tanning Rack: Blueprint'i Shadowfang Keep'te Razorclaw the Butcher düşürür. 225'te Cured Rugged Hide için lazım.\n- 80: Forceful / Mystic Medium Armor Kit (80, satıcı tarifi): yeni eşya alan oyunculara satılır.\n- SANDIK: Fazla 2 Cured Light Hide ya da 2 Cured Medium Hide bir Fabrics sandığını doldurur (Merchant's Favor).\n- PAHALI: Heavy Hide pahalıysa 130'da Cured Heavy Hide yapma: 150–225 kartındaki B planına geç."
+ },
+ {
+  "id": "lw-150-225",
+  "category": "profession",
+  "title": "Leatherworking · Skill 150–225 kasma rotası: nerede, ne yapılır",
+  "file": "lw-150-225.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Leatherworking",
+  "keywords": [
+   "leatherworking",
+   "deri işleme"
+  ],
+  "professionName": "Leatherworking",
+  "profession": "leatherworking",
+  "part": "range",
+  "range": [
+   150,
+   225
+  ],
+  "faction": null,
+  "text": "# Leatherworking · 150 → 225 Expert\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 150 → 225 (Expert)\n\n## 150 → 225 · Expert\n\n| Skill | Ne yap | Adet | Malzeme (toplam) | Tarif nereden |\n|---|---|---|---|---|\n| 150 → 155 | Heavy Armor Kit | 8 | 40 Heavy Leather + 8 Fine Thread | Eğitmen · 7 gümüş 50 bakır |\n| 155 → 165 | Barbaric Shoulders | 10 | 80 Heavy Leather + 10 Cured Heavy Hide + 20 Fine Thread | Eğitmen · 12 gümüş |\n| 165 → 175 | Guardian Gloves | 10 | 40 Heavy Leather + 10 Cured Heavy Hide + 10 Silken Thread | Eğitmen · 24 gümüş |\n| 175 → 195 | Thick Armor Kit | 20 | 100 Thick Leather + 20 Silken Thread | Eğitmen · 20 gümüş |\n| 195 → 210 | Nightscape Headband | 20 | 100 Thick Leather + 40 Silken Thread | Eğitmen · 30 gümüş |\n| 210 → 225 | Nightscape Pants | 15 | 210 Thick Leather + 60 Silken Thread | Yalnız Artisan eğitmeni · 40 gümüş |\n\nBarbaric Shoulders ve Guardian Gloves, 130'da sakladığın 20 Cured Heavy Hide'ı kullanır. Nightscape Headband'e başlamadan 210 Thick Leather ayır: son 15 Nightscape Pants için. Nightscape Pants yalnız Drakk Stonehand (Alliance, Hinterlands, Aerie Peak · /mappin 1425 13.4 43.4) ve Hahrana Ironhide (Horde, Feralas, Camp Mojache · /mappin 1444 74.4 43.0) öğretir; 205'te öğrenebilirsin, 210'dan 225'e her üretim 1 puan.\n\n## B Planı: Heavy Hide Pahalıysa (130 → 175)\n\n| Skill | Ne yap | Adet | Malzeme (toplam) | Tarif nereden |\n|---|---|---|---|---|\n| 130 → 160 | Heavy Armor Kit | 160'a kadar | 5 Heavy Leather + 1 Fine Thread (her biri) | Eğitmen · 7 gümüş 50 bakır |\n| 160 → 175 | Dusky Bracers | 15 | 240 Heavy Leather + 15 Black Dye + 30 Silken Thread | Eğitmen · 20 gümüş |\n\nBu yolda Cured Heavy Hide, Barbaric Shoulders ve Guardian Gloves yok. B planının toplamı 450 Heavy Leather (kendi yaptığın dahil), 42 Fine Thread, 15 Black Dye, 30 Silken Thread. 175'te Thick Armor Kit ile ana rotaya dön.\n\n## Alışveriş Listesi (150 → 225)\n\n| Malzeme | Adet | Nereden |\n|---|---|---|\n| Heavy Leather | 160 | Skinning · AH |\n| Cured Heavy Hide | 20 | 130'da yapıp sakladıkların |\n| Thick Leather | 410 | Skinning · AH |\n| Fine Thread | 28 | Leatherworking Supply satıcısı |\n| Silken Thread | 130 | Leatherworking Supply satıcısı |\n\nAna rotaya göre. Sarı ve yeşil tarif her üretimde puan vermez: birkaç fazla deri al.\n\n## İpuçları · Sat / Sakla\n\n- YOLCULUK: Seviye 35 isen 200'de Artisan'ı da Nightscape Pants'i aldığın eğitmenden al (5 altın): tek yolculuk, 225'te durmazsın.\n- 210: 210 Thick Leather'ı Nightscape Headband'den önce ayır. Biterse 210'da takılırsın.\n- (ikon) Cured Thick Hide (175, Deeprock Salt ile): 2 tanesi bir Artisan Fabrics sandığını doldurur.\n- KİT: Yaptığın Thick Armor Kit'leri yeni eşya alan oyunculara sat. Forceful / Mystic Heavy Armor Kit (135) ve Forceful / Mystic Thick Armor Kit (185) tariflerinin yeri genel kartta.\n- 225: 225'te uzmanlık seçimi: Dragonscale / Elemental / Tribal (seviye 40). Birini seçince diğerleri kapanır: genel karta bak.\n- SIRA: Sonraki kart: 225 → 300 (Artisan)."
+ },
+ {
+  "id": "lw-225-300",
+  "category": "profession",
+  "title": "Leatherworking · Skill 225–300 kasma rotası: nerede, ne yapılır",
+  "file": "lw-225-300.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Leatherworking",
+  "keywords": [
+   "leatherworking",
+   "deri işleme"
+  ],
+  "professionName": "Leatherworking",
+  "profession": "leatherworking",
+  "part": "range",
+  "range": [
+   225,
+   300
+  ],
+  "faction": null,
+  "text": "# Leatherworking · 225 → 300 Artisan\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 225 → 300 (Artisan)\n\n## 225 → 300 · Artisan\n\n| Skill | Ne yap | Adet | Malzeme (toplam) | Tarif nereden |\n|---|---|---|---|---|\n| 225 | Artisan'ı al | — | 200 skill + seviye 35 · 5 altın | Drakk Stonehand (A, Aerie Peak) · Hahrana Ironhide (H, Camp Mojache) |\n| 225 → 232 | Cured Rugged Hide · her biri 2 verir | 10 | 10 Rugged Hide + 10 Refined Deeprock Salt | Artisan eğitmeni · 50 gümüş · Tanning Rack yanında yapılır |\n| 232 → 235 | Rugged Armor Kit | 4 | 20 Rugged Leather | Artisan eğitmeni · 50 gümüş |\n| 235 → 267 | Wicked Leather Gauntlets | 37 | 296 Rugged Leather + 37 Black Dye + 37 Rune Thread | Satıcı (235): A Leonard Porter, Chillwind Camp (W. Plaguelands) 43.0 84.2 · H Werg Thickblade, The Bulwark (Tirisfal) 83.2 69.6 |\n| 267 → 288 | Runic Leather Headband | 21 | 294 Rugged Leather + 210 Runecloth + 21 Rune Thread | Satıcı (265): Jase Farlane, Light's Hope Chapel (E. Plaguelands) 80.4 57.6 |\n| 288 → 300 | Heavy Scorpid Helm | 15 | 120 Rugged Leather + 180 Heavy Scorpid Scale + 15 Cured Rugged Hide + 15 Rune Thread | Satıcı (270): Zannok Hidepiercer, Cenarion Hold (Silithus) 81.8 17.8 |\n\n235'ten sonraki üç tarif eğitmende yok, satıcıdan alınır. 10 Cured Rugged Hide 20 deri verir: 15'i Heavy Scorpid Helm'e gider. Üç satıcı tarifi de sınırlı stok, yavaş yenilenir: ihtiyacın olmadan önce al. Üçü de BoP: leatherworker karakterin kendisi almalı.\n\n## Alışveriş Listesi (225 → 300)\n\n| Malzeme | Adet | Nereden |\n|---|---|---|\n| Rugged Leather | 730 | Skinning · AH |\n| Rugged Hide | 10 | Skinning · AH |\n| Refined Deeprock Salt | 10 | AH ya da Salt Shaker'ı olan leatherworker |\n| Black Dye | 37 | Satıcı |\n| Rune Thread | 73 | Satıcı |\n| Runecloth | 210 | AH |\n| Heavy Scorpid Scale | 180 | Skinning (Silithus akrepleri) · AH |\n\nEn zor bulunanlar Heavy Scorpid Scale ve Refined Deeprock Salt: rotaya başlamadan topla.\n\n## Deri, Pul, Tuz\n\n- (ikon) Rugged Leather / Hide: seviye 50+ hayvanlar. Western Plaguelands: Dalson's Tears'ın doğusu, Diseased Wolf ve Diseased Grizzly. Winterspring: Starfall Village'ın kuzeyi, Frostsaber Rock çevresindeki Frostsaber'lar. Felwood ve Un'Goro Crater da verir.\n- (ikon) Heavy Scorpid Scale: Stonelash, Firetail ve Venomtip akrepleri; en çok Silithus, ayrıca Burning Steppes. Seviye 55–57 hayvanlar için Skinning 275–285 gerekir.\n- (ikon) Refined Deeprock Salt = Deeprock Salt + Salt Shaker. Shaker LW 250 ister ve 2 gün 23 saatte bir kullanılır (Engineering 270 yapar). 225'te kullanamazsın: tuzu önceden AH'den al ya da Shaker'ı olan birine yaptır.\n- TUZ YOKSA: 225 → 235'i Nightscape Boots ile geç (eğitmen, 45 gümüş · her biri 16 Thick Leather + 2 Heavy Silken Thread; 240'ta yeşile döner), sonra Wicked Leather Gauntlets.\n- PUL YOKSA: 288'den sonra da Runic Leather Headband yap: 305'te griye döner, 300'e kadar puan verir. Yeşilde her üretimde puan gelmez: fazla malzeme al.\n\n## İpuçları · Sat / Sakla\n\n- (ikon) Cured Rugged Hide için yanında Tanning Rack olmalı (140, Blueprint: Shadowfang Keep, Razorclaw the Butcher). Rack yalnız bir kamp ateşinin yanına kurulur (ateşi Cooking yakar).\n- RUGGED: Rugged Leather'ı kendin de yaparsın (6 Thick Leather → 1, 225'te eğitmen, 50 gümüş) ama gri: skill vermez.\n- İPLİK: Rune Thread ve Black Dye'ı tarifi aldığın Leonard Porter / Werg Thickblade da satar; şehirlerdeki deri ve kumaş malzemecileri de (ör. Bombus Finespindle, Tamar).\n- 235: Forceful Rugged Armor Kit (235): Nioma (Hinterlands) / Jangdor Swiftstrider (Feralas). Mystic Rugged Armor Kit (235): 90 Merchant's Favor.\n- SANDIK: Artisan Textiles: 20 Thick Leather ya da 20 Rugged Leather. Artisan Fabrics: 2 Cured Thick Hide.\n- 300: 300'de: Sewing Machine (1 Undeath Engine + 5 Rugged Leather + 1 Rune Thread; Blueprint: Sewing Machine eşyasıyla öğrenilir, eğitmen öğretmez), 1.000 Favor'la Leatherworking Certification unvanı, Aisarra Nightmeadow'da 36 tier set tarifi. 300'e ilk ulaşınca Legacy puanı."
+ },
+ {
+  "id": "lw-genel",
+  "category": "profession",
+  "title": "Leatherworking · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "file": "lw-genel.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Leatherworking",
+  "keywords": [
+   "leatherworking",
+   "deri işleme"
+  ],
+  "professionName": "Leatherworking",
+  "profession": "leatherworking",
+  "part": "genel",
+  "text": "# Leatherworking · 1 → 300 Başlamadan Önce\n\nWoW Forever Meslek · Totik Channel · Tavsiye edilen rota\n\nSkill aralığı: 1 → 300 (Başlamadan önce)\n\n## Nasıl Başlarım?\n\n- 1: Mesleği öğren: aşağıdaki Apprentice eğitmenlerinden birine git. Light Armor Kit tarifini baştan bilirsin.\n- (ikon) Skinning ile birlikte al: deriyi kendin yüzersin. Skinning için çantada Skinning Knife dursun. Derileri satma, sonra işlersin.\n- (ikon) Hide + Salt = Cured Hide. Light ve Medium Hide 1 Salt, Heavy Hide 3 Salt ister. Thick Hide Deeprock Salt, Rugged Hide Refined Deeprock Salt ister.\n- RENK: Turuncu tarif her üretimde skill verir; sarı ve yeşil bazen verir, gri hiç vermez. Rota kartındaki skill'e gelince dur, sonraki tarife geç.\n- SAKLA: Rota bazı eşyaları sonra kullanır: bütün Cured Light Hide'lar, 10 Cured Medium Hide, 10 Fine Leather Belt, 20 Cured Heavy Hide. Bunları satma.\n\n## Rütbeler\n\n| Rütbe | Tavan | Kim öğretir | Skill | Seviye |\n|---|---|---|---|---|\n| Apprentice | 75 | Her LW eğitmeni | — | — |\n| Journeyman | 150 | Journeyman eğitmeni · 5 gümüş | 50 | 10 |\n| Expert | 225 | Telonis (Darnassus) / Una (Thunder Bluff) · 50 gümüş | 125 | 20 |\n| Artisan | 300 | Yalnız Drakk Stonehand (Aerie Peak) / Hahrana Ironhide (Camp Mojache) · 5 altın | 200 | 35 |\n\nİki şart birden: hem skill hem karakter seviyesi. Kitap ya da görev gerekmez. Journeyman eğitmenleri Expert öğretmez: Expert ve Artisan için her tarafta tek bir eğitmen var, yolculuğu planla. Sonraki rütbeyi tavana gelmeden alabilirsin: Expert'i 150'ye gelmeden al. 150, 225 ve 300'e ilk ulaştığında Legacy puanı kazanırsın.\n\n## Apprentice Eğitmenleri (1 → 75)\n\n| Taraf | Eğitmen | Yer | /mappin |\n|---|---|---|---|\n| Alliance | Randal Worth | Stormwind, Old Town | 1453 67.4 49.4 |\n| Alliance | Gretta Finespindle | Ironforge, The Great Forge | 1455 39.0 32.4 |\n| Alliance | Darianna | Darnassus, Craftsmen's Terrace | 1457 64.4 21.2 |\n| Alliance | Adele Fielder | Elwynn Forest, Goldshire | 1429 46.4 62.2 |\n| Alliance | Nadyia Maneweaver | Teldrassil, Dolanaar | 1438 41.8 49.4 |\n| Horde | Kamari · Thuwd | Orgrimmar, The Drag | 1454 63.0 45.0 |\n| Horde | Dan Golthas | Undercity, Rogues' Quarter | 1458 70.4 58.4 |\n| Horde | Mak | Thunder Bluff | 1456 42.2 43.2 |\n| Horde | Chaw Stronghide | Mulgore, Bloodhoof Village | 1412 45.0 61.4 |\n| Horde | Shelene Rhobart | Tirisfal Glades, Brill | 1420 65.4 60.0 |\n| İki taraf | Waldor | Barrens, Wailing Caverns'ın üstündeki mağara | 1414 51.8 55.4 |\n| İki taraf | Indari Sunseam | Zephras Isle, Shen'dar Village | 2521 44.6 44.4 |\n\n## Journeyman Eğitmenleri (75 → 150)\n\n| Taraf | Eğitmen | Yer | /mappin |\n|---|---|---|---|\n| Alliance | Simon Tanner | Stormwind, Old Town | 1453 67.2 49.4 |\n| Alliance | Fimble Finespindle | Ironforge, The Great Forge | 1455 39.4 33.0 |\n| Alliance | Faldron | Darnassus, Craftsmen's Terrace | 1457 64.4 21.4 |\n| Alliance | Aayndia Floralwind | Ashenvale, Astranaar | 1440 35.8 52.0 |\n| Horde | Karolek | Orgrimmar, The Drag | 1454 62.8 44.4 |\n| Horde | Arthur Moore | Undercity, Rogues' Quarter | 1458 70.6 57.8 |\n| Horde | Tarn | Thunder Bluff | 1456 42.4 43.0 |\n| Horde | Brawn | Stranglethorn, Grom'gol Base Camp | 1434 31.6 28.8 |\n| Horde | Krulmoo Fullmoon | Barrens, Camp Taurajo | 1413 44.8 59.4 |\n| Horde | Narv Hidecrafter | Desolace, Ghost Walker Post | 1443 55.2 56.2 |\n| İki taraf | Emerii Tallgust | Zephras Isle, Valanaar | 2521 63.8 80.4 |\n\nOyunda /mappin <harita> X Y yazınca haritana işaret düşer.\n\n## Expert ve Artisan: Yalnız Dört Eğitmen\n\n| Rütbe | Taraf | Eğitmen | Yer | /mappin |\n|---|---|---|---|---|\n| Expert | Alliance | Telonis | Darnassus, Craftsmen's Terrace | 1457 64.4 21.4 |\n| Expert | Horde | Una | Thunder Bluff | 1456 41.4 42.6 |\n| Artisan | Alliance | Drakk Stonehand | Hinterlands, Aerie Peak (Wildhammer Keep) | 1425 13.4 43.4 |\n| Artisan | Horde | Hahrana Ironhide | Feralas, Camp Mojache | 1444 74.4 43.0 |\n\nNightscape Pants (205, 40 gümüş) yalnız bu iki Artisan eğitmeninde: 210 → 225 arası bununla kasılır. Seviye 35 isen 200'de Artisan'ı da aynı yerde al: tek yolculuk.\n\n## Tuz, İplik, Boya Nereden?\n\n- (ikon) Çoğu LW eğitmeninin yanında Leatherworking Supply satıcısı var: Salt, iplik ve boya satar. Salt 50 bakır.\n- YOK: Elwynn ve Tirisfal eğitmenlerinin yanında satıcı yok: Salt ve Coarse Thread'i Tharynn Bouden (Goldshire) ya da Abigail Shiel (Brill) satar.\n- (ikon) Rune Thread, Heavy Silken Thread ve Black Dye aynı satıcılarda: Alliance Bombus Finespindle (Ironforge), Saenorion (Darnassus) · Horde Tamar (Orgrimmar), Mahu (Thunder Bluff). Leonard Porter ve Werg Thickblade da satar.\n- (ikon) Refined Deeprock Salt satıcıda yok: Salt Shaker ile yapılır (LW 250 ister, 2 gün 23 saatte bir kullanılır). Salt Shaker'ı Engineering 270 yapar.\n\n## Kamp Objeleri\n\n| Obje | Skill | Malzeme | Nereden öğrenilir | Ne yapar |\n|---|---|---|---|---|\n| Camp Tent | 20 | 5 Light Leather | LW eğitmeni (1 gümüş) · ya da bedava: görev Camping 101: Leatherworking | Yanında oturanlar seviyenin %5'ine kadar rested XP toplar |\n| Tanning Rack | 140 | 5 Medium Leather + 3 Fine Thread + 2 Simple Wood | Blueprint: Tanning Rack: Shadowfang Keep, Razorclaw the Butcher (%6) | Bazı tariflerin tezgâhı (ör. Brawler's Leather Legguards, Cured Rugged Hide) + Camp Tent etkisi |\n| Sewing Machine | 300 | 1 Undeath Engine + 5 Rugged Leather + 1 Rune Thread | Blueprint: Sewing Machine eşyasıyla (eğitmen öğretmez). Bağlanmaz: başka oyuncudan ya da AH'den alınabilir | Bazı tariflerin tezgâhı (ör. Chromatic Cloak) + Camp Tent etkisi |\n\nKamp ateşini Cooking kurar; objeler yanına konur ve 1 saatlik ortak bekleme süresi paylaşır. Her oyuncu bir kampa tek obje ekler. Buff için ateşin başında 1 dakika otur. Rested etkisi 1 saatlik Boosted Rest bırakır; zaten daha çok rested'in varsa işe yaramaz. Tanning Rack ve Sewing Machine, Camp Tent'in yerine beklemeden konabilir.\n\n## Camping 101: Leatherworking\n\n| Taraf | Görevi veren | Teslim (eğitmen) |\n|---|---|---|\n| Alliance | Eric Brighthammer | Gretta Finespindle, Ironforge |\n| Alliance | Sam Sarsaparilla | Adele Fielder, Goldshire |\n| Alliance | Lyreena Duskblade | Nadyia Maneweaver, Dolanaar → Darnassus yolu |\n| Horde | Brakk | Karolek, Orgrimmar |\n| Horde | Kaga Wildhoof | Chaw Stronghide, Bloodhoof Village |\n| Horde | Eleanor Shackleton | Shelene Rhobart, Brill → Undercity yolu |\n| İki taraf | Raan Wildwind | Indari Sunseam, Shen'dar Village |\n\nKarakter seviyesi 4+. Görevi al, LW'yi 20'ye çıkar, eğitmenle konuş: Camp Tent tarifi bedava.\n\n## Uzmanlık: Dragonscale · Elemental · Tribal\n\n| Uzmanlık | Ne yaparsın | Görev NPC'si | Görevde istenenler |\n|---|---|---|---|\n| Dragonscale | Mail zırh. Setler role göre: Green = healer, Blue = spellcaster, Black = fiziksel hasar | A Peter Galen (Azshara 37.6 65.4) · H Thorkaf Dragoneye (Badlands 62.6 57.6) | 2 Tough Scorpid Breastplate + 2 Tough Scorpid Gloves + 10 Worn Dragonscale |\n| Elemental | Living set (healer için), Volcanic, Stormshroud, Molten | A Sarah Tanner (Searing Gorge 63.6 75.8) · H Brumn Winterhoof (Arathi 28.2 45.0) | 2 Heart of Fire + 2 Globe of Water + 2 Core of Earth + 2 Breath of Wind |\n| Tribal | Wolfshead Helm, Hide of the Wild, Corehound, Devilsaur, Chimeric, Frostsaber, Warbear, Ironfeather | A Caryssia Moonhunter (Feralas 89.4 46.6) · H Se'Jib (Stranglethorn 36.6 34.2) | 1 Wild Leather Vest + 1 Wild Leather Helmet |\n\nUzmanlık görevleri karakter seviyesi 40 ister; seçim 225 skill'de yapılır. Birini seçince diğer ikisi kapanır. Ödül: uzmanlık + 4.200 XP. Her uzmanlığın bir Alliance (A), bir Horde (H) görevcisi var: kendi tarafınınkine git. Forever'da uzmanlık eşyalarından resistance kalktı. Eğitmen uzmanlık tarifleri: Wolfshead Helm ve Dragonscale Gauntlets 225, Gauntlets of the Sea 230, Feathered Breastplate ve Helm of Fire 250, Dragonscale Breastplate 255.\n\n## Merchant's Favor Tarifleri\n\n| Favor | İtibar | Ne alırsın (tarifin skill'i) |\n|---|---|---|\n| 30 | — | 6 set: Brawler's, Defender's, Stormrider's, Totemic, Trapper's, Wisdom's. Her sette belt 60 · gloves 75 · boots 85 · hood 100 · tunic 110 · legs 125 |\n| 60 | Friendly | Gloves 175 (Mender's, Prowler's, Skirmisher's, Skulker's, Skycaller's, Stalker's, Warden's) · shoulders 210 · Forceful Thick Armor Kit 185 |\n| 90 | Honored | Bracers 225 · boots 235 · waist 250 · Mystic Rugged Armor Kit 235 |\n| 1.000 | — | Leatherworking Certification: 300 skill ister, hesap geneli unvan |\n\nSatıcı: Alliance Daniel Stitchsong (Redridge, Three Corners · /mappin 1433 10.0 72.7) · Horde Pawani (Barrens, Crossroads dışı · /mappin 1413 49.6 29.7). Toplam 81 LW tarifi. 30 Favor setleri Pristine Leather + sete özel bir malzeme ister: Brawler's Shadowgem, Defender's Elixir of Minor Fortitude, Stormrider's Cerulean Dye, Totemic Sulfuric Acid, Trapper's Deviate Scale, Wisdom's Small Lustrous Pearl. Setlerin diğer parçaları (ör. Wisdom's Leather Armor, Helm, Pants) yalnız düşerek gelir.\n\n## Bind on Pickup: Dikkat\n\n- BOP: Merchant's Favor zırhları Bind on Pickup: satılamaz, başkasına verilemez. Tarifi giyecek karakterde öğren.\n- ÖRNEK: Wisdom's Leather Boots (85): 14 Light Leather, 4 Cured Light Hide, 3 Pristine Leather, 1 Fine Thread, 3 Small Lustrous Pearl. Seviye 17, +5 Int, +4 Sta, +11 healing.\n- TARİF: Bazı tarif kâğıtları da BoP: Pattern: Barbaric Leggings (145), Wicked Leather Gauntlets, Runic Leather Headband, Heavy Scorpid Helm. Satıcıdan leatherworker karakterin kendisi almalı.\n- SAT: Satılabilenler: zırh kitleri ve BoE eşyalar. Yapılan eşyanın satıcı fiyatı düşürüldü: satıcıya üretim satmak az kazandırır.\n\n## Yeni Zırh Kitleri: Forceful ve Mystic\n\n| Kit | Skill | Nereden |\n|---|---|---|\n| Forceful / Mystic Medium Armor Kit | 80 | Alliance: Saenorion (Darnassus), Bombus Finespindle (Ironforge) · Horde: Mahu (Thunder Bluff), Tamar (Orgrimmar) |\n| Forceful / Mystic Heavy Armor Kit | 135 | Alliance: Saenorion (Darnassus), Nioma (Hinterlands) · Horde: Mahu (Thunder Bluff), Jangdor Swiftstrider (Feralas) |\n| Forceful Thick Armor Kit | 185 | 60 Merchant's Favor (Friendly) · kullanmak için seviye 40 |\n| Mystic Thick Armor Kit | 185 | Desolace: Molkar · Gorhak (görev / satıcı) |\n| Forceful Rugged Armor Kit | 235 | Nioma (Hinterlands) · Jangdor Swiftstrider (Feralas) |\n| Mystic Rugged Armor Kit | 235 | 90 Merchant's Favor (Honored) |\n\nForceful = Attack Power + zırh, Mystic = spell power + zırh. Göğüs, bacak, el ve ayağa takılır. Örnek: Forceful Medium Armor Kit +4 AP, +16 zırh (seviye 15); yapımı 1 Medium Armor Kit + 2 Strange Dust + 2 Elixir of Minor Strength (Mystic: 2 Minor Mana Potion).\n\n## Forever'da Yeni\n\n- 556: 556 tarif, 271'i yeni. Leather ve mail için zırh kitleri, dragonscale ve elemental setleri.\n- ZEPHRAS: Azure / Cloudy Gustwoven ve Windraveled setleri (50–60): Vayn Moongaze, Zephras Isle. Üst sürümleri 175'te: Archmage Alvareaux (Alterac) / Sutara Plainstalker (Mulgore).\n- (ikon) Light Leather Reagent Bag (30): Alliance, Saenorion'dan (Darnassus) satın alır. Horde, Kamari'nin (Orgrimmar) Beasts of Thunder Ridge görevinden alır.\n- MAIL: Blacksmithing'den 6 mail tarifi LW'ye geçti (ör. Wildthorn Mail, Storm Gauntlets, Invulnerable Mail). 300'de Aisarra Nightmeadow'dan 36 tier set tarifi.\n- ZİNDAN: Zindanlarda rastgele tarif düşer.\n- LEGACY: Working Overtime: skill puanı şansı +%20 · Dedicated Study: en düşük mesleğini yükseltir.\n\n## Banka: Waylaid Crate\n\n| Sandık | Seviye | LW ile doldur (ya da) |\n|---|---|---|\n| Apprentice Fabrics | 10 | 2 Cured Light Hide · ya da 20 Bolt of Linen |\n| Journeyman Fabrics | 10 | 2 Cured Medium Hide · ya da 6 Bolt of Wool · 10 Bolt of Silk |\n| Expert Fabrics | 20 | 2 Cured Heavy Hide · ya da 8 Bolt of Mageweave |\n| Artisan Fabrics | 35 | 2 Cured Thick Hide · ya da 8 Bolt of Runecloth |\n| Apprentice Textiles | 10 | 20 Light Leather · ya da 40 Linen Cloth |\n| Journeyman Textiles | 10 | 20 Medium Leather · ya da 20 Wool · 40 Silk |\n| Expert Textiles | 20 | 20 Heavy Leather · ya da 40 Mageweave |\n| Artisan Textiles | 35 | 20 Thick Leather · 20 Rugged Leather · ya da 40 Runecloth |\n\nEn ucuzu Fabrics: yalnız 2 işlenmiş deri. Sandığı sen yapamazsın: moblardan ve sandıklardan düşer ya da AH'den alınır. İçine tek bir deste koyup mühürlersin. Teslim: Alliance Marcy Baker (Redridge, Three Corners), Horde Dokimi (Barrens, Crossroads yanı). Ödül Merchant's Favor: tarifleri bununla alırsın.\n\n## İşe Yarayan Eşyalar ve İpuçları\n\n- (ikon) Light Leather Quiver ve Small Leather Ammo Pouch: Hunter'ın menzilli saldırı hızını artırır.\n- KİM: Druid ve Rogue oyun boyu deri giyer. Hunter ve Shaman önce deri, sonra mail (Dragonscale) giyer.\n- SAT: Zırh kitlerini yeni eşya alan oyunculara sat.\n- DERİ: Deriyi ve işlenmiş deriyi satıcıya verme: sonraki tariflerde ve sandıklarda kullanılır. Pristine Leather Favor tariflerine lazım.\n- BAŞKA: Bazı tarifler başka meslekten malzeme ister: Enchanting (Enchanted Leather), Alchemy (boyalar), Herbalism (Bloodvine, Wildvine).\n- SIRA: Rota kartları: 1–150 → 150–225 → 225–300."
+ },
+ {
+  "id": "mining-1-65-alliance",
+  "category": "profession",
+  "title": "Mining · Skill 1–65 kasma rotası: nerede, ne yapılır (Alliance)",
+  "file": "mining-1-65-alliance.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Mining",
+  "keywords": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "professionName": "Mining",
+  "profession": "mining",
+  "part": "range",
+  "range": [
+   1,
+   65
+  ],
+  "faction": "alliance",
+  "text": "# Mining · 1 → 65 Copper (Alliance)\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Mining\n- Skill aralığı: 1 → 65 Copper\n- Fraksiyon: Alliance\n- Rozet: Tavsiye edilen rota\n\n## Hangi damar ne zamana kadar skill verir\n\nBeyaz çerçeve = bu kartın aralığı (1 → 65)\n\nEksen işaretleri: 1 · 25 · 50 · 65 · 75 · 100 · 125\n\nLejant: turuncu = kesin skill · sarı = çoğu zaman · yeşil = bazen · gri = skill vermez\n\n| Damar | Kesin skill (turuncu) | Çoğu zaman (sarı) | Bazen (yeşil) | Skill vermez (gri) |\n|---|---|---|---|---|\n| Copper Vein | 1–25 | 25–50 | 50–100 | 100–125 (\"gri\" yazılı) |\n| Tin Vein | 65–90 | 90–115 | 115–125 (çubuğun sonu) | — |\n\n(Tin Vein çubuğu 65'te başlar; 1–65 arası boştur. 90 ve 115 sınırları eksende etiketli değildir, çubuğun konumundan okunmuştur.)\n\n## 1 · Elwynn Forest\n\nStormwind'e en yakın · eritme Goldshire'da\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — GOLDSHIRE\n- 2 — FARGODEEP MINE\n- 3\n- 4\n- 5\n- EK DAMAR (kesikli yol)\n\nHarita altı yazısı: Copper · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Goldshire'dan güneybatıya in, Fargodeep Mine'a gir.\n- `2` Madendeki Copper'ları kaz, aynı girişten çık.\n- `2→4` Nehir sağında kalsın, tepeleri doğuya takip et.\n- `4→1` Tepelerin kuzey yüzünden Goldshire'a dön, erit, tekrarla.\n- `EK` Kesikli yol: Forest's Edge'e kısa sapma, birkaç damar daha.\n\n## 2 · Dun Morogh\n\nIronforge'a yakın · eritme Kharanos'ta\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — KHARANOS\n- 2 — ICEFLOW LAKE\n- 3 — BREWNALL\n- 4\n- 5\n\nHarita altı yazısı: Copper · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→3` Kharanos'tan batıya, Brewnall Village'a git.\n- `3` Iceflow Lake'in kayalık kıyılarını iki yandan da dolaş.\n- `3→1` Kharanos'a dön, ocakta erit.\n- `!` Yoldaki mağara şart değil: moblar yavaşlatıyorsa dış tur yeter.\n\n## 3 · Teldrassil\n\nEritme: Darnassus, Warrior's Terrace\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — DOLANAAR\n- 2 — FEL ROCK\n- YEDEK MAĞARA (kesikli yol)\n\nHarita altı yazısı: Copper burada Amber taşlarından çıkar · Fel Rock mağarasına git\n\nAdımlar:\n\n- `!` Burada damar yok: Chunk of Amber ve Large Chunk of Amber kaz, içinden Copper çıkar.\n- `1→2` Dolanaar'dan kuzeye, Fel Rock mağarasına gir.\n- `YEDEK` Fel Rock'ta madenci varsa batıdaki Ban'ethil Barrow Den'e git.\n- `ERİT` Darnassus'ta Warrior's Terrace'teki ocakta.\n\n## 4 · Zephras Isle\n\nİki tarafa açık · eritme Shen'dar Village'da\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — SHEN'DAR\n- 2\n- 3 — GERİ DÖN\n\nHarita altı yazısı: Damarlar Shen'dar ile Falaath arasındaki kayalık zeminde · rotayı izle\n\nAdımlar:\n\n- `1→3` Shen'dar Village'dan güneybatıya, kayalık zeminden Falaath Village'a.\n- `3` Güney yamaçlarına bak, aynı yoldan geri dön.\n- `ERİT` Shen'dar Village'daki ocakta. Adanın tamamını dolaşmaya gerek yok.\n\n## Ne kaz, ne yap\n\n- Copper Vein 1'de açılır, 100'de gri olur. 65'e kadar burada kaz.\n- `65'TE` Tin için Journeyman al (Apprentice tavanı 75). Başlangıç eğitmenleri yalnız Apprentice öğretir, eritme de öğretmez.\n- `BEDAVA` Başlangıç görevlerinden Mining for Dummies'i seç: Apprentice Mining öğretir.\n- `ERİT` Kazdığını ocakta erit, eritmek de skill verir (Smelt Copper 70'te gri olur).\n\n## Sat mı, sakla mı?\n\n- `SAKLA` 1 Rough Stone + 1 Copper Bar: Mining 20'de Lodestone kamp taşı (eğitmenden ya da Camping 101: Mining görevinden). Ateşin başında oturanlara melee Attack Power verir (seviye 10'da +12).\n- `SAKLA` 70 Copper Bar ayır: 75'ten sonra 70 Tin Bar'la Bronze eritip 105'e çıkarsın.\n- `BANKA` Waylaid Crate bulursan (moblardan, sandıklardan düşer ya da AH): Apprentice Ore'a 20 Copper Ore, Apprentice Ingots'a 20 Copper Bar koy (seviye 10). Her sandığa tek deste.\n- `SAT` Kalanını AH'ye koy. Cevher mi bar mı pahalı, ona bak.\n\n## İşini hızlandır\n\n- Çantada Mining Pick, meslek penceresinde Find Minerals açık olsun.\n- `BİLGİ` Başlangıç alanlarında level 1'den kazılan Poor Copper Vein var.\n- `BİLGİ` Skill kazmaktan gelir: rotada ne kadar çok damara uğrarsan o kadar hızlı kasarsın.\n- `BİLGİ` Etrafta oyuncu çoksa damarlar daha hızlı geri çıkar."
+ },
+ {
+  "id": "mining-1-65-horde",
+  "category": "profession",
+  "title": "Mining · Skill 1–65 kasma rotası: nerede, ne yapılır (Horde)",
+  "file": "mining-1-65-horde.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Mining",
+  "keywords": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "professionName": "Mining",
+  "profession": "mining",
+  "part": "range",
+  "range": [
+   1,
+   65
+  ],
+  "faction": "horde",
+  "text": "# Mining · 1 → 65 Copper (Horde)\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Mining\n- Skill aralığı: 1 → 65 Copper\n- Fraksiyon: Horde\n- Rozet: Tavsiye edilen rota\n\n## Hangi damar ne zamana kadar skill verir\n\nBeyaz çerçeve = bu kartın aralığı (1 → 65)\n\nEksen işaretleri: 1 · 25 · 50 · 65 · 75 · 100 · 125\n\nLejant: turuncu = kesin skill · sarı = çoğu zaman · yeşil = bazen · gri = skill vermez\n\n| Damar | Kesin skill (turuncu) | Çoğu zaman (sarı) | Bazen (yeşil) | Skill vermez (gri) |\n|---|---|---|---|---|\n| Copper Vein | 1–25 | 25–50 | 50–100 | 100–125 (\"gri\" yazılı) |\n| Tin Vein | 65–90 | 90–115 | 115–125 (çubuğun sonu) | — |\n\n(Tin Vein çubuğu 65'te başlar; 1–65 arası boştur. 90 ve 115 sınırları eksende etiketli değildir, çubuğun konumundan okunmuştur.)\n\n## 1 · Durotar\n\nOrgrimmar'a yakın · eritme Razor Hill'de\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — RAZOR HILL\n- 2\n- 3 — ORGRIMMAR KAPISI\n- 4\n- 5\n- 6\n\nHarita altı yazısı: Copper · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→3` Razor Hill'den yolun doğusundaki kayalıklardan kuzeye, Orgrimmar kapısının altına.\n- `3→4` Kapının altından batıya dön.\n- `4→6` Tepeler boyunca güneye, Barrens yoluna doğru in.\n- `6→1` Razor Hill'e dön, ocakta erit, tekrarla.\n\n## 2 · Mulgore\n\nThunder Bluff'a yakın\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — BLOODHOOF\n- 2\n- 3 — PALEMANE ROCK\n- 4\n- 5\n\nHarita altı yazısı: Copper · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→3` Bloodhoof Village'dan batıya, Palemane Rock mağarasına (Bael'dun Digsite'ın güneyi).\n- `3` Mağarayı baştan sona kaz.\n- `3→1` Dönüşte batı tepelerin eteğine bak.\n- `!` Mağarada madenci varsa tepelerde kal. Digsite'ta ocak var ama cüceler düşman.\n\n## 3 · Tirisfal Glades\n\nUndercity'ye yakın · eritme Brill'de\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — BRILL\n- 2\n- 3 — AGAMAND MILLS\n- 4\n- 5 — DEATHKNELL YÖNÜ\n- YEDEK TUR (kesikli yol)\n\nHarita altı yazısı: Copper · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→3` Brill'den kuzeybatıya, Agamand Mills'e.\n- `3→5` Tepeleri güneye, Deathknell yönüne takip et.\n- `5→1` Brill'e dön, ocakta erit.\n- `YEDEK` Bu taraf kalabalıksa: Brightwater Lake'in doğusu, Scarlet Monastery'nin altındaki tepeler.\n\n## 4 · Zephras Isle\n\nİki tarafa açık · eritme Shen'dar Village'da\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — SHEN'DAR\n- 2\n- 3 — GERİ DÖN\n\nHarita altı yazısı: Damarlar Shen'dar ile Falaath arasındaki kayalık zeminde · rotayı izle\n\nAdımlar:\n\n- `1→3` Shen'dar Village'dan güneybatıya, kayalık zeminden Falaath Village'a.\n- `3` Güney yamaçlarına bak, aynı yoldan geri dön.\n- `ERİT` Shen'dar Village'daki ocakta. Adanın tamamını dolaşmaya gerek yok.\n\n## Ne kaz, ne yap\n\n- Copper Vein 1'de açılır, 100'de gri olur. 65'e kadar burada kaz.\n- `65'TE` Tin için Journeyman al (Apprentice tavanı 75). Başlangıç eğitmenleri yalnız Apprentice öğretir, eritme de öğretmez.\n- `BEDAVA` Başlangıç görevlerinden Mining for Dummies'i seç: Apprentice Mining öğretir.\n- `ERİT` Kazdığını ocakta erit, eritmek de skill verir (Smelt Copper 70'te gri olur).\n\n## Sat mı, sakla mı?\n\n- `SAKLA` 1 Rough Stone + 1 Copper Bar: Mining 20'de Lodestone kamp taşı (eğitmenden ya da Camping 101: Mining görevinden). Ateşin başında oturanlara melee Attack Power verir (seviye 10'da +12).\n- `SAKLA` 70 Copper Bar ayır: 75'ten sonra 70 Tin Bar'la Bronze eritip 105'e çıkarsın.\n- `BANKA` Waylaid Crate bulursan (moblardan, sandıklardan düşer ya da AH): Apprentice Ore'a 20 Copper Ore, Apprentice Ingots'a 20 Copper Bar koy (seviye 10). Her sandığa tek deste.\n- `SAT` Kalanını AH'ye koy. Cevher mi bar mı pahalı, ona bak.\n\n## İşini hızlandır\n\n- Çantada Mining Pick, meslek penceresinde Find Minerals açık olsun.\n- `BİLGİ` Başlangıç alanlarında level 1'den kazılan Poor Copper Vein var.\n- `BİLGİ` Skill kazmaktan gelir: rotada ne kadar çok damara uğrarsan o kadar hızlı kasarsın.\n- `BİLGİ` Etrafta oyuncu çoksa damarlar daha hızlı geri çıkar."
+ },
+ {
+  "id": "mining-125-175",
+  "category": "profession",
+  "title": "Mining · Skill 125–175 kasma rotası: nerede, ne yapılır",
+  "file": "mining-125-175.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Mining",
+  "keywords": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "professionName": "Mining",
+  "profession": "mining",
+  "part": "range",
+  "range": [
+   125,
+   175
+  ],
+  "faction": null,
+  "text": "# Mining · 125 → 175 Iron & Gold\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Mining\n- Skill aralığı: 125 → 175 Iron & Gold\n- Fraksiyon: kartta tek fraksiyon rozeti yok; bölgelerde Alliance ve Horde için ayrı satırlar var\n- Rozet: Tavsiye edilen rota\n\n## Hangi damar ne zamana kadar skill verir\n\nBeyaz çerçeve = bu kartın aralığı (125 → 175)\n\nEksen işaretleri: 100 · 125 · 150 · 155 · 175 · 200 · 225 · 250\n\nLejant: turuncu = kesin skill · sarı = çoğu zaman · yeşil = bazen · gri = skill vermez\n\n| Damar | Kesin skill (turuncu) | Çoğu zaman (sarı) | Bazen (yeşil) | Skill vermez (gri) |\n|---|---|---|---|---|\n| Tin Vein | — | 100–115 (çubuğun başından) | 115–165 | 165–250 (\"gri\" yazılı) |\n| Silver Vein | — | 100–125 (çubuğun başından) | 125–175 | 175–250 (\"gri\" yazılı) |\n| Iron Deposit | 125–150 | 150–175 | 175–225 | 225–250 (\"gri\" yazılı) |\n| Gold Vein | 155–180 | 180–205 | 205–250 (çubuğun sonu) | — |\n\n(115, 165, 180 ve 205 sınırları eksende etiketli değildir, çubuğun konumundan okunmuştur.)\n\n## 1 · Arathi Highlands\n\nAlliance: Refuge Pointe · Horde: Hammerfall\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — BOULDERFIST HALL\n- 2 — WITHERBARK\n- 3\n- MAĞARA (3. durağın yanında, kesikli yol)\n- 4 — DRYWHISKER\n- 5\n- 6 — NORTHFOLD\n- 7\n- ▲ REFUGE POINTE (mavi, Alliance)\n- ▼ HAMMERFALL (kırmızı, Horde)\n\nHarita altı yazısı: Iron · Gold · Silver · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `ALLIANCE` Refuge Pointe'tan tura katıl. Hammerfall'ın güneyinden geç (Horde muhafızları).\n- `HORDE` Hammerfall'dan çık, turun kuzey koluna katıl.\n- `1→2` Boulderfist Hall ile Witherbark Village arasındaki tepeler.\n- `2→4` Kuzeye, Drywhisker Gorge'a.\n- `4→6` Kuzey sırt boyunca batıya, Northfold Manor'a.\n- `6→1` Başa dönüp turu tekrarla.\n- `!` Mağaralara (kesikli) yalnız hızlı temizleyebiliyorsan gir.\n\n## 2 · Desolace\n\nAlliance: Nijel's Point · Horde: Ghost Walker Post\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — VALLEY OF SPEARS\n- 2 — MANNOROC COVEN\n- 3 — MAGRAM\n- 4\n- 5\n- 6\n- ▲ NIJEL'S POINT (mavi, Alliance)\n- ▼ GHOST WALKER POST (kırmızı, Horde)\n\nHarita altı yazısı: Iron · Gold · Silver · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `ALLIANCE` Nijel's Point'ten güneye, Kodo Graveyard'a in. Ghost Walker Post'tan uzak dur.\n- `HORDE` Ghost Walker Post, Kodo Graveyard'ın hemen yanında.\n- `1→2` Valley of Spears yanındaki tepelerden güneye, Mannoroc Coven'a.\n- `2→4` Magram Village'ın dışındaki kayalıklardan kuzeye dön.\n- `4→1` Kamplar arasındaki sırtlardan geri dön, Iron ve Gold topla.\n\n## 3 · Thousand Needles\n\nFreewind Post · kanyon tabanı\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — FREEWIND POST\n- 2\n- 3 — DARKCLOUD\n- 4\n- 5\n- 6 — FLATS'TA DÖN\n\nHarita altı yazısı: Iron · Gold · Silver · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→3` Freewind Post'un altında kanyon tabanında kal, batıya Darkcloud Pinnacle'a.\n- `3→6` Karşı kanyon duvarından doğuya, Shimmering Flats girişine.\n- `6→1` Flats girişinde dön. Iron duvarların dibinde, tuz düzlüğüne geçme.\n\n## Ne kaz, ne yap\n\n- Iron Deposit 125'te açılır. Bütün aralık açık havada kazılır.\n- Gold Vein 155'te açılır, aynı bölgelerde çıkar.\n- `125'TE` Expert al (karakter seviyesi 10): 150'yi geçmek için şart.\n- `ERİT` Iron 125–140, Gold 155–185 arası eritince skill verir. 140–155 arası eritmek vermez.\n\n## Sat mı, sakla mı?\n\n- `SAKLA` 1 Iron Ore + 1 Silver Bar + 2 Heavy Stone: 140'ta Rock Garden. Blueprint'i Excavation Site: Wetlands'te Relic Guardian düşürür.\n- `BANKA` Waylaid Crate bulursan: Journeyman Ore'a 20 Iron Ore, Journeyman Ingots'a 20 Iron Bar (seviye 10); Expert Ore'a 10 Gold Ore, Expert Ingots'a 10 Gold Bar ya da 15 Steel Bar (seviye 20). Her sandığa tek deste.\n- `SAT` Kalanını AH'ye koy. Cevher mi bar mı pahalı, ona bak.\n\n## İşini hızlandır\n\n- Find Minerals açık, Mining Pick çantada.\n- `BİLGİ` Mağaraya yalnız mobları kazmaktan hızlı temizleyebiliyorsan gir.\n- `İKİLİ` Herbalism aynı rotada bitki toplar."
+ },
+ {
+  "id": "mining-175-245",
+  "category": "profession",
+  "title": "Mining · Skill 175–245 kasma rotası: nerede, ne yapılır",
+  "file": "mining-175-245.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Mining",
+  "keywords": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "professionName": "Mining",
+  "profession": "mining",
+  "part": "range",
+  "range": [
+   175,
+   245
+  ],
+  "faction": null,
+  "text": "# Mining · 175 → 245 Mithril & Truesilver\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Mining\n- Skill aralığı: 175 → 245 Mithril & Truesilver\n- Fraksiyon: kartta tek fraksiyon rozeti yok; bölgelerde Alliance ve Horde için ayrı satırlar var\n- Rozet: Tavsiye edilen rota\n\n## Hangi damar ne zamana kadar skill verir\n\nBeyaz çerçeve = bu kartın aralığı (175 → 245)\n\nEksen işaretleri: 150 · 175 · 200 · 225 · 245 · 275 · 300\n\nLejant: turuncu = kesin skill · sarı = çoğu zaman · yeşil = bazen · gri = skill vermez\n\n| Damar | Kesin skill (turuncu) | Çoğu zaman (sarı) | Bazen (yeşil) | Skill vermez (gri) |\n|---|---|---|---|---|\n| Gold Vein | 155–180 | 180–205 | 205–255 | 255–300 (\"gri\" yazılı) |\n| Mithril Deposit | 175–200 | 200–225 | 225–275 | 275–300 (\"gri\" yazılı) |\n| Truesilver Deposit | 230–255 | 255–280 | 280–300 (çubuğun sonu) | — |\n\n(155, 180, 205, 230, 255 ve 280 sınırları eksende etiketli değildir, çubuğun konumundan okunmuştur.)\n\n## 1 · The Hinterlands\n\nAlliance: Aerie Peak · Horde: Revantusk Village\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — SHAOL'WATHA\n- 2 — ALTAR OF ZUL\n- 3 — QUEL'DANIL\n- 4\n- 5 — SKULK ROCK\n- ▲ AERIE PEAK (mavi, Alliance; mavi kesikli yol tura bağlanır)\n- ▼ REVANTUSK (kırmızı, Horde; kırmızı kesikli yol tura bağlanır)\n- SERADANE · ELİT EJDERHA (kırmızı taralı bölge)\n\nHarita altı yazısı: Mithril · Truesilver · Gold · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `ALLIANCE` Aerie Peak'ten doğuya, 3'te tura katıl.\n- `HORDE` Revantusk'tan sahil patikasıyla çık, 1'de tura katıl.\n- `1→3` Batıya, Altar of Zul'un önünden Quel'Danil tepelerine.\n- `3→5` Kuzey sırt boyunca doğuya, Skulk Rock'a.\n- `5→1` Güneye in, turu tekrarla.\n- `!` Seradane'ye girme: elit ejderhalar var.\n\n## 2 · Tanaris\n\nİki taraf · eğitmen Pikkle Gadgetzan'da\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — GADGETZAN\n- 2 — SANDSORROW\n- 3 — THISTLESHRUB\n- 4 — GAPING CHASM\n- 5 — BROKEN PILLAR\n\nHarita altı yazısı: Mithril · Truesilver · Gold · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Gadgetzan'dan batıya, Sandsorrow Watch'a.\n- `2→3` Batı dağlarını takip ederek güneye, Thistleshrub Valley'e.\n- `3→4` Gaping Chasm'ın kenarından doğuya. Çukura inme.\n- `4→1` Broken Pillar'ın yanından kuzeye, Gadgetzan'a.\n- `!` Turun tamamı açık havada, mağaraya girmen gerekmez.\n\n## Ne kaz, ne yap\n\n- Mithril Deposit 175'te açılır. 225'te yeşil olur ama 245'e kadar skill verir.\n- Truesilver Deposit 230'da açılır. Mithril'le aynı yerlerde çıkar.\n- Gold Vein yoldaysa kaz. 225'e kadar puan eksikse Iron da olur.\n- `DİKKAT` Smelt Mithril skill vermez, puanı yalnız kazarak alırsın.\n- `200'DE` Artisan al (karakter seviyesi 25): 225'i geçmek için şart. 245'te sonraki karta geç.\n\n## Sat mı, sakla mı?\n\n- `SAKLA` 1 Truesilver Bar: 300'de kuracağın Molten Foundry ister (5 Thorium Bar + 2 Dense Stone + 1 Truesilver Bar).\n- `BANKA` Waylaid Crate bulursan: Expert Ore'a 20 Mithril Ore ya da 10 Gold Ore, Expert Ingots'a 20 Mithril Bar ya da 10 Gold Bar (seviye 20). 10 Truesilver Ore / Bar Artisan sandıklarına girer (seviye 35). Her sandığa tek deste.\n- `SAT` Kalanını AH'ye koy: Blacksmith ve Engineer bu barlarla kasar. Cevher mi bar mı pahalı, ona bak.\n\n## İşini hızlandır\n\n- Çantada Mining Pick, Find Minerals açık.\n- `BİLGİ` Skill kazmaktan gelir: rotada ne kadar çok damara uğrarsan o kadar hızlı kasarsın.\n- `BİLGİ` Etrafta oyuncu çoksa damarlar daha hızlı geri çıkar.\n- `İKİLİ` Herbalism aynı rotada. Druid Prowl / Travel Form, Hunter ve Warlock pet'le kavgasız kazar."
+ },
+ {
+  "id": "mining-245-300",
+  "category": "profession",
+  "title": "Mining · Skill 245–300 kasma rotası: nerede, ne yapılır",
+  "file": "mining-245-300.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Mining",
+  "keywords": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "professionName": "Mining",
+  "profession": "mining",
+  "part": "range",
+  "range": [
+   245,
+   300
+  ],
+  "faction": null,
+  "text": "# Mining · 245 → 300 Thorium\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Mining\n- Skill aralığı: 245 → 300 Thorium\n- Fraksiyon: kartta fraksiyon rozeti yok\n- Rozet: Tavsiye edilen rota\n\n## Hangi damar ne zamana kadar skill verir\n\nBeyaz çerçeve = bu kartın aralığı (245 → 300)\n\nEksen işaretleri: 225 · 230 · 245 · 250 · 275 · 300\n\nLejant: turuncu = kesin skill · sarı = çoğu zaman · yeşil = bazen · gri = skill vermez\n\n| Damar | Kesin skill (turuncu) | Çoğu zaman (sarı) | Bazen (yeşil) | Skill vermez (gri) |\n|---|---|---|---|---|\n| Mithril Deposit | — | — | 225–275 (çubuğun başından) | 275–300 (\"gri\" yazılı) |\n| Truesilver Deposit | 230–255 | 255–280 | 280–300 (çubuğun sonu) | — |\n| Small Thorium Vein | 245–270 | 270–295 | 295–300 (çubuğun sonu) | — |\n| Rich Thorium Vein | 275–300 (çubuğun sonu) | — | — | — |\n\n(255, 270, 280 ve 295 sınırları eksende etiketli değildir, çubuğun konumundan okunmuştur.)\n\n## 1 · Un'Goro Crater — 245 → 275\n\nMarshal's Refuge · Fungal Rock\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — MARSHAL'S REFUGE\n- 2 — FUNGAL ROCK\n- 3\n- 4 — KATRAN ÇUKURLARI\n- 5\n- 6\n\nHarita altı yazısı: Small Thorium · Rich Thorium · Truesilver · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Marshal's Refuge'ın altından kuzey krater duvarını doğuya, Fungal Rock'a.\n- `2` Mağaraya gir (daha çok Small Thorium) ya da dışarıda kal.\n- `2→4` Duvarı güneye izle, nehirden önce batıya dön, katran çukurlarına bak.\n- `4→1` Küçük gölün etrafından kuzeye, krater duvarına dön.\n- `!` Rich Thorium Vein'i 275'ten önce kazamazsın.\n\n## 2 · Felwood — 245 → 275\n\nBloodvenom Falls · Felpaw Village\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — BLOODVENOM FALLS\n- 2\n- 3\n- 4 — FELPAW\n- 5 — IRONTREE\n- (3. durağın hemen doğusunda etiketsiz kısa kesikli yol)\n\nHarita altı yazısı: Small Thorium · Rich Thorium · Truesilver · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→3` Bloodvenom Falls'tan yolu kuzeye, kuzey tepelere yakın kal.\n- `3→4` Felpaw Village'a.\n- `4→1` Irontree Woods kenarından ve Shatter Scar Vale'den güneye dön.\n- `!` Mobları hızlı temizliyorsan Irontree Cavern'e kısa sapma (kesikli).\n\n## 3 · Winterspring — 275 → 300\n\nEverlook · Rich Thorium\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — EVERLOOK\n- 2 — KEL'THERIL\n- 3 — STARFALL\n- 4 — FROSTSABER ROCK\n- 5\n- 6 — WINTERFALL\n\nHarita altı yazısı: Rich Thorium · Small Thorium · Truesilver · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Everlook'tan güneybatıya, Lake Kel'Theril'in çevresini dolaş.\n- `2→4` Yolu kuzeye, Starfall Village'ı geç, Frostsaber Rock'ı dolaş.\n- `4→6` Vadinin doğu yakasından güneye, Winterfall Village'ın dış yamaçlarına.\n- `6→1` Everlook'a dön.\n\n## 4 · Eastern Plaguelands — 275 → 300\n\nLight's Hope Chapel\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — LIGHT'S HOPE YÖNÜ\n- 2 — INFECTIS SCAR\n- 3\n- 4 — PESTILENT SCAR\n- 5\n- 6 — NORTHPASS\n- 7\n- 8 — EASTWALL\n\nHarita altı yazısı: Rich Thorium · Small Thorium · Truesilver · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Light's Hope'tan güneybatıya, Infectis Scar yamaçlarına.\n- `2→4` Corin's Crossing'in altından batıya, Pestilent Scar'a.\n- `4→6` Köprüyü geç, kuzeye Northpass Tower yönüne.\n- `6→8` Doğuya dön, Northdale'in kenarından Eastwall Tower'ı geçip dön.\n- `!` Tyr's Hand'e girmeden tur tamamlanıyor.\n\n## Ne kaz, ne yap\n\n- Small Thorium Vein 245'te açılır, 300'e kadar skill verir.\n- Rich Thorium Vein 275'te açılır. İçinden Arcane Crystal da çıkabilir.\n- Yoldaki Mithril ve Truesilver'ı da kaz.\n- `ERİT` Smelt Thorium skill vermez, puan yalnız kazarak gelir.\n\n## Sat mı, sakla mı?\n\n- `SAKLA` 5 Thorium Bar + 2 Dense Stone + 1 Truesilver Bar: 300'de Molten Foundry. Heavy Thorium yalnız onda erir.\n- `SAKLA` Pitchblende: Thorium damarlarından çıkar. 275'te 2 Pitchblende + 1 Coal = Azerothium Bar.\n- `BANKA` Waylaid Crate bulursan (seviye 35): 20 Thorium Ore · 10 Truesilver Ore · 20 Dark Iron Ore · 20 Thorium Bar · 10 Truesilver Bar · 2 Dark Iron Bar'dan birini koy.\n- `SAT` Kalanını AH'ye koy. Cevher mi bar mı pahalı, ona bak.\n\n## İşini hızlandır\n\n- Find Minerals açık, Mining Pick çantada.\n- `YENİ` Mount Hyjal'da 300 skill'le Heavy Thorium Vein kazılır: Torbernite ve Fel Crystal da verir.\n- `300` Trainer'dan Smelt Heavy Thorium, blueprint'le Molten Foundry: endgame barları.\n- `İKİLİ` Herbalism aynı rotada bitki toplar."
+ },
+ {
+  "id": "mining-65-125-alliance",
+  "category": "profession",
+  "title": "Mining · Skill 65–125 kasma rotası: nerede, ne yapılır (Alliance)",
+  "file": "mining-65-125-alliance.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Mining",
+  "keywords": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "professionName": "Mining",
+  "profession": "mining",
+  "part": "range",
+  "range": [
+   65,
+   125
+  ],
+  "faction": "alliance",
+  "text": "# Mining · 65 → 125 Tin & Silver (Alliance)\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Mining\n- Skill aralığı: 65 → 125 Tin & Silver\n- Fraksiyon: Alliance\n- Rozet: Tavsiye edilen rota\n\n## Hangi damar ne zamana kadar skill verir\n\nBeyaz çerçeve = bu kartın aralığı (65 → 125)\n\nEksen işaretleri: 50 · 65 · 75 · 100 · 115 · 125 · 150 · 175 · 200\n\nLejant: turuncu = kesin skill · sarı = çoğu zaman · yeşil = bazen · gri = skill vermez\n\n| Damar | Kesin skill (turuncu) | Çoğu zaman (sarı) | Bazen (yeşil) | Skill vermez (gri) |\n|---|---|---|---|---|\n| Copper Vein | — | — | 50–100 (çubuğun başından) | 100–200 (\"gri\" yazılı) |\n| Tin Vein | 65–90 | 90–115 | 115–165 | 165–200 (\"gri\" yazılı) |\n| Silver Vein | 75–100 | 100–125 | 125–175 | 175–200 (\"gri\" yazılı) |\n| Iron Deposit | 125–150 | 150–175 | 175–200 (çubuğun sonu) | — |\n\n(90 ve 165 sınırları eksende etiketli değildir, çubuğun konumundan okunmuştur.)\n\n## 1 · Wetlands\n\nThelgen Rock mağarası\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — DUN ALGAZ\n- 2 — THELGEN ROCK\n\nHarita altı yazısı: Tin · Silver · Incendicite · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Dun Algaz'ın hemen kuzeyinde, tepelerin eteğindeki Thelgen Rock'a gir.\n- `2` Dallanan tünellerde Tin Vein ara. Incendicite Mineral Vein de var.\n- `!` Moblar seviyene göre güçlüyse Westfall'daki Gold Coast Quarry daha kolay.\n\n## 2 · Westfall\n\nGold Coast Quarry\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — SENTINEL HILL\n- 2\n- 3 — GOLD COAST QUARRY\n\nHarita altı yazısı: Tin · Silver · Copper · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→3` Sentinel Hill'den batıya, sahildeki Gold Coast Quarry'ye.\n- `3` İnerken açıktaki kayalara bak, tünelleri kaz, çıkınca dışarıyı bir daha tara.\n- `!` Madende biri varsa dışarıdaki damarlar sana kalır.\n\n## 3 · Ashenvale\n\nMaestra's Post (Alliance kampı)\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — MAESTRA'S POST\n- 2 — DARKSHORE YOLU\n- 3\n- İKİNCİ TUR (kesikli yol)\n\nHarita altı yazısı: Tin · Silver · Copper · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Maestra's Post'tan yolu kuzeye, Darkshore yönüne takip et.\n- `2→3` Yolun doğusundaki kayalık yamaçlardan geri dön.\n- `İKİNCİ` Sonraki turda karakolun batısındaki tepelere, Zoram Strand yönüne bak.\n\n## 4 · Stonetalon Mountains\n\nStonetalon Peak\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — MIRKFALLON LAKE\n- 2\n- 3 — STONETALON PEAK\n- 4\n- 5\n\nHarita altı yazısı: Tin · Silver · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→3` Mirkfallon Lake'in yanından yolu kuzeye, Stonetalon Peak'in yamaçlarına.\n- `3→1` Dönüşte yolun öbür yanına bak.\n- `!` 125'ten önce Iron Deposit görürsen geç, Tin ara.\n\n## Ne kaz, ne yap\n\n- Tin Vein 65'te açılır, 125'e kadar ana damarın.\n- Silver Vein 75'te açılır. Tin 115'te yeşile dönünce Silver'ı kaçırma.\n- Eriterek 100'ü geçtiysen Copper'ı bırak: 100'de gri olur.\n- `75'TEN ÖNCE` Journeyman al. 125'te Expert al (karakter seviyesi 10), yoksa 150'de takılırsın.\n\n## Sat mı, sakla mı?\n\n- `SAKLA` 70 Tin Bar + 70 Copper Bar: 75'ten 105'e Bronze eritip skill alırsın (1 Copper + 1 Tin = 2 Bronze).\n- `SAKLA` 1 Silver Bar: 140'ta Rock Garden kampı (2 Heavy Stone + 1 Iron Ore + 1 Silver Bar), zamanla maden damarı çıkarır. Blueprint'i Excavation Site: Wetlands'te Relic Guardian düşürür.\n- `BANKA` Waylaid Crate bulursan (seviye 10): Apprentice Ore'a 20 Tin Ore, Apprentice Ingots'a 20 Tin Bar ya da 10 Bronze Bar; Journeyman Ore'a 10 Silver Ore, Journeyman Ingots'a 10 Silver Bar. Her sandığa tek deste.\n- `SAT` Kalanını AH'ye koy. Cevher mi bar mı pahalı, ona bak.\n\n## İşini hızlandır\n\n- Find Minerals açık. Mağarada moblar uzun sürüyorsa açık havadaki rotaya geç.\n- `ERİT` Silver eritmek 125'e kadar skill verir.\n- `İKİLİ` Herbalism aynı rotada bitki toplar.\n- `BİLGİ` Skill kazmaktan gelir: rotada ne kadar çok damara uğrarsan o kadar hızlı kasarsın."
+ },
+ {
+  "id": "mining-65-125-horde",
+  "category": "profession",
+  "title": "Mining · Skill 65–125 kasma rotası: nerede, ne yapılır (Horde)",
+  "file": "mining-65-125-horde.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Mining",
+  "keywords": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "professionName": "Mining",
+  "profession": "mining",
+  "part": "range",
+  "range": [
+   65,
+   125
+  ],
+  "faction": "horde",
+  "text": "# Mining · 65 → 125 Tin & Silver (Horde)\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Mining\n- Skill aralığı: 65 → 125 Tin & Silver\n- Fraksiyon: Horde\n- Rozet: Tavsiye edilen rota\n\n## Hangi damar ne zamana kadar skill verir\n\nBeyaz çerçeve = bu kartın aralığı (65 → 125)\n\nEksen işaretleri: 50 · 65 · 75 · 100 · 115 · 125 · 150 · 175 · 200\n\nLejant: turuncu = kesin skill · sarı = çoğu zaman · yeşil = bazen · gri = skill vermez\n\n| Damar | Kesin skill (turuncu) | Çoğu zaman (sarı) | Bazen (yeşil) | Skill vermez (gri) |\n|---|---|---|---|---|\n| Copper Vein | — | — | 50–100 (çubuğun başından) | 100–200 (\"gri\" yazılı) |\n| Tin Vein | 65–90 | 90–115 | 115–165 | 165–200 (\"gri\" yazılı) |\n| Silver Vein | 75–100 | 100–125 | 125–175 | 175–200 (\"gri\" yazılı) |\n| Iron Deposit | 125–150 | 150–175 | 175–200 (çubuğun sonu) | — |\n\n(90 ve 165 sınırları eksende etiketli değildir, çubuğun konumundan okunmuştur.)\n\n## 1 · Silverpine Forest\n\nBeren's Peril mağarası\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — THE SEPULCHER\n- 2 — AMBERMILL YOLU\n- 3 — BEREN'S PERIL\n\nHarita altı yazısı: Tin · Silver · Copper · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` The Sepulcher'dan yolu güneye, Ambermill'in yanından geç.\n- `2→3` Hillsbrad sınırından önce doğuya dön, Beren's Peril mağarasına gir.\n- `!` Moblar 21–22 seviye. Temizlemek çok sürüyorsa Hillsbrad'daki açık hava rotasına geç.\n\n## 2 · Hillsbrad Foothills\n\nTarren Mill · mağara yok\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — TARREN MILL\n- 2\n- 3 — NEHRİ GEÇ\n- 4 — DURNHOLDE\n- 5\n- 6\n\nHarita altı yazısı: Tin · Silver · Copper · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→3` Tarren Mill'den nehri geç, Durnholde Keep yönüne.\n- `3→6` Doğu kıyıdaki kayalıkları tara.\n- `6→1` Tarren Mill'e dön, turu tekrarla.\n- `!` Kalenin (Durnholde Keep) içine girme.\n\n## 3 · The Barrens\n\nCamp Taurajo · Razorfen girişleri\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — CAMP TAURAJO\n- 2\n- 3\n- 4 — RAZORFEN\n- 5\n\nHarita altı yazısı: Tin · Silver · Copper · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→3` Camp Taurajo'dan Gold Road'u güneye in.\n- `3→4` Razorfen Kraul ve Downs'ın kuzeyindeki tepelerde yolun bir yanını kaz.\n- `4→1` Öbür yandan geri dön. Damarlar iki zindan girişinin dışında.\n\n## 4 · Stonetalon Mountains\n\nStonetalon Peak\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — MIRKFALLON LAKE\n- 2\n- 3 — STONETALON PEAK\n- 4\n- 5\n\nHarita altı yazısı: Tin · Silver · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→3` Mirkfallon Lake'in yanından yolu kuzeye, Stonetalon Peak'in yamaçlarına.\n- `3→1` Dönüşte yolun öbür yanına bak.\n- `!` Tepedeki Alliance yerleşimine girme. 125'ten önce Iron görürsen geç.\n\n## Ne kaz, ne yap\n\n- Tin Vein 65'te açılır, 125'e kadar ana damarın.\n- Silver Vein 75'te açılır. Tin 115'te yeşile dönünce Silver'ı kaçırma.\n- Eriterek 100'ü geçtiysen Copper'ı bırak: 100'de gri olur.\n- `75'TEN ÖNCE` Journeyman al. 125'te Expert al (karakter seviyesi 10), yoksa 150'de takılırsın.\n\n## Sat mı, sakla mı?\n\n- `SAKLA` 70 Tin Bar + 70 Copper Bar: 75'ten 105'e Bronze eritip skill alırsın (1 Copper + 1 Tin = 2 Bronze).\n- `SAKLA` 1 Silver Bar: 140'ta Rock Garden kampı (2 Heavy Stone + 1 Iron Ore + 1 Silver Bar), zamanla maden damarı çıkarır. Blueprint'i Excavation Site: Wetlands'te Relic Guardian düşürür.\n- `BANKA` Waylaid Crate bulursan (seviye 10): Apprentice Ore'a 20 Tin Ore, Apprentice Ingots'a 20 Tin Bar ya da 10 Bronze Bar; Journeyman Ore'a 10 Silver Ore, Journeyman Ingots'a 10 Silver Bar. Her sandığa tek deste.\n- `SAT` Kalanını AH'ye koy. Cevher mi bar mı pahalı, ona bak.\n\n## İşini hızlandır\n\n- Find Minerals açık. Mağarada moblar uzun sürüyorsa açık havadaki rotaya geç.\n- `ERİT` Silver eritmek 125'e kadar skill verir.\n- `İKİLİ` Herbalism aynı rotada bitki toplar.\n- `BİLGİ` Ashenvale'deki Maestra's Post rotası da olur; Alliance muhafızlarından uzak dur."
+ },
+ {
+  "id": "mining-genel",
+  "category": "profession",
+  "title": "Mining · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "file": "mining-genel.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Mining",
+  "keywords": [
+   "mining",
+   "madencilik, maden, cevher"
+  ],
+  "professionName": "Mining",
+  "profession": "mining",
+  "part": "genel",
+  "text": "# Mining · 1 → 300 Başlamadan Önce\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Mining\n- Skill aralığı: 1 → 300 (Başlamadan önce)\n- Fraksiyon: kartta fraksiyon rozeti yok; eğitmen tablosunda Alliance / Horde / İki taraf ayrımı var\n- Rozet: Tavsiye edilen rota\n\n## Hangi damar ne zamana kadar skill verir\n\nBeyaz çerçeve = bu kartın aralığı (1 → 300)\n\nEksen işaretleri: 1 · 50 · 65 · 100 · 125 · 150 · 175 · 200 · 230 · 245 · 275 · 300\n\nLejant: turuncu = kesin skill · sarı = çoğu zaman · yeşil = bazen · gri = skill vermez\n\n| Damar | Kesin skill (turuncu) | Çoğu zaman (sarı) | Bazen (yeşil) | Skill vermez (gri) |\n|---|---|---|---|---|\n| Copper Vein | 1–25 | 25–50 | 50–100 | 100–300 (\"gri\" yazılı) |\n| Tin Vein | 65–90 | 90–115 | 115–165 | 165–300 (\"gri\" yazılı) |\n| Silver Vein | 75–100 | 100–125 | 125–175 | 175–300 (\"gri\" yazılı) |\n| Iron Deposit | 125–150 | 150–175 | 175–225 | 225–300 (\"gri\" yazılı) |\n| Gold Vein | 155–180 | 180–205 | 205–255 | 255–300 (\"gri\" yazılı) |\n| Mithril Deposit | 175–200 | 200–225 | 225–275 | 275–300 (\"gri\" yazılı) |\n| Truesilver Deposit | 230–255 | 255–280 | 280–300 (çubuğun sonu) | — |\n| Dark Iron Deposit | 230–255 | 255–280 | 280–300 (çubuğun sonu) | — |\n| Small Thorium Vein | 245–270 | 270–295 | 295–300 (çubuğun sonu) | — |\n| Rich Thorium Vein | 275–300 (çubuğun sonu) | — | — | — |\n\n(Eksende etiketi olmayan sınırlar — 25, 75, 90, 115, 155, 165, 180, 205, 225, 255, 270, 280, 295 — çubuğun konumundan okunmuştur.)\n\n## Nasıl başlarım?\n\n- `1` Mesleği öğren: başlangıç görevinin ödülünden Mining for Dummies'i seç (2'den az mesleğin varsa Mining öğretir, +2 skill) ya da bir eğitmene git.\n- (Mining Pick ikonu) Mining Pick al: Trade Supplies satıcısından. Çantada dursun, kazmak için şart.\n- `2` Find Minerals'ı aç: damarlar mini haritada çıkar. Find Herbs ile aynı anda açık olmaz, ikisi arasında geçiş yaparsın.\n- `ERİTME` Başlangıç alanındaki küçük eğitmenler yalnız Apprentice öğretir, eritmeyi (Smelting) öğretmez. Eritmek için şehir eğitmenine git.\n- `3` Damar çoğu zaman birkaç vuruşta biter: her vuruş skill şansıdır. Kazdığın cevheri ocakta (forge) eritirsin, başkentlerde ve bazı kasabalarda var.\n\n## Rütbeler\n\n| Rütbe | Tavan | Skill şartı | Karakter seviyesi |\n|---|---|---|---|\n| Apprentice | 75 | Şart yok | Şart yok |\n| Journeyman | 150 | 50 | Şart yok |\n| Expert | 225 | 125 | 10 |\n| Artisan | 300 | 200 | 25 |\n\nİki şart birden: hem skill hem karakter seviyesi. Örneğin 200 skill olsan bile 25 seviye olmadan Artisan alamazsın. 150, 225 ve 300'e ilk ulaştığında Legacy puanı kazanırsın. Mining'de dört rütbeyi de aşağıdaki şehir eğitmenleri öğretir; kitap ya da görev gerekmez.\n\n## Tüm rütbeleri öğreten eğitmenler\n\n| Taraf | Eğitmen | Yer | Koordinat |\n|---|---|---|---|\n| Alliance | Gelman Stonehand | Stormwind, Dwarven District | 51.0 17.2 |\n| Alliance | Geofram Bouldertoe | Ironforge, The Great Forge | 50.2 26.0 |\n| Alliance | Yarr Hammerstone | Dun Morogh, Steelgrill's Depot | 50.0 50.4 |\n| Alliance | Dank Drizzlecut | Dun Morogh, Gol'Bolar Quarry | 69.2 55.4 |\n| Alliance | Brock Stoneseeker | Loch Modan, Thelsamar | 37.2 46.8 |\n| Alliance | Kurdram Stonehammer | Darkshore, Auberdine | 38.2 41.0 |\n| Alliance | Matt Johnson | Duskwood, Darkshire | 74.0 49.6 |\n| Horde | Makaru | Orgrimmar, Valley of Honor | 73.0 26.4 |\n| Horde | Brek Stonehoof | Thunder Bluff | 34.6 57.6 |\n| Horde | Brom Killian | Undercity, War Quarter | 56.0 37.0 |\n| Horde | Krunn | Durotar, Razor Hill | 51.8 40.8 |\n| Horde | Johan Focht | Silverpine, The Sepulcher | 43.4 40.6 |\n| İki taraf | Pikkle | Tanaris, Gadgetzan | 51.0 28.0 |\n| İki taraf | Grungle | Riverglades, Powderfuse Port | 77.6 51.8 |\n| İki taraf | Messana Crestwind | Zephras Isle, Shen'dar Village | 44.8 44.4 |\n| İki taraf | Halavuul Cragwind | Zephras Isle, Valanaar | 65.4 80.4 |\n\nYalnız Apprentice öğretenler: Kelsey Fargo (Northshire) · Sally Swiftwrench (Coldridge) · Fanorran Stilloak (Shadowglen) · Norzsh (Valley of Trials) · Vartha Rockmane (Red Cloud Mesa) · Walter Mason (Deathknell). Oyunda `/mappin <harita no> X Y` yazarak haritaya işaret koyabilirsin.\n\n## Eriterek kas: 1 → 185\n\n| Skill | Erit | Malzeme |\n|---|---|---|\n| 1 → 65 | Smelt Copper | 140 Copper Ore (70 Copper Bar'ı sakla) |\n| 65 → 75 | Smelt Tin | 70 Tin Ore (Journeyman gerekir) |\n| 75 → 105 | Smelt Bronze | 70 Copper Bar + 70 Tin Bar → 140 Bronze Bar |\n| 105 → 125 | Smelt Silver | Silver Ore |\n| 125 → 140 | Smelt Iron | 35 Iron Ore (Expert gerekir) |\n| 140 → 155 | Eritme skill vermez | Iron Deposit kaz |\n| 155 → 185 | Smelt Gold | 60 Gold Ore |\n\nBronze bitince 105'e varmadıysan Silver eritmeye geç. Cevheri AH'den almak ucuzsa önce fiyatına bak. 185'ten sonra puan yalnız kazarak gelir: Mithril, Truesilver ve Thorium eritmek skill vermez.\n\n## Forever'da yeni: nadir malzemeler\n\n- `PYRITE` Copper, Tin, Silver ve Iron damarlarından bazen çıkar. Alchemist Sulfuric Acid yapar.\n- `BAUXITE` Gold Vein'den bazen çıkar. Enchanting dahil yeni tariflerde kullanılır.\n- `PITCHBLENDE` Thorium damarlarından. 275'te 2 Pitchblende + 1 Coal = Azerothium Bar.\n- `HYJAL` Heavy Thorium Vein: Mount Hyjal, 300 skill. Yeşil dumanlı Rich Thorium gibi görünür; Torbernite ve Fel Crystal da verir.\n- `ENDGAME` 300'de trainer'dan Smelt Heavy Thorium. Alchemist Heavy Thorium Bar + Fel Crystal'dan Legionite Bar yapar.\n\n## Kamp objeleri\n\n| Obje | Skill | Malzeme | Nereden öğrenilir |\n|---|---|---|---|\n| Lodestone | 20 | 1 Rough Stone + 1 Copper Bar | Mining eğitmeni · başlangıç görevi Camping 101: Mining |\n| Rock Garden | 140 | 2 Heavy Stone + 1 Iron Ore + 1 Silver Bar | Blueprint: Excavation Site: Wetlands, Relic Guardian |\n| Molten Foundry | 300 | 5 Thorium Bar + 2 Dense Stone + 1 Truesilver Bar | Blueprint: Molten Foundry (eğitmen öğretmez) |\n\nHepsi kamp ateşinin yanına kurulur ve 1 saatlik ortak bekleme süresini paylaşır. Buff için ateşin başında 1 dakika otur. Lodestone melee Attack Power verir (seviye 10'da +12, 60'ta +90), Blessing of Might ile birikmez; Rock Garden ve Molten Foundry de aynı buff'ı verir. Rock Garden zamanla maden damarı çıkarır. Heavy Thorium yalnız Molten Foundry'de erir.\n\n## Legacy Perk'leri (meslek ağacı)\n\n- `BOUNTIFUL` Bountiful Harvest: her rütbede +%20 daha çok nadir malzeme (en çok +%100).\n- `OVERTIME` Working Overtime: skill puanı gelme şansı artar.\n- `STUDY` Dedicated Study: en düşük mesleğine düzenli skill ekler.\n- `PERMANENCE` Permanence: kamp buff'ları daha uzun sürer.\n\n## Banka: Waylaid Crate\n\n| Sandık | Seviye | İçine şunlardan birini koy |\n|---|---|---|\n| Apprentice Ore | 10 | 20 Copper Ore · ya da 20 Tin Ore |\n| Journeyman Ore | 10 | 10 Silver Ore · ya da 20 Iron Ore |\n| Expert Ore | 20 | 10 Gold Ore · ya da 20 Mithril Ore |\n| Artisan Ore | 35 | 10 Truesilver · ya da 20 Thorium · ya da 20 Dark Iron Ore |\n| Apprentice Ingots | 10 | 20 Copper Bar · ya da 20 Tin Bar · ya da 10 Bronze Bar |\n| Journeyman Ingots | 10 | 10 Silver Bar · ya da 20 Iron Bar |\n| Expert Ingots | 20 | 20 Mithril Bar · ya da 15 Steel Bar · ya da 10 Gold Bar |\n| Artisan Ingots | 35 | 2 Dark Iron · ya da 10 Truesilver · ya da 20 Thorium Bar |\n\nSandığı sen yapamazsın: moblardan ve sandıklardan düşer ya da AH'den alınır. İçine tek bir deste koyup mühürlersin. Teslim: Alliance Marcy Baker (Redridge, Three Corners), Horde Dokimi (Barrens, Crossroads yanı). Ödül Merchant's Favor: Ore sandığı Apprentice 5 · Journeyman 10 · Expert 15; Ingots sandığı bunun iki katı. İlk sandığı doldurunca Shipping Label çıkar: tek seferlik görev, 50 Favor + 2.000 itibar.\n\n## İşe yarayan eşyalar\n\n- `+5` Goblin Mining Helmet: Goblin Engineering 205, mail zırh.\n- `+5` Enchant Gloves - Advanced Mining (Enchanting). Basit hali Enchant Gloves - Mining +2.\n- `+2` Miner's Cape: Deadmines, Miner Johnson düşürür.\n- `%25` Smelting Pants: Deadmines, Gilnid düşürür. Copper, Tin, Bronze, Silver'ı %25 hızlı eritir.\n- `ROCKSLICER` Deadmines, Rhahk'Zor düşürür: Mining'siz bile Copper, Tin, Silver, Iron kazar (30 kullanım).\n- `YIĞIN` Forever'da cevher 20'li yığılır.\n- `SIRA` Rota kartları: 1–65 (Alliance / Horde) → 65–125 (Alliance / Horde) → 125–175 → 175–245 → 245–300."
+ },
+ {
+  "id": "skin-1-75-alliance",
+  "category": "profession",
+  "title": "Skinning · Skill 1–75 kasma rotası: nerede, ne yapılır (Alliance)",
+  "file": "skin-1-75-alliance.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Skinning",
+  "keywords": [
+   "skinning",
+   "yüzme, deri toplama"
+  ],
+  "professionName": "Skinning",
+  "profession": "skinning",
+  "part": "range",
+  "range": [
+   1,
+   75
+  ],
+  "faction": "alliance",
+  "text": "# Skinning · 1 → 75 Başlangıç Bölgeleri (Alliance)\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Skinning\n- Skill aralığı: 1 → 75 Başlangıç bölgeleri\n- Fraksiyon: Alliance\n- Rozet: Tavsiye edilen rota\n\n## 1 · Elwynn Forest\n\nNorthshire → Goldshire → Eastvale\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — NORTHSHIRE\n- 2 — GOLDSHIRE GÜNEYİ\n- 3 — EASTVALE\n\nHarita altı yazısı (lejant): Young Wolf · Timber Wolf · Stonetusk Boar · Rockhide Boar · Prowler · Young Forest Bear · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Yeni karakterde: Northshire Abbey'in kuzeybatısındaki açıklıkta Young Wolf ve Timber Wolf.\n- `2` Goldshire'ın hemen güneyi: yolun iki yanındaki tarlalarda Stonetusk Boar ve Rockhide Boar.\n- `3` 9–10 seviye kurtları rahat kesiyorsan yolu doğuya, Eastvale Logging Camp'e: Prowler ve Young Forest Bear.\n\n## 2 · Dun Morogh\n\nColdridge → Kharanos → Brewnall\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — COLDRIDGE\n- 2 — KHARANOS GÜNEYİ\n- 3 — BREWNALL\n\nHarita altı yazısı (lejant): Ragged Young Wolf · Ragged Timber Wolf · Small Crag Boar · Crag Boar · Elder Crag Boar · Young Black Bear · Snow Leopard · Ice Claw Bear · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Yeni karakterde: Coldridge Valley'deki açıklıkta Ragged Young / Timber Wolf; turun batı ucunda Small Crag Boar.\n- `2` Coldridge'den çıkınca Kharanos'un güneyindeki karlı çukur: Crag Boar ve Young Black Bear (5–6 seviye).\n- `3` Daha zorlu av için batıya, Brewnall Village: gölün batı kıyısında Elder Crag Boar, Snow Leopard, Ice Claw Bear.\n\n## 3 · Teldrassil\n\nShadowglen → Dolanaar\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — SHADOWGLEN\n- 2 — DOLANAAR\n\nHarita altı yazısı (lejant): Young Thistle Boar · Thistle Boar · Nightsaber · Nightsaber Stalker · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Shadowglen'deki açıklığı dolaş: Young Thistle Boar ve Thistle Boar.\n- `2` Dolanaar'a geçince Nightsaber'lara geç: kasabanın doğusunda yolun iki yanındaki orman.\n- `2→` Güneye sapıp Nightsaber Stalker, sonra Dolanaar'ın batısındaki açıklıklardan geri dön.\n\n## 4 · Zephras Isle\n\nİki tarafa açık · Skyborne başlangıcı\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — THENDAL VILLAGE\n- 2 — SHEN'DAR BATISI\n\nHarita altı yazısı: Thendal'ın güneyinden Shen'dar'ın batısındaki ormana · rotayı izle\n\nAdımlar:\n\n- `1` Thendal Village'ın güneyindeki açıklık: doğuda Juvenile Vuldren, batıda Scrawny Ursera.\n- `2` Shen'dar Village'a gelince suyun aynı yakasında kal: kasabanın batısındaki ormanda Galestrider ve Prideclaw.\n\n## Ne yap\n\n- `FOREVER` Başlangıç bölgelerindeki 1. seviye hayvanlar bile 75'e kadar skill verir.\n- `NASIL` Hayvanı öldür, bütün loot'unu al, cesede tekrar sağ tıkla. Başkasının kestiğini de yüzebilirsin (loot'u alınmışsa).\n- `50'DE` Journeyman al, yoksa 75'te takılırsın. Başlangıç kampındaki eğitmen yalnız Apprentice öğretir: Goldshire'da Helene Peltskinner, Ironforge'da Balthus Stoneflayer, Teldrassil'de Radnaal Maneweaver.\n- `BEDAVA` Başlangıç görevinin ödülünden Pelt Collecting for Beginners'ı seç: boş meslek yerin varsa Skinning öğretir. Skinning ana meslektir, iki yerinden birini kullanır.\n\n## Sat mı, sakla mı?\n\n- `SAKLA` 3 Light Leather + 2 Simple Wood: Skinning 20'de Camp Chair (eğitmenden). Oturanlara %2 kritik.\n- `SAKLA` Leatherworking da yapıyorsan deriyi ve Ruined Leather Scraps'ı sakla.\n- `BANKA` Waylaid Crate bulursan: Apprentice Textiles sandığına 20 Light Leather koyabilirsin (ya da 40 Linen Cloth).\n- `SAT` İhtiyacın olmayanı AH'ye koy: Leatherworking, Tailoring, Engineering ve Blacksmithing deri kullanır.\n\n## İşini hızlandır\n\n- Skinning Knife çantada dursun, takman gerekmez. 10 bakır; Trade Supplies / General Goods satıcıları ve başlangıç eğitmenleri satar.\n- `BİLGİ` Her ceset bir kez yüzülür, grupta da öyle.\n- `BİLGİ` Görev yaparken kestiğin her hayvanı yüz: en hızlı yol bu.\n- `BİLGİ` Zephras Isle'daki eğitmenler iki tarafa da öğretir; Thendal Village'da eğitmen yok."
+ },
+ {
+  "id": "skin-1-75-horde",
+  "category": "profession",
+  "title": "Skinning · Skill 1–75 kasma rotası: nerede, ne yapılır (Horde)",
+  "file": "skin-1-75-horde.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Skinning",
+  "keywords": [
+   "skinning",
+   "yüzme, deri toplama"
+  ],
+  "professionName": "Skinning",
+  "profession": "skinning",
+  "part": "range",
+  "range": [
+   1,
+   75
+  ],
+  "faction": "horde",
+  "text": "# Skinning · 1 → 75 Başlangıç Bölgeleri (Horde)\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Skinning\n- Skill aralığı: 1 → 75 Başlangıç bölgeleri\n- Fraksiyon: Horde\n- Rozet: Tavsiye edilen rota\n\n## 1 · Durotar\n\nValley of Trials → Orgrimmar güneyi\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — VALLEY OF TRIALS\n- 2 — ORGRIMMAR GÜNEYİ\n\nHarita altı yazısı (lejant): Mottled Boar · Scorpid Worker · Elder Mottled Boar · Bloodtalon Scythemaw · Venomtail Scorpid · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Valley of Trials'ta Mottled Boar ve Scorpid Worker.\n- `2` Bunlar kolaylaşınca yolu Razor Hill'in yanından kuzeye, Orgrimmar'a doğru izle.\n- `2→` İkinci tur yolun batısında, nehrin doğusunda: Elder Mottled Boar, Bloodtalon Scythemaw, Venomtail Scorpid.\n\n## 2 · Mulgore\n\nRed Cloud Mesa → Bloodhoof\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — RED CLOUD MESA\n- 2 — BLOODHOOF DOĞUSU\n\nHarita altı yazısı (lejant): Plainstrider · Prairie Wolf · Adult Plainstrider · Elder Plainstrider · Prairie Wolf Alpha · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Red Cloud Mesa'da Plainstrider, sonra patikadan Bloodhoof Village'a in.\n- `2` Köyün doğusundaki ovada Prairie Wolf ve Adult Plainstrider.\n- `2→` Güçlendikçe daha doğuya: Elder Plainstrider ve Prairie Wolf Alpha.\n\n## 3 · Tirisfal Glades\n\nDeathknell → Brill\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — DEATHKNELL\n- 2 — BRILL GÜNEYBATISI\n\nHarita altı yazısı (lejant): Young Scavenger · Duskbat · Greater Duskbat · Decrepit Darkhound · Cursed Darkhound · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Deathknell çevresinde Young Scavenger ve Duskbat.\n- `2` Brill'e gelince kasabanın güneybatısındaki ormanlık şerit (Deathknell yolu ile Undercity yolu arası).\n- `2→` Brill'e dönerken Greater Duskbat, Decrepit Darkhound, Cursed Darkhound.\n\n## 4 · Zephras Isle\n\nİki tarafa açık · Skyborne başlangıcı\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — THENDAL VILLAGE\n- 2 — SHEN'DAR BATISI\n\nHarita altı yazısı: Thendal'ın güneyinden Shen'dar'ın batısındaki ormana · rotayı izle\n\nAdımlar:\n\n- `1` Thendal Village'ın güneyindeki açıklık: doğuda Juvenile Vuldren, batıda Scrawny Ursera.\n- `2` Shen'dar Village'a gelince suyun aynı yakasında kal: kasabanın batısındaki ormanda Galestrider ve Prideclaw.\n\n## Ne yap\n\n- `FOREVER` Başlangıç bölgelerindeki 1. seviye hayvanlar bile 75'e kadar skill verir.\n- `NASIL` Hayvanı öldür, bütün loot'unu al, cesede tekrar sağ tıkla. Başkasının kestiğini de yüzebilirsin (loot'u alınmışsa).\n- `50'DE` Journeyman al, yoksa 75'te takılırsın. Başlangıç kampındaki eğitmen yalnız Apprentice öğretir: Orgrimmar'da Thuwd, Bloodhoof'ta Yonn Deepcut, Tirisfal'da Rand Rhobart.\n- `BEDAVA` Başlangıç görevinin ödülünden Pelt Collecting for Beginners'ı seç: boş meslek yerin varsa Skinning öğretir. Skinning ana meslektir, iki yerinden birini kullanır.\n\n## Sat mı, sakla mı?\n\n- `SAKLA` 3 Light Leather + 2 Simple Wood: Skinning 20'de Camp Chair (eğitmenden). Oturanlara %2 kritik.\n- `SAKLA` Leatherworking da yapıyorsan deriyi ve Ruined Leather Scraps'ı sakla.\n- `BANKA` Waylaid Crate bulursan: Apprentice Textiles sandığına 20 Light Leather koyabilirsin (ya da 40 Linen Cloth).\n- `SAT` İhtiyacın olmayanı AH'ye koy: Leatherworking, Tailoring, Engineering ve Blacksmithing deri kullanır.\n\n## İşini hızlandır\n\n- Skinning Knife çantada dursun, takman gerekmez. 10 bakır; Trade Supplies / General Goods satıcıları ve başlangıç eğitmenleri satar.\n- `BİLGİ` Her ceset bir kez yüzülür, grupta da öyle.\n- `BİLGİ` Görev yaparken kestiğin her hayvanı yüz: en hızlı yol bu.\n- `+3` 14. seviyeden itibaren Barrens'ta Walton'ın Unwelcome Guests görevi: ödül Keen Skinning Knife (+3 Skinning, hançer). Bıçak yerine de geçer."
+ },
+ {
+  "id": "skin-150-225",
+  "category": "profession",
+  "title": "Skinning · Skill 150–225 kasma rotası: nerede, ne yapılır",
+  "file": "skin-150-225.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Skinning",
+  "keywords": [
+   "skinning",
+   "yüzme, deri toplama"
+  ],
+  "professionName": "Skinning",
+  "profession": "skinning",
+  "part": "range",
+  "range": [
+   150,
+   225
+  ],
+  "faction": null,
+  "text": "# Skinning · 150 → 225 Medium & Heavy Leather\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Skinning\n- Skill aralığı: 150 → 225 Medium & Heavy Leather\n- Fraksiyon: kartta fraksiyon rozeti yok; beş bölgenin hepsinde \"İki taraf\" yazıyor\n- Rozet: Tavsiye edilen rota\n\n## 1 · Thousand Needles — 150 → 185\n\nİki taraf · Shimmering Flats\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — SHIMMERING FLATS\n- 2\n- 170: GAZER TURU (kesikli yol)\n\nHarita altı yazısı (lejant): Saltstone Basilisk · Sparkleshell Tortoise · Saltstone Crystalhide · Saltstone Gazer · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Shimmering Flats'e batıdan gir, kuzeybatıda 30 seviye Saltstone Basilisk ve Sparkleshell Tortoise. 155'te 31 seviyeler.\n- `160` Saltstone Crystalhide ekle.\n- `170` Turu güney düzlüğe uzat (kesikli): 34 seviye Saltstone Gazer. 175'te bütün gazer'lar.\n\n## 2 · Arathi Highlands — 150 → 185\n\nİki taraf · Refuge Pointe batısı\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — REFUGE POINTE BATISI\n- 2\n- 180: FLESHSTALKER (kesikli yol)\n\nHarita altı yazısı (lejant): Highland Strider · Highland Thrasher · Highland Fleshstalker · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Refuge Pointe'un batısında 30 seviye Highland Strider. 155'te 31 seviyeler.\n- `2` 165'e gelince kuzeybatıya, Highland Thrasher'lara.\n- `180` Refuge Pointe'un güneyinde yolu geç, açık arazide 36 seviye Highland Fleshstalker (kesikli).\n\n## 3 · Dustwallow Marsh — 185 → 225\n\nİki taraf · Brackenwall'ın güneyi\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — BRACKENWALL GÜNEYİ\n- 2\n\nHarita altı yazısı (lejant): Drywallow Vicejaw · Drywallow Snapper · Bloodfen Scytheclaw · Mottled Drywallow Crocolisk · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Brackenwall Village'ın güneyinde, kanallarda Drywallow Vicejaw.\n- `1→2` Stonemaul Ruins'e doğru güneye: 37 seviye Drywallow Snapper ve Bloodfen Scytheclaw.\n- `190` 38 seviye Mottled Drywallow Crocolisk; 195'te 39 seviye timsahlar. Harabelere varmadan kuzeye dön.\n\n## 4 · Badlands — 185 → 225\n\nİki taraf · Angor Fortress'ın güneyi\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — ANGOR FORTRESS GÜNEYİ\n- 2\n- 3\n- 195: ELDER COYOTE (kesikli yol)\n\nHarita altı yazısı (lejant): Crag Coyote · Feral Crag Coyote · Elder Crag Coyote · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Angor Fortress'ın güneyindeki açık arazide Crag Coyote.\n- `2→3` Güneydoğuya, Feral Crag Coyote: 37 seviyeler 185'te, 38'ler 190'da.\n- `195` Güney kolunu batıya izle (kesikli): 39 seviye Elder Crag Coyote; 200'de 40 seviyeler.\n\n## 5 · Stranglethorn Vale — 185 → 225\n\nİki taraf · Grom'gol'ün doğusu\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — NAZFERITI BATISI\n- JUNGLE STALKER (kesikli yol)\n\nHarita altı yazısı (lejant): Lashtail Raptor · Shadowmaw Panther · Jungle Stalker · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Lake Nazferiti'nin batı yakasında, Grom'gol'ün doğusunda Lashtail Raptor.\n- `190` Gölün güneyinde her iki seviyedeki Shadowmaw Panther'lar.\n- `200` Gurubashi Arena yoluna gir, duvarların kuzeyindeki ormanda 40 seviye Jungle Stalker (kesikli); 205'te 41'ler.\n\n## Ne yap\n\n- `KURAL` 150'de 30 seviye hayvan yüzersin; her +5 skill bir seviye daha açar.\n- `200'DE` Artisan al (karakter seviyesi 25): 225'te Artisan olmadan skill durur. 205'ten sonra skill arttıkça daha yüksek seviyeli hayvanları ekleyerek devam et.\n- `LEATHER` Bu aralıkta Medium ve Heavy Leather; Stranglethorn ve Swamp of Sorrows'taki panterlerden Shadowcat Hide, Dustwallow'daki kaplumbağalardan Turtle Scale.\n\n## Sat mı, sakla mı?\n\n- `300'DE` 4 Heavy Leather (+2 Simple Wood, 1 Iron Bar): Trapper's Workbench. Blueprint: Scarlet Monastery'de Houndmaster Loksey. İçinde 1 tuzak var.\n- `SAKLA` Pristine Hide (nadir): bu rotanın hayvanlarından (Highland Strider, Crag Coyote, Drywallow Vicejaw, Jungle Stalker) ekstra çıkar. Yeni LW, Blacksmithing ve Tailoring tariflerine girer.\n- `SAT` Heavy Leather ve özel deriler AH'de iyi gider; LW yapıyorsan sakla.\n\n## İşini hızlandır\n\n- `+5` Enchant Gloves - Skinning (Enchanting 200): +5 = bir seviye daha yüksek hayvan.\n- `BİLGİ` İki aynı adlı hayvan yan yanaysa çekmeden önce seviyesine bak.\n- `BİLGİ` Dustwallow, Badlands ve Stranglethorn'dan birini seç: üçü de aynı aralık."
+ },
+ {
+  "id": "skin-225-300",
+  "category": "profession",
+  "title": "Skinning · Skill 225–300 kasma rotası: nerede, ne yapılır",
+  "file": "skin-225-300.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Skinning",
+  "keywords": [
+   "skinning",
+   "yüzme, deri toplama"
+  ],
+  "professionName": "Skinning",
+  "profession": "skinning",
+  "part": "range",
+  "range": [
+   225,
+   300
+  ],
+  "faction": null,
+  "text": "# Skinning · 225 → 300 Thick & Rugged Leather\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Skinning\n- Skill aralığı: 225 → 300 Thick & Rugged Leather\n- Fraksiyon: kartta fraksiyon rozeti yok; altı bölgenin hepsinde \"İki taraf\" yazıyor\n- Rozet: Tavsiye edilen rota\n\n## 1 · Tanaris — 225 → 250\n\nİki taraf · Abyssal Sands\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — ABYSSAL SANDS\n- 2\n- 235: RABID (kesikli yol)\n\nHarita altı yazısı (lejant): Blisterpaw Hyena · Rabid Blisterpaw · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Gadgetzan'dan güneybatıya, Abyssal Sands: kuzey kumullarında Blisterpaw Hyena.\n- `235` Daha uzun güney turunda (kesikli) 47 seviye Rabid Blisterpaw; 48'ler 240'ta.\n\n## 2 · Feralas — 225 → 250\n\nİki taraf · Feral Scar Vale\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — FERAL SCAR VALE\n\nHarita altı yazısı (lejant): Feral Scar Yeti · Enraged Feral Scar · Hulking Feral Scar · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Dire Maul'un güneyinde yoldan ayrıl, Feral Scar Vale: dışarıda Feral Scar Yeti ve Enraged Feral Scar.\n- `MAĞARA` Kampın batısındaki mağaraya gir: 45 seviye Hulking Feral Scar hemen yüzülür; 46'lar 230'da. Girişe doğru geri çalış.\n\n## 3 · Un'Goro Crater — 250 → 275\n\nİki taraf · Tanaris'ten gir\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — BATAKLIK KENARI\n- 2\n\nHarita altı yazısı (lejant): Ravasaur · Ravasaur Runner · Ravasaur Hunter · Venomhide Ravasaur · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Tanaris'ten gir, bataklığın batı kenarından kuzeye: güney çimenlerinde Ravasaur ve Ravasaur Runner.\n- `2→1` Suya yakın Ravasaur Hunter ve Venomhide Ravasaur.\n- `250` 50 seviyeye kadar her şey; 51 seviye Venomhide 255 ister. İlk turda seviyelere bak.\n\n## 4 · Felwood — 250 → 275\n\nİki taraf · Irontree Woods\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — BATI YOLU\n- 2\n- 3\n- 4 — IRONTREE\n\nHarita altı yazısı (lejant): Angerclaw Mauler · Felpaw Scavenger · Angerclaw Grizzly · Felpaw Ravager · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Irontree Woods'un batı yolunu izle: Angerclaw Mauler ve Felpaw Scavenger.\n- `255` Kuzeydoğu tarafta 51 seviye Angerclaw Grizzly ve Felpaw Ravager; 52'ler 260'ta.\n- `3→4` Ormanın kenarını güneye izle, aynı av alanından geri dön.\n\n## 5 · Western Plaguelands — 275 → 300\n\nİki taraf · Dalson's Tears\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — DALSON'S TEARS\n- 2 — GAHRRON'S KUZEYİ\n- 3\n\nHarita altı yazısı (lejant): Diseased Wolf · Diseased Grizzly · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Dalson's Tears'ın hemen doğusunda tura gir; batı kolunda Diseased Wolf.\n- `1→2` Gahrron's Withering'e doğru doğuya: Diseased Grizzly. 55 seviye 275'te, 56'lar 280'de.\n- `!` Çiftliklerin çevresindeki ormanda kal, hayvan bulmaya devam edersin.\n\n## 6 · Winterspring — 275 → 300\n\nİki taraf · Frostsaber Rock\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — FROSTSABER ROCK\n- 2\n- 3\n\nHarita altı yazısı (lejant): Frostsaber Cub · Frostsaber · Frostsaber Huntress · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Starfall Village'dan kuzeye, Frostsaber Rock: kayanın eteğinde 55 seviye Frostsaber Cub.\n- `280` 56 seviye Frostsaber; 285'te 57 seviye kediler.\n- `290` Frostsaber Huntress ekle, çekmeden önce seviyesine bak.\n\n## Ne yap\n\n- `KURAL` 300'e 60 seviyenin altındaki hayvanlarla ulaşırsın. WPL kurtları 275'te hemen yüzülür.\n- `LEATHER` Thick Leather (Tanaris, Feralas) ve Rugged Leather (Un'Goro, Felwood, WPL, Winterspring).\n- `ÖZEL` Winterspring'de Frostsaber Leather; Felwood, WPL ve Winterspring ayılarından Warbear Leather; Un'Goro devilsaur'larından Devilsaur Leather.\n\n## Sat mı, sakla mı?\n\n- `YENİ` Fel Leather ve Fel Hide: 300 skill'lik yeni LW zırhlarına girer. Eline geçerse satma, sakla.\n- `SAKLA` Pristine Leather / Hide / Scale (nadir): yeni LW, Blacksmithing ve Tailoring tariflerinde. Riverglades'te Mister Graphed satar.\n- `SAT` Devilsaur, Warbear, Frostsaber ve ejderha pulları AH'de değerli; LW yapıyorsan sakla.\n\n## İşini hızlandır\n\n- `+10` Enchant Gloves - Advanced Skinning (Enchanting 250): +10 = iki seviye daha yüksek hayvan.\n- `BİLGİ` Feralas'taki mağara kalabalıksa Tanaris'e geç; ikisi de aynı aralık.\n- `LEGACY` Bountiful Harvest: her rütbede +%20 daha çok nadir malzeme (en çok +%100)."
+ },
+ {
+  "id": "skin-75-150",
+  "category": "profession",
+  "title": "Skinning · Skill 75–150 kasma rotası: nerede, ne yapılır",
+  "file": "skin-75-150.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Skinning",
+  "keywords": [
+   "skinning",
+   "yüzme, deri toplama"
+  ],
+  "professionName": "Skinning",
+  "profession": "skinning",
+  "part": "range",
+  "range": [
+   75,
+   150
+  ],
+  "faction": null,
+  "text": "# Skinning · 75 → 150 Light & Medium Leather\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Skinning\n- Skill aralığı: 75 → 150 Light & Medium Leather\n- Fraksiyon: kartta tek fraksiyon rozeti yok; her bölgenin başlığında taraf yazıyor (Horde / Alliance / İki taraf)\n- Rozet: Tavsiye edilen rota\n\n## 1 · The Barrens — 75 → 125\n\nHORDE · Northwatch Hold batısı\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — TAURAJO YOLU\n- 2 — NORTHWATCH BATISI\n\nHarita altı yazısı (lejant): Ornery Plainstrider · Zhevra Charger · Sunscale Scytheclaw · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Camp Taurajo'nun kuzeyinde Gold Road'dan ayrıl, ovada doğuya: Ornery Plainstrider, Zhevra Charger.\n- `2` Northwatch Hold'un hemen batısında Sunscale Scytheclaw. Kaleden önce geri dön.\n- `75` 75'te 16–17 seviye hayvanlarda kal; 80'de 18 seviye charger ve raptor da olur.\n- `2→1` Dönüşte ovanın güney yakasını temizle.\n\n## 2 · Loch Modan — 75 → 125\n\nALLIANCE · gölün doğu kıyısı\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — DOĞU KIYI\n- 2\n\nHarita altı yazısı (lejant): Elder Mountain Boar · Black Bear Patriarch · Loch Crocolisk · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Gölün doğu kıyısı ve Mo'grosh Stronghold'un altındaki çimenli yamaçlar: Elder Mountain Boar, Black Bear Patriarch.\n- `2→1` Dönüşte suya yakın kal: Loch Crocolisk.\n- `75` Üçü de 75'te yüzülür.\n\n## 3 · Hillsbrad Foothills — 125 → 150\n\nİki taraf · Hillsbrad Fields ile Tarren Mill arası\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — HILLSBRAD FIELDS\n- 2 — NEHRİN BATISI\n\nHarita altı yazısı (lejant): Starving Mountain Lion · Vicious Gray Bear · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1→2` Hillsbrad Fields ile Tarren Mill arasındaki yolun iki yanında Starving Mountain Lion ve Vicious Gray Bear.\n- `!` Çiftlik binalarının doğusunda, nehrin batısında kal.\n- `125` İkisi de 125'te yüzülür: belli bir seviyenin doğmasını beklemeden bütün turu dönebilirsin.\n\n## 4 · Wetlands — 125 → 150\n\nALLIANCE · Whelgar's Excavation Site\n\nHarita üzerindeki duraklar ve etiketler:\n\n- 1 — WHELGAR'S\n- KAZI DIŞI RAPTORLAR (kesikli yol)\n\nHarita altı yazısı (lejant): Mottled Scytheclaw · Mottled Raptor · Mottled Razormaw · çıkabilen nokta · soluk = rota dışı\n\nAdımlar:\n\n- `1` Patikadan Whelgar's Excavation Site'a gir, kazı alanını dolaş: önce 25 seviye Mottled Scytheclaw.\n- `YEDEK` Sıradaki grup yüksekse girişin batısında Mottled Raptor (kesikli yol).\n- `130` 26 seviye Scytheclaw ve Mottled Razormaw; 135'te bu turdaki bütün raptorlar.\n\n## Ne yap\n\n- `KURAL` 20. seviyeden sonra gereken skill = hayvan seviyesi × 5. 75'te 17, 80'de 18 seviye yüzersin.\n- `125'TE` Expert al (karakter seviyesi 10): 150'yi geçmek için şart.\n- `LEATHER` Bu aralıkta Light Leather (Barrens, Loch Modan) ve Medium Leather (Wetlands, Hillsbrad) çıkar.\n\n## Sat mı, sakla mı?\n\n- `140'TA` Field Guide: 3 Medium Leather + 2 Slimy Murloc Scale + 1 Fine Thread. Blueprint: Wailing Caverns, Lady Anacondra. Okuyan Track Beasts alır.\n- `SAKLA` Wetlands'te kırmızı yavru ejderhalardan Red Whelp Scale: Leatherworking ister.\n- `SAT` Kalanını AH'ye koy. Leatherworker'lar Light ve Medium Leather'ı çok kullanır.\n\n## İşini hızlandır\n\n- Skinning Knife çantada. Horde: Keen Skinning Knife (+3) Barrens'ta Walton'ın Unwelcome Guests görevinden (Alliance'ta karşılığı yok).\n- `BİLGİ` Aynı adlı iki hayvan yan yanaysa önce seviyesine bak: biri sana yüksek olabilir.\n- `BİLGİ` Hillsbrad iki tarafa da açık: Alliance Wetlands'ten sonra buraya geçebilir."
+ },
+ {
+  "id": "skin-genel",
+  "category": "profession",
+  "title": "Skinning · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "file": "skin-genel.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Skinning",
+  "keywords": [
+   "skinning",
+   "yüzme, deri toplama"
+  ],
+  "professionName": "Skinning",
+  "profession": "skinning",
+  "part": "genel",
+  "text": "# Skinning · 1 → 300 Başlamadan Önce\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Skinning\n- Skill aralığı: 1 → 300 (Başlamadan önce)\n- Fraksiyon: kartta fraksiyon rozeti yok; eğitmen tablosunda Alliance / Horde / İki taraf ayrımı var\n- Rozet: Tavsiye edilen rota\n\n## Nasıl başlarım?\n\n- `1` Mesleği öğren: başlangıç görevinin ödülünden Pelt Collecting for Beginners'ı seç (boş meslek yerin varsa; Skinning iki ana meslek yerinden birini kullanır) ya da bir eğitmene git.\n- (Skinning Knife ikonu) Skinning Knife al ve çantada tut, takman gerekmez: 10 bakır, Trade Supplies / General Goods satıcıları ve başlangıç eğitmenleri satar.\n- `2` Hayvanı öldür, bütün loot'u al, cesede tekrar sağ tıkla. Loot'u alınmışsa başkasının kestiğini de yüzebilirsin.\n- `3` Çoğunlukla Beast ve Dragonkin yüzülür. Cesedin üstüne gelince Skinnable yazıyorsa yüzebilirsin.\n- `DİKKAT` Her ceset bir kez yüzülür, grupta da. İnsansı ya da ölümsüz kesiyorsan skill için ayrıca hayvan avla.\n\n## Rütbeler\n\n| Rütbe | Tavan | Skill şartı | Karakter seviyesi |\n|---|---|---|---|\n| Apprentice | 75 | Şart yok | Şart yok |\n| Journeyman | 150 | 50 | Şart yok |\n| Expert | 225 | 125 | 10 |\n| Artisan | 300 | 200 | 25 |\n\nDört rütbeyi de aşağıdaki eğitmenler öğretir; kitap ya da görev gerekmez. Başlangıç kampındaki eğitmen yalnız Apprentice öğretir. 150, 225 ve 300'e ilk ulaştığında Legacy puanı kazanırsın.\n\n## Hangi hayvanı yüzebilirim?\n\n| Hayvan seviyesi | Gereken skill |\n|---|---|\n| 1 – 10 | 1 |\n| 11 | 10 |\n| 15 | 50 |\n| 20 | 100 |\n| 30 | 150 |\n| 40 | 200 |\n| 50 | 250 |\n| 60 | 300 |\n\n11–20 arası her seviye +10; 20'den sonra seviye × 5 (41 → 205). 20'den sonra her +5 skill bir seviye daha açar. Forever'da başlangıç bölgelerindeki 1. seviye hayvanlar bile 75'e kadar skill verir.\n\n## Deri nereden çıkar?\n\n| Deri | Örnek bölgeler |\n|---|---|\n| Ruined Leather Scraps | Elwynn, Teldrassil, Zephras Isle |\n| Light Leather · Light Hide | Westfall, Barrens, Darkshore, Loch Modan |\n| Medium Leather · Medium Hide | Wetlands, Hillsbrad, Ashenvale, Thousand Needles |\n| Heavy Leather · Heavy Hide | Stranglethorn, Badlands, Swamp of Sorrows, Dustwallow |\n| Thick Leather · Thick Hide | Tanaris, Feralas, Hinterlands, Blasted Lands |\n| Rugged Leather · Rugged Hide | Winterspring, Western Plaguelands, Felwood, Un'Goro |\n\nHide (post) deriden nadirdir. Gereken skill derinin türüne değil, hayvanın seviyesine bağlıdır.\n\n## Özel deri ve pullar\n\n| Malzeme | Hayvan | Nerede |\n|---|---|---|\n| Black / Red / Green Whelp Scale | Yavru ejderhalar | Redridge · Wetlands · Swamp of Sorrows |\n| Deviate Scale · Perfect Deviate Scale | Deviate raptor ve yılanlar | Wailing Caverns ve giriş mağaraları |\n| Shadowcat Hide | Shadowmaw / Shadow Panther | Stranglethorn, Swamp of Sorrows |\n| Turtle Scale | Kaplumbağalar (Mudrock, Snapjaw, Steeljaw, Surf Glider) | Dustwallow, Hinterlands, Tanaris |\n| Scorpid Scale · Heavy Scorpid Scale | Akrepler | Tanaris · Silithus, Burning Steppes |\n| Worn / Green / Red / Blue / Black Dragonscale | Ejderha soyları | Burning Steppes, Winterspring, Swamp of Sorrows, Wetlands, Azshara, Sunken Temple |\n| Devilsaur Leather | Devilsaur'lar | Un'Goro Crater |\n| Warbear Leather | Shardtooth, Angerclaw, Diseased ayılar | Winterspring, Felwood, WPL |\n| Frostsaber Leather · Chimera Leather | Frostsaber'lar · Chimaera'lar | Winterspring · Winterspring, Azshara |\n\n## Tüm rütbeleri öğreten eğitmenler\n\n| Taraf | Eğitmen | Yer | Koordinat |\n|---|---|---|---|\n| Alliance | Maris Granger | Stormwind, Old Town | 67.8 49.0 |\n| Alliance | Balthus Stoneflayer | Ironforge, The Great Forge | 39.6 32.6 |\n| Alliance | Eladriel | Darnassus, Craftsmen's Terrace | 64.2 21.8 |\n| Alliance | Helene Peltskinner | Elwynn, Goldshire | 46.2 62.2 |\n| Alliance | Radnaal Maneweaver | Teldrassil, Darnassus yolu | 42.0 50.0 |\n| Alliance | Wilma Ranthal | Redridge Mountains | 88.8 71.0 |\n| Alliance | Jayla | Ashenvale, Silverwind Refuge | 50.0 67.2 |\n| Horde | Thuwd | Orgrimmar, The Drag | 63.2 45.2 |\n| Horde | Mooranta | Thunder Bluff | 44.6 43.0 |\n| Horde | Killian Hagey | Undercity, Rogues' Quarter | 70.4 59.2 |\n| Horde | Yonn Deepcut | Mulgore, Bloodhoof Village | 45.6 57.8 |\n| Horde | Rand Rhobart | Tirisfal Glades | 65.6 60.0 |\n| Horde | Dranh | Barrens, Camp Taurajo | 45.0 59.0 |\n| Horde | Malux | Desolace, Shadowprey Village | 23.2 69.8 |\n| Horde | Kulleg Stonehorn | Feralas, Camp Mojache | 74.6 42.8 |\n| İki taraf | Mendalass Tattermend | Zephras Isle, Shen'dar Village | 43.2 43.4 |\n| İki taraf | Ishlee Breezewhisper | Zephras Isle, Valanaar | 59.6 76.0 |\n\nYalnız Apprentice öğretenler: Riley Peltskinner (Northshire) · Brighid Stormflayer (Coldridge) · Terunne Bearshaper (Shadowglen) · Kagil (Valley of Trials) · Nawka Wildsong (Red Cloud Mesa) · Margaret Weaver (Deathknell).\n\n## Kamp objeleri\n\n| Obje | Skill | Malzeme | Nereden | Ne yapar |\n|---|---|---|---|---|\n| Camp Chair | 20 | 3 Light Leather + 2 Simple Wood | Skinning eğitmeni | Oturanlara %2 kritik |\n| Field Guide | 140 | 3 Medium Leather + 2 Slimy Murloc Scale + 1 Fine Thread | Blueprint: Wailing Caverns, Lady Anacondra | Okuyana Track Beasts + Camp Chair buff'ı |\n| Trapper's Workbench | 300 | 4 Heavy Leather + 2 Simple Wood + 1 Iron Bar | Blueprint: Scarlet Monastery, Houndmaster Loksey | İçinde 1 tuzak + Camp Chair buff'ı |\n\nKamp ateşini Cooking kurar; objeler yanına konur ve 1 saatlik ortak bekleme süresi paylaşır. Buff için ateşin başında 1 dakika otur, buff 1 saat sürer. Camp Chair buff'ı Moonkin Aura ile birikmez.\n\n## Forever'da yeni\n\n- `PRISTINE` Pristine Leather: Barrens, Wetlands, Ashenvale, Darkshore, Loch Modan hayvanlarından nadir ekstra çıkar. Pristine Hide: Arathi, Badlands, Dustwallow, Stranglethorn, Duskwood hayvanlarından. Riverglades'te Mister Graphed Leather, Hide ve Pristine Scale satar. Yeni LW, Blacksmithing ve Tailoring zırh ve çanta tariflerine girer.\n- `FEL` Fel Leather ve Fel Hide: 300 skill'lik yeni LW zırhlarına (Grovekeeper, Spiritcaller, Wildstalker setleri) girer. Eline geçerse satma, sakla.\n- `LEGACY` Bountiful Harvest: nadir malzeme +%20 / rütbe (en çok %100) · Working Overtime: daha çok skill şansı.\n\n## Banka: Waylaid Crate\n\n- `TEXTILES` Skinning'e özel sandık yok; deri Textiles sandığına girer. Deri desteleri (20'lik): Apprentice Textiles 20 Light Leather · Journeyman 20 Medium Leather · Expert 20 Heavy Leather · Artisan 20 Thick ya da 20 Rugged Leather.\n- `NASIL` Sandık moblardan ve sandıklardan düşer ya da AH'den alınır. Tek deste koyup mühürle. Teslim: Alliance Marcy Baker (Redridge, Three Corners), Horde Dokimi (Barrens, Crossroads yanı). Ödül Merchant's Favor: Apprentice 5 · Journeyman 10 · Expert 15.\n\n## İşe yarayan eşyalar\n\n- `+3` Keen Skinning Knife (hançer, seviye 14): Horde görevi Unwelcome Guests, Barrens'ta Walton verir. Bıçak yerine de geçer. Alliance'ta karşılığı yok.\n- `+4` Cartilage Shapers (deri eldiven, seviye 28): City of Dalaran zindanında gizli boss Lyn the Ignored düşürür (%35).\n- `+5` Enchant Gloves - Skinning (Enchanting 200).\n- `+10` Enchant Gloves - Advanced Skinning (Enchanting 250).\n- `TOPLAM` Silah ve eldiven bonusları birikir. 20. seviyeden sonra her +5 bir seviye daha yüksek hayvan açar.\n- `SIRA` Rota kartları: 1–75 (Alliance / Horde) → 75–150 → 150–225 → 225–300."
+ },
+ {
+  "id": "tail-1-150",
+  "category": "profession",
+  "title": "Tailoring · Skill 1–150 kasma rotası: nerede, ne yapılır",
+  "file": "tail-1-150.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Tailoring",
+  "keywords": [
+   "tailoring",
+   "terzilik, kumaş, çanta"
+  ],
+  "professionName": "Tailoring",
+  "profession": "tailoring",
+  "part": "range",
+  "range": [
+   1,
+   150
+  ],
+  "faction": null,
+  "text": "# Tailoring · 1 → 150 Linen · Wool · Silk\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Tailoring\n- Skill aralığı: 1 → 150 Linen · Wool · Silk\n- Fraksiyon: kartta fraksiyon rozeti yok (Expert eğitmeni satırında Stormwind mavi/Alliance, Undercity kırmızı/Horde renkte)\n- Rozet: Tavsiye edilen rota\n\n## 1 → 75 · Apprentice\n\n| Skill | Ne yap | Adet | Malzeme (toplam) | Tarif nereden |\n|---|---|---|---|---|\n| 1 → 30 | Bolt of Linen Cloth | 30 | 60 Linen Cloth | Baştan bilinir |\n| 30 → 55 | Linen Belt | 28 | 28 Bolt of Linen Cloth + 28 Coarse Thread | Eğitmen (skill 15) · 50 bakır |\n| 50'de | Journeyman al | — | Seviye 10 · 5 gümüş | Journeyman eğitmeni (genel kart) |\n| 55 → 75 | Bolt of Woolen Cloth | 22 | 66 Wool Cloth | Eğitmen (skill 55) · 1 gümüş |\n\nBolt'ları sakla: 30 linen bolt'un 28'i kemerlere gider. Kemer eksik kalırsa her ek kemer 1 bolt (2 Linen Cloth) + 1 Coarse Thread. Woolen bolt'ları pelerinler için sakla.\n\n## 75 → 150 · Journeyman\n\n| Skill | Ne yap | Adet | Malzeme (toplam) | Tarif nereden |\n|---|---|---|---|---|\n| 75 → 80 | Bolt of Woolen Cloth | 10 | 30 Wool Cloth | 55'te öğrendin |\n| 80 → 100 | Woolen Cape | 32 | 32 Bolt of Woolen Cloth + 32 Fine Thread | Eğitmen (skill 55) · 2 gümüş 50 bakır |\n| 100 → 120 | Bolt of Silk Cloth | 233 | 932 Silk Cloth | Eğitmen (skill 100) · 5 gümüş |\n| 120 → 135 | Azure Silk Hood | 17 | 34 Bolt of Silk Cloth + 34 Blue Dye + 17 Fine Thread | Eğitmen (skill 120) · 6 gümüş |\n| 125'te | Expert al | — | Seviye 20 · 50 gümüş | Georgio Bolero (Stormwind) · Josef Gregorian (Undercity) |\n| 135 → 140 | Formal White Shirt | 5 | 15 Bolt of Silk Cloth + 10 Bleach + 5 Fine Thread | Expert eğitmeni · 4 gümüş 50 bakır |\n| 140 → 150 | Bolt of Mageweave | 76 | 380 Mageweave Cloth | Expert eğitmeni · 10 gümüş |\n\nWoolen Cape 97'de yeşile döner ama ucuz: 100'e kadar devam. 233 silk bolt'un 49'u başlık ve gömleğe, 184'ü 150–190'a gider: topladıkça parti parti yap, sakla. Mageweave bolt'u gri olsa da 76'ya tamamla: 190–215 eldivenlerine saklanır.\n\n## Alışveriş listesi (1 → 150)\n\n| Malzeme | Adet | Nereden |\n|---|---|---|\n| Linen Cloth | 60 | 1–19 seviye insansı moblar · AH |\n| Wool Cloth | 96 | 15–30 seviye insansı moblar · AH |\n| Silk Cloth | 932 | 26–40 seviye moblar · AH (736'sı 150–190 için) |\n| Mageweave Cloth | 380 | 41–50 seviye moblar · AH (190–215 için) |\n| Coarse Thread | 28 | Tailoring Supplies satıcısı |\n| Fine Thread | 54 | Tailoring Supplies satıcısı |\n| Blue Dye | 34 | Tailoring Supplies satıcısı |\n| Bleach | 10 | Tailoring Supplies satıcısı |\n\nSilk ve Mageweave'in bir kısmı sonraki kartın adımlarına saklanır: listedeki sayı onları da içerir.\n\n## İpuçları · Sat / Sakla\n\n- `50'DE` Journeyman'ı al (seviye 10). Almazsan 75'ten sonra puan gelmez: bu sırada AFK craft yapma.\n- `125'TE` Expert'i al (seviye 20). Formal White Shirt ve 225'e kadarki ana tarifler Expert eğitmeninde.\n- `RENK` Sarı ve yeşil tarif her seferinde puan vermez: son partiyi yapmadan önce skill'ine bak, eksik kalırsa birkaç tane daha yap.\n- `20'DE` Faction Banner'ı öğren: 1 Bolt of Linen + 1 Coarse Thread. Kampta kendi tarafına Spirit verir.\n- `SEVİYE 10` Caster ya da healer'san BoP Novice Sash kemerlerinden birini yap (genel kart).\n- `CAPE` Fazla Woolen Cape'leri bir Enchanter'a Disenchant ettir.\n- `SANDIK` Fazla bolt → Waylaid Fabrics sandığı: 20 Bolt of Linen · 6 Bolt of Woolen · 10 Bolt of Silk (tek deste)."
+ },
+ {
+  "id": "tail-150-300",
+  "category": "profession",
+  "title": "Tailoring · Skill 150–300 kasma rotası: nerede, ne yapılır",
+  "file": "tail-150-300.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Tailoring",
+  "keywords": [
+   "tailoring",
+   "terzilik, kumaş, çanta"
+  ],
+  "professionName": "Tailoring",
+  "profession": "tailoring",
+  "part": "range",
+  "range": [
+   150,
+   300
+  ],
+  "faction": null,
+  "text": "# Tailoring · 150 → 300 Silk · Mageweave · Runecloth\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Tailoring\n- Skill aralığı: 150 → 300 Silk · Mageweave · Runecloth\n- Fraksiyon: kartta fraksiyon rozeti yok (eğitmen adlarında mavi = Alliance, kırmızı = Horde: Georgio Bolero ve Timothy Worthington mavi; Josef Gregorian ve Daryl Stack kırmızı)\n- Rozet: Tavsiye edilen rota\n\n## 150 → 225 · Expert\n\n| Skill | Ne yap | Adet | Malzeme (toplam) | Tarif nereden |\n|---|---|---|---|---|\n| 150 → 170 | Crimson Silk Vest | 20 | 80 Bolt of Silk Cloth + 40 Red Dye + 40 Fine Thread | Expert eğitmeni (skill 150): Georgio Bolero · Josef Gregorian · 22 gümüş 50 bakır |\n| 170 → 190 | Crimson Silk Pantaloons | 26 | 104 Bolt of Silk Cloth + 52 Red Dye + 52 Silken Thread | Expert eğitmeni (skill 160) · 30 gümüş |\n| 190 → 215 | Black Mageweave Gloves | 38 | 76 Bolt of Mageweave + 76 Heavy Silken Thread | Expert eğitmeni (skill 180) · 50 gümüş |\n| 200'de | Artisan al | — | Seviye 35 · 5 altın | Artisan eğitmeni: Timothy Worthington · Daryl Stack |\n| 215'te | Bolt of Mageweave | 104 | 520 Mageweave Cloth | Önceden öğrendin (skill vermez) |\n| 215 → 225 | Mageweave Bag | 26 | 104 Bolt of Mageweave + 52 Silken Thread | Expert eğitmeni (skill 190) · 50 gümüş |\n\nVest ve pantolon 1–150 kartında sakladığın 184 silk bolt'la, eldivenler 140–150'de yaptığın 76 Mageweave bolt'la yapılır. Eldivenler 210'da yeşile döner ama 215'e kadar devam et. Çantalar 220'de yeşile döner: birkaç tane yapıp 225'te dur. Artisan eğitmenleri: Theramore Isle (Dustwallow Marsh) ve Tarren Mill (Hillsbrad Foothills).\n\n## 225 → 300 · Artisan\n\n| Skill | Ne yap | Adet | Malzeme (toplam) | Tarif nereden |\n|---|---|---|---|---|\n| 225'te | Bolt of Runecloth | 537 | 2.685 Runecloth | Artisan eğitmeni · 1 altın (225'te skill vermez) |\n| 225 → 233 | Runecloth Belt | 10 | 30 Bolt of Runecloth + 10 Rune Thread | Artisan eğitmeni: Timothy Worthington · Daryl Stack · 1 altın |\n| 233 → 242 | Runecloth Cloak | 10 | 40 Bolt of Runecloth + 10 Ironweb Spider Silk + 10 Rune Thread | Darnall: Moonglade, Nighthaven (51.4 33.2) · skill 220 · 1 altın 20 gümüş, sınırlı stok |\n| 242 → 250 | Runecloth Gloves | 9 | 36 Bolt of Runecloth + 36 Rugged Leather + 9 Rune Thread | Qia: Winterspring, Everlook (61.2 37.2) · skill 230 · 1 altın 68 gümüş, sınırlı stok |\n| 250 → 291 | Runecloth Cuffs (yeni) | 73 | 365 Bolt of Runecloth + 73 Ironweb Spider Silk + 73 Rune Thread | Pexmit: Mount Hyjal (58.8 41.8) · skill 250 · 10 altın |\n| 291 → 300 | Mooncloth Robe | 11 | 66 Bolt of Runecloth + 44 Mooncloth + 22 Golden Pearl + 22 Rune Thread | Shen'dralar Provisioner: Dire Maul · skill 275 · 4 altın, sınırlı stok |\n\nSınırlı stoklu desenlerin satıcısına ihtiyacın olmadan önce uğra; stok yoksa yenilenmesini bekle. En uzun adım 250–291 Runecloth Cuffs (73 craft). Runecloth Belt 225'te sarıya, 240'ta yeşile, 255'te griye döner.\n\n## Alışveriş: 150 → 225\n\n| Malzeme | Adet | Nereden |\n|---|---|---|\n| Bolt of Silk Cloth | 184 | 1–150 kartından sakladığın |\n| Bolt of Mageweave | 76 | 1–150 kartından sakladığın |\n| Mageweave Cloth | 520 | 41–50 seviye moblar · AH |\n| Red Dye | 92 | Tailoring Supplies satıcısı |\n| Fine Thread | 40 | Tailoring Supplies satıcısı |\n| Silken Thread | 104 | Tailoring Supplies satıcısı |\n| Heavy Silken Thread | 76 | Tailoring Supplies satıcısı |\n\n## Alışveriş: 225 → 300\n\n| Malzeme | Adet | Nereden |\n|---|---|---|\n| Runecloth | 2.685 | 51–60 seviye insansı moblar · AH (537 bolt) |\n| Rune Thread | 124 | Satıcı |\n| Ironweb Spider Silk | 83 | 50–60 örümcekler · AH |\n| Rugged Leather | 36 | Skinning · AH |\n| Mooncloth | 44 | AH ya da Mooncloth yapan bir terzi |\n| Golden Pearl | 22 | Azshara naga ve makrura · AH |\n\nIronweb Spider Silk: Western Plaguelands örümcekleri (Plague Lurker, Carrion Lurker, Venom Mist Lurker) ve Silithus'ta Sand Skitterer, Rock Stalker; Lower Blackrock Spire'da Mother Smolderweb 1–3 tane düşürür. Rugged Leather: Western Plaguelands'te Dalson's Tears'ın doğusu, Winterspring'de Frostsaber Rock (Skinning). Golden Pearl çok nadir: Azshara'da Spitelash naga'ları, Great Wavethrasher ve Makrinni makrura'ları, ayrıca Big-mouth Clam (%0,5). 22 incinin çoğunu AH'den al.\n\n## İpuçları · Sat / Sakla\n\n- `200'DE` Artisan'ı al (seviye 35). Bolt of Runecloth ve Runecloth Belt de bu eğitmende.\n- `MOONCLOTH` Son adım 44 Mooncloth ister. Bir terzi 3 gün 23 saatte bir 1 Mooncloth yapar (2 Felcloth, Moonwell yanında): 44'ünü tek başına yapamazsın. Önceden AH'den ya da Mooncloth yapan terzilerden topla.\n- `205'TE` 150 Runecloth'un varsa erken geçebilirsin: 205'te Artisan eğitmeninden Bolt of Runecloth öğren, 30 bolt yap (215'e kadar puan verebilir; eksik kalırsa Black Mageweave Gloves), 210'da Runecloth Belt'i öğren, 10 kemerle 225'e çık. 215'teki 104 Mageweave bolt'u ve çantaları atlarsın.\n- `SON ADIM` Cenarion Circle itibarın varsa son puanları Silithus'ta Mishta'nın Venomspew Gloves / Cord / Footpads tarifleriyle de bitirebilirsin. Venomspew Cord Loom'da yapılır: Loom'u ancak 300'de kurabildiğin için onu Loom'u olan bir terzinin kampında yap.\n- `OVERTIME` Legacy Working Overtime en çok uzun Runecloth bölümünde işe yarar.\n- `ÇANTA` 215–225'te yaptığın Mageweave Bag'leri kullan, sat ya da altlarına gönder: her sınıf çanta alır.\n- `SANDIK` Fazla bolt → Waylaid Fabrics sandığı: 8 Bolt of Mageweave · ya da 8 Bolt of Runecloth (tek deste)."
+ },
+ {
+  "id": "tail-genel",
+  "category": "profession",
+  "title": "Tailoring · Genel bilgi: ne işe yarar, eğitmen, temel kurallar",
+  "file": "tail-genel.png",
+  "forum": "Meslek rehberleri",
+  "thread": "Tailoring",
+  "keywords": [
+   "tailoring",
+   "terzilik, kumaş, çanta"
+  ],
+  "professionName": "Tailoring",
+  "profession": "tailoring",
+  "part": "genel",
+  "text": "# Tailoring · 1 → 300 Başlamadan Önce\n\nWOW FOREVER · MESLEK — TOTİK CHANNEL · Tavsiye edilen rota\n\n- Meslek: Tailoring\n- Skill aralığı: 1 → 300 (Başlamadan önce)\n- Fraksiyon: kartta fraksiyon rozeti yok; eğitmen tablolarında Alliance / Horde / İki taraf ayrımı var\n- Rozet: Tavsiye edilen rota\n\n## Nasıl başlarım?\n\n- `1` Mesleği öğren: bir Tailoring eğitmenine git. Durotar, Mulgore, Dun Morogh ve Teldrassil'de eğitmen yok: başkente git.\n- (kumaş ikonu) Kumaş (cloth) insansı (Humanoid) düşmanlardan düşer. Toplama mesleği ve alet gerekmez: ikinci meslek serbest. 1–225 rotasındaki her tarif istasyonsuz yapılır.\n- (iplik ikonu) İplik, boya ve Bleach eğitmenin yanındaki Tailoring Supplies satıcısında. Tirisfal'da yok: Brill'de Abigail Shiel.\n- (bolt ikonu) Her tarif bolt (kumaş topu) ister: yaptığın bolt'ları sakla, rota onları sonraki adımlarda kullanır.\n- `FOREVER` Forever'da tarifler 25–45 skill erken griye döner: eski Classic rehberlerini değil, bu kartların rotasını izle.\n\n## Rütbeler\n\n| Rütbe | Tavan | Skill şartı | Karakter seviyesi | Ücret |\n|---|---|---|---|---|\n| Apprentice | 75 | Şart yok | Şart yok | 10 bakır |\n| Journeyman | 150 | 50 | 10 | 5 gümüş |\n| Expert | 225 | 125 | 20 | 50 gümüş |\n| Artisan | 300 | 200 | 35 | 5 altın |\n\nİki şart birden: hem skill hem karakter seviyesi. Sonraki rütbeyi tavana gelmeden alabilirsin: 50'de Journeyman, 125'te Expert, 200'de Artisan al. Journeyman'sız 75'i geçemezsin: puan gelmez, o yüzden bu sırada AFK craft yapma. Bütün rütbeler eğitmenden; kitap ya da görev gerekmez. 150, 225 ve 300'e ilk ulaştığında Legacy puanı kazanırsın.\n\n## Journeyman eğitmenleri (1 → 150)\n\n| Taraf | Eğitmen | Yer | /mappin |\n|---|---|---|---|\n| Alliance | Sellandus | Stormwind, Mage Quarter (Duncan's Textiles'ın karşısındaki bina) | 1453 42.0 76.2 |\n| Alliance | Jormund Stonebrow | Ironforge, The Great Forge (Stonebrow's Clothier) | 1455 43.6 28.2 |\n| Alliance | Me'lynn | Darnassus, Craftsmen's Terrace | 1457 62.6 22.6 |\n| Horde | Magar | Orgrimmar, The Drag | 1454 63.4 50.0 |\n| Horde | Rhiannon Davis | Undercity, Magic Quarter | 1458 70.6 29.6 |\n| Horde | Tepa | Thunder Bluff, Central Bluff | 1456 44.2 45.0 |\n| Horde | Mahani | The Barrens, Camp Taurajo | 1413 44.8 59.4 |\n| İki taraf | Grarnik Goodstitch | Stranglethorn, Booty Bay (en yüksek bina, rampayla çık) | 1434 28.6 76.8 |\n| İki taraf | Taleen Shimmerthread | Zephras Isle, Shen'dar Village | 2521 44.8 44.2 |\n| İki taraf | Othesia Evengale | Zephras Isle, Valanaar | 2521 64.4 81.0 |\n\nYalnız Apprentice (75'e kadar) öğretenler: Lawrence Schneider (Stormwind) · Uthrar Threx (Ironforge) · Trianna (Darnassus) · Eldrin (Elwynn, Eastvale Logging Camp) · Grondal Moonbreeze (Darkshore, Auberdine) · Snang (Orgrimmar) · Victor Ward (Undercity) · Vhan (Thunder Bluff) · Bowen Brisboise (Tirisfal, Cold Hearth Manor) · Kil'hala (Barrens, Crossroads). Oyunda `/mappin <harita> X Y` yazınca haritaya işaret konur.\n\n## Expert ve Artisan eğitmenleri\n\n| Rütbe | Taraf | Eğitmen | Yer | /mappin |\n|---|---|---|---|---|\n| Expert | Alliance | Georgio Bolero | Stormwind, Mage Quarter (Duncan's Textiles) | 1453 43.2 73.6 |\n| Expert | Alliance | Charles Worth | Alterac Mountains, Dalaran (Talismanic Textiles) | 1416 17.8 60.6 |\n| Expert | Horde | Josef Gregorian | Undercity, Magic Quarter | 1458 70.6 30.6 |\n| Artisan | Alliance | Timothy Worthington | Dustwallow Marsh, Theramore Isle: gemiden inince soldaki ilk küçük binanın üst katı | 1445 66.2 51.6 |\n| Artisan | Horde | Daryl Stack | Hillsbrad Foothills, Tarren Mill: hanın hemen doğusundaki kilise | 1424 63.6 20.8 |\n\nExpert (125 skill + seviye 20) 225'e kadarki ana rota tariflerinin hepsini öğretir. Artisan (200 skill + seviye 35) eğitmenleri Bolt of Runecloth ve Runecloth Belt'i de öğretir. Skyborne karakter, yaratırken seçtiği tarafın eğitmenini kullanır.\n\n## Kumaş nereden?\n\n| Kumaş | Düşen mob seviyesi | Bolt | Rotada |\n|---|---|---|---|\n| Linen Cloth | 1–19 | 2 kumaş = 1 bolt | 1 → 55 |\n| Wool Cloth | 15–30 | 3 kumaş = 1 bolt | 55 → 100 |\n| Silk Cloth | 26–40 | 4 kumaş = 1 bolt | 100 → 190 |\n| Mageweave Cloth | 41–50 | 5 kumaş = 1 bolt | 140 → 225 |\n| Runecloth | 51–60 | 5 kumaş = 1 bolt | 225 → 300 |\n| Felcloth | 50–60 iblisler (Demon) | — | 2 Felcloth = 1 Mooncloth |\n\nKendi seviyendeki insansı düşmanları kes; karakterin gençse üst kumaşları Auction House'tan al. İyi yerler: Silk Desolace, Arathi Highlands, Stranglethorn · Mageweave Tanaris (Lost Rigger Cove korsanları), Feralas, Hinterlands · Runecloth Felwood (Deadwood furbolgları), Winterspring (Winterfall Village), Eastern Plaguelands, Burning Steppes (Blackrock orkları). Fishing dünyanın her yerinde içinden bolt çıkabilen sandıklar çıkarır.\n\n## Boyalar ve malzemeci\n\n- Blue Dye, Red Dye, Bleach ve bütün iplikler (Coarse, Fine, Silken, Heavy Silken, Rune Thread) satıcıdan alınır.\n- Cerulean Dye (yeni): Alchemy 50, Empty Vial + 2 Frilled Lichen. Woolen ve Silk Reagent Bag, Merchant's Favor setleri ister.\n- Magenta Dye (yeni): Alchemy 130, Leaded Vial + 2 Rosecap.\n- Viridian Dye (yeni): Alchemy 230, Crystal Vial + 2 Stranglevine, Fermenter'da yapılır.\n- `ALCHEMY` Yeni boyaları satıcı satmaz: bir Alchemist'ten ya da AH'den al. Klasik boyalar (Blue, Red, Bleach) satıcıda kalır.\n\n## Forever'da yeni: Reagent çantaları\n\n| Çanta | Yuva | Skill | Malzeme | Tarif nereden |\n|---|---|---|---|---|\n| Linen Reagent Bag | 6 | 5 | 6 Bolt of Linen Cloth + 6 Coarse Thread | Tailoring Supplies satıcısı: Alexandra Bolero (Stormwind) · Jennabink Powerseam (Wetlands) · Mallen Swain (Hillsbrad) · Xizk Goodstitch (Stranglethorn) |\n| Woolen Reagent Bag | 8 | 70 | 3 Bolt of Woolen Cloth + 1 Fine Thread + 1 Cerulean Dye | Aynı satıcılar |\n| Silk Reagent Bag | 10 | 125 | 3 Bolt of Silk Cloth + 2 Heavy Leather + 3 Fine Thread + 3 Cerulean Dye | Desolace'ta centaur satıcıları Molkar / Gorhak (klan itibarı) ya da görev I Need a Tailor |\n| Mageweave Reagent Bag | 12 | 190 | 4 Bolt of Mageweave + 2 Heavy Silken Thread + 1 Magenta + 1 Cerulean Dye | 60 Merchant's Favor, Friendly (Mivin Shadowweave · Jim'bek) |\n| Runecloth Reagent Bag | 14 | 215 | 5 Bolt of Runecloth + 2 Rugged Leather + 1 Rune Thread + 1 Viridian Dye | 60 Merchant's Favor, Friendly (Mivin Shadowweave · Jim'bek) |\n\nMalzemeler için ayrı bir çanta yuvası var: normal çanta yerlerin boş kalır. Reagent çantaları giyince bağlanır (BoE): satılabilir. Üst sürümler: Mooncloth Reagent Bag (255, 18 yuva; deseni düşerek gelir, alınca bağlanır) ve Bottomless Reagent Bag (300, 20 yuva; Loom yanında yapılır). Red Linen Bag 8 yuva.\n\n## Seviye 10: bağlanan kemerler\n\n- `BOP` İkisi de alınca bağlanır: Tailoring'i kemeri giyecek karakterde aç. Eğitmenden öğrenilir (5 gümüş 26 bakır), 55 skill'e kadar puan da verir.\n- `CASTER` Novice Arcanist's Sash: +3 Int, +3 Sta, büyü hasarı ve iyileştirme +4. 8 Bolt of Linen Cloth + 2 Fine Thread + 2 Minor Mana Potion.\n- `HEALER` Novice Ardent's Sash: +3 Int, +3 Spirit, iyileştirme +6, hasar +2. 12 Bolt of Linen Cloth + 2 Fine Thread + 2 Minor Healing Potion.\n- `SINIF` Mage, Priest ve Warlock Tailoring'den en çok faydayı görür. Melee sınıf için değer: çanta, altın ve kampta Spirit bayrağı.\n\n## Merchant's Favor setleri\n\n| Bedel | Şart | Parça (açıldığı skill) |\n|---|---|---|\n| 30 Favor | — | Boots (60) · Gloves (75) · Sash (85) · Circlet (100) · Gown (110) · Leggings (125) |\n| 60 Favor | Friendly | Handwraps (165) · Shoulders (195) · Cuffs (205) · Waistcord (215) |\n| 90 Favor | Honored | Sandals (235) |\n| 1.000 Favor | 300 skill | Tailoring Certification: hesaptaki bütün karakterlere \"the Tailor\" unvanı |\n\nSatıcı: Alliance Mivin Shadowweave (Redridge, Three Corners), Horde Jim'bek (Barrens, Crossroads'un batı kapısı dışı); ikisi aynı 67 tarifi satar. Her büyü okulunun ad ailesi: Fire Flame · Fiery · Netherflame, Frost Silky · Frothing · Netherfroth, Arcane Pearly · Golden · Nethershine, Shadow Shadow · Black · Netherpearl, Holy Shining · Radiant · Netherlight, Healer Pristine · Gilded · Nethergeld (Healer'da Handwraps yok). Tarifler Cerulean Dye ve okulun malzemesini ister (Fire Oil, Small Lustrous Pearl, Shadowgem…). Merchant's Favor karakter başınadır; unvanı göstermek için o karakterin de 300 olması gerekir.\n\n## Zindan tarifleri: Filigreed\n\n- `75` Filigreed … Gown: Deadmines, Shadowfang Keep, Ragefire Chasm.\n- `100` Filigreed … Leggings: Blackfathom Deeps, Stockade, Shadowfang Keep, Deadmines.\n- `125` Filigreed … Circlet: Blackfathom Deeps, Stockade, Razorfen Kraul, Scarlet Monastery.\n- `SETLER` Altı çeşit: Flame, Pearly, Pristine, Shadow, Shining, Silky. Tarifler bu düşük seviye zindanlarda düşer, eşyalar alınca bağlanır. Sınıf rehberi: Mage Flame / Silky / Pearly, Priest Pristine / Shining / Shadow, Warlock Shadow / Flame.\n\n## Kamp objeleri\n\n| Obje | Skill | Malzeme | Nereden öğrenilir | Ne yapar |\n|---|---|---|---|---|\n| Faction Banner | 20 | 1 Bolt of Linen Cloth + 1 Coarse Thread | Herhangi bir Tailoring eğitmeni (1 gümüş 5 bakır) · başlangıç görevi Camping 101: Tailoring (seviye 4, ücretsiz) | Yakında oturan kendi tarafına Spirit. Divine Spirit ile birikmez. |\n| Spinning Wheel | 140 | 2 Simple Wood + 5 Bolt of Silk Cloth + 3 Fine Thread | Blueprint: Spinning Wheel: City of Dalaran zindanında Unstable Sentinel (%9). Bağlanmaz: AH'den de alınır. | Bazı tarifler burada yapılır (ör. Black Slippers) + bayrağın Spirit buff'ı |\n| Loom | 300 | 4 Bolt of Runecloth + 4 Simple Wood + 1 Bottled Screams | Blueprint: Loom eşyasıyla (eğitmen öğretmez). Bağlanmaz: başka oyuncudan ya da AH'den alınabilir | Loom tarifleri (ör. Venomspew Cord) + Spirit buff'ı |\n\nKamp ateşini Cooking kurar; objeler onun yanına konur ve 1 saatlik ortak bekleme süresi paylaşır. Buff için kampta 1 dakika otur. Üst obje (Spinning Wheel, Loom) aynı kampta bayrağın yerine konabilir. Kamp buff'ları sınıf buff'larıyla birikmez.\n\n## Mooncloth ve Legacy\n\n- (Mooncloth ikonu) Mooncloth: 2 Felcloth → 1 Mooncloth, skill 230, Moonwell yanında yapılır, 3 gün 23 saatte bir 1 tane. Pattern: Mooncloth'u Qia satar (Winterspring, Everlook); alınca bağlanır.\n- `OVERTIME` Working Overtime (5 rütbe): her rütbe skill puanı şansına +%4.\n- `STUDY` Dedicated Study: en düşük mesleğine +1 skill.\n- `BONUS` Performance Bonus: sandık tesliminde %5 / %10 / %15 şansla 2 kat Merchant's Favor. Bartering: satıcı fiyatları rütbe başına %5 ucuz.\n\n## Banka: Waylaid Crate\n\n| Sandık | Seviye | İçine şunlardan birini koy |\n|---|---|---|\n| Apprentice Textiles | 10 | 40 Linen Cloth · ya da 20 Light Leather |\n| Apprentice Fabrics | 10 | 20 Bolt of Linen Cloth · ya da 2 Cured Light Hide |\n| Journeyman Textiles | 10 | 20 Wool Cloth · ya da 40 Silk Cloth · ya da 20 Medium Leather |\n| Journeyman Fabrics | 10 | 6 Bolt of Woolen Cloth · ya da 10 Bolt of Silk Cloth · ya da 2 Cured Medium Hide |\n| Expert Textiles | 20 | 40 Mageweave Cloth · ya da 20 Heavy Leather |\n| Expert Fabrics | 20 | 8 Bolt of Mageweave · ya da 2 Cured Heavy Hide |\n| Artisan Textiles | 35 | 40 Runecloth · ya da 20 Thick Leather · ya da 20 Rugged Leather |\n| Artisan Fabrics | 35 | 8 Bolt of Runecloth · ya da 2 Cured Thick Hide |\n\nÖdül (Textiles / Fabrics): Apprentice 5 / 10, Journeyman 10 / 20, Expert 15 / 30 Merchant's Favor. Sandığı sen yapamazsın: moblardan ve sandıklardan düşer ya da AH'den alınır. İçine tek bir deste koyup mühürlersin. Teslim: Alliance Marcy Baker (Redridge, Three Corners), Horde Dokimi (Barrens, Crossroads yanı). Fabrics sandıkları bolt ister ve 2 kat Favor verir: fazla bolt'un burada değerlenir. İlk sandığı doldurunca Shipping Label çıkar: tek seferlik görev, 50 Favor + 2.000 itibar.\n\n## Sat mı, sakla mı?\n\n- `ÇANTA` Her sınıf çanta alır: Tailoring her karakterde altın getirir. 215–225'te yaptığın Mageweave Bag'leri kullan, sat ya da altlarına gönder.\n- `ENCHANT` Fazla yeşil eşyaları (ör. Woolen Cape) bir Enchanter'a Disenchant ettir.\n- `KAMP` Kamp için ayır: bayrağa 1 Bolt of Linen + 1 Coarse Thread, Spinning Wheel'e 5 Bolt of Silk + 3 Fine Thread + 2 Simple Wood.\n- `FELCLOTH` Felcloth'u sakla: Mooncloth'un malzemesi.\n- `SATICI` Meslek eşyaları satıcıya artık daha ucuza satılıyor: yaptığını satıcıya boşaltmak eskisi kadar kazandırmaz.\n- `SIRA` Rota kartları: 1–150 → 150–300."
+ }
+];
+export const CLASS_FACTS = {
+ "taraflar": {
+  "Alliance": [
+   "Human",
+   "Dwarf",
+   "Night Elf",
+   "Gnome",
+   "High Order Skyborne"
+  ],
+  "Horde": [
+   "Orc",
+   "Undead",
+   "Tauren",
+   "Troll",
+   "Windshaper Skyborne"
+  ]
+ },
+ "genel": [
+  {
+   "sinif": "warrior",
+   "ad": "Warrior",
+   "not": "Rage ile savaşan yakın dövüşçü. En sağlam tanklardan; Battle Shout ve Sunder Armor ile grubun fiziksel hasarını artırır.",
+   "roller": [
+    [
+     "Arms",
+     "DPS"
+    ],
+    [
+     "Fury",
+     "DPS"
+    ],
+    [
+     "Protection",
+     "Tank"
+    ]
+   ]
+  },
+  {
+   "sinif": "paladin",
+   "ad": "Paladin",
+   "not": "Her rolü yapabilen destek sınıfı. Blessing, aura ve grup buff'larıyla grubu güçlendirir; tek hedef iyileştirmede çok iyi.",
+   "roller": [
+    [
+     "Holy",
+     "Heal"
+    ],
+    [
+     "Protection",
+     "Tank"
+    ],
+    [
+     "Retribution",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "hunter",
+   "ad": "Hunter",
+   "not": "Pet, tuzak ve menzilli silahla savaşır. Oyunun en rahat solo ve leveling sınıflarından; bol kontrol aracı var.",
+   "roller": [
+    [
+     "Beast Mastery",
+     "DPS"
+    ],
+    [
+     "Marksmanship",
+     "DPS"
+    ],
+    [
+     "Survival",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "rogue",
+   "ad": "Rogue",
+   "not": "Gizlilikten saldıran yakın dövüşçü. Yüksek hasar ve Sap, Kidney Shot gibi güçlü kontrol yetenekleri.",
+   "roller": [
+    [
+     "Assassination",
+     "DPS"
+    ],
+    [
+     "Combat",
+     "DPS"
+    ],
+    [
+     "Subtlety",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "priest",
+   "ad": "Priest",
+   "not": "Işık ya da gölge: güçlü iyileştirici veya Shadow büyüleriyle hasar veren büyücü. Discipline kalkan ve önleyici heal yapar.",
+   "roller": [
+    [
+     "Discipline",
+     "Heal"
+    ],
+    [
+     "Holy",
+     "Heal"
+    ],
+    [
+     "Shadow",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "shaman",
+   "ad": "Shaman",
+   "not": "Elementlerin ustası: uzaktan büyü, silahla yakın dövüş ya da iyileştirme. Totemleri grubu destekler.",
+   "roller": [
+    [
+     "Elemental",
+     "DPS"
+    ],
+    [
+     "Enhancement",
+     "DPS"
+    ],
+    [
+     "Restoration",
+     "Heal"
+    ]
+   ]
+  },
+  {
+   "sinif": "mage",
+   "ad": "Mage",
+   "not": "Büyük büyü hasarı ve kalabalık kontrolü (Polymorph, Frost Nova, Blink). Yemek, su ve portal yapar.",
+   "roller": [
+    [
+     "Arcane",
+     "DPS"
+    ],
+    [
+     "Fire",
+     "DPS"
+    ],
+    [
+     "Frost",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "warlock",
+   "ad": "Warlock",
+   "not": "DoT, Shadow ve Fire büyüleri ve iblis petiyle savaşır. Healthstone, Ritual of Summoning ve lanetlerle gruba katkı verir.",
+   "roller": [
+    [
+     "Affliction",
+     "DPS"
+    ],
+    [
+     "Demonology",
+     "DPS"
+    ],
+    [
+     "Destruction",
+     "DPS"
+    ]
+   ]
+  },
+  {
+   "sinif": "druid",
+   "ad": "Druid",
+   "not": "Form değiştirerek her rolü yapabilen en esnek sınıf: ayı tank, kedi DPS, Moonkin büyücü ya da iyileştirici.",
+   "roller": [
+    [
+     "Balance",
+     "DPS"
+    ],
+    [
+     "Feral",
+     "Tank / DPS"
+    ],
+    [
+     "Restoration",
+     "Heal"
+    ]
+   ]
+  }
+ ],
+ "siniflar": {
+  "druid": {
+   "irklar": [
+    "Night Elf",
+    "High Order Skyborne",
+    "Tauren",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Windshaper Skyborne": [
+     "Balance",
+     "Feral",
+     "Restoration"
+    ],
+    "High Order Skyborne": [
+     "Balance",
+     "Restoration"
+    ],
+    "Night Elf": [
+     "Feral"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Balance",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Moonkin Form: bütün raid'e +%3 kritik",
+      "Eclipse ritmi: Wrath, ardından 2 hızlı Starfire",
+      "Insect Swarm ve Moonfire yürürken atılır",
+      "Rebirth: savaşta dirilten tek yetenek"
+     ],
+     "eksi": [
+      "Moonkin kritiği Leader of the Pack ile birikmez",
+      "Moonkin Form kendine az güç verir; değeri raid buff'ı",
+      "Başta mana sıkıntısı; rotasyonu Wrath'a kaydır"
+     ]
+    },
+    {
+     "ad": "Feral",
+     "rol": "DPS · Tank",
+     "arti": [
+      "Tek talent build'le hem ayı tank hem kedi DPS",
+      "Ayı tehdidi çok yüksek: Primal Bite, Lacerate",
+      "Leader of the Pack: bütün raid'e +%3 kritik",
+      "Silah DPS'iyle güçlenir; yükseltme hemen hissedilir"
+     ],
+     "eksi": [
+      "Kedide alan hasarı yok; hedef değişince combo gider",
+      "İki rol için iki ayrı eşya seti gerekir",
+      "Silah seçeneği az: çoğu zaman iki elli topuz"
+     ]
+    },
+    {
+     "ad": "Restoration",
+     "rol": "Heal",
+     "arti": [
+      "Hem tankı hem raid'i iyileştirir",
+      "Rejuvenation ve Swiftmend anlık: yürürken heal",
+      "Wild Growth: bütün partiye HoT",
+      "Swiftmend HoT'u silmeden anında heal"
+     ],
+     "eksi": [
+      "Kalkan (absorb) yok; Resto ile leveling çok yavaş",
+      "Gruba kendine özgü bir katkısı yok",
+      "Gücün çoğu Regrowth'ta; Healing Touch zayıf"
+     ]
+    }
+   ]
+  },
+  "hunter": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Night Elf",
+    "High Order Skyborne",
+    "Orc",
+    "Tauren",
+    "Troll",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Orc": [
+     "Beast Mastery"
+    ],
+    "High Order Skyborne": [
+     "Beast Mastery",
+     "Marksmanship"
+    ],
+    "Windshaper Skyborne": [
+     "Marksmanship"
+    ],
+    "Tauren": [
+     "Survival"
+    ],
+    "Human": [
+     "Survival"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Beast Mastery",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Pet hem tanklar hem vurur: en rahat solo ve leveling",
+      "Bestial Wrath: pet 18 sn +%50 hasar, durdurulamaz",
+      "Summon Hawk: pete ek olarak 2 şahin saldırır",
+      "Basit dönüş, yeni başlayana uygun"
+     ],
+     "eksi": [
+      "Pet'i sürekli yönetmek gerekir; dungeon'da yanlış grubu çekebilir",
+      "Hasarın çoğu pette; pet ölürse hasar düşer",
+      "Yakın menzil ile 8 m arasında hiç vuramazsın"
+     ]
+    },
+    {
+     "ad": "Marksmanship",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Hunter'ın en iyi çok hedef hasarı: Multi-Shot, Volley, Barrage",
+      "Lone Wolf: pet yokken tüm hasar +%20",
+      "Sniper Shot: 45 m menzil, sonraki 3 atış +10 m",
+      "Trueshot Aura: raid'e ranged Attack Power (+100'e kadar)"
+     ],
+     "eksi": [
+      "En yüksek hasar petsiz: solo oyunda seni koruyan tank yok",
+      "Kıpırdamadan durmak ister; hareketli dövüşte hasar düşer",
+      "Yakın menzil ile 8 m arasında hiç vuramazsın"
+     ]
+    },
+    {
+     "ad": "Survival",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Forever'da yakın dövüş uzmanlığı oldu: Predator's Edge, Strider Kick",
+      "Güçlü sürekli tek hedef hasarı",
+      "Expose Prey ile Mongoose Bite çok daha sık açılır",
+      "Resourcefulness: tuzak ve yakın yetenekler %60 az mana"
+     ],
+     "eksi": [
+      "Hunter'ın en zayıf leveling uzmanlığı, özellikle 40'a kadar",
+      "Ana talentleri ağacın sonunda; erken puanlar zayıf",
+      "Etkili çok hedef dönüşü yok"
+     ]
+    }
+   ]
+  },
+  "mage": {
+   "irklar": [
+    "Human",
+    "Gnome",
+    "High Order Skyborne",
+    "Orc",
+    "Undead",
+    "Troll"
+   ],
+   "irkOneri": {
+    "Gnome": [
+     "Arcane",
+     "Fire"
+    ],
+    "High Order Skyborne": [
+     "Arcane",
+     "Fire"
+    ],
+    "Human": [
+     "Arcane",
+     "Fire"
+    ],
+    "Troll": [
+     "Arcane",
+     "Fire"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Arcane",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Arcane Power ile cooldown'da DPS neredeyse 2 katı",
+      "34. seviyeden sonra savaşta mana yenilenmesi tam sürer",
+      "Clearcasting ve Missile Barrage bedava büyü verir",
+      "Fire'a kayan build ile Pyroblast patlaması da var"
+     ],
+     "eksi": [
+      "Arcane Blast her yığında pahalılaşır; dikkatsiz oynarsan mana biter",
+      "Yürürken zayıf: DoT'u ve güçlü anlık büyüsü yok",
+      "En iyi hasar için Fire ağacına da puan ister"
+     ]
+    },
+    {
+     "ad": "Fire",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "1. fazda en yüksek DPS'li Mage",
+      "Heating Up ile Pyroblast artık rotasyonun parçası",
+      "Master of Elements kritiklerde mana geri verir",
+      "İki build: Combustion (Deep Fire) ya da Frostfire Bolt"
+     ],
+     "eksi": [
+      "Kritik şansına bağlı; zayıf eşyada Heating Up ve Ignite az çalışır",
+      "Leveling'de 34'e kadar mana yetmez, sık su içersin",
+      "Savunma cooldown'ı yok (Ice Block Frost ağacında)"
+     ]
+    },
+    {
+     "ad": "Frost",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Chill, Frost Nova, Frostbite: en iyi kontrol ve kaçış",
+      "Fingers of Frost ile boss'ta da Shatter kritiği",
+      "Ice Barrier ve Ice Block ile en sağlam Mage",
+      "Permafrost'la Cone of Cold 4 düşmanı sürekli yavaşlatır"
+     ],
+     "eksi": [
+      "Simülasyonda ham DPS'i en düşük",
+      "Fingers of Frost ve Frostbite şansına bağlı",
+      "Cone of Cold için hedefe yakın durmak gerekir"
+     ]
+    }
+   ]
+  },
+  "paladin": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Undead"
+   ],
+   "irkOneri": {
+    "Human": [
+     "Holy",
+     "Retribution"
+    ],
+    "Dwarf": [
+     "Protection"
+    ],
+    "Undead": [
+     "Protection",
+     "Retribution"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Holy",
+     "rol": "Heal",
+     "arti": [
+      "Tek hedef heal'de çok güçlü: Flash of Light ve Holy Light",
+      "Light's Vigil + Holy Shock ile artık grup heal'i de var",
+      "Plate zırh, Divine Shield ve Lay on Hands: leveling'de neredeyse ölmez",
+      "Blessing ve Aura'lar yüzünden her grup Paladin ister"
+     ],
+     "eksi": [
+      "Light's Vigil çok pahalı; sık basarsan mana biter",
+      "Hasarı düşük, tek başına görev yapmak yavaş",
+      "Hareket yeteneği yok"
+     ]
+    },
+    {
+     "ad": "Protection",
+     "rol": "Tank",
+     "arti": [
+      "Forever'da taunt var: Seal of Fury açıkken Judgement",
+      "Consecration ile küçük gruplarda tehdit tutmak kolay",
+      "Shieldsworn: Holy Strike kalkanla vurur, büyüleri de bloklar",
+      "Blokta mana geri gelir; Templar's Bulwark büyük kalkan"
+     ],
+     "eksi": [
+      "Judgement taunt da yapar; raidde off-tank'ken mühür değiştirmek gerekir",
+      "Consecration nerf yedi: çok düşmanı tutmak eskisi kadar kolay değil",
+      "Hareket yeteneği yok"
+     ]
+    },
+    {
+     "ad": "Retribution",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Bol acil durum aracı: Lay on Hands, Divine Shield, Blessing of Protection",
+      "Mana havuzu sayesinde uzun süre durmadan savaşır",
+      "İki build: Unsealed Wrath (mühür değiştirme) ya da Holy Shock'lu",
+      "Pursuit of Justice ile savaşta hızlı"
+     ],
+     "eksi": [
+      "Consecration dışında AoE yok; 4 düşmandan sonrası zayıf",
+      "Beta'da çok nerf yedi",
+      "Unsealed Wrath build'i swing timer takibi ister"
+     ]
+    }
+   ]
+  },
+  "priest": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Night Elf",
+    "Gnome",
+    "Undead",
+    "Troll"
+   ],
+   "irkOneri": {
+    "Human": [
+     "Discipline",
+     "Holy"
+    ],
+    "Gnome": [
+     "Discipline",
+     "Holy"
+    ],
+    "Dwarf": [
+     "Shadow"
+    ],
+    "Undead": [
+     "Discipline",
+     "Holy",
+     "Shadow"
+    ],
+    "Troll": [
+     "Shadow"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Discipline",
+     "rol": "Heal",
+     "arti": [
+      "Tank heal'inde çok güçlü: Power Word: Shield ve Penance",
+      "Power Infusion: dostun büyü gücü 15 sn +%20",
+      "Divine Aegis: kritik heal hedefe ek kalkan bırakır",
+      "Fortitude, Fear Ward, Dispel Magic: bol yardımcı büyü"
+     ],
+     "eksi": [
+      "Grup heal'i zayıf",
+      "Hasarı az; tek başına leveling'de Shadow talentleri al",
+      "Hareket yeteneği yok, yalnız Levitate"
+     ]
+    },
+    {
+     "ad": "Holy",
+     "rol": "Heal",
+     "arti": [
+      "Yeni başlayana uygun, oynaması kolay",
+      "Grup heal'i güçlü: Prayer of Healing, Prayer of Mending, Holy Nova",
+      "Spirit of Redemption: ölünce 15 sn bedava heal",
+      "Holy Binding: Flash Heal seni de iyileştirir"
+     ],
+     "eksi": [
+      "Tek hedef heal'de Discipline'in gerisinde",
+      "Hasarı az, tek başına leveling zor",
+      "Her işi yapar ama öbür healer'lardan biraz zayıf"
+     ]
+    },
+    {
+     "ad": "Shadow",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Vampiric Embrace: hasarının %20'si grubu iyileştirir",
+      "Dark Inspiration: grubun Spirit'i +%15",
+      "Shadowform: Shadow büyüleri yarı mana, alınan fiziksel hasar −%15",
+      "Leveling'de güvenli: Shield ve heal hep elinde"
+     ],
+     "eksi": [
+      "Shadowform'a (40. seviye) kadar mana dar, sık içersin",
+      "Güçlü AoE büyüsü yok",
+      "Hareket edince hasar durur"
+     ]
+    }
+   ]
+  },
+  "rogue": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Night Elf",
+    "Gnome",
+    "High Order Skyborne",
+    "Orc",
+    "Undead",
+    "Troll",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Undead": [
+     "Assassination",
+     "Combat",
+     "Subtlety"
+    ],
+    "Gnome": [
+     "Assassination",
+     "Combat",
+     "Subtlety"
+    ],
+    "Orc": [
+     "Subtlety"
+    ],
+    "Dwarf": [
+     "Subtlety"
+    ],
+    "Night Elf": [
+     "Subtlety"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Assassination",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Güçlü tek hedef hasarı: Mutilate ve zehirler",
+      "Mutilate 2 combo verir, zehirli hedefe +%20 vurur",
+      "Venom: Shank sonrası 6 sn zehir hasarı +%30",
+      "Improved Expose Armor'a en kolay ulaşan uzmanlık"
+     ],
+     "eksi": [
+      "AoE ve cleave yok; çok küçük düşmanda geride kalır",
+      "Savaşta kendini iyileştiremez, bandaj tek çare",
+      "Takip edilecek çok buff ve debuff: yeni başlayana zor"
+     ]
+    },
+    {
+     "ad": "Combat",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Blade Flurry ile cleave yapan tek Rogue uzmanlığı",
+      "Hack and Slash: her silah türüne bonus, respec gerekmez",
+      "Adrenaline Rush: 15 sn Energy yenilenmesi +%100",
+      "Basit dönüş: Sinister Strike ve Eviscerate"
+     ],
+     "eksi": [
+      "Gerçek AoE yok; Blade Flurry yalnız 1 ek düşmana vurur",
+      "Hasarı çok oto saldırıdan gelir: iyi silaha bağlı",
+      "Yakın dövüşçü olarak yavaşlatma ve köklere açık"
+     ]
+    },
+    {
+     "ad": "Subtlety",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Çıkıştan hemen önce yenilendi: hızlı, kanama odaklı oynanış",
+      "Shank + Boot Knife ve Premeditation ile bol combo puanı",
+      "Death Mark: 6 sn hasarı biriktirip patlatır",
+      "PvP'de çok güçlü: aynı anda 2 hedefe Sap"
+     ],
+     "eksi": [
+      "Güçlü talentleri ağacın sonunda; düşük seviyede zayıf",
+      "AoE yok; çok düşmanda tek tek DoT atmak gerekir"
+     ]
+    }
+   ]
+  },
+  "shaman": {
+   "irklar": [
+    "Dwarf",
+    "Orc",
+    "Tauren",
+    "Troll",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Orc": [
+     "Elemental",
+     "Restoration"
+    ],
+    "Windshaper Skyborne": [
+     "Enhancement"
+    ],
+    "Dwarf": [
+     "Elemental",
+     "Enhancement",
+     "Restoration"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Elemental",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Fire Nova + Trial by Fire: geniş alanda güçlü hasar",
+      "Lightning Overload: %30 şansla bedava ikinci yıldırım",
+      "Lightning Mastery: 15 sn hızlı Bolt, beklemesiz Chain",
+      "Totemler bütün raid'i güçlendirir"
+     ],
+     "eksi": [
+      "Tek hedef hasarı diğer büyücülerden düşük",
+      "Mana çabuk biter; uzun dövüşte zorlanır",
+      "Sert kontrol (CC) yok; yalnız Earthbind Totem"
+     ]
+    },
+    {
+     "ad": "Enhancement",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Stormstrike: 6 sn'de bir %150 silah vuruşu",
+      "Maelstrom: 5 yığında anlık, bedava Lightning Bolt",
+      "Windfury Totem: yakın dövüşçülerin en güçlü buff'ı",
+      "Magma Totem + Fire Nova ile iyi alan hasarı"
+     ],
+     "eksi": [
+      "İlk seviyelerde mana çok dar",
+      "Çok stat ister: Strength, Attack Power, Intellect, Spell Power",
+      "Blizzard 10.11'de Strength'i en güçlü stat yapıyor; eşya seçimi değişiyor"
+     ]
+    },
+    {
+     "ad": "Restoration",
+     "rol": "Heal",
+     "arti": [
+      "En kolay healer'lardan: 3 büyülük çekirdek",
+      "Riptide'lı hedefe Chain Heal +%25",
+      "Healing Way: Healing Wave doğrudan +%25",
+      "Mana Tide ve raid çapında totemlerle güçlü destek"
+     ],
+     "eksi": [
+      "Chain Heal ve Riptide ancak 40. seviyede gelir",
+      "Mana yoğun; Water Shield ve Mana Tide şart",
+      "Riptide dışında bekleme süreli büyü yok; ustalaşacak az şey"
+     ]
+    }
+   ]
+  },
+  "warlock": {
+   "irklar": [
+    "Human",
+    "Gnome",
+    "Orc",
+    "Undead",
+    "Troll"
+   ],
+   "irkOneri": {
+    "Human": [
+     "Affliction",
+     "Demonology",
+     "Destruction"
+    ],
+    "Orc": [
+     "Affliction",
+     "Demonology",
+     "Destruction"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Affliction",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Uzun dövüşte ve dağınık düşmanlarda güçlü",
+      "DoT'lar kritik vurur; Pandemic kritik hasarını artırır",
+      "Siphon Life ve Drain Life ile canını geri alır",
+      "Yürürken de hasar: DoT'lar ve anlık Nightfall Shadow Bolt'u"
+     ],
+     "eksi": [
+      "Kısa dövüşte zayıf: düşman DoT'lar işlemeden ölür",
+      "Wrack kanalı durarak atılır; koşunca hasar düşer"
+     ]
+    },
+    {
+     "ad": "Demonology",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Succubus hasarın büyük parçası; Demonic Brand onu güçlendirir",
+      "Demonic Pact: Imp feda bonusu Succubus açıkken de sürer",
+      "Soul Link: aldığın hasarın %30'unu pet alır",
+      "Demonic Energies ve Life Tap petin can ve manasını doldurur"
+     ],
+     "eksi": [
+      "Pet ölürse hasarın ve Soul Link gider",
+      "Sık hedef değişimi ve koşu pet hasarını düşürür",
+      "Shadow bonusları Hellfire ve Rain of Fire'a işlemez"
+     ]
+    },
+    {
+     "ad": "Destruction",
+     "rol": "Menzilli DPS",
+     "arti": [
+      "Hasar kendi büyülerinden; DoT'ların işlemesini beklemez",
+      "Conflagrate ve Shadowburn anlık; Shadow and Flame ile +%20 hasar",
+      "Bane of Havoc ile ikinci hedefe ek %15 hasar",
+      "AoE büyüleri (Hellfire, Rain of Fire) Agonizing Flames ve Ruin'den güç alır"
+     ],
+     "eksi": [
+      "Durarak oynanır: ana büyü Incinerate döküm süreli",
+      "Succubus feda edilince petsiz oynanır; açık tutmak da güçlü ama pet ölmemeli",
+      "En güçlü AoE (Hellfire) yakın mesafede ve sana da vurur"
+     ]
+    }
+   ]
+  },
+  "warrior": {
+   "irklar": [
+    "Human",
+    "Dwarf",
+    "Night Elf",
+    "Gnome",
+    "High Order Skyborne",
+    "Orc",
+    "Undead",
+    "Tauren",
+    "Troll",
+    "Windshaper Skyborne"
+   ],
+   "irkOneri": {
+    "Orc": [
+     "Arms"
+    ],
+    "Windshaper Skyborne": [
+     "Fury"
+    ],
+    "Undead": [
+     "Protection"
+    ],
+    "Night Elf": [
+     "Arms",
+     "Fury",
+     "Protection"
+    ]
+   },
+   "uzmanliklar": [
+    {
+     "ad": "Arms",
+     "rol": "Yakın DPS",
+     "arti": [
+      "İki düşmana karşı çok güçlü cleave (Sweeping Strikes)",
+      "Bloodthrill: Rend'li hedefte Overpower sık açılır",
+      "Weaponmaster: silah türü değişince respec gerekmez",
+      "Mortal Strike hedefin iyileşmesini %50 keser"
+     ],
+     "eksi": [
+      "Rage dar; fazla harcarsan Mortal Strike'a yetmez",
+      "Ana talentler gelene kadar dikkatli çekiş ve dinlenme ister"
+     ]
+    },
+    {
+     "ad": "Fury",
+     "rol": "Yakın DPS",
+     "arti": [
+      "Basit ve hızlı oynanış: Bloodthirst + Whirlwind",
+      "Whirlwind iki silahla vurur, küçük gruplarda güçlü",
+      "Death Wish: 30 sn +%20 fiziksel hasar (3 dk)",
+      "Lingering Rage ile çekişler arası Rage korunur"
+     ],
+     "eksi": [
+      "Leveling'de geç oturur; ana yetenekler 36–40'ta gelir",
+      "İki silahla ıskalamak Rage'i aç bırakır",
+      "Hedeften uzak kalınca hem hasar hem Rage düşer"
+     ]
+    },
+    {
+     "ad": "Protection",
+     "rol": "Tank",
+     "arti": [
+      "Önerilen Warrior leveling uzmanlığı",
+      "Güçlü tehdit: Shield Slam, Revenge, Thunder Clap",
+      "Shield Wall ve Last Stand ile zor çekişlerde hayatta kalır",
+      "Shield Bash, Taunt ve Challenging Shout ile çekişi kurtarır"
+     ],
+     "eksi": [
+      "Rage blok, dodge ve parry'den gelir; seni vurmayan düşmanda azalır",
+      "4'ten fazla düşmanda hedef değiştirerek tehdit tutmalısın",
+      "Intercept için Berserker Stance'e geçmek Rage kaybettirir"
+     ]
+    }
+   ]
+  }
+ }
+};
