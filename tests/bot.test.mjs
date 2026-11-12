@@ -104,8 +104,8 @@ test("messages outside the question channel or without !soru are ignored", async
   assert.equal(net.posts.length, 0);
 });
 
-test("game question goes to the backend, then a normal member waits 15 minutes", async () => {
-  const net = fakeNetwork(); const { bot, storage } = newBot();
+test("a game question is answered, then a normal member waits 15 minutes", async () => {
+  const net = fakeNetwork({ gemini: () => geminiText("**Hunter** solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun.") }); const { bot, storage } = newBot();
   await bot.handleCommand(message("!soru hangi sınıf solo için iyi"));
   assert.match(net.posts[0].content, /pet hasarı üstlenir/);
   assert.equal(await storage.get("answered_count"), 1);
@@ -145,7 +145,7 @@ test("output filter hides provider names and long answers are split for Discord"
 });
 
 test("cooldown message explains supporter and normal waiting times politely", async () => {
-  const net = fakeNetwork(); const { bot } = newBot(); const userId = "888888888888888888";
+  const net = fakeNetwork({ gemini: () => geminiText("**Hunter** solo oyunda rahattır: pet hasarı üstlenir.") }); const { bot } = newBot(); const userId = "888888888888888888";
   await bot.handleCommand(message("!soru hangi sınıf solo için iyi", userId));
   await new Promise(r => setTimeout(r, 2600));
   await bot.handleCommand(message("!soru hunter mı iyi mage mı", userId));
@@ -155,12 +155,12 @@ test("cooldown message explains supporter and normal waiting times politely", as
 test("two questions in one message get two answers in a single reply, each with its own source", async () => {
   const net = fakeNetwork({ gemini: () => geminiText("Skill 75–225 arasında kartta yazan göllerde tutabilirsin.") });
   const { bot, storage } = newBot();
-  await bot.handleCommand(message("!soru fishing 150 skill nerede kasılır? ve guild bankası nasıl açılır?"));
+  await bot.handleCommand(message("!soru fishing 150 skill nerede kasılır? ve whirlwind axe görevi nerede?"));
   assert.equal(net.posts.length, 1, "one Discord reply");
   const answer = net.posts[0].content;
   assert.match(answer, /\*\*1\) fishing 150 skill nerede kasılır\?\*\*\nSkill 75–225/);
   assert.match(answer, new RegExp(`<#${topicId("Fishing")}> konusuna bakabilirsin`), "card part links its topic");
-  assert.match(answer, /\*\*2\) guild bankası nasıl açılır\?\*\*\nHunter solo/, "second part answered by the backend");
+  assert.match(answer, /\*\*2\) whirlwind axe görevi nerede\?\*\*\nHunter solo/, "second part answered by the research service");
   assert.deepEqual(net.posts[0].files, ["fish-75-225.png"]);
   assert.equal(await storage.get("answered_count"), 1, "counts as one question");
 });
@@ -175,15 +175,30 @@ test("overly broad or many-question requests get the playful refusal without usi
   assert.equal(net.posts.at(-1).content, w.OVERLY_BROAD_MESSAGE);
 });
 
-test("a 'bilgi bulamadım' reply from the backend falls back to the general answer", async () => {
-  const net = fakeNetwork({
-    backend: () => jsonResponse({ answer: "Bu konuda güvenilir bilgi bulamadım." }),
-    gemini: () => jsonResponse({ status: "completed", steps: [{ type: "model_output", content: [{ type: "text", text: "Guild bankası için önce şehirdeki guild master'dan görev zincirini tamamlaman gerekir." }] }] })
-  });
-  const { bot } = newBot();
-  await bot.handleCommand(message("!soru guild bankası nasıl açılır"));
-  assert.match(net.posts[0].content, /görev zincirini/);
-  assert.ok(!/bulamadım/.test(net.posts[0].content));
+test("nothing verified answers the question: the bot says so, never guesses, and the player keeps the attempt", async () => {
+  // Not a quest, NPC or place question: neither the research service nor the model's memory is asked.
+  let net = fakeNetwork({ gemini: () => geminiText("Guild kurmak 10 silver tutar.") }); let { bot, storage } = newBot();
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.equal(net.posts.length, 1);
+  assert.equal(net.posts[0].content, "Bu konuda elimde doğrulanmış WoW Forever bilgisi yok; yanlış bilgi vermemek için cevap vermiyorum. Bu soru hakkından düşmedi.");
+  assert.ok(!net.calls.some(c => c.includes("workers.dev")) && !net.prompts.length, "no research, no model");
+  assert.equal(await storage.get("answered_count") || 0, 0);
+  assert.equal(await storage.get("technical_failure_count") || 0, 0, "not a technical failure");
+  assert.equal((await storage.get("uncovered_questions"))[0].q, "guild nasıl kurulur", "kept for the list of information to add");
+  // The same player can ask again at once.
+  await new Promise(r => setTimeout(r, 2600));
+  net = fakeNetwork({ gemini: () => geminiText("**Hunter** solo oyunda rahattır: pet hasarı üstlenir.") });
+  await bot.handleCommand(message("!soru hangi sınıf solo için iyi"));
+  assert.match(net.posts[0].content, /pet hasarı üstlenir/);
+  // A quest question whose research finds nothing: the model's memory is not asked either.
+  net = fakeNetwork({ backend: () => jsonResponse({ answer: "Bu konuda güvenilir bilgi bulamadım." }), gemini: () => geminiText("Görevi Stormwind'deki Uydurma NPC verir.") }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru whirlwind axe görevi nerede"));
+  assert.match(net.posts[0].content, /^Bu konuda elimde doğrulanmış WoW Forever bilgisi yok/);
+  assert.equal(net.prompts.length, 0, "model not asked");
+  // UNVERIFIED_ANSWERS=all restores the old behaviour: research first, then the model's own knowledge.
+  net = fakeNetwork({ backend: () => jsonResponse({ answer: "Bu konuda güvenilir bilgi bulamadım." }), gemini: () => geminiText("Guild bankası için şehirdeki guild master'a git.") }); ({ bot } = newBot({ UNVERIFIED_ANSWERS: "all" }));
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.match(net.posts[0].content, /guild master'a git/);
 });
 
 test("no-info detection only catches short not-found replies", () => {
@@ -566,7 +581,7 @@ test("a loose text match is used only when the model confirms it", async () => {
   await bot.handleCommand(message("!soru thermaplugg bombaları nasıl durdurulur"));
   assert.equal(net.posts.length, 1);
   assert.deepEqual(net.posts[0].files, []);
-  assert.ok(net.calls.some(c => c.includes("workers.dev")), "the normal answer is asked");
+  assert.match(net.posts[0].content, /^Bu konuda elimde doğrulanmış WoW Forever bilgisi yok/, "no guess");
   // The model is down: no guess from a loosely matched card.
   net = fakeNetwork(); ({ bot } = newBot());
   await bot.handleCommand(message("!soru thermaplugg bombaları nasıl durdurulur"));
@@ -581,8 +596,8 @@ test("a loose text match is used only when the model confirms it", async () => {
 test("answers that do not come from a card are asked for in the same short shape", async () => {
   let asked = "";
   const net = fakeNetwork({ backend: url => { asked = url.searchParams.get("q"); return jsonResponse({ answer: "Hearthstone 60 dakikada bir kullanılır." }); } }); const { bot } = newBot();
-  await bot.handleCommand(message("!soru hearthstone kaç dakikada bir kullanılır"));
-  assert.match(asked, /^hearthstone kaç dakikada bir kullanılır/);
+  await bot.handleCommand(message("!soru hearthstone nereden alınır"));
+  assert.match(asked, /^hearthstone nereden alınır/);
   assert.match(asked, /en fazla 5 kısa satır/);
   // The research backend knows Classic: the Forever rules travel with the question.
   assert.match(asked, /WoW Forever notu.*Forever'da Alliance tarafında da vardır \(Dwarf\)/);
@@ -646,11 +661,11 @@ test("profession advice: without a class the forum is linked; while the model is
   await bot.handleCommand(message("!soru hunter için hangi meslek"));
   assert.match(net.posts[0].content, /Leatherworking: Druid ve Rogue oyun boyu deri giyer\. Hunter ve Shaman önce deri, sonra mail/);
   assert.deepEqual(net.posts[0].files, ["lw-genel.png"]);
-  // "Which profession earns money" is not on the cards: the normal answer takes over.
+  // "Which profession earns money" is not on the cards: the bot does not guess.
   net = fakeNetwork({ gemini: () => geminiText("KARTTA_YOK") }); ({ bot } = newBot());
   await bot.handleCommand(message("!soru hangi meslek para kazandırır"));
   assert.deepEqual(net.posts[0].files, []);
-  assert.ok(net.calls.some(c => c.includes("workers.dev")));
+  assert.match(net.posts[0].content, /^Bu konuda elimde doğrulanmış WoW Forever bilgisi yok/);
 });
 
 test("a short follow-up stays with its question: area abilities come from the class cards", async () => {
@@ -669,19 +684,21 @@ test("a short follow-up stays with its question: area abilities come from the cl
   assert.ok(!/Prayer of Mending|Mana Burn/.test(prompt.trustedCardText.split("alan etkili")[1].split("\n\n")[0]), "heals and single-target spells are not listed as area abilities");
 });
 
-test("quest question: a research answer that says the detail is missing is asked again, the filler sentence is never sent", async () => {
+test("quest question: answered by the research service; the filler sentence is never sent, the model's memory is never asked", async () => {
   let asked = "";
   const backend = url => { asked = url.searchParams.get("q"); return jsonResponse({ answer: "Fire Hardened Hauberk, Warrior sınıf görevinin ödülüdür. Görevi veren NPC ve detaylı konum bilgisi elimizdeki güncel verilerde yer almamaktadır." }); };
   let net = fakeNetwork({ backend, gemini: () => geminiText("Görevi Stormwind Dwarven District'teki Furen Longbeard verir.") }); let { bot } = newBot();
   await bot.handleCommand(message("!soru fire hardened hauberk görevini hangi npc veriyor nerede"));
   assert.match(asked, /Bu soru görev araştırmasıdır\./);
   assert.match(asked, /görevi veren NPC'yi, NPC'nin bulunduğu şehir ya da bölgeyi/);
+  // The useful part of the research answer is sent, without the filler sentence; the model does not fill the gap from memory.
+  assert.equal(net.posts[0].content, "Fire Hardened Hauberk, Warrior sınıf görevinin ödülüdür.");
+  assert.equal(net.prompts.length, 0);
+  // UNVERIFIED_ANSWERS=all: the model is asked once for the missing part, as before.
+  net = fakeNetwork({ backend, gemini: () => geminiText("Görevi Stormwind Dwarven District'teki Furen Longbeard verir.") }); ({ bot } = newBot({ UNVERIFIED_ANSWERS: "all" }));
+  await bot.handleCommand(message("!soru fire hardened hauberk görevini hangi npc veriyor nerede"));
   assert.equal(net.posts[0].content, "Görevi Stormwind Dwarven District'teki Furen Longbeard verir.");
   assert.match(net.prompts.at(-1), /görev \/ NPC \/ edinim sorusu/);
-  // The model has nothing better: the useful part of the research answer is sent, without the filler sentence.
-  net = fakeNetwork({ backend }); ({ bot } = newBot());
-  await bot.handleCommand(message("!soru fire hardened hauberk görevini hangi npc veriyor nerede"));
-  assert.equal(net.posts[0].content, "Fire Hardened Hauberk, Warrior sınıf görevinin ödülüdür.");
   assert.ok(w.hasNoInfoSentence("Ödülü budur. Konum bilgisi kaynaklarda bulunmamaktadır."));
   assert.ok(!w.hasNoInfoSentence("Bu zindanda görev yok, doğrudan girebilirsin. Detaylı rota kartta yazıyor."));
   assert.equal(w.stripNoInfoSentences("Bu konuda net bir bilgi yok."), "Bu konuda net bir bilgi yok.", "an answer that is only filler is left to the no-info check");
@@ -721,25 +738,22 @@ test("the reported question: the Shaman trainer answer comes from the Forever no
 });
 
 test("a research answer that states a Classic rule Forever changed is never sent", async () => {
-  // A quest question no note covers: the backend answers with the Classic rule, the model is asked instead.
+  // A quest question no note covers: the research service answers with the Classic rule. The answer is dropped and nothing is guessed.
   let asked = "";
   const backend = url => { asked = url.searchParams.get("q"); return jsonResponse({ answer: CLASSIC_SHAMAN_ANSWER }); };
-  let net = fakeNetwork({ backend, gemini: () => geminiText("Dwarf Shaman ilk totem görevini Kharanos'taki eğitmeninden alır.") }); let { bot } = newBot();
+  let net = fakeNetwork({ backend, gemini: () => geminiText("Dwarf Shaman ilk totem görevini Kharanos'taki eğitmeninden alır.") }); let { bot, storage } = newBot();
   await bot.handleCommand(message("!soru alliance shaman totem görevi nerede"));
   assert.match(asked, /WoW Forever notu \(WoW Classic'ten farklıdır, cevap buna uymalı\): Shaman olabilen ırklar: Alliance'ta Dwarf;/);
   assert.match(asked, /Forever kurallarıyla çelişmeyen WoW Classic bilgisini ver/);
-  assert.equal(net.posts[0].content, "Dwarf Shaman ilk totem görevini Kharanos'taki eğitmeninden alır.");
-  assert.match(JSON.parse(JSON.parse(net.prompts.at(-1)).input).classRule, /^Shaman olabilen ırklar: Alliance'ta Dwarf/);
-  // The model is down too: the player gets the retry message, not the Classic answer, and keeps the attempt.
-  net = fakeNetwork({ backend }); let storage; ({ bot, storage } = newBot());
-  await bot.handleCommand(message("!soru alliance shaman totem görevi nerede"));
   assert.ok(!net.posts.some(post => /TBC|Klasik dönem|seçemez/.test(post.content)));
-  assert.match(net.posts.at(-1).content, /hakkından düşmedi/);
+  assert.match(net.posts[0].content, /^Bu konuda elimde doğrulanmış WoW Forever bilgisi yok.*hakkından düşmedi\.$/);
+  assert.equal(net.prompts.length, 0, "the model's memory is not asked");
   assert.equal(await storage.get("answered_count") || 0, 0);
-  // The model itself slips: the offending sentence is cut, the rest is sent.
-  net = fakeNetwork({ backend: () => jsonResponse({ answer: "Bu konuda güvenilir bilgi bulamadım." }), gemini: () => geminiText("Totem görevini sınıf eğitmenin verir. Shaman sadece Horde tarafında oynanır.") }); ({ bot } = newBot());
+  // UNVERIFIED_ANSWERS=all: the model answers instead, with the class rule; a Classic sentence of its own is cut.
+  net = fakeNetwork({ backend, gemini: () => geminiText("Totem görevini sınıf eğitmenin verir. Shaman sadece Horde tarafında oynanır.") }); ({ bot } = newBot({ UNVERIFIED_ANSWERS: "all" }));
   await bot.handleCommand(message("!soru alliance shaman totem görevi nerede"));
   assert.equal(net.posts[0].content, "Totem görevini sınıf eğitmenin verir.");
+  assert.match(JSON.parse(JSON.parse(net.prompts.at(-1)).input).classRule, /^Shaman olabilen ırklar: Alliance'ta Dwarf/);
   // What counts as a contradiction, for every class the two sides share differently.
   for (const wrong of ["Alliance tarafında Shaman TBC'de açılmıştır.", "Klasik dönemde Alliance oyuncuları Shaman sınıfını seçemez.", "Alliance tarafında Shaman yok.", "Horde tarafında Paladin sınıfı yok.", "Undead Paladin olamaz.", "Paladin sadece Alliance tarafında oynanır.", "Dwarf Shaman olamaz."])
     assert.equal(w.foreverContradictions(wrong).length, 1, wrong);
@@ -831,4 +845,110 @@ test("area abilities of all nine classes: the real ones are listed, single-targe
       for (const name of absent) assert.ok(!names.includes(name), `${question}: ${name} is not an area ability`);
     }
   }
+});
+
+// ------------------------------------------------------------
+// 2026-11-12: "binek ile kurt hali arasında hız farkı var mı" was answered "ikisi de %60 hız verir"
+// ------------------------------------------------------------
+const WOLF_QUESTION = "!soru Shaman karakterler icin lvl40 taki binek ile kurt hali arasinda hiz farki var mi";
+
+test("the reported question: Ghost Wolf's value comes from the Shaman card and the mount's from the note, in one prompt", async () => {
+  const net = fakeNetwork({ gemini: () => geminiText("Evet, fark var. **Ghost Wolf** koşu hızını %40 artırır, 40. seviye bineği ise %60 hız verir; binek daha hızlıdır.") }); const { bot } = newBot();
+  await bot.handleCommand(message(WOLF_QUESTION));
+  assert.match(net.posts[0].content, /^Evet, fark var\. \*\*Ghost Wolf\*\* koşu hızını %40 artırır, 40\. seviye bineği ise %60 hız verir/);
+  const prompt = JSON.parse(JSON.parse(net.prompts[0]).input);
+  assert.match(prompt.trustedCardText, /Ghost Wolf[^\n]*koşu hızın %40 artar/, "the card holds the wolf form's speed");
+  assert.match(prompt.foreverNotes, /İlk Riding becerisi 40\. seviyede açılır ve %60 hız verir/, "the note holds the mount's speed");
+  assert.match(prompt.foreverNotes, /Ghost Wolf'u \(20\. seviye\) ve Druid'in Travel Form'u \(30\. seviye\) %40/);
+  assert.match(JSON.stringify(prompt), /başka bir şeyin değerini ona yakıştırma, 'ikisi de aynı' ya da 'fark yok' deme/);
+  assert.ok(!net.calls.some(c => c.includes("workers.dev")), "the Classic research service is not asked");
+});
+
+test("an answer that states a number no source holds is never sent", async () => {
+  // The answer of the live report again: the model gives the mount's %60 to both, and adds a %70 of its own.
+  let net = fakeNetwork({ gemini: () => geminiText("Hayır, hız farkı yoktur; ikisi de %70 hız verir.") }); let { bot } = newBot();
+  await bot.handleCommand(message(WOLF_QUESTION));
+  assert.ok(!/%70/.test(net.posts.map(post => post.content).join("\n")), "the invented percent does not reach the player");
+  // A note-only question: the invented price is dropped and the note line itself is sent.
+  net = fakeNetwork({ gemini: () => geminiText("Riding eğitimi 40. seviyede 90 gold tutar.") }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru binek kaç gold"));
+  assert.ok(!/90 gold/.test(net.posts[0].content));
+  assert.match(net.posts[0].content, /Riding eğitimi 40\. seviyede 100 gold, 60\. seviyede 1000 gold tutar/);
+});
+
+test("number check: percentages, levels and prices must stand in a source; plain small counts are left alone", () => {
+  const source = "Ghost Wolf koşu hızını %40 artırır. Riding 40. seviyede açılır ve %60 hız verir. Riding eğitimi 100 gold tutar.";
+  assert.deepEqual(Array.from(w.unsupportedNumbers("Ghost Wolf %40, binek %60 hız verir.", source)), []);
+  assert.deepEqual(Array.from(w.unsupportedNumbers("İkisi de %70 hız verir.", source)), ["70"]);
+  assert.deepEqual(Array.from(w.unsupportedNumbers("Riding 30. seviyede açılır.", source)), ["30"]);
+  assert.deepEqual(Array.from(w.unsupportedNumbers("Riding eğitimi 90 gold tutar.", source)), ["90"]);
+  assert.deepEqual(Array.from(w.unsupportedNumbers("Riding eğitimi 100 gold tutar, hız %60.", source)), []);
+  assert.deepEqual(Array.from(w.unsupportedNumbers("Heroic Pack 29.99 dolar.", "Skyborne Heroic Pack 29,99 dolar")), [], "comma and dot decimals are the same number");
+  assert.deepEqual(Array.from(w.unsupportedNumbers("Bunun için 3 yol var.", source)), [], "a small count without a unit is not a claim");
+  assert.deepEqual(Array.from(w.unsupportedNumbers("60. seviyede 1.000 gold tutar.", "60. seviyede 1000 gold tutar")), [], "a thousands separator is not a new number");
+  assert.deepEqual(Array.from(w.unsupportedNumbers("Heroic Pack 39,99 dolar.", "Skyborne Heroic Pack 29,99 dolar")), ["39.99"]);
+  // The number the player wrote in the question is not an invention.
+  assert.deepEqual(Array.from(w.unsupportedNumbers("45. seviyede hâlâ %60 hızla gidersin.", source, "45 levelim binek hızı kaç")), []);
+});
+
+test("a comparison is answered from a note only when the note holds both sides", () => {
+  const notes = question => w.foreverNotes(question);
+  assert.ok(w.isComparisonQuestion("binek ile kurt hali arasinda hiz farki var mi"));
+  assert.ok(w.isComparisonQuestion("binek mi ışınlanma mı daha hızlı"));
+  assert.ok(!w.isComparisonQuestion("binek kaç gold"));
+  assert.equal(w.notesCoverQuestion("binek mi ışınlanma mı daha hızlı", notes("binek mi ışınlanma mı daha hızlı")), false, "the mount note says nothing about teleporting");
+  assert.equal(w.notesCoverQuestion("epic mount ile normal mount farkı", notes("epic mount ile normal mount farkı")), true);
+  assert.equal(w.notesCoverQuestion("binek kaç gold", notes("binek kaç gold")), true, "not a comparison: left to the reading of the note");
+});
+
+test("a comparison with a side that no source holds gets no guess", async () => {
+  const net = fakeNetwork({ gemini: () => geminiText("Işınlanma daha hızlıdır, binek %60 hız verir.") }); const { bot, storage } = newBot();
+  await bot.handleCommand(message("!soru binek mi ışınlanma mı daha hızlı"));
+  assert.equal(net.posts[0].content, "Bu konuda elimde doğrulanmış WoW Forever bilgisi yok; yanlış bilgi vermemek için cevap vermiyorum. Bu soru hakkından düşmedi.");
+  assert.equal(await storage.get("answered_count") || 0, 0, "the attempt is not used up");
+});
+
+test("the widened Forever notes answer without the research service or the model's memory", async () => {
+  const cases = [
+    ["dungeon finder var mı", "grup-bulma", /Forever'da otomatik zindan bulucu \(Dungeon Finder\) ve Raid Finder yoktur/],
+    ["talent sıfırlama kaç gold", "dual-spec", /İlk sıfırlama 1 gold tutar, her sıfırlamada ücret artar ve en çok 50 gold olur/],
+    ["wow forever ücretli mi", "paketler", /ayrı bir satın alma ücreti yoktur; WoW aboneliği ya da Game Time ile oynanır/],
+    ["horde dalaran'a girebilir mi", "dalaran", /Şehir Alliance'a açıktır; Horde oyuncularına şehirde saldırılır/],
+    ["onyxia attunement gerekiyor mu", "raid-takvimi", /Onyxia's Lair için attunement gerekir: 40 kişinin her birinin çantasında Drakefire Amulet olmalıdır/],
+    ["quiver reagent slotuna takılır mı", "canta", /Hunter'ın quiver'ı ve ammo pouch'u bu yere takılmaz/],
+    ["questie çalışıyor mu", "eklentiler", /Questie, Deadly Boss Mods, BigWigs ve Auctionator'ın Forever sürümleri vardır/],
+    ["hit ve crit birleşti mi", "istatistik", /tek bir Hit stat'ında; üç kritik şansı da tek bir Crit stat'ında birleşti/],
+    ["kaç pet ailesi var", "hunter-pet", /Forever'da 18 pet ailesi vardır/],
+    ["hearthstone bekleme süresi kaç", "olum", /Hearthstone'un bekleme süresi 1 saattir/],
+    ["forever'da yeni zindanlar hangileri", "yeni-zindanlar", /Forever dokuz yeni zindan ekler/],
+    ["kaç yeni itibar var", "itibar", /Forever 14 yeni itibar ekler/]
+  ];
+  for (const [question, id, line] of cases) {
+    const net = fakeNetwork({ gemini: () => geminiText("Cevap nottadır.") }); const { bot } = newBot();
+    await bot.handleCommand(message(`!soru ${question}`));
+    assert.match(net.posts[0].content, /^Cevap nottadır\./, question);
+    const prompt = JSON.parse(JSON.parse(net.prompts[0]).input);
+    assert.match(prompt.foreverNotes, line, `${question}: note ${id}`);
+    assert.ok(!net.calls.some(c => c.includes("workers.dev")), `${question}: research service not asked`);
+  }
+});
+
+test("Rogue weapons in Forever include one-handed axes", async () => {
+  assert.match(w.gearRule("rogue"), /Forever'da tek elli axe da kullanır/);
+  assert.match(w.gearRule("rogue"), /iki elli silah ve kalkan kullanamaz/);
+});
+
+test("Dalaran the city is not Dalaran the dungeon", () => {
+  assert.deepEqual(Array.from(w.selectCards("mage teleport dalaran kaç levelde", {}).cards, card => card.id), ["mage-03-yetenekler-2"]);
+  assert.deepEqual(Array.from(w.selectCards("city of dalaran bossları", {}).cards, card => card.id), ["zindan-13-city-of-dalaran"]);
+  assert.deepEqual(Array.from(w.selectCards("dalaran zindanı kaç level", {}).cards, card => card.id), ["zindan-13-city-of-dalaran"]);
+});
+
+test("the model is down and the matched note is about something else: no unrelated note line is sent", async () => {
+  // "fiyat" touches the price note, which says nothing about a name change.
+  const net = fakeNetwork(); const { bot, storage } = newBot();
+  await bot.handleCommand(message("!soru isim değiştirme fiyatı ne kadar"));
+  assert.ok(!/satın alma ücreti|Heroic Pack/.test(net.posts[0].content), net.posts[0].content);
+  assert.match(net.posts[0].content, /^Bu soruya şu an cevap veremedim/, "the retry message, not a guess");
+  assert.equal(await storage.get("answered_count") || 0, 0);
 });

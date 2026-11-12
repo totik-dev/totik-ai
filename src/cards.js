@@ -91,7 +91,19 @@ function fixWord(word) {
 }
 // What players call things that the cards name differently.
 const SYNONYMS = [[/(?:^| )(?:lockpicking|lockpick|lock pick|kilit acma)(?= |$)/g, " pick lock"], [/(?:^| )(?:respek|respecc)(?= |$)/g, " respec"], [/(?:^| )fishing pole(?= |$)/g, " olta"],
-  [/(?:^| )su (?=(?:nasil |nerden |nereden )?(?:yap(?!ilan)|uret|cikar|olustur)\w*)/g, " conjure water "]];
+  [/(?:^| )su (?=(?:nasil |nerden |nereden )?(?:yap(?!ilan)|uret|cikar|olustur)\w*)/g, " conjure water "],
+  // Turkish names players give to forms and well-known abilities; the cards carry the English name.
+  [/(?:^| )(?:hayalet kurt\w*|kurt (?:hal|form|sekl|kilig)\w*|kurda donus\w*)(?= |$)/g, " ghost wolf"],
+  [/(?:^| )ayi (?:hal|form|sekl)\w*(?= |$)/g, " bear form"], [/(?:^| )kedi (?:hal|form|sekl)\w*(?= |$)/g, " cat form"],
+  [/(?:^| )(?:seyahat|yolculuk|cita|gezi) (?:hal|form|sekl)\w*(?= |$)/g, " travel form"], [/(?:^| )(?:su|fok|deniz) (?:hal|form|sekl)\w*(?= |$)/g, " aquatic form"],
+  [/(?:^| )(?:baykus|moonkin) (?:hal|form|sekl)\w*(?= |$)/g, " moonkin form"],
+  [/(?:^| )cita (?:aspect\w*|gorunum\w*)(?= |$)/g, " aspect of the cheetah"], [/(?:^| )suru (?:aspect\w*|gorunum\w*)(?= |$)/g, " aspect of the pack"],
+  [/(?:^| )can tas\w*(?= |$)/g, " healthstone"], [/(?:^| )ruh tas\w*(?= |$)/g, " soulstone"],
+  [/(?:^| )ol(?:u|um) taklid\w*(?= |$)/g, " feign death"], [/(?:^| )(?:pet|hayvan) evcillestir\w*(?= |$)/g, " tame beast"],
+  [/(?:^| )koyun(?:a)? (?:yap|cevir|donustur)\w*(?= |$)/g, " polymorph"],
+  // The class mounts: "paladin atı kaç levelde", "warlock bineği".
+  [/(?:^| )paladin\w* (?:at|ati|atini|atim|atimi|bineg\w*|binek|mount\w*)(?= |$)/g, "$& summon warhorse"],
+  [/(?:^| )(?:warlock\w*|lock) (?:at|ati|atini|atim|atimi|bineg\w*|binek|mount\w*)(?= |$)/g, "$& summon felsteed"]];
 // A question as the selector reads it: normalized, with misspelled names corrected.
 export function questionText(value) {
   let q = normalizeText(value);
@@ -391,12 +403,44 @@ export function foreverNotes(question, limit = 2) { return noteHits(question).sl
 // such a question is answered from the note even when a card of the class was picked.
 export function isForeverNoteSubject(question) { return noteHits(question).some(hit => hit.specific); }
 export function foreverNoteText(notes) { return notes.map(note => `## ${note.baslik}\n${note.satirlar.map(line => `- ${line}`).join("\n")}`).join("\n\n"); }
+// Does the note hold everything the question asks about? "binek ile kurt hali arasında hız farkı" names a thing
+// (kurt hali) the mount note never mentions: the note alone cannot answer it.
+const GENERIC_WORD = new Set(("karakter karakterler karakterim level lvl lv seviye seviyede seviyesi hiz hizi hizli fark farki farkli arasinda arasindaki ayni kadar tane sinif sinifi irk irki "
+  + "oyuncu oyuncular nedir neler nerede nerde nereden nerden zaman simdi yeni eski tam olarak peki acaba lutfen hocam abi kanka arkadaslar merhaba selam "
+  + "normal alliance horde ally hord tarafi tarafinda taraf bilgi hakkinda ilgili gerekli gerekiyor lazim mumkun sekilde iyi kotu guzel hangisi hangi kacta kacinci").split(" "));
+const softened = stem => stem.replace(/p$/, "b").replace(/t$/, "d").replace(/k$/, "g");
+function uncoveredWords(question, text) {
+  const words = normalizeText(text).split(" "), classWords = new Set([...Object.keys(CLASS_NAMES), ...Object.values(CLASS_ALIASES).flat(), ...Object.values(CLASS_FACTS.taraflar).flat().flatMap(race => normalizeText(race).split(" "))]);
+  return questionText(question).split(" ").filter(word => word.length >= 4 && !/\d/.test(word) && !STOP_WORDS.has(word) && !GENERIC_WORD.has(word) && !COMMON_VERB.test(word) && !classWords.has(word))
+    .filter(word => { const stem = word.slice(0, Math.max(4, word.length - 3)); return !words.some(other => other.startsWith(stem) || other.startsWith(softened(stem))); });
+}
+const COMPARISON = /(?:^| )(?:fark\w*|arasinda\w*|karsilastir\w*|kiyasla\w*|hangisi|ayni mi|esit mi|daha (?:hizli|iyi|guclu|yavas|cok|az))(?= |$)|(?:^| )m[iu] .+ m[iu](?= |$)/;
+export function isComparisonQuestion(question) { return COMPARISON.test(questionText(question)); }
+// A comparison needs both of its sides in the notes; any other question is left to the model's reading of the note.
+export function notesCoverQuestion(question, notes) {
+  if (!isComparisonQuestion(question)) return true;
+  return uncoveredWords(question, notes.map(note => `${note.baslik} ${note.anahtar.join(" ").replace(/\+/g, " ")} ${note.satirlar.join(" ")}`).join(" ")).length === 0;
+}
+// Numbers with a meaning (percent, level, gold, seconds, people …) that the answer states but no source holds.
+// "ikisi de %70 hız verir" when the sources say %40 and %60.
+const UNIT = "seviye\\w*|level\\w*|lvl|lv|gold|altin\\w*|silver|gumus\\w*|saniye\\w*|sn|dakika\\w*|dk|saat\\w*|metre\\w*|yard\\w*|kisi\\w*|puan\\w*|skill\\w*|rank\\w*|kitap\\w*|hedef\\w*|dusman\\w*|dolar\\w*|euro|tl";
+const NUMBER_CLAIM = new RegExp(`%\\s?(\\d+(?:[.,]\\d+)?)|(\\d+(?:[.,]\\d+)?)\\s?%|(\\d+(?:[.,]\\d+)?)\\.? ?(?:${UNIT})(?= |$|[.,;:!?)])|(?:${UNIT}) (\\d+)|(\\d{2,}(?:[.,]\\d+)?)`, "g");
+export function unsupportedNumbers(answer, ...sources) {
+  const flat = value => String(value || "").toLowerCase().replace(/ı/g, "i").replace(/ğ/g, "g").replace(/ü/g, "u").replace(/ş/g, "s").replace(/ö/g, "o").replace(/ç/g, "c").replace(/İ/g, "i");
+  // "1.000 gold" and "1000 gold" are one number; "29,99" and "29.99" are one number.
+  const plain = n => /^\d{1,3}[.,]\d{3}$/.test(n) ? n.replace(/[.,]/, "") : n.replace(",", ".");
+  const known = new Set((flat(sources.join("\n")).match(/\d+(?:[.,]\d+)?/g) || []).map(plain));
+  const out = new Set();
+  for (const match of flat(answer).matchAll(NUMBER_CLAIM)) { const n = plain(match[1] || match[2] || match[3] || match[4] || match[5]); if (!known.has(n)) out.add(n); }
+  return [...out];
+}
 // Without the model: the lines of the notes that share the most words with the question.
 export function localNoteAnswer(notes, question) {
   const stems = [...new Set(normalizeText(question).split(" ").filter(word => word.length >= 4 && !STOP_WORDS.has(word)).map(word => word.slice(0, Math.max(4, word.length - 2))))];
   const lines = notes.flatMap(note => note.satirlar).map((text, order) => { const words = normalizeText(text).split(" "); return { text, order, score: stems.filter(stem => words.some(word => word.startsWith(stem))).length }; });
   const top = Math.max(...lines.map(line => line.score));
-  return (top > 0 ? lines.filter(line => line.score === top).slice(0, 2) : lines.slice(0, 2)).map(line => line.text).join("\n");
+  // No line shares a word with the question: the note is about something else, and nothing is better than a wrong line.
+  return top > 0 ? lines.filter(line => line.score === top).slice(0, 2).map(line => line.text).join("\n") : "";
 }
 
 export function detectSpec(question, classKey) {
@@ -473,7 +517,8 @@ const DUNGEON_GROUPS = [
   { names: ["excavation site", "excavation"], cards: { "excavation-site-wetlands": [] } },
   { names: ["gnomeregan", "gnomer"], cards: { gnomeregan: [] } },
   { names: ["scarlet monastery", "scarlet", "monastery"], weak: ["sm"], cards: { "scarlet-monastery-graveyard": ["graveyard", "gy", "mezarlik"], "scarlet-monastery-library": ["library", "lib", "kutuphane"], "scarlet-monastery-armory": ["armory", "armoury", "arm", "cephanelik"], "scarlet-monastery-cathedral": ["cathedral", "cath", "katedral"] } },
-  { names: ["city of dalaran"], weak: ["dalaran"], cards: { "city-of-dalaran": [] } },
+  // Dalaran is also a city in Forever: "teleport dalaran", "dalaran portalı", "dalaran şehri" are not the dungeon.
+  { names: ["city of dalaran"], weak: ["dalaran"], notWeak: /(?:^| )(?:teleport|portal|isinla|sehir|sehr)\w*/, cards: { "city-of-dalaran": [] } },
   { names: ["drowned city", "drowned"], cards: { "the-drowned-city": [] } },
   { names: ["kroldok stronghold", "krol dok", "kroldok"], cards: { "krol-dok-stronghold": [] } },
   { names: ["uldaman", "ulda"], cards: { uldaman: [] } },
@@ -504,7 +549,7 @@ function levelInQuestion(q) {
 function findDungeonGroup(q) {
   const context = DUNGEON_CONTEXT.test(q), level = levelInQuestion(q), hits = [];
   for (const group of DUNGEON_GROUPS) {
-    const strong = group.names.find(name => hasTerm(q, name)), weak = !strong && context && (group.weak || []).find(name => hasTerm(q, name));
+    const strong = group.names.find(name => hasTerm(q, name)), weak = !strong && context && !group.notWeak?.test(q) && (group.weak || []).find(name => hasTerm(q, name));
     if (strong || weak) hits.push({ group, length: (strong || weak).length, weak: !strong });
   }
   if (!hits.length) return null;

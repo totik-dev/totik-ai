@@ -12,12 +12,15 @@ Totik Channel Discord sunucusunda WoW Forever sorularını cevaplayan bot. Soru 
 - Yazım hataları ("palladin", "deadmins", "gnomregan") ve kısaltmalar ("bm", "sfk", "strat ud") tanınır. "eng", "skin", "war", "dm" gibi günlük kelimeler tek başına kart getirmez.
 - "Priest için hangi meslek", "kaç meslek alabilirim" gibi meslek seçimi sorularında bot, meslek kartlarındaki öneri satırlarını (`KİM`, `SINIF`, `KİMİN İŞİ`, `EŞ`, `İKİLİ`, `İKİNCİL`) kullanır; kartların o sınıf için önerdiği en fazla iki ana mesleğin genel kartını ekler ve iki konunun bağlantısını verir.
 - "Alan vuran skili var mı", "aoe büyüleri" gibi sorularda bot, sınıfın yetenek ve talent kartlarında birden çok hedefe etki eden satırları ve Oynanış kartındaki `ÇOK HEDEF` notunu toplar.
-- WoW Forever, WoW Classic değildir. Classic'ten farklı olan ve kartlarda yazmayan bilgiler (Stormwind Limanı ve gemiler, kütüphane kitapları, yeni sınıf ve ırk eşleşmelerinin eğitmenleri, yeni bölgeler, Legacy, Dual Specialization, binek, raid takvimi, Enhancement Shaman'ın silahı) `kartlar/forever-bilgi.json` dosyasındadır. Soru bu konulardan birine değiyorsa cevap bu notlardan kurulur; kart eklenmez, araştırma servisine sorulmaz. Kartın cevapladığı sorularda (zindan, meslek, talent) kart önceliklidir.
+- WoW Forever, WoW Classic değildir. Classic'ten farklı olan ve kartlarda yazmayan bilgiler (Stormwind Limanı ve gemiler, kütüphane kitapları, yeni sınıf ve ırk eşleşmelerinin eğitmenleri, yeni bölgeler ve zindanlar, Legacy, talent sıfırlama ve Dual Specialization, binek ve ücretleri, raid takvimi ve attunement, grup bulma, stat ve silah becerisi, ölüm ve Hearthstone, çantalar, fiyat ve paketler, Hunter petleri, eklentiler, Dalaran, yeni itibarlar, Enhancement Shaman'ın silahı) `kartlar/forever-bilgi.json` dosyasındadır. Soru bu konulardan birine değiyorsa cevap bu notlardan kurulur; kart eklenmez, araştırma servisine sorulmaz. Kartın cevapladığı sorularda (zindan, meslek, talent) kart önceliklidir.
 - Sınıfların hangi ırkla ve hangi tarafta oynandığı (`kartlar/sinif-bilgi.json`) her yapay zekâ çağrısına ve araştırma servisine giden her soruya eklenir. Araştırma servisi Classic bilir: cevabında "Alliance'ta Shaman yok", "Burning Crusade'de açıldı" gibi Forever'la çelişen bir cümle varsa cevap kullanılmaz, soru modele sorulur; modelin cevabındaki böyle cümleler de silinir.
 - Ekipman sorularında ("20 level hunter ne giymeli", "priest hangi silah") kart eklenmez; cevap `kartlar/sinif-bilgi.json` içindeki zırh ve silah kuralından kurulur ve araştırma servisine sorulmaz.
-- Görev ve "nereden alınır" soruları araştırma servisine gider. Servis "bu bilgi verilerde yer almıyor" gibi bir cümleyle dönerse soru bir kez de Gemini'ye sorulur; böyle dolgu cümleleri cevaptan çıkarılır.
+- Bot kafadan bilgi vermez. Bir cevabın kaynağı yalnız şunlar olabilir: rehber kartının metni, `kartlar/forever-bilgi.json` notları, `kartlar/sinif-bilgi.json` (sınıf, ırk, zırh ve silah kuralları) ve doğrulanmış ırk özellikleri. Modelin kendi hafızası kaynak değildir.
+- Kart ve not birlikte kullanılır: soru bir sınıf kartına gidiyorsa ve bir Forever notuna da değiyorsa ("kurt hali ile binek arasında hız farkı") ikisi aynı çağrıda gönderilir. Karşılaştırma sorusunda her iki tarafın değeri de kaynakta yazmıyorsa cevap verilmez; not tek başına iki tarafı da tutmuyorsa soru nottan cevaplanmaz.
+- Sayı kontrolü: cevaptaki yüzde, seviye, gold, süre gibi sayılar kaynak metinde ve soruda aranır (`unsupportedNumbers`). Kaynakta olmayan bir sayı varsa cevap gönderilmez; not sorusunda notun kendi satırı gönderilir.
+- Görev, NPC ve "nerede / nereden alınır" soruları araştırma servisine (`WOW_AI_URL`) gider; servis Classic bilir, cevabı Forever kurallarıyla çelişiyorsa kullanılmaz. Bunların dışındaki, kaynağı olmayan sorularda bot "Bu konuda elimde doğrulanmış WoW Forever bilgisi yok…" der ve sorunun hakkını geri verir. Davranış `UNVERIFIED_ANSWERS` ayarıyla değişir: `research` (varsayılan), `none` (araştırma servisi de sorulmaz), `all` (eski davranış: araştırma servisi, sonra model).
+- Cevapsız kalan son 60 soru `GET /status` çıktısındaki `uncovered_questions` listesinde durur; bota eklenecek bilgilerin listesi budur.
 - Hiçbir kural uymazsa bot soruyla en çok ortak kelimesi olan kartı dener; bu durumda kart yalnız AI adımı "kart bu soruyu cevaplıyor" derse kullanılır.
-- Kart soruyu karşılamıyorsa ya da eşleşme yoksa WoW AI servisi (`WOW_AI_URL`), o da cevap vermezse Gemini kullanılır.
 - Bekleme süresi: YouTube Katıl / Twitch Sub / Kick abonesi / premium rolü 1 dakika, diğer üyeler 15 dakika. Cevap verilemezse hak geri verilir. Kick abonesi rolü `1566519827965812966` numaralı roldür (`src/index.js`, `KICK_SUB_ROLE_ID`); `KICK_SUB_ROLE_IDS` ile ek rol numarası verilebilir.
 - Cooldown, mesaj durumu ve forum konularının listesi Durable Object depolamasında tutulur; ayrı veritabanı yoktur.
 
@@ -50,13 +53,15 @@ Bir kart değişirse `kartlar/metin/` altındaki metnini düzelt, yeni kart ekle
 
 Kartların görselleri repoda durmaz. Bot, sunucudaki forum kanallarını (Class, Zindan, Meslek rehberleri) günde bir kez tarar, konuları başlığından tanır ve kartı konudaki ekin dosya adından bulur. Her soruda yalnız o soruya uyan 1–2 kart forumdan alınır. Bu yüzden forumdaki konu başlıkları ve dosya adları `kartlar.json` ile aynı kalmalı; botun bu üç forumu görme ve mesaj geçmişini okuma izni olmalı.
 
+Bot bir soruya "doğrulanmış bilgim yok" diyorsa bilgi `kartlar/forever-bilgi.json` dosyasına not olarak eklenir (yalnız kaynakların birbirini tuttuğu bilgi), `npm run cards` çalıştırılır ve `tests/questions-reviewed.mjs` listesine `["soru", "note=not-id"]` satırı eklenir.
+
 Bot bir soruya yanlış kart verirse soruyu ve doğru kartı `tests/questions-reviewed.mjs` listesine ekle (`["soru", "=kart-id"]`), sonra `src/cards.js` içindeki kuralı düzelt. Batarya, bir düzeltmenin başka soruları bozup bozmadığını gösterir. Bu testler Discord'a ya da AI servisine bağlanmaz, kota harcamaz.
 
 ## Ayarlar (Cloudflare değişkenleri)
 
 Zorunlu gizli değerler: `DISCORD_BOT_TOKEN`, `GEMINI_API_KEY`, `ADMIN_API_KEY` (en az 32 karakter).
 
-İsteğe bağlı: `DISCORD_GUILD_ID`, `WOW_AI_URL`, `WOW_AI_METHOD` (`POST` ya da boş = GET), `WOW_AI_API_KEY`, `GEMINI_TEXT_MODEL`, `GEMINI_VISION_MODEL`, `TOTIK_PROFILE_JSON`, `YOUTUBE_MEMBER_ROLE_IDS`, `TWITCH_SUB_ROLE_IDS`, `KICK_SUB_ROLE_IDS`, `PREMIUM_ROLE_IDS`, `COMMUNITY_EDITOR_IDS`, `SPECIAL_GUIDE_CHANNEL_ID`.
+İsteğe bağlı: `UNVERIFIED_ANSWERS` (`research`, `none` ya da `all`), `DISCORD_GUILD_ID`, `WOW_AI_URL`, `WOW_AI_METHOD` (`POST` ya da boş = GET), `WOW_AI_API_KEY`, `GEMINI_TEXT_MODEL`, `GEMINI_VISION_MODEL`, `TOTIK_PROFILE_JSON`, `YOUTUBE_MEMBER_ROLE_IDS`, `TWITCH_SUB_ROLE_IDS`, `KICK_SUB_ROLE_IDS`, `PREMIUM_ROLE_IDS`, `COMMUNITY_EDITOR_IDS`, `SPECIAL_GUIDE_CHANNEL_ID`.
 
 `TOTIK_PROFILE_JSON` alanları: `about`, `guildName`, `realm`, `ruleset`, `faction`, `guildRequirements`, `applicationInstructions`, `guildContacts`, `streamSchedule`.
 

@@ -23,7 +23,7 @@ const ids = selection => Array.from(selection?.cards || [], card => card.id);
 
 function check(question, expected) {
   const s = pick(question), got = ids(s), label = `${question} → ${s ? `${s.category} [${got.join(", ")}]${s.need ? ` need:${s.need}` : ""}${s.compare ? ` compare:${Array.from(s.compare).join("+")}` : ""}${s.factsOnly ? " facts" : ""}${s.search ? " search" : ""}` : "null"}`;
-  const notes = Array.from(w.foreverNotes(question), note => note.id), noteFirst = notes.length > 0 && (!s || s.need || s.search || w.isForeverNoteSubject(question));
+  const notes = Array.from(w.foreverNotes(question), note => note.id), noteFirst = notes.length > 0 && (w.isForeverNoteSubject(question) || (!s || s.need || s.search) && w.notesCoverQuestion(question, w.foreverNotes(question)));
   if (process.env.DUMP_NOTES && notes.length) console.log(`NOTE\t${noteFirst ? "first" : "after"}\t${notes.join(",")}\t${expected}\t${label}`);
   if (expected.startsWith("note=")) { assert.ok(noteFirst, label); return assert.deepEqual(notes.slice(0, expected.slice(5).split(",").length), expected.slice(5).split(","), `${label} notes: ${notes.join(", ")}`); }
   // A question that a card answers is never taken over by a Forever note.
