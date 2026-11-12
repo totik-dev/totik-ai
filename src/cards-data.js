@@ -4317,7 +4317,7 @@ export const CLASS_FACTS = {
   },
   "rogue": {
    "zirh": "leather",
-   "silah": "dagger, tek elli sword, tek elli mace, fist weapon; menzilli olarak bow, crossbow, gun, thrown; iki elli silah ve kalkan kullanamaz",
+   "silah": "dagger, tek elli sword, tek elli mace, fist weapon; Forever'da tek elli axe da kullanır; menzilli olarak bow, crossbow, gun, thrown; iki elli silah ve kalkan kullanamaz",
    "irklar": [
     "Human",
     "Dwarf",
@@ -4829,7 +4829,10 @@ export const FOREVER_NOTES = [
    "Bir challenge hesap başına bir kez tamamlanır; ikinci karakter aynı challenge'dan yeniden puan almaz.",
    "Puanlar üç ağaca harcanır: Professions, Adventure ve Resourcefulness. Bir karakter en fazla 16 puan harcayabilir.",
    "Kazanılan toplam puan (harcanan değil) 15, 25, 40 ve 55 puanda kozmetik ödüller açar.",
-   "Legacy puanları ve koleksiyonlar Normal, PvP ve Roleplaying kuralları arasında ortaktır."
+   "Legacy puanları ve koleksiyonlar Normal, PvP ve Roleplaying kuralları arasında ortaktır.",
+   "65 challenge'ın dağılımı: sınıflar 27, meslekler 18, PvP 12, zindanlar 3, raidler 3, macera 2. Meslek challenge'ları 150, 225 ve 300 skill'de tamamlanır.",
+   "Kozmetik ödüller: Spectral Bear Cub, Spectral Bear Tabard, Reins of the Spectral Bear (binek) ve Replica Ironforge Air Rifle (oyuncak).",
+   "Ağaçlardan örnek talentler: Professions'ta Bountiful Harvest (toplama mesleklerinden daha çok nadir malzeme); Adventure'da Well Rested (rested XP daha hızlı birikir), Frequent Flier (uçuş noktaları daha ucuz ve hızlı) ve Field Guide (kamp objesi beklemesi kısalır); Resourcefulness'ta Gourmand (yemek buff'ları daha uzun sürer) ve Diplomat (itibar kazancı artar)."
   ]
  },
  {
@@ -4843,17 +4846,28 @@ export const FOREVER_NOTES = [
    "at kac",
    "kacta at",
    "epic mount",
-   "epik binek"
+   "epik binek",
+   "at fiyat",
+   "binek fiyat",
+   "riding+gold",
+   "warhorse",
+   "felsteed",
+   "charger",
+   "dreadsteed"
   ],
   "satirlar": [
    "İlk Riding becerisi 40. seviyede açılır ve %60 hız verir; hızlı binek 60. seviyede açılır ve %100 hız verir.",
-   "Forever'da uçan binek yoktur."
+   "Forever'da uçan binek yoktur.",
+   "Riding eğitimi 40. seviyede 100 gold, 60. seviyede 1000 gold tutar. 40. seviyedeki eğitimle ırkının ilk bineği birlikte verilir; ayrıca binek satın almak gerekmez.",
+   "60. seviyedeki hızlı (epic) bineklerin her biri 200 gold'dur.",
+   "Paladin (Summon Warhorse) ve Warlock (Summon Felsteed) 40. seviyede sınıf göreviyle kendi bineğini alır. 60. seviyede Paladin'in Charger'ı ve Warlock'un Dreadsteed'i yine sınıf görevleriyle gelir; bu görevler zindan ve malzeme ister.",
+   "Hız karşılaştırması: 40. seviye bineği %60, 60. seviye bineği %100 hız verir. Shaman'ın Ghost Wolf'u (20. seviye) ve Druid'in Travel Form'u (30. seviye) %40, Hunter'ın Aspect of the Cheetah'ı (20. seviye) %30 hız verir. Yani 40. seviye bineği bu yeteneklerin hepsinden hızlıdır."
   ]
  },
  {
   "id": "dual-spec",
-  "baslik": "Dual Specialization ve talent sıfırlama",
-  "ozet": "Dual Specialization 40. seviyede sınıf eğitmeninden alınır.",
+  "baslik": "Talent sistemi, talent sıfırlama ve Dual Specialization",
+  "ozet": "Talent puanları 10. seviyede başlar; Dual Specialization 40. seviyede sınıf eğitmeninden alınır.",
   "anahtar": [
    "dual spec",
    "dual talent",
@@ -4861,11 +4875,24 @@ export const FOREVER_NOTES = [
    "ikinci uzmanlik",
    "cift spec",
    "cift uzmanlik",
-   "ikili spec"
+   "ikili spec",
+   "respec",
+   "talent sifirla",
+   "talentleri sifirla",
+   "talent reset",
+   "yetenek sifirla",
+   "talent+kacta",
+   "talent+kacinci",
+   "talent+ne zaman",
+   "talent+kac puan",
+   "kac talent"
   ],
   "satirlar": [
    "Dual Specialization (ikinci talent dizilimi) 40. seviyede açılır ve sınıf eğitmeninden alınır.",
-   "Talentleri (Legacy talentleri dahil) değiştirmek için büyük şehirlerden birindeki sınıf eğitmenine gitmek gerekir."
+   "Talentleri (Legacy talentleri dahil) değiştirmek için büyük şehirlerden birindeki sınıf eğitmenine gitmek gerekir.",
+   "Talent puanları 10. seviyede başlar; her seviyede 1 puan gelir ve 60. seviyede toplam 51 puan olur.",
+   "Her talent ağacında 11, 16, 21 ve 31 puanda dönüm noktası talentleri vardır; 16 puandaki basamak Forever'la geldi.",
+   "Talent sıfırlama sınıf eğitmeninden yapılır. İlk sıfırlama 1 gold tutar, her sıfırlamada ücret artar ve en çok 50 gold olur."
   ]
  },
  {
@@ -4885,12 +4912,22 @@ export const FOREVER_NOTES = [
    "level cap",
    "max level",
    "son seviye",
-   "kac kisilik"
+   "kac kisilik",
+   "attunement",
+   "attune",
+   "drakefire",
+   "world buff",
+   "dunya buff",
+   "ony"
   ],
   "satirlar": [
    "WoW Forever 4 Kasım 2026'da açıldı. En yüksek seviye 60'tır. Açılışta raid yoktu.",
    "İlk raidler 9 Aralık 2026'da birlikte açılır: Barrow Deeps (10 kişilik, yeni), Hyjal Summit (20 kişilik, yeni) ve Onyxia's Lair (40 kişilik).",
-   "2027 baharı için 10 ve 20 kişilik iki yeni raid ile iki yeni dungeon, 2027 yazı için yenilenmiş bir klasik raid ile bir yeni raid ve iki dungeon daha duyuruldu. Blizzard bu raidlerin adını açıklamadı."
+   "2027 baharı için 10 ve 20 kişilik iki yeni raid ile iki yeni dungeon, 2027 yazı için yenilenmiş bir klasik raid ile bir yeni raid ve iki dungeon daha duyuruldu. Blizzard bu raidlerin adını açıklamadı.",
+   "Onyxia's Lair için attunement gerekir: 40 kişinin her birinin çantasında Drakefire Amulet olmalıdır. Amulet Classic'teki taraf görev zinciriyle alınır; zincirin son adımı Blackrock Spire'ın tepesindeki General Drakkisath'tır. İlerleme hesaptaki diğer karakterlerle paylaşılmaz.",
+   "Barrow Deeps ve Hyjal Summit için attunement görev zinciri yoktur.",
+   "Barrow Deeps'e üç yerden girilir: Mount Hyjal, Winterspring ve Azshara'daki Blackmaw Hold zindanı.",
+   "World buff'lar raid içinde etki etmez."
   ]
  },
  {
@@ -4906,13 +4943,18 @@ export const FOREVER_NOTES = [
    "hangi server",
    "hardcore",
    "rp-pvp",
-   "roleplay"
+   "roleplay",
+   "layer",
+   "layering",
+   "katman"
   ],
   "satirlar": [
    "Forever'da isimli sunucu (realm) yoktur. Karakter yaratırken bir kural seti seçilir: Normal, PvP, Roleplaying ya da Roleplay-PvP. Hardcore daha sonra gelecek.",
    "Farklı kural setlerindeki karakterler aynı gruba giremez; battleground eşleştirmesi kural setleri arasında ortaktır.",
    "PvP kural setinde bir hesap yalnız tek tarafta karakter açabilir. Normal ve Roleplaying'de iki tarafta da karakter açılır.",
-   "Kural seti sonradan serbestçe değiştirilemez."
+   "Kural seti sonradan serbestçe değiştirilemez.",
+   "Hardcore kural seti Blizzard'ın yol haritasında kış dönemi için duruyor; kesin tarihi açıklanmadı.",
+   "Layering açıktır: aynı kural setinin oyuncuları bölgelerin kopyalarına (layer) dağıtılır."
   ]
  },
  {
@@ -4928,13 +4970,19 @@ export const FOREVER_NOTES = [
    "well fed",
    "yemek xp",
    "hizli level",
-   "hizli kasil"
+   "hizli kasil",
+   "zindan+xp",
+   "dungeon+xp",
+   "zindan+kasil",
+   "dungeon+kasil"
   ],
   "satirlar": [
    "Pişmiş yemeklerin çoğu Well Fed verir: en az 10 saniye yiyince 15 dakika boyunca yaratık öldürmekten gelen XP %5 artar. Görev XP'sini artırmaz.",
    "Rested XP yaratık XP'sini ikiye katlar; han ya da başkentte 8 saatte bir seviyenin %5'i kadar birikir ve en çok bir buçuk seviyelik olur. Görev XP'sine etki etmez.",
    "Leatherworking'in Camp Tent'i rested XP'ni bir seviyenin %5'ine tamamlar; saatte bir kullanılır.",
-   "Rested XP ve Well Fed aynı anda çalışır."
+   "Rested XP ve Well Fed aynı anda çalışır.",
+   "1. seviyeden 60. seviyeye gereken toplam XP Classic'tekiyle aynıdır.",
+   "8 Kasım 2026 düzeltmesiyle zindanlardaki yaratıkların verdiği XP %50 artırıldı."
   ]
  },
  {
@@ -4948,11 +4996,25 @@ export const FOREVER_NOTES = [
    "rank 14",
    "pvp rank",
    "pvp sistem",
-   "savas alani"
+   "savas alani",
+   "warsong",
+   "wsg",
+   "arathi basin",
+   "alterac valley",
+   "rank point",
+   "rutbe",
+   "pvp ekipman",
+   "pvp gear",
+   "arathi",
+   "alterac",
+   "gulch"
   ],
   "satirlar": [
    "Darkspear Islands Forever'la gelen yeni battleground'dur: 15'e 15, nokta ele geçirmeli, 30–60. seviye, Dustwallow Marsh açıklarında. 2000 puana ilk ulaşan takım kazanır.",
-   "PvP ilerlemesi iki parçadır: Honor PvP ekipmanına harcanır, Rank Points ise haftalık sınırı olan 14 basamaklı rütbe merdivenini yükseltir. En üst rütbeler Alliance'ta Grand Marshal, Horde'da High Warlord'dur."
+   "PvP ilerlemesi iki parçadır: Honor PvP ekipmanına harcanır, Rank Points ise haftalık sınırı olan 14 basamaklı rütbe merdivenini yükseltir. En üst rütbeler Alliance'ta Grand Marshal, Horde'da High Warlord'dur.",
+   "Battleground'lar ve açıldıkları seviye: Warsong Gulch 10'a 10, 10. seviye; Arathi Basin 15'e 15, 20. seviye; Darkspear Islands 15'e 15, 30. seviye; Alterac Valley 40'a 40, 51. seviye.",
+   "Rank Points zamanla azalmaz; bir hafta oynamazsan ilerlemen silinmez. Rütbeler sezonluktur ve Classic'teki gibi diğer oyuncularla sıralama yarışı yoktur.",
+   "PvP ekipmanı Honor ile alınır; epic parçalar için ayrıca rütbe gerekir."
   ]
  },
  {
@@ -4968,13 +5030,19 @@ export const FOREVER_NOTES = [
    "hd model",
    "sd model",
    "eski model",
-   "classic gorunum"
+   "classic gorunum",
+   "quest tracker",
+   "gorev takip",
+   "cooldown manager"
   ],
   "satirlar": [
    "Edit Mode Esc menüsünden açılır; action bar, unit frame, minimap ve sohbet gibi çerçeveler tıklanıp taşınır ya da boyutlandırılır.",
    "Oyunun kendi Damage Meter'ı vardır ve kapalı gelir: Esc > Options > Advanced Options > Damage Meter > Enable Damage Meter.",
    "Transmog isteğe bağlıdır. İlk girişte seçilen Enhanced görünümü HD modelleri ve transmog'u açar; Classic görünümü oyunun eski halini korur.",
-   "HD ya da SD model seçimi karakter başınadır ve sonradan değiştirilebilir; yalnız görünümü değiştirir."
+   "HD ya da SD model seçimi karakter başınadır ve sonradan değiştirilebilir; yalnız görünümü değiştirir.",
+   "Transmog eşyaya değil ekipman yerine uygulanır: o yere yeni bir parça taksan da seçtiğin görünüm kalır.",
+   "Transmog görünümleri hesap genelinde açılır. Bir görünüm yalnız aynı zırh tipindeki eşyaya uygulanır.",
+   "Quest Tracker görevin türünü ve seviye şartını yazıyla gösterir."
   ]
  },
  {
@@ -5015,6 +5083,273 @@ export const FOREVER_NOTES = [
    "Forever'da Priest'in Mind Sear büyüsü yoktur; Priest yetenek ve talent listelerinde yer almaz.",
    "Shadow çok hedefte Shadow Word: Pain'i her düşmana atar. Devouring Plague, Devouring Contagion talentiyle hedef ölünce yakındaki 2 düşmana yayılır.",
    "Priest'in alan etkili büyüleri: Holy Nova (Holy talenti; 10 metre içindeki düşmanlara hasar verir, grubu iyileştirir) ve Psychic Scream (14. seviye; yakındaki en fazla 5 düşmanı 8 saniye korkutur)."
+  ]
+ },
+ {
+  "id": "grup-bulma",
+  "baslik": "Grup bulma ve zindan kuralları",
+  "ozet": "Forever'da otomatik zindan bulucu yoktur ve Meeting Stone oyuncu çağırmaz.",
+  "anahtar": [
+   "grup bul",
+   "group finder",
+   "lfg",
+   "lfd",
+   "meeting stone",
+   "summoning stone",
+   "toplanma tas",
+   "instance reset",
+   "reset+zindan",
+   "reset+dungeon",
+   "reset+instance",
+   "zindan+kac kere",
+   "zindan+kac kez",
+   "zindan+isinla",
+   "dungeon+finder",
+   "zindan+bulucu",
+   "zindan+bulma",
+   "raid+finder",
+   "grup+bulucu",
+   "zindan+sifirla",
+   "dungeon+sifirla"
+  ],
+  "satirlar": [
+   "Forever'da otomatik zindan bulucu (Dungeon Finder) ve Raid Finder yoktur. Oyundaki Looking For Group penceresi yalnız ilan vermeye ve ilanlara bakmaya yarar; grubu kendiliğinden kurmaz ve zindana ışınlamaz. Grup zindanın kapısına yürüyerek gider.",
+   "Zindan girişlerindeki Meeting Stone'lar oyuncu çağırmaz. Oyuncu çağırmanın tek yolu Warlock'un Ritual of Summoning büyüsüdür; Warlock'la birlikte iki grup üyesinin daha portala tıklaması gerekir.",
+   "Zindanlar 5 kişiliktir. Bir saatte en fazla 5 zindan sıfırlanabilir; beşinciden sonra saat dolana kadar yeni zindana girilemez.",
+   "Zindanı sıfırlamak için herkes dışarı çıkar, grup lideri kendi portresine sağ tıklayıp Reset All Instances'ı seçer."
+  ]
+ },
+ {
+  "id": "yeni-zindanlar",
+  "baslik": "Forever'la gelen yeni zindanlar",
+  "anahtar": [
+   "yeni+zindan",
+   "yeni+dungeon",
+   "yeni+instance"
+  ],
+  "satirlar": [
+   "Forever dokuz yeni zindan ekler. Önerilen seviyeleriyle: Hall of Thanes (18, Ironforge'un altında), Ruins of Lordaeron (20, Tirisfal Glades'te Undercity'nin üstünde), Excavation Site: Wetlands (31), City of Dalaran (33, Dalaran Sewers'tan girilir), The Drowned City (38, Stranglethorn Vale açıklarında, Grom'gol'un batısında), Krol'dok Stronghold (43, Riverglades), Alcaz Prison (51, Dustwallow Marsh'taki Alcaz Island), Blackmaw Hold (57, Azshara) ve Shaper's Terrace (60, Un'Goro Crater'ın kuzeyi).",
+   "Classic'in zindanları da yerinde durur."
+  ]
+ },
+ {
+  "id": "istatistik",
+  "baslik": "Stat ve silah becerisi değişiklikleri",
+  "ozet": "Forever'da Hit ve Crit, büyü ve silah vuruşları için tek stat'tır; Expertise yeni bir stat'tır.",
+  "anahtar": [
+   "hit cap",
+   "hit rating",
+   "hit stat",
+   "spell hit",
+   "hit+crit",
+   "expertise",
+   "weapon skill",
+   "silah beceri",
+   "silah skill",
+   "weapon master",
+   "silah egitmen",
+   "silah usta",
+   "silah ogren",
+   "woo ping",
+   "buliwyf",
+   "ogren+sword",
+   "ogren+kilic",
+   "ogren+axe",
+   "ogren+balta",
+   "ogren+mace",
+   "ogren+topuz",
+   "ogren+polearm",
+   "ogren+mizrak",
+   "ogren+staff",
+   "ogren+dagger",
+   "ogren+hancer",
+   "ogren+crossbow"
+  ],
+  "satirlar": [
+   "Forever'da büyü, yakın dövüş ve menzilli isabet tek bir Hit stat'ında; üç kritik şansı da tek bir Crit stat'ında birleşti. Aynı Hit ve Crit hem büyülere hem silah vuruşlarına işler.",
+   "Expertise Forever'la gelen yeni stat'tır: saldırılarının dodge ve parry edilme şansını azaltır.",
+   "Büyücü silahları artık büyü hasarı ve iyileştirme gücü taşır; büyücüler de seviye atlarken silah değiştirerek güçlenir.",
+   "Silah becerisi (weapon skill) hâlâ vardır ve o silahla vurdukça gelişir. Irklara özel silah bonusları kaldırıldı.",
+   "Yeni bir silah türünü Weapon Master'lar öğretir. Altı eski başkentte bulunurlar ve her biri yalnız bazı silahları öğretir: Stormwind'de Woo Ping (crossbow, dagger, tek ve iki elli sword, polearm, staff), Ironforge'da Buliwyf Stonehand (axe ve mace türleri), Orgrimmar'da Sayoc ve Hanashi (axe türleri), Undercity'de Archibald (Horde'da sword öğreten tek eğitmen).",
+   "Wand'ı yalnız Mage, Priest ve Warlock kullanır; bu beceriyle başlarlar, Weapon Master öğretmez."
+  ]
+ },
+ {
+  "id": "olum",
+  "baslik": "Hearthstone, ölüm ve Spirit Healer",
+  "anahtar": [
+   "hearthstone+bekleme",
+   "hearthstone+cooldown",
+   "hearthstone+cd",
+   "hearthstone+kac",
+   "hearthstone+sure",
+   "hearth+sure",
+   "hs+cooldown",
+   "spirit healer",
+   "ruh sifaci",
+   "olunce",
+   "olum ceza",
+   "olursem",
+   "durability",
+   "dayaniklilik"
+  ],
+  "satirlar": [
+   "Hearthstone'un bekleme süresi 1 saattir; seni bağlandığın hana götürür.",
+   "Ölünce cesedine koşarak ya da mezarlıktaki Spirit Healer'da dirilirsin. Spirit Healer'da dirilmek ekipmanının dayanıklılığından %25 götürür."
+  ]
+ },
+ {
+  "id": "canta",
+  "baslik": "Çantalar ve reagent bag",
+  "anahtar": [
+   "reagent bag",
+   "reagent canta",
+   "malzeme canta",
+   "soul bag",
+   "shard canta",
+   "soul shard+canta",
+   "quiver",
+   "ammo pouch",
+   "guild bank",
+   "lonca banka",
+   "canta+takil",
+   "canta+kac tane",
+   "canta+yeri",
+   "ok canta"
+  ],
+  "satirlar": [
+   "Forever'da dört normal çanta yerinin yanında beşinci bir yer vardır: reagent bag (malzeme çantası) yeri. Reagent bag yalnız meslek malzemesi (maden, ot, deri, kumaş) taşır.",
+   "Warlock, Soul Shard çantasını reagent bag yerine takabilir. Hunter'ın quiver'ı ve ammo pouch'u bu yere takılmaz; normal çanta yerini kullanmaya devam eder.",
+   "Forever'da guild bankası vardır."
+  ]
+ },
+ {
+  "id": "paketler",
+  "baslik": "Fiyat, abonelik ve Skyborne paketleri",
+  "anahtar": [
+   "fiyat",
+   "kac para",
+   "kac tl",
+   "kac dolar",
+   "ucretli",
+   "ucretsiz",
+   "parali",
+   "bedava",
+   "abonelik",
+   "game time",
+   "heroic pack",
+   "epic pack",
+   "forever collection",
+   "collector",
+   "satin al",
+   "paket"
+  ],
+  "satirlar": [
+   "WoW Forever'ın ayrı bir satın alma ücreti yoktur; WoW aboneliği ya da Game Time ile oynanır.",
+   "İsteğe bağlı paketler: Skyborne Heroic Pack 29,99 dolar, Skyborne Epic Pack 59,99 dolar, Warcraft Forever Collection 79,99 dolar. Kutulu Collector's Edition 150 dolardır.",
+   "Heroic Pack'te Skyborne ırkı ve Zephras Isle başlangıç bölgesi, Cerulean Prideclaw bineği ve kozmetikler vardır.",
+   "Epic Pack, Heroic Pack'in içindekilere 30 günlük Game Time ile ek kozmetik, pet ve tabard'lar ekler.",
+   "Skyborne ırkı için en az Heroic Pack gerekir; yalnız abonelik bu ırkı açmaz."
+  ]
+ },
+ {
+  "id": "hunter-pet",
+  "baslik": "Hunter petleri: aileler, sadakat ve mutluluk",
+  "anahtar": [
+   "pet aile",
+   "pet family",
+   "pet families",
+   "loyalty",
+   "sadakat",
+   "tilki",
+   "fox",
+   "bird of prey",
+   "training point",
+   "pet+mutlu",
+   "pet+happiness",
+   "pet+stat",
+   "pet+kacti",
+   "petim+kacti",
+   "pet+kaciyor",
+   "petim+kaciyor",
+   "pet+mutsuz",
+   "petim+mutsuz",
+   "petim+mutlu",
+   "pet+sadakat",
+   "pet+loyalty"
+  ],
+  "satirlar": [
+   "Forever'da 18 pet ailesi vardır ve her ailenin başka hiçbir ailede olmayan bir yeteneği vardır. Fox (tilki) Forever'la gelen yeni ailedir; Owl'lar artık Bird of Prey ailesindendir.",
+   "Petler Hunter'ın ekipmanından stat alır; ekipmanın iyileştikçe petin de güçlenir.",
+   "Pet evcilleştirme 10. seviyedeki sınıf göreviyle açılır; kendi seviyenden yüksek hayvan evcilleşmez.",
+   "Sadakat (loyalty) altı basamaktır: yeni evcilleşen pet Rebellious'tan başlar, en üst basamak Best Friend'dir. Sadakat arttıkça pet daha çok Training Point kazanır.",
+   "Mutlu pet daha çok hasar verir; mutsuz kalan pet zamanla sadakatini kaybeder ve kaçar. Petini Feed Pet ile besle."
+  ]
+ },
+ {
+  "id": "eklentiler",
+  "baslik": "Eklentiler (addon)",
+  "anahtar": [
+   "addon",
+   "eklenti",
+   "questie",
+   "dbm",
+   "deadly boss",
+   "bigwigs",
+   "weakaura",
+   "auctionator"
+  ],
+  "satirlar": [
+   "Forever'da eklenti (addon) kullanmak serbesttir. Classic Era eklentileri doğrudan çalışmaz; eklentinin Forever için yayınlanmış sürümü gerekir.",
+   "Questie, Deadly Boss Mods, BigWigs ve Auctionator'ın Forever sürümleri vardır.",
+   "Savaş sırasındaki canlı verilerle hesap yapan eklentiler kısıtlıdır. Karakteri senin yerine oynatan ya da hareket ettiren otomasyon yasaktır.",
+   "Oyunun kendi Damage Meter'ı, Edit Mode'u ve Cooldown Manager'ı vardır; bunlar için eklenti gerekmez."
+  ]
+ },
+ {
+  "id": "dalaran",
+  "baslik": "Dalaran şehri",
+  "anahtar": [
+   "dalaran",
+   "violet citadel",
+   "dalaran+nasil gid",
+   "dalaran+sehr",
+   "dalaran+sehir",
+   "dalaran+horde",
+   "dalaran+portal",
+   "dalaran+nerede",
+   "dalaran+ne var",
+   "dalaran+egitmen",
+   "dalaran+trainer",
+   "dalaran+acik"
+  ],
+  "satirlar": [
+   "Dalaran Forever'da girilebilen bir şehirdir; Alterac Mountains'ta, Southshore'un kuzeybatısındadır.",
+   "Dalaran'a ulaşım: Hillsbrad Fields'ın kuzeyindeki merdivenden yürüyerek, Zephras Isle'dan kalkan skyboat ile ya da Mage'in Teleport: Dalaran büyüsüyle. Violet Citadel'deki portal Stormwind'deki Wizard's Sanctum'a götürür.",
+   "Şehir Alliance'a açıktır; Horde oyuncularına şehirde saldırılır. City of Dalaran zindanı ise iki tarafa da açıktır ve Dalaran Sewers'tan girilir.",
+   "Dalaran'da Mage ve Druid eğitmenleri, meslek eğitmenleri (First Aid, Enchanting, Cooking, Herbalism, Blacksmithing, Tailoring, Alchemy), transmogrifier, stable master ve battlemaster'lar bulunur."
+  ]
+ },
+ {
+  "id": "itibar",
+  "baslik": "Yeni itibarlar (reputation)",
+  "anahtar": [
+   "reputation",
+   "itibar",
+   "reputasyon",
+   "guardians of hyjal",
+   "bolder'ok",
+   "bolderok",
+   "brotherhood of the horse",
+   "earthen ring",
+   "kirin tor",
+   "the watchers",
+   "barkskin+burrow"
+  ],
+  "satirlar": [
+   "Classic'teki itibarlar yerinde durur; Forever 14 yeni itibar ekler. Bunların arasında Kirin Tor, Earthen Ring, Guardians of Hyjal, Barkskin Burrow, Powderfuse, Bolder'ok Clan, Brotherhood of the Horse ve The Watchers vardır.",
+   "Riverglades'in üç itibarı: Powderfuse, Bolder'ok Clan ve Brotherhood of the Horse.",
+   "Mount Hyjal'ın itibarları: Guardians of Hyjal (60. seviyenin ilerleme yollarından biri; ödüllerini Rhylin Stonethorn satar) ve Barkskin Burrow furbolgları."
   ]
  }
 ];
