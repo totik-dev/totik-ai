@@ -402,6 +402,8 @@ export function foreverNotes(question, limit = 2) { return noteHits(question).sl
 // A key that joins two words ("shaman+trainer", "enhancement+dual") names the note's own subject:
 // such a question is answered from the note even when a card of the class was picked.
 export function isForeverNoteSubject(question) { return noteHits(question).some(hit => hit.specific); }
+// Every Forever note: sent to the model when no key of any note matches the wording of the question.
+export function allForeverNotes() { return FOREVER_NOTES; }
 export function foreverNoteText(notes) { return notes.map(note => `## ${note.baslik}\n${note.satirlar.map(line => `- ${line}`).join("\n")}`).join("\n\n"); }
 // Does the note hold everything the question asks about? "binek ile kurt hali arasında hız farkı" names a thing
 // (kurt hali) the mount note never mentions: the note alone cannot answer it.
