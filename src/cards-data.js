@@ -4896,6 +4896,76 @@ export const FOREVER_NOTES = [
   ]
  },
  {
+  "id": "seviye-siniri",
+  "baslik": "Seviye sınırı (level cap)",
+  "ozet": "WoW Forever'da en yüksek seviye (level cap) 60'tır ve yükseltilmeyecek.",
+  "anahtar": [
+   "level+sinir",
+   "seviye+sinir",
+   "lvl+sinir",
+   "level+cap",
+   "lvl+cap",
+   "seviye+cap",
+   "level+limit",
+   "seviye+limit",
+   "max level",
+   "max lvl",
+   "max seviye",
+   "maks level",
+   "maks seviye",
+   "maksimum level",
+   "maksimum seviye",
+   "maximum level",
+   "son level",
+   "son lvl",
+   "son seviye",
+   "ust level",
+   "ust seviye",
+   "en yuksek level",
+   "en yuksek lvl",
+   "en yuksek seviye",
+   "en fazla kac level",
+   "kac level var",
+   "kac seviye var",
+   "kac levele kadar",
+   "kac seviyeye kadar",
+   "kaca kadar level",
+   "kac level oluyor",
+   "kac level olunuyor",
+   "kac level olabil",
+   "level 70",
+   "70 level",
+   "70 lvl",
+   "lvl 70",
+   "level atlama+son",
+   "level+artacak",
+   "seviye+artacak",
+   "level+yuksel+sinir",
+   "60+son level",
+   "60+son seviye",
+   "60+son lvl",
+   "60tan sonra",
+   "60 tan sonra",
+   "60dan sonra",
+   "level 60+son",
+   "kacinci levelde bit",
+   "kacinci seviyede bit",
+   "level+bitiyor",
+   "tbc+gelecek",
+   "tbc+gelir",
+   "tbc+cikacak",
+   "burning crusade+gelecek",
+   "wotlk+gelecek",
+   "genisleme+gelecek"
+  ],
+  "satirlar": [
+   "WoW Forever'da en yüksek seviye (level cap) 60'tır.",
+   "Blizzard seviye sınırını yükseltmeyeceğini açıkladı: oyun kalıcı olarak 60. seviyede kalır; seviye sınırını yükselten bir genişleme planlanmıyor.",
+   "60'tan sonra ilerleme yeni seviyeyle değil yeni içerikle gelir: yeni bölgeler, zindanlar, raidler, Legacy sistemindeki hesap geneli özellikler ve yeni karakterler.",
+   "Blizzard'a göre Forever'da oyuncular 60. seviyenin ötesine geçmez ve özgün Azeroth'tan ayrılmaz; Burning Crusade gibi seviye yükselten bir genişlemeye geçiş duyurulmadı."
+  ]
+ },
+ {
   "id": "raid-takvimi",
   "baslik": "Çıkış tarihi ve raid takvimi",
   "anahtar": [
@@ -4909,9 +4979,6 @@ export const FOREVER_NOTES = [
    "ne zaman acil",
    "ne zaman cik",
    "cikis tarih",
-   "level cap",
-   "max level",
-   "son seviye",
    "kac kisilik",
    "attunement",
    "attune",
@@ -4946,7 +5013,15 @@ export const FOREVER_NOTES = [
    "roleplay",
    "layer",
    "layering",
-   "katman"
+   "katman",
+   "pvp sunucu",
+   "pve sunucu",
+   "pvp server",
+   "pve server",
+   "pvp realm",
+   "pve realm",
+   "normal sunucu",
+   "normal server"
   ],
   "satirlar": [
    "Forever'da isimli sunucu (realm) yoktur. Karakter yaratırken bir kural seti seçilir: Normal, PvP, Roleplaying ya da Roleplay-PvP. Hardcore daha sonra gelecek.",
@@ -5110,7 +5185,15 @@ export const FOREVER_NOTES = [
    "raid+finder",
    "grup+bulucu",
    "zindan+sifirla",
-   "dungeon+sifirla"
+   "dungeon+sifirla",
+   "grup nasil bul",
+   "parti nasil bul",
+   "zindan+grup+nasil",
+   "dungeon+grup+nasil",
+   "zindan+parti+nasil",
+   "zindan+grup+bulu",
+   "zindan+grup+bulm",
+   "zindan+grup+bula"
   ],
   "satirlar": [
    "Forever'da otomatik zindan bulucu (Dungeon Finder) ve Raid Finder yoktur. Oyundaki Looking For Group penceresi yalnız ilan vermeye ve ilanlara bakmaya yarar; grubu kendiliğinden kurmaz ve zindana ışınlamaz. Grup zindanın kapısına yürüyerek gider.",
@@ -5215,7 +5298,10 @@ export const FOREVER_NOTES = [
    "canta+takil",
    "canta+kac tane",
    "canta+yeri",
-   "ok canta"
+   "ok canta",
+   "kac canta",
+   "canta+takabil",
+   "kac+canta+tak"
   ],
   "satirlar": [
    "Forever'da dört normal çanta yerinin yanında beşinci bir yer vardır: reagent bag (malzeme çantası) yeri. Reagent bag yalnız meslek malzemesi (maden, ot, deri, kumaş) taşır.",
@@ -5242,7 +5328,10 @@ export const FOREVER_NOTES = [
    "forever collection",
    "collector",
    "satin al",
-   "paket"
+   "paket",
+   "aylik ucret",
+   "aylik odeme",
+   "oyun+ucret"
   ],
   "satirlar": [
    "WoW Forever'ın ayrı bir satın alma ücreti yoktur; WoW aboneliği ya da Game Time ile oynanır.",
@@ -5344,12 +5433,71 @@ export const FOREVER_NOTES = [
    "earthen ring",
    "kirin tor",
    "the watchers",
-   "barkskin+burrow"
+   "barkskin+burrow",
+   "yeni+faction",
+   "yeni+fraksiyon"
   ],
   "satirlar": [
    "Classic'teki itibarlar yerinde durur; Forever 14 yeni itibar ekler. Bunların arasında Kirin Tor, Earthen Ring, Guardians of Hyjal, Barkskin Burrow, Powderfuse, Bolder'ok Clan, Brotherhood of the Horse ve The Watchers vardır.",
    "Riverglades'in üç itibarı: Powderfuse, Bolder'ok Clan ve Brotherhood of the Horse.",
    "Mount Hyjal'ın itibarları: Guardians of Hyjal (60. seviyenin ilerleme yollarından biri; ödüllerini Rhylin Stonethorn satar) ve Barkskin Burrow furbolgları."
+  ]
+ },
+ {
+  "id": "darkmoon",
+  "baslik": "Darkmoon Faire (Darkmoon Festivali)",
+  "anahtar": [
+   "darkmoon",
+   "dark moon",
+   "dmf",
+   "darkmon",
+   "panayir",
+   "faire",
+   "prize ticket",
+   "gelvas",
+   "sayge",
+   "festival+bilet",
+   "festival+ticket",
+   "darkmoon+canta",
+   "darkmoon+slot",
+   "darkmoon+bilet",
+   "darkmoon+ticket",
+   "darkmoon+kart",
+   "darkmoon+odul",
+   "darkmoon+prize",
+   "darkmoon+box",
+   "karanlik ay"
+  ],
+  "satirlar": [
+   "Darkmoon Faire ayda bir kez açılır ve bir hafta sürer. Yeri sırayla değişir: Elwynn Forest (Stormwind'in güneyi, Goldshire yakını) ya da Mulgore (Thunder Bluff'ın altı). Hangi hafta açık olduğu oyun içi takvimde görünür.",
+   "Darkmoon Faire Prize Ticket (bilet) kazanmanın yolu panayırdaki görevlilerin tekrarlanabilir görevleridir: istedikleri eşyaları teslim edersin, her teslim bilet ve Darkmoon Faire itibarı verir.",
+   "Görevliler meslekle üretilen eşyaları (Blacksmithing, Engineering ve Leatherworking ürünleri) ve hayvan parçalarını ister.",
+   "Bir teslim görevi, Darkmoon Faire itibarın o görevin sınırını geçince kapanır; sonra daha üst seviye eşya isteyen göreve geçilir.",
+   "Orgrimmar'da Kruban Darkblade ve Ironforge'da Melnan Darkstone panayıra davet görevi verir. Free Ticket Voucher, panayırdaki Gelvas Grimegate'e teslim edilince 5 bilet kazandırır.",
+   "Biletler Gelvas Grimegate'te ödüle çevrilir: Minor Darkmoon Prize 12 bilet, Major Darkmoon Prize 40 bilet, 14 slotluk Darkmoon Storage Box 50 bilet.",
+   "Falcı Sayge, sorularına verdiğin cevaplara göre bir buff verir. Darkmoon kart desteleri de panayırda teslim edilir."
+  ]
+ },
+ {
+  "id": "etkinlikler",
+  "baslik": "Etkinlikler ve bayramlar",
+  "anahtar": [
+   "winter veil",
+   "kis bayram",
+   "yilbasi",
+   "noel",
+   "call to arms",
+   "etkinlik",
+   "event",
+   "bayram",
+   "holiday",
+   "festival"
+  ],
+  "satirlar": [
+   "Feast of Winter Veil (kış bayramı) 15 Aralık 2026 – 2 Ocak 2027 arasındadır.",
+   "Call to Arms haftalarında seçili battleground bonus Honor verir.",
+   "Darkmoon Faire ayda bir kez, bir hafta açılır; yeri sırayla Elwynn Forest ve Mulgore'dur.",
+   "Açık ve yaklaşan etkinliklerin tarihleri oyun içi takvimde görünür."
   ]
  }
 ];

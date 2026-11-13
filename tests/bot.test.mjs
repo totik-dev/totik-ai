@@ -175,30 +175,87 @@ test("overly broad or many-question requests get the playful refusal without usi
   assert.equal(net.posts.at(-1).content, w.OVERLY_BROAD_MESSAGE);
 });
 
-test("nothing verified answers the question: the bot says so, never guesses, and the player keeps the attempt", async () => {
-  // Not a quest, NPC or place question: neither the research service nor the model's memory is asked.
-  let net = fakeNetwork({ gemini: () => geminiText("Guild kurmak 10 silver tutar.") }); let { bot, storage } = newBot();
+const NO_VERIFIED = "Bu konuda elimde doğrulanmış WoW Forever bilgisi yok; yanlış bilgi vermemek için cevap vermiyorum. Bu soru hakkından düşmedi.";
+const GENERAL_FOOTER = "\n-# Bu cevap rehber kartlarından değil, genel WoW bilgisinden; WoW Forever'da farklı olabilir.";
+const noResearch = () => jsonResponse({ answer: "Bu konuda güvenilir bilgi bulamadım." });
+
+test("no card and no matching note: the model reads every Forever note, then general knowledge answers; 'no information' only when nobody has an answer", async () => {
+  // No note key matches the wording, but the model finds the answer in the notes: sent as it is, the research service is not asked.
+  let net = fakeNetwork({ gemini: () => geminiText("En yüksek seviye 60'tır.\nKAYNAK: NOT") }); let { bot, storage } = newBot();
+  await bot.handleCommand(message("!soru bu oyunda karakterim en son nereye kadar gelişiyor"));
+  assert.equal(net.posts.length, 1);
+  assert.equal(net.posts[0].content, "En yüksek seviye 60'tır.");
+  assert.ok(!net.calls.some(c => c.includes("workers.dev")), "no research");
+  const sent = JSON.parse(JSON.parse(net.prompts.at(-1)).input);
+  for (const title of ["## Seviye sınırı (level cap)", "## Darkmoon Faire (Darkmoon Festivali)", "## Binek ve Riding", "## Ulaşım: gemiler, zeplinler ve Stormwind Limanı"]) assert.ok(sent.foreverNotes.includes(title), title);
+  assert.match(sent.task, /Önce 'foreverNotes' alanındaki WoW Forever notlarına bak/);
+  assert.match(sent.task, /yalnızca KARTTA_YOK yaz/);
+  assert.equal(await storage.get("answered_count"), 1);
+  assert.equal(await storage.get("uncovered_questions"), undefined, "answered from the notes: nothing to add");
+  // The notes do not hold it: the research service is asked and its answer is sent.
+  net = fakeNetwork({ backend: () => jsonResponse({ answer: "Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın." }), gemini: () => geminiText("Guild Master'a git.\nKAYNAK: GENEL") }); ({ bot, storage } = newBot());
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.equal(net.posts[0].content, "Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın.");
+  assert.deepEqual((({ q, how }) => ({ q, how }))((await storage.get("uncovered_questions"))[0]), { q: "guild nasıl kurulur", how: "araştırma" });
+  // The research service has nothing: the model's own WoW Classic answer, marked as general knowledge.
+  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın.\nKAYNAK: GENEL") }); ({ bot, storage } = newBot());
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.equal(net.posts[0].content, "Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın." + GENERAL_FOOTER);
+  assert.equal(await storage.get("answered_count"), 1);
+  assert.equal((await storage.get("uncovered_questions"))[0].how, "genel bilgi", "kept for the list of information to add");
+  // "KAYNAK: NOT" with a number that no note holds is not a note answer: it is marked as general knowledge.
+  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Guild kurmak 35 gold tutar.\nKAYNAK: NOT") }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.equal(net.posts[0].content, "Guild kurmak 35 gold tutar." + GENERAL_FOOTER);
+  // Neither the model nor the research service has an answer: the bot says so and the player keeps the attempt.
+  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("KARTTA_YOK") }); ({ bot, storage } = newBot());
   await bot.handleCommand(message("!soru guild nasıl kurulur"));
   assert.equal(net.posts.length, 1);
-  assert.equal(net.posts[0].content, "Bu konuda elimde doğrulanmış WoW Forever bilgisi yok; yanlış bilgi vermemek için cevap vermiyorum. Bu soru hakkından düşmedi.");
-  assert.ok(!net.calls.some(c => c.includes("workers.dev")) && !net.prompts.length, "no research, no model");
+  assert.equal(net.posts[0].content, NO_VERIFIED);
   assert.equal(await storage.get("answered_count") || 0, 0);
   assert.equal(await storage.get("technical_failure_count") || 0, 0, "not a technical failure");
-  assert.equal((await storage.get("uncovered_questions"))[0].q, "guild nasıl kurulur", "kept for the list of information to add");
+  assert.deepEqual((({ q, how }) => ({ q, how }))((await storage.get("uncovered_questions"))[0]), { q: "guild nasıl kurulur", how: "cevapsız" });
   // The same player can ask again at once.
   await new Promise(r => setTimeout(r, 2600));
   net = fakeNetwork({ gemini: () => geminiText("**Hunter** solo oyunda rahattır: pet hasarı üstlenir.") });
   await bot.handleCommand(message("!soru hangi sınıf solo için iyi"));
   assert.match(net.posts[0].content, /pet hasarı üstlenir/);
-  // A quest question whose research finds nothing: the model's memory is not asked either.
-  net = fakeNetwork({ backend: () => jsonResponse({ answer: "Bu konuda güvenilir bilgi bulamadım." }), gemini: () => geminiText("Görevi Stormwind'deki Uydurma NPC verir.") }); ({ bot } = newBot());
-  await bot.handleCommand(message("!soru whirlwind axe görevi nerede"));
-  assert.match(net.posts[0].content, /^Bu konuda elimde doğrulanmış WoW Forever bilgisi yok/);
-  assert.equal(net.prompts.length, 0, "model not asked");
-  // UNVERIFIED_ANSWERS=all restores the old behaviour: research first, then the model's own knowledge.
-  net = fakeNetwork({ backend: () => jsonResponse({ answer: "Bu konuda güvenilir bilgi bulamadım." }), gemini: () => geminiText("Guild bankası için şehirdeki guild master'a git.") }); ({ bot } = newBot({ UNVERIFIED_ANSWERS: "all" }));
+  // The model is down: the research service still answers.
+  net = fakeNetwork({ backend: () => jsonResponse({ answer: "Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın." }) }); ({ bot } = newBot());
   await bot.handleCommand(message("!soru guild nasıl kurulur"));
-  assert.match(net.posts[0].content, /guild master'a git/);
+  assert.match(net.posts[0].content, /^Guild kurmak için şehirdeki Guild Master/);
+  // The model is down and the research service has nothing: "try again", not "no information".
+  net = fakeNetwork({ backend: noResearch }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.match(net.posts[0].content, new RegExp(`^${w.ANSWER_RETRY_MESSAGE.replace(/[?]/g, "\\?")}`));
+  // A quest question whose research finds nothing: the model answers from the notes or the WoW Classic knowledge it is sure of.
+  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Whirlwind Axe görevini 30. seviyede Warrior eğitmenin verir.\nKAYNAK: GENEL") }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru whirlwind axe görevi nerede"));
+  assert.equal(net.posts[0].content, "Whirlwind Axe görevini 30. seviyede Warrior eğitmenin verir." + GENERAL_FOOTER);
+  assert.match(net.prompts.at(-1), /görev \/ NPC \/ edinim sorusu/);
+});
+
+test("UNVERIFIED_ANSWERS=research keeps the strict rule: no model memory; =none asks nobody", async () => {
+  // Not a quest, NPC or place question: neither the research service nor the model's memory is asked.
+  let net = fakeNetwork({ gemini: () => geminiText("Guild kurmak 10 silver tutar.") }); let { bot, storage } = newBot({ UNVERIFIED_ANSWERS: "research" });
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.equal(net.posts[0].content, NO_VERIFIED);
+  assert.ok(!net.calls.some(c => c.includes("workers.dev")) && !net.prompts.length, "no research, no model");
+  assert.equal(await storage.get("answered_count") || 0, 0);
+  assert.equal((await storage.get("uncovered_questions"))[0].q, "guild nasıl kurulur");
+  // A quest question whose research finds nothing: the model's memory is not asked either.
+  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Görevi Stormwind'deki Uydurma NPC verir.") }); ({ bot } = newBot({ UNVERIFIED_ANSWERS: "research" }));
+  await bot.handleCommand(message("!soru whirlwind axe görevi nerede"));
+  assert.equal(net.posts[0].content, NO_VERIFIED);
+  assert.equal(net.prompts.length, 0, "model not asked");
+  net = fakeNetwork({ gemini: () => geminiText("Görevi Stormwind'deki Uydurma NPC verir.") }); ({ bot } = newBot({ UNVERIFIED_ANSWERS: "none" }));
+  await bot.handleCommand(message("!soru whirlwind axe görevi nerede"));
+  assert.equal(net.posts[0].content, NO_VERIFIED);
+  assert.ok(!net.calls.some(c => c.includes("workers.dev")) && !net.prompts.length);
+  // The old name of the default still works.
+  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Guild kurmak için şehirdeki Guild Master'a git.") }); ({ bot } = newBot({ UNVERIFIED_ANSWERS: "all" }));
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.match(net.posts[0].content, /^Guild kurmak için şehirdeki Guild Master'a git\./);
 });
 
 test("no-info detection only catches short not-found replies", () => {
@@ -577,7 +634,7 @@ test("two classes compared: both class topics are linked", async () => {
 
 test("a loose text match is used only when the model confirms it", async () => {
   // The model says the card does not answer it: the normal answer takes over, no card is sent.
-  let net = fakeNetwork({ gemini: () => geminiText("KARTTA_YOK") }); let { bot } = newBot();
+  let net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("KARTTA_YOK") }); let { bot } = newBot();
   await bot.handleCommand(message("!soru thermaplugg bombaları nasıl durdurulur"));
   assert.equal(net.posts.length, 1);
   assert.deepEqual(net.posts[0].files, []);
@@ -662,7 +719,7 @@ test("profession advice: without a class the forum is linked; while the model is
   assert.match(net.posts[0].content, /Leatherworking: Druid ve Rogue oyun boyu deri giyer\. Hunter ve Shaman önce deri, sonra mail/);
   assert.deepEqual(net.posts[0].files, ["lw-genel.png"]);
   // "Which profession earns money" is not on the cards: the bot does not guess.
-  net = fakeNetwork({ gemini: () => geminiText("KARTTA_YOK") }); ({ bot } = newBot());
+  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("KARTTA_YOK") }); ({ bot } = newBot());
   await bot.handleCommand(message("!soru hangi meslek para kazandırır"));
   assert.deepEqual(net.posts[0].files, []);
   assert.match(net.posts[0].content, /^Bu konuda elimde doğrulanmış WoW Forever bilgisi yok/);
@@ -684,20 +741,25 @@ test("a short follow-up stays with its question: area abilities come from the cl
   assert.ok(!/Prayer of Mending|Mana Burn/.test(prompt.trustedCardText.split("alan etkili")[1].split("\n\n")[0]), "heals and single-target spells are not listed as area abilities");
 });
 
-test("quest question: answered by the research service; the filler sentence is never sent, the model's memory is never asked", async () => {
+test("quest question: answered by the research service; the filler sentence is never sent, the model is asked once for the missing part", async () => {
   let asked = "";
   const backend = url => { asked = url.searchParams.get("q"); return jsonResponse({ answer: "Fire Hardened Hauberk, Warrior sınıf görevinin ödülüdür. Görevi veren NPC ve detaylı konum bilgisi elimizdeki güncel verilerde yer almamaktadır." }); };
-  let net = fakeNetwork({ backend, gemini: () => geminiText("Görevi Stormwind Dwarven District'teki Furen Longbeard verir.") }); let { bot } = newBot();
+  let net = fakeNetwork({ backend, gemini: () => geminiText("Görevi Stormwind Dwarven District'teki Furen Longbeard verir.") }); let { bot } = newBot({ UNVERIFIED_ANSWERS: "research" });
   await bot.handleCommand(message("!soru fire hardened hauberk görevini hangi npc veriyor nerede"));
   assert.match(asked, /Bu soru görev araştırmasıdır\./);
   assert.match(asked, /görevi veren NPC'yi, NPC'nin bulunduğu şehir ya da bölgeyi/);
-  // The useful part of the research answer is sent, without the filler sentence; the model does not fill the gap from memory.
+  // UNVERIFIED_ANSWERS=research: the useful part of the research answer is sent, without the filler sentence; the model does not fill the gap.
   assert.equal(net.posts[0].content, "Fire Hardened Hauberk, Warrior sınıf görevinin ödülüdür.");
   assert.equal(net.prompts.length, 0);
-  // UNVERIFIED_ANSWERS=all: the model is asked once for the missing part, as before.
-  net = fakeNetwork({ backend, gemini: () => geminiText("Görevi Stormwind Dwarven District'teki Furen Longbeard verir.") }); ({ bot } = newBot({ UNVERIFIED_ANSWERS: "all" }));
+  // The default: the model is asked once for the missing part; its answer is marked as general knowledge.
+  net = fakeNetwork({ backend, gemini: () => geminiText("Görevi Stormwind Dwarven District'teki Furen Longbeard verir.\nKAYNAK: GENEL") }); ({ bot } = newBot());
   await bot.handleCommand(message("!soru fire hardened hauberk görevini hangi npc veriyor nerede"));
-  assert.equal(net.posts[0].content, "Görevi Stormwind Dwarven District'teki Furen Longbeard verir.");
+  assert.equal(net.posts[0].content, "Görevi Stormwind Dwarven District'teki Furen Longbeard verir." + GENERAL_FOOTER);
+  assert.equal(net.prompts.length, 1);
+  // The model has nothing better: the research answer stays, without the filler sentence.
+  net = fakeNetwork({ backend, gemini: () => geminiText("KARTTA_YOK") }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru fire hardened hauberk görevini hangi npc veriyor nerede"));
+  assert.equal(net.posts[0].content, "Fire Hardened Hauberk, Warrior sınıf görevinin ödülüdür.");
   assert.match(net.prompts.at(-1), /görev \/ NPC \/ edinim sorusu/);
   assert.ok(w.hasNoInfoSentence("Ödülü budur. Konum bilgisi kaynaklarda bulunmamaktadır."));
   assert.ok(!w.hasNoInfoSentence("Bu zindanda görev yok, doğrudan girebilirsin. Detaylı rota kartta yazıyor."));
@@ -738,10 +800,10 @@ test("the reported question: the Shaman trainer answer comes from the Forever no
 });
 
 test("a research answer that states a Classic rule Forever changed is never sent", async () => {
-  // A quest question no note covers: the research service answers with the Classic rule. The answer is dropped and nothing is guessed.
+  // A quest question no note covers: the research service answers with the Classic rule. The answer is dropped.
   let asked = "";
   const backend = url => { asked = url.searchParams.get("q"); return jsonResponse({ answer: CLASSIC_SHAMAN_ANSWER }); };
-  let net = fakeNetwork({ backend, gemini: () => geminiText("Dwarf Shaman ilk totem görevini Kharanos'taki eğitmeninden alır.") }); let { bot, storage } = newBot();
+  let net = fakeNetwork({ backend, gemini: () => geminiText("Dwarf Shaman ilk totem görevini Kharanos'taki eğitmeninden alır.") }); let { bot, storage } = newBot({ UNVERIFIED_ANSWERS: "research" });
   await bot.handleCommand(message("!soru alliance shaman totem görevi nerede"));
   assert.match(asked, /WoW Forever notu \(WoW Classic'ten farklıdır, cevap buna uymalı\): Shaman olabilen ırklar: Alliance'ta Dwarf;/);
   assert.match(asked, /Forever kurallarıyla çelişmeyen WoW Classic bilgisini ver/);
@@ -749,10 +811,11 @@ test("a research answer that states a Classic rule Forever changed is never sent
   assert.match(net.posts[0].content, /^Bu konuda elimde doğrulanmış WoW Forever bilgisi yok.*hakkından düşmedi\.$/);
   assert.equal(net.prompts.length, 0, "the model's memory is not asked");
   assert.equal(await storage.get("answered_count") || 0, 0);
-  // UNVERIFIED_ANSWERS=all: the model answers instead, with the class rule; a Classic sentence of its own is cut.
-  net = fakeNetwork({ backend, gemini: () => geminiText("Totem görevini sınıf eğitmenin verir. Shaman sadece Horde tarafında oynanır.") }); ({ bot } = newBot({ UNVERIFIED_ANSWERS: "all" }));
+  // The default: the model answers instead, with the class rule and every Forever note; a Classic sentence of its own is cut.
+  net = fakeNetwork({ backend, gemini: () => geminiText("Totem görevini sınıf eğitmenin verir. Shaman sadece Horde tarafında oynanır.\nKAYNAK: GENEL") }); ({ bot } = newBot());
   await bot.handleCommand(message("!soru alliance shaman totem görevi nerede"));
-  assert.equal(net.posts[0].content, "Totem görevini sınıf eğitmenin verir.");
+  assert.equal(net.posts[0].content, "Totem görevini sınıf eğitmenin verir." + GENERAL_FOOTER);
+  assert.ok(!net.posts.some(post => /TBC|Klasik dönem|seçemez|sadece Horde/.test(post.content)));
   assert.match(JSON.parse(JSON.parse(net.prompts.at(-1)).input).classRule, /^Shaman olabilen ırklar: Alliance'ta Dwarf/);
   // What counts as a contradiction, for every class the two sides share differently.
   for (const wrong of ["Alliance tarafında Shaman TBC'de açılmıştır.", "Klasik dönemde Alliance oyuncuları Shaman sınıfını seçemez.", "Alliance tarafında Shaman yok.", "Horde tarafında Paladin sınıfı yok.", "Undead Paladin olamaz.", "Paladin sadece Alliance tarafında oynanır.", "Dwarf Shaman olamaz."])
@@ -902,10 +965,17 @@ test("a comparison is answered from a note only when the note holds both sides",
 });
 
 test("a comparison with a side that no source holds gets no guess", async () => {
-  const net = fakeNetwork({ gemini: () => geminiText("Işınlanma daha hızlıdır, binek %60 hız verir.") }); const { bot, storage } = newBot();
+  // The mount note holds one side only: the note alone does not answer. The model is told to give no value for the missing side.
+  let net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("KARTTA_YOK") }); let { bot, storage } = newBot();
   await bot.handleCommand(message("!soru binek mi ışınlanma mı daha hızlı"));
-  assert.equal(net.posts[0].content, "Bu konuda elimde doğrulanmış WoW Forever bilgisi yok; yanlış bilgi vermemek için cevap vermiyorum. Bu soru hakkından düşmedi.");
+  assert.equal(net.posts[0].content, NO_VERIFIED);
   assert.equal(await storage.get("answered_count") || 0, 0, "the attempt is not used up");
+  assert.match(JSON.parse(JSON.parse(net.prompts.at(-1)).input).task, /Değeri kaynakta yazmayan bir şey için değer yazma, başka bir şeyin değerini ona yakıştırma, 'ikisi de aynı' ya da 'fark yok' deme/);
+  // UNVERIFIED_ANSWERS=research: nobody is asked.
+  net = fakeNetwork({ gemini: () => geminiText("Işınlanma daha hızlıdır, binek %60 hız verir.") }); ({ bot, storage } = newBot({ UNVERIFIED_ANSWERS: "research" }));
+  await bot.handleCommand(message("!soru binek mi ışınlanma mı daha hızlı"));
+  assert.equal(net.posts[0].content, NO_VERIFIED);
+  assert.equal(net.prompts.length, 0);
 });
 
 test("the widened Forever notes answer without the research service or the model's memory", async () => {
@@ -946,9 +1016,46 @@ test("Dalaran the city is not Dalaran the dungeon", () => {
 
 test("the model is down and the matched note is about something else: no unrelated note line is sent", async () => {
   // "fiyat" touches the price note, which says nothing about a name change.
-  const net = fakeNetwork(); const { bot, storage } = newBot();
+  const net = fakeNetwork({ backend: noResearch }); const { bot, storage } = newBot();
   await bot.handleCommand(message("!soru isim değiştirme fiyatı ne kadar"));
   assert.ok(!/satın alma ücreti|Heroic Pack/.test(net.posts[0].content), net.posts[0].content);
   assert.match(net.posts[0].content, /^Bu soruya şu an cevap veremedim/, "the retry message, not a guess");
   assert.equal(await storage.get("answered_count") || 0, 0);
+});
+
+test("the level cap and Darkmoon Faire questions the owner reported are answered from their notes, in every wording", async () => {
+  for (const [question, title, line] of [
+    ["wow foreverda üst level sınırı kaç şuanlık", "## Seviye sınırı (level cap)", /en yüksek seviye \(level cap\) 60'tır/],
+    ["darkmoon festivalde nasil ticket kazanirim", "## Darkmoon Faire (Darkmoon Festivali)", /tekrarlanabilir görevleridir: istedikleri eşyaları teslim edersin/]
+  ]) {
+    // The model words the answer from the matched note only: no research service, no general-knowledge mark.
+    let net = fakeNetwork({ gemini: () => geminiText("Cevap nottan geldi.") }); let { bot, storage } = newBot();
+    await bot.handleCommand(message(`!soru ${question}`));
+    assert.equal(net.posts[0].content, "Cevap nottan geldi.", question);
+    assert.ok(!net.calls.some(c => c.includes("workers.dev")), "no research");
+    const sent = JSON.parse(JSON.parse(net.prompts[0]).input);
+    assert.ok(sent.foreverNotes.startsWith(title), sent.foreverNotes.slice(0, 80));
+    assert.match(sent.foreverNotes, line);
+    assert.match(sent.task, /^Yalnızca 'foreverNotes' alanındaki WoW Forever notlarına dayanarak/);
+    assert.equal(await storage.get("answered_count"), 1);
+    // The model is down: the note line itself is the answer.
+    net = fakeNetwork({ backend: noResearch }); ({ bot } = newBot());
+    await bot.handleCommand(message(`!soru ${question}`));
+    assert.match(net.posts[0].content, line, question);
+  }
+  // A level number that the note does not hold never reaches the player: the note line is sent instead.
+  const net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("En yüksek seviye 70'tir.") }); const { bot } = newBot();
+  await bot.handleCommand(message("!soru en yüksek seviye kaç"));
+  assert.match(net.posts[0].content, /60'tır/);
+  assert.ok(!/70'tir/.test(net.posts[0].content));
+  // The level cap travels with every model call.
+  assert.match(w.foreverRules(), /WoW Forever'da en yüksek seviye \(level cap\) 60'tır ve yükseltilmeyecek\./);
+});
+
+test("a general-knowledge answer in a multi-part question keeps its mark; the talent note still follows", async () => {
+  const net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın.\nKAYNAK: GENEL") }); const { bot } = newBot();
+  await bot.handleCommand(message("!soru guild nasıl kurulur? arkadaş nasıl eklenir?"));
+  assert.equal(net.posts.length, 1);
+  assert.equal(net.posts[0].content.split(GENERAL_FOOTER).length, 3, net.posts[0].content);
+  assert.ok(!/KAYNAK/.test(net.posts[0].content));
 });

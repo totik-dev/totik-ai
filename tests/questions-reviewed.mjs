@@ -510,7 +510,7 @@ export const REVIEWED = [
   ["teşekkürler", "none"],
   ["sunucu adı ne", "none"],
   ["hardcore var mı", "none"],
-  ["level cap kaç", "none"],
+  ["level cap kaç", "note=seviye-siniri"],
   ["mount kaç gold", "none"],
   ["epic mount", "none"],
   ["battleground kaç levelde", "none"],
@@ -826,5 +826,22 @@ export const REVIEWED = [
   ["hunter pet nasıl evcilleştirilir", "~hunter-"], ["warlock ritual of summoning kaç levelde", "=warlock-03-yetenekler-2"], ["mage teleport dalaran kaç levelde", "=mage-03-yetenekler-2"],
   ["rogue expertise talenti", "~rogue-"], ["leatherworking camp tent nasıl yapılır", "~lw-"], ["cooking kamp ateşi kaç obje alır", "=cook-kamp"],
   ["city of dalaran bossları", "=zindan-13-city-of-dalaran"], ["first aid healing potion kaç skill", "~aid-"], ["frost mage talent puanları nasıl dağıtılır", "~mage-"],
-  ["warrior tactical mastery kaç levelde", "~warrior-"], ["paladin holy strike kaç levelde", "~paladin-"], ["druid travel form kaç levelde", "=druid-02-yetenekler-1"]
+  ["warrior tactical mastery kaç levelde", "~warrior-"], ["paladin holy strike kaç levelde", "~paladin-"], ["druid travel form kaç levelde", "=druid-02-yetenekler-1"],
+  // 2026-11-13: level cap, Darkmoon Faire and events notes; wordings the owner reported as unanswered
+  ["wow foreverda üst level sınırı kaç şuanlık", "note=seviye-siniri"], ["level sınırı kaç", "note=seviye-siniri"], ["lvl sınırı kaç", "note=seviye-siniri"], ["seviye sınırı nedir", "note=seviye-siniri"],
+  ["max level kaç", "note=seviye-siniri"], ["max lvl kaç oldu", "note=seviye-siniri"], ["maksimum seviye kaç", "note=seviye-siniri"], ["son level kaç", "note=seviye-siniri"],
+  ["son seviye kaç forever", "note=seviye-siniri"], ["en yüksek level kaç", "note=seviye-siniri"], ["oyunda kaç level var", "note=seviye-siniri"], ["kaç levele kadar çıkılıyor", "note=seviye-siniri"],
+  ["kaç seviyeye kadar çıkabiliyoruz", "note=seviye-siniri"], ["level cap 60 mı", "note=seviye-siniri"], ["level cap yükselecek mi", "note=seviye-siniri"], ["70 level gelecek mi", "note=seviye-siniri"],
+  ["60tan sonra level var mı", "note=seviye-siniri"], ["level 60 son mu", "note=seviye-siniri"], ["en son kaç level oluyoruz", "note=seviye-siniri"], ["son lvl 60 mı 70 mi", "note=seviye-siniri"],
+  ["tbc gelecek mi", "note=seviye-siniri"], ["level sınırı artacak mı ilerde", "note=seviye-siniri"], ["60 level son seviye mi", "note=seviye-siniri"], ["üst seviye sınırı kaç", "note=seviye-siniri"],
+  ["kaç level olabiliyoruz en fazla", "note=seviye-siniri"], ["en yüksek seviye kaç", "note=seviye-siniri"], ["foreverda max seviye ne", "note=seviye-siniri"], ["level limiti kaç", "note=seviye-siniri"],
+  ["burning crusade gelecek mi", "note=seviye-siniri"], ["lvl cap kaç", "note=seviye-siniri"], ["darkmoon festivalde nasil ticket kazanirim", "note=darkmoon"], ["darkmoon faire ne zaman", "note=darkmoon"],
+  ["darkmoon faire nerede", "note=darkmoon"], ["darkmoon bileti nasıl alınır", "note=darkmoon"], ["dmf bu hafta nerede", "note=darkmoon"], ["panayır ne zaman geliyor", "note=darkmoon"],
+  ["darkmoon ticket nereye verilir", "note=darkmoon"], ["darkmoon ödülleri neler", "note=darkmoon"], ["sayge buff nasıl alınır", "note=darkmoon"], ["darkmoon kartları nereye teslim edilir", "note=darkmoon"],
+  ["darkmoon 14 slot çanta kaç bilet", "note=darkmoon"], ["karanlık ay panayırı nerede", "note=darkmoon"], ["prize ticket ne işe yarar", "note=darkmoon"], ["darkmoon ticket nasıl kasılır", "note=darkmoon"],
+  ["darkmoon faire hangi şehirde", "note=darkmoon"], ["gelvas grimegate nerede", "note=darkmoon"], ["darkmoon bileti kaç tane lazım çanta için", "note=darkmoon"], ["dark moon faire nerede kuruluyor", "note=darkmoon"],
+  ["winter veil ne zaman başlıyor", "note=etkinlikler"], ["yılbaşı etkinliği var mı", "note=etkinlikler"], ["noel eventi ne zaman", "note=etkinlikler"], ["call to arms nedir", "note=etkinlikler"],
+  ["hangi etkinlikler var", "note=etkinlikler"], ["oyunda bayramlar var mı", "note=etkinlikler"], ["kış bayramı ne zaman", "note=etkinlikler"], ["pvp sunucusu var mı", "note=kurallar"],
+  ["pve server var mı", "note=kurallar"], ["aylık ücret ne kadar", "note=paketler"], ["hangi yeni factionlar var", "note=itibar"], ["zindan için grup nasıl bulurum", "note=grup-bulma"],
+  ["kaç çanta takabilirim", "note=canta"]
 ];
