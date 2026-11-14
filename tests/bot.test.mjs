@@ -24,14 +24,15 @@ function memoryStorage() {
 const jsonResponse = (data, status = 200) => new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json" } });
 
 const geminiText = text => jsonResponse({ status: "completed", steps: [{ type: "model_output", content: [{ type: "text", text }] }] });
+const LOG_CHANNEL = "1571189204996722789";
 const FORUMS = { class: "700000000000000001", dungeon: "700000000000000002", profession: "700000000000000003" };
 const TOPICS = Array.from(w.CARD_TOPICS, (topic, i) => ({ id: String(800000000000000000n + BigInt(i)), category: topic.category, name: topic.thread, files: Array.from(topic.cards, card => card.file) }));
 const topicId = name => TOPICS.find(topic => topic.name === name).id;
 
 // Fake network: records Discord posts, answers member lookups, the gameplay backend and the three
 // guide forums (one post per topic, the cards as attachments of its first message).
-function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunter solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun." }), gemini = () => jsonResponse({}, 500), missingFiles = [], fileSize = 2048, archived = [], longPost = false, scanFails = false, guildRoles = [] } = {}) {
-  const posts = [], calls = [], prompts = [];
+function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunter solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun." }), gemini = () => jsonResponse({}, 500), missingFiles = [], fileSize = 2048, archived = [], longPost = false, scanFails = false, guildRoles = [], logFails = false } = {}) {
+  const posts = [], calls = [], prompts = [], logs = [];
   const threadJson = topic => ({ id: topic.id, parent_id: FORUMS[topic.category], name: topic.name, thread_metadata: { archive_timestamp: "2026-11-10T00:00:00.000Z" } });
   w.setFetch(async (input, init = {}) => {
     const url = new URL(String(input)); calls.push(`${init.method || "GET"} ${url.hostname}${url.pathname}`);
@@ -43,6 +44,8 @@ function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunte
       if (/^\/guilds\/\d+\/roles$/.test(path)) return jsonResponse(guildRoles);
       if (init.method === "POST" && path.endsWith("/messages")) {
         const form = typeof init.body === "string" ? null : init.body, body = form ? JSON.parse(form.get("payload_json")) : JSON.parse(init.body);
+        // The private log channel is kept apart from the replies players see.
+        if (path === `/channels/${LOG_CHANNEL}/messages`) { if (logFails) return jsonResponse({ message: "Missing Access", code: 50001 }, 403); logs.push(body); return jsonResponse({ id: String(8000 + logs.length) }); }
         posts.push({ ...body, files: form ? [...form.keys()].filter(key => key.startsWith("files[")).map(key => form.get(key).name) : [] });
         return jsonResponse({ id: String(9000 + posts.length) });
       }
@@ -64,7 +67,7 @@ function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunte
     if (url.hostname === "generativelanguage.googleapis.com") { prompts.push(String(init.body)); return gemini(url, init); }
     return backend(url, init);
   });
-  return { posts, calls, prompts };
+  return { posts, calls, prompts, logs };
 }
 
 let nextId = 1000;
@@ -1094,4 +1097,61 @@ test("Riverglades quest levels come from the new-zones note; 'where to farm' is 
   assert.match(sent.classRule, /^Mage olabilen ırklar/);
   // The card still answers its own question.
   assert.equal(w.pickCards("mage aoe rotasyonu").cards[0].id, "mage-07-oynanis");
+});
+
+test("the private log channel gets one line for an unanswered question, a general-knowledge answer and a technical failure; nothing else", async () => {
+  // Unanswered: the player gets the no-information message, the log channel the question, who asked and a link to the message.
+  let net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("KARTTA_YOK") }); let { bot, storage } = newBot();
+  const asked = message("!soru guild nasıl kurulur");
+  await bot.handleCommand(asked);
+  assert.equal(net.posts.length, 1);
+  assert.equal(net.posts[0].content, NO_VERIFIED);
+  assert.equal(net.logs.length, 1);
+  assert.match(net.logs[0].content, /^\*\*Cevapsız soru\*\* · \S.*\nSoru: guild nasıl kurulur\nhttps:\/\/discord\.com\/channels\/\d+\/\d+\/\d+$/);
+  assert.ok(net.logs[0].content.endsWith(`/${w.QUESTION_CHANNEL_ID}/${asked.id}`));
+  assert.deepEqual(net.logs[0].allowed_mentions, { parse: [] }, "nobody is pinged");
+  assert.equal(net.logs[0].nonce, `log${asked.id}`.slice(0, 25));
+  assert.equal(await storage.get("last_log_error"), undefined);
+  // General knowledge: the question and the answer the player got.
+  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın.\nKAYNAK: GENEL") }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.equal(net.logs.length, 1);
+  assert.match(net.logs[0].content, /^\*\*Genel bilgiden cevaplandı\*\* · .*\nSoru: guild nasıl kurulur\nCevap:\n> Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın\.\nhttps:/);
+  // Technical failure: the model and the research service are both down.
+  net = fakeNetwork({ backend: () => jsonResponse({}, 500) }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.match(net.posts[0].content, /^Bu soruya şu an cevap veremedim/);
+  assert.equal(net.logs.length, 1);
+  assert.match(net.logs[0].content, /^\*\*Teknik hata, cevap verilemedi\*\* · .*\nSoru: guild nasıl kurulur\n/);
+  // Answers from a card, a note or the research service are not logged.
+  net = fakeNetwork({ gemini: () => geminiText("En yüksek seviye 60'tır.") }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru max level kaç"));
+  assert.equal(net.logs.length, 0);
+  net = fakeNetwork({ gemini: () => geminiText("KARTTA_YOK") }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.match(net.posts[0].content, /^Hunter solo oyunda rahattır/);
+  assert.equal(net.logs.length, 0, "a research answer is not logged");
+  // Two parts in one message: one log message with both lines.
+  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("KARTTA_YOK") }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru guild nasıl kurulur? arkadaş nasıl eklenir?"));
+  assert.equal(net.logs.length, 1);
+  assert.equal(net.logs[0].content.split("**Cevapsız soru**").length, 3);
+});
+
+test("the log channel is best effort: a refused log post changes nothing for the player; LOG_CHANNEL_ID=off disables it", async () => {
+  let net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("KARTTA_YOK"), logFails: true }); let { bot, storage } = newBot();
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.equal(net.posts.length, 1);
+  assert.equal(net.posts[0].content, NO_VERIFIED);
+  assert.match((await storage.get("last_log_error")).error, /403/);
+  assert.equal(await storage.get("technical_failure_count") || 0, 0);
+  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("KARTTA_YOK") }); ({ bot } = newBot({ LOG_CHANNEL_ID: "off" }));
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.equal(net.posts[0].content, NO_VERIFIED);
+  assert.equal(net.logs.length, 0);
+  assert.ok(!net.calls.some(c => c.includes(LOG_CHANNEL)));
+  // Another channel through the setting.
+  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("KARTTA_YOK") }); ({ bot } = newBot({ LOG_CHANNEL_ID: "1571189204996722790" }));
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  assert.ok(net.calls.includes("POST discord.com/api/v10/channels/1571189204996722790/messages"));
 });

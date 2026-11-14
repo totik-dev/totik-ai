@@ -59,12 +59,15 @@ function buildExternalResearchQuestion(question, kind, classKey) {
   return question;
 }
 
-const VERSION = "murloc-kartlar-2026-11-14a";
+const VERSION = "murloc-kartlar-2026-11-14b";
 // Kick subscriber role of the Totik Channel server (given by the owner, 2026-11-11).
 const KICK_SUB_ROLE_ID = "1566519827965812966";
 const OWNER_ID = "194062355460653056";
 const GUILD_ID = "194180508970647552";
 const QUESTION_CHANNEL_ID = "1548811398069489744";
+// The private channel where the bot notes the questions it could not answer from a card or a note (env LOG_CHANNEL_ID overrides; "off" disables).
+const LOG_CHANNEL_ID = "1571189204996722789";
+const LOG_TITLES = { "cevapsız": "Cevapsız soru", "genel bilgi": "Genel bilgiden cevaplandı", "teknik hata": "Teknik hata, cevap verilemedi" };
 const GUILD_INFO_CHANNEL_ID = "1549395438820393060";
 const GUILD_APPLICATION_CHANNEL_ID = "1549852270399717399";
 const DISCORD_API = "https://discord.com/api/v10";
@@ -455,6 +458,7 @@ export class DiscordGateway extends DurableObject {
     this.conversationCache = new Map(); this.floodCache = new Map(); this.pollingPromise = null; this.activeQuestion = null;
     this.discordBlockedUntil = 0; this.backendCircuit = { failures: 0, until: 0 }; this.lastCleanupAt = 0;
   }
+  get logChannelId() { const value = this.env.LOG_CHANNEL_ID; return value === "off" ? "" : /^\d{15,22}$/.test(value || "") ? value : LOG_CHANNEL_ID; }
   get guildId() { return /^\d{15,22}$/.test(this.env.DISCORD_GUILD_ID || "") ? this.env.DISCORD_GUILD_ID : GUILD_ID; }
   async fetch(request) {
     // DO has no public route: the outer Worker authenticates management requests.
@@ -468,7 +472,7 @@ export class DiscordGateway extends DurableObject {
     if (path === "/watchdog") return json(await this.watchdog());
     if (path === "/health") return json(await this.healthSummary());
     if (path === "/status") {
-      const keys = ["initialized", "polling_enabled", "last_message_id", "last_error", "last_poll_error", "last_poll_at", "content_missing_at", "watchdog_restart_at", "last_trace", "last_warning", "answered_count", "uncovered_questions"];
+      const keys = ["initialized", "polling_enabled", "last_message_id", "last_error", "last_poll_error", "last_poll_at", "content_missing_at", "watchdog_restart_at", "last_trace", "last_warning", "answered_count", "uncovered_questions", "last_log_error"];
       const values = await Promise.all(keys.map(k => this.ctx.storage.get(k)));
       return json({ version: VERSION, guildId: this.guildId, questionChannelId: QUESTION_CHANNEL_ID, lastPollAt: this.lastPollAt || null,
         nextAlarm: await this.ctx.storage.getAlarm(), ...Object.fromEntries(keys.map((k, i) => [k, values[i] ?? null])) });
@@ -670,6 +674,7 @@ export class DiscordGateway extends DurableObject {
       this.remember(this.conversationCache, userId, { at: now, classKey, specKey: selection?.spec || (classKey === previous?.classKey ? previous?.specKey : "") || "", question: explicit, pendingAdvice: !!selection?.compare, topic: "game" });
       const result = parts.length > 1 ? await this.answerQuestionParts(message, parts, imageNote, classKey) : await this.answerGameQuestion(message, question, explicit, selection, classKey);
       completed = true;
+      await this.flushQuestionLog(message);
       if (result?.answerComplete === false) {
         await this.releaseCooldown(userId, message.id);
         // "No verified information" is an answer the bot chose, not a technical failure.
@@ -684,6 +689,7 @@ export class DiscordGateway extends DurableObject {
       if (completed || delivered?.status === "sent") { await this.setLastError(`After delivery: ${safeError(error)}`); return; }
       await this.releaseCooldown(userId, message.id); await this.setLastError(`Question ${message.id}: ${safeError(error)}`);
       await this.reply(message, `${ANSWER_RETRY_MESSAGE} Bu deneme hakkından düşmedi.`);
+      this.noteForLog(explicit, "teknik hata"); await this.flushQuestionLog(message);
     } finally { this.activeQuestion = null; }
   }
   async handleDebugCommand(message) {
@@ -1015,17 +1021,38 @@ export class DiscordGateway extends DurableObject {
       if (modelFailed) throw new Error("Model unavailable for the question");
       // Nobody has an answer: the bot says so instead of guessing, and the player keeps the attempt.
       await this.rememberUncovered(explicit, "cevapsız");
+      this.noteForLog(explicit, "cevapsız");
       await this.deliverAnswer(message, NO_VERIFIED_MESSAGE);
       return { handled: true, answerComplete: false, noInfo: true, trace: { route: "no_verified_info", externalKind: external.kind, imageSent: false } };
     }
     // Answered without a card or a note: kept in the list of what to add to the notes.
     const general = !data.verified && !data.fromNotes;
     if (general) await this.rememberUncovered(explicit, data.fallback ? "genel bilgi" : "araştırma");
+    if (general && data.fallback) this.noteForLog(explicit, "genel bilgi", answer);
     await this.deliverAnswer(message, data.fallback && general ? answer + GENERAL_ANSWER_FOOTER : answer);
     return { handled: true, trace: { route: data.verified ? "verified_facts" : data.fromNotes ? "all_notes" : data.fallback ? "general_knowledge" : external.externalOnly ? "external_research" : "normal_backend", externalKind: external.kind, sources: validSources(data.sources).length, fallback: !!data.fallback, imageSent: false } };
   }
   // The questions no card or matching note answered, newest first: the list of what to add to the notes (admin /status).
   // "how" says what the player got: "cevapsız" (no answer), "araştırma" (research service) or "genel bilgi" (the model's Classic knowledge).
+  // What goes to the log channel once the player has the reply: unanswered questions, answers from general knowledge, technical failures.
+  noteForLog(question, how, answer = "") { if (this.activeQuestion) (this.activeQuestion.log ||= []).push({ q: cleanText(question, 300), how, answer: cleanText(answer, 700) }); }
+  // One message per question in the private log channel. No AI call; a failure here never touches the player's answer.
+  async flushQuestionLog(message) {
+    const entries = this.activeQuestion?.log || [], channel = this.logChannelId;
+    if (!entries.length || !channel) return;
+    this.activeQuestion.log = [];
+    try {
+      const user = cleanText(message.author?.global_name || message.author?.username || "bilinmiyor", 60).replace(/[`*_~|>@#]/g, "");
+      const quote = text => text.split("\n").map(line => `> ${line}`).join("\n");
+      const lines = entries.map(entry => `**${LOG_TITLES[entry.how] || entry.how}** · ${user}\nSoru: ${entry.q}${entry.answer ? `\nCevap:\n${quote(entry.answer)}` : ""}`);
+      const content = `${lines.join("\n\n")}\nhttps://discord.com/channels/${this.guildId}/${QUESTION_CHANNEL_ID}/${message.id}`.slice(0, 1900);
+      await this.discordRequest(`/channels/${channel}/messages`, { method: "POST", body: { content, nonce: `log${message.id}`.slice(0, 25), enforce_nonce: true, flags: 4, allowed_mentions: { parse: [] } } });
+      await this.ctx.storage.delete("last_log_error");
+    } catch (error) {
+      // "Discord HTTP 403": the bot cannot see or write to the log channel. Visible in admin /status.
+      try { await this.ctx.storage.put("last_log_error", { at: new Date().toISOString(), error: safeError(error) }); } catch { /* The log is best effort. */ }
+    }
+  }
   async rememberUncovered(question, how = "cevapsız") {
     try {
       const list = (await this.ctx.storage.get("uncovered_questions")) || [], text = cleanText(question, 200);
@@ -1074,7 +1101,7 @@ export class DiscordGateway extends DurableObject {
       lastClass = selection?.classKey || detectClass(part) || lastClass;
       let result = null;
       try { result = await this.answerGameQuestion(message, part + imageNote, part, selection, lastClass); }
-      catch (error) { if (error instanceof DeferredError || error.deliveryFailure || error.deliveryUncertain) throw error; this.warn(`Soru ${index + 1}: ${safeError(error)}`); }
+      catch (error) { if (error instanceof DeferredError || error.deliveryFailure || error.deliveryUncertain) throw error; this.warn(`Soru ${index + 1}: ${safeError(error)}`); this.noteForLog(part, "teknik hata"); }
       const collected = this.activeQuestion.collect; this.activeQuestion.collect = null;
       const ok = result?.handled && result.answerComplete !== false && collected.length > 0;
       if (ok) answered++;
