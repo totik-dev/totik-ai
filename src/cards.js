@@ -402,6 +402,8 @@ export function foreverNotes(question, limit = 2) { return noteHits(question).sl
 // A key that joins two words ("shaman+trainer", "enhancement+dual") names the note's own subject:
 // such a question is answered from the note even when a card of the class was picked.
 export function isForeverNoteSubject(question) { return noteHits(question).some(hit => hit.specific); }
+// Every Forever note: sent to the model when no key of any note matches the wording of the question.
+export function allForeverNotes() { return FOREVER_NOTES; }
 export function foreverNoteText(notes) { return notes.map(note => `## ${note.baslik}\n${note.satirlar.map(line => `- ${line}`).join("\n")}`).join("\n\n"); }
 // Does the note hold everything the question asks about? "binek ile kurt hali arasında hız farkı" names a thing
 // (kurt hali) the mount note never mentions: the note alone cannot answer it.
@@ -436,8 +438,11 @@ export function unsupportedNumbers(answer, ...sources) {
 }
 // Without the model: the lines of the notes that share the most words with the question.
 export function localNoteAnswer(notes, question) {
-  const stems = [...new Set(normalizeText(question).split(" ").filter(word => word.length >= 4 && !STOP_WORDS.has(word)).map(word => word.slice(0, Math.max(4, word.length - 2))))];
-  const lines = notes.flatMap(note => note.satirlar).map((text, order) => { const words = normalizeText(text).split(" "); return { text, order, score: stems.filter(stem => words.some(word => word.startsWith(stem))).length }; });
+  // "levelda" and "questler" are "seviye" and "görev" in the notes.
+  const asked = [...new Set(normalizeText(question).split(" ").map(word => /^(?:level|lvl)/.test(word) ? "seviye" : /^quest/.test(word) ? "gorev" : word).filter(word => word.length >= 4 && !STOP_WORDS.has(word)))];
+  // "rivergladedeki" and "Riverglades" are one word: a long word matches on its first six letters.
+  const same = (word, other) => other.startsWith(word.slice(0, Math.max(4, word.length - 2))) || word.length >= 6 && other.length >= 6 && word.slice(0, 6) === other.slice(0, 6);
+  const lines = notes.flatMap(note => note.satirlar).map((text, order) => { const words = normalizeText(text).split(" "); return { text, order, score: asked.filter(word => words.some(other => same(word, other))).length }; });
   const top = Math.max(...lines.map(line => line.score));
   // No line shares a word with the question: the note is about something else, and nothing is better than a wrong line.
   return top > 0 ? lines.filter(line => line.score === top).slice(0, 2).map(line => line.text).join("\n") : "";
