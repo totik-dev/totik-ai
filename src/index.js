@@ -24,6 +24,9 @@ function anyPhrase(question, phrases) { const q = ` ${normalizeGuideText(questio
 const QUEST_TERMS = ["quest", "quests", "gorev", "gorevler", "gorevi", "gorevleri", "class quest", "class gorevi", "sinif gorevi", "sinif gorevleri", "quest chain", "gorev zinciri", "zincir gorev"];
 const ACQUISITION_LOCATION_TERMS = ["nerede", "nerden", "nereden", "hangi npc", "npc nerede", "vendor", "satici", "drop", "dusuyor", "kimden alinir", "nasil alinir", "nasil elde"];
 const CURRENT_LIVE_TERMS = ["bugun", "su an", "guncel", "son patch", "hotfix", "server durumu", "sunucu durumu", "event ne zaman"];
+// "33 frost mage aoe farm atılacak 3-4 spot", "40 level nerede kasılır": where to farm or grind. No card lists places.
+const FARM_WORD = /(?:^| )(?:farm\w*|grind\w*|kasma\w*|kasil\w*|kasabil\w*|kasar\w*|kasayim|kasmak|kasiyim|kasicam|kasacagim|kasiyor\w*)(?= |$)/;
+const FARM_PLACE_WORD = /(?:^| )(?:spot\w*|slot\w*|yer|yeri|yerde|yerler\w*|nere\w*|nerde\w*|bolge\w*|mekan\w*|lokasyon\w*|konum\w*|tarif|hangi mob\w*|hangi yaratik\w*)(?= |$)/;
 const TRAINER_LOCATION_TERMS = ["trainer nerede", "egitmen nerede", "hangi trainer", "hangi egitmen"];
 function detectExternalOnlyIntent(question) {
   const q = normalizeGuideText(question);
@@ -33,6 +36,7 @@ function detectExternalOnlyIntent(question) {
   if (anyPhrase(q, QUEST_TERMS) || /(?:^| )(?:quest\w*|gorev(?!li)\w*)(?= |$)/.test(q)) return { externalOnly: true, kind: "quest" };
   // "loch modanda shaman trainer var mı", "paladin eğitmeni hangi şehirde".
   if (anyPhrase(q, TRAINER_LOCATION_TERMS) || /(?:^| )(?:trainer\w*|egitmen\w*|egitici\w*)(?= |$)/.test(q) && /(?:^| )(?:nerede\w*|nerde\w*|nereye|nereden|nerden|var|yok|hangi\w*|kim\w*|bulam\w*|bulun\w*|konum\w*|yeri|en yakin)(?= |$)/.test(q)) return { externalOnly: true, kind: "trainer_location" };
+  if (FARM_WORD.test(q) && FARM_PLACE_WORD.test(q)) return { externalOnly: true, kind: "farm_spot" };
   if (anyPhrase(q, ACQUISITION_LOCATION_TERMS)) return { externalOnly: true, kind: "acquisition_or_location" };
   if (/server|sunucu|realm|bakim|maintenance|patch|hotfix|event|etkinlik|fiyat|piyasa/.test(q) && anyPhrase(q, CURRENT_LIVE_TERMS)) return { externalOnly: true, kind: "current_live_info" };
   return { externalOnly: false, kind: null };
@@ -46,13 +50,16 @@ function buildExternalResearchQuestion(question, kind, classKey) {
     "Eğer bu sürümde zorunlu/özel class quest olmadığını gösteren güvenilir kaynak varsa bunu net söyle; uydurma görev üretme."].filter(Boolean).join("\n");
   if (kind === "trainer_location" || kind === "acquisition_or_location") return [question, "", "Bu soru edinim/lokasyon araştırmasıdır.",
     "Tam olarak nereden, hangi NPC'den, hangi bölgede veya hangi yöntemle elde edildiğini araştır.", "WoW Forever kaynağı varsa önce onu kullan; yoksa WoW Forever kurallarıyla çelişmeyen WoW Classic bilgisini ver. Classic'te bilinen bir yer ya da NPC için 'bilgi yok' deme."].join("\n");
+  if (kind === "farm_spot") return [question, "", "Bu soru farm / grind yeri araştırmasıdır.", `Sınıf: ${className}.`, faction ? `Taraf: ${faction}.` : "",
+    "Oyuncunun seviyesine, sınıfına ve tarafına uygun 2-4 yeri bölge adı, yaratık (mob) türü ve yaratık seviyesiyle araştır.",
+    "WoW Forever kaynağı varsa önce onu kullan; yoksa WoW Forever kurallarıyla çelişmeyen WoW Classic bilgisini ver."].filter(Boolean).join("\n");
   if (kind === "quest") return [question, "", "Bu soru görev araştırmasıdır.", `Sınıf: ${className}.`, faction ? `Taraf: ${faction}.` : "",
     "Görevin adını, görevi veren NPC'yi, NPC'nin bulunduğu şehir ya da bölgeyi, ön koşulu (seviye, sınıf, önceki görev) ve ödülü araştır.",
     "WoW Forever kaynağı varsa önce onu kullan; yoksa WoW Forever kurallarıyla çelişmeyen WoW Classic bilgisini ver. Classic'te bilinen bir görev için 'bilgi yok' deme."].filter(Boolean).join("\n");
   return question;
 }
 
-const VERSION = "murloc-kartlar-2026-11-13a";
+const VERSION = "murloc-kartlar-2026-11-14a";
 // Kick subscriber role of the Totik Channel server (given by the owner, 2026-11-11).
 const KICK_SUB_ROLE_ID = "1566519827965812966";
 const OWNER_ID = "194062355460653056";
@@ -361,7 +368,7 @@ function splitDiscordMessage(value) {
 function pickCards(question, options = {}) {
   const selection = selectCards(question, options); if (!selection) return null;
   const external = detectExternalOnlyIntent(question);
-  if (selection.category === "class" && !selection.need && ["class_quest", "quest", "trainer_location", "current_live_info"].includes(external.kind)) return null;
+  if (selection.category === "class" && !selection.need && ["class_quest", "quest", "trainer_location", "current_live_info", "farm_spot"].includes(external.kind)) return null;
   // A loose text match is not used for questions that need research (quests, where to buy, live state).
   if (selection.search && external.externalOnly) return null;
   return selection;
@@ -1145,7 +1152,9 @@ export class DiscordGateway extends DurableObject {
     // Every Forever note goes with the question. The notes and the Forever rules in the instructions come before Classic knowledge.
     const forever = ` Oyuncu WoW Forever oynuyor. Önce 'foreverNotes' alanındaki WoW Forever notlarına bak: soru orada cevaplanıyorsa cevabı yalnız notlardan ver; notlardaki sayı, yer ve adları aynen kullan. Notlarda yoksa, WoW Forever'ın temeli olan WoW Classic'te (en yüksek seviye 60) emin olduğun bilgiyle cevap ver. Notlar ve sistem talimatındaki WoW Forever kuralları WoW Classic bilgisinden önce gelir: onlarla çelişen Classic bilgisini yazma, "Classic'te yoktu", "Burning Crusade'de geldi" gibi başka sürüm cümlesi kurma. ${EACH_VALUE_RULE} Emin olduğun hiçbir bilgi yoksa yalnızca KARTTA_YOK yaz. Cevabın en son satırına yalnızca şunu yaz: 'KAYNAK: NOT' (cevap notlardan geldiyse) ya da 'KAYNAK: GENEL' (genel WoW Classic bilgisinden geldiyse).`;
     // A quest, trainer or "where do I get it" question: the WoW Classic answer the model is sure of.
-    const task = researchKind && researchKind !== "current_live_info"
+    const task = researchKind === "farm_spot"
+      ? `Yeni başlayan için kısa yardım. ${SHORT_ANSWER_RULE} Bu bir farm / grind yeri sorusu: oyuncunun seviyesine, sınıfına ve tarafına uygun, emin olduğun 2-4 yeri bölge adı ve yaratık (mob) türüyle say; her yer tek satır olsun. Emin olmadığın yeri, koordinatı ve sayıyı yazma; talent ya da rotasyon anlatma.${forever}`
+      : researchKind && researchKind !== "current_live_info"
       ? `Yeni başlayan için kısa yardım. ${SHORT_ANSWER_RULE} Bu bir görev / NPC / edinim sorusu: görev adı, görevi veren NPC, bulunduğu şehir ya da bölge ve ön koşuldan emin olduklarını yaz. Emin olmadığın ayrıntıyı (koordinat, sayı, ödül) hiç yazma ve yerine 'bilgi yok', 'verilerde yer almıyor', 'bilinmiyor' gibi cümle kurma.${forever}`
       : `Yeni başlayan için kısa yardım. ${SHORT_ANSWER_RULE} Güncel araştırma yok: emin olmadığın NPC, ödül, koordinat, sayı, fiyat ve tarihi hiç yazma, tahmin yürütme; yerine 'bilgi yok', 'bilinmiyor' gibi cümle kurma.${forever}`;
     const body = { question, task, foreverNotes: foreverNoteText(allForeverNotes()) };

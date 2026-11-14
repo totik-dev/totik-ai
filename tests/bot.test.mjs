@@ -204,9 +204,9 @@ test("no card and no matching note: the model reads every Forever note, then gen
   assert.equal(await storage.get("answered_count"), 1);
   assert.equal((await storage.get("uncovered_questions"))[0].how, "genel bilgi", "kept for the list of information to add");
   // "KAYNAK: NOT" with a number that no note holds is not a note answer: it is marked as general knowledge.
-  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Guild kurmak 35 gold tutar.\nKAYNAK: NOT") }); ({ bot } = newBot());
+  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Guild kurmak 77 gold tutar.\nKAYNAK: NOT") }); ({ bot } = newBot());
   await bot.handleCommand(message("!soru guild nasıl kurulur"));
-  assert.equal(net.posts[0].content, "Guild kurmak 35 gold tutar." + GENERAL_FOOTER);
+  assert.equal(net.posts[0].content, "Guild kurmak 77 gold tutar." + GENERAL_FOOTER);
   // Neither the model nor the research service has an answer: the bot says so and the player keeps the attempt.
   net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("KARTTA_YOK") }); ({ bot, storage } = newBot());
   await bot.handleCommand(message("!soru guild nasıl kurulur"));
@@ -1058,4 +1058,40 @@ test("a general-knowledge answer in a multi-part question keeps its mark; the ta
   assert.equal(net.posts.length, 1);
   assert.equal(net.posts[0].content.split(GENERAL_FOOTER).length, 3, net.posts[0].content);
   assert.ok(!/KAYNAK/.test(net.posts[0].content));
+});
+
+test("Riverglades quest levels come from the new-zones note; 'where to farm' is researched, not answered from a class card", async () => {
+  // "rivergladedeki": the zone name with a suffix still finds the note; the quest question does not go to the research service.
+  let net = fakeNetwork({ gemini: () => geminiText("The Riverglades görevleri 35–45. seviye aralığındadır.") }); let { bot } = newBot();
+  await bot.handleCommand(message("!soru rivergladedeki questler kac levelda alinabiliyor"));
+  assert.equal(net.posts[0].content, "The Riverglades görevleri 35–45. seviye aralığındadır.");
+  assert.ok(!net.calls.some(c => c.includes("workers.dev")), "no research");
+  assert.match(JSON.parse(JSON.parse(net.prompts[0]).input).foreverNotes, /The Riverglades: orta seviye bölgesi, 35–45\. seviye/);
+  // The model is down: the note line is the answer.
+  net = fakeNetwork({ backend: noResearch }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru rivergladedeki questler kac levelda alinabiliyor"));
+  assert.match(net.posts[0].content, /35–45\. seviye/);
+
+  // Where to farm: the Mage gameplay card describes the rotation, not places. The research service is asked with the class, side and level.
+  const farm = "alliance 33 frost mage olarak aoe rahat farm atılacak 3-4 slot tarif et";
+  assert.equal(w.detectExternalOnlyIntent(farm).kind, "farm_spot");
+  assert.equal(w.pickCards(farm), null);
+  let asked = "";
+  net = fakeNetwork({ backend: url => { asked = url.searchParams.get("q"); return jsonResponse({ answer: "Duskwood'da Raven Hill mezarlığındaki iskeletler ve Arathi Highlands'teki raptorlar 33. seviye için uygundur." }); }, gemini: () => geminiText("Cone of Cold kullan.") }); ({ bot } = newBot());
+  await bot.handleCommand(message(`!soru ${farm}`));
+  assert.match(asked, /Bu soru farm \/ grind yeri araştırmasıdır\./);
+  assert.match(asked, /Sınıf: Mage\./);
+  assert.match(asked, /Taraf: alliance\./);
+  assert.match(net.posts[0].content, /^Duskwood'da Raven Hill/);
+  assert.deepEqual(net.posts[0].files, [], "no card image");
+  assert.equal(net.prompts.length, 0, "the card model is not asked");
+  // The research service has nothing: the model answers from WoW Classic knowledge, marked as general.
+  net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Duskwood: Raven Hill mezarlığındaki iskeletler.\nArathi Highlands: raptorlar.\nKAYNAK: GENEL") }); ({ bot } = newBot());
+  await bot.handleCommand(message(`!soru ${farm}`));
+  assert.equal(net.posts[0].content, "Duskwood: Raven Hill mezarlığındaki iskeletler.\nArathi Highlands: raptorlar." + GENERAL_FOOTER);
+  const sent = JSON.parse(JSON.parse(net.prompts.at(-1)).input);
+  assert.match(sent.task, /Bu bir farm \/ grind yeri sorusu/);
+  assert.match(sent.classRule, /^Mage olabilen ırklar/);
+  // The card still answers its own question.
+  assert.equal(w.pickCards("mage aoe rotasyonu").cards[0].id, "mage-07-oynanis");
 });

@@ -843,5 +843,13 @@ export const REVIEWED = [
   ["winter veil ne zaman başlıyor", "note=etkinlikler"], ["yılbaşı etkinliği var mı", "note=etkinlikler"], ["noel eventi ne zaman", "note=etkinlikler"], ["call to arms nedir", "note=etkinlikler"],
   ["hangi etkinlikler var", "note=etkinlikler"], ["oyunda bayramlar var mı", "note=etkinlikler"], ["kış bayramı ne zaman", "note=etkinlikler"], ["pvp sunucusu var mı", "note=kurallar"],
   ["pve server var mı", "note=kurallar"], ["aylık ücret ne kadar", "note=paketler"], ["hangi yeni factionlar var", "note=itibar"], ["zindan için grup nasıl bulurum", "note=grup-bulma"],
-  ["kaç çanta takabilirim", "note=canta"]
+  ["kaç çanta takabilirim", "note=canta"],
+  // 2026-11-14: Riverglades quest levels; "where to farm" questions leave the class cards to the fallback, the cards keep their own questions
+  ["rivergladedeki questler kac levelda alinabiliyor", "note=yeni-bolgeler"], ["riverglades görevleri kaç level", "note=yeni-bolgeler"], ["riverglade kaç lvl", "note=yeni-bolgeler"], ["riverglades kaç level", "note=yeni-bolgeler"],
+  ["riverglades questleri kaçta başlıyor", "note=yeni-bolgeler"], ["riverglades e nasıl gidilir", "note=yeni-bolgeler"], ["hyjal questleri kaçta açılıyor", "note=yeni-bolgeler"], ["zephras isle kaç level", "note=yeni-bolgeler"],
+  ["mount hyjal kaç seviye bölgesi", "note=yeni-bolgeler"], ["riverglades seviye aralığı ne", "note=yeni-bolgeler"], ["alliance 33 frost mage olarak aoe rahat farm atılacak 3-4 slot tarif et", "none"], ["33 level mage aoe farm nerede yapılır", "none"],
+  ["40 level nerede kasılır", "none"], ["hunter 25 level grind yeri", "none"], ["warrior için farm spotu öner", "none"], ["gold farm nerede yapılır", "none"],
+  ["rogue hangi mobları farmlamalı", "none"], ["warlock farm yeri 45 level", "none"], ["frost mage aoe farm spotları", "none"], ["horde 28 mage aoe farm yerleri", "none"],
+  ["frost mage aoe farm talentleri", "~mage-"], ["mage aoe rotasyonu", "=mage-07-oynanis"], ["mining nerede kasılır", "~mining-"], ["skinning 150 nerede kasılır", "=skin-150-225"],
+  ["paladin aoe farm yapabilir mi", "=paladin-07-oynanis"]
 ];
