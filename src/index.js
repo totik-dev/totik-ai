@@ -59,7 +59,7 @@ function buildExternalResearchQuestion(question, kind, classKey) {
   return question;
 }
 
-const VERSION = "murloc-kartlar-2026-11-15a";
+const VERSION = "murloc-kartlar-2026-11-15b";
 // Kick subscriber role of the Totik Channel server (given by the owner, 2026-11-11).
 const KICK_SUB_ROLE_ID = "1566519827965812966";
 const OWNER_ID = "194062355460653056";
@@ -116,6 +116,21 @@ const WEB_ANSWER_FOOTER = "\n-# Bu cevap internet aramasından derlendi; rehber 
 // No WoW Forever page among the results: the answer rests on WoW Classic pages.
 const WEB_CLASSIC_FOOTER = "\n-# Bu cevap internet aramasındaki WoW Classic sayfalarından derlendi; WoW Forever'da farklı olabilir.";
 const SEARCH_PROBLEMS = { 401: "arama anahtarı geçersiz", 403: "arama anahtarı geçersiz", 429: "çok sık istek", 432: "kullanım sınırı dolmuş", 433: "kullanım sınırı dolmuş" };
+// Search memory: what a search found is kept under the item, quest or NPC name of the query, so the same thing is not searched
+// (and paid for) twice. Results are kept 30 days, a search that found nothing is not repeated for 3 days. Env SEARCH_MEMORY=off disables it.
+const SEARCH_MEMORY_MS = 30 * 86400000, SEARCH_EMPTY_MS = 3 * 86400000, SEARCH_MEMORY_RESULTS = 8;
+const SEARCH_VERSION_ORDER = { Forever: 0, belirsiz: 1, Classic: 2 };
+// '"Satchel of Potions" trinket use' → "satchel potions trinket use": the words of a query, order and case aside.
+function searchQueryWords(query) {
+  return [...new Set(String(query || "").toLocaleLowerCase("en").replace(/[^\p{L}\p{N}']+/gu, " ").trim().split(" ").filter(word => word.length > 1 && !["of", "the", "wow", "forever"].includes(word)))].sort().join(" ");
+}
+// '"Satchel of Potions" trinket use' → "search:satchel of potions": the quoted names of the query; a query without one is its own key.
+function searchMemoryKey(query) {
+  const text = String(query || "").toLocaleLowerCase("en").replace(/[“”„«»]/g, '"');
+  const names = [...text.matchAll(/"([^"]{2,80})"/g)].map(match => match[1].replace(/[^\p{L}\p{N}']+/gu, " ").trim()).filter(Boolean);
+  const key = names.length ? [...new Set(names)].sort().join("|") : searchQueryWords(text);
+  return key ? `search:${key}`.slice(0, 300) : "";
+}
 // Which game version a search result describes. Wowhead pages of other versions (retail, Wrath, Cataclysm …) are not used.
 function searchResultVersion(url, title = "") {
   let host = "", path = "";
@@ -492,7 +507,7 @@ export class DiscordGateway extends DurableObject {
     if (path === "/watchdog") return json(await this.watchdog());
     if (path === "/health") return json(await this.healthSummary());
     if (path === "/status") {
-      const keys = ["initialized", "polling_enabled", "last_message_id", "last_error", "last_poll_error", "last_poll_at", "content_missing_at", "watchdog_restart_at", "last_trace", "last_warning", "answered_count", "uncovered_questions", "last_log_error", "last_search_error"];
+      const keys = ["initialized", "polling_enabled", "last_message_id", "last_error", "last_poll_error", "last_poll_at", "content_missing_at", "watchdog_restart_at", "last_trace", "last_warning", "answered_count", "uncovered_questions", "last_log_error", "last_search_error", "search_stats"];
       const values = await Promise.all(keys.map(k => this.ctx.storage.get(k)));
       return json({ version: VERSION, guildId: this.guildId, questionChannelId: QUESTION_CHANNEL_ID, lastPollAt: this.lastPollAt || null,
         nextAlarm: await this.ctx.storage.getAlarm(), ...Object.fromEntries(keys.map((k, i) => [k, values[i] ?? null])) });
@@ -598,6 +613,12 @@ export class DiscordGateway extends DurableObject {
       if (stale.length) await this.ctx.storage.delete(stale);
       if (entries.size === 128) await this.ctx.storage.put(cursorKey, [...entries.keys()].pop()); else await this.ctx.storage.delete(cursorKey);
     }
+    // Search memory: a name nobody searched for 30 days is forgotten.
+    const cursorKey = "cleanup_cursor:search:", startAfter = await this.ctx.storage.get(cursorKey);
+    const entries = await this.ctx.storage.list({ prefix: "search:", limit: 128, ...(startAfter ? { startAfter } : {}) }), stale = [];
+    for (const [key, value] of entries) if (Date.now() - Number(value?.at || 0) > SEARCH_MEMORY_MS) stale.push(key);
+    if (stale.length) await this.ctx.storage.delete(stale);
+    if (entries.size === 128) await this.ctx.storage.put(cursorKey, [...entries.keys()].pop()); else await this.ctx.storage.delete(cursorKey);
   }
   remember(map, key, value, limit = 500) { if (map.size >= limit && !map.has(key)) map.delete(map.keys().next().value); map.set(key, value); }
   conversation(userId) { const v = this.conversationCache.get(userId); if (!v || Date.now() - v.at > 600000) { this.conversationCache.delete(userId); return null; } return v; }
@@ -1063,7 +1084,7 @@ export class DiscordGateway extends DurableObject {
     if (general) await this.rememberUncovered(explicit, data.web ? "internet araması" : data.fallback ? "genel bilgi" : "araştırma");
     if (general && data.fallback) this.noteForLog(explicit, "genel bilgi", answer, this.activeQuestion?.searchProblem);
     await this.deliverAnswer(message, data.web ? answer + (data.classicOnly ? WEB_CLASSIC_FOOTER : WEB_ANSWER_FOOTER) : data.fallback && general ? answer + GENERAL_ANSWER_FOOTER : answer);
-    return { handled: true, trace: { route: data.verified ? "verified_facts" : data.fromNotes ? "all_notes" : data.web ? "web_search" : data.fallback ? "general_knowledge" : external.externalOnly ? "external_research" : "normal_backend", externalKind: external.kind, sources: validSources(data.sources).length, fallback: !!data.fallback, imageSent: false } };
+    return { handled: true, trace: { route: data.verified ? "verified_facts" : data.fromNotes ? "all_notes" : data.memory ? "search_memory" : data.web ? "web_search" : data.fallback ? "general_knowledge" : external.externalOnly ? "external_research" : "normal_backend", externalKind: external.kind, sources: validSources(data.sources).length, fallback: !!data.fallback, imageSent: false } };
   }
   // The questions no card or matching note answered, newest first: the list of what to add to the notes (admin /status).
   // "how" says what the player got: "cevapsız" (no answer), "araştırma" (research service), "internet araması" (search results) or "genel bilgi" (the model's Classic knowledge).
@@ -1118,11 +1139,43 @@ export class DiscordGateway extends DurableObject {
       const where = searchResultVersion(item?.url, item?.title), body = cleanText(item?.content, 900);
       return where && body.length >= 40 ? { site: where.host, surum: where.version, baslik: cleanText(item?.title, 150), metin: body } : null;
     }).filter(Boolean);
-    const order = { Forever: 0, belirsiz: 1, Classic: 2 };
-    return results.sort((a, b) => order[a.surum] - order[b.surum]).slice(0, 5);
+    return results.sort((a, b) => SEARCH_VERSION_ORDER[a.surum] - SEARCH_VERSION_ORDER[b.surum]).slice(0, 5);
+  }
+  // What earlier searches found for the name in this query. "asked": this very search was already made and need not be repeated.
+  async readSearchMemory(key, words) {
+    if (!key) return { results: [], asked: false };
+    let record = null;
+    try { record = await this.ctx.storage.get(key); } catch { /* Best effort: without the memory the bot just searches. */ }
+    const now = Date.now(), fresh = item => now - Number(item?.t || 0) < SEARCH_MEMORY_MS;
+    const results = (Array.isArray(record?.results) ? record.results : []).filter(fresh);
+    const asked = (Array.isArray(record?.queries) ? record.queries : []).some(item => item?.q === words && now - Number(item.t || 0) < (item.n ? SEARCH_MEMORY_MS : SEARCH_EMPTY_MS));
+    return { results, asked };
+  }
+  // New results first, then what was already known about the same name; the newest eight stay, Forever pages first.
+  async writeSearchMemory(key, words, found, known) {
+    if (!key) return;
+    try {
+      const now = Date.now(), seen = new Set(), results = [];
+      for (const item of [...found.map(item => ({ ...item, t: now })), ...known]) { const id = `${item.site}|${item.baslik}`; if (!seen.has(id)) { seen.add(id); results.push(item); } }
+      const record = await this.ctx.storage.get(key), queries = (Array.isArray(record?.queries) ? record.queries : []).filter(item => item?.q !== words && now - Number(item?.t || 0) < SEARCH_MEMORY_MS);
+      await this.ctx.storage.put(key, { at: now, results: results.slice(0, SEARCH_MEMORY_RESULTS).sort((a, b) => SEARCH_VERSION_ORDER[a.surum] - SEARCH_VERSION_ORDER[b.surum]), queries: [{ q: words, t: now, n: found.length }, ...queries].slice(0, 12) });
+    } catch { /* Best effort. */ }
+  }
+  // How many searches were paid for and how many questions the memory answered (admin /status).
+  async countSearch(field) {
+    try { const stats = await this.ctx.storage.get("search_stats") || { since: new Date().toISOString(), searches: 0, fromMemory: 0 }; stats[field] = Number(stats[field] || 0) + 1; await this.ctx.storage.put("search_stats", stats); } catch { /* Best effort. */ }
   }
   // The answer from the search results. null: the search found nothing that answers. { failed }: the model could not word it.
+  // The memory is asked first: a name that was searched before is answered from the stored results, without a new search.
   async askWebSearch(question, query, context = {}) {
+    const key = this.env.SEARCH_MEMORY === "off" ? "" : searchMemoryKey(query), words = searchQueryWords(query);
+    const memory = await this.readSearchMemory(key, words);
+    if (memory.results.length) {
+      const found = await this.answerFromResults(question, memory.results, context);
+      if (found?.answer || found?.failed) { if (found.answer) await this.countSearch("fromMemory"); return found.answer ? { ...found, memory: true } : found; }
+    }
+    // The same search was made before and its results do not answer: asking again would only spend a search.
+    if (memory.asked) return null;
     let results = [];
     try { results = await this.searchWeb(query); await this.ctx.storage.delete("last_search_error"); }
     catch (error) {
@@ -1134,7 +1187,14 @@ export class DiscordGateway extends DurableObject {
       try { await this.ctx.storage.put("last_search_error", { at: new Date().toISOString(), error: safeError(error) }); } catch { /* Best effort. */ }
       return null;
     }
+    await this.countSearch("searches");
+    await this.writeSearchMemory(key, words, results, memory.results);
     if (!results.length) { this.warn("İnternet araması: uygun sonuç yok"); return null; }
+    return this.answerFromResults(question, results, context);
+  }
+  // One model call that words the answer only from the given search results (fresh or from the memory).
+  async answerFromResults(question, stored, context = {}) {
+    const results = stored.map(({ site, surum, baslik, metin }) => ({ site, surum, baslik, metin }));
     try {
       const noteText = context.notes?.length ? foreverNoteText(context.notes) : "";
       const raw = await this.callGeminiText(JSON.stringify({ question, searchResults: results, ...(noteText ? { foreverNotes: noteText } : {}), ...(context.classKey ? { classRule: classRaceLine(context.classKey) } : {}),
