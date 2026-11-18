@@ -31,8 +31,8 @@ const topicId = name => TOPICS.find(topic => topic.name === name).id;
 
 // Fake network: records Discord posts, answers member lookups, the gameplay backend and the three
 // guide forums (one post per topic, the cards as attachments of its first message).
-function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunter solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun." }), gemini = () => jsonResponse({}, 500), missingFiles = [], fileSize = 2048, archived = [], longPost = false, scanFails = false, guildRoles = [], logFails = false, search = () => jsonResponse({ results: [] }) } = {}) {
-  const posts = [], calls = [], prompts = [], logs = [], searches = [];
+function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunter solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun." }), gemini = () => jsonResponse({}, 500), missingFiles = [], fileSize = 2048, archived = [], longPost = false, scanFails = false, guildRoles = [], logFails = false, search = () => jsonResponse({ results: [] }), channelMessages = [], reactionUsers = [], reactionFails = false } = {}) {
+  const posts = [], calls = [], prompts = [], logs = [], searches = [], reactions = [];
   const threadJson = topic => ({ id: topic.id, parent_id: FORUMS[topic.category], name: topic.name, thread_metadata: { archive_timestamp: "2026-11-10T00:00:00.000Z" } });
   w.setFetch(async (input, init = {}) => {
     const url = new URL(String(input)); calls.push(`${init.method || "GET"} ${url.hostname}${url.pathname}`);
@@ -40,6 +40,11 @@ function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunte
     if (url.hostname === "discord.com") {
       const path = url.pathname.replace(/^\/api\/v\d+/, "");
       if (path.endsWith("/typing")) return new Response(null, { status: 204 });
+      // Feedback reactions: the bot's own 👍 / 👎, who marked an answer, and the channel read that looks for a 👎.
+      const reaction = path.match(/^\/channels\/\d+\/messages\/(\d+)\/reactions\/([^/]+)(\/@me)?$/);
+      if (reaction && init.method === "PUT") { if (reactionFails) return jsonResponse({ message: "Missing Permissions", code: 50013 }, 403); reactions.push({ message: reaction[1], emoji: decodeURIComponent(reaction[2]) }); return new Response(null, { status: 204 }); }
+      if (reaction) return jsonResponse(reactionUsers);
+      if (path === `/channels/${QUESTION_CHANNEL_ID}/messages` && url.searchParams.get("limit") === "100" && !url.searchParams.get("after")) return jsonResponse(typeof channelMessages === "function" ? channelMessages() : channelMessages);
       if (/\/guilds\/\d+\/members\//.test(path)) return jsonResponse({ roles });
       if (/^\/guilds\/\d+\/roles$/.test(path)) return jsonResponse(guildRoles);
       if (init.method === "POST" && path.endsWith("/messages")) {
@@ -47,7 +52,7 @@ function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunte
         // The private log channel is kept apart from the replies players see.
         if (path === `/channels/${LOG_CHANNEL}/messages`) { if (logFails) return jsonResponse({ message: "Missing Access", code: 50001 }, 403); logs.push(body); return jsonResponse({ id: String(8000 + logs.length) }); }
         posts.push({ ...body, files: form ? [...form.keys()].filter(key => key.startsWith("files[")).map(key => form.get(key).name) : [] });
-        return jsonResponse({ id: String(9000 + posts.length) });
+        return jsonResponse({ id: String(900000000000000000n + BigInt(posts.length)) });
       }
       if (scanFails && /^\/guilds\/\d+\/(?:channels|threads\/active)$/.test(path)) return jsonResponse({ message: "Internal error" }, 500);
       if (/^\/guilds\/\d+\/channels$/.test(path)) return jsonResponse([{ id: FORUMS.class, type: 15, name: "class-rehberleri" }, { id: FORUMS.dungeon, type: 15, name: "zindan-rehberleri" }, { id: FORUMS.profession, type: 15, name: "meslek-rehberleri" }, { id: "1", type: 0, name: "genel" }]);
@@ -68,13 +73,14 @@ function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunte
     if (url.hostname === "api.tavily.com") { searches.push({ ...JSON.parse(String(init.body)), authorization: init.headers?.authorization }); return search(url, init); }
     return backend(url, init);
   });
-  return { posts, calls, prompts, logs, searches };
+  return { posts, calls, prompts, logs, searches, reactions };
 }
 
 let nextId = 1000;
 function newBot(env = {}) {
   const storage = memoryStorage();
   const bot = new DiscordGateway({ storage }, { DISCORD_BOT_TOKEN: "test-token", GEMINI_API_KEY: "test-gemini", ...env });
+  bot.feedbackPauseMs = 0;
   return { bot, storage };
 }
 const message = (content, authorId = "555555555555555555") => ({ id: String(++nextId), channel_id: QUESTION_CHANNEL_ID, content, author: { id: authorId }, attachments: [] });
@@ -180,7 +186,9 @@ test("overly broad or many-question requests get the playful refusal without usi
 });
 
 const NO_VERIFIED = "Bu konuda elimde doğrulanmış WoW Forever bilgisi yok; yanlış bilgi vermemek için cevap vermiyorum. Bu soru hakkından düşmedi.";
-const GENERAL_FOOTER = "\n-# Bu cevap rehber kartlarından değil, genel WoW bilgisinden; WoW Forever'da farklı olabilir.";
+// No explanation line under an answer (owner, 2026-11-17): the answer is sent as it is.
+const NO_FOOTER = /\n-# /;
+const SEARCH_OFF_NOTE = "Not: İnternet araması kapalı (arama anahtarı eklenmemiş)";
 const noResearch = () => jsonResponse({ answer: "Bu konuda güvenilir bilgi bulamadım." });
 
 test("no card and no matching note: the model reads every Forever note, then general knowledge answers; 'no information' only when nobody has an answer", async () => {
@@ -204,13 +212,13 @@ test("no card and no matching note: the model reads every Forever note, then gen
   // The research service has nothing: the model's own WoW Classic answer, marked as general knowledge.
   net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın.\nKAYNAK: GENEL") }); ({ bot, storage } = newBot());
   await bot.handleCommand(message("!soru guild nasıl kurulur"));
-  assert.equal(net.posts[0].content, "Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın." + GENERAL_FOOTER);
+  assert.equal(net.posts[0].content, "Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın.");
   assert.equal(await storage.get("answered_count"), 1);
   assert.equal((await storage.get("uncovered_questions"))[0].how, "genel bilgi", "kept for the list of information to add");
   // "KAYNAK: NOT" with a number that no note holds is not a note answer: it is marked as general knowledge.
   net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Guild kurmak 77 gold tutar.\nKAYNAK: NOT") }); ({ bot } = newBot());
   await bot.handleCommand(message("!soru guild nasıl kurulur"));
-  assert.equal(net.posts[0].content, "Guild kurmak 77 gold tutar." + GENERAL_FOOTER);
+  assert.equal(net.posts[0].content, "Guild kurmak 77 gold tutar.");
   // Neither the model nor the research service has an answer: the bot says so and the player keeps the attempt.
   net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("KARTTA_YOK") }); ({ bot, storage } = newBot());
   await bot.handleCommand(message("!soru guild nasıl kurulur"));
@@ -235,7 +243,7 @@ test("no card and no matching note: the model reads every Forever note, then gen
   // A quest question whose research finds nothing: the model answers from the notes or the WoW Classic knowledge it is sure of.
   net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Whirlwind Axe görevini 30. seviyede Warrior eğitmenin verir.\nKAYNAK: GENEL") }); ({ bot } = newBot());
   await bot.handleCommand(message("!soru whirlwind axe görevi nerede"));
-  assert.equal(net.posts[0].content, "Whirlwind Axe görevini 30. seviyede Warrior eğitmenin verir." + GENERAL_FOOTER);
+  assert.equal(net.posts[0].content, "Whirlwind Axe görevini 30. seviyede Warrior eğitmenin verir.");
   assert.match(net.prompts.at(-1), /görev \/ NPC \/ edinim sorusu/);
 });
 
@@ -758,7 +766,7 @@ test("quest question: answered by the research service; the filler sentence is n
   // The default: the model is asked once for the missing part; its answer is marked as general knowledge.
   net = fakeNetwork({ backend, gemini: () => geminiText("Görevi Stormwind Dwarven District'teki Furen Longbeard verir.\nKAYNAK: GENEL") }); ({ bot } = newBot());
   await bot.handleCommand(message("!soru fire hardened hauberk görevini hangi npc veriyor nerede"));
-  assert.equal(net.posts[0].content, "Görevi Stormwind Dwarven District'teki Furen Longbeard verir." + GENERAL_FOOTER);
+  assert.equal(net.posts[0].content, "Görevi Stormwind Dwarven District'teki Furen Longbeard verir.");
   assert.equal(net.prompts.length, 1);
   // The model has nothing better: the research answer stays, without the filler sentence.
   net = fakeNetwork({ backend, gemini: () => geminiText("KARTTA_YOK") }); ({ bot } = newBot());
@@ -818,7 +826,7 @@ test("a research answer that states a Classic rule Forever changed is never sent
   // The default: the model answers instead, with the class rule and every Forever note; a Classic sentence of its own is cut.
   net = fakeNetwork({ backend, gemini: () => geminiText("Totem görevini sınıf eğitmenin verir. Shaman sadece Horde tarafında oynanır.\nKAYNAK: GENEL") }); ({ bot } = newBot());
   await bot.handleCommand(message("!soru alliance shaman totem görevi nerede"));
-  assert.equal(net.posts[0].content, "Totem görevini sınıf eğitmenin verir." + GENERAL_FOOTER);
+  assert.equal(net.posts[0].content, "Totem görevini sınıf eğitmenin verir.");
   assert.ok(!net.posts.some(post => /TBC|Klasik dönem|seçemez|sadece Horde/.test(post.content)));
   assert.match(JSON.parse(JSON.parse(net.prompts.at(-1)).input).classRule, /^Shaman olabilen ırklar: Alliance'ta Dwarf/);
   // What counts as a contradiction, for every class the two sides share differently.
@@ -1056,11 +1064,12 @@ test("the level cap and Darkmoon Faire questions the owner reported are answered
   assert.match(w.foreverRules(), /WoW Forever'da en yüksek seviye \(level cap\) 60'tır ve yükseltilmeyecek\./);
 });
 
-test("a general-knowledge answer in a multi-part question keeps its mark; the talent note still follows", async () => {
+test("a general-knowledge answer in a multi-part question carries no explanation line", async () => {
   const net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın.\nKAYNAK: GENEL") }); const { bot } = newBot();
   await bot.handleCommand(message("!soru guild nasıl kurulur? arkadaş nasıl eklenir?"));
   assert.equal(net.posts.length, 1);
-  assert.equal(net.posts[0].content.split(GENERAL_FOOTER).length, 3, net.posts[0].content);
+  assert.equal(net.posts[0].content.split("Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın.").length, 3, net.posts[0].content);
+  assert.ok(!NO_FOOTER.test(net.posts[0].content.replace(/\n-# \S*(?:talent|Talent)[^\n]*/g, "")), net.posts[0].content);
   assert.ok(!/KAYNAK/.test(net.posts[0].content));
 });
 
@@ -1092,7 +1101,7 @@ test("Riverglades quest levels come from the new-zones note; 'where to farm' is 
   // The research service has nothing: the model answers from WoW Classic knowledge, marked as general.
   net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Duskwood: Raven Hill mezarlığındaki iskeletler.\nArathi Highlands: raptorlar.\nKAYNAK: GENEL") }); ({ bot } = newBot());
   await bot.handleCommand(message(`!soru ${farm}`));
-  assert.equal(net.posts[0].content, "Duskwood: Raven Hill mezarlığındaki iskeletler.\nArathi Highlands: raptorlar." + GENERAL_FOOTER);
+  assert.equal(net.posts[0].content, "Duskwood: Raven Hill mezarlığındaki iskeletler.\nArathi Highlands: raptorlar.");
   const sent = JSON.parse(JSON.parse(net.prompts.at(-1)).input);
   assert.match(sent.task, /Bu bir farm \/ grind yeri sorusu/);
   assert.match(sent.classRule, /^Mage olabilen ırklar/);
@@ -1108,7 +1117,7 @@ test("the private log channel gets one line for an unanswered question, a genera
   assert.equal(net.posts.length, 1);
   assert.equal(net.posts[0].content, NO_VERIFIED);
   assert.equal(net.logs.length, 1);
-  assert.match(net.logs[0].content, /^\*\*Cevapsız soru\*\* · \S.*\nSoru: guild nasıl kurulur\nhttps:\/\/discord\.com\/channels\/\d+\/\d+\/\d+$/);
+  assert.match(net.logs[0].content, /^\*\*Cevapsız soru\*\* · \S.*\nSoru: guild nasıl kurulur\nNot: İnternet araması kapalı \(arama anahtarı eklenmemiş\)\nhttps:\/\/discord\.com\/channels\/\d+\/\d+\/\d+$/);
   assert.ok(net.logs[0].content.endsWith(`/${w.QUESTION_CHANNEL_ID}/${asked.id}`));
   assert.deepEqual(net.logs[0].allowed_mentions, { parse: [] }, "nobody is pinged");
   assert.equal(net.logs[0].nonce, `log${asked.id}`.slice(0, 25));
@@ -1117,7 +1126,7 @@ test("the private log channel gets one line for an unanswered question, a genera
   net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın.\nKAYNAK: GENEL") }); ({ bot } = newBot());
   await bot.handleCommand(message("!soru guild nasıl kurulur"));
   assert.equal(net.logs.length, 1);
-  assert.match(net.logs[0].content, /^\*\*Genel bilgiden cevaplandı\*\* · .*\nSoru: guild nasıl kurulur\nCevap:\n> Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın\.\nhttps:/);
+  assert.match(net.logs[0].content, /^\*\*Genel bilgiden cevaplandı\*\* · .*\nSoru: guild nasıl kurulur\nCevap:\n> Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın\.\nNot: İnternet araması kapalı \(arama anahtarı eklenmemiş\)\nhttps:/);
   // Technical failure: the model and the research service are both down.
   net = fakeNetwork({ backend: () => jsonResponse({}, 500) }); ({ bot } = newBot());
   await bot.handleCommand(message("!soru guild nasıl kurulur"));
@@ -1158,9 +1167,8 @@ test("the log channel is best effort: a refused log post changes nothing for the
 });
 
 // Internet search tests: the first model call reads the notes and writes the query, the second words the answer from the results.
-const WEB_FOOTER = "\n-# Bu cevap internet aramasından derlendi; rehber kartlarında bu konu yok.";
 const promptOf = init => JSON.parse(JSON.parse(String(init.body)).input);
-const inputsOf = net => net.prompts.map(prompt => JSON.parse(JSON.parse(prompt).input));
+const inputsOf = net => net.prompts.map(prompt => JSON.parse(prompt).input).filter(Boolean).map(input => JSON.parse(input));
 const searchingModel = (first, second) => (url, init) => geminiText(promptOf(init).searchResults ? second : first);
 const SATCHEL_RESULTS = { results: [
   { url: "https://www.wowhead.com/classic/item=1/satchel", title: "Satchel - Item - Classic World of Warcraft", content: "Classic sürümündeki eski çanta eşyası hakkında uzun bir açıklama metni burada yer alır.", score: 0.9 },
@@ -1175,7 +1183,7 @@ test("internet search: an item question no card or note answers is searched once
   const { bot, storage } = newBot({ TAVILY_API_KEY: "tvly-test" });
   await bot.handleCommand(message("!soru [Satchel of Potions] trinket'i ne ise yariyor?"));
   assert.equal(net.posts.length, 1);
-  assert.equal(net.posts[0].content, "**Satchel of Potions** kullanıldığında çantana 2 Healing Potion koyar; bekleme süresi 30 dakikadır." + WEB_FOOTER);
+  assert.equal(net.posts[0].content, "**Satchel of Potions** kullanıldığında çantana 2 Healing Potion koyar; bekleme süresi 30 dakikadır.");
   // One search, with the model's English query, limited to the trusted sites.
   assert.equal(net.searches.length, 1);
   assert.equal(net.searches[0].query, '"Satchel of Potions" trinket use WoW Forever');
@@ -1206,11 +1214,11 @@ test("internet search: the notes answer first; results that do not answer or a m
   // The results do not answer the question: the model's own answer, marked as general knowledge.
   net = fakeNetwork({ search: () => jsonResponse(SATCHEL_RESULTS), gemini: searchingModel('Guild kurmak için şehirdeki Guild Master\'dan tüzük alıp imza toplarsın.\nARAMA: "guild charter" how to create guild\nKAYNAK: GENEL', "KARTTA_YOK") }); ({ bot } = newBot({ TAVILY_API_KEY: "tvly-test" }));
   await bot.handleCommand(message("!soru guild nasıl kurulur"));
-  assert.equal(net.posts[0].content, "Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın." + GENERAL_FOOTER);
+  assert.equal(net.posts[0].content, "Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın.");
   assert.equal(net.searches.length, 1);
   assert.equal(net.logs.length, 1);
   assert.match(net.logs[0].content, /^\*\*Genel bilgiden cevaplandı\*\*/);
-  assert.ok(!/Not:/.test(net.logs[0].content), "the search worked: no note");
+  assert.match(net.logs[0].content, /\nNot: İnternet araması yapıldı, sonuçlar soruyu cevaplamadı\n/);
   // A number that no result holds: the searched answer is dropped; with no answer of its own the bot says so.
   net = fakeNetwork({ search: () => jsonResponse(SATCHEL_RESULTS), gemini: searchingModel('KARTTA_YOK\nARAMA: "Satchel of Potions"', "Satchel of Potions 7 Healing Potion verir ve 45 dakika bekletir.") }); ({ bot } = newBot({ TAVILY_API_KEY: "tvly-test" }));
   await bot.handleCommand(message("!soru [Satchel of Potions] trinket'i ne ise yariyor?"));
@@ -1225,12 +1233,12 @@ test("internet search: the notes answer first; results that do not answer or a m
   net = fakeNetwork({ search: () => jsonResponse(SATCHEL_RESULTS), gemini: searchingModel("KARTTA_YOK", "**Satchel of Potions** çantana 2 Healing Potion koyar.") }); ({ bot } = newBot({ TAVILY_API_KEY: "tvly-test" }));
   await bot.handleCommand(message("!soru [Satchel of Potions] trinket'i ne ise yariyor?"));
   assert.equal(net.searches[0].query, "[Satchel of Potions] trinket'i ne ise yariyor? WoW Forever");
-  assert.equal(net.posts[0].content, "**Satchel of Potions** çantana 2 Healing Potion koyar." + WEB_FOOTER);
-  // Only WoW Classic pages were found: the line under the answer says so.
+  assert.equal(net.posts[0].content, "**Satchel of Potions** çantana 2 Healing Potion koyar.");
+  // Only WoW Classic pages were found: still no line under the answer.
   net = fakeNetwork({ search: () => jsonResponse({ results: [{ url: "https://www.wowhead.com/classic/item=3172/boar-intestines", title: "Boar Intestines - Item - Classic World of Warcraft", content: "Boar Intestines. Reagent for the Cooking recipe Blood Sausage. Dropped by boars in Loch Modan and Elwynn Forest.", score: 0.9 }] }),
     gemini: searchingModel('KARTTA_YOK\nARAMA: "Boar Intestines" reagent recipe', "**Boar Intestines**, Cooking mesleğindeki **Blood Sausage** tarifinde kullanılır.") }); ({ bot } = newBot({ TAVILY_API_KEY: "tvly-test" }));
   await bot.handleCommand(message("!soru boar intestines hangi üretimi yaparken kullanılır"));
-  assert.equal(net.posts[0].content, "**Boar Intestines**, Cooking mesleğindeki **Blood Sausage** tarifinde kullanılır.\n-# Bu cevap internet aramasındaki WoW Classic sayfalarından derlendi; WoW Forever'da farklı olabilir.");
+  assert.equal(net.posts[0].content, "**Boar Intestines**, Cooking mesleğindeki **Blood Sausage** tarifinde kullanılır.");
 });
 
 test("internet search: a refused search (usage limit) is named in the log channel and never breaks the answer", async () => {
@@ -1245,7 +1253,7 @@ test("internet search: a refused search (usage limit) is named in the log channe
   // The model has an answer of its own: it is sent as general knowledge, the log line carries the note.
   net = fakeNetwork({ search: limit, gemini: searchingModel('Boar Intestines, Cooking mesleğindeki Blood Sausage tarifinde kullanılır.\nARAMA: "Boar Intestines" recipe\nKAYNAK: GENEL', "x") }); ({ bot } = newBot({ TAVILY_API_KEY: "tvly-test" }));
   await bot.handleCommand(message("!soru boar intestines hangi üretimi yaparken kullanılır"));
-  assert.equal(net.posts[0].content, "Boar Intestines, Cooking mesleğindeki Blood Sausage tarifinde kullanılır." + GENERAL_FOOTER);
+  assert.equal(net.posts[0].content, "Boar Intestines, Cooking mesleğindeki Blood Sausage tarifinde kullanılır.");
   assert.match(net.logs[0].content, /\nNot: İnternet araması çalışmadı \(kullanım sınırı dolmuş\)\n/);
   // An invalid key.
   net = fakeNetwork({ search: () => jsonResponse({}, 401), gemini: searchingModel('KARTTA_YOK\nARAMA: "Boar Intestines"', "x") }); ({ bot, storage } = newBot({ TAVILY_API_KEY: "tvly-test" }));
@@ -1298,13 +1306,13 @@ test("search memory: a name that was searched once is answered from the stored r
   net = fakeNetwork({ search: () => jsonResponse(SATCHEL_RESULTS), gemini: memoryModel('"Satchel of Potions" trinket use', /Creates 2 Healing Potions/, SATCHEL_ANSWER) });
   await bot.handleCommand(message(SATCHEL_QUESTION, users(2)));
   assert.equal(net.searches.length, 0);
-  assert.equal(net.posts[0].content, SATCHEL_ANSWER + WEB_FOOTER);
+  assert.equal(net.posts[0].content, SATCHEL_ANSWER);
   assert.ok(!inputsOf(net).find(input => input.searchResults).searchResults.some(item => "t" in item), "the stored time does not go to the model");
   // Another question about the same item, with another query: the stored page already answers it.
   net = fakeNetwork({ search: () => jsonResponse(SATCHEL_RESULTS), gemini: memoryModel('"Satchel of Potions" quest reward', /Reward from the quest Brewing Trouble/, "**Satchel of Potions**, **Brewing Trouble** görevinin ödülüdür.") });
   await bot.handleCommand(message("!soru Satchel of Potions hangi görevden geliyor", users(3)));
   assert.equal(net.searches.length, 0);
-  assert.equal(net.posts[0].content, "**Satchel of Potions**, **Brewing Trouble** görevinin ödülüdür." + WEB_FOOTER);
+  assert.equal(net.posts[0].content, "**Satchel of Potions**, **Brewing Trouble** görevinin ödülüdür.");
   assert.deepEqual(await storage.get("search_stats").then(stats => [stats.searches, stats.fromMemory]), [1, 2]);
 });
 
@@ -1319,7 +1327,7 @@ test("search memory: a new question the stored results do not answer is searched
   await bot.handleCommand(message("!soru Satchel of Potions dolumunu kim satıyor", users(2)));
   assert.equal(net.searches.length, 1);
   assert.equal(net.searches[0].query, '"Satchel of Potions" vendor refill WoW Forever');
-  assert.equal(net.posts[0].content, "Dolumu Riverglades'teki **Brewmaster Olen** satar." + WEB_FOOTER);
+  assert.equal(net.posts[0].content, "Dolumu Riverglades'teki **Brewmaster Olen** satar.");
   const stored = await storage.get(SATCHEL_KEY);
   assert.deepEqual(stored.results.map(item => item.baslik), ["Brewmaster Olen - NPC - WoW Forever", "Satchel of Potions - Item - WoW Forever", "Satchel - Item - Classic World of Warcraft"]);
   assert.deepEqual(stored.queries.map(item => item.q), ["potions refill satchel vendor", "potions satchel trinket use"]);
@@ -1327,7 +1335,7 @@ test("search memory: a new question the stored results do not answer is searched
   net = fakeNetwork({ search: () => jsonResponse(vendor), gemini: vendorModel });
   await bot.handleCommand(message("!soru Satchel of Potions dolumunu kim satıyor", users(3)));
   assert.equal(net.searches.length, 0);
-  assert.equal(net.posts[0].content, "Dolumu Riverglades'teki **Brewmaster Olen** satar." + WEB_FOOTER);
+  assert.equal(net.posts[0].content, "Dolumu Riverglades'teki **Brewmaster Olen** satar.");
   // A search whose results did not answer is not repeated either: the same query spends nothing.
   const lost = memoryModel('"Satchel of Potions" vendor refill', /nothing matches this/, "x");
   net = fakeNetwork({ search: () => jsonResponse(vendor), gemini: lost });
@@ -1353,7 +1361,7 @@ test("search memory: empty searches wait 3 days, results live 30 days, failed se
   net = fakeNetwork({ search: () => jsonResponse(boar), gemini: model });
   await bot.handleCommand(question(3));
   assert.equal(net.searches.length, 1);
-  assert.equal(net.posts[0].content, "**Blood Sausage** tarifinde kullanılır.\n-# Bu cevap internet aramasındaki WoW Classic sayfalarından derlendi; WoW Forever'da farklı olabilir.");
+  assert.equal(net.posts[0].content, "**Blood Sausage** tarifinde kullanılır.");
   // Stored results older than 30 days are not used: the name is searched again.
   record = await storage.get(key); for (const item of [...record.results, ...record.queries]) item.t -= 30 * 86400000 + 1000; await storage.put(key, record);
   net = fakeNetwork({ search: () => jsonResponse(boar), gemini: model });
@@ -1387,4 +1395,211 @@ test("search memory: the key is the quoted name of the query", () => {
   assert.equal(w.searchMemoryKey("boar intestines hangi üretimi yaparken kullanılır"), "search:boar hangi intestines kullanılır yaparken üretimi");
   assert.equal(w.searchMemoryKey(""), "");
   assert.equal(w.searchQueryWords('"Satchel of Potions" Trinket USE WoW Forever'), w.searchQueryWords('use trinket "satchel of potions"'));
+});
+
+// Screenshot questions. The vision model reads the names on the screen; the names are then searched one by one.
+const visionText = text => jsonResponse({ candidates: [{ finishReason: "STOP", content: { parts: [{ text }] } }] });
+const isVision = url => url.pathname.includes(":generateContent");
+const withImage = (content, authorId) => ({ ...message(content, authorId), attachments: [{ id: "1", filename: "quest.png", content_type: "image/png", size: 2048, url: "https://cdn.discordapp.com/attachments/1/2/quest.png" }] });
+const QUEST_SEEN = "GOREV: Ayın Öptüğü Bir Kılıç\nADLAR: Whitestone Oak Lumber; Enchanted Silver Ingot; Purified Kor Gem; Trevan Rol; Sepulcher\nVERI: 0/1 Whitestone Oak Lumber, 0/1 Enchanted Silver Ingot, 0/1 Purified Kor Gem";
+const itemPage = (id, name, text) => ({ url: `https://www.wowhead.com/forever/item=${id}/x`, title: `${name} - Item - WoW Forever`, content: `${name}. ${text}`, score: 0.9 });
+const QUEST_PAGES = {
+  "Whitestone Oak Lumber": itemPage(1, "Whitestone Oak Lumber", "Quest item. Looted from Whitestone Oak trees near Ambermill in Silverpine Forest."),
+  "Enchanted Silver Ingot": itemPage(2, "Enchanted Silver Ingot", "Quest item. Sold by Andrea Boynton in the Sepulcher after you bring her a Silver Bar."),
+  "Purified Kor Gem": itemPage(3, "Purified Kor Gem", "Quest item. Dropped by Blackfathom Tide Priestess in Blackfathom Deeps, Ashenvale.")
+};
+// One result per searched name, picked by the quoted name in the query.
+const pagesByName = pages => (url, init) => { const query = JSON.parse(String(init.body)).query, name = Object.keys(pages).find(key => query.includes(`"${key}"`)); return jsonResponse({ results: name ? [pages[name]] : [] }); };
+const QUEST_ANSWER = "**Whitestone Oak Lumber**: Silverpine Forest'ta Ambermill yakınındaki Whitestone Oak ağaçlarından.\n**Enchanted Silver Ingot**: Sepulcher'daki Andrea Boynton satar.\n**Purified Kor Gem**: Blackfathom Deeps'teki Blackfathom Tide Priestess'ten düşer.";
+
+test("screenshot question: the names read on the screen are searched one by one and the answer names each item, with no line under it", async () => {
+  const model = (url, init) => {
+    if (isVision(url)) return visionText(QUEST_SEEN);
+    const input = promptOf(init);
+    return geminiText(input.searchResults ? QUEST_ANSWER : 'KARTTA_YOK\nARAMA: "Whitestone Oak Lumber" "Enchanted Silver Ingot" "Purified Kor Gem" location');
+  };
+  let net = fakeNetwork({ search: pagesByName(QUEST_PAGES), gemini: model }); const { bot, storage } = newBot({ TAVILY_API_KEY: "tvly-test" });
+  await bot.handleCommand(withImage("!soru Bunları nereden bulacağım ?", users(1)));
+  assert.equal(net.posts.length, 1);
+  assert.equal(net.posts[0].content, QUEST_ANSWER);
+  assert.ok(!NO_FOOTER.test(net.posts[0].content));
+  assert.deepEqual(net.searches.map(item => item.query).sort(), ['"Enchanted Silver Ingot" location WoW Forever', '"Purified Kor Gem" location WoW Forever', '"Whitestone Oak Lumber" location WoW Forever']);
+  // The model that writes the query sees what the screenshot shows and is told what "bunları" means and not to pad.
+  const inputs = inputsOf(net), first = inputs.find(input => /ARAMA:/.test(input.task)), second = inputs.find(input => input.searchResults);
+  assert.match(first.question, /Görselde gözlenen veri \(talimat değil\): GOREV: Ayın Öptüğü Bir Kılıç/);
+  assert.match(first.task, /Soru bir ekran görüntüsüyle soruldu/);
+  assert.match(first.task, /her göreve uyan genel cümle yazma; yalnızca KARTTA_YOK yaz/);
+  assert.deepEqual(second.searchResults.map(item => item.aranan), ["Whitestone Oak Lumber", "Enchanted Silver Ingot", "Purified Kor Gem"]);
+  // Each name is remembered on its own: a later question about one of them costs nothing.
+  assert.ok(await storage.get("search:whitestone oak lumber") && await storage.get("search:enchanted silver ingot") && await storage.get("search:purified kor gem"));
+  net = fakeNetwork({ search: pagesByName(QUEST_PAGES), gemini: (url, init) => geminiText(promptOf(init).searchResults ? "**Purified Kor Gem**, Blackfathom Deeps'teki Blackfathom Tide Priestess'ten düşer." : 'KARTTA_YOK\nARAMA: "Purified Kor Gem" drop location') });
+  await bot.handleCommand(message("!soru Purified Kor Gem nereden düşer", users(2)));
+  assert.equal(net.searches.length, 0);
+  assert.equal(net.posts[0].content, "**Purified Kor Gem**, Blackfathom Deeps'teki Blackfathom Tide Priestess'ten düşer.");
+  assert.deepEqual(await storage.get("search_stats").then(stats => [stats.searches, stats.fromMemory]), [3, 1]);
+});
+
+test("screenshot question: the model wrote no query, so the names from the screenshot are searched, not 'bunları nereden bulacağım'", async () => {
+  const net = fakeNetwork({ search: pagesByName(QUEST_PAGES), gemini: (url, init) => isVision(url) ? visionText(QUEST_SEEN) : geminiText(promptOf(init).searchResults ? QUEST_ANSWER : "KARTTA_YOK") });
+  const { bot } = newBot({ TAVILY_API_KEY: "tvly-test" });
+  await bot.handleCommand(withImage("!soru Bunları nereden bulacağım ?"));
+  assert.deepEqual(net.searches.map(item => item.query).sort(), ['"Enchanted Silver Ingot" WoW Forever', '"Purified Kor Gem" WoW Forever', '"Whitestone Oak Lumber" WoW Forever']);
+  assert.equal(net.posts[0].content, QUEST_ANSWER);
+});
+
+test("screenshot question: an unreadable screenshot is read twice; then the bot asks for the names instead of guessing, and the attempt is not used up", async () => {
+  // The vision model is down and the question only points at the screenshot.
+  let net = fakeNetwork({ gemini: (url, init) => isVision(url) ? jsonResponse({}, 500) : geminiText("Görsel görevler harita üzerinde işaretlenir ve o bölgedeki NPC'lerle konuşularak yapılır.\nKAYNAK: GENEL") });
+  let { bot, storage } = newBot({ TAVILY_API_KEY: "tvly-test" });
+  await bot.handleCommand(withImage("!soru Bunları nereden bulacağım ?", users(1)));
+  assert.equal(net.posts.length, 1);
+  assert.equal(net.posts[0].content, "Görseli okuyamadım. Görevin ya da eşyanın adını yazarak tekrar sorar mısın? Bu deneme hakkından düşmedi.");
+  assert.equal(net.prompts.length, 2, "two reads of the screenshot, no answer call");
+  assert.equal(net.searches.length, 0);
+  assert.equal(await storage.get(`cooldown:${users(1)}`), undefined, "cooldown released");
+  assert.match(net.logs[0].content, /^\*\*Cevapsız soru\*\* · .*\nSoru: Bunları nereden bulacağım \?\nNot: Görsel okunamadı\nhttps:/);
+  assert.equal(await storage.get("technical_failure_count") || 0, 0);
+  // The second read works: the question is answered as usual.
+  let reads = 0;
+  net = fakeNetwork({ search: pagesByName(QUEST_PAGES), gemini: (url, init) => isVision(url) ? (++reads === 1 ? jsonResponse({}, 500) : visionText(QUEST_SEEN)) : geminiText(promptOf(init).searchResults ? QUEST_ANSWER : "KARTTA_YOK") });
+  ({ bot } = newBot({ TAVILY_API_KEY: "tvly-test" }));
+  await bot.handleCommand(withImage("!soru Bunları nereden bulacağım ?", users(2)));
+  assert.equal(reads, 2);
+  assert.equal(net.posts[0].content, QUEST_ANSWER);
+  // A question that stands on its own is answered even when the screenshot cannot be read.
+  net = fakeNetwork({ backend: noResearch, gemini: (url, init) => isVision(url) ? jsonResponse({}, 500) : geminiText("Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın.\nKAYNAK: GENEL") }); ({ bot } = newBot());
+  await bot.handleCommand(withImage("!soru guild nasıl kurulur", users(3)));
+  assert.equal(net.posts[0].content, "Guild kurmak için şehirdeki Guild Master'dan tüzük alıp imza toplarsın.");
+});
+
+test("item comparison: each of the two items is searched on its own; a name already in the memory is not searched again", async () => {
+  const pages = {
+    "Buzzer Blade": itemPage(4, "Buzzer Blade", "One-Hand Dagger. 12 - 23 Damage, speed 1.50. +5 Agility. Requires level 22."),
+    "Fang of Magnatus": itemPage(5, "Fang of Magnatus", "One-Hand Dagger. 14 - 27 Damage, speed 1.80. +6 Intellect, +4 Stamina. Requires level 24.")
+  };
+  const answer = "Warlock için **Fang of Magnatus** daha uygun: +6 Intellect ve +4 Stamina verir; **Buzzer Blade** +5 Agility verir.";
+  const model = query => (url, init) => geminiText(promptOf(init).searchResults ? answer : `KARTTA_YOK\nARAMA: ${query}`);
+  let net = fakeNetwork({ search: pagesByName(pages), gemini: model('"Buzzer Blade" "Fang of Magnatus" stats') }); const { bot } = newBot({ TAVILY_API_KEY: "tvly-test" });
+  await bot.handleCommand(message("!soru warlock için buzzer blade mi yoksa fang of magnatus mu", users(1)));
+  assert.deepEqual(net.searches.map(item => item.query).sort(), ['"Buzzer Blade" stats WoW Forever', '"Fang of Magnatus" stats WoW Forever']);
+  assert.equal(net.posts[0].content, answer);
+  assert.deepEqual(inputsOf(net).find(input => input.searchResults).searchResults.map(item => item.aranan), ["Buzzer Blade", "Fang of Magnatus"]);
+  // Another comparison with one known and one new item: only the new one is searched.
+  const more = { ...pages, "Thornspike": itemPage(6, "Thornspike", "One-Hand Dagger. 11 - 21 Damage, speed 1.40. +3 Stamina. Requires level 21.") };
+  net = fakeNetwork({ search: pagesByName(more), gemini: (url, init) => geminiText(promptOf(init).searchResults ? "**Buzzer Blade** +5 Agility, **Thornspike** +3 Stamina verir." : 'KARTTA_YOK\nARAMA: "Buzzer Blade" "Thornspike" stats') });
+  await bot.handleCommand(message("!soru rogue için buzzer blade mi thornspike mı", users(2)));
+  assert.deepEqual(net.searches.map(item => item.query), ['"Thornspike" stats WoW Forever']);
+  assert.equal(net.posts[0].content, "**Buzzer Blade** +5 Agility, **Thornspike** +3 Stamina verir.");
+  // Nothing found for any name: the log line says the search ran and found nothing.
+  net = fakeNetwork({ search: () => jsonResponse({ results: [] }), gemini: model('"Gloomfang" "Mirebrand" stats') });
+  await bot.handleCommand(message("!soru gloomfang mi mirebrand mi", users(3)));
+  assert.equal(net.searches.length, 2);
+  assert.equal(net.posts[0].content, NO_VERIFIED);
+  assert.match(net.logs[0].content, /\nNot: İnternet araması sonuç bulamadı\n/);
+});
+
+test("screenshot and search helpers: names on the screen, one search per quoted name, questions that only point at the screenshot", () => {
+  const names = seen => Array.from(w.imageNames(seen)), units = query => Array.from(w.searchUnits(query), unit => ({ ...unit }));
+  assert.deepEqual(names(QUEST_SEEN), ["Whitestone Oak Lumber", "Enchanted Silver Ingot", "Purified Kor Gem", "Trevan Rol", "Sepulcher"]);
+  assert.deepEqual(names('GOREV: -\nADLAR: 0/1 "Boar Intestines"; boar intestines; -; a; Goodsteel\'s Balanced Flameberge\nVERI: -'), ["Boar Intestines", "Goodsteel's Balanced Flameberge"]);
+  assert.deepEqual(names("ADLAR: -"), []);
+  assert.deepEqual(names("Görselde bir görev penceresi var."), []);
+  assert.deepEqual(units('"Buzzer Blade" "Fang of Magnatus" stats'), [{ name: "Buzzer Blade", query: '"Buzzer Blade" stats' }, { name: "Fang of Magnatus", query: '"Fang of Magnatus" stats' }]);
+  assert.deepEqual(units('“A One” "b two" "A one" "c three" "d four" drop').map(unit => unit.name), ["A One", "b two", "c three"]);
+  assert.deepEqual(units("boar intestines recipe"), [{ name: "", query: "boar intestines recipe" }]);
+  for (const text of ["Bunları nereden bulacağım ?", "bu ne", "burası neresi acaba söyler misiniz", "Bu WoW ekran görüntüsündeki sorunu açıkla.", "nerede", "nasıl yapılır"]) assert.ok(w.pointsAtImage(text), text);
+  for (const text of ["guild nasıl kurulur", "warlock için buzzer blade mi yoksa fang of magnatus mu"]) assert.ok(!w.pointsAtImage(text), text);
+});
+
+test("public health page says whether the internet search is on", async () => {
+  let { bot, storage } = newBot();
+  assert.equal((await bot.healthSummary()).internet_aramasi, "kapali");
+  ({ bot, storage } = newBot({ TAVILY_API_KEY: "tvly-test" }));
+  assert.equal((await bot.healthSummary()).internet_aramasi, "acik");
+  await storage.put("last_search_error", { at: "2026-11-17T00:00:00.000Z", error: "Arama HTTP 432" });
+  const health = await bot.healthSummary();
+  assert.equal(health.internet_aramasi, "hata");
+  assert.ok(!JSON.stringify(health).includes("432") && !JSON.stringify(health).includes("tvly"), "no error text and no key on the public page");
+});
+
+// Feedback reactions. The bot's reply gets the id 900000000000000001 from the fake network.
+const ANSWER_ID = "900000000000000001", HUNTER_ANSWER = "**Hunter** solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun.";
+const thumbs = (count, me = true) => [{ count: 3, me: true, emoji: { id: null, name: "👍" } }, { count, me, emoji: { id: null, name: "👎" } }];
+
+test("feedback: every game answer gets 👍 and 👎; a 👎 from a player sends the question and the answer to the log channel once", async () => {
+  let net = fakeNetwork({ gemini: () => geminiText(HUNTER_ANSWER) }); const { bot, storage } = newBot();
+  const asked = { ...message("!soru hunter solo nasıl"), author: { id: "555555555555555555", global_name: "Ayşe" } };
+  await bot.handleCommand(asked);
+  assert.equal(net.posts.length, 1);
+  assert.deepEqual(net.reactions, [{ message: ANSWER_ID, emoji: "👍" }, { message: ANSWER_ID, emoji: "👎" }]);
+  const record = await storage.get(`feedback:${ANSWER_ID}`);
+  assert.equal(record.q, "hunter solo nasıl");
+  assert.ok(record.a.startsWith(HUNTER_ANSWER));
+  assert.equal(record.user, "Ayşe");
+  assert.equal(net.prompts.length, 1, "no extra AI call");
+  // Only the bot's own 👎 stands under the answer: nothing to report.
+  net = fakeNetwork({ channelMessages: [{ id: ANSWER_ID, author: { bot: true }, reactions: thumbs(1) }] });
+  await bot.checkFeedback();
+  assert.equal(net.logs.length, 0);
+  // Read at most once in five minutes.
+  net = fakeNetwork({ channelMessages: [{ id: ANSWER_ID, author: { bot: true }, reactions: thumbs(3) }] });
+  await bot.checkFeedback();
+  assert.equal(net.calls.length, 0);
+  // Two players marked it: one log message with who, the question, the answer and the link to the answer.
+  bot.lastFeedbackCheckAt = 0;
+  net = fakeNetwork({ channelMessages: [{ id: ANSWER_ID, author: { bot: true }, reactions: thumbs(3) }, { id: "900000000000000777", reactions: thumbs(5, false) }, { id: "900000000000000778", reactions: [{ count: 4, me: false, emoji: { id: "123", name: "👎" } }] }],
+    reactionUsers: [{ id: "1", bot: true, username: "Murloc" }, { id: "2", global_name: "Mehmet" }, { id: "3", username: "zey*nep" }] });
+  await bot.checkFeedback();
+  assert.equal(net.logs.length, 1, "an answer without a record and a custom emoji are ignored");
+  assert.equal(net.logs[0].content, `**Yanlış bulunan cevap** · 2 kişi işaretledi (Mehmet, zeynep)\nSoran: Ayşe\nSoru: hunter solo nasıl\nCevap:\n> ${record.a.split("\n").join("\n> ")}\nhttps://discord.com/channels/${bot.guildId}/${w.QUESTION_CHANNEL_ID}/${ANSWER_ID}`);
+  assert.deepEqual(net.logs[0].allowed_mentions, { parse: [] });
+  assert.equal(net.logs[0].nonce, `fb${ANSWER_ID}`.slice(0, 25));
+  assert.equal((await storage.get("feedback_stats")).reported, 1);
+  // Later reads do not report the same answer again.
+  bot.lastFeedbackCheckAt = 0;
+  net = fakeNetwork({ channelMessages: [{ id: ANSWER_ID, author: { bot: true }, reactions: thumbs(6) }] });
+  await bot.checkFeedback();
+  assert.equal(net.logs.length, 0);
+  // The polling alarm does the read; a week-old record is forgotten.
+  bot.lastFeedbackCheckAt = 0; await storage.put("initialized", true); await storage.put("last_message_id", "1");
+  net = fakeNetwork({ channelMessages: [] });
+  await bot.alarm();
+  assert.ok(net.calls.includes(`GET discord.com/api/v10/channels/${w.QUESTION_CHANNEL_ID}/messages`));
+  await storage.put(`feedback:${ANSWER_ID}`, { ...record, at: Date.now() - 8 * 86400000 });
+  bot.lastCleanupAt = 0; await bot.cleanupRecords();
+  assert.equal(await storage.get(`feedback:${ANSWER_ID}`), undefined);
+});
+
+test("feedback: no reactions on a notice, an ask-back or 'no information'; a missing permission never touches the answer; FEEDBACK_REACTIONS=off", async () => {
+  // "No verified information" is not an answer to rate.
+  let net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("KARTTA_YOK") }); let { bot, storage } = newBot();
+  await bot.handleCommand(message("!soru guild nasıl kurulur", users(1)));
+  assert.equal(net.posts[0].content, NO_VERIFIED);
+  assert.equal(net.reactions.length, 0);
+  // The identity reply and the talent ask-back.
+  net = fakeNetwork(); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru sen kimsin", users(2)));
+  await bot.handleCommand(message("!soru hangi talentleri almalıyım", users(3)));
+  assert.equal(net.posts.length, 2);
+  assert.equal(net.reactions.length, 0);
+  // The bot may not add reactions in the channel: the player still gets the answer, the reason is kept for /status.
+  net = fakeNetwork({ gemini: () => geminiText(HUNTER_ANSWER), reactionFails: true }); ({ bot, storage } = newBot());
+  await bot.handleCommand(message("!soru hunter solo nasıl", users(4)));
+  assert.equal(net.posts.length, 1);
+  assert.ok(net.posts[0].content.startsWith(HUNTER_ANSWER));
+  assert.match((await storage.get("last_feedback_error")).error, /403/);
+  assert.equal(await storage.get("answered_count"), 1);
+  assert.equal(await storage.get("technical_failure_count") || 0, 0);
+  assert.ok(await storage.get(`feedback:${ANSWER_ID}`), "a 👎 a player adds by hand is still reported");
+  // Switched off: no reactions, no record, no channel read.
+  net = fakeNetwork({ gemini: () => geminiText(HUNTER_ANSWER), channelMessages: [{ id: ANSWER_ID, reactions: thumbs(4) }] }); ({ bot, storage } = newBot({ FEEDBACK_REACTIONS: "off" }));
+  await bot.handleCommand(message("!soru hunter solo nasıl", users(5)));
+  await bot.checkFeedback();
+  assert.equal(net.reactions.length, 0);
+  assert.equal(await storage.get(`feedback:${ANSWER_ID}`), undefined);
+  assert.equal(net.logs.length, 0);
+  // A failed channel read is kept for /status and changes nothing else.
+  net = fakeNetwork({ channelMessages: () => { throw new Error("boom"); } }); ({ bot, storage } = newBot());
+  await bot.checkFeedback();
+  assert.ok(await storage.get("last_feedback_error"));
 });
