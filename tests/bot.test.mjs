@@ -31,8 +31,8 @@ const topicId = name => TOPICS.find(topic => topic.name === name).id;
 
 // Fake network: records Discord posts, answers member lookups, the gameplay backend and the three
 // guide forums (one post per topic, the cards as attachments of its first message).
-function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunter solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun." }), gemini = () => jsonResponse({}, 500), missingFiles = [], fileSize = 2048, archived = [], longPost = false, scanFails = false, guildRoles = [], logFails = false, search = () => jsonResponse({ results: [] }) } = {}) {
-  const posts = [], calls = [], prompts = [], logs = [], searches = [];
+function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunter solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun." }), gemini = () => jsonResponse({}, 500), missingFiles = [], fileSize = 2048, archived = [], longPost = false, scanFails = false, guildRoles = [], logFails = false, search = () => jsonResponse({ results: [] }), channelMessages = [], reactionUsers = [], reactionFails = false } = {}) {
+  const posts = [], calls = [], prompts = [], logs = [], searches = [], reactions = [];
   const threadJson = topic => ({ id: topic.id, parent_id: FORUMS[topic.category], name: topic.name, thread_metadata: { archive_timestamp: "2026-11-10T00:00:00.000Z" } });
   w.setFetch(async (input, init = {}) => {
     const url = new URL(String(input)); calls.push(`${init.method || "GET"} ${url.hostname}${url.pathname}`);
@@ -40,6 +40,11 @@ function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunte
     if (url.hostname === "discord.com") {
       const path = url.pathname.replace(/^\/api\/v\d+/, "");
       if (path.endsWith("/typing")) return new Response(null, { status: 204 });
+      // Feedback reactions: the bot's own 👍 / 👎, who marked an answer, and the channel read that looks for a 👎.
+      const reaction = path.match(/^\/channels\/\d+\/messages\/(\d+)\/reactions\/([^/]+)(\/@me)?$/);
+      if (reaction && init.method === "PUT") { if (reactionFails) return jsonResponse({ message: "Missing Permissions", code: 50013 }, 403); reactions.push({ message: reaction[1], emoji: decodeURIComponent(reaction[2]) }); return new Response(null, { status: 204 }); }
+      if (reaction) return jsonResponse(reactionUsers);
+      if (path === `/channels/${QUESTION_CHANNEL_ID}/messages` && url.searchParams.get("limit") === "100" && !url.searchParams.get("after")) return jsonResponse(typeof channelMessages === "function" ? channelMessages() : channelMessages);
       if (/\/guilds\/\d+\/members\//.test(path)) return jsonResponse({ roles });
       if (/^\/guilds\/\d+\/roles$/.test(path)) return jsonResponse(guildRoles);
       if (init.method === "POST" && path.endsWith("/messages")) {
@@ -47,7 +52,7 @@ function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunte
         // The private log channel is kept apart from the replies players see.
         if (path === `/channels/${LOG_CHANNEL}/messages`) { if (logFails) return jsonResponse({ message: "Missing Access", code: 50001 }, 403); logs.push(body); return jsonResponse({ id: String(8000 + logs.length) }); }
         posts.push({ ...body, files: form ? [...form.keys()].filter(key => key.startsWith("files[")).map(key => form.get(key).name) : [] });
-        return jsonResponse({ id: String(9000 + posts.length) });
+        return jsonResponse({ id: String(900000000000000000n + BigInt(posts.length)) });
       }
       if (scanFails && /^\/guilds\/\d+\/(?:channels|threads\/active)$/.test(path)) return jsonResponse({ message: "Internal error" }, 500);
       if (/^\/guilds\/\d+\/channels$/.test(path)) return jsonResponse([{ id: FORUMS.class, type: 15, name: "class-rehberleri" }, { id: FORUMS.dungeon, type: 15, name: "zindan-rehberleri" }, { id: FORUMS.profession, type: 15, name: "meslek-rehberleri" }, { id: "1", type: 0, name: "genel" }]);
@@ -68,13 +73,14 @@ function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunte
     if (url.hostname === "api.tavily.com") { searches.push({ ...JSON.parse(String(init.body)), authorization: init.headers?.authorization }); return search(url, init); }
     return backend(url, init);
   });
-  return { posts, calls, prompts, logs, searches };
+  return { posts, calls, prompts, logs, searches, reactions };
 }
 
 let nextId = 1000;
 function newBot(env = {}) {
   const storage = memoryStorage();
   const bot = new DiscordGateway({ storage }, { DISCORD_BOT_TOKEN: "test-token", GEMINI_API_KEY: "test-gemini", ...env });
+  bot.feedbackPauseMs = 0;
   return { bot, storage };
 }
 const message = (content, authorId = "555555555555555555") => ({ id: String(++nextId), channel_id: QUESTION_CHANNEL_ID, content, author: { id: authorId }, attachments: [] });
@@ -1514,4 +1520,86 @@ test("public health page says whether the internet search is on", async () => {
   const health = await bot.healthSummary();
   assert.equal(health.internet_aramasi, "hata");
   assert.ok(!JSON.stringify(health).includes("432") && !JSON.stringify(health).includes("tvly"), "no error text and no key on the public page");
+});
+
+// Feedback reactions. The bot's reply gets the id 900000000000000001 from the fake network.
+const ANSWER_ID = "900000000000000001", HUNTER_ANSWER = "**Hunter** solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun.";
+const thumbs = (count, me = true) => [{ count: 3, me: true, emoji: { id: null, name: "👍" } }, { count, me, emoji: { id: null, name: "👎" } }];
+
+test("feedback: every game answer gets 👍 and 👎; a 👎 from a player sends the question and the answer to the log channel once", async () => {
+  let net = fakeNetwork({ gemini: () => geminiText(HUNTER_ANSWER) }); const { bot, storage } = newBot();
+  const asked = { ...message("!soru hunter solo nasıl"), author: { id: "555555555555555555", global_name: "Ayşe" } };
+  await bot.handleCommand(asked);
+  assert.equal(net.posts.length, 1);
+  assert.deepEqual(net.reactions, [{ message: ANSWER_ID, emoji: "👍" }, { message: ANSWER_ID, emoji: "👎" }]);
+  const record = await storage.get(`feedback:${ANSWER_ID}`);
+  assert.equal(record.q, "hunter solo nasıl");
+  assert.ok(record.a.startsWith(HUNTER_ANSWER));
+  assert.equal(record.user, "Ayşe");
+  assert.equal(net.prompts.length, 1, "no extra AI call");
+  // Only the bot's own 👎 stands under the answer: nothing to report.
+  net = fakeNetwork({ channelMessages: [{ id: ANSWER_ID, author: { bot: true }, reactions: thumbs(1) }] });
+  await bot.checkFeedback();
+  assert.equal(net.logs.length, 0);
+  // Read at most once in five minutes.
+  net = fakeNetwork({ channelMessages: [{ id: ANSWER_ID, author: { bot: true }, reactions: thumbs(3) }] });
+  await bot.checkFeedback();
+  assert.equal(net.calls.length, 0);
+  // Two players marked it: one log message with who, the question, the answer and the link to the answer.
+  bot.lastFeedbackCheckAt = 0;
+  net = fakeNetwork({ channelMessages: [{ id: ANSWER_ID, author: { bot: true }, reactions: thumbs(3) }, { id: "900000000000000777", reactions: thumbs(5, false) }, { id: "900000000000000778", reactions: [{ count: 4, me: false, emoji: { id: "123", name: "👎" } }] }],
+    reactionUsers: [{ id: "1", bot: true, username: "Murloc" }, { id: "2", global_name: "Mehmet" }, { id: "3", username: "zey*nep" }] });
+  await bot.checkFeedback();
+  assert.equal(net.logs.length, 1, "an answer without a record and a custom emoji are ignored");
+  assert.equal(net.logs[0].content, `**Yanlış bulunan cevap** · 2 kişi işaretledi (Mehmet, zeynep)\nSoran: Ayşe\nSoru: hunter solo nasıl\nCevap:\n> ${record.a.split("\n").join("\n> ")}\nhttps://discord.com/channels/${bot.guildId}/${w.QUESTION_CHANNEL_ID}/${ANSWER_ID}`);
+  assert.deepEqual(net.logs[0].allowed_mentions, { parse: [] });
+  assert.equal(net.logs[0].nonce, `fb${ANSWER_ID}`.slice(0, 25));
+  assert.equal((await storage.get("feedback_stats")).reported, 1);
+  // Later reads do not report the same answer again.
+  bot.lastFeedbackCheckAt = 0;
+  net = fakeNetwork({ channelMessages: [{ id: ANSWER_ID, author: { bot: true }, reactions: thumbs(6) }] });
+  await bot.checkFeedback();
+  assert.equal(net.logs.length, 0);
+  // The polling alarm does the read; a week-old record is forgotten.
+  bot.lastFeedbackCheckAt = 0; await storage.put("initialized", true); await storage.put("last_message_id", "1");
+  net = fakeNetwork({ channelMessages: [] });
+  await bot.alarm();
+  assert.ok(net.calls.includes(`GET discord.com/api/v10/channels/${w.QUESTION_CHANNEL_ID}/messages`));
+  await storage.put(`feedback:${ANSWER_ID}`, { ...record, at: Date.now() - 8 * 86400000 });
+  bot.lastCleanupAt = 0; await bot.cleanupRecords();
+  assert.equal(await storage.get(`feedback:${ANSWER_ID}`), undefined);
+});
+
+test("feedback: no reactions on a notice, an ask-back or 'no information'; a missing permission never touches the answer; FEEDBACK_REACTIONS=off", async () => {
+  // "No verified information" is not an answer to rate.
+  let net = fakeNetwork({ backend: noResearch, gemini: () => geminiText("KARTTA_YOK") }); let { bot, storage } = newBot();
+  await bot.handleCommand(message("!soru guild nasıl kurulur", users(1)));
+  assert.equal(net.posts[0].content, NO_VERIFIED);
+  assert.equal(net.reactions.length, 0);
+  // The identity reply and the talent ask-back.
+  net = fakeNetwork(); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru sen kimsin", users(2)));
+  await bot.handleCommand(message("!soru hangi talentleri almalıyım", users(3)));
+  assert.equal(net.posts.length, 2);
+  assert.equal(net.reactions.length, 0);
+  // The bot may not add reactions in the channel: the player still gets the answer, the reason is kept for /status.
+  net = fakeNetwork({ gemini: () => geminiText(HUNTER_ANSWER), reactionFails: true }); ({ bot, storage } = newBot());
+  await bot.handleCommand(message("!soru hunter solo nasıl", users(4)));
+  assert.equal(net.posts.length, 1);
+  assert.ok(net.posts[0].content.startsWith(HUNTER_ANSWER));
+  assert.match((await storage.get("last_feedback_error")).error, /403/);
+  assert.equal(await storage.get("answered_count"), 1);
+  assert.equal(await storage.get("technical_failure_count") || 0, 0);
+  assert.ok(await storage.get(`feedback:${ANSWER_ID}`), "a 👎 a player adds by hand is still reported");
+  // Switched off: no reactions, no record, no channel read.
+  net = fakeNetwork({ gemini: () => geminiText(HUNTER_ANSWER), channelMessages: [{ id: ANSWER_ID, reactions: thumbs(4) }] }); ({ bot, storage } = newBot({ FEEDBACK_REACTIONS: "off" }));
+  await bot.handleCommand(message("!soru hunter solo nasıl", users(5)));
+  await bot.checkFeedback();
+  assert.equal(net.reactions.length, 0);
+  assert.equal(await storage.get(`feedback:${ANSWER_ID}`), undefined);
+  assert.equal(net.logs.length, 0);
+  // A failed channel read is kept for /status and changes nothing else.
+  net = fakeNetwork({ channelMessages: () => { throw new Error("boom"); } }); ({ bot, storage } = newBot());
+  await bot.checkFeedback();
+  assert.ok(await storage.get("last_feedback_error"));
 });

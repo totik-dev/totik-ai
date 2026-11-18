@@ -59,7 +59,7 @@ function buildExternalResearchQuestion(question, kind, classKey) {
   return question;
 }
 
-const VERSION = "murloc-kartlar-2026-11-17a";
+const VERSION = "murloc-kartlar-2026-11-18a";
 // Kick subscriber role of the Totik Channel server (given by the owner, 2026-11-11).
 const KICK_SUB_ROLE_ID = "1566519827965812966";
 const OWNER_ID = "194062355460653056";
@@ -67,6 +67,10 @@ const GUILD_ID = "194180508970647552";
 const QUESTION_CHANNEL_ID = "1548811398069489744";
 // The private channel where the bot notes the questions it could not answer from a card or a note (env LOG_CHANNEL_ID overrides; "off" disables).
 const LOG_CHANNEL_ID = "1571189204996722789";
+// Feedback: the bot puts 👍 and 👎 under every game answer. A 👎 from anybody sends the question and the answer to the log
+// channel, once. No AI call: two small Discord requests per answer and one channel read every five minutes.
+// Env FEEDBACK_REACTIONS=off disables it.
+const FEEDBACK_UP = "👍", FEEDBACK_DOWN = "👎", FEEDBACK_KEEP_MS = 7 * 86400000, FEEDBACK_CHECK_MS = 5 * 60000;
 const LOG_TITLES = { "cevapsız": "Cevapsız soru", "genel bilgi": "Genel bilgiden cevaplandı", "teknik hata": "Teknik hata, cevap verilemedi" };
 const GUILD_INFO_CHANNEL_ID = "1549395438820393060";
 const GUILD_APPLICATION_CHANNEL_ID = "1549852270399717399";
@@ -513,8 +517,10 @@ export class DiscordGateway extends DurableObject {
     this.memberRoleCache = new Map(); this.cardAttachmentCache = new Map(); this.cardTopics = null; this.communityCache = new Map();
     this.conversationCache = new Map(); this.floodCache = new Map(); this.pollingPromise = null; this.activeQuestion = null;
     this.discordBlockedUntil = 0; this.backendCircuit = { failures: 0, until: 0 }; this.lastCleanupAt = 0;
+    this.lastFeedbackCheckAt = 0; this.feedbackPauseMs = 350;
   }
   get logChannelId() { const value = this.env.LOG_CHANNEL_ID; return value === "off" ? "" : /^\d{15,22}$/.test(value || "") ? value : LOG_CHANNEL_ID; }
+  get feedbackOn() { return this.env.FEEDBACK_REACTIONS !== "off"; }
   get guildId() { return /^\d{15,22}$/.test(this.env.DISCORD_GUILD_ID || "") ? this.env.DISCORD_GUILD_ID : GUILD_ID; }
   async fetch(request) {
     // DO has no public route: the outer Worker authenticates management requests.
@@ -528,7 +534,7 @@ export class DiscordGateway extends DurableObject {
     if (path === "/watchdog") return json(await this.watchdog());
     if (path === "/health") return json(await this.healthSummary());
     if (path === "/status") {
-      const keys = ["initialized", "polling_enabled", "last_message_id", "last_error", "last_poll_error", "last_poll_at", "content_missing_at", "watchdog_restart_at", "last_trace", "last_warning", "answered_count", "uncovered_questions", "last_log_error", "last_search_error", "search_stats"];
+      const keys = ["initialized", "polling_enabled", "last_message_id", "last_error", "last_poll_error", "last_poll_at", "content_missing_at", "watchdog_restart_at", "last_trace", "last_warning", "answered_count", "uncovered_questions", "last_log_error", "last_search_error", "search_stats", "last_feedback_error", "feedback_stats"];
       const values = await Promise.all(keys.map(k => this.ctx.storage.get(k)));
       return json({ version: VERSION, guildId: this.guildId, questionChannelId: QUESTION_CHANNEL_ID, lastPollAt: this.lastPollAt || null,
         nextAlarm: await this.ctx.storage.getAlarm(), ...Object.fromEntries(keys.map((k, i) => [k, values[i] ?? null])) });
@@ -542,6 +548,7 @@ export class DiscordGateway extends DurableObject {
       await this.ensureInitialized(); const result = await this.pollOnce(); delay = result?.busy ? 10000 : 30000;
       await this.ctx.storage.put("last_poll_at", Date.now()); await this.ctx.storage.delete("last_poll_error"); await this.cleanupRecords();
       // Keep the list of card topics warm so the first question does not pay for the forum scan.
+      if (!result?.busy) await this.checkFeedback();
       if (!result?.busy) { try { await this.cardTopicMap(); } catch (error) { if (error instanceof DeferredError) throw error; console.log(JSON.stringify({ event: "card_topics_failed", error: safeError(error) })); } }
     }
     catch (error) {
@@ -636,6 +643,10 @@ export class DiscordGateway extends DurableObject {
       if (stale.length) await this.ctx.storage.delete(stale);
       if (entries.size === 128) await this.ctx.storage.put(cursorKey, [...entries.keys()].pop()); else await this.ctx.storage.delete(cursorKey);
     }
+    // Feedback records: an answer older than a week is no longer watched for a 👎.
+    const answers = await this.ctx.storage.list({ prefix: "feedback:", limit: 128 }), oldAnswers = [];
+    for (const [key, value] of answers) if (Date.now() - Number(value?.at || 0) > FEEDBACK_KEEP_MS) oldAnswers.push(key);
+    if (oldAnswers.length) await this.ctx.storage.delete(oldAnswers);
     // Search memory: a name nobody searched for 30 days is forgotten.
     const cursorKey = "cleanup_cursor:search:", startAfter = await this.ctx.storage.get(cursorKey);
     const entries = await this.ctx.storage.list({ prefix: "search:", limit: 128, ...(startAfter ? { startAfter } : {}) }), stale = [];
@@ -758,6 +769,7 @@ export class DiscordGateway extends DurableObject {
         return;
       }
       await this.finishSuccessfulAnswer({ ...result.trace, messageId: message.id, classKey, tier: tier.reason, elapsedMs: Date.now() - this.activeQuestion.startedAt });
+      await this.offerFeedback(message, explicit);
     } catch (error) {
       if (error instanceof DeferredError || error.deliveryUncertain || error.deliveryFailure) throw error;
       const delivered = await this.ctx.storage.get(`delivery:${message.id}:0`);
@@ -1128,6 +1140,58 @@ export class DiscordGateway extends DurableObject {
   // "how" says what the player got: "cevapsız" (no answer), "araştırma" (research service), "internet araması" (search results) or "genel bilgi" (the model's Classic knowledge).
   // What goes to the log channel once the player has the reply: unanswered questions, answers from general knowledge, technical failures.
   noteForLog(question, how, answer = "", note = "") { if (this.activeQuestion) (this.activeQuestion.log ||= []).push({ q: cleanText(question, 300), how, answer: cleanText(answer, 700), note: cleanText(note, 200) }); }
+  // 👍 and 👎 under the answer the player just got. The answer is remembered for a week so that a 👎 can be reported with it.
+  // Never touches the answer itself: a missing permission is stored as last_feedback_error and nothing else happens.
+  async offerFeedback(message, question) {
+    const sent = this.activeQuestion?.sent;
+    if (!this.feedbackOn || !/^\d{15,22}$/.test(sent?.id || "")) return;
+    try {
+      const user = cleanText(message.author?.global_name || message.author?.username || "bilinmiyor", 60).replace(/[`*_~|>@#]/g, "");
+      await this.ctx.storage.put(`feedback:${sent.id}`, { at: Date.now(), q: cleanText(question, 300), a: cleanText(sent.text, 700), user });
+      for (const emoji of [FEEDBACK_UP, FEEDBACK_DOWN]) {
+        await this.discordRequest(`/channels/${QUESTION_CHANNEL_ID}/messages/${sent.id}/reactions/${encodeURIComponent(emoji)}/@me`, { method: "PUT" });
+        // Discord accepts one reaction every quarter of a second.
+        if (emoji === FEEDBACK_UP && this.feedbackPauseMs) await sleep(this.feedbackPauseMs);
+      }
+      await this.ctx.storage.delete("last_feedback_error");
+    } catch (error) {
+      try { await this.ctx.storage.put("last_feedback_error", { at: new Date().toISOString(), error: safeError(error) }); } catch { /* Best effort. */ }
+      console.log(JSON.stringify({ event: "feedback_reaction_failed", error: safeError(error) }));
+    }
+  }
+  // Every five minutes: the last 100 messages of the question channel are read once. An answer of the bot that somebody
+  // marked with 👎 is posted to the log channel with its question, one time.
+  async checkFeedback() {
+    const channel = this.logChannelId;
+    if (!this.feedbackOn || !channel || Date.now() - this.lastFeedbackCheckAt < FEEDBACK_CHECK_MS) return;
+    this.lastFeedbackCheckAt = Date.now();
+    try {
+      const messages = await this.discordRequest(`/channels/${QUESTION_CHANNEL_ID}/messages?limit=100`);
+      for (const answer of Array.isArray(messages) ? messages : []) {
+        const down = (answer.reactions || []).find(reaction => reaction?.emoji?.name === FEEDBACK_DOWN && !reaction.emoji.id), votes = down ? Number(down.count || 0) - (down.me ? 1 : 0) : 0;
+        if (votes < 1) continue;
+        const key = `feedback:${answer.id}`, record = await this.ctx.storage.get(key);
+        if (!record || record.reported) continue;
+        // Who marked it: one more request, only for an answer that is reported.
+        let names = [];
+        try {
+          const users = await this.discordRequest(`/channels/${QUESTION_CHANNEL_ID}/messages/${answer.id}/reactions/${encodeURIComponent(FEEDBACK_DOWN)}?limit=10`);
+          names = (Array.isArray(users) ? users : []).filter(user => !user?.bot).map(user => cleanText(user.global_name || user.username || "", 40).replace(/[`*_~|>@#]/g, "")).filter(Boolean).slice(0, 5);
+        } catch (error) { if (error instanceof DeferredError) throw error; }
+        const quote = text => text.split("\n").map(line => `> ${line}`).join("\n");
+        const content = `**Yanlış bulunan cevap** · ${votes} kişi işaretledi${names.length ? ` (${names.join(", ")})` : ""}\nSoran: ${record.user || "bilinmiyor"}\nSoru: ${record.q}\nCevap:\n${quote(String(record.a || ""))}`.slice(0, 1800);
+        await this.discordRequest(`/channels/${channel}/messages`, { method: "POST", body: { content: `${content}\nhttps://discord.com/channels/${this.guildId}/${QUESTION_CHANNEL_ID}/${answer.id}`, nonce: `fb${answer.id}`.slice(0, 25), enforce_nonce: true, flags: 4, allowed_mentions: { parse: [] } } });
+        await this.ctx.storage.put(key, { ...record, reported: Date.now(), votes });
+        const stats = await this.ctx.storage.get("feedback_stats") || { since: new Date().toISOString(), reported: 0 };
+        stats.reported = Number(stats.reported || 0) + 1; await this.ctx.storage.put("feedback_stats", stats);
+      }
+      await this.ctx.storage.delete("last_feedback_error");
+    } catch (error) {
+      if (error instanceof DeferredError) throw error;
+      try { await this.ctx.storage.put("last_feedback_error", { at: new Date().toISOString(), error: safeError(error) }); } catch { /* Best effort. */ }
+      console.log(JSON.stringify({ event: "feedback_check_failed", error: safeError(error) }));
+    }
+  }
   // One message per question in the private log channel. No AI call; a failure here never touches the player's answer.
   async flushQuestionLog(message) {
     const entries = this.activeQuestion?.log || [], channel = this.logChannelId;
@@ -1406,6 +1470,8 @@ Soru verisi: ${JSON.stringify(question)}`, await this.downloadImage(image, 8 * 1
       try {
         const response = files.length ? await this.discordMultipartRequest(`/channels/${QUESTION_CHANNEL_ID}/messages`, payload, files) : await this.discordRequest(`/channels/${QUESTION_CHANNEL_ID}/messages`, { method: "POST", body: payload });
         await this.ctx.storage.put(key, { status: "sent", at: Date.now(), discordMessageId: response?.id || null });
+        // The first message of the answer is the one players react to.
+        if (i === 0 && active && String(active.id) === String(message.id)) active.sent = { id: response?.id ? String(response.id) : "", text: safe };
       } catch (error) {
         if (error.status >= 400 && error.status < 500 || error instanceof DeferredError) await this.ctx.storage.delete(key);
         error.deliveryFailure = true;
