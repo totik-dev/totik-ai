@@ -851,5 +851,18 @@ export const REVIEWED = [
   ["40 level nerede kasılır", "none"], ["hunter 25 level grind yeri", "none"], ["warrior için farm spotu öner", "none"], ["gold farm nerede yapılır", "none"],
   ["rogue hangi mobları farmlamalı", "none"], ["warlock farm yeri 45 level", "none"], ["frost mage aoe farm spotları", "none"], ["horde 28 mage aoe farm yerleri", "none"],
   ["frost mage aoe farm talentleri", "~mage-"], ["mage aoe rotasyonu", "=mage-07-oynanis"], ["mining nerede kasılır", "~mining-"], ["skinning 150 nerede kasılır", "=skin-150-225"],
-  ["paladin aoe farm yapabilir mi", "=paladin-07-oynanis"]
+  ["paladin aoe farm yapabilir mi", "=paladin-07-oynanis"],
+  // 2026-11-19: answers players marked 👎 in the question channel (log channel "Yanlış bulunan cevap")
+  ["leveling speedrun addon'u var mı", "note=eklentiler"], ["restedxp addonu forever'da çalışıyor mu", "note=eklentiler"], ["leveling rota eklentisi öner", "note=eklentiler"],
+  ["guidelime var mı", "note=eklentiler"], ["zygor forever destekliyor mu", "note=eklentiler"],
+  ["25 level tank paladinim legacy talent puanlarını neye göre vereceğim", "note=legacy"], ["legacy puanlarımı nereye harcamalıyım", "note=legacy"],
+  ["warrior legacy talent önerisi", "note=legacy"], ["legacy ağacında ne alayım", "note=legacy"],
+  ["secondary talent ağacı açmanın fiyatı nedir", "note=dual-spec"], ["dual spec kaç gold", "note=dual-spec"], ["ikinci talent kaç para", "note=dual-spec"],
+  ["secondary spec nasıl açılır", "note=dual-spec"], ["dual spec ücreti ne kadar", "note=dual-spec"],
+  ["warlock oynuyorum meslek olarak herbalist ve tailoring aldim ama herbaalistti degistirip enchanting yaapmaak istiyorum mumkun mu", "note=meslek-degistirme"],
+  ["mesleğimi nasıl değiştiririm", "note=meslek-degistirme"], ["mining mesleğini bırakıp skinning alabilir miyim", "note=meslek-degistirme"],
+  ["meslek nasıl silinir", "note=meslek-degistirme"], ["profession unlearn nasıl yapılır", "note=meslek-degistirme"],
+  ["pve içeriğinde dungeonlarda aranan s tier olan , pvpdede A-S arası olan neler var", "note=tier-list"], ["tier list nedir", "note=tier-list"],
+  ["pvp tier list", "note=tier-list"], ["şu anki meta ne", "note=tier-list"], ["dungeon için s tier classlar", "note=tier-list"],
+  ["para nasıl en hızlı kazanabilirim? 40 seviyeyim mesleklerim herbalism ve alchemy", "none"], ["herbalism ile para kazanılır mı", "none"], ["40 level gold nasıl kasarım", "none"]
 ];
