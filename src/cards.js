@@ -887,9 +887,19 @@ export function searchCards(question, { classKey = null } = {}) {
 }
 
 // options: { classHint, specHint, talentAdvice }
+// "s tier class hangisi", "pvp meta": a tier list question. No card ranks the classes; the tier note answers it,
+// so a dungeon or profession word in it ("dungeonlarda aranan s tier") must not pick a dungeon list.
+const TIER_WORD = /(?:^| )(?:tier\w*|tierlist\w*|meta|metasi|metada|metaya|metadaki)(?= |$)|(?:^| )[sabc] ?(?:-|ile|ve) ?[sabc](?= |$)/;
+export function isTierQuestion(question) { return TIER_WORD.test(questionText(question)); }
+// "para nasıl en hızlı kazanılır", "gold farm": how to make money. The cards and notes do not answer it; a profession
+// named in it ("mesleklerim herbalism ve alchemy") is the player's situation, not a request for the profession card.
+const MONEY_WORD = /(?:^| )(?:para|gold|altin|g)\w* (?:\w+ ){0,3}(?:kazan|kas|biriktir|yap|bas|kasil|farmla)\w*|(?:^| )(?:gold|altin|para) ?farm\w*|(?:^| )(?:zengin ol|para kazandir|gold kazandir|para getir)\w*/;
+export function isMoneyQuestion(question) { return MONEY_WORD.test(questionText(question)); }
 export function selectCards(question, options = {}) {
   const q = questionText(question); if (!q) return null;
   const named = detectClass(q), classKey = named || options.classHint || null, faction = detectFaction(q);
+  // "para kazanmak için hangi meslek" is still a profession choice.
+  if (isMoneyQuestion(q) && !/(?:^| )hangi (?:meslek|profession)\w*|(?:^| )meslek\w* (?:sec|oner|tavsiye)\w*/.test(q) || !named && isTierQuestion(q)) return null;
   // A class found only through an ability name ("elixir of the mongoose") does not outrank a profession word.
   const classes = detectClasses(q), professions = detectProfessions(q, { allowWeak: !classes.length });
   if (professions.length) return selectProfession(q, professions, faction);

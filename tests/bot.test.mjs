@@ -356,7 +356,7 @@ test("a profession question gets a short answer from the card text, the card ima
   assert.equal(net.posts.length, 1);
   const post = net.posts[0];
   assert.match(post.content, /^Seviye değil Fishing skill'i belirleyici\./);
-  assert.equal(post.content.split("\n\n").at(-1), `📌 Bu konuda detaylı bilgi için <#${topicId("Fishing")}> konusuna bakabilirsin.`);
+  assert.equal(post.content.split("\n\n").at(-1), `📌 Bu konuda detaylı bilgi için **Fishing** rehberindeki <#${topicId("Fishing")}> konusuna bakabilirsin.`);
   assert.deepEqual(post.files, ["fish-1-75.png", "fish-genel.png"], "the cards are attached to the answer");
   assert.equal(net.prompts.length, 1, "one AI call");
   assert.match(net.prompts[0], /Brightwater Lake/, "the model answers from the full card text");
@@ -1602,4 +1602,20 @@ test("feedback: no reactions on a notice, an ask-back or 'no information'; a mis
   net = fakeNetwork({ channelMessages: () => { throw new Error("boom"); } }); ({ bot, storage } = newBot());
   await bot.checkFeedback();
   assert.ok(await storage.get("last_feedback_error"));
+});
+
+test("2026-11-19: a last piece that asks nothing is the player's situation, not a second question", () => {
+  assert.deepEqual(Array.from(w.splitQuestionParts("para nasıl en hızlı kazanabilirim? 40 seviyeyim mesleklerim herbalism ve alchemy")), ["para nasıl en hızlı kazanabilirim? 40 seviyeyim mesleklerim herbalism ve alchemy"]);
+  assert.equal(w.splitQuestionParts("deadmines kaç level? fishing nerede kasılır?").length, 2);
+  assert.equal(w.splitQuestionParts("deadmines kaç level? fishing nerede kasılır").length, 2);
+});
+
+test("2026-11-19: 'priest rehberi nerede' gets the guide topic by name and link, without using the cooldown", async () => {
+  const net = fakeNetwork({ gemini: () => { throw new Error("no AI call expected"); } }); const { bot } = newBot();
+  await bot.handleCommand(message("!soru priest rehberi nerede"));
+  assert.equal(net.posts.length, 1);
+  assert.match(net.posts[0].content, new RegExp(`\\*\\*Priest\\*\\* rehberi burada: <#${topicId("Priest")}>`));
+  assert.ok(!/eğitmen|trainer/i.test(net.posts[0].content), "not the trainer location");
+  await bot.handleCommand(message("!soru deadmines rehberi var mı", "666666666666666666"));
+  assert.match(net.posts.at(-1).content, new RegExp(`\\*\\*Deadmines \\(DM\\)\\*\\* rehberi burada: <#${topicId("Lv 19 · Deadmines (DM)")}>`));
 });

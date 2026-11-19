@@ -243,13 +243,21 @@
     "legacy",
     "mirasi",
     "miras puan",
-    "legacy challenge"
+    "legacy challenge",
+    "legacy+talent",
+    "legacy+puan",
+    "legacy+point",
+    "legacy+agac",
+    "legacy+ver",
+    "legacy+harca"
    ],
    "satirlar": [
     "Legacy, Forever'ın hesap geneli ilerleme sistemidir. Puanlar hesapta bir kez kazanılır, her karakter bu puanları ayrı ayrı harcar.",
     "Puanlar Legacy Challenge'lardan gelir: altı kategoride 65 challenge vardır ve her biri 1 puan verir. Her sınıfla 25., 45. ve 60. seviyeye ulaşmak ayrı ayrı challenge'dır.",
     "Bir challenge hesap başına bir kez tamamlanır; ikinci karakter aynı challenge'dan yeniden puan almaz.",
     "Puanlar üç ağaca harcanır: Professions, Adventure ve Resourcefulness. Bir karakter en fazla 16 puan harcayabilir.",
+    "Legacy puanları sınıf talentlerine (ör. Protection ya da Retribution ağacına) harcanmaz; sınıf talentleri ayrıdır ve seviye atladıkça gelir. Legacy puanları yalnız Professions, Adventure ve Resourcefulness ağaçlarına gider.",
+    "Leveling için rehberlerin ortak önerisi Adventure ağacıdır: ilk karakterde Thrill of Adventure, alt karakterlerde Well Rested ve Talented öne çıkar. Meslek kasan oyuncu Professions ağacına (Working Overtime, Bountiful Harvest) puan verir. Tank, DPS ya da healer olmak bu seçimi değiştirmez.",
     "Kazanılan toplam puan (harcanan değil) 15, 25, 40 ve 55 puanda kozmetik ödüller açar.",
     "Legacy puanları ve koleksiyonlar Normal, PvP ve Roleplaying kuralları arasında ortaktır.",
     "65 challenge'ın dağılımı: sınıflar 27, meslekler 18, PvP 12, zindanlar 3, raidler 3, macera 2. Meslek challenge'ları 150, 225 ve 300 skill'de tamamlanır.",
@@ -289,7 +297,7 @@
   {
    "id": "dual-spec",
    "baslik": "Talent sistemi, talent sıfırlama ve Dual Specialization",
-   "ozet": "Talent puanları 10. seviyede başlar; Dual Specialization 40. seviyede sınıf eğitmeninden alınır.",
+   "ozet": "Talent puanları 10. seviyede başlar; Dual Specialization 40. seviyede sınıf eğitmeninden 50 gold'a alınır.",
    "anahtar": [
     "dual spec",
     "dual talent",
@@ -307,10 +315,18 @@
     "talent+kacinci",
     "talent+ne zaman",
     "talent+kac puan",
-    "kac talent"
+    "kac talent",
+    "secondary+talent",
+    "secondary+spec",
+    "ikinci+talent",
+    "dual+spec",
+    "dual+talent",
+    "dual+fiyat",
+    "dual+ucret",
+    "dual+kac"
    ],
    "satirlar": [
-    "Dual Specialization (ikinci talent dizilimi) 40. seviyede açılır ve sınıf eğitmeninden alınır.",
+    "Dual Specialization (ikinci talent dizilimi) 40. seviyede açılır ve sınıf eğitmeninden 50 gold'a alınır.",
     "Talentleri (Legacy talentleri dahil) değiştirmek için büyük şehirlerden birindeki sınıf eğitmenine gitmek gerekir.",
     "Talent puanları 10. seviyede başlar; her seviyede 1 puan gelir ve 60. seviyede toplam 51 puan olur.",
     "Her talent ağacında 11, 16, 21 ve 31 puanda dönüm noktası talentleri vardır; 16 puandaki basamak Forever'la geldi.",
@@ -808,11 +824,23 @@
     "deadly boss",
     "bigwigs",
     "weakaura",
-    "auctionator"
+    "auctionator",
+    "speedrun",
+    "restedxp",
+    "rested xp",
+    "zygor",
+    "guidelime",
+    "leveling+addon",
+    "leveling+eklenti",
+    "rota+addon",
+    "rota+eklenti",
+    "rehber+addon",
+    "rehber+eklenti"
    ],
    "satirlar": [
     "Forever'da eklenti (addon) kullanmak serbesttir. Classic Era eklentileri doğrudan çalışmaz; eklentinin Forever için yayınlanmış sürümü gerekir.",
     "Questie, Deadly Boss Mods, BigWigs ve Auctionator'ın Forever sürümleri vardır.",
+    "Leveling rota (speedrun) eklentileri: RestedXP ve Guidelime'ın Forever desteği vardır. RestedXP eklentisi ücretsizdir, Forever rotaları ücretli satılır; Guidelime ücretsizdir ve topluluk rotalarıyla çalışır. Questie rota vermez, görevleri haritada işaretler; çoğu oyuncu rota eklentisini Questie ile birlikte kullanır.",
     "Savaş sırasındaki canlı verilerle hesap yapan eklentiler kısıtlıdır. Karakteri senin yerine oynatan ya da hareket ettiren otomasyon yasaktır.",
     "Oyunun kendi Damage Meter'ı, Edit Mode'u ve Cooldown Manager'ı vardır; bunlar için eklenti gerekmez."
    ]
@@ -920,6 +948,48 @@
     "Call to Arms haftalarında seçili battleground bonus Honor verir.",
     "Darkmoon Faire ayda bir kez, bir hafta açılır; yeri sırayla Elwynn Forest ve Mulgore'dur.",
     "Açık ve yaklaşan etkinliklerin tarihleri oyun içi takvimde görünür."
+   ]
+  },
+  {
+   "id": "meslek-degistirme",
+   "baslik": "Mesleği bırakmak ve değiştirmek",
+   "anahtar": [
+    "unlearn",
+    "meslek+degis",
+    "meslek+birak",
+    "meslek+unut",
+    "meslek+sifirla",
+    "mesleg+degis",
+    "mesleg+birak",
+    "mesleg+unut",
+    "meslek+yerine",
+    "mesleg+yerine",
+    "meslek+sili",
+    "meslek+silme",
+    "mesleg+sili",
+    "mesleg+silme"
+   ],
+   "satirlar": [
+    "Evet, bir ana mesleği bırakıp yerine başka bir meslek alabilirsin. En fazla iki ana meslek olur; Cooking, Fishing ve First Aid bunlara ek olarak alınır.",
+    "Bırakmak için meslek (beceri) penceresinde mesleği seç ve Unlearn (Unut) seçeneğini kullan. Sonra yeni mesleği şehirdeki eğitmeninden öğren.",
+    "Bırakılan mesleğin skill'i ve öğrenilmiş tarifleri silinir; aynı mesleği sonradan tekrar alırsan 1. skill'den başlarsın.",
+    "Toplama mesleği (Herbalism, Mining, Skinning) bırakmak en az kayıptır: tarifi yoktur ve sonradan hızlı kasılır."
+   ]
+  },
+  {
+   "id": "tier-list",
+   "baslik": "Sınıf ve uzmanlık tier list'leri",
+   "anahtar": [
+    "tier",
+    "tierlist",
+    "meta"
+   ],
+   "satirlar": [
+    "WoW Forever için resmi bir tier list yoktur; rehber sitelerinin listeleri birbirinden farklıdır ve sık güncellenir.",
+    "PvE'de listelerin çoğunda Mage ve Paladin en üstte görünür; DPS'te Arcane Mage sık sık S tier'dadır.",
+    "Tank olarak listelerde en çok Protection Warrior ve Feral (ayı) Druid öne çıkar; healer olarak Holy Priest, Restoration Druid ve Restoration Shaman.",
+    "PvP listelerinde Feral Druid, Arcane Mage ve Rogue (Subtlety ve Combat) üst sıralardadır. PvP'de kontrol (CC), hareket kabiliyeti ve ani hasar, toplam hasardan daha önemlidir.",
+    "Listeler arasındaki fark küçüktür: hangi sınıfı rahat oynuyorsan onunla her içeriğe girilebilir."
    ]
   }
  ]

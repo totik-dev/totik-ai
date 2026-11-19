@@ -1,6 +1,6 @@
 // Totik Murloc — Discord soru botu. Bilgi tabanı: forumlardaki rehber kartları (src/cards-data.js).
 import { DurableObject } from "cloudflare:workers";
-import { CARDS, CARD_TOPICS, CLASS_NAMES, SPEC_NAMES, PROFESSION_NAMES, classSpecs, specRole, selectCards, buildCardContext, localCardAnswer, isGearQuestion, gearRule, foreverHint, classRaceLine, foreverRules, foreverContradictions, stripForeverContradictions, foreverNotes, allForeverNotes, foreverNoteText, localNoteAnswer, isForeverNoteSubject, notesCoverQuestion, isComparisonQuestion, unsupportedNumbers, findCardAttachment, threadKey, detectClass, detectFaction, normalizeText as normalizeCardText } from "./cards.js";
+import { CARDS, CARD_TOPICS, CLASS_NAMES, SPEC_NAMES, PROFESSION_NAMES, classSpecs, specRole, selectCards, buildCardContext, localCardAnswer, isGearQuestion, gearRule, foreverHint, classRaceLine, foreverRules, foreverContradictions, stripForeverContradictions, foreverNotes, allForeverNotes, foreverNoteText, localNoteAnswer, isForeverNoteSubject, notesCoverQuestion, isComparisonQuestion, isTierQuestion, isMoneyQuestion, detectProfession, unsupportedNumbers, findCardAttachment, threadKey, detectClass, detectFaction, normalizeText as normalizeCardText } from "./cards.js";
 
 function normalizeGuideText(value) {
   return String(value || "")
@@ -59,7 +59,7 @@ function buildExternalResearchQuestion(question, kind, classKey) {
   return question;
 }
 
-const VERSION = "murloc-kartlar-2026-11-18a";
+const VERSION = "murloc-kartlar-2026-11-19a";
 // Kick subscriber role of the Totik Channel server (given by the owner, 2026-11-11).
 const KICK_SUB_ROLE_ID = "1566519827965812966";
 const OWNER_ID = "194062355460653056";
@@ -221,6 +221,10 @@ function splitQuestionParts(text) {
     }
     push(rest);
   }
+  // "para nasıl kazanırım? 40 seviyeyim mesleklerim herbalism ve alchemy": a last piece without a question mark that asks
+  // nothing is the player's situation, not a second question. It goes with the question before it.
+  const last = parts.at(-1), tail = normalizeGuideText(last);
+  if (parts.length > 1 && !/\?\s*$/.test(String(text || "")) && !QUESTION_WORD.test(tail) && !/(?:^| )(?:nere\w*|nerde\w*|nerden|kim\w*|niye|ne zaman)(?= |$)/.test(tail)) parts.splice(-2, 2, `${parts.at(-2)}? ${last}`);
   return parts.length ? parts : [String(text || "").trim()];
 }
 function isOverlyBroadQuestion(text, parts = splitQuestionParts(text)) {
@@ -295,6 +299,12 @@ function isExternalSourceRecommendationQuestion(question) {
   if (/totik/.test(q) && !/baska|alternatif|dis kaynak/.test(q)) return false;
   return /kaynak|youtube|youtuber|video|web sitesi|wiki|podcast|yayinci|streamer|icerik uretici|(?:hangi|baska|bir) kanal/.test(q)
     && /oner|tavsiye|soyle|listele|bul|nereden|hangisi|kimden|takip|izleyeyim|dinleyeyim|okuyayim/.test(q);
+}
+// "priest rehberi nerede", "deadmines rehberi var mı": where the guide is, not what it says. Answered with the forum topic link.
+function isGuideLocationQuestion(question) {
+  const q = normalizeGuideText(question);
+  return /(?:^| )(?:rehber\w*|guide\w*)(?= |$)/.test(q) && /(?:^| )(?:nerede\w*|nerde\w*|nereden|nerden|nereye|var mi|varmi|yok mu|link\w*|bulabil\w*|bulamiyorum|bulamadim|hangi kanal\w*|hangi forum\w*|bakabil\w*|bakayim)(?= |$)/.test(q)
+    && !/(?:^| )(?:youtube|video|site\w*|wiki|baska|disari)(?= |$)/.test(q);
 }
 const TALENT_CHANNEL_ID = "1569040165048160378";
 const TALENT_ADVICE_MESSAGE = `Hangi sınıf ve uzmanlık için soruyorsun? Örneğin \`!soru warrior arms talent sırası\` yazarsan o uzmanlığın talent sırası kartını göndereyim. Bütün talent rehberleri <#${TALENT_CHANNEL_ID}> kanalında.`;
@@ -706,12 +716,13 @@ export class DiscordGateway extends DurableObject {
     const explicit = current || cleanText(reference?.content, 1800) || "Bu WoW ekran görüntüsündeki sorunu açıkla.", previous = this.conversation(userId);
     const community = communityIntent(explicit, previous?.topic);
     const local = isBotInternalQuestion(explicit) ? PRIVATE_BOT_MESSAGE : isIdentityQuestion(explicit) ? IDENTITY_MESSAGE : community ? await this.communityAnswer(explicit, community)
+      : isGuideLocationQuestion(explicit) ? await this.guideLocationAnswer(explicit)
       : isOverlyBroadQuestion(explicit) ? OVERLY_BROAD_MESSAGE
       : isExternalSourceRecommendationQuestion(explicit) ? SOURCE_POLICY_MESSAGE : isPersonalOrCreatorAdviceQuestion(explicit) ? PERSONAL_QUESTION_MESSAGE
       : isClearlyOutOfScope(explicit) ? "WoW ve Totik Channel topluluğuyla ilgili sorularda yardımcı oluyorum. Oyun içi sorunu yazabilir misin?" : "";
     if (local) {
       if (community) this.remember(this.conversationCache, userId, { at: now, topic: community });
-      await this.reply(message, local, { allowIdentity: local === IDENTITY_MESSAGE }); return this.finishSuccessfulAnswer({ messageId: message.id, route: community ? `local_${community}` : "local_policy", imageSent: false });
+      await this.reply(message, local, { allowIdentity: local === IDENTITY_MESSAGE }); return this.finishSuccessfulAnswer({ messageId: message.id, route: community ? `local_${community}` : isGuideLocationQuestion(explicit) ? "local_guide_link" : "local_policy", imageSent: false });
     }
     const parts = reference?.content && current ? [explicit] : splitQuestionParts(explicit);
     let question = reference?.content && current ? `Alıntı (yalnızca bağlam): ${cleanText(reference.content, 1200)}\nEk soru: ${current}` : explicit;
@@ -737,7 +748,7 @@ export class DiscordGateway extends DurableObject {
     }
     this.activeQuestion = { id: String(message.id), deadline: Date.now() + 50000, calls: 0, warnings: [], startedAt: Date.now() };
     this.activeQuestion.talentFooter = isTalentQuestion(explicit) || isTalentQuestion(reference?.content) || talentAdvice;
-    this.activeQuestion.dungeonFooter = isDungeonQuestion(explicit) || isDungeonQuestion(reference?.content);
+    this.activeQuestion.dungeonFooter = (isDungeonQuestion(explicit) || isDungeonQuestion(reference?.content)) && !isTierQuestion(explicit);
     let completed = false;
     try {
       await this.safeTyping(QUESTION_CHANNEL_ID);
@@ -903,24 +914,36 @@ export class DiscordGateway extends DurableObject {
     }
     return media;
   }
+  // "Priest rehberi nerede": the forum topic of the class, profession or dungeon, by name and link.
+  // Nothing named: the three guide forums. The bold name stays readable when Discord shows an unloaded topic as "bilinmeyen".
+  async guideLocationAnswer(question) {
+    let map = null; try { map = await this.cardTopicMap(); } catch (error) { if (error instanceof DeferredError) throw error; }
+    const classKey = detectClass(question), profession = classKey ? null : detectProfession(question, { allowWeak: true });
+    const dungeon = classKey || profession ? null : selectCards(question, { search: false });
+    const topic = classKey ? CARD_TOPICS.find(t => t.category === "class" && t.thread === CLASS_NAMES[classKey])
+      : profession ? CARD_TOPICS.find(t => t.category === "profession" && t.thread === PROFESSION_NAMES[profession])
+      : dungeon?.category === "dungeon" && !dungeon.general && dungeon.cards.length === 1 ? CARD_TOPICS.find(t => t.thread === dungeon.cards[0].thread) : null;
+    const forumLink = category => map?.forums?.[category] ? `<#${map.forums[category]}>` : `**${FORUM_LABEL[category]}**`;
+    if (!topic) return `Rehberler sunucunun rehber forumlarında: sınıflar ${forumLink("class")}, meslekler ${forumLink("profession")}, zindanlar ${forumLink("dungeon")}. Talent sıraları <#${TALENT_CHANNEL_ID}> kanalında.`;
+    const id = map?.topics?.[`${topic.forum}\n${topic.thread}`]?.[0]?.id, name = topic.thread.replace(/^Lv \d+ · /, "");
+    const where = id ? `**${name}** rehberi burada: <#${id}>` : `**${name}** rehberi ${forumLink(topic.category)} forumundaki **${topic.thread}** konusunda.`;
+    return `${where}${topic.category === "class" ? `\nTalent sıraları <#${TALENT_CHANNEL_ID}> kanalında.` : ""}`;
+  }
   // "Bu konuda detaylı bilgi için <konu> konusuna bakabilirsin." The forum post when it is known,
   // otherwise the channel that holds it.
   async cardFooter(selection, media = []) {
     let map = null; try { map = await this.cardTopicMap(); } catch (error) { if (error instanceof DeferredError) throw error; }
-    const ids = [];
-    for (const card of selection.cards.slice(0, 2)) {
-      const id = media.find(m => m.card.id === card.id)?.threadId || map?.topics[`${card.forum}\n${card.thread}`]?.[0]?.id;
-      if (id && !ids.includes(id)) ids.push(id);
-    }
+    const ids = [], names = [];
+    // Discord shows a forum topic it has not loaded yet as "bilinmeyen": the topic name is written next to the link.
+    const add = (id, thread) => { if (id && !ids.includes(id)) { ids.push(id); names.push(String(thread || "").replace(/^Lv \d+ · /, "")); } };
+    for (const card of selection.cards.slice(0, 2)) add(media.find(m => m.card.id === card.id)?.threadId || map?.topics[`${card.forum}\n${card.thread}`]?.[0]?.id, card.thread);
     // An answer without a card (class overview, comparison) still links the topic it is about.
-    if (!ids.length) for (const topic of selection.topics || (selection.thread && selection.forum ? [{ forum: selection.forum, thread: selection.thread }] : [])) {
-      const id = map?.topics[`${topic.forum}\n${topic.thread}`]?.[0]?.id; if (id && !ids.includes(id)) ids.push(id);
-    }
+    if (!ids.length) for (const topic of selection.topics || (selection.thread && selection.forum ? [{ forum: selection.forum, thread: selection.thread }] : [])) add(map?.topics[`${topic.forum}\n${topic.thread}`]?.[0]?.id, topic.thread);
     const forumId = map?.forums?.[selection.category], thread = selection.thread || selection.cards[0]?.thread || "";
     let where;
     // A general question ("hangi zindana gideyim") points to the whole forum, not to one topic.
     if (selection.general) where = selection.category === "dungeon" || forumId ? `<#${forumId || DUNGEON_CHANNEL_ID}> kanalına` : `${FORUM_LABEL[selection.category]} forumuna`;
-    else if (ids.length) where = ids.length > 1 ? `${ids.map(id => `<#${id}>`).join(" ve ")} konularına` : `<#${ids[0]}> konusuna`;
+    else if (ids.length) where = `${names.filter(Boolean).map(name => `**${name}**`).join(" ve ")}${names.some(Boolean) ? (ids.length > 1 ? " rehberlerindeki " : " rehberindeki ") : ""}${ids.map(id => `<#${id}>`).join(" ve ")} ${ids.length > 1 ? "konularına" : "konusuna"}`;
     else if (selection.category === "dungeon") where = thread ? `<#${forumId || DUNGEON_CHANNEL_ID}> kanalındaki **${thread}** konusuna` : `<#${forumId || DUNGEON_CHANNEL_ID}> kanalına`;
     else if (selection.category === "class" && (selection.compare || selection.cards.some(card => card.kind === "leveling"))) where = `<#${TALENT_CHANNEL_ID}> kanalına`;
     else where = forumId ? `<#${forumId}> kanalındaki **${thread}** konusuna` : `${FORUM_LABEL[selection.category]} forumundaki **${thread}** konusuna`;
@@ -1078,7 +1101,7 @@ export class DiscordGateway extends DurableObject {
     }
     const configured = this.env.UNVERIFIED_ANSWERS === "all" ? "ai" : this.env.UNVERIFIED_ANSWERS;
     const mode = ["ai", "research", "none"].includes(configured) ? configured : UNVERIFIED_ANSWERS;
-    const context = { notes, classKey: selection?.search ? detectClass(explicit) : selection?.classKey || detectClass(explicit) || classHint };
+    const context = { notes, classKey: selection?.search ? detectClass(explicit) : selection?.classKey || detectClass(explicit) || classHint, money: isMoneyQuestion(explicit) };
     const research = external.externalOnly ? buildExternalResearchQuestion(question, external.kind, selection?.classKey) : question;
     const askResearch = () => this.askResearchOnly(`${research}\n\n${SHORT_ANSWER_RULE}`, context);
     let data = null;
@@ -1433,9 +1456,11 @@ Soru verisi: ${JSON.stringify(question)}`, await this.downloadImage(image, 8 * 1
   }
   async askGeminiGeneralFallback(question, researchKind = null, context = {}) {
     // Every Forever note goes with the question. The notes and the Forever rules in the instructions come before Classic knowledge.
-    const forever = ` Oyuncu WoW Forever oynuyor. Önce 'foreverNotes' alanındaki WoW Forever notlarına bak: soru orada cevaplanıyorsa cevabı yalnız notlardan ver; notlardaki sayı, yer ve adları aynen kullan. Notlarda yoksa, WoW Forever'ın temeli olan WoW Classic'te (en yüksek seviye 60) emin olduğun bilgiyle cevap ver. Notlar ve sistem talimatındaki WoW Forever kuralları WoW Classic bilgisinden önce gelir: onlarla çelişen Classic bilgisini yazma, "Classic'te yoktu", "Burning Crusade'de geldi" gibi başka sürüm cümlesi kurma. ${EACH_VALUE_RULE} Emin olduğun hiçbir bilgi yoksa yalnızca KARTTA_YOK yaz.${NO_FILLER_RULE}${/Görselde gözlenen veri/.test(question) ? IMAGE_QUESTION_RULE : ""} Cevabın en son satırına yalnızca şunu yaz: 'KAYNAK: NOT' (cevap notlardan geldiyse) ya da 'KAYNAK: GENEL' (genel WoW Classic bilgisinden geldiyse).${context.wantSearchQuery ? SEARCH_QUERY_RULE : ""}`;
+    const forever = ` Oyuncu WoW Forever oynuyor. Önce 'foreverNotes' alanındaki WoW Forever notlarına bak: soru orada cevaplanıyorsa cevabı yalnız notlardan ver; notlardaki sayı, yer ve adları aynen kullan. Notları yalnız sorunun asıl konusunu anlatıyorlarsa kullan: başka bir konunun yan bilgisi (ör. bir görevin ya da kitabın 'biraz para verdiği') soruyu cevaplamaz; öyleyse notları kullanma. Notlarda yoksa, WoW Forever'ın temeli olan WoW Classic'te (en yüksek seviye 60) emin olduğun bilgiyle cevap ver. Notlar ve sistem talimatındaki WoW Forever kuralları WoW Classic bilgisinden önce gelir: onlarla çelişen Classic bilgisini yazma, "Classic'te yoktu", "Burning Crusade'de geldi" gibi başka sürüm cümlesi kurma. ${EACH_VALUE_RULE} Emin olduğun hiçbir bilgi yoksa yalnızca KARTTA_YOK yaz.${NO_FILLER_RULE}${/Görselde gözlenen veri/.test(question) ? IMAGE_QUESTION_RULE : ""} Cevabın en son satırına yalnızca şunu yaz: 'KAYNAK: NOT' (cevap notlardan geldiyse) ya da 'KAYNAK: GENEL' (genel WoW Classic bilgisinden geldiyse).${context.wantSearchQuery ? SEARCH_QUERY_RULE : ""}`;
     // A quest, trainer or "where do I get it" question: the WoW Classic answer the model is sure of.
-    const task = researchKind === "farm_spot"
+    const task = context.money && !researchKind
+      ? `Yeni başlayan için kısa yardım. ${SHORT_ANSWER_RULE} Bu bir para (gold) kazanma sorusu: oyuncunun seviyesine ve sorusunda yazan mesleklerine göre en etkili 2-4 yolu, her biri tek satır olacak şekilde söyle (ör. toplama mesleğinin malzemesini Auction House'ta satmak, işe yarayan iksir ya da eşya üretip satmak, gri eşyaları satıcıya satmak). Emin olmadığın fiyatı, gold miktarını ve yeri yazma.${forever}`
+      : researchKind === "farm_spot"
       ? `Yeni başlayan için kısa yardım. ${SHORT_ANSWER_RULE} Bu bir farm / grind yeri sorusu: oyuncunun seviyesine, sınıfına ve tarafına uygun, emin olduğun 2-4 yeri bölge adı ve yaratık (mob) türüyle say; her yer tek satır olsun. Emin olmadığın yeri, koordinatı ve sayıyı yazma; talent ya da rotasyon anlatma.${forever}`
       : researchKind && researchKind !== "current_live_info"
       ? `Yeni başlayan için kısa yardım. ${SHORT_ANSWER_RULE} Bu bir görev / NPC / edinim sorusu: görev adı, görevi veren NPC, bulunduğu şehir ya da bölge ve ön koşuldan emin olduklarını yaz. Emin olmadığın ayrıntıyı (koordinat, sayı, ödül) hiç yazma ve yerine 'bilgi yok', 'verilerde yer almıyor', 'bilinmiyor' gibi cümle kurma.${forever}`
