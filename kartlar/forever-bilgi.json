@@ -991,6 +991,83 @@
     "PvP listelerinde Feral Druid, Arcane Mage ve Rogue (Subtlety ve Combat) üst sıralardadır. PvP'de kontrol (CC), hareket kabiliyeti ve ani hasar, toplam hasardan daha önemlidir.",
     "Listeler arasındaki fark küçüktür: hangi sınıfı rahat oynuyorsan onunla her içeriğe girilebilir."
    ]
+  },
+  {
+   "id": "haftalik-gorev",
+   "baslik": "60. seviyede haftalık görev (weekly) ve günlük görevler",
+   "anahtar": [
+    "weekly",
+    "weakly",
+    "haftalik",
+    "daily",
+    "gunluk gorev",
+    "gunluk quest",
+    "pix xizzix",
+    "ancient elven",
+    "in demand",
+    "undermine satchel",
+    "daily+quest",
+    "daily+gorev",
+    "weekly+quest",
+    "weekly+gorev",
+    "weakly+quest",
+    "weakly+gorev",
+    "haftalik+quest",
+    "haftalik+gorev",
+    "gunluk+quest",
+    "gunluk+gorev",
+    "60+daily",
+    "60+weekly",
+    "60+haftalik",
+    "60+gunluk",
+    "tekrar+eden+gorev",
+    "dire maul+weekly",
+    "dire maul+haftalik"
+   ],
+   "satirlar": [
+    "60. seviyedeki bilinen tekrar eden görev haftalık görevdir: \"In Demand – Ancient Elven Curiosities\". Booty Bay'deki Pix Xizzix verir; her 60. seviye karakter haftada bir kez yapabilir, haftalık sıfırlamayla yenilenir.",
+    "Görevde Dire Maul'un üç kanadının (Doğu, Batı, Kuzey) her birinden birer eşya toplanır. Ödül Undermine Satchel'dir: içinde malzemeler ve satıcıya satılınca rastgele 10, 20, 40 ya da 100 altın eden bir eşya çıkar; 100 altın garanti değildir.",
+    "Görevin istediği zindanlar haftadan haftaya değişebilir (ör. Dire Maul yerine Blackrock Mountain).",
+    "Forever'ın 60. seviye için duyurduğu ayrı bir günlük (daily) görev sistemi yok. 60'ta ilerleme zindanlar (pre-BiS eşya, T0.5 seti), itibarlar (ör. Mount Hyjal'daki Guardians of Hyjal), PvP ve 9 Aralık 2026'da açılan raidlerle gelir."
+   ]
+  },
+  {
+   "id": "ganimet",
+   "baslik": "Ganimet zarları: Need, Greed ve Pass",
+   "anahtar": [
+    "need",
+    "greed",
+    "ganimet",
+    "loot kural",
+    "master loot",
+    "need+greed",
+    "greed+dungeon",
+    "greed+zindan",
+    "need+dungeon",
+    "need+zindan",
+    "greed+nedir",
+    "need+nedir",
+    "greed+muhabbet",
+    "need+muhabbet",
+    "need+boe",
+    "greed+boe",
+    "roll+need",
+    "roll+greed",
+    "zar+need",
+    "zar+greed",
+    "loot+kural",
+    "loot+zar",
+    "loot+roll",
+    "esya+zar",
+    "item+zar",
+    "item+roll"
+   ],
+   "satirlar": [
+    "Grupta değerli bir eşya düşünce herkesin önüne zar penceresi açılır: Need (ihtiyacım var), Greed (satmak ya da bozmak için istiyorum) ya da Pass (istemiyorum).",
+    "Need seçen biri varsa eşya Need diyenler arasında zarla dağılır; Greed diyenler ancak kimse Need demediyse zar atar. Aynı seçimi yapanlar arasında en yüksek zar kazanır.",
+    "Yaygın kural: Need yalnız eşyayı hemen giyip kullanacaksan ve senin sınıfına, uzmanlığına göre bir yükseltmeyse basılır. Satmak, bozmak (disenchant) ya da yedek için istiyorsan Greed basılır.",
+    "Değerli BoE (Bind on Equip, açık artırmada satılabilen) eşyalarda kimin Need basacağı WoW Forever oyuncuları arasında da tartışma konusu. Bu yüzden gruplar kuralı ilk çekişten önce konuşup belirler; herkesin Greed bastığı ya da yalnız giyecek kişinin Need bastığı kurallar yaygındır."
+   ]
   }
  ]
 }

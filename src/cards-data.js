@@ -207,6 +207,330 @@ export const CARDS = [
   "text": "# Druid · Restoration Leveling\n\nWOW FOREVER · TOTİK CHANNEL · Tavsiye edilen build\n\nSol üst başlık: DRUID — RESTORATION\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\nAğaç başlıkları: BALANCE 18 puan · FERAL COMBAT 0 puan · RESTORATION 33 puan\n\n### Balance — 18 puan\n\n- Improved Wrath — 5/5 (satır 1, sütun 2; tamamlandı)\n- Genesis — 4/5 (satır 1, sütun 3; kısmen alındı)\n- Moonglow — 3/3 (satır 2, sütun 1; tamamlandı)\n- Improved Moonfire — 0/2 (satır 2, sütun 2; puan yok)\n- Nature's Majesty — 2/2 (satır 2, sütun 3; tamamlandı)\n- Nature's Reach — 2/2 (satır 2, sütun 4; tamamlandı)\n- Improved Entangling Roots — 0/3 (satır 3, sütun 1; puan yok)\n- Nature's Splendor — 1/1 (satır 3, sütun 3; tamamlandı)\n- Insect Swarm — 1/1 (satır 4, sütun 1; tamamlandı)\n- Vengeance — 0/5 (satır 4, sütun 2; puan yok)\n- Improved Starfire — 0/5 (satır 4, sütun 3; puan yok)\n- Overgrowth — 0/2 (satır 5, sütun 1; puan yok)\n- Nature's Grace — 0/1 (satır 5, sütun 2; puan yok)\n- Eclipse — 0/3 (satır 5, sütun 3; puan yok)\n- Moonfury — 0/5 (satır 6, sütun 2; puan yok)\n- Moonkin Form — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Nature's Majesty → Nature's Splendor; Improved Moonfire → Vengeance.\n\n### Feral Combat — 0 puan\n\n- Ferocity — 0/5 (satır 1, sütun 2; puan yok)\n- Furor — 0/5 (satır 1, sütun 3; puan yok)\n- Feral Swiftness — 0/2 (satır 2, sütun 1; puan yok)\n- Feral Instinct — 0/3 (satır 2, sütun 2; puan yok)\n- Brutal Impact — 0/2 (satır 2, sütun 3; puan yok)\n- Thick Hide — 0/3 (satır 2, sütun 4; puan yok)\n- Shredding Attacks — 0/3 (satır 3, sütun 1; puan yok)\n- Savage Fury — 0/2 (satır 3, sütun 2; puan yok)\n- Feral Charge — 0/1 (satır 3, sütun 3; puan yok)\n- Sharpened Claws — 0/2 (satır 3, sütun 4; puan yok)\n- Predatory Strikes — 0/3 (satır 4, sütun 1; puan yok)\n- Lacerate — 0/1 (satır 4, sütun 2; puan yok)\n- Predatory Discipline — 0/1 (satır 4, sütun 3; puan yok)\n- Blood Frenzy — 0/2 (satır 4, sütun 4; puan yok)\n- Leader of the Pack — 0/1 (satır 5, sütun 2; puan yok)\n- Natural Instinct — 0/2 (satır 5, sütun 4; puan yok)\n- Rend and Tear — 0/5 (satır 6, sütun 1; puan yok)\n- Natural Reaction — 0/5 (satır 6, sütun 4; puan yok)\n- Primal Bite — 0/1 (satır 7, sütun 2; puan yok)\n- Shifting Power — 0/1 (satır 7, sütun 3; puan yok)\n\nÖn koşul okları: Savage Fury → Lacerate; Sharpened Claws → Blood Frenzy; Predatory Strikes → Rend and Tear; Leader of the Pack → Primal Bite; Predatory Discipline → Shifting Power.\n\n### Restoration — 33 puan\n\n- Nature's Focus — 5/5 (satır 1, sütun 2; tamamlandı)\n- Heart of the Wild — 0/5 (satır 1, sütun 3; puan yok)\n- Naturalist — 5/5 (satır 2, sütun 1; tamamlandı)\n- Reflection — 3/3 (satır 2, sütun 2; tamamlandı)\n- Natural Shapeshifter — 0/3 (satır 2, sütun 3; puan yok)\n- Subtlety — 0/3 (satır 3, sütun 2; puan yok)\n- Gift of Nature — 5/5 (satır 3, sütun 3; tamamlandı)\n- Bloom — 1/1 (satır 3, sütun 4; tamamlandı)\n- Tranquil Spirit — 0/5 (satır 4, sütun 2; puan yok)\n- Improved Rejuvenation — 3/3 (satır 4, sütun 3; tamamlandı)\n- Swiftmend — 1/1 (satır 4, sütun 4; tamamlandı)\n- Nature's Swiftness — 1/1 (satır 5, sütun 1; tamamlandı)\n- Living Spirit — 3/3 (satır 5, sütun 2; tamamlandı)\n- Improved Tranquility — 0/2 (satır 5, sütun 4; puan yok)\n- Improved Regrowth — 5/5 (satır 6, sütun 3; tamamlandı)\n- Wild Growth — 1/1 (satır 7, sütun 2; tamamlandı)\n\nÖn koşul okları: Naturalist → Nature's Swiftness; Improved Rejuvenation → Improved Regrowth; Living Spirit → Wild Growth.\n\n## 60. seviye puan dağılımı\n\n18 Balance / 0 Feral Combat / 33 Restoration — TOPLAM 51 PUAN\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Improved Wrath | Balance | +5 | 5/5 | Wrath döküm süresi −0,5 sn, mana −%50 |\n| 15–19 | Nature's Focus | Restoration | +5 | 5/5 | Büyü %70 şansla hasardan gecikmez |\n| 20–22 | Reflection | Restoration | +3 | 3/3 | Büyü yaparken mana yenilenmesi %50 |\n| 23–24 | Nature's Reach | Balance | +2 | 2/2 | Balance büyü menzili +%20, isabet +%4 |\n| 25–26 | Nature's Majesty | Balance | +2 | 2/2 | Büyü ve yakın dövüş kritik şansı +%4 |\n| 27 | Moonglow | Balance | +1 | 1/3 | Hasar büyülerinin manası −%8 |\n| 28 | Nature's Splendor | Balance | +1 | 1/1 | DoT ve HoT büyülerinin süresi uzar |\n| 29–30 | Moonglow | Balance | +2 | 3/3 | Hasar büyülerinin manası −%25 |\n| 31–32 | Genesis | Balance | +2 | 2/5 | Periyodik hasar ve heal +%4 |\n| 33 | Insect Swarm | Balance | +1 | 1/1 | 12 sn Nature hasarı, hedef isabeti −%2 |\n| 34–35 | Naturalist | Restoration | +2 | 2/5 | Tüm hasar +%4, Healing Touch −0,2 sn |\n| 36 | Bloom | Restoration | +1 | 1/1 | HoT bitince Spirit kadar ek heal |\n| 37–39 | Naturalist | Restoration | +3 | 5/5 | Tüm hasar +%10, Healing Touch −0,5 sn |\n| 40 | Gift of Nature | Restoration | +1 | 1/5 | İyileştirme etkisi +%2 |\n| 41 | Swiftmend | Restoration | +1 | 1/1 | HoT'lu hedefe anında heal, HoT silinmez |\n| 42–45 | Gift of Nature | Restoration | +4 | 5/5 | İyileştirme etkisi +%10 |\n| 46 | Nature's Swiftness | Restoration | +1 | 1/1 | Sonraki Nature büyüsü anında atılır |\n| 47–49 | Living Spirit | Restoration | +3 | 3/3 | Spirit +%15 |\n| 50–52 | Improved Rejuvenation | Restoration | +3 | 3/3 | Rejuvenation etkisi +%15 |\n| 53–57 | Improved Regrowth | Restoration | +5 | 5/5 | Regrowth kritik şansı +%50 |\n| 58 | Wild Growth | Restoration | +1 | 1/1 | Hedefin partisine 7 sn HoT |\n| 59–60 | Genesis | Balance | +2 | 4/5 | Periyodik hasar ve heal +%8 |"
  },
  {
+  "id": "druid-13-balance-raid-talentleri",
+  "category": "class",
+  "title": "Druid · Balance Raid Talentleri",
+  "file": "13-Balance-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "balance raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "druid",
+  "kind": "raid",
+  "spec": "balance",
+  "text": "# Druid · Balance Raid Talentleri\n\nÜst bilgi: DRUID — BALANCE. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Balance Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n41 / 0 / 10 — Balance 41, Feral Combat 0, Restoration 10. TOPLAM 51 PUAN.\n\n## Balance — 41 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Wrath | 5/5 | 1 | Wrath döküm süresi −0,5 sn, mana −%50 |\n| Genesis | 5/5 | 1 | Periyodik hasar ve heal +%10 |\n| Moonglow | 3/3 | 2 | Hasar büyülerinin manası −%25 |\n| Improved Moonfire | 2/2 | 2 | Moonfire hasarı ve kritik şansı +%10 |\n| Nature's Majesty | 2/2 | 2 | Büyü ve yakın dövüş kritik şansı +%4 |\n| Nature's Reach | 2/2 | 2 | Balance büyü menzili +%20, isabet +%4 |\n| Nature's Splendor | 1/1 | 3 | DoT ve HoT büyülerinin süresi uzar (ön koşul: Nature's Majesty) |\n| Insect Swarm | 1/1 | 4 | 12 sn Nature hasarı, hedef isabeti −%2 |\n| Vengeance | 5/5 | 4 | Arcane ve Nature kritik bonusu +%100 (ön koşul: Improved Moonfire) |\n| Improved Starfire | 5/5 | 4 | Starfire −0,5 sn, %15 şansla sersemletir |\n| Nature's Grace | 1/1 | 5 | Kritikten sonra 3 sn büyü hızı +%10 |\n| Eclipse | 3/3 | 5 | Wrath, 2 Starfire'ı 0,5 sn hızlandırır |\n| Moonfury | 5/5 | 6 | Arcane ve Nature hasarı +%10 |\n| Moonkin Form | 1/1 | 7 | Raid kritik şansı +%3, zırh +%360 |\n\n## Restoration — 10 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Nature's Focus | 5/5 | 1 | Büyü %70 şansla hasardan gecikmez |\n| Naturalist | 5/5 | 2 | Tüm hasar +%10, Healing Touch −0,5 sn |\n\nNot: İki kaynak 41/0/10; Genesis'in 5 puanı Subtlety ya da Reflection'a kayabilir\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "druid-14-balance-pre-bis",
+  "category": "class",
+  "title": "Druid · Balance Pre-BiS",
+  "file": "14-Balance-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "balance pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "druid",
+  "kind": "prebis",
+  "spec": "balance",
+  "text": "# Druid · Balance Pre-BiS\n\nÜst bilgi: DRUID — BALANCE. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Spellweaver's Turban | General Drakkisath · UBRS | +8 büyü gücü · Arcanum of Focus | Crimson Felt Hat · Barthilas, Stratholme |\n| Boyun | Nacreous Shell Necklace | Cannon Master Willey · Stratholme | +6 büyü hasarı ve iyileştirme | Orb of the Darkmoon · Darkmoon Faire, 1200 bilet |\n| Omuz | Feralheart Spaulders | T0.5 seti · nasıl alınır: T0.5 kartı | — | Mantle of the Timbermaw · Tailoring 290 |\n| Pelerin | Arcanoweave Cloak | Pix Xizzix · 75 Undermine Real | — | Shroud of the Exile · Western Plaguelands görevi |\n| Göğüs | Robes of Dark Summons | Impaan the Imprisoner · Blackmaw Hold | — | Alanna's Embrace · Ras Frostwhisper, Scholomance |\n| Bilek | Sublime Wristguards | Guard Slip'kik · DM Kuzey | +16 SP · Greater Spellpower | Dryad's Wrist Bindings · WSG itibarı |\n| Eller | Hands of Power | Quartermaster Zigris · LBRS | Nature hasarı +20 · Natural Power | Dreadmist Wraps · Polkelt, Scholomance |\n| Bel | Belt of the Archmage | Tailoring 295 · BoE | — | Elunite Cord · Pix Xizzix, 100 Real |\n| Bacak | Ironfeather Leggings | Leatherworking 300 · BoE | +8 büyü gücü · Arcanum of Focus | Skyshroud Leggings · Highlord Omokk, LBRS |\n| Ayak | Feralheart Galoshes | T0.5 seti · nasıl alınır: T0.5 kartı | +5 Spirit | Waterspout Boots · Hydrospawn, DM Doğu |\n| Yüzük 1 | Channeler's Ring | Pix Xizzix · 75 Undermine Real | — | Songstone / Eye of Orgrimmar · BRD görevi |\n| Yüzük 2 | Rune Band of Wizardry | Lord Valthalak · UBRS (T0.5 sonu) | — | Ring of Demonic Guile · Alzzin the Wildshaper, DM Doğu |\n| Trinket 1 | Eye of the Beast | UBRS görevi (Drakkisath zinciri) | — | Smolderweb's Eye · Smolderweb, LBRS |\n| Trinket 2 | Weakness Analyzer | Pix Xizzix · 125 Undermine Real | — | Briarwood Reed · Jed Runewatcher, UBRS |\n| Ana el | Mastersmith's Hammer | Goraluk Anvilcrack · UBRS | Kritik olmayan büyüden sonra şansla bir sonraki büyüye +%100 crit şansı · Revelation | Black Crystal Dagger · Silithus görevi |\n| Yan el | Tome of the Lost | General Drakkisath · UBRS | +6 Int · +5 Spi · Wisdom | Obsidian Bauble · Pusillin, DM Doğu |\n| Relic | Swarming Idol | Pix Xizzix · 50 Undermine Real | — | — |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "druid-15-balance-raid-hazirligi",
+  "category": "class",
+  "title": "Druid · Balance Raid Hazirligi",
+  "file": "15-Balance-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "balance raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "druid",
+  "kind": "raidprep",
+  "spec": "balance",
+  "text": "# Druid · Balance Raid Hazırlığı\n\nÜst bilgi: DRUID — BALANCE. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Hit (%17'ye kadar)\n2. Critical Strike — Vengeance ile kritik büyü %100 fazla vurur; Crit çok değerli.\n3. Spell Power\n4. Intellect\n\n## Sınırlar (cap)\n\n- Hit (büyü): %17 — Büyülerin boss'a ıskalamaz; tavandan sonrası tamamen boşa.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Supreme Power | +150 büyü hasarı | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Arcane Elixir | +35 büyü hasarı | Alchemy 285 | 1 saat sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Elixir of Nature Power | +40 doğa hasarı | Alchemy 285 | 30 dk sürer. Yalnız doğa büyülerini güçlendirir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Spellblasting Potion | +47 büyü hasarı | Alchemy 285 | Forever'a yeni gelen savaş potu, 30 sn sürer. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Baked Salmon | +28 büyü hasarı | Cooking 275 | 15 dk sürer. Tarifi Feralas'ta Vivianna ya da Sheendra Tallgrass satar; Iron Oven gerekir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Silaha sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Brilliant Wizard Oil | +36 büyü hasarı · %1 kritik | Enchanting 300 | Silaha sürülür, 30 dk ya da 5 kullanım sürer. |"
+ },
+ {
+  "id": "druid-16-balance-t0-5-seti",
+  "category": "class",
+  "title": "Druid · Balance T0.5 Seti",
+  "file": "16-Balance-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "balance t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "druid",
+  "kind": "t05",
+  "spec": "balance",
+  "text": "# Druid · Balance T0.5 Seti\n\nÜst bilgi: DRUID — BALANCE. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Feralheart Raiment) 60. seviyede, eski dungeon setinin (D1, Wildheart Raiment) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Wildheart Raiment — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Wildheart Cowl | Darkmaster Gandling | Scholo | %6,9 |\n| Göğüs | Wildheart Vest | General Drakkisath | UBRS | %10,8 |\n| Bilek | Wildheart Bracers | Shrieking Banshee (çöp) | Strat | %5,4 (BoE: AH'den de alınabilir; boss düşürmüyor) |\n| Eller | Wildheart Gloves | The Unforgiven | Strat | %15,8 |\n| Bel | Wildheart Belt | Quartermaster Zigris | LBRS | %8,8 (BoE: AH'den de alınabilir) |\n| Bacak | Wildheart Kilt | Baron Rivendare | Strat | %10,4 |\n| Ayak | Wildheart Boots | Mother Smolderweb | LBRS | %12,6 |\n| Omuz | Wildheart Spaulders | Gizrul the Slavener | LBRS | %21,4 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü ve +30 AP · 4 parça: Vurulunca %5 şansla 8 sn %10 koşu hızı · 5 parça: Şansla 200 mana / 20 enerji / 10 öfke · 6 parça: 5 sn'de 8 mana.\n\n## T0.5: Astral (Menzilli DPS; Balance)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Feralheart Cowl | 18 Int, 15 Sta, 12 Spi, 26 SP, %1 crit |\n| Göğüs | Feralheart Vest | 18 Int, 17 Sta, 26 SP, +6 büyü delme |\n| Bilek | Feralheart Wraps | 11 Int, 8 Sta, 10 Spi, 8 SP |\n| Eller | Feralheart Hands | 13 Int, 11 Sta, 12 Spi, 19 SP |\n| Bel | Feralheart Sash | 14 Int, 10 Sta, 11 SP, %1 crit |\n| Bacak | Feralheart Kilt | 16 Int, 13 Sta, 11 Spi, 25 SP |\n| Ayak | Feralheart Galoshes | 16 Int, 11 Sta, 10 Spi, 22 SP |\n| Omuz | Feralheart Spaulders | 12 Int, 11 Sta, 19 SP, %1 hit |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Şansla 200 mana / 20 enerji / 10 öfke · 5 parça: Vurulunca %5 şansla 8 sn %10 koşu hızı · 6 parça: +40 AP ve +23 büyü gücü.\n\nPre-BiS listesindeki T0.5 parçaları: Omuz, Ayak.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "druid-17-feral-kedi-raid-talentleri",
+  "category": "class",
+  "title": "Druid · Feral Kedi Raid Talentleri",
+  "file": "17-Feral-Kedi-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "feral kedi raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "druid",
+  "kind": "raid",
+  "spec": "feral-kedi",
+  "text": "# Druid · Feral Raid Talentleri\n\nÜst bilgi: DRUID — FERAL. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Feral Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n8 / 33 / 10 — Balance 8, Feral Combat 33, Restoration 10. TOPLAM 51 PUAN.\n\n## Balance — 8 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Genesis | 5/5 | 1 | Periyodik hasar ve heal +%10 |\n| Nature's Majesty | 2/2 | 2 | Büyü ve yakın dövüş kritik şansı +%4 |\n| Nature's Reach | 1/2 | 2 | Balance büyü menzili +%10, isabet +%2 |\n\n## Feral Combat — 33 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Ferocity | 5/5 | 1 | Maul, Claw ve Rake bedeli −5 |\n| Furor | 3/5 | 1 | Kediye girince Energy'nin %60'ı geri gelir |\n| Feral Swiftness | 2/2 | 2 | Kedide koşu hızı +%30, dodge +%4 |\n| Shredding Attacks | 3/3 | 3 | Shred −18 Energy, Lacerate −3 Rage |\n| Savage Fury | 2/2 | 3 | Claw, Rake, Shred, Maul hasarı +%10 |\n| Feral Charge | 1/1 | 3 | Ayıyken atıl, 4 sn köklendir, büyü kes |\n| Sharpened Claws | 2/2 | 3 | Formdayken kritik şansı +%6 |\n| Predatory Strikes | 3/3 | 4 | Formda seviyenin 1,5 katı Attack Power |\n| Predatory Discipline | 1/1 | 4 | Ferocious Bite fazla Energy harcamaz |\n| Blood Frenzy | 2/2 | 4 | Kritikte ayıda +5 Rage, kedide +1 combo (ön koşul: Sharpened Claws) |\n| Leader of the Pack | 1/1 | 5 | Formdayken raid kritik şansı +%3 |\n| Natural Instinct | 2/2 | 5 | Yakın dövüş kritik bonusu +%20 |\n| Rend and Tear | 5/5 | 6 | Kanayan hedefe yakın dövüş hasarı +%15 (ön koşul: Predatory Strikes) |\n| Shifting Power | 1/1 | 7 | Mana harcayıp anında 40 Energy kazan (ön koşul: Predatory Discipline) |\n\n## Restoration — 10 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Heart of the Wild | 5/5 | 1 | Kedi Strength +%10, ayı Stamina +%20 |\n| Naturalist | 5/5 | 2 | Tüm hasar +%10, Healing Touch −0,5 sn |\n\nNot: Icy saf kedi build; Tavern tek hibrit build veriyor (9/37/5, kedi+ayı)\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "druid-18-feral-kedi-pre-bis",
+  "category": "class",
+  "title": "Druid · Feral Kedi Pre-BiS",
+  "file": "18-Feral-Kedi-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "feral kedi pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "druid",
+  "kind": "prebis",
+  "spec": "feral-kedi",
+  "text": "# Druid · Feral Kedi Pre-BiS\n\nÜst bilgi: DRUID — FERAL KEDI. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Feralheart Cap | T0.5 seti · nasıl alınır: T0.5 kartı | — | Eye of Rend · Rend Blackhand, UBRS |\n| Boyun | Amulet of the Darkmoon | Darkmoon Faire · 1200 bilet | +5 Agi | Beads of Ogre Might · Dire Maul görevi |\n| Omuz | Truestrike Shoulders | Pyroguard Emberseer · UBRS | — | Golden Mantle of the Dawn · Leatherworking 295, BoE |\n| Pelerin | Howler's Furs | Pix Xizzix · 75 Undermine Real | +5 Agi | Cape of the Black Baron · Rivendare, Stratholme |\n| Göğüs | Timbermaw Tunic | Leatherworking 300 · BoE | — | Shadowcraft Tunic · Drakkisath, UBRS |\n| Bilek | Bracers of the Eclipse | Prince Tortheldrin · DM Batı | — | Wristguards of Renown · Thaurissan, BRD |\n| Eller | Devilsaur Gauntlets | Leatherworking 265 · BoE | +15 Strength · Superior Strength | Shadowcraft Gloves · Vosh'gajin, LBRS |\n| Bel | Shifter's Belt | Pix Xizzix · 100 Undermine Real | — | Might of the Timbermaw · Leatherworking 265, BoE |\n| Bacak | Devilsaur Leggings | Leatherworking 290 · BoE | — | Warbear Woolies · Leatherworking 260, BoE |\n| Ayak | Mongoose Boots | Leatherworking 290 · BoE | +7 Agi · Greater Agility | Shadowcraft Boots · Rattlegore, Scholomance |\n| Yüzük 1 | Cutthroat's Signet | Pix Xizzix · 75 Undermine Real | — | Tarnished Elven Ring · Gordok Tribute, DM Kuzey |\n| Yüzük 2 | Blackstone Ring | Princess Theradras · Maraudon | — | Band of the Ogre King · King Gordok, DM Kuzey |\n| Trinket 1 | Adaptive Combat Assistant | Pix Xizzix · 125 Undermine Real | — | Hand of Justice · Thaurissan, BRD |\n| Trinket 2 | Blackhand's Breadth | UBRS görevi (Drakkisath zinciri) | — | Smolderweb's Eye · Smolderweb, LBRS |\n| İki elli | Hammer of the Titans | Blacksmithing 300 · BoE | +25 Agi | Malown's Slam · Malown, Stratholme |\n| Relic | Idol of Ferocity | Lord Roccor · BRD | — | Howling Idol · Pix Xizzix, 50 Real |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "druid-19-feral-kedi-raid-hazirligi",
+  "category": "class",
+  "title": "Druid · Feral Kedi Raid Hazirligi",
+  "file": "19-Feral-Kedi-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "feral kedi raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "druid",
+  "kind": "raidprep",
+  "spec": "feral-kedi",
+  "text": "# Druid · Feral Kedi Raid Hazırlığı\n\nÜst bilgi: DRUID — FERAL KEDI. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Weapon DPS — Silah hızı önemsiz: kedi formunda vuruş hızı sabit 1 sn, yalnız silah DPS'i sayılır.\n2. Expertise (%6,5'e kadar)\n3. Hit (%8'e kadar)\n4. Agility — Crit ve Attack Power, Agility/Strength kadar değerli.\n5. Strength\n\n## Sınırlar (cap)\n\n- Hit: %8 — Pençe vuruşların boss'a ıskalamaz.\n- Expertise: %6,5 — Arkadan vururken boss kaçamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Mongoose | +25 Agi · %2 kritik | Alchemy 280 | 30 dk sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Winterfall Firewater | +35 yakın dövüş AP | Winterspring | 20 dk sürer. Winterfall furbolg'larından düşer; Alchemy 250 ile yapılan Distilled Firewater da aynı etkiyi verir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Frenzy Potion | +80 AP | Alchemy 290 | 30 sn sürer, yakın dövüş ve menzilli AP verir. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Mighty Rage Potion | 45–75 rage · +60 Str | Alchemy 255 | Yalnız Warrior ve Druid içebilir. Açılışta rage'i doldurur; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Swiftstrike Steak | +20 Agi | Cooking 275 | 15 dk sürer, aynı anda tek yemek bufu olur. Pişirmek için Iron Oven gerekir. |\n| Juju Might | +40 AP | Winterspring | 10 dk sürer, boss'tan hemen önce kullan. Winterspring'de E'ko görevleriyle alınır. |"
+ },
+ {
+  "id": "druid-20-feral-kedi-t0-5-seti",
+  "category": "class",
+  "title": "Druid · Feral Kedi T0.5 Seti",
+  "file": "20-Feral-Kedi-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "feral kedi t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "druid",
+  "kind": "t05",
+  "spec": "feral-kedi",
+  "text": "# Druid · Feral Kedi T0.5 Seti\n\nÜst bilgi: DRUID — FERAL KEDI. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Feralheart Raiment) 60. seviyede, eski dungeon setinin (D1, Wildheart Raiment) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Wildheart Raiment — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Wildheart Cowl | Darkmaster Gandling | Scholo | %6,9 |\n| Göğüs | Wildheart Vest | General Drakkisath | UBRS | %10,8 |\n| Bilek | Wildheart Bracers | Shrieking Banshee (çöp) | Strat | %5,4 (BoE: AH'den de alınabilir; boss düşürmüyor) |\n| Eller | Wildheart Gloves | The Unforgiven | Strat | %15,8 |\n| Bel | Wildheart Belt | Quartermaster Zigris | LBRS | %8,8 (BoE: AH'den de alınabilir) |\n| Bacak | Wildheart Kilt | Baron Rivendare | Strat | %10,4 |\n| Ayak | Wildheart Boots | Mother Smolderweb | LBRS | %12,6 |\n| Omuz | Wildheart Spaulders | Gizrul the Slavener | LBRS | %21,4 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü ve +30 AP · 4 parça: Vurulunca %5 şansla 8 sn %10 koşu hızı · 5 parça: Şansla 200 mana / 20 enerji / 10 öfke · 6 parça: 5 sn'de 8 mana.\n\n## T0.5: Feline (Yakın DPS; Feral (Kedi))\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Feralheart Cap | 17 Str, 16 Agi, 14 Int, 17 Sta, %1 crit |\n| Göğüs | Feralheart Tunic | 16 Str, 15 Agi, 12 Int, 17 Sta, %1 crit |\n| Bilek | Feralheart Bands | 10 Str, 8 Agi, 9 Int, 9 Sta |\n| Eller | Feralheart Fists | 12 Str, 12 Agi, 10 Int, 10 Sta, 8 Spi |\n| Bel | Feralheart Girdle | 10 Str, 10 Agi, 11 Int, 11 Sta, %0,7 hit |\n| Bacak | Feralheart Trousers | 16 Str, 10 Agi, 12 Int, 17 Sta, 9 Spi |\n| Ayak | Feralheart Walkers | 12 Str, 11 Agi, 12 Int, 13 Sta, 10 Spi |\n| Omuz | Feralheart Epaulets | 10 Str, 10 Agi, 11 Sta, %0,5 crit |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Şansla 200 mana / 20 enerji / 10 öfke · 5 parça: Vurulunca %5 şansla 8 sn %10 koşu hızı · 6 parça: +40 AP ve +23 büyü gücü.\n\nPre-BiS listesindeki T0.5 parçaları: Kafa.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "druid-21-feral-ayi-raid-talentleri",
+  "category": "class",
+  "title": "Druid · Feral Ayi Raid Talentleri",
+  "file": "21-Feral-Ayi-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "feral ayi raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "druid",
+  "kind": "raid",
+  "spec": "feral-ayi",
+  "text": "# Druid · Feral Tank Raid Talentleri\n\nÜst bilgi: DRUID — FERAL TANK. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Feral Tank Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n9 / 32 / 10 — Balance 9, Feral Combat 32, Restoration 10. TOPLAM 51 PUAN.\n\n## Balance — 9 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Genesis | 5/5 | 1 | Periyodik hasar ve heal +%10 |\n| Nature's Majesty | 2/2 | 2 | Büyü ve yakın dövüş kritik şansı +%4 |\n| Nature's Reach | 2/2 | 2 | Balance büyü menzili +%20, isabet +%4 |\n\n## Feral Combat — 32 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Ferocity | 5/5 | 1 | Maul, Claw ve Rake bedeli −5 |\n| Feral Swiftness | 2/2 | 2 | Kedide koşu hızı +%30, dodge +%4 |\n| Feral Instinct | 3/3 | 2 | Swipe hasarı +%30, gizlilik güçlenir |\n| Thick Hide | 3/3 | 2 | Formdayken seviyene göre ek zırh |\n| Savage Fury | 2/2 | 3 | Claw, Rake, Shred, Maul hasarı +%10 |\n| Feral Charge | 1/1 | 3 | Ayıyken atıl, 4 sn köklendir, büyü kes |\n| Sharpened Claws | 2/2 | 3 | Formdayken kritik şansı +%6 |\n| Predatory Strikes | 3/3 | 4 | Formda seviyenin 1,5 katı Attack Power |\n| Lacerate | 1/1 | 4 | 5 kez yığılan kanama, yüksek tehdit (ön koşul: Savage Fury) |\n| Blood Frenzy | 1/2 | 4 | Ayıda kritikte %50 şansla +5 Rage (ön koşul: Sharpened Claws) |\n| Leader of the Pack | 1/1 | 5 | Formdayken raid kritik şansı +%3 |\n| Natural Instinct | 2/2 | 5 | Yakın dövüş kritik bonusu +%20 |\n| Rend and Tear | 5/5 | 6 | Kanayan hedefe yakın dövüş hasarı +%15 (ön koşul: Predatory Strikes) |\n| Primal Bite | 1/1 | 7 | Güçlü ısırık, yüksek tehdit (ön koşul: Leader of the Pack) |\n\n## Restoration — 10 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Heart of the Wild | 5/5 | 1 | Kedi Strength +%10, ayı Stamina +%20 |\n| Naturalist | 5/5 | 2 | Tüm hasar +%10, Healing Touch −0,5 sn |\n\nNot: Icy saf ayı build; Tavern tek hibrit build veriyor (9/37/5, kedi+ayı)\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "druid-22-feral-ayi-pre-bis",
+  "category": "class",
+  "title": "Druid · Feral Ayi Pre-BiS",
+  "file": "22-Feral-Ayi-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "feral ayi pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "druid",
+  "kind": "prebis",
+  "spec": "feral-ayi",
+  "text": "# Druid · Feral Ayı Pre-BiS\n\nÜst bilgi: DRUID — FERAL AYI. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Feralheart Faceguard | T0.5 seti · nasıl alınır: T0.5 kartı | — | Eye of Rend · Warchief Rend Blackhand, UBRS |\n| Boyun | Horn of Ve'han | Görev: Work Well Done · Mount Hyjal | +5 Defense · Deflection | Amulet of the Darkmoon · DMF 1200 bilet |\n| Omuz | Feralheart Pauldrons | T0.5 seti · nasıl alınır: T0.5 kartı | — | Golden Mantle of the Dawn · Leatherworking 295, BoE |\n| Pelerin | Stalwart Cloak | Pix Xizzix · 75 Undermine Real | +5 Agi | Stoneskin Gargoyle Cape · Stonespine, Stratholme |\n| Göğüs | Feralheart Armor | T0.5 seti · nasıl alınır: T0.5 kartı | — | Warbear Harness · Leatherworking 250, BoE |\n| Bilek | Feralheart Wristguards | T0.5 seti · nasıl alınır: T0.5 kartı | +6 Defense · Superior Deflection | Wristguards of Renown · Emperor Thaurissan, BRD |\n| Eller | Feralheart Grips | T0.5 seti · nasıl alınır: T0.5 kartı | +15 Strength · Superior Strength | Quickdraw Gloves · Immol'thar, DM Batı |\n| Bel | Feralheart Waistguard | T0.5 seti · nasıl alınır: T0.5 kartı | — | Cloudrunner Girdle · Quartermaster Zigris, LBRS |\n| Bacak | Feralheart Legguards | T0.5 seti · nasıl alınır: T0.5 kartı | — | Warstrife Leggings · General Angerforge, BRD |\n| Ayak | Feralheart Treads | T0.5 seti · nasıl alınır: T0.5 kartı | +7 Agi · Greater Agility | Ash Covered Boots · Archivist Galford, Stratholme |\n| Yüzük 1 | Ring of Awareness | Pix Xizzix · 75 Undermine Real | — | Band of the Ogre King · King Gordok, DM Kuzey |\n| Yüzük 2 | Ring of Protection | Görev: Hidden Treasures · Doğu Plaguelands | — | Blackstone Ring · Theradras, Maraudon |\n| Trinket 1 | Defender's Grip Stabilizer | Pix Xizzix · 125 Undermine Real | — | Smotts' Compass · Stranglethorn görevi |\n| Trinket 2 | Mark of Tyranny | UBRS görevi (Drakkisath zinciri) | — | Hand of Justice · Thaurissan, BRD |\n| İki elli | Unyielding Maul | Gordok Tribute · DM Kuzey | +25 Agi | Malown's Slam · Malown, Stratholme |\n| Relic | Idol of Brutality | Magistrate Barthilas · Stratholme | — | Enraged Idol · Pix Xizzix, 50 Real |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "druid-23-feral-ayi-raid-hazirligi",
+  "category": "class",
+  "title": "Druid · Feral Ayi Raid Hazirligi",
+  "file": "23-Feral-Ayi-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "feral ayi raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "druid",
+  "kind": "raidprep",
+  "spec": "feral-ayi",
+  "text": "# Druid · Feral Ayı Raid Hazırlığı\n\nÜst bilgi: DRUID — FERAL AYI. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Armor — Ayı Crushing Blow'a karşı bağışık olamaz; birkaç tanesine dayanacak kadar Armor ve Stamina topla.\n2. Defense (440'a kadar)\n3. Stamina\n4. Agility\n5. Dodge\n\n## Sınırlar (cap)\n\n- Defense: 440 — Boss sana kritik vuramaz.\n- Expertise: %14 — Önden vururken boss ne kaçabilir ne savuşturabilir; tehdit kaçmaz.\n- Hit: %8 — Vuruşların boss'a ıskalamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Phalanx | +400 can · +500 zırh | Alchemy 250 | 30 dk sürer. Tankın ana iksiri. |\n| Elixir of the Mongoose | +25 Agi · %2 kritik | Alchemy 280 | 30 dk sürer. Farklı iksirler aynı anda açık kalabilir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Greater Stoneshield Potion | +2000 zırh · 2 dk | Alchemy 280 | Boss'un en sert vurduğu bölümde iç; 2 dk bekleme. |\n| Mighty Rage Potion | 45–75 rage · +60 Str | Alchemy 255 | Yalnız Warrior ve Druid içebilir. Açılışta rage'i doldurur; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Savory Turtle Stew | +20 Sta | Cooking 275 | 15 dk sürer, aynı anda tek yemek bufu olur. |\n| Juju Might | +40 AP | Winterspring | 10 dk sürer, boss'tan hemen önce kullan. Winterspring'de E'ko görevleriyle alınır. |"
+ },
+ {
+  "id": "druid-24-feral-ayi-t0-5-seti",
+  "category": "class",
+  "title": "Druid · Feral Ayi T0.5 Seti",
+  "file": "24-Feral-Ayi-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "feral ayi t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "druid",
+  "kind": "t05",
+  "spec": "feral-ayi",
+  "text": "# Druid · Feral Ayi T0.5 Seti\n\nÜst bilgi: DRUID — FERAL AYI. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Feralheart Raiment) 60. seviyede, eski dungeon setinin (D1, Wildheart Raiment) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Wildheart Raiment — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Wildheart Cowl | Darkmaster Gandling | Scholo | %6,9 |\n| Göğüs | Wildheart Vest | General Drakkisath | UBRS | %10,8 |\n| Bilek | Wildheart Bracers | Shrieking Banshee (çöp) | Strat | %5,4 (BoE: AH'den de alınabilir; boss düşürmüyor) |\n| Eller | Wildheart Gloves | The Unforgiven | Strat | %15,8 |\n| Bel | Wildheart Belt | Quartermaster Zigris | LBRS | %8,8 (BoE: AH'den de alınabilir) |\n| Bacak | Wildheart Kilt | Baron Rivendare | Strat | %10,4 |\n| Ayak | Wildheart Boots | Mother Smolderweb | LBRS | %12,6 |\n| Omuz | Wildheart Spaulders | Gizrul the Slavener | LBRS | %21,4 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü ve +30 AP · 4 parça: Vurulunca %5 şansla 8 sn %10 koşu hızı · 5 parça: Şansla 200 mana / 20 enerji / 10 öfke · 6 parça: 5 sn'de 8 mana.\n\n## T0.5: Guardian (Tank; Feral (Ayı))\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Feralheart Faceguard | 18 Str, 11 Agi, 30 Sta, +4 Def, +70 zırh |\n| Göğüs | Feralheart Armor | 18 Str, 12 Agi, 29 Sta, 5 Def, +120 zırh |\n| Bilek | Feralheart Wristguards | 8 Str, 5 Agi, 16 Sta, +3 Def |\n| Eller | Feralheart Grips | 11 Str, 7 Agi, 15 Sta, +7 Def, %1 dodge |\n| Bel | Feralheart Waistguard | 11 Str, 9 Agi, 18 Sta, +7 Def |\n| Bacak | Feralheart Legguards | 16 Str, 9 Agi, 31 Sta, +9 Def |\n| Ayak | Feralheart Treads | 12 Str, 7 Agi, 26 Sta, +3 Def |\n| Omuz | Feralheart Pauldrons | 12 Str, 8 Agi, 18 Sta, +5 Def, +50 zırh |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Şansla 200 mana / 20 enerji / 10 öfke · 5 parça: Vurulunca %5 şansla 8 sn %10 koşu hızı · 6 parça: +40 AP ve +23 büyü gücü.\n\nPre-BiS listesindeki T0.5 parçaları: Kafa, Göğüs, Bilek, Eller, Bel, Bacak, Ayak, Omuz.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "druid-25-restoration-raid-talentleri",
+  "category": "class",
+  "title": "Druid · Restoration Raid Talentleri",
+  "file": "25-Restoration-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "restoration raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "druid",
+  "kind": "raid",
+  "spec": "restoration",
+  "text": "# Druid · Restoration Raid Talentleri\n\nÜst bilgi: DRUID — RESTORATION. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Restoration Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n18 / 0 / 33 — Balance 18, Feral Combat 0, Restoration 33. TOPLAM 51 PUAN.\n\n## Balance — 18 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Wrath | 5/5 | 1 | Wrath döküm süresi −0,5 sn, mana −%50 |\n| Genesis | 5/5 | 1 | Periyodik hasar ve heal +%10 |\n| Moonglow | 2/3 | 2 | Hasar büyülerinin manası −%17 |\n| Nature's Majesty | 2/2 | 2 | Büyü ve yakın dövüş kritik şansı +%4 |\n| Nature's Reach | 2/2 | 2 | Balance büyü menzili +%20, isabet +%4 |\n| Nature's Splendor | 1/1 | 3 | DoT ve HoT büyülerinin süresi uzar (ön koşul: Nature's Majesty) |\n| Insect Swarm | 1/1 | 4 | 12 sn Nature hasarı, hedef isabeti −%2 |\n\n## Restoration — 33 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Heart of the Wild | 5/5 | 1 | Intellect +%10 |\n| Naturalist | 5/5 | 2 | Tüm hasar +%10, Healing Touch −0,5 sn |\n| Reflection | 3/3 | 2 | Büyü yaparken mana yenilenmesi %50 |\n| Gift of Nature | 5/5 | 3 | İyileştirme etkisi +%10 |\n| Bloom | 1/1 | 3 | HoT bitince Spirit kadar ek heal |\n| Improved Rejuvenation | 3/3 | 4 | Rejuvenation etkisi +%15 |\n| Swiftmend | 1/1 | 4 | HoT'lu hedefe anında heal, HoT silinmez |\n| Nature's Swiftness | 1/1 | 5 | Sonraki Nature büyüsü anında atılır (ön koşul: Naturalist) |\n| Living Spirit | 3/3 | 5 | Spirit +%15 |\n| Improved Regrowth | 5/5 | 6 | Regrowth kritik şansı +%50 (ön koşul: Improved Rejuvenation) |\n| Wild Growth | 1/1 | 7 | Hedefin partisine 7 sn HoT (ön koşul: Living Spirit) |\n\nNot: Tavern 13/0/38 (Improved Tranquility ile); Icy'nin raid build'i seçildi\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "druid-26-restoration-pre-bis",
+  "category": "class",
+  "title": "Druid · Restoration Pre-BiS",
+  "file": "26-Restoration-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "restoration pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "druid",
+  "kind": "prebis",
+  "spec": "restoration",
+  "text": "# Druid · Restoration Pre-BiS\n\nÜst bilgi: DRUID — RESTORATION. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Living Crown | Leatherworking 300 · BoE | — | Bad Hat · Deadliest Catch görevi |\n| Boyun | Animated Chain Necklace | Ramstein the Gorger · Stratholme | İyileştirme +11 · büyü hasarı +4 | Beads of Ogre Mojo · Dire Maul görevi |\n| Omuz | Mooncloth Shoulders | Tailoring 275 · BoE | — | Wildheart Spaulders · Gizrul, LBRS |\n| Pelerin | Hide of the Wild | Leatherworking 300 · BoE | — | Drape of Recovery · Pix Xizzix, 75 Real |\n| Göğüs | Robes of the Exalted | Baron Rivendare · Stratholme | — | Mooncloth Robe · Tailoring 275, BoE |\n| Bilek | Bleak Howler Armguards | Gizrul the Slavener · LBRS | İyileştirme +24 · hasar +8 | Wyrmthalak's Shackles · LBRS görevi |\n| Eller | Hands of the Exalted Herald | Princess Moira · BRD | — | Hands of Power · Zigris, LBRS |\n| Bel | Wisdom of the Timbermaw | Tailoring 255 · BoE | — | Caretaker's Cord · Pix Xizzix, 100 Real |\n| Bacak | Padre's Trousers | Illyanna Ravenoak · DM Batı | — | Leggings of Curation · Nanaya, Shaper's Terrace |\n| Ayak | Swarmtender's Footpads | Tailoring 295 · BoE | +5 Spi | Wildheart Boots · Smolderweb, LBRS |\n| Yüzük 1 | Fordring's Seal | Görev: In Dreams · Batı Plaguelands | — | Ring of Nature's Cycles · Görev, Mount Hyjal |\n| Yüzük 2 | Blessed Band of Light | Pix Xizzix · 75 Undermine Real | — | Channeler's Ring · Pix Xizzix, 75 Real |\n| Trinket 1 | Serenity Field | Pix Xizzix · 125 Undermine Real | — | Second Wind · Argelmach, BRD |\n| Trinket 2 | Briarwood Reed | Jed Runewatcher · UBRS | — | Burst of Knowledge · Flamelash, BRD |\n| Ana el | Gift of the Elven Magi | Balnazzar · Stratholme | Büyü atınca şansla 10 sn Spirit %100 artar · Insight | Lorespinner · DM Doğu görevi |\n| Yan el | Penelope's Rose | Görev: Kirtonos the Herald · Scholomance | +6 Int · +5 Spi · Wisdom | Brightly Glowing Stone · King Gordok, DM Kuzey |\n| Relic | Idol of Synthesis | Pix Xizzix · 50 Undermine Real | — | — |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "druid-27-restoration-raid-hazirligi",
+  "category": "class",
+  "title": "Druid · Restoration Raid Hazirligi",
+  "file": "27-Restoration-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "restoration raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "druid",
+  "kind": "raidprep",
+  "spec": "restoration",
+  "text": "# Druid · Restoration Raid Hazırlığı\n\nÜst bilgi: DRUID — RESTORATION. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Healing Power\n2. Intellect\n3. Spirit — Spirit'in yarısı Meditation ile büyü atarken de çalışır.\n4. MP5\n5. Critical Strike\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Distilled Wisdom | +2000 mana | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Cleric's Elixir | +40 iyileştirme | Alchemy 195 | 30 dk sürer. Şifacının en ucuz güç iksiri. |\n| Mageblood Elixir | 5 sn'de 12 mana | Alchemy 275 | 1 saat sürer. Büyü atarken de mana doldurur. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Mender's Potion | +88 iyileştirme | Alchemy 280 | Forever'a yeni gelen savaş potu, 30 sn sürer. Raid'in çok hasar aldığı anda iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Sage's Tea | +44 iyileştirme · 2934 mana | Cooking 250 | Otururken 30 sn'de mana doldurur, sonra 15 dk iyileştirme bufu verir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Silaha sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Brilliant Mana Oil | +30 iyileştirme | Enchanting 300 | Silaha sürülür, 5 sn'de 15 mana da verir. 30 dk ya da 5 kullanım sürer. |"
+ },
+ {
+  "id": "druid-28-restoration-t0-5-seti",
+  "category": "class",
+  "title": "Druid · Restoration T0.5 Seti",
+  "file": "28-Restoration-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Druid",
+  "keywords": [
+   "druid",
+   "restoration t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "druid",
+  "kind": "t05",
+  "spec": "restoration",
+  "text": "# Druid · Restoration T0.5 Seti\n\nÜst bilgi: DRUID — RESTORATION. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Feralheart Raiment) 60. seviyede, eski dungeon setinin (D1, Wildheart Raiment) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Wildheart Raiment — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Wildheart Cowl | Darkmaster Gandling | Scholo | %6,9 |\n| Göğüs | Wildheart Vest | General Drakkisath | UBRS | %10,8 |\n| Bilek | Wildheart Bracers | Shrieking Banshee (çöp) | Strat | %5,4 (BoE: AH'den de alınabilir; boss düşürmüyor) |\n| Eller | Wildheart Gloves | The Unforgiven | Strat | %15,8 |\n| Bel | Wildheart Belt | Quartermaster Zigris | LBRS | %8,8 (BoE: AH'den de alınabilir) |\n| Bacak | Wildheart Kilt | Baron Rivendare | Strat | %10,4 |\n| Ayak | Wildheart Boots | Mother Smolderweb | LBRS | %12,6 |\n| Omuz | Wildheart Spaulders | Gizrul the Slavener | LBRS | %21,4 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü ve +30 AP · 4 parça: Vurulunca %5 şansla 8 sn %10 koşu hızı · 5 parça: Şansla 200 mana / 20 enerji / 10 öfke · 6 parça: 5 sn'de 8 mana.\n\n## T0.5: Mender (Şifacı; Restoration)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Feralheart Headdress | 17 Int, 16 Sta, 16 Spi, 33 heal, %1 crit |\n| Göğüs | Feralheart Embrace | 16 Int, 16 Sta, 15 Spi, 37 heal |\n| Bilek | Feralheart Bindings | 9 Int, 8 Sta, 11 Spi, 18 heal |\n| Eller | Feralheart Gauntlets | 11 Int, 10 Sta, 18 Spi, 24 heal |\n| Bel | Feralheart Cord | 13 Int, 12 Sta, 12 Spi, 20 heal, 2 mp5 |\n| Bacak | Feralheart Pants | 16 Int, 15 Sta, 18 Spi, 31 heal |\n| Ayak | Feralheart Sandals | 13 Int, 11 Sta, 20 Spi, 20 heal, 2 mp5 |\n| Omuz | Feralheart Mantle | 13 Int, 12 Sta, 12 Spi, 22 heal |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Şansla 200 mana / 20 enerji / 10 öfke · 5 parça: Vurulunca %5 şansla 8 sn %10 koşu hızı · 6 parça: +40 AP ve +23 büyü gücü.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
   "id": "hunter-01-irk-secimi",
   "category": "class",
   "title": "Hunter · Irk Secimi",
@@ -375,6 +699,249 @@ export const CARDS = [
   "kind": "leveling",
   "spec": "survival",
   "text": "# Hunter · Survival Leveling\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: HUNTER — SURVIVAL. Kart başlığı: HUNTER • SURVIVAL LEVELING. Sağ üst: TOTİK CHANNEL — TAVSİYE EDİLEN BUILD (rozet: Tavsiye edilen build).\nSeviye aralığı: Seviye 10 → 60.\n\n## Beast Mastery — 0 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Deadly Aspects — 0/5 (puan yok)\n- Satır 1, sütun 3: Endurance Training — 0/5 (puan yok)\n- Satır 2, sütun 1: Focused Fire — 0/2 (puan yok)\n- Satır 2, sütun 2: Improved Aspect of the Monkey — 0/3 (puan yok)\n- Satır 2, sütun 3: Improved Revive Pet — 0/2 (puan yok)\n- Satır 3, sütun 1: Pathfinding — 0/2 (puan yok)\n- Satır 3, sütun 2: Bestial Swiftness — 0/1 (puan yok)\n- Satır 3, sütun 3: Unleashed Fury — 0/5 (puan yok)\n- Satır 4, sütun 1: Improved Mend Pet — 0/2 (puan yok)\n- Satır 4, sütun 3: Ferocity — 0/5 (puan yok)\n- Satır 4, sütun 4: Summon Hawk — 0/1 (puan yok)\n- Satır 5, sütun 1: Spirit Bond — 0/2 (puan yok)\n- Satır 5, sütun 2: Intimidation — 0/1 (puan yok; ön koşul oku: Bestial Swiftness → Intimidation)\n- Satır 5, sütun 4: Bestial Discipline — 0/2 (puan yok)\n- Satır 6, sütun 3: Frenzy — 0/5 (puan yok; ön koşul oku: Ferocity → Frenzy)\n- Satır 7, sütun 2: Bestial Wrath — 0/1 (puan yok; ön koşul oku: Intimidation → Bestial Wrath)\n\n## Marksmanship — 17 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Hawk Eye — 0/3 (puan yok)\n- Satır 1, sütun 2: Improved Concussive Shot — 0/5 (puan yok)\n- Satır 1, sütun 3: Lethal Attacks — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Improved Stings — 3/3 (tamamlandı)\n- Satır 2, sütun 2: Efficiency — 1/5 (kısmen alındı)\n- Satır 2, sütun 3: Careful Aim — 5/5 (tamamlandı)\n- Satır 3, sütun 1: Rapid Killing — 0/2 (puan yok)\n- Satır 3, sütun 2: Improved Arcane Shot — 0/5 (puan yok)\n- Satır 3, sütun 4: Lone Wolf — 1/1 (tamamlandı)\n- Satır 4, sütun 2: Trueshot Aura — 0/1 (puan yok)\n- Satır 4, sütun 3: Mortal Shots — 2/5 (kısmen alındı; ön koşul oku: Careful Aim → Mortal Shots)\n- Satır 5, sütun 1: Rapid Recuperation — 0/2 (puan yok; ön koşul oku: Rapid Killing → Rapid Recuperation)\n- Satır 5, sütun 3: Barrage — 0/3 (puan yok)\n- Satır 5, sütun 4: Scatter Shot — 0/1 (puan yok)\n- Satır 6, sütun 3: Ranged Weapon Specialization — 0/5 (puan yok)\n- Satır 7, sütun 2: Sniper Shot — 0/1 (puan yok; ön koşul oku: Trueshot Aura → Sniper Shot)\n\n## Survival — 34 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Improved Tracking — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Deflection — 0/5 (puan yok)\n- Satır 2, sütun 1: Entrapment — 0/5 (puan yok)\n- Satır 2, sütun 2: Savage Strikes — 2/2 (tamamlandı)\n- Satır 2, sütun 3: Survivalist — 3/5 (kısmen alındı)\n- Satır 2, sütun 4: Improved Wing Clip — 0/3 (puan yok)\n- Satır 3, sütun 1: Clever Traps — 2/2 (tamamlandı)\n- Satır 3, sütun 2: Surefooted — 3/3 (tamamlandı)\n- Satır 3, sütun 3: Deterrence — 0/1 (puan yok)\n- Satır 4, sütun 1: Survival Tactics — 2/2 (tamamlandı)\n- Satır 4, sütun 2: Predator's Edge — 5/5 (tamamlandı)\n- Satır 4, sütun 3: Counterattack — 0/1 (puan yok; ön koşul oku: Deterrence → Counterattack)\n- Satır 5, sütun 1: Resourcefulness — 1/2 (kısmen alındı)\n- Satır 5, sütun 2: Expose Prey — 2/2 (tamamlandı)\n- Satır 5, sütun 3: Survivalist's Discipline — 2/2 (tamamlandı)\n- Satır 5, sütun 4: Strider Kick — 1/1 (tamamlandı)\n- Satır 6, sütun 3: Lightning Reflexes — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Lacerating Strikes — 1/1 (tamamlandı; ön koşul oku: Expose Prey → Lacerating Strikes)\n\n## 60. Seviye Puan Dağılımı\n\n0 / 17 / 34 — Beast Mastery 0, Marksmanship 17, Survival 34. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Lethal Attacks | Marksmanship | +5 | 5/5 | Bütün saldırılarda kritik şansı +%5 |\n| 15–19 | Improved Tracking | Survival | +5 | 5/5 | İzlenen türe hasar +%5 |\n| 20–21 | Savage Strikes | Survival | +2 | 2/2 | Yakın yetenek kritik şansı +%4 |\n| 22–24 | Survivalist | Survival | +3 | 3/5 | Toplam can +%6 |\n| 25–27 | Surefooted | Survival | +3 | 3/3 | İsabet +%3, yavaşlatmalar %30 kısa |\n| 28–29 | Clever Traps | Survival | +2 | 2/2 | Tuzak süresi ve hasarı +%30 |\n| 30–34 | Predator's Edge | Survival | +5 | 5/5 | Yakın kritik hasarı +%30, yan el +%50 |\n| 35 | Strider Kick | Survival | +1 | 1/1 | Tekme vurur, 3 sn koşu hızı +%30 |\n| 36–37 | Expose Prey | Survival | +2 | 2/2 | İşaretli hedefte %10 şansla Mongoose Bite |\n| 38–39 | Survivalist's Discipline | Survival | +2 | 2/2 | Tuzak ve Deterrence beklemesi −%40 |\n| 40–44 | Lightning Reflexes | Survival | +5 | 5/5 | Agility +%15 |\n| 45 | Lacerating Strikes | Survival | +1 | 1/1 | Mongoose Bite hasarının %40'ı kanama |\n| 46 | Resourcefulness | Survival | +1 | 1/2 | Tuzak ve yakın yetenekler %30 az Mana |\n| 47–48 | Survival Tactics | Survival | +2 | 2/2 | Tuzak ve Feign Death isabeti +%10 |\n| 49–53 | Careful Aim | Marksmanship | +5 | 5/5 | Intellect'in %100'ü Attack Power olur |\n| 54 | Lone Wolf | Marksmanship | +1 | 1/1 | Pet yokken bütün hasar +%20 |\n| 55–57 | Improved Stings | Marksmanship | +3 | 3/3 | Serpent Sting +%20, Viper Sting −6 sn |\n| 58 | Efficiency | Marksmanship | +1 | 1/5 | Atış, Sting ve yakın yetenek %3 az Mana |\n| 59–60 | Mortal Shots | Marksmanship | +2 | 2/5 | Menzilli kritik hasarı +%12 |"
+ },
+ {
+  "id": "hunter-11-beast-mastery-raid-talentleri",
+  "category": "class",
+  "title": "Hunter · Beast Mastery Raid Talentleri",
+  "file": "11-Beast-Mastery-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "beast mastery raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "hunter",
+  "kind": "raid",
+  "spec": "beast-mastery",
+  "text": "# Hunter · Beast Mastery Raid Talentleri\n\nÜst bilgi: HUNTER — BEAST MASTERY. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Beast Mastery Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n31 / 20 / 0 — Beast Mastery 31, Marksmanship 20, Survival 0. TOPLAM 51 PUAN.\n\n## Beast Mastery — 31 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Deadly Aspects | 5/5 | 1 | %10 şansla 12 sn saldırı hızı +%30 |\n| Endurance Training | 1/5 | 1 | Pet canı ve zırhı +%3 |\n| Focused Fire | 2/2 | 2 | Pet açıkken bütün hasar +%2 |\n| Improved Revive Pet | 2/2 | 2 | Revive Pet 6 sn kısa, %40 az Mana |\n| Bestial Swiftness | 1/1 | 3 | Pet koşu hızı +%30 |\n| Unleashed Fury | 5/5 | 3 | Pet ve şahin hasarı +%15 |\n| Ferocity | 5/5 | 4 | Pet ve şahin kritik şansı +%10 |\n| Summon Hawk | 1/1 | 4 | Hedefe 18 sn saldıran şahin çağırır |\n| Intimidation | 1/1 | 5 | Pet hedefi 3 sn sersemletir (ön koşul: Bestial Swiftness) |\n| Bestial Discipline | 2/2 | 5 | Pet Focus'u %20 hızlı dolar |\n| Frenzy | 5/5 | 6 | Pet kritiğinde 8 sn hız +%30 (ön koşul: Ferocity) |\n| Bestial Wrath | 1/1 | 7 | Pet 18 sn +%50 hasar, durdurulamaz (ön koşul: Intimidation) |\n\n## Marksmanship — 20 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Lethal Attacks | 5/5 | 1 | Bütün saldırılarda kritik şansı +%5 |\n| Improved Stings | 3/3 | 2 | Serpent Sting +%20, Viper Sting −6 sn |\n| Careful Aim | 5/5 | 2 | Intellect'in %100'ü Attack Power olur |\n| Rapid Killing | 2/2 | 3 | Rapid Fire 2 dk erken, öldürünce +%20 |\n| Mortal Shots | 5/5 | 4 | Menzilli kritik hasarı +%30 (ön koşul: Careful Aim) |\n\nNot: İkisi de 31/20/0; Tavern MM'de Stings yerine Trueshot Aura alıyor\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "hunter-12-beast-mastery-pre-bis",
+  "category": "class",
+  "title": "Hunter · Beast Mastery Pre-BiS",
+  "file": "12-Beast-Mastery-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "beast mastery pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "hunter",
+  "kind": "prebis",
+  "spec": "beast-mastery",
+  "text": "# Hunter · Beast Mastery Pre-BiS\n\nÜst bilgi: HUNTER — BEAST MASTERY. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Black Dragonscale Helm | Leatherworking 300 · BoE | +8 Agility · Lesser Arcanum of Voracity | Backwood Helm · DM Batı görevi |\n| Boyun | Mark of Fordring | Görev: In Dreams · Western Plaguelands | +5 Agility | Beads of Ogre Might · Görev, Dire Maul |\n| Omuz | Theramore / Darkspear Epaulets | Theramore / Darkspear itibarı · Exalted | — | Hermit's Pauldron · Hyjal görevi |\n| Pelerin | Cape of the Black Baron | Baron Rivendare · Stratholme | +5 Agility | Howler's Furs · Pix Xizzix, 75 Real |\n| Göğüs | Dawn Armor | Leatherworking 300 · BoE | +4 bütün statlar · Greater Stats | Savage Gladiator Chain · Gorosh, BRD |\n| Bilek | Bracers of the Eclipse | Prince Tortheldrin · DM Batı | +9 Agility · Superior Agility | Forest Stalker's Bracers · WSG satıcısı |\n| Eller | Devilsaur Gauntlets | Leatherworking 265 · BoE | +10 Agility · Greater Agility | Voone's Vice Grips · LBRS görevi |\n| Bel | Marksman's Girdle | Urok Doomhowl · LBRS | — | Ranger's Belt · Pix Xizzix, 100 Real |\n| Bacak | Devilsaur Leggings | Leatherworking 290 · BoE | +8 Agility · Lesser Arcanum of Voracity | Sentinel's / Outrider's Chain Leggings · WSG itibarı |\n| Ayak | Beastmaster's Treads | T0.5 seti · nasıl alınır: T0.5 kartı | +7 Agility · Greater Agility | Windreaver Greaves · Kirtonos, Scholomance |\n| Yüzük 1 | Don Julio's Band | AV itibarı · satıcı | — | Painweaver Band · Drakkisath, UBRS |\n| Yüzük 2 | Cutthroat's Signet | Pix Xizzix · 75 Undermine Real | — | Blackstone Ring · Theradras, Maraudon |\n| Trinket 1 | Blackhand's Breadth | UBRS görevi (Drakkisath zinciri) | — | Smolderweb's Eye · Smolderweb, LBRS |\n| Trinket 2 | Heart of Wyrmthalak | Overlord Wyrmthalak · LBRS | — | Royal Seal of Eldre'Thalas · DM Batı görevi |\n| İki elli | Beastslayer's Trident | Shaper's Terrace görevi | +25 Agility | Bear Poking Stick · Dala Fairmaw, Hyjal |\n| Menzilli | Deep Jungle Rifle | Thunderhoof · Shaper's Terrace | +7 menzilli silah hasarı · Sniper Scope | Riphook · Vosh'gajin, LBRS |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "hunter-13-beast-mastery-raid-hazirligi",
+  "category": "class",
+  "title": "Hunter · Beast Mastery Raid Hazirligi",
+  "file": "13-Beast-Mastery-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "beast mastery raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "hunter",
+  "kind": "raidprep",
+  "spec": "beast-mastery",
+  "text": "# Hunter · Beast Mastery Raid Hazırlığı\n\nÜst bilgi: HUNTER — BEAST MASTERY. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Weapon Damage\n2. Hit (%8'e kadar)\n3. Critical Strike — Pet senin kritik şansının tamamını ve AP'nin %10'unu alır; Crit ve Agility pete de yarar.\n4. Agility\n5. Attack Power\n\n## Sınırlar (cap)\n\n- Hit: %8 — Atışların boss'a ıskalamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Mongoose | +25 Agi · %2 kritik | Alchemy 280 | 30 dk sürer. Farklı iksirler aynı anda açık kalabilir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Frenzy Potion | +80 AP | Alchemy 290 | 30 sn sürer, yakın dövüş ve menzilli AP verir. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Swiftstrike Steak | +20 Agi | Cooking 275 | 15 dk sürer, aynı anda tek yemek bufu olur. Pişirmek için Iron Oven gerekir. |"
+ },
+ {
+  "id": "hunter-14-beast-mastery-t0-5-seti",
+  "category": "class",
+  "title": "Hunter · Beast Mastery T0.5 Seti",
+  "file": "14-Beast-Mastery-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "beast mastery t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "hunter",
+  "kind": "t05",
+  "spec": "beast-mastery",
+  "text": "# Hunter · Beast Mastery T0.5 Seti\n\nÜst bilgi: HUNTER — BEAST MASTERY. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Beastmaster Armor) 60. seviyede, eski dungeon setinin (D1, Beaststalker Armor) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Beaststalker Armor — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Beaststalker's Cap | Darkmaster Gandling | Scholo | %11,3 |\n| Göğüs | Beaststalker's Tunic | General Drakkisath | UBRS | %11,5 |\n| Bilek | Beaststalker's Bindings | Rage Talon Dragonspawn | UBRS | %5,52 (Boss düşürmüyor; çöp mob. Strat'ta Ghoul Ravener %4,41, Crimson Defender %4,22. Zindan adı DB'de yok; Blackrock Spire olduğu topluluk kaynaklarında (bindonforever, warcraft.wiki.gg) aynı.) |\n| Eller | Beaststalker's Gloves | War Master Voone | LBRS | %15,1 |\n| Bel | Beaststalker's Belt | Quartermaster Zigris | LBRS | %10,2 |\n| Bacak | Beaststalker's Pants | Baron Rivendare | Strat (Ölü) | %15,2 |\n| Ayak | Beaststalker's Boots | Nerub'enkan | Strat (Ölü) | %18,8 |\n| Omuz | Beaststalker's Mantle | Overlord Wyrmthalak | LBRS | %13,6 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +30 AP · 4 parça: Vurulunca %8 şansla root kalkar (60 sn'de bir) · 5 parça: Oto atakta %5 şansla 200 mana · 6 parça: 5 sn'de 8 mana.\nForever farkı: Bonuslar 2-3-4-5-6 parçada (Classic'te 2/4/6/8) (DB tooltip #16677).\n\n## T0.5: Beastmaster (Menzilli DPS; Beast Mastery, Marksmanship, Survival)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Beastmaster's Cap | 23 Agi, 14 Int, 23 Sta, %1 hit |\n| Göğüs | Beastmaster's Tunic | 25 Agi, 13 Int, 16 Sta, %1 crit |\n| Bilek | Beastmaster's Bindings | 16 Agi, 7 Int, 6 Sta, 5 Spi |\n| Eller | Beastmaster's Gauntlets | 14 Agi, 10 Int, 12 Sta, pet crit +%2 |\n| Bel | Beastmaster's Belt | 16 Agi, 10 Int, 16 Sta |\n| Bacak | Beastmaster's Pants | 28 Agi, 11 Int, 14 Sta |\n| Ayak | Beastmaster's Treads | 24 Agi, 7 Int, 13 Sta, pet hasarı +%3 |\n| Omuz | Beastmaster's Mantle | 13 Agi, 12 Int, 18 Sta |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Oto atakta %5 şansla 200 mana · 5 parça: Vurulunca %8 şansla root kalkar (60 sn'de bir) · 6 parça: +40 AP.\n\nPre-BiS listesindeki T0.5 parçaları: Ayak.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "hunter-15-marksmanship-raid-talentleri",
+  "category": "class",
+  "title": "Hunter · Marksmanship Raid Talentleri",
+  "file": "15-Marksmanship-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "marksmanship raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "hunter",
+  "kind": "raid",
+  "spec": "marksmanship",
+  "text": "# Hunter · Marksmanship Raid Talentleri\n\nÜst bilgi: HUNTER — MARKSMANSHIP. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Marksmanship Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n5 / 41 / 5 — Beast Mastery 5, Marksmanship 41, Survival 5. TOPLAM 51 PUAN.\n\n## Beast Mastery — 5 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Deadly Aspects | 5/5 | 1 | %10 şansla 12 sn saldırı hızı +%30 |\n\n## Marksmanship — 41 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Hawk Eye | 3/3 | 1 | Menzilli silah menzili +6 m |\n| Lethal Attacks | 5/5 | 1 | Bütün saldırılarda kritik şansı +%5 |\n| Improved Stings | 3/3 | 2 | Serpent Sting +%20, Viper Sting −6 sn |\n| Efficiency | 5/5 | 2 | Atış, Sting ve yakın yetenek %15 az Mana |\n| Careful Aim | 5/5 | 2 | Intellect'in %100'ü Attack Power olur |\n| Rapid Killing | 2/2 | 3 | Rapid Fire 2 dk erken, öldürünce +%20 |\n| Lone Wolf | 1/1 | 3 | Pet yokken bütün hasar +%20 |\n| Trueshot Aura | 1/1 | 4 | Gruba menzilli Attack Power +20 |\n| Mortal Shots | 5/5 | 4 | Menzilli kritik hasarı +%30 (ön koşul: Careful Aim) |\n| Rapid Recuperation | 2/2 | 5 | Serpent Sting'den sonra büyüde Mana gelir (ön koşul: Rapid Killing) |\n| Barrage | 3/3 | 5 | Multi-Shot, Aimed Shot ve Volley +%15 |\n| Ranged Weapon Specialization | 5/5 | 6 | Menzilli silah hasarı +%5 |\n| Sniper Shot | 1/1 | 7 | Uzun atış, sonraki 3 atış +10 m menzil (ön koşul: Trueshot Aura) |\n\n## Survival — 5 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Tracking | 5/5 | 1 | İzlenen türe hasar +%5 |\n\nNot: Icy 'Lone Wolf PvE'; Warcraft Tavern da 5/41/5 Lone Wolf\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "hunter-16-marksmanship-pre-bis",
+  "category": "class",
+  "title": "Hunter · Marksmanship Pre-BiS",
+  "file": "16-Marksmanship-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "marksmanship pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "hunter",
+  "kind": "prebis",
+  "spec": "marksmanship",
+  "text": "# Hunter · Marksmanship Pre-BiS\n\nÜst bilgi: HUNTER — MARKSMANSHIP. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Black Dragonscale Helm | Leatherworking 300 · BoE | +8 Agility · Lesser Arcanum of Voracity | Backwood Helm · DM Batı görevi |\n| Boyun | Mark of Fordring | Görev: In Dreams · Western Plaguelands | +5 Agility | Beads of Ogre Might · Görev, Dire Maul |\n| Omuz | Theramore / Darkspear Epaulets | Theramore / Darkspear itibarı · Exalted | — | Hermit's Pauldron · Hyjal görevi |\n| Pelerin | Cape of the Black Baron | Baron Rivendare · Stratholme | +5 Agility | Howler's Furs · Pix Xizzix, 75 Real |\n| Göğüs | Dawn Armor | Leatherworking 300 · BoE | +4 bütün statlar · Greater Stats | Savage Gladiator Chain · Gorosh, BRD |\n| Bilek | Bracers of the Eclipse | Prince Tortheldrin · DM Batı | +9 Agility · Superior Agility | Forest Stalker's Bracers · WSG satıcısı |\n| Eller | Devilsaur Gauntlets | Leatherworking 265 · BoE | +10 Agility · Greater Agility | Voone's Vice Grips · LBRS görevi |\n| Bel | Ranger's Belt | Pix Xizzix · 100 Undermine Real | — | Marksman's Girdle · Urok Doomhowl, LBRS |\n| Bacak | Devilsaur Leggings | Leatherworking 290 · BoE | +8 Agility · Lesser Arcanum of Voracity | Sentinel's / Outrider's Chain Leggings · WSG itibarı |\n| Ayak | Windreaver Greaves | Kirtonos the Herald · Scholomance | +7 Agility · Greater Agility | Mongoose Boots · Leatherworking 290, BoE |\n| Yüzük 1 | Don Julio's Band | AV itibarı · satıcı | — | Painweaver Band · Drakkisath, UBRS |\n| Yüzük 2 | Cutthroat's Signet | Pix Xizzix · 75 Undermine Real | — | Blackstone Ring · Theradras, Maraudon |\n| Trinket 1 | Blackhand's Breadth | UBRS görevi (Drakkisath zinciri) | — | Smolderweb's Eye · Smolderweb, LBRS |\n| Trinket 2 | Heart of Wyrmthalak | Overlord Wyrmthalak · LBRS | — | Royal Seal of Eldre'Thalas · DM Batı görevi |\n| İki elli | Beastslayer's Trident | Shaper's Terrace görevi | +25 Agility | Bear Poking Stick · Dala Fairmaw, Hyjal |\n| Menzilli | Deep Jungle Rifle | Thunderhoof · Shaper's Terrace | +7 menzilli silah hasarı · Sniper Scope | Riphook · Vosh'gajin, LBRS |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "hunter-17-marksmanship-raid-hazirligi",
+  "category": "class",
+  "title": "Hunter · Marksmanship Raid Hazirligi",
+  "file": "17-Marksmanship-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "marksmanship raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "hunter",
+  "kind": "raidprep",
+  "spec": "marksmanship",
+  "text": "# Hunter · Marksmanship Raid Hazırlığı\n\nÜst bilgi: HUNTER — MARKSMANSHIP. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Weapon Damage — Silahın taban hasarı her atışın başlangıç noktası; silah yükseltmesi en büyük artış.\n2. Hit (%8'e kadar)\n3. Critical Strike — Mortal Shots kritik hasarı %30 artırır; Crit değeri yüksek.\n4. Agility\n5. Attack Power\n\n## Sınırlar (cap)\n\n- Hit: %8 — Aimed Shot gibi büyük atışlar boss'a ıskalamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Mongoose | +25 Agi · %2 kritik | Alchemy 280 | 30 dk sürer. Farklı iksirler aynı anda açık kalabilir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Frenzy Potion | +80 AP | Alchemy 290 | 30 sn sürer, yakın dövüş ve menzilli AP verir. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Swiftstrike Steak | +20 Agi | Cooking 275 | 15 dk sürer, aynı anda tek yemek bufu olur. Pişirmek için Iron Oven gerekir. |"
+ },
+ {
+  "id": "hunter-18-marksmanship-t0-5-seti",
+  "category": "class",
+  "title": "Hunter · Marksmanship T0.5 Seti",
+  "file": "18-Marksmanship-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "marksmanship t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "hunter",
+  "kind": "t05",
+  "spec": "marksmanship",
+  "text": "# Hunter · Marksmanship T0.5 Seti\n\nÜst bilgi: HUNTER — MARKSMANSHIP. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Beastmaster Armor) 60. seviyede, eski dungeon setinin (D1, Beaststalker Armor) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Beaststalker Armor — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Beaststalker's Cap | Darkmaster Gandling | Scholo | %11,3 |\n| Göğüs | Beaststalker's Tunic | General Drakkisath | UBRS | %11,5 |\n| Bilek | Beaststalker's Bindings | Rage Talon Dragonspawn | UBRS | %5,52 (Boss düşürmüyor; çöp mob. Strat'ta Ghoul Ravener %4,41, Crimson Defender %4,22. Zindan adı DB'de yok; Blackrock Spire olduğu topluluk kaynaklarında (bindonforever, warcraft.wiki.gg) aynı.) |\n| Eller | Beaststalker's Gloves | War Master Voone | LBRS | %15,1 |\n| Bel | Beaststalker's Belt | Quartermaster Zigris | LBRS | %10,2 |\n| Bacak | Beaststalker's Pants | Baron Rivendare | Strat (Ölü) | %15,2 |\n| Ayak | Beaststalker's Boots | Nerub'enkan | Strat (Ölü) | %18,8 |\n| Omuz | Beaststalker's Mantle | Overlord Wyrmthalak | LBRS | %13,6 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +30 AP · 4 parça: Vurulunca %8 şansla root kalkar (60 sn'de bir) · 5 parça: Oto atakta %5 şansla 200 mana · 6 parça: 5 sn'de 8 mana.\nForever farkı: Bonuslar 2-3-4-5-6 parçada (Classic'te 2/4/6/8) (DB tooltip #16677).\n\n## T0.5: Beastmaster (Menzilli DPS; Beast Mastery, Marksmanship, Survival)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Beastmaster's Cap | 23 Agi, 14 Int, 23 Sta, %1 hit |\n| Göğüs | Beastmaster's Tunic | 25 Agi, 13 Int, 16 Sta, %1 crit |\n| Bilek | Beastmaster's Bindings | 16 Agi, 7 Int, 6 Sta, 5 Spi |\n| Eller | Beastmaster's Gauntlets | 14 Agi, 10 Int, 12 Sta, pet crit +%2 |\n| Bel | Beastmaster's Belt | 16 Agi, 10 Int, 16 Sta |\n| Bacak | Beastmaster's Pants | 28 Agi, 11 Int, 14 Sta |\n| Ayak | Beastmaster's Treads | 24 Agi, 7 Int, 13 Sta, pet hasarı +%3 |\n| Omuz | Beastmaster's Mantle | 13 Agi, 12 Int, 18 Sta |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Oto atakta %5 şansla 200 mana · 5 parça: Vurulunca %8 şansla root kalkar (60 sn'de bir) · 6 parça: +40 AP.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "hunter-19-survival-raid-talentleri",
+  "category": "class",
+  "title": "Hunter · Survival Raid Talentleri",
+  "file": "19-Survival-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "survival raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "hunter",
+  "kind": "raid",
+  "spec": "survival",
+  "text": "# Hunter · Survival Raid Talentleri\n\nÜst bilgi: HUNTER — SURVIVAL. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Survival Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n0 / 21 / 30 — Beast Mastery 0, Marksmanship 21, Survival 30. TOPLAM 51 PUAN.\n\n## Marksmanship — 21 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Lethal Attacks | 5/5 | 1 | Bütün saldırılarda kritik şansı +%5 |\n| Improved Stings | 3/3 | 2 | Serpent Sting +%20, Viper Sting −6 sn |\n| Careful Aim | 5/5 | 2 | Intellect'in %100'ü Attack Power olur |\n| Improved Arcane Shot | 1/5 | 3 | Arcane Shot beklemesi −0,3 sn |\n| Lone Wolf | 1/1 | 3 | Pet yokken bütün hasar +%20 |\n| Trueshot Aura | 1/1 | 4 | Gruba menzilli Attack Power +20 |\n| Mortal Shots | 5/5 | 4 | Menzilli kritik hasarı +%30 (ön koşul: Careful Aim) |\n\n## Survival — 30 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Tracking | 5/5 | 1 | İzlenen türe hasar +%5 |\n| Savage Strikes | 2/2 | 2 | Yakın yetenek kritik şansı +%4 |\n| Survivalist | 3/5 | 2 | Toplam can +%6 |\n| Clever Traps | 2/2 | 3 | Tuzak süresi ve hasarı +%30 |\n| Surefooted | 3/3 | 3 | İsabet +%3, yavaşlatmalar %30 kısa |\n| Predator's Edge | 5/5 | 4 | Yakın kritik hasarı +%30, yan el +%50 |\n| Resourcefulness | 2/2 | 5 | Tuzak ve yakın yetenek %60 az Mana |\n| Expose Prey | 2/2 | 5 | İşaretli hedefte %10 şansla Mongoose Bite |\n| Strider Kick | 1/1 | 5 | Tekme vurur, 3 sn koşu hızı +%30 |\n| Lightning Reflexes | 5/5 | 6 | Agility +%15 |\n\nNot: Icy 2. build (yakına girip vuran menzilli); Tavern 0/20/31 buna yakın\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "hunter-20-survival-pre-bis",
+  "category": "class",
+  "title": "Hunter · Survival Pre-BiS",
+  "file": "20-Survival-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "survival pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "hunter",
+  "kind": "prebis",
+  "spec": "survival",
+  "text": "# Hunter · Survival Pre-BiS\n\nÜst bilgi: HUNTER — SURVIVAL. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Black Dragonscale Helm | Leatherworking 300 · BoE | +8 Agility · Lesser Arcanum of Voracity | Backwood Helm · DM Batı görevi |\n| Boyun | Mark of Fordring | Görev: In Dreams · Western Plaguelands | +5 Agility | Beads of Ogre Might · Görev, Dire Maul |\n| Omuz | Theramore / Darkspear Epaulets | Theramore / Darkspear itibarı · Exalted | — | Hermit's Pauldron · Hyjal görevi |\n| Pelerin | Cape of the Black Baron | Baron Rivendare · Stratholme | +5 Agility | Howler's Furs · Pix Xizzix, 75 Real |\n| Göğüs | Dawn Armor | Leatherworking 300 · BoE | +4 bütün statlar · Greater Stats | Savage Gladiator Chain · Gorosh, BRD |\n| Bilek | Bracers of the Eclipse | Prince Tortheldrin · DM Batı | +9 Agility · Superior Agility | Forest Stalker's Bracers · WSG satıcısı |\n| Eller | Devilsaur Gauntlets | Leatherworking 265 · BoE | +10 Agility · Greater Agility | Voone's Vice Grips · LBRS görevi |\n| Bel | Ranger's Belt | Pix Xizzix · 100 Undermine Real | — | Marksman's Girdle · Urok Doomhowl, LBRS |\n| Bacak | Devilsaur Leggings | Leatherworking 290 · BoE | +8 Agility · Lesser Arcanum of Voracity | Blademaster Leggings · The Beast, UBRS |\n| Ayak | Windreaver Greaves | Kirtonos the Herald · Scholomance | +7 Agility · Greater Agility | Mongoose Boots · Leatherworking 290, BoE |\n| Yüzük 1 | Don Julio's Band | AV itibarı · satıcı | — | Painweaver Band · Drakkisath, UBRS |\n| Yüzük 2 | Cutthroat's Signet | Pix Xizzix · 75 Undermine Real | — | Blackstone Ring · Theradras, Maraudon |\n| Trinket 1 | Blackhand's Breadth | UBRS görevi (Drakkisath zinciri) | — | Smolderweb's Eye · Smolderweb, LBRS |\n| Trinket 2 | Heart of Wyrmthalak | Overlord Wyrmthalak · LBRS | — | Adaptive Combat Assistant · Pix Xizzix, 125 Real |\n| Ana el | Dal'Rend's Sacred Charge | Warchief Rend Blackhand · UBRS | +15 Agility | Mirah's Song · Scholomance görevi |\n| Yan el | Dal'Rend's Tribal Guardian | Warchief Rend Blackhand · UBRS | +15 Agility | Felstriker · Rend, UBRS |\n| Menzilli | Deep Jungle Rifle | Thunderhoof · Shaper's Terrace | +7 menzilli silah hasarı · Sniper Scope | Riphook · Vosh'gajin, LBRS |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "hunter-21-survival-raid-hazirligi",
+  "category": "class",
+  "title": "Hunter · Survival Raid Hazirligi",
+  "file": "21-Survival-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "survival raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "hunter",
+  "kind": "raidprep",
+  "spec": "survival",
+  "text": "# Hunter · Survival Raid Hazırlığı\n\nÜst bilgi: HUNTER — SURVIVAL. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Weapon Damage — Çift silah oynarsan %8 sonrası hit biraz işe yarar ama kovalanacak kadar değil.\n2. Hit (%8'e kadar) — Pet artık senin hit'inin bir kısmını alıyor, yalnız otomatik vuruşu ölçekleniyor.\n3. Critical Strike\n4. Agility\n5. Attack Power\n\n## Sınırlar (cap)\n\n- Hit: %8 — Surefooted %3 verir; ekipmandan %5 hit ile vuruşların boss'a ıskalamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Mongoose | +25 Agi · %2 kritik | Alchemy 280 | 30 dk sürer. Farklı iksirler aynı anda açık kalabilir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Frenzy Potion | +80 AP | Alchemy 290 | 30 sn sürer, yakın dövüş ve menzilli AP verir. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Swiftstrike Steak | +20 Agi | Cooking 275 | 15 dk sürer, aynı anda tek yemek bufu olur. Pişirmek için Iron Oven gerekir. |"
+ },
+ {
+  "id": "hunter-22-survival-t0-5-seti",
+  "category": "class",
+  "title": "Hunter · Survival T0.5 Seti",
+  "file": "22-Survival-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Hunter",
+  "keywords": [
+   "hunter",
+   "survival t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "hunter",
+  "kind": "t05",
+  "spec": "survival",
+  "text": "# Hunter · Survival T0.5 Seti\n\nÜst bilgi: HUNTER — SURVIVAL. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Beastmaster Armor) 60. seviyede, eski dungeon setinin (D1, Beaststalker Armor) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Beaststalker Armor — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Beaststalker's Cap | Darkmaster Gandling | Scholo | %11,3 |\n| Göğüs | Beaststalker's Tunic | General Drakkisath | UBRS | %11,5 |\n| Bilek | Beaststalker's Bindings | Rage Talon Dragonspawn | UBRS | %5,52 (Boss düşürmüyor; çöp mob. Strat'ta Ghoul Ravener %4,41, Crimson Defender %4,22. Zindan adı DB'de yok; Blackrock Spire olduğu topluluk kaynaklarında (bindonforever, warcraft.wiki.gg) aynı.) |\n| Eller | Beaststalker's Gloves | War Master Voone | LBRS | %15,1 |\n| Bel | Beaststalker's Belt | Quartermaster Zigris | LBRS | %10,2 |\n| Bacak | Beaststalker's Pants | Baron Rivendare | Strat (Ölü) | %15,2 |\n| Ayak | Beaststalker's Boots | Nerub'enkan | Strat (Ölü) | %18,8 |\n| Omuz | Beaststalker's Mantle | Overlord Wyrmthalak | LBRS | %13,6 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +30 AP · 4 parça: Vurulunca %8 şansla root kalkar (60 sn'de bir) · 5 parça: Oto atakta %5 şansla 200 mana · 6 parça: 5 sn'de 8 mana.\nForever farkı: Bonuslar 2-3-4-5-6 parçada (Classic'te 2/4/6/8) (DB tooltip #16677).\n\n## T0.5: Beastmaster (Menzilli DPS; Beast Mastery, Marksmanship, Survival)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Beastmaster's Cap | 23 Agi, 14 Int, 23 Sta, %1 hit |\n| Göğüs | Beastmaster's Tunic | 25 Agi, 13 Int, 16 Sta, %1 crit |\n| Bilek | Beastmaster's Bindings | 16 Agi, 7 Int, 6 Sta, 5 Spi |\n| Eller | Beastmaster's Gauntlets | 14 Agi, 10 Int, 12 Sta, pet crit +%2 |\n| Bel | Beastmaster's Belt | 16 Agi, 10 Int, 16 Sta |\n| Bacak | Beastmaster's Pants | 28 Agi, 11 Int, 14 Sta |\n| Ayak | Beastmaster's Treads | 24 Agi, 7 Int, 13 Sta, pet hasarı +%3 |\n| Omuz | Beastmaster's Mantle | 13 Agi, 12 Int, 18 Sta |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Oto atakta %5 şansla 200 mana · 5 parça: Vurulunca %8 şansla root kalkar (60 sn'de bir) · 6 parça: +40 AP.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
  },
  {
   "id": "mage-01-irk-secimi",
@@ -547,6 +1114,249 @@ export const CARDS = [
   "text": "# Mage · Frost Leveling\n\nÜst bilgi: WOW FOREVER. Sol üst başlık: MAGE — FROST. Kart başlığı: MAGE • FROST LEVELING. Sağ üst: TOTİK CHANNEL — TAVSİYE EDİLEN BUILD (rozet: Tavsiye edilen build).\nSeviye aralığı: Seviye 10 → 60.\n\n## Arcane — 9 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Wand Specialization — 2/2 (tamamlandı)\n- Satır 1, sütun 2: Improved Channeling — 3/5 (kısmen alındı)\n- Satır 1, sütun 3: Arcane Resilience — 0/3 (puan yok)\n- Satır 2, sütun 1: Arcane Subtlety — 2/2 (tamamlandı)\n- Satır 2, sütun 2: Magic Absorption — 0/2 (puan yok)\n- Satır 2, sütun 3: Arcane Concentration — 0/5 (puan yok)\n- Satır 2, sütun 4: Missile Barrage — 2/2 (tamamlandı)\n- Satır 3, sütun 1: Arcane Geometry — 0/2 (puan yok)\n- Satır 3, sütun 2: Arcane Impact — 0/3 (puan yok)\n- Satır 3, sütun 4: Arcane Blast — 0/1 (puan yok)\n- Satır 4, sütun 1: Arcane Shielding — 0/2 (puan yok)\n- Satır 4, sütun 2: Improved Counterspell — 0/2 (puan yok)\n- Satır 4, sütun 3: Arcane Meditation — 0/3 (puan yok; ön koşul oku: Arcane Concentration → Arcane Meditation)\n- Satır 4, sütun 4: Arcane Wrath — 0/1 (puan yok; ön koşul oku: Arcane Blast → Arcane Wrath)\n- Satır 5, sütun 2: Presence of Mind — 0/1 (puan yok)\n- Satır 5, sütun 3: Arcane Mind — 0/5 (puan yok)\n- Satır 6, sütun 3: Arcane Instability — 0/3 (puan yok)\n- Satır 7, sütun 2: Arcane Power — 0/1 (puan yok; ön koşul oku: Presence of Mind → Arcane Power)\n\n## Fire — 0 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Incineration — 0/5 (puan yok)\n- Satır 1, sütun 3: Accelerant — 0/5 (puan yok)\n- Satır 2, sütun 1: Ignite — 0/5 (puan yok)\n- Satır 2, sütun 2: Flame Throwing — 0/2 (puan yok)\n- Satır 2, sütun 3: Impact — 0/3 (puan yok)\n- Satır 3, sütun 1: Burning Soul — 0/3 (puan yok)\n- Satır 3, sütun 2: Improved Flamestrike — 0/3 (puan yok)\n- Satır 3, sütun 3: Pyroblast — 0/1 (puan yok)\n- Satır 3, sütun 4: Improved Fire Blast — 0/2 (puan yok)\n- Satır 4, sütun 1: Improved Scorch — 0/3 (puan yok)\n- Satır 4, sütun 2: Improved Fire Ward — 0/2 (puan yok)\n- Satır 4, sütun 3: Heating Up — 0/1 (puan yok; ön koşul oku: Pyroblast → Heating Up)\n- Satır 4, sütun 4: Master of Elements — 0/3 (puan yok)\n- Satır 5, sütun 2: Critical Mass — 0/3 (puan yok)\n- Satır 5, sütun 3: Blast Wave — 0/1 (puan yok)\n- Satır 6, sütun 3: Fire Power — 0/3 (puan yok)\n- Satır 7, sütun 2: Combustion — 0/1 (puan yok; ön koşul oku: Critical Mass → Combustion)\n\n## Frost — 42 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Frost Warding — 0/2 (puan yok)\n- Satır 1, sütun 2: Improved Frostbolt — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Precision — 3/3 (tamamlandı)\n- Satır 2, sütun 1: Ice Shards — 5/5 (tamamlandı)\n- Satır 2, sütun 2: Frostbite — 3/3 (tamamlandı)\n- Satır 2, sütun 3: Improved Frost Nova — 2/2 (tamamlandı)\n- Satır 2, sütun 4: Permafrost — 1/3 (kısmen alındı)\n- Satır 3, sütun 1: Frost Channeling — 3/3 (tamamlandı)\n- Satır 3, sütun 2: Improved Blizzard — 1/3 (kısmen alındı)\n- Satır 3, sütun 3: Ice Lance — 1/1 (tamamlandı)\n- Satır 4, sütun 1: Arctic Reach — 2/2 (tamamlandı)\n- Satır 4, sütun 2: Ice Block — 1/1 (tamamlandı)\n- Satır 4, sütun 4: Shatter — 3/3 (tamamlandı)\n- Satır 5, sütun 1: Improved Cone of Cold — 3/3 (tamamlandı)\n- Satır 5, sütun 2: Cold Snap — 1/1 (tamamlandı)\n- Satır 5, sütun 3: Fingers of Frost — 2/2 (tamamlandı; ön koşul oku: Ice Lance → Fingers of Frost)\n- Satır 6, sütun 3: Winter's Chill — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Ice Barrier — 1/1 (tamamlandı; ön koşul oku: Cold Snap → Ice Barrier)\n\n## 60. Seviye Puan Dağılımı\n\n9 / 0 / 42 — Arcane 9, Fire 0, Frost 42. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–11 | Precision | Frost | +2 | 2/3 | Büyü isabeti +%4 |\n| 12–13 | Wand Specialization | Arcane | +2 | 2/2 | Wand hasarı +%25 |\n| 14–16 | Improved Channeling | Arcane | +3 | 3/5 | Vurulunca Arcane Missiles %60 gerilemez |\n| 17–18 | Missile Barrage | Arcane | +2 | 2/2 | %40 şansla hızlı, bedava Arcane Missiles |\n| 19–21 | Improved Frostbolt | Frost | +3 | 3/5 | Frostbolt döküm −0,3 sn |\n| 22–24 | Frostbite | Frost | +3 | 3/3 | Chill %15 şansla 5 sn dondurur |\n| 25–26 | Improved Frostbolt | Frost | +2 | 5/5 | Frostbolt döküm −0,5 sn |\n| 27 | Ice Lance | Frost | +1 | 1/1 | Donmuş hedefe %300 fazla hasar |\n| 28–31 | Ice Shards | Frost | +4 | 4/5 | Frost kritik hasar bonusu +%80 |\n| 32–34 | Shatter | Frost | +3 | 3/3 | Donmuş hedefe kritik şansı +%50 |\n| 35 | Ice Shards | Frost | +1 | 5/5 | Frost kritik hasar bonusu +%100 |\n| 36 | Improved Blizzard | Frost | +1 | 1/3 | Blizzard hedefi yavaşlatır |\n| 37–38 | Fingers of Frost | Frost | +2 | 2/2 | %15 şansla 2 büyüde hedef donmuş sayılır |\n| 39–40 | Arctic Reach | Frost | +2 | 2/2 | Frost büyü menzili ve alanı +%20 |\n| 41–43 | Frost Channeling | Frost | +3 | 3/3 | Frost büyü maliyeti −%15, tehdit −%30 |\n| 44 | Ice Block | Frost | +1 | 1/1 | 10 sn bütün saldırılara bağışıklık |\n| 45 | Permafrost | Frost | +1 | 1/3 | Chill süresi +%11, %3 fazla yavaşlatma |\n| 46 | Cold Snap | Frost | +1 | 1/1 | Frost büyü beklemelerini sıfırlar |\n| 47 | Ice Barrier | Frost | +1 | 1/1 | Hasar emen kalkan, Frost hasarı +%15 |\n| 48–49 | Arcane Subtlety | Arcane | +2 | 2/2 | Hedef direnci −15, Arcane tehdidi −%30 |\n| 50 | Precision | Frost | +1 | 3/3 | Büyü isabeti +%6 |\n| 51–53 | Improved Cone of Cold | Frost | +3 | 3/3 | Cone of Cold hasarı +%35 |\n| 54–58 | Winter's Chill | Frost | +5 | 5/5 | Frostbolt, Cone of Cold'u güçlendirir |\n| 59–60 | Improved Frost Nova | Frost | +2 | 2/2 | Frost Nova bekleme −4 sn |"
  },
  {
+  "id": "mage-11-arcane-raid-talentleri",
+  "category": "class",
+  "title": "Mage · Arcane Raid Talentleri",
+  "file": "11-Arcane-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "arcane raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "mage",
+  "kind": "raid",
+  "spec": "arcane",
+  "text": "# Mage · Arcane Raid Talentleri\n\nÜst bilgi: MAGE — ARCANE. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Arcane Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n32 / 16 / 3 — Arcane 32, Fire 16, Frost 3. TOPLAM 51 PUAN.\n\n## Arcane — 32 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Channeling | 5/5 | 1 | Vurulunca Arcane Missiles hiç gerilemez |\n| Arcane Subtlety | 2/2 | 2 | Hedef direnci −15, Arcane tehdidi −%30 |\n| Arcane Concentration | 5/5 | 2 | %10 şansla sonraki büyü bedava |\n| Missile Barrage | 2/2 | 2 | %40 şansla hızlı, bedava Arcane Missiles |\n| Arcane Impact | 3/3 | 3 | Arcane kritik şansı +%6 |\n| Arcane Blast | 1/1 | 3 | Intellect'in %12'si büyü gücü, pahalanır |\n| Arcane Meditation | 3/3 | 4 | Büyü yaparken mana yenilenmesi %50 (ön koşul: Arcane Concentration) |\n| Arcane Wrath | 1/1 | 4 | Toplam mananın %5'i kadar ek büyü gücü (ön koşul: Arcane Blast) |\n| Presence of Mind | 1/1 | 5 | Sonraki büyün anında çıkar |\n| Arcane Mind | 5/5 | 5 | Intellect +%10, Arcane kritik hasarı +%100 |\n| Arcane Instability | 3/3 | 6 | Büyü hasarı +%3, kritik şansı +%3 |\n| Arcane Power | 1/1 | 7 | 15 sn hasar +%30, mana maliyeti +%30 (ön koşul: Presence of Mind) |\n\n## Fire — 16 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Incineration | 5/5 | 1 | Scorch, Fire ve Arcane Blast kritik +%10 |\n| Accelerant | 2/5 | 1 | Fireball ve Arcane Wrath döküm −0,2 sn |\n| Ignite | 5/5 | 2 | Fire kritiği hasarın %40'ı kadar yakar |\n| Pyroblast | 1/1 | 3 | Büyük ateş topu, ardından yanma |\n| Improved Fire Blast | 2/2 | 3 | Bekleme −2 sn, menzil +15 metre |\n| Heating Up | 1/1 | 4 | Kritikler sonraki Pyroblast'ı hızlandırır (ön koşul: Pyroblast) |\n\n## Frost — 3 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Precision | 3/3 | 1 | Büyü isabeti +%6 |\n\nNot: Warcraft Tavern 31/17/3: Arcane Subtlety 1, Accelerant 5, Imp. Fire Blast yok; Icy seçildi\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "mage-12-arcane-pre-bis",
+  "category": "class",
+  "title": "Mage · Arcane Pre-BiS",
+  "file": "12-Arcane-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "arcane pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "mage",
+  "kind": "prebis",
+  "spec": "arcane",
+  "text": "# Mage · Arcane Pre-BiS\n\nÜst bilgi: MAGE — ARCANE. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Spellweaver's Turban | General Drakkisath · UBRS | +8 büyü gücü · Arcanum of Focus | Crimson Felt Hat · Barthilas, Stratholme |\n| Boyun | Nacreous Shell Necklace | Cannon Master Willey · Stratholme | +6 büyü gücü | Beads of Ogre Mojo · Dire Maul görevi |\n| Omuz | Mantle of the Timbermaw | Tailoring 290 · BoE | — | Shroud of the Nathrezim · Dathrohan, Stratholme |\n| Pelerin | Arcanoweave Cloak | Pix Xizzix · 75 Undermine Real | — | Shroud of the Exile · Western Plaguelands görevi |\n| Göğüs | Robes of Dark Summons | Impaan the Imprisoner · Blackmaw Hold | — | Alanna's Embrace · Ras Frostwhisper, Scholomance |\n| Bilek | Dryad's Wrist Bindings | WSG itibarı · satıcı | +16 büyü gücü · Greater Spellpower | Sublime Wristguards · Slip'kik, DM Kuzey |\n| Eller | Hands of Power | Quartermaster Zigris · LBRS | +20 Arcane hasarı · Arcane Power | Dreadmist Wraps · Polkelt, Scholomance |\n| Bel | Belt of the Archmage | Tailoring 295 · BoE | — | Magician's Cord · Pix Xizzix, 100 Real |\n| Bacak | Sentinel's Silk Leggings (A) | Horde: Outrider's Silk Leggings · WSG itibarı | +8 büyü gücü · Arcanum of Focus | Leggings of Curation · Nanaya, Shaper's Terrace |\n| Ayak | Omnicast Boots | Golem Lord Argelmach · BRD | +5 Spirit | Venomspew Footpads · Tailoring 295, BoE |\n| Yüzük 1 | Channeler's Ring | Pix Xizzix · 75 Undermine Real | — | Jereman's Bauble · Mount Hyjal görevi |\n| Yüzük 2 | Rune Band of Wizardry | Lord Valthalak · UBRS (T0.5 sonu) | — | Songstone / Eye of Orgrimmar · BRD görevi |\n| Trinket 1 | Weakness Analyzer | Pix Xizzix · 125 Undermine Real | — | Burst of Knowledge · Flamelash, BRD |\n| Trinket 2 | Royal Seal of Eldre'Thalas | Görev: The Arcanist's Cookbook · DM Batı | — | Eye of the Beast · UBRS görevi |\n| İki elli | Ironbark Staff | AB itibarı · Exalted | +65 büyü gücü · Spellblasting | Headmaster's Charge · Gandling, Scholomance |\n| Değnek | Bonecreeper Stylus | Darkmaster Gandling · Scholomance | — | Ritssyn's Wand of Bad Mojo · Rivendare, Stratholme |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "mage-13-arcane-raid-hazirligi",
+  "category": "class",
+  "title": "Mage · Arcane Raid Hazirligi",
+  "file": "13-Arcane-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "arcane raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "mage",
+  "kind": "raidprep",
+  "spec": "arcane",
+  "text": "# Mage · Arcane Raid Hazırlığı\n\nÜst bilgi: MAGE — ARCANE. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Hit (%17'ye kadar)\n2. Spell Power\n3. Critical Strike — Arcane Mind kritik hasarına +%100 verir; Crit neredeyse Spell Power kadar değerli.\n4. Intellect — Arcane Blast Intellect'in bir kısmını Spell Power'a çevirir; Intellect diğer Mage'lerden değerli.\n5. Spirit\n6. MP5\n\n## Sınırlar (cap)\n\n- Hit (büyü): %17 — Büyülerin boss'a ıskalamaz; Missile Barrage gibi tetiklenmeler de boşa gitmez.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Supreme Power | +150 büyü hasarı | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Arcane Elixir | +35 büyü hasarı | Alchemy 285 | 1 saat sürer. Farklı iksirler aynı anda açık kalabilir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Spellblasting Potion | +47 büyü hasarı | Alchemy 285 | Forever'a yeni gelen savaş potu, 30 sn sürer. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Baked Salmon | +28 büyü hasarı | Cooking 275 | 15 dk sürer. Tarifi Feralas'ta Vivianna ya da Sheendra Tallgrass satar; Iron Oven gerekir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH VE MANA (Kendi yaptığın ve sürdüğün)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Brilliant Wizard Oil | +36 büyü hasarı · %1 kritik | Enchanting 300 | Silaha sürülür, 30 dk ya da 5 kullanım sürer. |\n| Mana Ruby | 1100 mana | Conjure Mana Ruby | Kendin yaparsın. Mana azalınca pottan önce bunu kullan. |"
+ },
+ {
+  "id": "mage-14-arcane-t0-5-seti",
+  "category": "class",
+  "title": "Mage · Arcane T0.5 Seti",
+  "file": "14-Arcane-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "arcane t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "mage",
+  "kind": "t05",
+  "spec": "arcane",
+  "text": "# Mage · Arcane T0.5 Seti\n\nÜst bilgi: MAGE — ARCANE. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Sorcerer's Regalia) 60. seviyede, eski dungeon setinin (D1, Magister's Regalia) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Magister's Regalia — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Magister's Crown | Darkmaster Gandling | Scholo | %9,6 |\n| Göğüs | Magister's Robes | General Drakkisath | UBRS | %12,5 |\n| Bilek | Magister's Bindings | Quartermaster Zigris | LBRS | %11,3 (BoE: AH'den de alınabilir) |\n| Eller | Magister's Gloves | Doctor Theolen Krastinov | Scholo | %20,1 |\n| Bel | Magister's Belt | Smolderthorn Mystic (çöp) | LBRS | %6,4 (BoE: AH'den de alınabilir; boss düşürmüyor) |\n| Bacak | Magister's Leggings | Baron Rivendare | Strat | %7,4 |\n| Ayak | Magister's Boots | Hearthsinger Forresten | Strat | %18,2 |\n| Omuz | Magister's Mantle | Ras Frostwhisper | Scholo | %18,7 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü · 4 parça: Vurulunca %2 şansla saldıranı 3 sn dondurur · 5 parça: Büyüde %5 şansla 200 mana · 6 parça: 5 sn'de 8 mana.\n\n## T0.5: Sorcerer's Regalia (Menzilli DPS; Arcane, Fire, Frost)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Sorcerer's Crown | 25 Int, 12 Sta, 21 SP, %1 crit |\n| Göğüs | Sorcerer's Robes | 25 Int, 14 Sta, 11 Spi, 16 SP |\n| Bilek | Sorcerer's Bindings | 10 Int, 7 Sta, 7 SP, +4 büyü delme |\n| Eller | Sorcerer's Gauntlets | 14 Int, 12 Sta, 9 Spi, 12 SP, %1 hit |\n| Bel | Sorcerer's Belt | 14 Int, 14 Sta, 11 SP |\n| Bacak | Sorcerer's Leggings | 16 Int, 13 Sta, 11 Spi, 19 SP, %1 hit |\n| Ayak | Sorcerer's Sandals | 16 Int, 12 Sta, 11 Spi, 21 SP |\n| Omuz | Sorcerer's Mantle | 16 Int, 11 Sta, 7 SP, %1 crit |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Büyüde %5 şansla 200 mana · 5 parça: Vurulunca %2 şansla saldıranı 3 sn dondurur · 6 parça: +23 büyü gücü.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "mage-15-fire-raid-talentleri",
+  "category": "class",
+  "title": "Mage · Fire Raid Talentleri",
+  "file": "15-Fire-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "fire raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "mage",
+  "kind": "raid",
+  "spec": "fire",
+  "text": "# Mage · Fire Raid Talentleri\n\nÜst bilgi: MAGE — FIRE. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Fire Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n16 / 32 / 3 — Arcane 16, Fire 32, Frost 3. TOPLAM 51 PUAN.\n\n## Arcane — 16 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Channeling | 5/5 | 1 | Vurulunca Arcane Missiles hiç gerilemez |\n| Arcane Subtlety | 2/2 | 2 | Hedef direnci −15, Arcane tehdidi −%30 |\n| Arcane Concentration | 5/5 | 2 | %10 şansla sonraki büyü bedava |\n| Missile Barrage | 2/2 | 2 | %40 şansla hızlı, bedava Arcane Missiles |\n| Arcane Blast | 1/1 | 3 | Intellect'in %12'si büyü gücü, pahalanır |\n| Arcane Meditation | 1/3 | 4 | Büyü yaparken mana yenilenmesi %17 (ön koşul: Arcane Concentration) |\n\n## Fire — 32 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Incineration | 5/5 | 1 | Scorch, Fire ve Arcane Blast kritik +%10 |\n| Accelerant | 5/5 | 1 | Fireball ve Arcane Wrath döküm −0,5 sn |\n| Ignite | 5/5 | 2 | Fire kritiği hasarın %40'ı kadar yakar |\n| Pyroblast | 1/1 | 3 | Büyük ateş topu, ardından yanma |\n| Improved Fire Blast | 2/2 | 3 | Bekleme −2 sn, menzil +15 metre |\n| Improved Scorch | 3/3 | 4 | Her Scorch +%3 Fire hasarı, 5 yığın |\n| Heating Up | 1/1 | 4 | Kritikler sonraki Pyroblast'ı hızlandırır (ön koşul: Pyroblast) |\n| Master of Elements | 3/3 | 4 | Fire ve Frost kritiği %30 mana geri verir |\n| Critical Mass | 3/3 | 5 | Fire büyü kritik şansı +%6 |\n| Fire Power | 3/3 | 6 | Hedefteki her Fire etkin için +%3 hasar |\n| Combustion | 1/1 | 7 | Her Fire isabeti Fire kritiği +%10 (ön koşul: Critical Mass) |\n\n## Frost — 3 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Precision | 3/3 | 1 | Büyü isabeti +%6 |\n\nNot: Icy: çoğu boss için Fire Arcane; Tavern raidde Frostfire Bolt (Fire+Frost) öneriyor\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "mage-16-fire-pre-bis",
+  "category": "class",
+  "title": "Mage · Fire Pre-BiS",
+  "file": "16-Fire-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "fire pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "mage",
+  "kind": "prebis",
+  "spec": "fire",
+  "text": "# Mage · Fire Pre-BiS\n\nÜst bilgi: MAGE — FIRE. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Spellweaver's Turban | General Drakkisath · UBRS | +8 büyü gücü · Arcanum of Focus | Crimson Felt Hat · Barthilas, Stratholme |\n| Boyun | Nacreous Shell Necklace | Cannon Master Willey · Stratholme | +6 büyü gücü | Beads of Ogre Mojo · Dire Maul görevi |\n| Omuz | Mantle of the Timbermaw | Tailoring 290 · BoE | — | Shroud of the Nathrezim · Dathrohan, Stratholme |\n| Pelerin | Arcanoweave Cloak | Pix Xizzix · 75 Undermine Real | — | Shroud of the Exile · Western Plaguelands görevi |\n| Göğüs | Robes of Dark Summons | Impaan the Imprisoner · Blackmaw Hold | — | Alanna's Embrace · Ras Frostwhisper, Scholomance |\n| Bilek | Dryad's Wrist Bindings | WSG itibarı · satıcı | +16 büyü gücü · Greater Spellpower | Sublime Wristguards · Slip'kik, DM Kuzey |\n| Eller | Inferno Gloves | Tailoring 280 · BoE | — | Hands of Power · Zigris, LBRS |\n| Bel | Belt of the Archmage | Tailoring 295 · BoE | — | Magician's Cord · Pix Xizzix, 100 Real |\n| Bacak | Sentinel's Silk Leggings (A) | Horde: Outrider's Silk Leggings · WSG itibarı | +8 büyü gücü · Arcanum of Focus | Leggings of Curation · Nanaya, Shaper's Terrace |\n| Ayak | Fire Striders | Grand Crusader Dathrohan · Stratholme | +5 Spirit | Omnicast Boots · Argelmach, BRD |\n| Yüzük 1 | Channeler's Ring | Pix Xizzix · 75 Undermine Real | — | Jereman's Bauble · Mount Hyjal görevi |\n| Yüzük 2 | Rune Band of Wizardry | Lord Valthalak · UBRS (T0.5 sonu) | — | Songstone / Eye of Orgrimmar · BRD görevi |\n| Trinket 1 | Weakness Analyzer | Pix Xizzix · 125 Undermine Real | — | Burst of Knowledge · Flamelash, BRD |\n| Trinket 2 | Eye of the Beast | UBRS görevi (Drakkisath zinciri) | — | Smolderweb's Eye · Smolderweb, LBRS |\n| İki elli | Ironbark Staff | AB itibarı · Exalted | +65 büyü gücü · Spellblasting | Headmaster's Charge · Gandling, Scholomance |\n| Değnek | Pyric Caduceus | Pyromancer Loregrain · BRD | — | Bonecreeper Stylus · Gandling, Scholomance |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "mage-17-fire-raid-hazirligi",
+  "category": "class",
+  "title": "Mage · Fire Raid Hazirligi",
+  "file": "17-Fire-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "fire raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "mage",
+  "kind": "raidprep",
+  "spec": "fire",
+  "text": "# Mage · Fire Raid Hazırlığı\n\nÜst bilgi: MAGE — FIRE. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Hit (%17'ye kadar)\n2. Spell Power\n3. Critical Strike — Fire'ın kimliği kritik: Crit, Spell Power'ın hemen arkasında.\n4. Intellect\n5. Spirit\n6. MP5\n\n## Sınırlar (cap)\n\n- Hit (büyü): %17 — Büyülerin boss'a ıskalamaz; Improved Scorch gibi etkiler boşa gitmez.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Supreme Power | +150 büyü hasarı | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Arcane Elixir | +35 büyü hasarı | Alchemy 285 | 1 saat sürer. Farklı iksirler aynı anda açık kalabilir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Spellblasting Potion | +47 büyü hasarı | Alchemy 285 | Forever'a yeni gelen savaş potu, 30 sn sürer. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Baked Salmon | +28 büyü hasarı | Cooking 275 | 15 dk sürer. Tarifi Feralas'ta Vivianna ya da Sheendra Tallgrass satar; Iron Oven gerekir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH VE MANA (Kendi yaptığın ve sürdüğün)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Brilliant Wizard Oil | +36 büyü hasarı · %1 kritik | Enchanting 300 | Silaha sürülür, 30 dk ya da 5 kullanım sürer. |\n| Mana Ruby | 1100 mana | Conjure Mana Ruby | Kendin yaparsın. Mana azalınca pottan önce bunu kullan. |"
+ },
+ {
+  "id": "mage-18-fire-t0-5-seti",
+  "category": "class",
+  "title": "Mage · Fire T0.5 Seti",
+  "file": "18-Fire-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "fire t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "mage",
+  "kind": "t05",
+  "spec": "fire",
+  "text": "# Mage · Fire T0.5 Seti\n\nÜst bilgi: MAGE — FIRE. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Sorcerer's Regalia) 60. seviyede, eski dungeon setinin (D1, Magister's Regalia) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Magister's Regalia — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Magister's Crown | Darkmaster Gandling | Scholo | %9,6 |\n| Göğüs | Magister's Robes | General Drakkisath | UBRS | %12,5 |\n| Bilek | Magister's Bindings | Quartermaster Zigris | LBRS | %11,3 (BoE: AH'den de alınabilir) |\n| Eller | Magister's Gloves | Doctor Theolen Krastinov | Scholo | %20,1 |\n| Bel | Magister's Belt | Smolderthorn Mystic (çöp) | LBRS | %6,4 (BoE: AH'den de alınabilir; boss düşürmüyor) |\n| Bacak | Magister's Leggings | Baron Rivendare | Strat | %7,4 |\n| Ayak | Magister's Boots | Hearthsinger Forresten | Strat | %18,2 |\n| Omuz | Magister's Mantle | Ras Frostwhisper | Scholo | %18,7 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü · 4 parça: Vurulunca %2 şansla saldıranı 3 sn dondurur · 5 parça: Büyüde %5 şansla 200 mana · 6 parça: 5 sn'de 8 mana.\n\n## T0.5: Sorcerer's Regalia (Menzilli DPS; Arcane, Fire, Frost)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Sorcerer's Crown | 25 Int, 12 Sta, 21 SP, %1 crit |\n| Göğüs | Sorcerer's Robes | 25 Int, 14 Sta, 11 Spi, 16 SP |\n| Bilek | Sorcerer's Bindings | 10 Int, 7 Sta, 7 SP, +4 büyü delme |\n| Eller | Sorcerer's Gauntlets | 14 Int, 12 Sta, 9 Spi, 12 SP, %1 hit |\n| Bel | Sorcerer's Belt | 14 Int, 14 Sta, 11 SP |\n| Bacak | Sorcerer's Leggings | 16 Int, 13 Sta, 11 Spi, 19 SP, %1 hit |\n| Ayak | Sorcerer's Sandals | 16 Int, 12 Sta, 11 Spi, 21 SP |\n| Omuz | Sorcerer's Mantle | 16 Int, 11 Sta, 7 SP, %1 crit |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Büyüde %5 şansla 200 mana · 5 parça: Vurulunca %2 şansla saldıranı 3 sn dondurur · 6 parça: +23 büyü gücü.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "mage-19-frost-raid-talentleri",
+  "category": "class",
+  "title": "Mage · Frost Raid Talentleri",
+  "file": "19-Frost-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "frost raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "mage",
+  "kind": "raid",
+  "spec": "frost",
+  "text": "# Mage · Frost Raid Talentleri\n\nÜst bilgi: MAGE — FROST. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Frost Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n18 / 0 / 33 — Arcane 18, Fire 0, Frost 33. TOPLAM 51 PUAN.\n\n## Arcane — 18 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Wand Specialization | 2/2 | 1 | Wand hasarı +%25 |\n| Arcane Resilience | 3/3 | 1 | Intellect'in %75'i kadar ek zırh |\n| Arcane Subtlety | 2/2 | 2 | Hedef direnci −15, Arcane tehdidi −%30 |\n| Magic Absorption | 2/2 | 2 | Direnç +10, direnilen büyü %2 mana |\n| Arcane Concentration | 5/5 | 2 | %10 şansla sonraki büyü bedava |\n| Arcane Geometry | 1/2 | 3 | Arcane büyü menzili +3 metre |\n| Arcane Meditation | 3/3 | 4 | Büyü yaparken mana yenilenmesi %50 (ön koşul: Arcane Concentration) |\n\n## Frost — 33 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Frostbolt | 5/5 | 1 | Frostbolt döküm −0,5 sn |\n| Precision | 3/3 | 1 | Büyü isabeti +%6 |\n| Ice Shards | 5/5 | 2 | Frost kritik hasar bonusu +%100 |\n| Improved Blizzard | 1/3 | 3 | Blizzard hedefi %15 yavaşlatır |\n| Ice Lance | 1/1 | 3 | Donmuş hedefe %300 fazla hasar |\n| Arctic Reach | 2/2 | 4 | Frost büyü menzili ve alanı +%20 |\n| Ice Block | 1/1 | 4 | 10 sn bütün saldırılara bağışıklık |\n| Shatter | 3/3 | 4 | Donmuş hedefe kritik şansı +%50 |\n| Improved Cone of Cold | 3/3 | 5 | Cone of Cold hasarı +%35 |\n| Cold Snap | 1/1 | 5 | Frost büyü beklemelerini sıfırlar |\n| Fingers of Frost | 2/2 | 5 | %15 şansla 2 büyüde hedef donmuş sayılır (ön koşul: Ice Lance) |\n| Winter's Chill | 5/5 | 6 | Sonraki Cone of Cold +%20 hasar, 5 yığın |\n| Ice Barrier | 1/1 | 7 | Hasar emen kalkan, Frost hasarı +%15 (ön koşul: Cold Snap) |\n\nNot: Icy Cone of Cold raid (Arcane Meditation); mana rahatsa 10/5/36 Incineration çeşidi\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "mage-20-frost-pre-bis",
+  "category": "class",
+  "title": "Mage · Frost Pre-BiS",
+  "file": "20-Frost-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "frost pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "mage",
+  "kind": "prebis",
+  "spec": "frost",
+  "text": "# Mage · Frost Pre-BiS\n\nÜst bilgi: MAGE — FROST. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Spellweaver's Turban | General Drakkisath · UBRS | +8 büyü gücü · Arcanum of Focus | Crimson Felt Hat · Barthilas, Stratholme |\n| Boyun | Nacreous Shell Necklace | Cannon Master Willey · Stratholme | +6 büyü gücü | Beads of Ogre Mojo · Dire Maul görevi |\n| Omuz | Mantle of the Timbermaw | Tailoring 290 · BoE | — | Boreal Mantle · Stilgiss, BRD |\n| Pelerin | Arcanoweave Cloak | Pix Xizzix · 75 Undermine Real | — | Shroud of the Exile · Western Plaguelands görevi |\n| Göğüs | Robes of Dark Summons | Impaan the Imprisoner · Blackmaw Hold | — | Robe of Winter Night · Tailoring 245, BoE |\n| Bilek | Dryad's Wrist Bindings | WSG itibarı · satıcı | +16 büyü gücü · Greater Spellpower | Sublime Wristguards · Slip'kik, DM Kuzey |\n| Eller | Hands of Power | Quartermaster Zigris · LBRS | — | Dreadmist Wraps · Polkelt, Scholomance |\n| Bel | Belt of the Archmage | Tailoring 295 · BoE | — | Magician's Cord · Pix Xizzix, 100 Real |\n| Bacak | Sentinel's Silk Leggings (A) | Horde: Outrider's Silk Leggings · WSG itibarı | +8 büyü gücü · Arcanum of Focus | Leggings of Curation · Nanaya, Shaper's Terrace |\n| Ayak | Omnicast Boots | Golem Lord Argelmach · BRD | +5 Spirit | Venomspew Footpads · Tailoring 295, BoE |\n| Yüzük 1 | Channeler's Ring | Pix Xizzix · 75 Undermine Real | — | Jereman's Bauble · Mount Hyjal görevi |\n| Yüzük 2 | Rune Band of Wizardry | Lord Valthalak · UBRS (T0.5 sonu) | — | Songstone / Eye of Orgrimmar · BRD görevi |\n| Trinket 1 | Weakness Analyzer | Pix Xizzix · 125 Undermine Real | — | Burst of Knowledge · Flamelash, BRD |\n| Trinket 2 | Eye of the Beast | UBRS görevi (Drakkisath zinciri) | — | Smolderweb's Eye · Smolderweb, LBRS |\n| İki elli | Ironbark Staff | AB itibarı · Exalted | +65 büyü gücü · Spellblasting | Headmaster's Charge · Gandling, Scholomance |\n| Değnek | Wand of Biting Cold | AV görevi (Hero of Stormpike/Frostwolf) | — | Bonecreeper Stylus · Gandling, Scholomance |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "mage-21-frost-raid-hazirligi",
+  "category": "class",
+  "title": "Mage · Frost Raid Hazirligi",
+  "file": "21-Frost-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "frost raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "mage",
+  "kind": "raidprep",
+  "spec": "frost",
+  "text": "# Mage · Frost Raid Hazırlığı\n\nÜst bilgi: MAGE — FROST. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Hit (%17'ye kadar)\n2. Spell Power\n3. Critical Strike\n4. Intellect\n5. MP5\n6. Spirit\n\n## Sınırlar (cap)\n\n- Hit (büyü): %17 — Büyülerin boss'a ıskalamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Supreme Power | +150 büyü hasarı | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Arcane Elixir | +35 büyü hasarı | Alchemy 285 | 1 saat sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Elixir of Frost Power | +15 buz hasarı | Alchemy 190 | 30 dk sürer. Yalnız buz büyülerini güçlendirir; ucuz, her zaman açık tut. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Spellblasting Potion | +47 büyü hasarı | Alchemy 285 | Forever'a yeni gelen savaş potu, 30 sn sürer. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Baked Salmon | +28 büyü hasarı | Cooking 275 | 15 dk sürer. Tarifi Feralas'ta Vivianna ya da Sheendra Tallgrass satar; Iron Oven gerekir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH VE MANA (Kendi yaptığın ve sürdüğün)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Brilliant Wizard Oil | +36 büyü hasarı · %1 kritik | Enchanting 300 | Silaha sürülür, 30 dk ya da 5 kullanım sürer. |\n| Mana Ruby | 1100 mana | Conjure Mana Ruby | Kendin yaparsın. Mana azalınca pottan önce bunu kullan. |"
+ },
+ {
+  "id": "mage-22-frost-t0-5-seti",
+  "category": "class",
+  "title": "Mage · Frost T0.5 Seti",
+  "file": "22-Frost-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Mage",
+  "keywords": [
+   "mage",
+   "frost t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "mage",
+  "kind": "t05",
+  "spec": "frost",
+  "text": "# Mage · Frost T0.5 Seti\n\nÜst bilgi: MAGE — FROST. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Sorcerer's Regalia) 60. seviyede, eski dungeon setinin (D1, Magister's Regalia) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Magister's Regalia — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Magister's Crown | Darkmaster Gandling | Scholo | %9,6 |\n| Göğüs | Magister's Robes | General Drakkisath | UBRS | %12,5 |\n| Bilek | Magister's Bindings | Quartermaster Zigris | LBRS | %11,3 (BoE: AH'den de alınabilir) |\n| Eller | Magister's Gloves | Doctor Theolen Krastinov | Scholo | %20,1 |\n| Bel | Magister's Belt | Smolderthorn Mystic (çöp) | LBRS | %6,4 (BoE: AH'den de alınabilir; boss düşürmüyor) |\n| Bacak | Magister's Leggings | Baron Rivendare | Strat | %7,4 |\n| Ayak | Magister's Boots | Hearthsinger Forresten | Strat | %18,2 |\n| Omuz | Magister's Mantle | Ras Frostwhisper | Scholo | %18,7 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü · 4 parça: Vurulunca %2 şansla saldıranı 3 sn dondurur · 5 parça: Büyüde %5 şansla 200 mana · 6 parça: 5 sn'de 8 mana.\n\n## T0.5: Sorcerer's Regalia (Menzilli DPS; Arcane, Fire, Frost)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Sorcerer's Crown | 25 Int, 12 Sta, 21 SP, %1 crit |\n| Göğüs | Sorcerer's Robes | 25 Int, 14 Sta, 11 Spi, 16 SP |\n| Bilek | Sorcerer's Bindings | 10 Int, 7 Sta, 7 SP, +4 büyü delme |\n| Eller | Sorcerer's Gauntlets | 14 Int, 12 Sta, 9 Spi, 12 SP, %1 hit |\n| Bel | Sorcerer's Belt | 14 Int, 14 Sta, 11 SP |\n| Bacak | Sorcerer's Leggings | 16 Int, 13 Sta, 11 Spi, 19 SP, %1 hit |\n| Ayak | Sorcerer's Sandals | 16 Int, 12 Sta, 11 Spi, 21 SP |\n| Omuz | Sorcerer's Mantle | 16 Int, 11 Sta, 7 SP, %1 crit |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Büyüde %5 şansla 200 mana · 5 parça: Vurulunca %2 şansla saldıranı 3 sn dondurur · 6 parça: +23 büyü gücü.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
   "id": "paladin-01-irk-secimi",
   "category": "class",
   "title": "Paladin · Irk Secimi",
@@ -715,6 +1525,249 @@ export const CARDS = [
   "kind": "leveling",
   "spec": "retribution",
   "text": "# Paladin · Retribution Leveling\n\nÜst bilgi: PALADIN — RETRIBUTION. WOW FOREVER. TOTİK CHANNEL — TAVSİYE EDİLEN BUILD.\nSeviye aralığı: Seviye 10 → 60.\n\n## Holy — 18 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Spiritual Focus — 0/5 (puan yok)\n- Satır 1: Divine Strength — 5/5 (tamamlandı)\n- Satır 2: Healing Light — 0/3 (puan yok)\n- Satır 2: Reverence — 2/2 (tamamlandı)\n- Satır 2: Improved Seals — 5/5 (tamamlandı)\n- Satır 2: Purifying Power — 2/2 (tamamlandı)\n- Satır 3: Divine Favor — 0/1 (puan yok)\n- Satır 3: Illumination — 0/5 (puan yok; ön koşul oku: Reverence → Illumination)\n- Satır 3: Holy Conduit — 2/2 (tamamlandı)\n- Satır 4: Divine Precision — 2/2 (tamamlandı)\n- Satır 4: Infusion of Light — 0/2 (puan yok)\n- Satır 4: Oath of Light — 0/1 (puan yok)\n- Satır 5: Consecrated Ground — 0/2 (puan yok)\n- Satır 5: Holy Shock — 0/1 (puan yok)\n- Satır 5: Boundless Light — 0/2 (puan yok; ön koşul oku: Holy Shock → Boundless Light)\n- Satır 6: Holy Power — 0/5 (puan yok)\n- Satır 7: Light's Vigil — 0/1 (puan yok; ön koşul oku: Holy Shock → Light's Vigil)\n\n## Protection — 0 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Divine Intellect — 0/5 (puan yok)\n- Satır 1: Redoubt — 0/5 (puan yok)\n- Satır 2: Precision — 0/3 (puan yok)\n- Satır 2: Guardian's Favor — 0/2 (puan yok)\n- Satır 2: Sacred Duty — 0/2 (puan yok)\n- Satır 3: Templar's Bulwark — 0/1 (puan yok)\n- Satır 3: Improved Hammer of Justice — 0/3 (puan yok)\n- Satır 3: Shield Specialization — 0/2 (puan yok; ön koşul oku: Redoubt → Shield Specialization)\n- Satır 3: Toughness — 0/5 (puan yok)\n- Satır 4: Swift Judgement — 0/1 (puan yok; ön koşul oku: Templar's Bulwark → Swift Judgement)\n- Satır 4: Improved Righteous Fury — 0/3 (puan yok)\n- Satır 4: Anticipation — 0/5 (puan yok)\n- Satır 5: Stoicism — 0/2 (puan yok)\n- Satır 5: Holy Shield — 0/1 (puan yok)\n- Satır 5: Reckoning — 0/5 (puan yok)\n- Satır 6: Iron Creed — 0/3 (puan yok)\n- Satır 7: Shieldsworn — 0/1 (puan yok; ön koşul oku: Holy Shield → Shieldsworn)\n\n## Retribution — 33 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Deflection — 5/5 (tamamlandı)\n- Satır 1: Benediction — 0/5 (puan yok)\n- Satır 2: Improved Judgement — 2/2 (tamamlandı)\n- Satır 2: Conviction — 3/3 (tamamlandı)\n- Satır 2: Sanctified Judgement — 3/3 (tamamlandı)\n- Satır 3: Vindication — 3/3 (tamamlandı)\n- Satır 3: Unyielding Faith — 0/2 (puan yok)\n- Satır 3: Seal of Command — 1/1 (tamamlandı)\n- Satır 3: Pursuit of Justice — 2/2 (tamamlandı)\n- Satır 4: Eye for an Eye — 0/2 (puan yok)\n- Satır 4: Sacred Arbiter — 1/1 (tamamlandı)\n- Satır 4: Two-Handed Weapon Specialization — 3/3 (tamamlandı)\n- Satır 5: Turn Evil — 0/2 (puan yok)\n- Satır 5: Repentance — 1/1 (tamamlandı)\n- Satır 5: Vengeance — 3/3 (tamamlandı; ön koşul oku: Seal of Command → Vengeance)\n- Satır 6: Champion of the Light — 5/5 (tamamlandı)\n- Satır 7: Unsealed Wrath — 1/1 (tamamlandı; ön koşul oku: Repentance → Unsealed Wrath)\n\n## 60. Seviye Puan Dağılımı\n\n18 / 0 / 33 — Holy 18, Protection 0, Retribution 33. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Deflection | Retribution | +5 | 5/5 | Parry şansı +%5 |\n| 15–16 | Improved Judgement | Retribution | +2 | 2/2 | Judgement bekleme süresi −2 sn |\n| 17–19 | Conviction | Retribution | +3 | 3/3 | Saldırı ve büyü kritik şansı +%6 |\n| 20–21 | Pursuit of Justice | Retribution | +2 | 2/2 | Koşu ve binek hızı +%15 |\n| 22 | Seal of Command | Retribution | +1 | 1/1 | Şansla silahın %70'i kadar Holy hasar |\n| 23–24 | Sanctified Judgement | Retribution | +2 | 2/3 (kısmen) | %66 şansla mühür manası %40 geri |\n| 25 | Sacred Arbiter | Retribution | +1 | 1/1 | Holy Strike %20 güçlü, Judgement'ı yeniler |\n| 26–28 | Two-Handed Weapon Specialization | Retribution | +3 | 3/3 | İki elliyle hasar +%6, tehdit −%20 |\n| 29 | Sanctified Judgement | Retribution | +1 | 3/3 | Judgement'ta mühür manası %60 geri |\n| 30–32 | Vengeance | Retribution | +3 | 3/3 | Kritikten sonra hasar +%3, 5 kez birikir |\n| 33 | Repentance | Retribution | +1 | 1/1 | Humanoid'i 6 sn etkisiz bırakır |\n| 34 | Vindication | Retribution | +1 | 1/3 (kısmen) | Hedefin Attack Power'ı −68, 30 sn |\n| 35–39 | Champion of the Light | Retribution | +5 | 5/5 | Intellect'in %60'ı büyü hasarına |\n| 40 | Unsealed Wrath | Retribution | +1 | 1/1 | 3 mühür yükü saklar, değişince tetikler |\n| 41–45 | Divine Strength | Holy | +5 | 5/5 | Strength +%10 |\n| 46–47 | Reverence | Holy | +2 | 2/2 | Büyü sırasında %30 mana yenilenmesi |\n| 48–50 | Improved Seals | Holy | +3 | 3/5 (kısmen) | Seal ve Judgement hasarı +%9 |\n| 51–52 | Holy Conduit | Holy | +2 | 2/2 | Consecration ve Exorcism manası −%40 |\n| 53–54 | Improved Seals | Holy | +2 | 5/5 | Seal ve Judgement hasarı +%15 |\n| 55–56 | Purifying Power | Holy | +2 | 2/2 | Exorcism ve Holy Wrath beklemesi −%33 |\n| 57–58 | Divine Precision | Holy | +2 | 2/2 | Holy büyü isabeti +%8 |\n| 59–60 | Vindication | Retribution | +2 | 3/3 | Hedefin Attack Power'ı −204, 30 sn |"
+ },
+ {
+  "id": "paladin-11-holy-raid-talentleri",
+  "category": "class",
+  "title": "Paladin · Holy Raid Talentleri",
+  "file": "11-Holy-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "holy raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "paladin",
+  "kind": "raid",
+  "spec": "holy",
+  "text": "# Paladin · Holy Raid Talentleri\n\nÜst bilgi: PALADIN — HOLY. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Holy Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n31 / 8 / 12 — Holy 31, Protection 8, Retribution 12. TOPLAM 51 PUAN.\n\n## Holy — 31 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Spiritual Focus | 5/5 | 1 | Hasar alınca %70 şansla heal gecikmez |\n| Healing Light | 3/3 | 2 | Holy heal büyüleri +%12 iyileştirir |\n| Reverence | 2/2 | 2 | Büyü sırasında %30 mana yenilenmesi |\n| Purifying Power | 2/2 | 2 | Cleanse ve Purify manası −%20 |\n| Divine Favor | 1/1 | 3 | Sonraki heal büyün kesin kritik olur |\n| Illumination | 5/5 | 3 | Kritik heal'de mananın %50'si geri gelir (ön koşul: Reverence) |\n| Divine Precision | 1/2 | 4 | Holy büyü isabeti +%4 |\n| Infusion of Light | 2/2 | 4 | Kritikten sonra Holy Light 1 sn hızlı |\n| Oath of Light | 1/1 | 4 | Yemin ettiğin dosta heal'ler güçlenir |\n| Holy Shock | 1/1 | 5 | Anlık Holy hasar ya da iyileştirme |\n| Boundless Light | 2/2 | 5 | Yeminsiz dosta Holy Shock kritiği +%30 (ön koşul: Holy Shock) |\n| Holy Power | 5/5 | 6 | Holy kritik heal bonusu +%50 |\n| Light's Vigil | 1/1 | 7 | Sonraki Holy Shock grubu da iyileştirir (ön koşul: Holy Shock) |\n\n## Protection — 8 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Divine Intellect | 5/5 | 1 | Toplam Intellect +%10 |\n| Guardian's Favor | 1/2 | 2 | Blessing of Protection −1 dk |\n| Sacred Duty | 2/2 | 2 | Koruma büyülerinin beklemesi −60 sn |\n\n## Retribution — 12 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Benediction | 5/5 | 1 | Anlık büyü ve yetenek manası −%10 |\n| Improved Judgement | 2/2 | 2 | Judgement bekleme süresi −2 sn |\n| Conviction | 3/3 | 2 | Saldırı ve büyü kritik şansı +%6 |\n| Pursuit of Justice | 2/2 | 3 | Koşu ve binek hızı +%15 |\n\nNot: Icy 'Light's Vigil' seçildi; Warcraft Tavern 32/7/12, 1 puan farkı\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "paladin-12-holy-pre-bis",
+  "category": "class",
+  "title": "Paladin · Holy Pre-BiS",
+  "file": "12-Holy-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "holy pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "paladin",
+  "kind": "prebis",
+  "spec": "holy",
+  "text": "# Paladin · Holy Pre-BiS\n\nÜst bilgi: PALADIN — HOLY. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Living Crown | Leatherworking 300 · BoE | +8 Intellect · Lesser Arcanum of Voracity | Crimson Felt Hat · Barthilas, Stratholme |\n| Boyun | Animated Chain Necklace | Ramstein the Gorger · Stratholme | +11 heal · +4 büyü hasarı | Orb of the Darkmoon · Darkmoon Faire, 1200 bilet |\n| Omuz | Mooncloth Shoulders | Tailoring 275 · BoE | — | Mantle of Lost Hope · Lord Roccor, BRD |\n| Pelerin | Hide of the Wild | Leatherworking 300 · BoE | +5 bütün dirençler · Greater Resistance | Drape of Recovery · Pix Xizzix, 75 Real |\n| Göğüs | Red Dragonscale Breastplate | Leatherworking 290 · BoE | +8 Intellect · Superior Intellect | Robes of the Exalted · Rivendare, Stratholme |\n| Bilek | Loomguard Armbraces | Kirtonos the Herald · Scholomance | +24 heal | Gallant's Wristguards · Dire Maul mobları |\n| Eller | Mooncloth Gloves | Tailoring 280 · BoE | — | Hands of the Exalted Herald · Moira, BRD |\n| Bel | Wisdom of the Timbermaw | Tailoring 255 · BoE | — | Belt of the Ordained · Scholomance mobları |\n| Bacak | Martyr's Legplates | Blacksmithing 300 · BoE | +8 Intellect · Lesser Arcanum of Voracity | Padre's Trousers · Illyanna Ravenoak, DM Doğu |\n| Ayak | Swarmtender's Footpads | Tailoring 295 · BoE | +5 Spirit | Omnicast Boots · Argelmach, BRD |\n| Yüzük 1 | Blessed Band of Light | Pix Xizzix · 75 Undermine Real | — | Channeler's Ring · Pix Xizzix, 75 Real |\n| Yüzük 2 | Fordring's Seal | Görev: In Dreams · Western Plaguelands | — | Rosewine Circle · Urok Doomhowl, LBRS |\n| Trinket 1 | Serenity Field | Pix Xizzix · 125 Undermine Real | — | Second Wind · Argelmach, BRD |\n| Trinket 2 | Royal Seal of Eldre'Thalas | DM Batı görevi (yalnız Paladin) | — | Darkmoon Card: Blue Dragon · Darkmoon Faire destesi |\n| Ana el | Masterwork Crimson Hammer | Crimson Hammersmith · Stratholme | Büyün crit olmayınca şansla sonraki büyüye +%100 crit şansı · Revelation | Hand of Righteousness · Whitemane, Scarlet Monastery |\n| Yan el | Lei of the Lifegiver | AV itibarı · Exalted | +6 Int · +5 Spi · Wisdom | Penelope's Rose · Görev: Kirtonos the Herald |\n| Relic | Libram of Economy | Pix Xizzix · 50 Undermine Real | — | Libram of Divinity · Illucia Barov, Scholomance |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "paladin-13-holy-raid-hazirligi",
+  "category": "class",
+  "title": "Paladin · Holy Raid Hazirligi",
+  "file": "13-Holy-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "holy raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "paladin",
+  "kind": "raidprep",
+  "spec": "holy",
+  "text": "# Paladin · Holy Raid Hazırlığı\n\nÜst bilgi: PALADIN — HOLY. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Healing Power — Şifacıda tavan yok; mana yetiyorsa Healing Power her zaman en iyisi.\n2. Intellect\n3. Spirit\n4. MP5 — MP5 büyü atarken de tam çalışır, Spirit 5 sn kuralına takılır.\n5. Critical Strike\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Distilled Wisdom | +2000 mana | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Cleric's Elixir | +40 iyileştirme | Alchemy 195 | 30 dk sürer. Şifacının en ucuz güç iksiri. |\n| Mageblood Elixir | 5 sn'de 12 mana | Alchemy 275 | 1 saat sürer. Büyü atarken de mana doldurur. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Mender's Potion | +88 iyileştirme | Alchemy 280 | Forever'a yeni gelen savaş potu, 30 sn sürer. Raid'in çok hasar aldığı anda iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Sage's Tea | +44 iyileştirme · 2934 mana | Cooking 250 | Otururken 30 sn'de mana doldurur, sonra 15 dk iyileştirme bufu verir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Silaha sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Brilliant Mana Oil | +30 iyileştirme | Enchanting 300 | Silaha sürülür, 5 sn'de 15 mana da verir. 30 dk ya da 5 kullanım sürer. |"
+ },
+ {
+  "id": "paladin-14-holy-t0-5-seti",
+  "category": "class",
+  "title": "Paladin · Holy T0.5 Seti",
+  "file": "14-Holy-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "holy t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "paladin",
+  "kind": "t05",
+  "spec": "holy",
+  "text": "# Paladin · Holy T0.5 Seti\n\nÜst bilgi: PALADIN — HOLY. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Soulforge Armor) 60. seviyede, eski dungeon setinin (D1, Lightforge Armor) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Lightforge Armor — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Lightforge Helm | Darkmaster Gandling | Scholo | %10,6 |\n| Göğüs | Lightforge Breastplate | General Drakkisath | UBRS | %8,71 |\n| Bilek | Lightforge Bracers | Lord Alexei Barov | Scholo | %6,1 (Scholo Risen Protector %3,98 / Risen Warrior %3,06 da düşürür.) |\n| Eller | Lightforge Gauntlets | Timmy the Cruel | Strat (Canlı) | %21,6 |\n| Bel | Lightforge Belt | Rockwing Screecher | Strat | %7,25 (Boss değil, Strat çöp mobu (gargoyle); Rockwing Gargoyle %6,02, Crimson Gallant %5,32. Zindan adı DB'de yok; Strat olduğu topluluk kaynaklarında (warcraft.wiki.gg, metaforge) aynı.) |\n| Bacak | Lightforge Legplates | Baron Rivendare | Strat (Ölü) | %10 |\n| Ayak | Lightforge Boots | Grand Crusader Dathrohan | Strat (Canlı) | %19,7 |\n| Omuz | Lightforge Spaulders | The Beast | UBRS | %17,6 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü hasarı ve iyileştirme · 4 parça: Büyüyle vurulunca %7 şansla 3 sn susturma (60 sn'de bir) · 5 parça: Vuruş/büyüde şansla 10 sn +65 büyü gücü · 6 parça: 5 sn'de 8 mana.\nForever farkı: Bonuslar 2-3-4-5-6 parçada (Classic'te 2/4/6/8). Forever'da parçalar Int + büyü gücü taşıyor (DB tooltip #16727).\n\n## T0.5: Merciful (Şifacı; Holy)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Soulforge Crown | 17 Int, 16 Spi, %1 crit, 33 Heal |\n| Göğüs | Soulforge Embrace | 16 Int, 23 Sta, 15 Spi, 37 Heal |\n| Bilek | Soulforge Bindings | 9 Int, 8 Sta, 11 Spi, 18 Heal |\n| Eller | Soulforge Fists | 11 Int, 10 Sta, 18 Spi, 24 Heal |\n| Bel | Soulforge Cord | 13 Int, 12 Spi, %0,5 crit, 18 Heal |\n| Bacak | Soulforge Leggings | 16 Int, 15 Sta, 18 Spi, 31 Heal |\n| Ayak | Soulforge Treads | 13 Int, 20 Spi, 20 Heal, 2 mp5 |\n| Omuz | Soulforge Epaulets | 13 Int, 12 Sta, 12 Spi, 22 Heal |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Vuruş/büyüde şansla 10 sn +65 büyü gücü · 5 parça: Büyüyle vurulunca %7 şansla 3 sn susturma (60 sn'de bir) · 6 parça: +23 büyü hasarı ve iyileştirme.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "paladin-15-protection-raid-talentleri",
+  "category": "class",
+  "title": "Paladin · Protection Raid Talentleri",
+  "file": "15-Protection-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "protection raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "paladin",
+  "kind": "raid",
+  "spec": "protection",
+  "text": "# Paladin · Protection Raid Talentleri\n\nÜst bilgi: PALADIN — PROTECTION. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Protection Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n0 / 35 / 16 — Holy 0, Protection 35, Retribution 16. TOPLAM 51 PUAN.\n\n## Protection — 35 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Redoubt | 5/5 | 1 | Darbe alınca %10 şansla blok şansı artar |\n| Precision | 3/3 | 2 | İsabet şansı +%3 |\n| Sacred Duty | 2/2 | 2 | Koruma büyülerinin beklemesi −60 sn |\n| Templar's Bulwark | 1/1 | 3 | 8 sn canın kadar hasar emen kalkan |\n| Shield Specialization | 2/2 | 3 | Blok değeri +%30, blokta %4 mana geri (ön koşul: Redoubt) |\n| Toughness | 3/5 | 3 | Eşyalardan gelen zırh +%6 |\n| Swift Judgement | 1/1 | 4 | Ayrı bekleme süreli ek Judgement (ön koşul: Templar's Bulwark) |\n| Improved Righteous Fury | 3/3 | 4 | Righteous Fury'de alınan hasar −%9 |\n| Anticipation | 5/5 | 4 | Defense +20 |\n| Holy Shield | 1/1 | 5 | 10 sn blok şansı +%30, blokta Holy hasar |\n| Reckoning | 5/5 | 5 | Blok ya da kritik yiyince ek saldırı |\n| Iron Creed | 3/3 | 6 | Holy Strike tehdidi +%30, hasar −%6 |\n| Shieldsworn | 1/1 | 7 | Holy Strike −4 sn, kalkanla vurur (ön koşul: Holy Shield) |\n\n## Retribution — 16 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Benediction | 5/5 | 1 | Anlık büyü ve yetenek manası −%10 |\n| Improved Judgement | 2/2 | 2 | Judgement bekleme süresi −2 sn |\n| Conviction | 3/3 | 2 | Saldırı ve büyü kritik şansı +%6 |\n| Sanctified Judgement | 3/3 | 2 | Judgement'ta mühür manası %60 geri |\n| Pursuit of Justice | 2/2 | 3 | Koşu ve binek hızı +%15 |\n| Sacred Arbiter | 1/1 | 4 | Holy Strike %20 güçlü, Judgement'ı yeniler |\n\nNot: Icy 'Deep Protection'; Warcraft Tavern da 0/35/16\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "paladin-16-protection-pre-bis",
+  "category": "class",
+  "title": "Paladin · Protection Pre-BiS",
+  "file": "16-Protection-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "protection pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "paladin",
+  "kind": "prebis",
+  "spec": "protection",
+  "text": "# Paladin · Protection Pre-BiS\n\nÜst bilgi: PALADIN — PROTECTION. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Enchanted Thorium Helm | Blacksmithing 300 · BoE | +8 Stamina · Lesser Arcanum of Voracity | Helm of Valor · Gandling, Scholomance |\n| Boyun | Horn of Ve'han | Görev: Work Well Done · Mount Hyjal | +5 defense · Deflection | Verek's Collar · Verek, BRD |\n| Omuz | Theramore / Darkspear Spaulders | Theramore / Darkspear itibarı · Exalted | — | Bulky Iron Spaulders · Guard Mol'dar, DM Kuzey |\n| Pelerin | Stalwart Cloak | Pix Xizzix · 75 Undermine Real | ek zırh · Superior Defense | Redoubt Cloak · Dire Maul drop'u |\n| Göğüs | Enchanted Thorium Breastplate | Blacksmithing 300 · BoE | +8 Stamina · Superior Stamina | Breastplate of Valor · Drakkisath, UBRS |\n| Bilek | Soulforge Wristguards | T0.5 seti · nasıl alınır: T0.5 kartı | +7 defense · Deflection | Vigorsteel Vambraces · Gandling, Scholomance |\n| Eller | Deathbone Gauntlets | Lord Alexei Barov · Scholomance | +20 Holy hasarı · Holy Power | Gauntlets of Valor · Ramstein, Stratholme |\n| Bel | Deathbone Girdle | Lord Alexei Barov · Scholomance | — | Belt of Valor · LBRS çöp mobları, BoE |\n| Bacak | Soulforge Legguards | T0.5 seti · nasıl alınır: T0.5 kartı | +8 Stamina · Lesser Arcanum of Voracity | Enchanted Thorium Leggings · Blacksmithing 300, BoE |\n| Ayak | Deathbone Sabatons | Lord Alexei Barov · Scholomance | +7 Stamina · Greater Stamina | Lightforge Boots · Dathrohan, Stratholme |\n| Yüzük 1 | Band of the Ogre King | King Gordok · DM Kuzey | — | Channeler's Ring · Pix Xizzix, 75 Real |\n| Yüzük 2 | Ring of Awareness | Pix Xizzix · 75 Undermine Real | — | Blood of the Martyr · Görev: Aurius' Reckoning |\n| Trinket 1 | Defender's Grip Stabilizer | Pix Xizzix · 125 Undermine Real | — | Defender of the Barkskin · Dala Fairmaw, Hyjal |\n| Trinket 2 | Force of Will | General Angerforge · BRD | — | Vigilance Charm · Immol'thar, DM Batı |\n| Ana el | Mastersmith's Hammer | Goraluk Anvilcrack · UBRS | Saldırın dodge/parry edilince şansla canının %5'i kadar iyileşme · Recovery | Timeworn Mace · Tortheldrin, DM Batı |\n| Yan el | Draconian Deflector | General Drakkisath · UBRS | +9 Stamina · Greater Stamina | Crest of Supremacy · Eranikus, Sunken Temple |\n| Relic | Sentinel's Libram | Pix Xizzix · 50 Undermine Real | — | Libram of Truth · Magmus, BRD |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "paladin-17-protection-raid-hazirligi",
+  "category": "class",
+  "title": "Paladin · Protection Raid Hazirligi",
+  "file": "17-Protection-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "protection raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "paladin",
+  "kind": "raidprep",
+  "spec": "protection",
+  "text": "# Paladin · Protection Raid Hazırlığı\n\nÜst bilgi: PALADIN — PROTECTION. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Stamina\n2. Defense (440'a kadar)\n3. Spell Power — Spell Power hem hasarı hem tehdidi artırır; Holy Shield ile birlikte en büyük tehdit kaynağı.\n4. Intellect\n5. Strength\n\n## Sınırlar (cap)\n\n- Defense: 440 — Boss sana kritik vuramaz.\n- Hit: %8 — Vuruşların boss'a ıskalamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Phalanx | +400 can · +500 zırh | Alchemy 250 | 30 dk sürer. Tankın ana iksiri. |\n| Greater Arcane Elixir | +35 büyü hasarı | Alchemy 285 | 1 saat sürer. Farklı iksirler aynı anda açık kalabilir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Greater Stoneshield Potion | +2000 zırh · 2 dk | Alchemy 280 | Boss'un en sert vurduğu bölümde iç; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Savory Turtle Stew | +20 Sta | Cooking 275 | 15 dk sürer, aynı anda tek yemek bufu olur. |\n\n## SİLAH (Silaha sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Brilliant Wizard Oil | +36 büyü hasarı · %1 kritik | Enchanting 300 | Silaha sürülür, 30 dk ya da 5 kullanım sürer. |"
+ },
+ {
+  "id": "paladin-18-protection-t0-5-seti",
+  "category": "class",
+  "title": "Paladin · Protection T0.5 Seti",
+  "file": "18-Protection-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "protection t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "paladin",
+  "kind": "t05",
+  "spec": "protection",
+  "text": "# Paladin · Protection T0.5 Seti\n\nÜst bilgi: PALADIN — PROTECTION. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Soulforge Armor) 60. seviyede, eski dungeon setinin (D1, Lightforge Armor) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Lightforge Armor — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Lightforge Helm | Darkmaster Gandling | Scholo | %10,6 |\n| Göğüs | Lightforge Breastplate | General Drakkisath | UBRS | %8,71 |\n| Bilek | Lightforge Bracers | Lord Alexei Barov | Scholo | %6,1 (Scholo Risen Protector %3,98 / Risen Warrior %3,06 da düşürür.) |\n| Eller | Lightforge Gauntlets | Timmy the Cruel | Strat (Canlı) | %21,6 |\n| Bel | Lightforge Belt | Rockwing Screecher | Strat | %7,25 (Boss değil, Strat çöp mobu (gargoyle); Rockwing Gargoyle %6,02, Crimson Gallant %5,32. Zindan adı DB'de yok; Strat olduğu topluluk kaynaklarında (warcraft.wiki.gg, metaforge) aynı.) |\n| Bacak | Lightforge Legplates | Baron Rivendare | Strat (Ölü) | %10 |\n| Ayak | Lightforge Boots | Grand Crusader Dathrohan | Strat (Canlı) | %19,7 |\n| Omuz | Lightforge Spaulders | The Beast | UBRS | %17,6 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü hasarı ve iyileştirme · 4 parça: Büyüyle vurulunca %7 şansla 3 sn susturma (60 sn'de bir) · 5 parça: Vuruş/büyüde şansla 10 sn +65 büyü gücü · 6 parça: 5 sn'de 8 mana.\nForever farkı: Bonuslar 2-3-4-5-6 parçada (Classic'te 2/4/6/8). Forever'da parçalar Int + büyü gücü taşıyor (DB tooltip #16727).\n\n## T0.5: Divine Will (Tank; Protection)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Soulforge Faceguard | 18 Int, 33 Sta, +4 Def, 13 SP |\n| Göğüs | Soulforge Chestguards | 18 Int, 29 Sta, +5 Def, 14 SP, %1,2 exp |\n| Bilek | Soulforge Wristguards | 8 Int, 16 Sta, +3 Def, 6 SP |\n| Eller | Soulforge Handguards | 11 Int, 15 Sta, 5 Def, %0,8 parry, 12 SP |\n| Bel | Soulforge Waistguard | 13 Int, 18 Sta, +3 Def, 12 SP |\n| Bacak | Soulforge Legguards | 16 Int, 24 Sta, +9 Def, 16 SP, 14 blok |\n| Ayak | Soulforge Sabatons | 12 Int, 26 Sta, +3 Def, 8 SP |\n| Omuz | Soulforge Pauldrons | 12 Int, 18 Sta, +5 Def, %1 blok, 9 SP |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Vuruş/büyüde şansla 10 sn +65 büyü gücü · 5 parça: Büyüyle vurulunca %7 şansla 3 sn susturma (60 sn'de bir) · 6 parça: +23 büyü hasarı ve iyileştirme.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "paladin-19-retribution-raid-talentleri",
+  "category": "class",
+  "title": "Paladin · Retribution Raid Talentleri",
+  "file": "19-Retribution-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "retribution raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "paladin",
+  "kind": "raid",
+  "spec": "retribution",
+  "text": "# Paladin · Retribution Raid Talentleri\n\nÜst bilgi: PALADIN — RETRIBUTION. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Retribution Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n12 / 8 / 31 — Holy 12, Protection 8, Retribution 31. TOPLAM 51 PUAN.\n\n## Holy — 12 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Divine Strength | 5/5 | 1 | Strength +%10 |\n| Improved Seals | 5/5 | 2 | Seal ve Judgement hasarı +%15 |\n| Holy Conduit | 2/2 | 3 | Consecration ve Exorcism manası −%40 |\n\n## Protection — 8 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Divine Intellect | 5/5 | 1 | Toplam Intellect +%10 |\n| Precision | 3/3 | 2 | İsabet şansı +%3 |\n\n## Retribution — 31 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Benediction | 5/5 | 1 | Anlık büyü ve yetenek manası −%10 |\n| Improved Judgement | 2/2 | 2 | Judgement bekleme süresi −2 sn |\n| Conviction | 3/3 | 2 | Saldırı ve büyü kritik şansı +%6 |\n| Sanctified Judgement | 3/3 | 2 | Judgement'ta mühür manası %60 geri |\n| Unyielding Faith | 1/2 | 3 | Fear ve Disorient süresi −%15 |\n| Seal of Command | 1/1 | 3 | Şansla silahın %70'i kadar Holy hasar |\n| Pursuit of Justice | 2/2 | 3 | Koşu ve binek hızı +%15 |\n| Sacred Arbiter | 1/1 | 4 | Holy Strike %20 güçlü, Judgement'ı yeniler |\n| Two-Handed Weapon Specialization | 3/3 | 4 | İki elliyle hasar +%6, tehdit −%20 |\n| Repentance | 1/1 | 5 | Hedefi 6 sn etkisiz bırakır |\n| Vengeance | 3/3 | 5 | Kritikten sonra hasar +%3, 5 kez birikir (ön koşul: Seal of Command) |\n| Champion of the Light | 5/5 | 6 | Intellect'in %60'ı büyü hasarına |\n| Unsealed Wrath | 1/1 | 7 | 3 mühür yükü saklar, değişince tetikler (ön koşul: Repentance) |\n\nNot: Icy 'Unsealed Wrath'; Warcraft Tavern da 12/8/31\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "paladin-20-retribution-pre-bis",
+  "category": "class",
+  "title": "Paladin · Retribution Pre-BiS",
+  "file": "20-Retribution-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "retribution pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "paladin",
+  "kind": "prebis",
+  "spec": "retribution",
+  "text": "# Paladin · Retribution Pre-BiS\n\nÜst bilgi: PALADIN — RETRIBUTION. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Mask of the Unforgiven | The Unforgiven · Stratholme | +8 Strength · Lesser Arcanum of Voracity | Eye of Rend · Rend, UBRS |\n| Boyun | Beads of Ogre Might | Görev: Falrin's Vendetta · Dire Maul | +5 Strength | Imperial Jewel · Thaurissan, BRD |\n| Omuz | Wyrmhide Spaulders | Görev: A Taste of Flame · BRD | — | Lightforge Spaulders · The Beast, UBRS |\n| Pelerin | Howler's Furs | Pix Xizzix · 75 Undermine Real | +5 Agility | Cape of the Black Baron · Rivendare, Stratholme |\n| Göğüs | Savage Gladiator Chain | Gorosh the Dervish · BRD | +3 bütün statlar | Tombstone Breastplate · Gandling, Scholomance |\n| Bilek | Battleborn Armbraces | Warchief Rend Blackhand · UBRS | +9 Strength · Superior Strength | Spike Crested Bracers · Bonesnout (elit) |\n| Eller | Theramore / Raider Gauntlets | Theramore / Darkspear itibarı · Exalted | +15 Strength · Superior Strength | Reiver Claws · Wyrmthalak, LBRS |\n| Bel | Vindicator's Belt | Pix Xizzix · 100 Undermine Real | — | Brigam Girdle · Drakkisath, UBRS |\n| Bacak | Blademaster Leggings | The Beast · UBRS | +8 Strength · Lesser Arcanum of Voracity | Devilsaur Leggings · Leatherworking 290, BoE |\n| Ayak | Goregasher Stompers | Blacksmithing 295 · BoE | +7 Agility · Greater Agility | Battlechaser's Greaves · BRD çöp mobları, BoE |\n| Yüzük 1 | Cutthroat's Signet | Pix Xizzix · 75 Undermine Real | — | Band of the Ogre King · King Gordok, DM Kuzey |\n| Yüzük 2 | Blackstone Ring | Princess Theradras · Maraudon | — | Painweaver Band · Drakkisath, UBRS |\n| Trinket 1 | Adaptive Combat Assistant | Pix Xizzix · 125 Undermine Real | — | Blackhand's Breadth · UBRS görevi |\n| Trinket 2 | Counterattack Lodestone | Gordok Tribute sandığı · DM Kuzey | — | Hand of Justice · Thaurissan, BRD |\n| İki elli | Treant's Bane | Gordok Tribute sandığı · DM Kuzey | +25 Agility | Arcanite Reaper · Blacksmithing 300, BoE |\n| Relic | Libram of Law | Pix Xizzix · 50 Undermine Real | — | Sentinel's Libram · Pix Xizzix, 50 Real |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "paladin-21-retribution-raid-hazirligi",
+  "category": "class",
+  "title": "Paladin · Retribution Raid Hazirligi",
+  "file": "21-Retribution-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "retribution raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "paladin",
+  "kind": "raidprep",
+  "spec": "retribution",
+  "text": "# Paladin · Retribution Raid Hazırlığı\n\nÜst bilgi: PALADIN — RETRIBUTION. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Weapon DPS — Seal of Command için çok yavaş, Seal of Righteousness için çok hızlı iki elli silah al.\n2. Hit (%8'e kadar)\n3. Expertise (%6,5'e kadar)\n4. Strength\n5. Spell Power — Holy Shock build'inde Intellect, Champion of the Light ile Spell Power'a döner.\n\n## Sınırlar (cap)\n\n- Hit: %8 — Silah vuruşların boss'a ıskalamaz; sonrası yalnız büyülere az fayda.\n- Expertise: %6,5 — Arkadan vururken boss kaçamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Grizzly | +25 Str · %2 kritik | Alchemy 300 | Forever'a yeni gelen iksir, 30 dk sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Winterfall Firewater | +35 yakın dövüş AP | Winterspring | 20 dk sürer. Winterfall furbolg'larından düşer; Alchemy 250 ile yapılan Distilled Firewater da aynı etkiyi verir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Frenzy Potion | +80 AP | Alchemy 290 | 30 sn sürer, yakın dövüş ve menzilli AP verir. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Smoked Desert Dumplings | +20 Str | Cooking 285 | 15 dk sürer, aynı anda tek yemek bufu olur. Pişirmek için Iron Oven gerekir. |\n| Juju Power | +30 Str | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Silaha sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Elemental Sharpening Stone | +%2 kritik | Blacksmithing 300 | Silaha sürülür, 30 dk sürer. Çift silahta iki silaha da sür. |"
+ },
+ {
+  "id": "paladin-22-retribution-t0-5-seti",
+  "category": "class",
+  "title": "Paladin · Retribution T0.5 Seti",
+  "file": "22-Retribution-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Paladin",
+  "keywords": [
+   "paladin",
+   "retribution t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "paladin",
+  "kind": "t05",
+  "spec": "retribution",
+  "text": "# Paladin · Retribution T0.5 Seti\n\nÜst bilgi: PALADIN — RETRIBUTION. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Soulforge Armor) 60. seviyede, eski dungeon setinin (D1, Lightforge Armor) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Lightforge Armor — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Lightforge Helm | Darkmaster Gandling | Scholo | %10,6 |\n| Göğüs | Lightforge Breastplate | General Drakkisath | UBRS | %8,71 |\n| Bilek | Lightforge Bracers | Lord Alexei Barov | Scholo | %6,1 (Scholo Risen Protector %3,98 / Risen Warrior %3,06 da düşürür.) |\n| Eller | Lightforge Gauntlets | Timmy the Cruel | Strat (Canlı) | %21,6 |\n| Bel | Lightforge Belt | Rockwing Screecher | Strat | %7,25 (Boss değil, Strat çöp mobu (gargoyle); Rockwing Gargoyle %6,02, Crimson Gallant %5,32. Zindan adı DB'de yok; Strat olduğu topluluk kaynaklarında (warcraft.wiki.gg, metaforge) aynı.) |\n| Bacak | Lightforge Legplates | Baron Rivendare | Strat (Ölü) | %10 |\n| Ayak | Lightforge Boots | Grand Crusader Dathrohan | Strat (Canlı) | %19,7 |\n| Omuz | Lightforge Spaulders | The Beast | UBRS | %17,6 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü hasarı ve iyileştirme · 4 parça: Büyüyle vurulunca %7 şansla 3 sn susturma (60 sn'de bir) · 5 parça: Vuruş/büyüde şansla 10 sn +65 büyü gücü · 6 parça: 5 sn'de 8 mana.\nForever farkı: Bonuslar 2-3-4-5-6 parçada (Classic'te 2/4/6/8). Forever'da parçalar Int + büyü gücü taşıyor (DB tooltip #16727).\n\n## T0.5: Radiant (Yakın DPS; Retribution)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Soulforge Greathelm | 16 Str, 17 Int, 17 Sta, %1 crit, 14 SP |\n| Göğüs | Soulforge Breastplate | 16 Str, 17 Int, 17 Sta, %1 crit, 18 SP |\n| Bilek | Soulforge Bracers | 9 Str, 9 Int, 10 Sta, 9 SP |\n| Eller | Soulforge Gauntlets | 9 Str, 10 Int, 10 Sta, %1 crit, 9 SP |\n| Bel | Soulforge Belt | 10 Str, 11 Int, 11 Sta, %1 hit, 8 SP |\n| Bacak | Soulforge Legplates | 17 Str, 19 Int, 17 Sta, 11 SP |\n| Ayak | Soulforge Warboots | 12 Str, 12 Int, 13 Sta, 4 mp5, 13 SP |\n| Omuz | Soulforge Spaulders | 10 Str, 11 Int, 11 Sta, %1 exp, 8 SP |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Vuruş/büyüde şansla 10 sn +65 büyü gücü · 5 parça: Büyüyle vurulunca %7 şansla 3 sn susturma (60 sn'de bir) · 6 parça: +23 büyü hasarı ve iyileştirme.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
  },
  {
   "id": "priest-01-irk-secimi",
@@ -887,6 +1940,249 @@ export const CARDS = [
   "text": "# Priest · Shadow Leveling\n\nÜst bilgi: PRIEST — SHADOW. WOW FOREVER. TOTİK CHANNEL — TAVSİYE EDİLEN BUILD.\nSeviye aralığı: Seviye 10 → 60.\n\n## Discipline — 13 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Power in Light — 0/5 (puan yok)\n- Satır 1: Wand Specialization — 2/2 (tamamlandı)\n- Satır 1: Twin Disciplines — 3/5 (kısmen alındı)\n- Satır 2: Silent Resolve — 0/3 (puan yok)\n- Satır 2: Holy Precision — 0/3 (puan yok)\n- Satır 2: Mental Strength — 5/5 (tamamlandı)\n- Satır 2: Martyrdom — 0/2 (puan yok)\n- Satır 3: Mental Agility — 0/3 (puan yok)\n- Satır 3: Inner Focus — 0/1 (puan yok)\n- Satır 3: Improved Power Word: Shield — 0/3 (puan yok)\n- Satır 3: Meditation — 3/3 (tamamlandı)\n- Satır 4: Improved Inner Fire — 0/3 (puan yok)\n- Satır 4: Improved Mana Burn — 0/2 (puan yok)\n- Satır 4: Soul Warding — 0/1 (puan yok; ön koşul oku: Improved Power Word: Shield → Soul Warding)\n- Satır 5: Penance — 0/1 (puan yok)\n- Satır 5: Renewed Hope — 0/5 (puan yok; ön koşul oku: Soul Warding → Renewed Hope)\n- Satır 6: Divine Aegis — 0/3 (puan yok)\n- Satır 7: Power Infusion — 0/1 (puan yok; ön koşul oku: Penance → Power Infusion)\n\n## Holy — 3 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Twilight Focus — 3/3 (tamamlandı)\n- Satır 1: Improved Renew — 0/3 (puan yok)\n- Satır 1: Holy Specialization — 0/5 (puan yok)\n- Satır 2: Spell Warding — 0/5 (puan yok)\n- Satır 2: Divine Fury — 0/5 (puan yok)\n- Satır 3: Holy Nova — 0/1 (puan yok)\n- Satır 3: Blessed Recovery — 0/3 (puan yok)\n- Satır 3: Inspiration — 0/3 (puan yok)\n- Satır 4: Holy Reach — 0/2 (puan yok)\n- Satır 4: Improved Healing — 0/3 (puan yok)\n- Satır 4: Searing Light — 0/2 (puan yok; ön koşul oku: Divine Fury → Searing Light)\n- Satır 4: Holy Binding — 0/1 (puan yok)\n- Satır 5: Litany of Light — 0/2 (puan yok)\n- Satır 5: Spirit of Redemption — 0/1 (puan yok)\n- Satır 5: Spiritual Guidance — 0/5 (puan yok)\n- Satır 6: Spiritual Healing — 0/3 (puan yok)\n- Satır 7: Prayer of Mending — 0/1 (puan yok; ön koşul oku: Spirit of Redemption → Prayer of Mending)\n\n## Shadow Magic — 35 puan\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1: Shadow Focus — 2/5 (kısmen alındı)\n- Satır 1: Blackout — 0/5 (puan yok)\n- Satır 1: Spirit Tap — 5/5 (tamamlandı)\n- Satır 2: Improved Mind Blast — 4/5 (kısmen alındı)\n- Satır 2: Improved Shadow Word: Pain — 2/2 (tamamlandı)\n- Satır 2: Shadow Reach — 1/2 (kısmen alındı)\n- Satır 3: Improved Psychic Scream — 0/2 (puan yok; ön koşul oku: Blackout → Improved Psychic Scream)\n- Satır 3: Mind Flay — 1/1 (tamamlandı)\n- Satır 3: Improved Mind Flay — 2/2 (tamamlandı; ön koşul oku: Mind Flay → Improved Mind Flay)\n- Satır 4: Dark Inspiration — 5/5 (tamamlandı)\n- Satır 4: Vampiric Embrace — 1/1 (tamamlandı)\n- Satır 4: Shadow Weaving — 3/3 (tamamlandı)\n- Satır 5: Silence — 1/1 (tamamlandı)\n- Satır 5: Devouring Contagion — 2/2 (tamamlandı)\n- Satır 6: Early Demise — 0/2 (puan yok)\n- Satır 6: Darkness — 5/5 (tamamlandı)\n- Satır 7: Shadowform — 1/1 (tamamlandı; ön koşul oku: Vampiric Embrace → Shadowform)\n\n## 60. Seviye Puan Dağılımı\n\n13 / 3 / 35 — Discipline 13, Holy 3, Shadow Magic 35. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · ↓ Ön koşul\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–11 | Wand Specialization | Discipline | +2 | 2/2 | Wand hasarı +%25 |\n| 12–16 | Spirit Tap | Shadow | +5 | 5/5 | Öldürünce 15 sn Spirit +%100 |\n| 17–18 | Improved Shadow Word: Pain | Shadow | +2 | 2/2 | Shadow Word: Pain süresi +6 sn |\n| 19–21 | Improved Mind Blast | Shadow | +3 | 3/5 (kısmen) | Mind Blast bekleme süresi −1,5 sn |\n| 22 | Mind Flay | Shadow | +1 | 1/1 | Shadow hasar verir, %50 yavaşlatır |\n| 23–24 | Improved Mind Flay | Shadow | +2 | 2/2 | Her Mind Flay vuruşu %20 daha güçlü |\n| 25 | Improved Mind Blast | Shadow | +1 | 4/5 (kısmen) | Mind Blast bekleme süresi −2 sn |\n| 26 | Shadow Reach | Shadow | +1 | 1/2 (kısmen) | Shadow büyü menzili +%10 |\n| 27 | Vampiric Embrace | Shadow | +1 | 1/1 | Hasarının %20'si grubu iyileştirir |\n| 28–32 | Dark Inspiration | Shadow | +5 | 5/5 | Mind Blast ve Mind Flay grup Spirit'i +%15 |\n| 33–34 | Devouring Contagion | Shadow | +2 | 2/2 | Devouring Plague %50 ucuz ve yayılır |\n| 35 | Silence | Shadow | +1 | 1/1 | 5 sn susturur, büyüyü keser |\n| 36 | Shadow Weaving | Shadow | +1 | 1/3 (kısmen) | %33 şansla Shadow hasarın +%2 |\n| 37–41 | Darkness | Shadow | +5 | 5/5 | Shadow hasarı +%10 |\n| 42 | Shadowform | Shadow | +1 | 1/1 | Shadow hasarı +%10, manası −%50 |\n| 43–45 | Twin Disciplines | Discipline | +3 | 3/5 (kısmen) | Anlık büyü hasarı ve heal +%3 |\n| 46–50 | Mental Strength | Discipline | +5 | 5/5 | Toplam Intellect +%10 |\n| 51–53 | Meditation | Discipline | +3 | 3/3 | Büyü sırasında %50 mana yenilenmesi |\n| 54–56 | Twilight Focus | Holy | +3 | 3/3 | Hasar alınca %70 şansla büyü gecikmez |\n| 57–58 | Shadow Weaving | Shadow | +2 | 3/3 | %100 şansla Shadow hasarın +%2 |\n| 59–60 | Shadow Focus | Shadow | +2 | 2/5 (kısmen) | Shadow büyü isabeti +%2 |"
  },
  {
+  "id": "priest-11-discipline-raid-talentleri",
+  "category": "class",
+  "title": "Priest · Discipline Raid Talentleri",
+  "file": "11-Discipline-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "discipline raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "priest",
+  "kind": "raid",
+  "spec": "discipline",
+  "text": "# Priest · Discipline Raid Talentleri\n\nÜst bilgi: PRIEST — DISCIPLINE. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Discipline Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n31 / 20 / 0 — Discipline 31, Holy 20, Shadow Magic 0. TOPLAM 51 PUAN.\n\n## Discipline — 31 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Twin Disciplines | 5/5 | 1 | Anlık büyü hasarı ve heal +%5 |\n| Mental Strength | 5/5 | 2 | Toplam Intellect +%10 |\n| Mental Agility | 3/3 | 3 | Smite ve anlık büyüler %10 ucuz |\n| Inner Focus | 1/1 | 3 | Sonraki büyü bedava, kritiği +%25 |\n| Improved Power Word: Shield | 3/3 | 3 | Power Word: Shield emilimi +%20 |\n| Meditation | 3/3 | 3 | Büyü sırasında %50 mana yenilenmesi |\n| Soul Warding | 1/1 | 4 | Power Word: Shield −4 sn, %15 ucuz (ön koşul: Improved Power Word: Shield) |\n| Penance | 1/1 | 5 | Anında Holy hasar ya da heal yağdırır |\n| Renewed Hope | 5/5 | 5 | Weakened Soul'lu hedefe heal kritiği +%10 (ön koşul: Soul Warding) |\n| Divine Aegis | 3/3 | 6 | Kritik heal %15'i kadar kalkan bırakır |\n| Power Infusion | 1/1 | 7 | Hedefin büyü gücü 15 sn +%20 (ön koşul: Penance) |\n\n## Holy — 20 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Twilight Focus | 3/3 | 1 | Hasar alınca %70 şansla büyü gecikmez |\n| Holy Specialization | 5/5 | 1 | Holy büyü kritik şansı +%5 |\n| Divine Fury | 5/5 | 2 | Smite ve Heal döküm süresi −0,5 sn |\n| Holy Nova | 1/1 | 3 | Çevreye hasar verir, grubu iyileştirir |\n| Inspiration | 3/3 | 3 | Kritik heal hedefin zırhını +%25 |\n| Holy Reach | 1/2 | 4 | Smite, Holy Nova menzili +%10 |\n| Searing Light | 2/2 | 4 | Holy hasarı +%5, bedava Holy Nova şansı (ön koşul: Divine Fury) |\n\nNot: ConquestCapped de 31/20/0; Holy'de Twilight Focus/Holy Nova yerine Improved Renew/Healing alıyor\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "priest-12-discipline-pre-bis",
+  "category": "class",
+  "title": "Priest · Discipline Pre-BiS",
+  "file": "12-Discipline-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "discipline pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "priest",
+  "kind": "prebis",
+  "spec": "discipline",
+  "text": "# Priest · Discipline Pre-BiS\n\nÜst bilgi: PRIEST — DISCIPLINE. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Bad Hat | Görev: Deadliest Catch | +8 iyileştirme ve büyü hasarı · Arcanum of Focus | Lost Researcher's Hood · Görev: Digestible Research |\n| Boyun | Animated Chain Necklace | Ramstein the Gorger · Stratholme | +11 iyileştirme · +4 büyü hasarı | Heart of the Fiend · Kirtonos the Herald, Scholomance |\n| Omuz | Mooncloth Shoulders | Tailoring 275 · BoE | — | Mantle of Lost Hope · Lord Roccor, BRD |\n| Pelerin | Hide of the Wild | Leatherworking 300 · BoE | — | Drape of Recovery · Pix Xizzix, 75 Real |\n| Göğüs | Robes of the Exalted | Baron Rivendare · Stratholme | — | Mooncloth Vest · Tailoring 270, BoE |\n| Bilek | Wyrmthalak's Shackles | LBRS görevi (Wyrmthalak) | +24 iyileştirme · +8 büyü hasarı | Funeral Cuffs · Shadow Hunter Vosh'gajin, LBRS |\n| Eller | Hands of the Exalted Herald | Princess Moira · BRD | — | Mooncloth Gloves · Tailoring 280, BoE |\n| Bel | Whipvine Cord | Alzzin the Wildshaper · DM Doğu | — | Wisdom of the Timbermaw · Tailoring 255, BoE |\n| Bacak | Padre's Trousers | Illyanna Ravenoak · DM Batı | +8 iyileştirme ve büyü hasarı · Arcanum of Focus | Senior Designer's Pantaloons · Fineous Darkvire, BRD |\n| Ayak | Swarmtender's Footpads | Tailoring 295 · BoE | +5 Spi | Omnicast Boots · Golem Lord Argelmach, BRD |\n| Yüzük 1 | Blessed Band of Light | Pix Xizzix · 75 Undermine Real | — | Rosewine Circle · Urok Doomhowl, LBRS |\n| Yüzük 2 | Fordring's Seal | Görev: In Dreams · Batı Plaguelands | — | Ring of Nature's Cycles · Görev: Work Well Done |\n| Trinket 1 | Royal Seal of Eldre'Thalas | DM görevi (Holy Bologna) | — | Second Wind · Golem Lord Argelmach, BRD |\n| Trinket 2 | Serenity Field | Pix Xizzix · 125 Undermine Real | — | Briarwood Reed · Jed Runewatcher, UBRS |\n| İki elli | Redemption | Cannon Master Willey · Stratholme | +100 iyileştirme · +34 büyü hasarı · Mighty Healing Power | Staff of Metanoia · Jandice Barov, Scholomance |\n| Değnek | Bonecreeper Stylus | Darkmaster Gandling · Scholomance | — | Lethtendris's Wand · Lethtendris, DM Doğu |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "priest-13-discipline-raid-hazirligi",
+  "category": "class",
+  "title": "Priest · Discipline Raid Hazirligi",
+  "file": "13-Discipline-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "discipline raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "priest",
+  "kind": "raidprep",
+  "spec": "discipline",
+  "text": "# Priest · Discipline Raid Hazırlığı\n\nÜst bilgi: PRIEST — DISCIPLINE. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Healing Power\n2. MP5 — MP5 savaşta tam çalışır, Spirit 5 sn kuralına takılır.\n3. Spirit\n4. Intellect\n5. Critical Strike — Önce mana yetsin, sonra Crit: kritik iyileştirme son sırada.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Distilled Wisdom | +2000 mana | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Cleric's Elixir | +40 iyileştirme | Alchemy 195 | 30 dk sürer. Şifacının en ucuz güç iksiri. |\n| Mageblood Elixir | 5 sn'de 12 mana | Alchemy 275 | 1 saat sürer. Büyü atarken de mana doldurur. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Mender's Potion | +88 iyileştirme | Alchemy 280 | Forever'a yeni gelen savaş potu, 30 sn sürer. Raid'in çok hasar aldığı anda iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Sage's Tea | +44 iyileştirme · 2934 mana | Cooking 250 | Otururken 30 sn'de mana doldurur, sonra 15 dk iyileştirme bufu verir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Silaha sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Brilliant Mana Oil | +30 iyileştirme | Enchanting 300 | Silaha sürülür, 5 sn'de 15 mana da verir. 30 dk ya da 5 kullanım sürer. |"
+ },
+ {
+  "id": "priest-14-discipline-t0-5-seti",
+  "category": "class",
+  "title": "Priest · Discipline T0.5 Seti",
+  "file": "14-Discipline-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "discipline t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "priest",
+  "kind": "t05",
+  "spec": "discipline",
+  "text": "# Priest · Discipline T0.5 Seti\n\nÜst bilgi: PRIEST — DISCIPLINE. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Vestments of the Virtuous) 60. seviyede, eski dungeon setinin (D1, Vestments of the Devout) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Vestments of the Devout — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Devout Crown | Darkmaster Gandling | Scholo | %11 |\n| Göğüs | Devout Robe | General Drakkisath | UBRS | %6,3 |\n| Bilek | Devout Bracers | Crimson Priest (çöp) | Strat (canlı) | %7,3 (Çöp düşüşü. DB'deki diğerleri: Crimson Initiate %5, Crimson Conjuror %2,5, Thuzadin Shadowcaster %2,3.) |\n| Eller | Devout Gloves | Archivist Galford | Strat (canlı) | %17,8 |\n| Bel | Devout Belt | Quartermaster Zigris | LBRS | %12 |\n| Bacak | Devout Skirt | Baron Rivendare | Strat (ölü) | %8,1 |\n| Ayak | Devout Sandals | Maleki the Pallid | Strat (ölü) | %18,2 |\n| Omuz | Devout Mantle | Solakar Flamewreath | UBRS | %11,6 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü (hasar ve iyileştirme) · 4 parça: Vurulunca %2 şansla 488 hasar emen kalkan (60 sn) · 5 parça: Büyüde %5 şansla 200 mana · 6 parça: 5 sn'de 8 mana.\nForever farkı: Forever bonusları 2/3/4/5/6 parçada (DB tooltip). Classic'te 2/4/6/8 idi (2'li +200 zırh, 8'li +8 direnç). Parça statları ve düşüren boss'lar Classic'le aynı.\n\n## T0.5: Dawn (Şifacı; Holy, Discipline)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Virtuous Crown | 33 Heal, 17 Int, 16 Sta, 16 Spi, %1 crit |\n| Göğüs | Virtuous Robe | 37 Heal, 16 Int, 16 Sta, 15 Spi, %1 crit |\n| Bilek | Virtuous Bracers | 18 Heal, 9 Int, 8 Sta, 11 Spi |\n| Eller | Virtuous Mitts | 24 Heal, 11 Int, 10 Sta, 18 Spi |\n| Bel | Virtuous Belt | 20 Heal, 13 Int, 12 Sta, 12 Spi, 2 mp5 |\n| Bacak | Virtuous Skirt | 31 Heal, 16 Int, 15 Sta, 18 Spi |\n| Ayak | Virtuous Sandals | 20 Heal, 13 Int, 11 Sta, 20 Spi, 2 mp5 |\n| Omuz | Virtuous Mantle | 22 Heal, 13 Int, 12 Sta, 12 Spi |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Büyüde %5 şansla 200 mana · 5 parça: Vurulunca %2 şansla 488 hasar emen kalkan (60 sn) · 6 parça: +23 büyü gücü (hasar ve iyileştirme).\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "priest-15-holy-raid-talentleri",
+  "category": "class",
+  "title": "Priest · Holy Raid Talentleri",
+  "file": "15-Holy-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "holy raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "priest",
+  "kind": "raid",
+  "spec": "holy",
+  "text": "# Priest · Holy Raid Talentleri\n\nÜst bilgi: PRIEST — HOLY. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Holy Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n17 / 34 / 0 — Discipline 17, Holy 34, Shadow Magic 0. TOPLAM 51 PUAN.\n\n## Discipline — 17 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Twin Disciplines | 5/5 | 1 | Anlık büyü hasarı ve heal +%5 |\n| Silent Resolve | 3/3 | 2 | Büyü tehdidi −%30 |\n| Mental Strength | 5/5 | 2 | Toplam Intellect +%10 |\n| Inner Focus | 1/1 | 3 | Sonraki büyü bedava, kritiği +%25 |\n| Meditation | 3/3 | 3 | Büyü sırasında %50 mana yenilenmesi |\n\n## Holy — 34 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Renew | 3/3 | 1 | Renew iyileştirmesi +%15 |\n| Holy Specialization | 5/5 | 1 | Holy büyü kritik şansı +%5 |\n| Divine Fury | 5/5 | 2 | Smite ve Heal döküm süresi −0,5 sn |\n| Holy Nova | 1/1 | 3 | Çevreye hasar verir, grubu iyileştirir |\n| Inspiration | 3/3 | 3 | Kritik heal hedefin zırhını +%25 |\n| Improved Healing | 3/3 | 4 | Flash Heal hariç heal manası −%15 |\n| Searing Light | 2/2 | 4 | Holy hasarı +%5, bedava Holy Nova şansı (ön koşul: Divine Fury) |\n| Litany of Light | 2/2 | 5 | Heal değiştirince %10 mana geri |\n| Spirit of Redemption | 1/1 | 5 | Ölünce 15 sn ruh olur, bedava heal |\n| Spiritual Guidance | 5/5 | 5 | Spirit'in %25'i heal gücüne |\n| Spiritual Healing | 3/3 | 6 | Heal büyüleri +%10 iyileştirir |\n| Prayer of Mending | 1/1 | 7 | Hasar alınca iyileştirip 5 kez zıplar (ön koşul: Spirit of Redemption) |\n\nNot: ConquestCapped 16/35/0: Searing Light yerine Holy Reach 2 + Holy Binding\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "priest-16-holy-pre-bis",
+  "category": "class",
+  "title": "Priest · Holy Pre-BiS",
+  "file": "16-Holy-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "holy pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "priest",
+  "kind": "prebis",
+  "spec": "holy",
+  "text": "# Priest · Holy Pre-BiS\n\nÜst bilgi: PRIEST — HOLY. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Bad Hat | Görev: Deadliest Catch | +8 iyileştirme ve büyü hasarı · Arcanum of Focus | Lost Researcher's Hood · Görev: Digestible Research |\n| Boyun | Animated Chain Necklace | Ramstein the Gorger · Stratholme | +11 iyileştirme · +4 büyü hasarı | Heart of the Fiend · Kirtonos the Herald, Scholomance |\n| Omuz | Mooncloth Shoulders | Tailoring 275 · BoE | — | Mantle of Lost Hope · Lord Roccor, BRD |\n| Pelerin | Hide of the Wild | Leatherworking 300 · BoE | — | Drape of Recovery · Pix Xizzix, 75 Real |\n| Göğüs | Robes of the Exalted | Baron Rivendare · Stratholme | — | Mooncloth Vest · Tailoring 270, BoE |\n| Bilek | Wyrmthalak's Shackles | LBRS görevi (Wyrmthalak) | +24 iyileştirme · +8 büyü hasarı | Funeral Cuffs · Shadow Hunter Vosh'gajin, LBRS |\n| Eller | Hands of the Exalted Herald | Princess Moira · BRD | — | Mooncloth Gloves · Tailoring 280, BoE |\n| Bel | Penitent's Cinch | Pix Xizzix · 100 Undermine Real | — | Whipvine Cord · Alzzin, DM Doğu |\n| Bacak | Padre's Trousers | Illyanna Ravenoak · DM Batı | +8 iyileştirme ve büyü hasarı · Arcanum of Focus | Senior Designer's Pantaloons · Fineous Darkvire, BRD |\n| Ayak | Swarmtender's Footpads | Tailoring 295 · BoE | +5 Spi | Omnicast Boots · Golem Lord Argelmach, BRD |\n| Yüzük 1 | Blessed Band of Light | Pix Xizzix · 75 Undermine Real | — | Rosewine Circle · Urok Doomhowl, LBRS |\n| Yüzük 2 | Fordring's Seal | Görev: In Dreams · Batı Plaguelands | — | Ring of Nature's Cycles · Görev: Work Well Done |\n| Trinket 1 | Royal Seal of Eldre'Thalas | DM görevi (Holy Bologna) | — | Second Wind · Golem Lord Argelmach, BRD |\n| Trinket 2 | Serenity Field | Pix Xizzix · 125 Undermine Real | — | Briarwood Reed · Jed Runewatcher, UBRS |\n| İki elli | Staff of Metanoia | Jandice Barov · Scholomance | +100 iyileştirme · +34 büyü hasarı · Mighty Healing Power | Redemption · Cannon Master Willey, Stratholme |\n| Değnek | Bonecreeper Stylus | Darkmaster Gandling · Scholomance | — | Lethtendris's Wand · Lethtendris, DM Doğu |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "priest-17-holy-raid-hazirligi",
+  "category": "class",
+  "title": "Priest · Holy Raid Hazirligi",
+  "file": "17-Holy-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "holy raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "priest",
+  "kind": "raidprep",
+  "spec": "holy",
+  "text": "# Priest · Holy Raid Hazırlığı\n\nÜst bilgi: PRIEST — HOLY. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Healing Power\n2. MP5 — MP5 savaşta tam çalışır, Spirit 5 sn kuralına takılır.\n3. Spirit\n4. Intellect\n5. Critical Strike — Önce mana yetsin, sonra Crit.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Distilled Wisdom | +2000 mana | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Cleric's Elixir | +40 iyileştirme | Alchemy 195 | 30 dk sürer. Şifacının en ucuz güç iksiri. |\n| Mageblood Elixir | 5 sn'de 12 mana | Alchemy 275 | 1 saat sürer. Büyü atarken de mana doldurur. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Mender's Potion | +88 iyileştirme | Alchemy 280 | Forever'a yeni gelen savaş potu, 30 sn sürer. Raid'in çok hasar aldığı anda iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Sage's Tea | +44 iyileştirme · 2934 mana | Cooking 250 | Otururken 30 sn'de mana doldurur, sonra 15 dk iyileştirme bufu verir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Silaha sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Brilliant Mana Oil | +30 iyileştirme | Enchanting 300 | Silaha sürülür, 5 sn'de 15 mana da verir. 30 dk ya da 5 kullanım sürer. |"
+ },
+ {
+  "id": "priest-18-holy-t0-5-seti",
+  "category": "class",
+  "title": "Priest · Holy T0.5 Seti",
+  "file": "18-Holy-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "holy t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "priest",
+  "kind": "t05",
+  "spec": "holy",
+  "text": "# Priest · Holy T0.5 Seti\n\nÜst bilgi: PRIEST — HOLY. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Vestments of the Virtuous) 60. seviyede, eski dungeon setinin (D1, Vestments of the Devout) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Vestments of the Devout — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Devout Crown | Darkmaster Gandling | Scholo | %11 |\n| Göğüs | Devout Robe | General Drakkisath | UBRS | %6,3 |\n| Bilek | Devout Bracers | Crimson Priest (çöp) | Strat (canlı) | %7,3 (Çöp düşüşü. DB'deki diğerleri: Crimson Initiate %5, Crimson Conjuror %2,5, Thuzadin Shadowcaster %2,3.) |\n| Eller | Devout Gloves | Archivist Galford | Strat (canlı) | %17,8 |\n| Bel | Devout Belt | Quartermaster Zigris | LBRS | %12 |\n| Bacak | Devout Skirt | Baron Rivendare | Strat (ölü) | %8,1 |\n| Ayak | Devout Sandals | Maleki the Pallid | Strat (ölü) | %18,2 |\n| Omuz | Devout Mantle | Solakar Flamewreath | UBRS | %11,6 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü (hasar ve iyileştirme) · 4 parça: Vurulunca %2 şansla 488 hasar emen kalkan (60 sn) · 5 parça: Büyüde %5 şansla 200 mana · 6 parça: 5 sn'de 8 mana.\nForever farkı: Forever bonusları 2/3/4/5/6 parçada (DB tooltip). Classic'te 2/4/6/8 idi (2'li +200 zırh, 8'li +8 direnç). Parça statları ve düşüren boss'lar Classic'le aynı.\n\n## T0.5: Dawn (Şifacı; Holy, Discipline)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Virtuous Crown | 33 Heal, 17 Int, 16 Sta, 16 Spi, %1 crit |\n| Göğüs | Virtuous Robe | 37 Heal, 16 Int, 16 Sta, 15 Spi, %1 crit |\n| Bilek | Virtuous Bracers | 18 Heal, 9 Int, 8 Sta, 11 Spi |\n| Eller | Virtuous Mitts | 24 Heal, 11 Int, 10 Sta, 18 Spi |\n| Bel | Virtuous Belt | 20 Heal, 13 Int, 12 Sta, 12 Spi, 2 mp5 |\n| Bacak | Virtuous Skirt | 31 Heal, 16 Int, 15 Sta, 18 Spi |\n| Ayak | Virtuous Sandals | 20 Heal, 13 Int, 11 Sta, 20 Spi, 2 mp5 |\n| Omuz | Virtuous Mantle | 22 Heal, 13 Int, 12 Sta, 12 Spi |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Büyüde %5 şansla 200 mana · 5 parça: Vurulunca %2 şansla 488 hasar emen kalkan (60 sn) · 6 parça: +23 büyü gücü (hasar ve iyileştirme).\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "priest-19-shadow-raid-talentleri",
+  "category": "class",
+  "title": "Priest · Shadow Raid Talentleri",
+  "file": "19-Shadow-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "shadow raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "priest",
+  "kind": "raid",
+  "spec": "shadow",
+  "text": "# Priest · Shadow Raid Talentleri\n\nÜst bilgi: PRIEST — SHADOW. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Shadow Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n15 / 3 / 33 — Discipline 15, Holy 3, Shadow Magic 33. TOPLAM 51 PUAN.\n\n## Discipline — 15 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Twin Disciplines | 5/5 | 1 | Anlık büyü hasarı ve heal +%5 |\n| Silent Resolve | 3/3 | 2 | Büyü tehdidi −%30 |\n| Mental Strength | 4/5 | 2 | Toplam Intellect +%8 |\n| Meditation | 3/3 | 3 | Büyü sırasında %50 mana yenilenmesi |\n\n## Holy — 3 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Twilight Focus | 3/3 | 1 | Hasar alınca %70 şansla büyü gecikmez |\n\n## Shadow Magic — 33 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Shadow Focus | 5/5 | 1 | Shadow büyü isabeti +%5 |\n| Improved Mind Blast | 4/5 | 2 | Mind Blast bekleme süresi −2 sn |\n| Improved Shadow Word: Pain | 2/2 | 2 | Shadow Word: Pain süresi +6 sn |\n| Shadow Reach | 1/2 | 2 | Shadow büyü menzili +%10 |\n| Mind Flay | 1/1 | 3 | Shadow hasar verir, %50 yavaşlatır |\n| Improved Mind Flay | 2/2 | 3 | Her Mind Flay vuruşu %20 daha güçlü (ön koşul: Mind Flay) |\n| Dark Inspiration | 5/5 | 4 | Mind Blast ve Mind Flay grup Spirit'i +%15 |\n| Vampiric Embrace | 1/1 | 4 | Hasarının %20'si grubu iyileştirir |\n| Shadow Weaving | 3/3 | 4 | Hedefin Shadow hasarı alımı +%2, 5 yığın |\n| Silence | 1/1 | 5 | 5 sn susturur, büyüyü keser |\n| Devouring Contagion | 2/2 | 5 | Devouring Plague %50 ucuz ve yayılır |\n| Darkness | 5/5 | 6 | Shadow hasarı +%10 |\n| Shadowform | 1/1 | 7 | Shadow hasarı +%10, manası −%50 (ön koşul: Vampiric Embrace) |\n\nNot: ConquestCapped de 15/3/33; Silence yerine Shadow Reach 2 alıyor\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "priest-20-shadow-pre-bis",
+  "category": "class",
+  "title": "Priest · Shadow Pre-BiS",
+  "file": "20-Shadow-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "shadow pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "priest",
+  "kind": "prebis",
+  "spec": "shadow",
+  "text": "# Priest · Shadow Pre-BiS\n\nÜst bilgi: PRIEST — SHADOW. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Spellweaver's Turban | General Drakkisath · UBRS | +8 büyü hasarı ve iyileştirme · Arcanum of Focus | Crimson Felt Hat · Magistrate Barthilas, Stratholme |\n| Boyun | Nacreous Shell Necklace | Cannon Master Willey · Stratholme | +6 SP | Dark Advisor's Pendant · Vectus, Scholomance |\n| Omuz | Mantle of the Timbermaw | Tailoring 290 · BoE | — | Theramore / Darkspear Shoulderpads · Exalted |\n| Pelerin | Arcanoweave Cloak | Pix Xizzix · 75 Undermine Real | — | Spritecaster Cape · Houndmaster Grebmar, BRD |\n| Göğüs | Robes of Dark Summons | Impaan the Imprisoner · Blackmaw Hold | — | Robe of Winter Night · Tailoring 245, BoE |\n| Bilek | Sublime Wristguards | Guard Slip'kik / Mol'dar · DM Kuzey | +16 SP · Greater Spellpower | Funeral Cuffs · Shadow Hunter Vosh'gajin, LBRS |\n| Eller | Hands of Power | Quartermaster Zigris · LBRS | — | Mooncloth Gloves · Tailoring 280, BoE |\n| Bel | Ban'thok Sash | Ok'thor the Breaker · BRD | — | Wisdom of the Timbermaw · Tailoring 255, BoE |\n| Bacak | Skyshroud Leggings | Highlord Omokk · LBRS | +8 büyü hasarı ve iyileştirme · Arcanum of Focus | Tressermane Leggings · Highlord Omokk, LBRS |\n| Ayak | Omnicast Boots | Golem Lord Argelmach · BRD | +5 Spi | Swarmtender's Footpads · Tailoring 295, BoE |\n| Yüzük 1 | Channeler's Ring | Pix Xizzix · 75 Undermine Real | — | Jereman's Bauble · Görev: Return to Jereman |\n| Yüzük 2 | Rune Band of Wizardry | Lord Valthalak · UBRS (T0.5 sonu) | — | Ring of Demonic Guile · Alzzin, DM Doğu |\n| Trinket 1 | Weakness Analyzer | Pix Xizzix · 125 Undermine Real | — | Burst of Knowledge · Ambassador Flamelash, BRD |\n| Trinket 2 | Briarwood Reed | Jed Runewatcher · UBRS | — | Eye of the Beast · UBRS görevi (Drakkisath / Rend) |\n| İki elli | Valthalak's Staff of Command | Lord Valthalak · UBRS (T0.5 sonu) | +65 SP · Spellblasting | Crackling / Whiteout Staff · AV satıcısı |\n| Değnek | Skul's Ghastly Touch | Skul · Stratholme | — | Bonecreeper Stylus · Darkmaster Gandling, Scholomance |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "priest-21-shadow-raid-hazirligi",
+  "category": "class",
+  "title": "Priest · Shadow Raid Hazirligi",
+  "file": "21-Shadow-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "shadow raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "priest",
+  "kind": "raidprep",
+  "spec": "shadow",
+  "text": "# Priest · Shadow Raid Hazırlığı\n\nÜst bilgi: PRIEST — SHADOW. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Hit (%17'ye kadar) — Hit tavanından sonra Spell Power her zaman en büyük artış.\n2. Spell Power\n3. Critical Strike\n4. Spell Pierce\n5. Spirit\n\n## Sınırlar (cap)\n\n- Hit (büyü): %17 — Shadow Focus %5 verir; ekipmandan %12 ile büyülerin boss'a ıskalamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Supreme Power | +150 büyü hasarı | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Arcane Elixir | +35 büyü hasarı | Alchemy 285 | 1 saat sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Elixir of Shadow Power | +40 gölge hasarı | Alchemy 250 | 30 dk sürer. Yalnız gölge büyülerini güçlendirir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Spellblasting Potion | +47 büyü hasarı | Alchemy 285 | Forever'a yeni gelen savaş potu, 30 sn sürer. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Baked Salmon | +28 büyü hasarı | Cooking 275 | 15 dk sürer. Tarifi Feralas'ta Vivianna ya da Sheendra Tallgrass satar; Iron Oven gerekir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Silaha sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Brilliant Wizard Oil | +36 büyü hasarı · %1 kritik | Enchanting 300 | Silaha sürülür, 30 dk ya da 5 kullanım sürer. |"
+ },
+ {
+  "id": "priest-22-shadow-t0-5-seti",
+  "category": "class",
+  "title": "Priest · Shadow T0.5 Seti",
+  "file": "22-Shadow-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Priest",
+  "keywords": [
+   "priest",
+   "shadow t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "priest",
+  "kind": "t05",
+  "spec": "shadow",
+  "text": "# Priest · Shadow T0.5 Seti\n\nÜst bilgi: PRIEST — SHADOW. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Vestments of the Virtuous) 60. seviyede, eski dungeon setinin (D1, Vestments of the Devout) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Vestments of the Devout — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Devout Crown | Darkmaster Gandling | Scholo | %11 |\n| Göğüs | Devout Robe | General Drakkisath | UBRS | %6,3 |\n| Bilek | Devout Bracers | Crimson Priest (çöp) | Strat (canlı) | %7,3 (Çöp düşüşü. DB'deki diğerleri: Crimson Initiate %5, Crimson Conjuror %2,5, Thuzadin Shadowcaster %2,3.) |\n| Eller | Devout Gloves | Archivist Galford | Strat (canlı) | %17,8 |\n| Bel | Devout Belt | Quartermaster Zigris | LBRS | %12 |\n| Bacak | Devout Skirt | Baron Rivendare | Strat (ölü) | %8,1 |\n| Ayak | Devout Sandals | Maleki the Pallid | Strat (ölü) | %18,2 |\n| Omuz | Devout Mantle | Solakar Flamewreath | UBRS | %11,6 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü (hasar ve iyileştirme) · 4 parça: Vurulunca %2 şansla 488 hasar emen kalkan (60 sn) · 5 parça: Büyüde %5 şansla 200 mana · 6 parça: 5 sn'de 8 mana.\nForever farkı: Forever bonusları 2/3/4/5/6 parçada (DB tooltip). Classic'te 2/4/6/8 idi (2'li +200 zırh, 8'li +8 direnç). Parça statları ve düşüren boss'lar Classic'le aynı.\n\n## T0.5: Twilight (Menzilli DPS; Shadow)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Virtuous Cowl | 26 SP, 18 Int, 15 Sta, 12 Spi, %1 crit |\n| Göğüs | Virtuous Gown | 26 SP, 18 Int, 17 Sta, 18 Spi |\n| Bilek | Virtuous Wraps | 8 SP, 11 Int, 8 Sta, 10 Spi |\n| Eller | Virtuous Hands | 19 SP, 13 Int, 11 Sta, 12 Spi |\n| Bel | Virtuous Cord | 11 SP, 14 Int, 10 Sta, 14 Spi |\n| Bacak | Virtuous Leggings | 25 SP, 16 Int, 13 Sta, 11 Spi |\n| Ayak | Virtuous Slippers | 22 SP, 16 Int, 11 Sta, 10 Spi |\n| Omuz | Virtuous Epaulets | 19 SP, 12 Int, 11 Sta, %1 hit |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Büyüde %5 şansla 200 mana · 5 parça: Vurulunca %2 şansla 488 hasar emen kalkan (60 sn) · 6 parça: +23 büyü gücü (hasar ve iyileştirme).\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
   "id": "rogue-01-irk-secimi",
   "category": "class",
   "title": "Rogue · Irk Secimi",
@@ -1055,6 +2351,249 @@ export const CARDS = [
   "kind": "leveling",
   "spec": "subtlety",
   "text": "# Rogue · Subtlety Leveling\n\nÜst bilgi: ROGUE — SUBTLETY. WOW FOREVER · TOTİK CHANNEL. Rozet: TAVSİYE EDİLEN BUILD.\n\nSeviye aralığı: 10 → 60\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n### Assassination — 15 puan\n\n- Satır 1, sütun 1: Improved Gouge — 0/3 (puan yok)\n- Satır 1, sütun 2: Remorseless Attacks — 2/2 (tamamlandı)\n- Satır 1, sütun 3: Malice — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Ruthlessness — 3/3 (tamamlandı)\n- Satır 2, sütun 2: Improved Expose Armor — 0/2 (puan yok)\n- Satır 2, sütun 4: Improved Slice and Dice — 2/3 (kısmen alındı)\n- Satır 3, sütun 1: Vigor — 0/2 (puan yok)\n- Satır 3, sütun 2: Blood Splatter — 1/1 (tamamlandı)\n- Satır 3, sütun 3: Lethality — 2/2 (tamamlandı)\n- Satır 4, sütun 1: Vile Poisons — 0/5 (puan yok)\n- Satır 4, sütun 2: Cold Blood — 0/1 (puan yok)\n- Satır 4, sütun 3: Improved Poisons — 0/5 (puan yok)\n- Satır 5, sütun 1: Relentless Strikes — 0/5 (puan yok)\n- Satır 5, sütun 2: Venom — 0/1 (puan yok)\n- Satır 5, sütun 3: Improved Kidney Shot — 0/2 (puan yok)\n- Satır 6, sütun 3: Seal Fate — 0/3 (puan yok)\n- Satır 7, sütun 2: Mutilate — 0/1 (puan yok)\n\nÖn koşul okları: Malice → Lethality; Venom → Mutilate.\n\n### Combat — 5 puan\n\n- Satır 1, sütun 1: Coup de Grace — 3/3 (tamamlandı)\n- Satır 1, sütun 2: Efficient Strikes — 2/2 (tamamlandı)\n- Satır 1, sütun 3: Lightning Reflexes — 0/5 (puan yok)\n- Satır 2, sütun 1: Puncturing Wounds — 0/3 (puan yok)\n- Satır 2, sütun 2: Deflection — 0/3 (puan yok)\n- Satır 2, sütun 3: Precision — 0/3 (puan yok)\n- Satır 2, sütun 4: Improved Sprint — 0/2 (puan yok)\n- Satır 3, sütun 1: Endurance — 0/2 (puan yok)\n- Satır 3, sütun 2: Riposte — 0/1 (puan yok)\n- Satır 3, sütun 4: Composure — 0/2 (puan yok)\n- Satır 4, sütun 1: Improved Kick — 0/2 (puan yok)\n- Satır 4, sütun 2: Flawless Execution — 0/1 (puan yok)\n- Satır 4, sütun 3: Weapon Expertise — 0/2 (puan yok)\n- Satır 4, sütun 4: Aggression — 0/3 (puan yok)\n- Satır 5, sütun 1: Dual Wield Specialization — 0/2 (puan yok)\n- Satır 5, sütun 2: Blade Flurry — 0/1 (puan yok)\n- Satır 5, sütun 3: Hack and Slash — 0/5 (puan yok)\n- Satır 6, sütun 3: Flash of Steel — 0/5 (puan yok)\n- Satır 7, sütun 2: Adrenaline Rush — 0/1 (puan yok)\n\nÖn koşul okları: Deflection → Riposte; Precision → Weapon Expertise; Blade Flurry → Adrenaline Rush.\n\n### Subtlety — 31 puan\n\n- Satır 1, sütun 1: Setup — 3/3 (tamamlandı)\n- Satır 1, sütun 2: Master of Deception — 0/3 (puan yok)\n- Satır 1, sütun 3: Opportunity — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Dirty Deeds — 1/2 (kısmen alındı)\n- Satır 2, sütun 2: Camouflage — 3/3 (tamamlandı)\n- Satır 2, sütun 3: Improved Ambush — 3/3 (tamamlandı)\n- Satır 2, sütun 4: Dirty Tricks — 0/2 (puan yok)\n- Satır 3, sütun 1: Initiative — 3/3 (tamamlandı)\n- Satır 3, sütun 2: Premeditation — 1/1 (tamamlandı)\n- Satır 3, sütun 3: Serrated Blades — 3/3 (tamamlandı)\n- Satır 4, sütun 1: Elusiveness — 0/2 (puan yok)\n- Satır 4, sütun 2: Ghostly Strike — 1/1 (tamamlandı)\n- Satır 4, sütun 4: Quick Getaway — 0/2 (puan yok)\n- Satır 5, sütun 1: Heightened Senses — 0/2 (puan yok)\n- Satır 5, sütun 2: Preparation — 1/1 (tamamlandı)\n- Satır 5, sütun 3: Hemorrhage — 1/1 (tamamlandı)\n- Satır 6, sütun 3: Boot Knife — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Death Mark — 1/1 (tamamlandı)\n\nÖn koşul okları: Dirty Tricks → Quick Getaway; Serrated Blades → Hemorrhage; Preparation → Death Mark.\n\n## 60. Seviye Puan Dağılımı\n\n15 / 5 / 31 — Assassination 15, Combat 5, Subtlety 31. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Opportunity | Subtlety | +5 | 5/5 | Backstab, Garrote, Ambush, Mutilate +%20 |\n| 15–17 | Improved Ambush | Subtlety | +3 | 3/3 | Ambush kritik şansı +%45 |\n| 18–19 | Setup | Subtlety | +2 | 2/3 | Dodge sonrası %30 şansla 1 combo puanı |\n| 20–22 | Serrated Blades | Subtlety | +3 | 3/3 | Zırhın %9'unu deler, Rupture +%30 |\n| 23 | Premeditation | Subtlety | +1 | 1/1 | Hedefe 2 combo puanı ekler |\n| 24 | Dirty Deeds | Subtlety | +1 | 1/2 | Cheap Shot ve Garrote −10 Energy |\n| 25 | Ghostly Strike | Subtlety | +1 | 1/1 | Vurur, 7 sn dodge şansı +%15 |\n| 26 | Setup | Subtlety | +1 | 3/3 | Dodge sonrası %45 şansla 1 combo puanı |\n| 27–29 | Camouflage | Subtlety | +3 | 3/3 | Stealth yavaşlığı −%15, bekleme −6 sn |\n| 30 | Hemorrhage | Subtlety | +1 | 1/1 | Vurur, Rupture ve Garrote hasarı +%15 |\n| 31–32 | Efficient Strikes | Combat | +2 | 2/2 | Sinister Strike ve Hemorrhage −5 Energy |\n| 33 | Preparation | Subtlety | +1 | 1/1 | Diğer yeteneklerin beklemesini sıfırlar |\n| 34–36 | Initiative | Subtlety | +3 | 3/3 | Ambush, Garrote ve Cheap Shot +1 combo |\n| 37–41 | Boot Knife | Subtlety | +5 | 5/5 | Shank hedefe 2 combo puanı ekler |\n| 42 | Death Mark | Subtlety | +1 | 1/1 | Hasarı biriktirip 6 sn sonra patlatır |\n| 43–45 | Coup de Grace | Combat | +3 | 3/3 | Eviscerate ve Death Mark +%20 |\n| 46–47 | Remorseless Attacks | Assassination | +2 | 2/2 | Öldürünce sonraki vuruşa kritik +%40 |\n| 48–50 | Malice | Assassination | +3 | 3/5 | Saldırı ve zehir kritik şansı +%3 |\n| 51–53 | Ruthlessness | Assassination | +3 | 3/3 | Bitirici %60 şansla 1 combo puanı ekler |\n| 54–55 | Malice | Assassination | +2 | 5/5 | Saldırı ve zehir kritik şansı +%5 |\n| 56 | Blood Splatter | Assassination | +1 | 1/1 | Rupture 6 sn, Garrote 9 sn uzun |\n| 57–58 | Lethality | Assassination | +2 | 2/2 | Vuruş yeteneği kritik hasarı +%20 |\n| 59–60 | Improved Slice and Dice | Assassination | +2 | 2/3 | Slice and Dice süresi +%30 |"
+ },
+ {
+  "id": "rogue-11-assassination-raid-talentleri",
+  "category": "class",
+  "title": "Rogue · Assassination Raid Talentleri",
+  "file": "11-Assassination-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "assassination raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "rogue",
+  "kind": "raid",
+  "spec": "assassination",
+  "text": "# Rogue · Assassination Raid Talentleri\n\nÜst bilgi: ROGUE — ASSASSINATION. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Assassination Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n33 / 18 / 0 — Assassination 33, Combat 18, Subtlety 0. TOPLAM 51 PUAN.\n\n## Assassination — 33 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Malice | 5/5 | 1 | Saldırı ve zehir kritik şansı +%5 |\n| Ruthlessness | 3/3 | 2 | Bitirici %60 şansla 1 combo puanı ekler |\n| Improved Expose Armor | 2/2 | 2 | Expose Armor −10 Energy, 2 combo iade |\n| Improved Slice and Dice | 3/3 | 2 | Slice and Dice süresi +%45 |\n| Blood Splatter | 1/1 | 3 | Rupture 6 sn, Garrote 9 sn uzun |\n| Lethality | 2/2 | 3 | Vuruş yeteneği kritik hasarı +%20 (ön koşul: Malice) |\n| Vile Poisons | 5/5 | 4 | Zehir hasarı +%20 |\n| Cold Blood | 1/1 | 4 | Sonraki vuruş kesin kritik |\n| Improved Poisons | 1/5 | 4 | Zehir bulaşma şansı +%2 |\n| Relentless Strikes | 5/5 | 5 | Combo puanı başına %20 şansla 25 Energy |\n| Venom | 1/1 | 5 | Shank sonrası 6 sn zehir hasarı +%30 |\n| Seal Fate | 3/3 | 6 | Kritik vuruş 1 combo puanı daha verir |\n| Mutilate | 1/1 | 7 | İki silahla vurur, 2 combo puanı verir (ön koşul: Venom) |\n\n## Combat — 18 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Coup de Grace | 3/3 | 1 | Eviscerate hasarı +%20 |\n| Lightning Reflexes | 2/5 | 1 | Dodge şansı +%2 |\n| Puncturing Wounds | 3/3 | 2 | Backstab kritiği +%30, Mutilate +%15 |\n| Precision | 3/3 | 2 | İsabet şansı +%3 |\n| Endurance | 2/2 | 3 | Sprint ve Evasion beklemesi −%60 |\n| Composure | 2/2 | 3 | Poised Energy indirimi +10 |\n| Flawless Execution | 1/1 | 4 | Eviscerate −15 Energy |\n| Weapon Expertise | 2/2 | 4 | Dodge ve parry edilme şansı −%2 (ön koşul: Precision) |\n\nNot: ConquestCapped 31/19/1 (Opportunity 1); çekirdek Mutilate + Seal Fate aynı\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "rogue-12-assassination-pre-bis",
+  "category": "class",
+  "title": "Rogue · Assassination Pre-BiS",
+  "file": "12-Assassination-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "assassination pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "rogue",
+  "kind": "prebis",
+  "spec": "assassination",
+  "text": "# Rogue · Assassination Pre-BiS\n\nÜst bilgi: ROGUE — ASSASSINATION. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Darkmantle Cap | T0.5 seti · nasıl alınır: T0.5 kartı | +8 Agility · Lesser Arcanum of Voracity | Eye of Rend · Warchief Rend Blackhand, UBRS |\n| Boyun | Mark of Fordring | Görev: In Dreams · Batı Plaguelands | +5 Agility | Beads of Ogre Might · Görev: Falrin's Vendetta, DM Batı |\n| Omuz | Darkmantle Spaulders | T0.5 seti · nasıl alınır: T0.5 kartı | — | Truestrike Shoulders · Pyroguard Emberseer, UBRS |\n| Pelerin | Cape of the Black Baron | Baron Rivendare · Stratholme | +5 Agility | Howler's Furs · Pix Xizzix, 75 Real |\n| Göğüs | Darkmantle Tunic | T0.5 seti · nasıl alınır: T0.5 kartı | — | Ghansurok Hide Tunic · Görev: Bait the Beast |\n| Bilek | Forest Stalker's Bracers | WSG satıcısı | +5 Agility | Bracers of the Eclipse · Prince Tortheldrin, DM Batı |\n| Eller | Devilsaur Gauntlets | Leatherworking 265 · BoE | +15 Strength · Superior Strength | Shadowcraft Gloves · Shadow Hunter Vosh'gajin, LBRS |\n| Bel | Assassin's Waistguard | Pix Xizzix · 100 Undermine Real | — | Might of the Timbermaw · Leatherworking 265, BoE |\n| Bacak | Devilsaur Leggings | Leatherworking 290 · BoE | +8 Agility · Lesser Arcanum of Voracity | Plaguehound Leggings · Stratholme çöp mob'ları, BoE |\n| Ayak | Darkmantle Footpads | T0.5 seti · nasıl alınır: T0.5 kartı | +7 Agility · Greater Agility | Mongoose Boots · Leatherworking 290, BoE |\n| Yüzük 1 | Don Julio's Band | AV satıcısı (Alterac Mountains) | — | Blackstone Ring · Princess Theradras, Maraudon |\n| Yüzük 2 | Cutthroat's Signet | Pix Xizzix · 75 Undermine Real | — | Painweaver Band · General Drakkisath, UBRS |\n| Trinket 1 | Hand of Justice | Emperor Thaurissan · BRD | — | Blackhand's Breadth · UBRS görevi (Drakkisath / Rend) |\n| Trinket 2 | Adaptive Combat Assistant | Pix Xizzix · 125 Undermine Real | — | Counterattack Lodestone · DM Kuzey tribute sandığı |\n| Ana el | Felstriker | Warchief Rend Blackhand · UBRS | +15 Agility | Pip's Skinner · The Beast, UBRS |\n| Yan el | Distracting Dagger | Prince Tortheldrin · DM Batı | +15 Agility | Darrowspike · Görev: The Lich, Scholomance |\n| Menzilli | Bloodseeker | AV itibarı · Exalted (görev) | — | Deep Jungle Rifle · Thunderhoof (yeni 60 dungeon'ı) |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "rogue-13-assassination-raid-hazirligi",
+  "category": "class",
+  "title": "Rogue · Assassination Raid Hazirligi",
+  "file": "13-Assassination-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "assassination raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "rogue",
+  "kind": "raidprep",
+  "spec": "assassination",
+  "text": "# Rogue · Assassination Raid Hazırlığı\n\nÜst bilgi: ROGUE — ASSASSINATION. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Expertise (%6,5'e kadar)\n2. Hit (%8'e kadar) — Precision yeteneğini ekipman hit'ini hesaplarken düş.\n3. Agility\n4. Weapon Damage\n5. Critical Strike\n\n## Sınırlar (cap)\n\n- Expertise: %6,5 — Arkadan vururken boss kaçamaz.\n- Hit: %8 — Mutilate gibi özel vuruşlar boss'a ıskalamaz.\n- Hit (otomatik vuruş): %27 — Çift silahla otomatik vuruş tavanı; %8'i geçince buraya kadar az da olsa işe yarar.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Mongoose | +25 Agi · %2 kritik | Alchemy 280 | 30 dk sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Winterfall Firewater | +35 yakın dövüş AP | Winterspring | 20 dk sürer. Winterfall furbolg'larından düşer; Alchemy 250 ile yapılan Distilled Firewater da aynı etkiyi verir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Frenzy Potion | +80 AP | Alchemy 290 | 30 sn sürer, yakın dövüş ve menzilli AP verir. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Swiftstrike Steak | +20 Agi | Cooking 275 | 15 dk sürer, aynı anda tek yemek bufu olur. Pişirmek için Iron Oven gerekir. |\n| Thistle Tea | Anında 100 enerji | Cooking 60 | Enerji bittiğinde iç; 5 dk bekleme. Tarifi Rogue görevinden gelir. |\n\n## ZEHİRLER (Silahlara sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Instant Poison VI | %20 ihtimal · 88 doğa hasarı | Poisons 325 | Ana ele sür. 30 dk ya da 250 vuruş sürer. |\n| Deadly Poison V | 12 sn'de 92 hasar · 5 yığın | Poisons 300 | Yan ele sür. 30 dk ya da 240 vuruş sürer. |"
+ },
+ {
+  "id": "rogue-14-assassination-t0-5-seti",
+  "category": "class",
+  "title": "Rogue · Assassination T0.5 Seti",
+  "file": "14-Assassination-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "assassination t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "rogue",
+  "kind": "t05",
+  "spec": "assassination",
+  "text": "# Rogue · Assassination T0.5 Seti\n\nÜst bilgi: ROGUE — ASSASSINATION. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Darkmantle Armor) 60. seviyede, eski dungeon setinin (D1, Shadowcraft Armor) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Shadowcraft Armor — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Shadowcraft Cap | Darkmaster Gandling | Scholo | %8,2 |\n| Göğüs | Shadowcraft Tunic | General Drakkisath | UBRS | %9,4 |\n| Bilek | Shadowcraft Bracers | Scholo Occultist (çöp) | Scholo | %4,9 (Çöp düşüşü. DB'deki diğerleri: Instructor Malicia %3,6, Risen Construct %3,3, Plague Ghoul %2,9 (Scholo).) |\n| Eller | Shadowcraft Gloves | Shadow Hunter Vosh'gajin | LBRS | %15,8 |\n| Bel | Shadowcraft Belt | Quartermaster Zigris | LBRS | %6,0 (LBRS anahtarsız olduğu için seçildi. Daha yüksek şans: Blackhand Assassin (UBRS çöpü) %9,6.) |\n| Bacak | Shadowcraft Pants | Baron Rivendare | Strat (ölü) | %9,1 |\n| Ayak | Shadowcraft Boots | Rattlegore | Scholo | %15,1 |\n| Omuz | Shadowcraft Spaulders | Cannon Master Willey | Strat (canlı) | %20,2 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +30 saldırı gücü · 4 parça: Vurulunca %5 şansla yavaşlatmayı kaldırır (60 sn) · 5 parça: Yakın vuruşta şansla 20 enerji · 6 parça: 5 sn'de 15 can.\nForever farkı: Forever bonusları 2/3/4/5/6 parçada (DB tooltip). Classic'te 2/4/6/8 idi (2'li +200 zırh, 8'li +8 direnç). Parça statları ve düşüren boss'lar Classic'le aynı.\n\n## T0.5: Darkmantle (Yakın DPS; Combat, Assassination, Subtlety)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Darkmantle Cap | 25 Agi, 21 Sta, 10 Spi, %1 crit |\n| Göğüs | Darkmantle Tunic | 31 Agi, 15 Sta, 10 Spi, %1,5 hit |\n| Bilek | Darkmantle Bracers | 15 Agi, 10 Sta, 4 Spi, +1 silah hasarı |\n| Eller | Darkmantle Grips | 9 Str, 22 Agi, 9 Sta, 8 Spi |\n| Bel | Darkmantle Belt | 10 Str, 17 Agi, 13 Sta, 7 Spi |\n| Bacak | Darkmantle Pants | 26 Agi, 14 Sta, 15 Spi, %0,5 hit |\n| Ayak | Darkmantle Footpads | 24 Agi, 15 Sta, %0,7 hit |\n| Omuz | Darkmantle Spaulders | 23 Agi, 10 Sta, %0,6 hit |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 15 can · 4 parça: Yakın vuruşta şansla 20 enerji · 5 parça: Vurulunca %5 şansla yavaşlatmayı kaldırır (60 sn) · 6 parça: +40 saldırı gücü.\n\nPre-BiS listesindeki T0.5 parçaları: Kafa, Göğüs, Omuz, Ayak.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "rogue-15-combat-raid-talentleri",
+  "category": "class",
+  "title": "Rogue · Combat Raid Talentleri",
+  "file": "15-Combat-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "combat raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "rogue",
+  "kind": "raid",
+  "spec": "combat",
+  "text": "# Rogue · Combat Raid Talentleri\n\nÜst bilgi: ROGUE — COMBAT. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Combat Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n16 / 35 / 0 — Assassination 16, Combat 35, Subtlety 0. TOPLAM 51 PUAN.\n\n## Assassination — 16 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Malice | 5/5 | 1 | Saldırı ve zehir kritik şansı +%5 |\n| Ruthlessness | 3/3 | 2 | Bitirici %60 şansla 1 combo puanı ekler |\n| Improved Expose Armor | 2/2 | 2 | Expose Armor −10 Energy, 2 combo iade |\n| Improved Slice and Dice | 3/3 | 2 | Slice and Dice süresi +%45 |\n| Blood Splatter | 1/1 | 3 | Rupture 6 sn, Garrote 9 sn uzun |\n| Lethality | 1/2 | 3 | Vuruş yeteneği kritik hasarı +%10 (ön koşul: Malice) |\n| Cold Blood | 1/1 | 4 | Sonraki vuruş kesin kritik |\n\n## Combat — 35 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Coup de Grace | 3/3 | 1 | Eviscerate hasarı +%20 |\n| Efficient Strikes | 2/2 | 1 | Sinister Strike ve Hemorrhage −5 Energy |\n| Lightning Reflexes | 1/5 | 1 | Dodge şansı +%1 |\n| Precision | 3/3 | 2 | İsabet şansı +%3 |\n| Improved Sprint | 2/2 | 2 | Sprint yavaşlatmaları kaldırır |\n| Endurance | 2/2 | 3 | Sprint ve Evasion beklemesi −%60 |\n| Composure | 2/2 | 3 | Poised Energy indirimi +10 |\n| Flawless Execution | 1/1 | 4 | Eviscerate −15 Energy |\n| Weapon Expertise | 2/2 | 4 | Dodge ve parry edilme şansı −%2 (ön koşul: Precision) |\n| Aggression | 3/3 | 4 | Sinister Strike ve Eviscerate +%15 |\n| Dual Wield Specialization | 2/2 | 5 | Yan el hasarı +%50 |\n| Blade Flurry | 1/1 | 5 | 15 sn hız +%20, yandaki hedefe de vurur |\n| Hack and Slash | 5/5 | 5 | Kılıç/balta %5 ek vuruş, hançer kritik +%5 |\n| Flash of Steel | 5/5 | 6 | Shank +15 Energy, bekleme −2 sn |\n| Adrenaline Rush | 1/1 | 7 | 15 sn Energy yenilenmesi +%100 (ön koşul: Blade Flurry) |\n\nNot: Sinister Strike build'i; hançerle Puncturing Wounds 3 al. Tavern: Deflection 1\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "rogue-16-combat-pre-bis",
+  "category": "class",
+  "title": "Rogue · Combat Pre-BiS",
+  "file": "16-Combat-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "combat pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "rogue",
+  "kind": "prebis",
+  "spec": "combat",
+  "text": "# Rogue · Combat Pre-BiS\n\nÜst bilgi: ROGUE — COMBAT. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Darkmantle Cap | T0.5 seti · nasıl alınır: T0.5 kartı | +8 Agility · Lesser Arcanum of Voracity | Eye of Rend · Warchief Rend Blackhand, UBRS |\n| Boyun | Mark of Fordring | Görev: In Dreams · Batı Plaguelands | +5 Agility | Beads of Ogre Might · Görev: Falrin's Vendetta, DM Batı |\n| Omuz | Darkmantle Spaulders | T0.5 seti · nasıl alınır: T0.5 kartı | — | Truestrike Shoulders · Pyroguard Emberseer, UBRS |\n| Pelerin | Cape of the Black Baron | Baron Rivendare · Stratholme | +5 Agility | Howler's Furs · Pix Xizzix, 75 Real |\n| Göğüs | Darkmantle Tunic | T0.5 seti · nasıl alınır: T0.5 kartı | — | Ghansurok Hide Tunic · Görev: Bait the Beast |\n| Bilek | Forest Stalker's Bracers | WSG satıcısı | +5 Agility | Bracers of the Eclipse · Prince Tortheldrin, DM Batı |\n| Eller | Devilsaur Gauntlets | Leatherworking 265 · BoE | +15 Strength · Superior Strength | Shadowcraft Gloves · Shadow Hunter Vosh'gajin, LBRS |\n| Bel | Assassin's Waistguard | Pix Xizzix · 100 Undermine Real | — | Might of the Timbermaw · Leatherworking 265, BoE |\n| Bacak | Devilsaur Leggings | Leatherworking 290 · BoE | +8 Agility · Lesser Arcanum of Voracity | Plaguehound Leggings · Stratholme çöp mob'ları, BoE |\n| Ayak | Darkmantle Footpads | T0.5 seti · nasıl alınır: T0.5 kartı | +7 Agility · Greater Agility | Mongoose Boots · Leatherworking 290, BoE |\n| Yüzük 1 | Don Julio's Band | AV satıcısı (Alterac Mountains) | — | Blackstone Ring · Princess Theradras, Maraudon |\n| Yüzük 2 | Cutthroat's Signet | Pix Xizzix · 75 Undermine Real | — | Painweaver Band · General Drakkisath, UBRS |\n| Trinket 1 | Hand of Justice | Emperor Thaurissan · BRD | — | Blackhand's Breadth · UBRS görevi (Drakkisath / Rend) |\n| Trinket 2 | Adaptive Combat Assistant | Pix Xizzix · 125 Undermine Real | — | Counterattack Lodestone · DM Kuzey tribute sandığı |\n| Ana el | Dal'Rend's Sacred Charge | Warchief Rend Blackhand · UBRS | +15 Agility | Mirah's Song · Scholomance görevi |\n| Yan el | Dal'Rend's Tribal Guardian | Warchief Rend Blackhand · UBRS | +15 Agility | Felstriker · Warchief Rend Blackhand, UBRS |\n| Menzilli | Bloodseeker | AV itibarı · Exalted (görev) | — | Deep Jungle Rifle · Thunderhoof (yeni 60 dungeon'ı) |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "rogue-17-combat-raid-hazirligi",
+  "category": "class",
+  "title": "Rogue · Combat Raid Hazirligi",
+  "file": "17-Combat-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "combat raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "rogue",
+  "kind": "raidprep",
+  "spec": "combat",
+  "text": "# Rogue · Combat Raid Hazırlığı\n\nÜst bilgi: ROGUE — COMBAT. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Expertise (%6,5'e kadar)\n2. Hit (%8'e kadar) — Precision yeteneğini ekipman hit'ini hesaplarken düş.\n3. Agility\n4. Weapon Damage\n5. Critical Strike — Malice %5 kritik verir; kritik zaten kolay yükselir.\n\n## Sınırlar (cap)\n\n- Expertise: %6,5 — Arkadan vururken boss kaçamaz.\n- Hit: %8 — Sinister Strike gibi özel vuruşlar boss'a ıskalamaz.\n- Hit (otomatik vuruş): %27 — Çift silahla otomatik vuruş tavanı; %8 sonrası buraya kadar az fayda.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Mongoose | +25 Agi · %2 kritik | Alchemy 280 | 30 dk sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Winterfall Firewater | +35 yakın dövüş AP | Winterspring | 20 dk sürer. Winterfall furbolg'larından düşer; Alchemy 250 ile yapılan Distilled Firewater da aynı etkiyi verir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Frenzy Potion | +80 AP | Alchemy 290 | 30 sn sürer, yakın dövüş ve menzilli AP verir. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Swiftstrike Steak | +20 Agi | Cooking 275 | 15 dk sürer, aynı anda tek yemek bufu olur. Pişirmek için Iron Oven gerekir. |\n| Thistle Tea | Anında 100 enerji | Cooking 60 | Enerji bittiğinde iç; 5 dk bekleme. Tarifi Rogue görevinden gelir. |\n\n## ZEHİRLER (Silahlara sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Instant Poison VI | %20 ihtimal · 88 doğa hasarı | Poisons 325 | Ana ele sür. 30 dk ya da 250 vuruş sürer. |\n| Deadly Poison V | 12 sn'de 92 hasar · 5 yığın | Poisons 300 | Yan ele sür. 30 dk ya da 240 vuruş sürer. |"
+ },
+ {
+  "id": "rogue-18-combat-t0-5-seti",
+  "category": "class",
+  "title": "Rogue · Combat T0.5 Seti",
+  "file": "18-Combat-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "combat t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "rogue",
+  "kind": "t05",
+  "spec": "combat",
+  "text": "# Rogue · Combat T0.5 Seti\n\nÜst bilgi: ROGUE — COMBAT. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Darkmantle Armor) 60. seviyede, eski dungeon setinin (D1, Shadowcraft Armor) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Shadowcraft Armor — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Shadowcraft Cap | Darkmaster Gandling | Scholo | %8,2 |\n| Göğüs | Shadowcraft Tunic | General Drakkisath | UBRS | %9,4 |\n| Bilek | Shadowcraft Bracers | Scholo Occultist (çöp) | Scholo | %4,9 (Çöp düşüşü. DB'deki diğerleri: Instructor Malicia %3,6, Risen Construct %3,3, Plague Ghoul %2,9 (Scholo).) |\n| Eller | Shadowcraft Gloves | Shadow Hunter Vosh'gajin | LBRS | %15,8 |\n| Bel | Shadowcraft Belt | Quartermaster Zigris | LBRS | %6,0 (LBRS anahtarsız olduğu için seçildi. Daha yüksek şans: Blackhand Assassin (UBRS çöpü) %9,6.) |\n| Bacak | Shadowcraft Pants | Baron Rivendare | Strat (ölü) | %9,1 |\n| Ayak | Shadowcraft Boots | Rattlegore | Scholo | %15,1 |\n| Omuz | Shadowcraft Spaulders | Cannon Master Willey | Strat (canlı) | %20,2 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +30 saldırı gücü · 4 parça: Vurulunca %5 şansla yavaşlatmayı kaldırır (60 sn) · 5 parça: Yakın vuruşta şansla 20 enerji · 6 parça: 5 sn'de 15 can.\nForever farkı: Forever bonusları 2/3/4/5/6 parçada (DB tooltip). Classic'te 2/4/6/8 idi (2'li +200 zırh, 8'li +8 direnç). Parça statları ve düşüren boss'lar Classic'le aynı.\n\n## T0.5: Darkmantle (Yakın DPS; Combat, Assassination, Subtlety)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Darkmantle Cap | 25 Agi, 21 Sta, 10 Spi, %1 crit |\n| Göğüs | Darkmantle Tunic | 31 Agi, 15 Sta, 10 Spi, %1,5 hit |\n| Bilek | Darkmantle Bracers | 15 Agi, 10 Sta, 4 Spi, +1 silah hasarı |\n| Eller | Darkmantle Grips | 9 Str, 22 Agi, 9 Sta, 8 Spi |\n| Bel | Darkmantle Belt | 10 Str, 17 Agi, 13 Sta, 7 Spi |\n| Bacak | Darkmantle Pants | 26 Agi, 14 Sta, 15 Spi, %0,5 hit |\n| Ayak | Darkmantle Footpads | 24 Agi, 15 Sta, %0,7 hit |\n| Omuz | Darkmantle Spaulders | 23 Agi, 10 Sta, %0,6 hit |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 15 can · 4 parça: Yakın vuruşta şansla 20 enerji · 5 parça: Vurulunca %5 şansla yavaşlatmayı kaldırır (60 sn) · 6 parça: +40 saldırı gücü.\n\nPre-BiS listesindeki T0.5 parçaları: Kafa, Göğüs, Omuz, Ayak.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "rogue-19-subtlety-raid-talentleri",
+  "category": "class",
+  "title": "Rogue · Subtlety Raid Talentleri",
+  "file": "19-Subtlety-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "subtlety raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "rogue",
+  "kind": "raid",
+  "spec": "subtlety",
+  "text": "# Rogue · Subtlety Raid Talentleri\n\nÜst bilgi: ROGUE — SUBTLETY. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Subtlety Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n15 / 5 / 31 — Assassination 15, Combat 5, Subtlety 31. TOPLAM 51 PUAN.\n\n## Assassination — 15 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Remorseless Attacks | 2/2 | 1 | Öldürünce sonraki vuruşa kritik +%40 |\n| Malice | 5/5 | 1 | Saldırı ve zehir kritik şansı +%5 |\n| Ruthlessness | 3/3 | 2 | Bitirici %60 şansla 1 combo puanı ekler |\n| Improved Slice and Dice | 2/3 | 2 | Slice and Dice süresi +%30 |\n| Blood Splatter | 1/1 | 3 | Rupture 6 sn, Garrote 9 sn uzun |\n| Lethality | 2/2 | 3 | Vuruş yeteneği kritik hasarı +%20 (ön koşul: Malice) |\n\n## Combat — 5 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Coup de Grace | 3/3 | 1 | Eviscerate ve Death Mark +%20 |\n| Efficient Strikes | 2/2 | 1 | Sinister Strike ve Hemorrhage −5 Energy |\n\n## Subtlety — 31 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Setup | 3/3 | 1 | Dodge sonrası %45 şansla 1 combo puanı |\n| Opportunity | 5/5 | 1 | Backstab, Garrote, Ambush, Mutilate +%20 |\n| Dirty Deeds | 2/2 | 2 | Cheap Shot ve Garrote −20 Energy |\n| Camouflage | 2/3 | 2 | Stealth yavaşlığı −%10, bekleme −4 sn |\n| Improved Ambush | 3/3 | 2 | Ambush kritik şansı +%45 |\n| Initiative | 3/3 | 3 | Ambush, Garrote ve Cheap Shot +1 combo |\n| Premeditation | 1/1 | 3 | Hedefe 2 combo puanı ekler |\n| Serrated Blades | 3/3 | 3 | Zırhın %9'unu deler, Rupture +%30 |\n| Ghostly Strike | 1/1 | 4 | Vurur, 7 sn dodge şansı +%15 |\n| Preparation | 1/1 | 5 | Diğer yeteneklerin beklemesini sıfırlar |\n| Hemorrhage | 1/1 | 5 | Vurur, Rupture ve Garrote hasarı +%15 (ön koşul: Serrated Blades) |\n| Boot Knife | 5/5 | 6 | Shank hedefe 2 combo puanı ekler |\n| Death Mark | 1/1 | 7 | Hasarı biriktirip 6 sn sonra patlatır (ön koşul: Preparation) |\n\nNot: Bleed build'i; Tavern ve ConquestCapped Setup yerine Elusiveness/Master of Deception alıyor\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "rogue-20-subtlety-pre-bis",
+  "category": "class",
+  "title": "Rogue · Subtlety Pre-BiS",
+  "file": "20-Subtlety-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "subtlety pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "rogue",
+  "kind": "prebis",
+  "spec": "subtlety",
+  "text": "# Rogue · Subtlety Pre-BiS\n\nÜst bilgi: ROGUE — SUBTLETY. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Darkmantle Cap | T0.5 seti · nasıl alınır: T0.5 kartı | +8 Agility · Lesser Arcanum of Voracity | Eye of Rend · Warchief Rend Blackhand, UBRS |\n| Boyun | Mark of Fordring | Görev: In Dreams · Batı Plaguelands | +5 Agility | Beads of Ogre Might · Görev: Falrin's Vendetta, DM Batı |\n| Omuz | Darkmantle Spaulders | T0.5 seti · nasıl alınır: T0.5 kartı | — | Truestrike Shoulders · Pyroguard Emberseer, UBRS |\n| Pelerin | Cape of the Black Baron | Baron Rivendare · Stratholme | +5 Agility | Howler's Furs · Pix Xizzix, 75 Real |\n| Göğüs | Darkmantle Tunic | T0.5 seti · nasıl alınır: T0.5 kartı | — | Ghansurok Hide Tunic · Görev: Bait the Beast |\n| Bilek | Forest Stalker's Bracers | WSG satıcısı | +5 Agility | Bracers of the Eclipse · Prince Tortheldrin, DM Batı |\n| Eller | Devilsaur Gauntlets | Leatherworking 265 · BoE | +15 Strength · Superior Strength | Shadowcraft Gloves · Shadow Hunter Vosh'gajin, LBRS |\n| Bel | Assassin's Waistguard | Pix Xizzix · 100 Undermine Real | — | Might of the Timbermaw · Leatherworking 265, BoE |\n| Bacak | Devilsaur Leggings | Leatherworking 290 · BoE | +8 Agility · Lesser Arcanum of Voracity | Plaguehound Leggings · Stratholme çöp mob'ları, BoE |\n| Ayak | Darkmantle Footpads | T0.5 seti · nasıl alınır: T0.5 kartı | +7 Agility · Greater Agility | Mongoose Boots · Leatherworking 290, BoE |\n| Yüzük 1 | Don Julio's Band | AV satıcısı (Alterac Mountains) | — | Blackstone Ring · Princess Theradras, Maraudon |\n| Yüzük 2 | Cutthroat's Signet | Pix Xizzix · 75 Undermine Real | — | Painweaver Band · General Drakkisath, UBRS |\n| Trinket 1 | Hand of Justice | Emperor Thaurissan · BRD | — | Blackhand's Breadth · UBRS görevi (Drakkisath / Rend) |\n| Trinket 2 | Adaptive Combat Assistant | Pix Xizzix · 125 Undermine Real | — | Counterattack Lodestone · DM Kuzey tribute sandığı |\n| Ana el | Dal'Rend's Sacred Charge | Warchief Rend Blackhand · UBRS | +15 Agility | Mirah's Song · Scholomance görevi |\n| Yan el | Felstriker | Warchief Rend Blackhand · UBRS | +15 Agility | Darrowspike · Scholomance görevi (Ras Frostwhisper) |\n| Menzilli | Bloodseeker | AV itibarı · Exalted (görev) | — | Deep Jungle Rifle · Thunderhoof (yeni 60 dungeon'ı) |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "rogue-21-subtlety-raid-hazirligi",
+  "category": "class",
+  "title": "Rogue · Subtlety Raid Hazirligi",
+  "file": "21-Subtlety-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "subtlety raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "rogue",
+  "kind": "raidprep",
+  "spec": "subtlety",
+  "text": "# Rogue · Subtlety Raid Hazırlığı\n\nÜst bilgi: ROGUE — SUBTLETY. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Weapon Damage — Silah hızı önemli: 1.9 hızlı 100 DPS yerine 2.8 hızlı 90 DPS silah daha iyi.\n2. Expertise (%6,5'e kadar)\n3. Hit (%8'e kadar)\n4. Weapon Skill — Weapon Skill sıyırma (glancing) vuruşların cezasını azaltır.\n5. Agility\n\n## Sınırlar (cap)\n\n- Expertise: %6,5 — Arkadan vururken boss kaçamaz; önden vurmak zorundaysan değeri ikiye katlanır.\n- Hit: %8 — Özel vuruşların boss'a ıskalamaz, enerji boşa gitmez.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Mongoose | +25 Agi · %2 kritik | Alchemy 280 | 30 dk sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Winterfall Firewater | +35 yakın dövüş AP | Winterspring | 20 dk sürer. Winterfall furbolg'larından düşer; Alchemy 250 ile yapılan Distilled Firewater da aynı etkiyi verir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Frenzy Potion | +80 AP | Alchemy 290 | 30 sn sürer, yakın dövüş ve menzilli AP verir. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Swiftstrike Steak | +20 Agi | Cooking 275 | 15 dk sürer, aynı anda tek yemek bufu olur. Pişirmek için Iron Oven gerekir. |\n| Thistle Tea | Anında 100 enerji | Cooking 60 | Enerji bittiğinde iç; 5 dk bekleme. Tarifi Rogue görevinden gelir. |\n\n## ZEHİRLER (Silahlara sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Instant Poison VI | %20 ihtimal · 88 doğa hasarı | Poisons 325 | Ana ele sür. 30 dk ya da 250 vuruş sürer. |\n| Deadly Poison V | 12 sn'de 92 hasar · 5 yığın | Poisons 300 | Yan ele sür. 30 dk ya da 240 vuruş sürer. |"
+ },
+ {
+  "id": "rogue-22-subtlety-t0-5-seti",
+  "category": "class",
+  "title": "Rogue · Subtlety T0.5 Seti",
+  "file": "22-Subtlety-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Rogue",
+  "keywords": [
+   "rogue",
+   "subtlety t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "rogue",
+  "kind": "t05",
+  "spec": "subtlety",
+  "text": "# Rogue · Subtlety T0.5 Seti\n\nÜst bilgi: ROGUE — SUBTLETY. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Darkmantle Armor) 60. seviyede, eski dungeon setinin (D1, Shadowcraft Armor) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Shadowcraft Armor — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Shadowcraft Cap | Darkmaster Gandling | Scholo | %8,2 |\n| Göğüs | Shadowcraft Tunic | General Drakkisath | UBRS | %9,4 |\n| Bilek | Shadowcraft Bracers | Scholo Occultist (çöp) | Scholo | %4,9 (Çöp düşüşü. DB'deki diğerleri: Instructor Malicia %3,6, Risen Construct %3,3, Plague Ghoul %2,9 (Scholo).) |\n| Eller | Shadowcraft Gloves | Shadow Hunter Vosh'gajin | LBRS | %15,8 |\n| Bel | Shadowcraft Belt | Quartermaster Zigris | LBRS | %6,0 (LBRS anahtarsız olduğu için seçildi. Daha yüksek şans: Blackhand Assassin (UBRS çöpü) %9,6.) |\n| Bacak | Shadowcraft Pants | Baron Rivendare | Strat (ölü) | %9,1 |\n| Ayak | Shadowcraft Boots | Rattlegore | Scholo | %15,1 |\n| Omuz | Shadowcraft Spaulders | Cannon Master Willey | Strat (canlı) | %20,2 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +30 saldırı gücü · 4 parça: Vurulunca %5 şansla yavaşlatmayı kaldırır (60 sn) · 5 parça: Yakın vuruşta şansla 20 enerji · 6 parça: 5 sn'de 15 can.\nForever farkı: Forever bonusları 2/3/4/5/6 parçada (DB tooltip). Classic'te 2/4/6/8 idi (2'li +200 zırh, 8'li +8 direnç). Parça statları ve düşüren boss'lar Classic'le aynı.\n\n## T0.5: Darkmantle (Yakın DPS; Combat, Assassination, Subtlety)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Darkmantle Cap | 25 Agi, 21 Sta, 10 Spi, %1 crit |\n| Göğüs | Darkmantle Tunic | 31 Agi, 15 Sta, 10 Spi, %1,5 hit |\n| Bilek | Darkmantle Bracers | 15 Agi, 10 Sta, 4 Spi, +1 silah hasarı |\n| Eller | Darkmantle Grips | 9 Str, 22 Agi, 9 Sta, 8 Spi |\n| Bel | Darkmantle Belt | 10 Str, 17 Agi, 13 Sta, 7 Spi |\n| Bacak | Darkmantle Pants | 26 Agi, 14 Sta, 15 Spi, %0,5 hit |\n| Ayak | Darkmantle Footpads | 24 Agi, 15 Sta, %0,7 hit |\n| Omuz | Darkmantle Spaulders | 23 Agi, 10 Sta, %0,6 hit |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 15 can · 4 parça: Yakın vuruşta şansla 20 enerji · 5 parça: Vurulunca %5 şansla yavaşlatmayı kaldırır (60 sn) · 6 parça: +40 saldırı gücü.\n\nPre-BiS listesindeki T0.5 parçaları: Kafa, Göğüs, Omuz, Ayak.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
  },
  {
   "id": "shaman-01-irk-secimi",
@@ -1243,6 +2782,249 @@ export const CARDS = [
   "text": "# Shaman · Restoration Leveling\n\nSol üst başlık: SHAMAN — RESTORATION\nRozet: TOTİK CHANNEL — TAVSİYE EDİLEN BUILD\nSeviye aralığı: 10 → 60\nMarka: WOW FOREVER · TOTİK CHANNEL\n\n## ELEMENTAL COMBAT — 0 puan\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Convection — 0/5 (puan yok)\n- Satır 1, sütun 3: Concussion — 0/5 (puan yok)\n- Satır 2, sütun 1: Elemental Devastation — 0/3 (puan yok)\n- Satır 2, sütun 2: Reverberation — 0/5 (puan yok)\n- Satır 2, sütun 3: Elemental Alacrity — 0/3 (puan yok)\n- Satır 2, sütun 4: Call of Flame — 0/3 (puan yok)\n- Satır 3, sütun 1: Elemental Focus — 0/1 (puan yok)\n- Satır 3, sütun 2: Elemental Warding — 0/3 (puan yok)\n- Satır 4, sütun 1: Trial by Fire — 0/2 (puan yok)\n- Satır 4, sütun 2: Eye of the Storm — 0/3 (puan yok)\n- Satır 4, sütun 4: Earthbound — 0/1 (puan yok)\n- Satır 5, sütun 1: Elemental Reach — 0/2 (puan yok)\n- Satır 5, sütun 2: Call of Thunder — 0/1 (puan yok)\n- Satır 5, sütun 3: Lightning Overload — 0/3 (puan yok)\n- Satır 6, sütun 3: Elemental Fury — 0/5 (puan yok)\n- Satır 7, sütun 2: Lightning Mastery — 0/1 (puan yok)\n\nÖn koşul okları: Elemental Alacrity → Lightning Overload; Lightning Overload → Elemental Fury; Call of Thunder → Lightning Mastery.\n\n## ENHANCEMENT — 10 puan\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 1: Earth's Grasp — 0/2 (puan yok)\n- Satır 1, sütun 2: Thundering Strikes — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Ancestral Knowledge — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Guardian Totems — 0/2 (puan yok)\n- Satır 2, sütun 2: Mental Dexterity — 0/3 (puan yok)\n- Satır 2, sütun 3: Improved Lightning Shield — 0/3 (puan yok)\n- Satır 3, sütun 1: Elemental Weapons — 0/3 (puan yok)\n- Satır 3, sütun 3: Shamanistic Focus — 0/1 (puan yok)\n- Satır 3, sütun 4: Anticipation — 0/3 (puan yok)\n- Satır 4, sütun 1: Toughness — 0/5 (puan yok)\n- Satır 4, sütun 2: Flurry — 0/5 (puan yok)\n- Satır 4, sütun 3: Stormstrike — 0/1 (puan yok)\n- Satır 4, sütun 4: Improved Ghost Wolf — 0/2 (puan yok)\n- Satır 5, sütun 1: Spirit Weapons — 0/1 (puan yok)\n- Satır 5, sütun 2: Mental Quickness — 0/2 (puan yok)\n- Satır 5, sütun 3: Improved Stormstrike — 0/2 (puan yok)\n- Satır 6, sütun 3: Maelstrom Weapon — 0/5 (puan yok)\n- Satır 7, sütun 2: Rage of the Farseer — 0/1 (puan yok)\n\nÖn koşul okları: Mental Dexterity → Flurry; Stormstrike → Improved Stormstrike; Mental Quickness → Rage of the Farseer.\n\n## RESTORATION — 41 puan\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n- Satır 1, sütun 2: Improved Healing Wave — 5/5 (tamamlandı)\n- Satır 1, sütun 3: Tidal Focus — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Mindfulness — 3/3 (tamamlandı)\n- Satır 2, sütun 2: Natural Grace — 0/3 (puan yok)\n- Satır 2, sütun 3: Totemic Focus — 0/5 (puan yok)\n- Satır 2, sütun 4: Improved Reincarnation — 0/2 (puan yok)\n- Satır 3, sütun 1: Ancestral Healing — 3/3 (tamamlandı)\n- Satır 3, sütun 2: Healing Focus — 3/3 (tamamlandı)\n- Satır 3, sütun 3: Water Shield — 1/1 (tamamlandı)\n- Satır 4, sütun 1: Tidal Mastery — 5/5 (tamamlandı)\n- Satır 4, sütun 2: Restorative Totems — 5/5 (tamamlandı)\n- Satır 4, sütun 3: Mana Tide Totem — 1/1 (tamamlandı)\n- Satır 5, sütun 2: Healing Way — 3/3 (tamamlandı)\n- Satır 5, sütun 3: Nature's Swiftness — 1/1 (tamamlandı)\n- Satır 6, sütun 3: Purification — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Riptide — 1/1 (tamamlandı)\n\nÖn koşul okları: Healing Way → Riptide.\n\n## 60. SEVİYE PUAN DAĞILIMI\n0 / 10 / 41 — Elemental Combat 0 · Enhancement 10 · Restoration 41\nTOPLAM 51 PUAN\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok)\n\n## PUAN SIRASI · SEVİYE 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Tidal Focus | Restoration | +5 | 5/5 | İyileştirme manası −%5, isabet +%5 |\n| 15–17 | Mindfulness | Restoration | +3 | 3/3 | Büyü yaparken mana yenilenmesi %50 |\n| 18–19 | Improved Healing Wave | Restoration | +2 | 2/5 | Healing Wave döküm süresi −0,2 sn |\n| 20 | Water Shield | Restoration | +1 | 1/1 | Vurulunca ya da büyü kritiğinde %2 mana |\n| 21–23 | Improved Healing Wave | Restoration | +3 | 5/5 | Healing Wave döküm süresi −0,5 sn |\n| 24 | Healing Focus | Restoration | +1 | 1/3 | Heal %23 şansla hasardan gecikmez |\n| 25 | Mana Tide Totem | Restoration | +1 | 1/1 | 12 sn gruba Mana veren totem |\n| 26–29 | Tidal Mastery | Restoration | +4 | 4/5 | Heal kritik şansı +%4 |\n| 30 | Nature's Swiftness | Restoration | +1 | 1/1 | Sonraki Nature büyüsü anında atılır |\n| 31–33 | Healing Way | Restoration | +3 | 3/3 | Healing Wave iyileştirmesi +%25 |\n| 34 | Tidal Mastery | Restoration | +1 | 5/5 | Heal kritik şansı +%5 |\n| 35–39 | Purification | Restoration | +5 | 5/5 | İyileştirme etkisi +%10 |\n| 40 | Riptide | Restoration | +1 | 1/1 | 15 sn HoT, o hedefe Chain Heal +%25 |\n| 41–42 | Healing Focus | Restoration | +2 | 3/3 | Heal %70 şansla hasardan gecikmez |\n| 43–45 | Ancestral Healing | Restoration | +3 | 3/3 | Kritik healden sonra hedef zırhı +%25 |\n| 46–50 | Thundering Strikes | Enhancement | +5 | 5/5 | Büyü ve saldırı kritik şansı +%5 |\n| 51–55 | Restorative Totems | Restoration | +5 | 5/5 | Mana Spring +%25, Healing Stream +%50 |\n| 56–60 | Ancestral Knowledge | Enhancement | +5 | 5/5 | Intellect +%10 |"
  },
  {
+  "id": "shaman-12-elemental-raid-talentleri",
+  "category": "class",
+  "title": "Shaman · Elemental Raid Talentleri",
+  "file": "12-Elemental-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "elemental raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "shaman",
+  "kind": "raid",
+  "spec": "elemental",
+  "text": "# Shaman · Elemental Raid Talentleri\n\nÜst bilgi: SHAMAN — ELEMENTAL. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Elemental Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n32 / 8 / 11 — Elemental Combat 32, Enhancement 8, Restoration 11. TOPLAM 51 PUAN.\n\n## Elemental Combat — 32 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Convection | 5/5 | 1 | Shock ve yıldırımların manası −%10 |\n| Concussion | 5/5 | 1 | Yıldırımlar ve Earth Shock hasarı +%5 |\n| Elemental Alacrity | 3/3 | 2 | Yıldırımların döküm süresi −0,5 sn |\n| Call of Flame | 3/3 | 2 | Ateş totemi, Flame Shock, Fire Nova +%15 |\n| Elemental Focus | 1/1 | 3 | %10 şansla sonraki hasar büyüsü bedava |\n| Trial by Fire | 2/2 | 4 | Fire Nova hasarı +%20, bekleme −4 sn |\n| Eye of the Storm | 3/3 | 4 | Yıldırım %70 şansla hasardan gecikmez |\n| Call of Thunder | 1/1 | 5 | Yıldırımların kritik şansı +%5 |\n| Lightning Overload | 3/3 | 5 | %30 şansla bedava ikinci yıldırım (ön koşul: Elemental Alacrity) |\n| Elemental Fury | 5/5 | 6 | Büyü kritik hasar bonusu +%100 (ön koşul: Lightning Overload) |\n| Lightning Mastery | 1/1 | 7 | 15 sn yıldırımlar hızlı ve beklemesiz (ön koşul: Call of Thunder) |\n\n## Enhancement — 8 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Thundering Strikes | 5/5 | 1 | Büyü ve saldırı kritik şansı +%5 |\n| Ancestral Knowledge | 3/5 | 1 | Intellect +%6 |\n\n## Restoration — 11 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Tidal Focus | 5/5 | 1 | İyileştirme manası −%5, isabet +%5 |\n| Mindfulness | 3/3 | 2 | Büyü yaparken mana yenilenmesi %50 |\n| Totemic Focus | 2/5 | 2 | Totem manası −%10 |\n| Water Shield | 1/1 | 3 | Vurulunca ya da büyü kritiğinde %2 mana |\n\nNot: Icy'nin en yüksek hasar build'i (ConquestCapped 31/9/11 neredeyse aynı); Mana Tide için Icy 31/4/16\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "shaman-13-elemental-pre-bis",
+  "category": "class",
+  "title": "Shaman · Elemental Pre-BiS",
+  "file": "13-Elemental-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "elemental pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "shaman",
+  "kind": "prebis",
+  "spec": "elemental",
+  "text": "# Shaman · Elemental Pre-BiS\n\nÜst bilgi: SHAMAN — ELEMENTAL. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Spellweaver's Turban | General Drakkisath · UBRS | +8 büyü hasarı ve iyileştirme · Arcanum of Focus | Helm of Latent Power · Görev: Darkreaver Menace |\n| Boyun | Nacreous Shell Necklace | Cannon Master Willey · Stratholme | +6 büyü hasarı ve iyileştirme | Beads of Ogre Mojo · Görev: Falrin's Vendetta, DM Batı |\n| Omuz | Pauldrons of The Five Thunders | T0.5 seti · nasıl alınır: T0.5 kartı | — | Ironfeather Shoulders · Leatherworking 245, BoE |\n| Pelerin | Arcanoweave Cloak | Pix Xizzix · 75 Undermine Real | — | Amplifying Cloak · Magister Kalendris, DM Batı |\n| Göğüs | Robes of Dark Summons | Impaan the Imprisoner · Blackmaw Hold | — | Ironfeather Breastplate · Leatherworking 265, BoE |\n| Bilek | Modest Armguards | DM muhafızları ve çöp mob'ları | +16 büyü gücü · Greater Spellpower | Brazecore Armguards · War Master Voone, LBRS |\n| Eller | Storm Gauntlets | Leatherworking 270 · BoE | +20 Nature hasarı · Natural Power | Hands of Power · Quartermaster Zigris, LBRS |\n| Bel | Belt of the Archmage | Tailoring 295 · BoE | — | Barrage Girdle · Cannon Master Willey, Stratholme |\n| Bacak | Ironfeather Leggings | Leatherworking 300 · BoE | +8 büyü hasarı ve iyileştirme · Arcanum of Focus | Luminary Kilt · Golem Lord Argelmach, BRD |\n| Ayak | Waterspout Boots | Hydrospawn · DM Doğu | +5 Spirit | Omnicast Boots · Golem Lord Argelmach, BRD |\n| Yüzük 1 | Rune Band of Wizardry | Lord Valthalak · UBRS (T0.5 sonu) | — | Jereman's Bauble · Görev: Return to Jereman |\n| Yüzük 2 | Channeler's Ring | Pix Xizzix · 75 Undermine Real | — | Blessed Band of Light · Pix Xizzix, 75 Real |\n| Trinket 1 | Weakness Analyzer | Pix Xizzix · 125 Undermine Real | — | Eye of the Beast · UBRS görevi (Drakkisath / Rend) |\n| Trinket 2 | Royal Seal of Eldre'Thalas | DM görevi (Frost Shock and You) | — | Briarwood Reed · Jed Runewatcher, UBRS |\n| Ana el | Theramore / Darkspear Spellblade | Theramore / Darkspear itibarı · Revered | +22 Intellect · Mighty Intellect | Black Crystal Dagger · Silithus |\n| Yan el | Therazane's Touch | AV itibarı · Exalted | +6 Intellect · +5 Spirit · Wisdom | Tome of the Lost · General Drakkisath, UBRS |\n| Relic | Totem of Rage | Magmus · BRD | — | Burning Totem · Pix Xizzix, 50 Real |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "shaman-14-elemental-raid-hazirligi",
+  "category": "class",
+  "title": "Shaman · Elemental Raid Hazirligi",
+  "file": "14-Elemental-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "elemental raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "shaman",
+  "kind": "raidprep",
+  "spec": "elemental",
+  "text": "# Shaman · Elemental Raid Hazırlığı\n\nÜst bilgi: SHAMAN — ELEMENTAL. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Spell Power\n2. Hit (%17'ye kadar)\n3. Critical Strike — Elemental Fury kritik hasarını artırır; Crit değeri yüksek.\n4. Intellect\n5. MP5\n\n## Sınırlar (cap)\n\n- Hit (büyü): %17 — Tidal Focus %5 verir; ekipmandan %12 ile büyülerin boss'a ıskalamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Supreme Power | +150 büyü hasarı | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Arcane Elixir | +35 büyü hasarı | Alchemy 285 | 1 saat sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Elixir of Nature Power | +40 doğa hasarı | Alchemy 285 | 30 dk sürer. Yalnız doğa büyülerini güçlendirir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Spellblasting Potion | +47 büyü hasarı | Alchemy 285 | Forever'a yeni gelen savaş potu, 30 sn sürer. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Baked Salmon | +28 büyü hasarı | Cooking 275 | 15 dk sürer. Tarifi Feralas'ta Vivianna ya da Sheendra Tallgrass satar; Iron Oven gerekir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Silaha sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Brilliant Wizard Oil | +36 büyü hasarı · %1 kritik | Enchanting 300 | Silaha sürülür, 30 dk ya da 5 kullanım sürer. |"
+ },
+ {
+  "id": "shaman-15-elemental-t0-5-seti",
+  "category": "class",
+  "title": "Shaman · Elemental T0.5 Seti",
+  "file": "15-Elemental-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "elemental t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "shaman",
+  "kind": "t05",
+  "spec": "elemental",
+  "text": "# Shaman · Elemental T0.5 Seti\n\nÜst bilgi: SHAMAN — ELEMENTAL. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, The Five Thunders) 60. seviyede, eski dungeon setinin (D1, The Elements) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: The Elements — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Coif of Elements | Darkmaster Gandling | Scholo | %9,3 |\n| Göğüs | Vest of Elements | General Drakkisath | UBRS | %10,5 |\n| Bilek | Bindings of Elements | Crimson Monk (çöp) | Strat (canlı) | %6,1 (Çöp düşüşü. DB'deki diğerleri: Splintered Skeleton %5,3, Crypt Beast %4,7, Crypt Crawler %4,5.) |\n| Eller | Gauntlets of Elements | Pyroguard Emberseer | UBRS | %15,8 |\n| Bel | Cord of Elements | Quartermaster Zigris | LBRS | %7,1 (Rage Talon Flamescale (UBRS çöpü) %7,0; LBRS boss'u daha kolay.) |\n| Bacak | Kilt of Elements | Baron Rivendare | Strat (ölü) | %11 |\n| Ayak | Boots of Elements | Highlord Omokk | LBRS | %15,1 |\n| Omuz | Pauldrons of Elements | Gyth | UBRS | %16,4 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü (hasar ve iyileştirme) · 4 parça: Yakın vurulunca %5 şansla 4 sn silahsızlandırma · 5 parça: Vuruş ve büyüde şansla 10 sn +65 büyü gücü · 6 parça: 5 sn'de 8 mana.\nForever farkı: Forever bonusları 2/3/4/5/6 parçada (DB tooltip). Classic'te 2/4/6/8 idi (2'li +200 zırh, 8'li +8 direnç). Parça statları ve düşüren boss'lar Classic'le aynı.\n\n## T0.5: Eruption (Menzilli DPS; Elemental)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Coif of The Five Thunders | 21 SP, 25 Int, 12 Sta, %1 crit |\n| Göğüs | Vest of The Five Thunders | 16 SP, 25 Int, 14 Sta, 11 Spi |\n| Bilek | Bindings of The Five Thunders | 8 SP, 11 Int, 8 Sta |\n| Eller | Gauntlets of The Five Thunders | 12 SP, 14 Int, 12 Sta, 9 Spi, %1 hit |\n| Bel | Cord of The Five Thunders | 11 SP, 14 Int, 10 Sta, %1 crit |\n| Bacak | Kilt of The Five Thunders | 19 SP, 16 Int, 13 Sta, 11 Spi, %1 hit |\n| Ayak | Slippers of The Five Thunders | 21 SP, 16 Int, 12 Sta, 11 Spi |\n| Omuz | Pauldrons of The Five Thunders | 19 SP, 12 Int, 11 Sta, %1 hit |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Vuruş ve büyüde şansla 10 sn +65 büyü gücü · 5 parça: Yakın vurulunca %5 şansla 4 sn silahsızlandırma · 6 parça: +23 büyü gücü (hasar ve iyileştirme).\n\nPre-BiS listesindeki T0.5 parçaları: Omuz.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "shaman-16-enhancement-raid-talentleri",
+  "category": "class",
+  "title": "Shaman · Enhancement Raid Talentleri",
+  "file": "16-Enhancement-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "enhancement raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "shaman",
+  "kind": "raid",
+  "spec": "enhancement",
+  "text": "# Shaman · Enhancement Raid Talentleri\n\nÜst bilgi: SHAMAN — ENHANCEMENT. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Enhancement Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n17 / 34 / 0 — Elemental Combat 17, Enhancement 34, Restoration 0. TOPLAM 51 PUAN.\n\n## Elemental Combat — 17 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Concussion | 5/5 | 1 | Yıldırımlar ve Earth Shock hasarı +%5 |\n| Elemental Devastation | 3/3 | 2 | Büyü kritiğinden sonra yakın kritik +%9 |\n| Reverberation | 3/5 | 2 | Shock beklemesi −0,6 sn |\n| Call of Flame | 3/3 | 2 | Ateş totemi, Flame Shock, Fire Nova +%15 |\n| Elemental Focus | 1/1 | 3 | %10 şansla sonraki hasar büyüsü bedava |\n| Trial by Fire | 2/2 | 4 | Fire Nova hasarı +%20, bekleme −4 sn |\n\n## Enhancement — 34 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Thundering Strikes | 5/5 | 1 | Büyü ve saldırı kritik şansı +%5 |\n| Ancestral Knowledge | 3/5 | 1 | Intellect +%6 |\n| Mental Dexterity | 3/3 | 2 | Intellect'in %150'si kadar Attack Power |\n| Elemental Weapons | 3/3 | 3 | Silah büyüleri güçlenir, Windfury +%40 |\n| Shamanistic Focus | 1/1 | 3 | Shock ve Lightning Shield manası −%45 |\n| Flurry | 5/5 | 4 | Kritikten sonra 3 vuruşun hızı +%30 (ön koşul: Mental Dexterity) |\n| Stormstrike | 1/1 | 4 | %150 silah hasarı, sonraki büyü +%20 |\n| Improved Ghost Wolf | 2/2 | 4 | Ghost Wolf anında açılır, kapalı alanda da |\n| Spirit Weapons | 1/1 | 5 | Parry şansı verir, tehdidi ayarlar |\n| Mental Quickness | 2/2 | 5 | Intellect'in %30'u kadar büyü gücü |\n| Improved Stormstrike | 2/2 | 5 | 15 sn büyü yaparken %50 mana yenilenir (ön koşul: Stormstrike) |\n| Maelstrom Weapon | 5/5 | 6 | 5 yığında Lightning Bolt anlık ve bedava |\n| Rage of the Farseer | 1/1 | 7 | 25 sn saldırı hızı +%30 (ön koşul: Mental Quickness) |\n\nNot: 12.11 hotfix sonrası build değişmedi; Windfury Weapon artık Windfury Totem'le birlikte çalışıyor\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "shaman-17-enhancement-pre-bis",
+  "category": "class",
+  "title": "Shaman · Enhancement Pre-BiS",
+  "file": "17-Enhancement-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "enhancement pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "shaman",
+  "kind": "prebis",
+  "spec": "enhancement",
+  "text": "# Shaman · Enhancement Pre-BiS\n\nÜst bilgi: SHAMAN — ENHANCEMENT. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Black Dragonscale Helm | Leatherworking 300 · BoE | +8 Str · Lesser Arcanum of Voracity | Skyfury Helm · Görev: The Darkreaver Menace |\n| Boyun | Mark of Fordring | Görev: In Dreams · Western Plaguelands | +5 Str | Beads of Ogre Might · Görev: Falrin's Vendetta |\n| Omuz | Truestrike Shoulders | Pyroguard Emberseer · UBRS | — | Black Dragonscale Shoulders · Leatherworking 270, BoE |\n| Pelerin | Howler's Furs | Pix Xizzix · 75 Undermine Real | +5 Agi | Cape of the Black Baron · Baron Rivendare, Stratholme |\n| Göğüs | Timbermaw Tunic | Leatherworking 300 · BoE | +4 bütün statlar · Greater Stats | Tombstone Breastplate · Gandling, Scholomance |\n| Bilek | Slashclaw Bracers | Halycon · LBRS | +9 Agility · Superior Agility | Forest Stalker's Bracers · WSG satıcısı |\n| Eller | Devilsaur Gauntlets | Leatherworking 265 · BoE | +15 Str · Superior Strength | Bloodmail Gauntlets · Scholomance drop'u |\n| Bel | Might of the Timbermaw | Leatherworking 265 · BoE | — | Marksman's Girdle · Urok Doomhowl, LBRS |\n| Bacak | Devilsaur Leggings | Leatherworking 290 · BoE | +8 Str · Lesser Arcanum of Voracity | Bloodmail Legguards · Lorekeeper Polkelt, Scholomance |\n| Ayak | Bloodmail Boots | The Ravenian · Scholomance | +7 Agi · Greater Agility | Windreaver Greaves · Kirtonos, Scholomance |\n| Yüzük 1 | Blackstone Ring | Princess Theradras · Maraudon | — | Tarnished Elven Ring · DM Kuzey tribute sandığı |\n| Yüzük 2 | Don Julio's Band | AV itibarı · satıcı | — | Engraved Band · Görev: Blackmaw Reclamation |\n| Trinket 1 | Hand of Justice | Emperor Thaurissan · BRD | — | Blackhand's Breadth · UBRS görevi (Drakkisath / Rend) |\n| Trinket 2 | Adaptive Combat Assistant | Pix Xizzix · 125 Undermine Real | — | Counterattack Lodestone · DM Kuzey tribute sandığı |\n| İki elli | Arcanite Reaper | Blacksmithing 300 · BoE | +25 Strength | Treant's Bane · DM Kuzey tribute sandığı |\n| Relic | Totem of the Storm | Pix Xizzix · 50 Undermine Real | — | Totem of Rage · Magmus, BRD |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "shaman-18-enhancement-raid-hazirligi",
+  "category": "class",
+  "title": "Shaman · Enhancement Raid Hazirligi",
+  "file": "18-Enhancement-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "enhancement raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "shaman",
+  "kind": "raidprep",
+  "spec": "enhancement",
+  "text": "# Shaman · Enhancement Raid Hazırlığı\n\nÜst bilgi: SHAMAN — ENHANCEMENT. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Weapon DPS — 3.3 ve daha yavaş iki elli silah: Stormstrike ve Windfury daha sert vurur.\n2. Hit (%8'e kadar)\n3. Expertise (%6,5'e kadar)\n4. Strength\n5. Intellect — Intellect hâlâ AP, mana ve kritik verir; Strength'ten sonra en iyi stat.\n\n## Sınırlar (cap)\n\n- Hit: %8 — Yakın dövüş vuruşların boss'a ıskalamaz; büyülerin hâlâ ıskalayabildiği için sonrası da biraz işe yarar.\n- Expertise: %6,5 — Arkadan vururken boss kaçamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Grizzly | +25 Str · %2 kritik | Alchemy 300 | Forever'a yeni gelen iksir, 30 dk sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Winterfall Firewater | +35 yakın dövüş AP | Winterspring | 20 dk sürer. Winterfall furbolg'larından düşer; Alchemy 250 ile yapılan Distilled Firewater da aynı etkiyi verir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Frenzy Potion | +80 AP | Alchemy 290 | 30 sn sürer, yakın dövüş ve menzilli AP verir. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Smoked Desert Dumplings | +20 Str | Cooking 285 | 15 dk sürer, aynı anda tek yemek bufu olur. Pişirmek için Iron Oven gerekir. |\n| Juju Might | +40 AP | Winterspring | 10 dk sürer, boss'tan hemen önce kullan. Winterspring'de E'ko görevleriyle alınır. |"
+ },
+ {
+  "id": "shaman-19-enhancement-t0-5-seti",
+  "category": "class",
+  "title": "Shaman · Enhancement T0.5 Seti",
+  "file": "19-Enhancement-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "enhancement t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "shaman",
+  "kind": "t05",
+  "spec": "enhancement",
+  "text": "# Shaman · Enhancement T0.5 Seti\n\nÜst bilgi: SHAMAN — ENHANCEMENT. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, The Five Thunders) 60. seviyede, eski dungeon setinin (D1, The Elements) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: The Elements — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Coif of Elements | Darkmaster Gandling | Scholo | %9,3 |\n| Göğüs | Vest of Elements | General Drakkisath | UBRS | %10,5 |\n| Bilek | Bindings of Elements | Crimson Monk (çöp) | Strat (canlı) | %6,1 (Çöp düşüşü. DB'deki diğerleri: Splintered Skeleton %5,3, Crypt Beast %4,7, Crypt Crawler %4,5.) |\n| Eller | Gauntlets of Elements | Pyroguard Emberseer | UBRS | %15,8 |\n| Bel | Cord of Elements | Quartermaster Zigris | LBRS | %7,1 (Rage Talon Flamescale (UBRS çöpü) %7,0; LBRS boss'u daha kolay.) |\n| Bacak | Kilt of Elements | Baron Rivendare | Strat (ölü) | %11 |\n| Ayak | Boots of Elements | Highlord Omokk | LBRS | %15,1 |\n| Omuz | Pauldrons of Elements | Gyth | UBRS | %16,4 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü (hasar ve iyileştirme) · 4 parça: Yakın vurulunca %5 şansla 4 sn silahsızlandırma · 5 parça: Vuruş ve büyüde şansla 10 sn +65 büyü gücü · 6 parça: 5 sn'de 8 mana.\nForever farkı: Forever bonusları 2/3/4/5/6 parçada (DB tooltip). Classic'te 2/4/6/8 idi (2'li +200 zırh, 8'li +8 direnç). Parça statları ve düşüren boss'lar Classic'le aynı.\n\n## T0.5: Impact (Yakın DPS; Enhancement)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Face of The Five Thunders | 16 Str, 17 Int, 17 Sta, %1 crit, 14 SP |\n| Göğüs | Chain of The Five Thunders | 16 Str, 17 Int, 17 Sta, %1 crit, 18 SP |\n| Bilek | Bands of The Five Thunders | 9 Str, 9 Int, 10 Sta, 9 SP |\n| Eller | Fists of The Five Thunders | 9 Str, 10 Int, 10 Sta, %1 crit, 9 SP |\n| Bel | Girdle of The Five Thunders | 10 Str, 11 Int, 11 Sta, %1 hit, 8 SP |\n| Bacak | Legplates of The Five Thunders | 17 Str, 19 Int, 17 Sta, 11 SP |\n| Ayak | Treads of The Five Thunders | 12 Str, 12 Int, 13 Sta, 4 mp5, 13 SP |\n| Omuz | Spaulders of The Five Thunders | 10 Str, 11 Int, 11 Sta, 8 SP, %1 exp |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Vuruş ve büyüde şansla 10 sn +65 büyü gücü · 5 parça: Yakın vurulunca %5 şansla 4 sn silahsızlandırma · 6 parça: +23 büyü gücü (hasar ve iyileştirme).\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "shaman-20-restoration-raid-talentleri",
+  "category": "class",
+  "title": "Shaman · Restoration Raid Talentleri",
+  "file": "20-Restoration-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "restoration raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "shaman",
+  "kind": "raid",
+  "spec": "restoration",
+  "text": "# Shaman · Restoration Raid Talentleri\n\nÜst bilgi: SHAMAN — RESTORATION. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Restoration Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n0 / 10 / 41 — Elemental Combat 0, Enhancement 10, Restoration 41. TOPLAM 51 PUAN.\n\n## Enhancement — 10 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Thundering Strikes | 5/5 | 1 | Büyü ve saldırı kritik şansı +%5 |\n| Ancestral Knowledge | 5/5 | 1 | Intellect +%10 |\n\n## Restoration — 41 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Healing Wave | 5/5 | 1 | Healing Wave döküm süresi −0,5 sn |\n| Tidal Focus | 5/5 | 1 | İyileştirme manası −%5, isabet +%5 |\n| Mindfulness | 3/3 | 2 | Büyü yaparken mana yenilenmesi %50 |\n| Ancestral Healing | 3/3 | 3 | Kritik healden sonra hedef zırhı +%25 |\n| Healing Focus | 3/3 | 3 | Heal %70 şansla hasardan gecikmez |\n| Water Shield | 1/1 | 3 | Vurulunca ya da büyü kritiğinde %2 mana |\n| Tidal Mastery | 5/5 | 4 | Heal kritik şansı +%5 |\n| Restorative Totems | 5/5 | 4 | Mana Spring +%25, Healing Stream +%50 |\n| Mana Tide Totem | 1/1 | 4 | 12 sn gruba Mana veren totem |\n| Healing Way | 3/3 | 5 | Healing Wave iyileştirmesi +%25 |\n| Nature's Swiftness | 1/1 | 5 | Sonraki Nature büyüsü anında atılır |\n| Purification | 5/5 | 6 | İyileştirme etkisi +%10 |\n| Riptide | 1/1 | 7 | 15 sn HoT, o hedefe Chain Heal +%25 (ön koşul: Healing Way) |\n\nNot: İki kaynak da 0/10/41\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "shaman-21-restoration-pre-bis",
+  "category": "class",
+  "title": "Shaman · Restoration Pre-BiS",
+  "file": "21-Restoration-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "restoration pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "shaman",
+  "kind": "prebis",
+  "spec": "restoration",
+  "text": "# Shaman · Restoration Pre-BiS\n\nÜst bilgi: SHAMAN — RESTORATION. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Living Crown | Leatherworking 300 · BoE | +8 büyü hasarı ve iyileştirme · Arcanum of Focus | Bad Hat · Görev: Deadliest Catch |\n| Boyun | Animated Chain Necklace | Ramstein the Gorger · Stratholme | +11 heal · +4 büyü hasarı | Beads of Ogre Mojo · Görev: Falrin's Vendetta, DM Batı |\n| Omuz | Theramore Shoulderguards (A) | Horde: Darkspear Shoulderguards · Exalted | — | Wildheart Spaulders · Gizrul the Slavener, LBRS |\n| Pelerin | Hide of the Wild | Leatherworking 300 · BoE | — | Drape of Recovery · Pix Xizzix, 75 Real |\n| Göğüs | Red Dragonscale Breastplate | Leatherworking 290 · BoE | — | Vest of Elements · General Drakkisath, UBRS |\n| Bilek | Loomguard Armbraces | Kirtonos the Herald · Scholomance | +24 heal · +8 büyü hasarı | Brazecore Armguards · War Master Voone, LBRS |\n| Eller | Harmonious Gauntlets | King Gordok · DM Kuzey | — | Hands of the Exalted Herald · Princess Moira, BRD |\n| Bel | Barrage Girdle | Cannon Master Willey · Stratholme | — | Whipvine Cord · Alzzin the Wildshaper, DM Doğu |\n| Bacak | Padre's Trousers | Illyanna Ravenoak · DM Batı | +8 büyü hasarı ve iyileştirme · Arcanum of Focus | Maelstrom Leggings · Ras Frostwhisper, Scholomance |\n| Ayak | Swarmtender's Footpads | Tailoring 295 · BoE | +5 Spi | Omnicast Boots · Argelmach, BRD |\n| Yüzük 1 | Blessed Band of Light | Pix Xizzix · 75 Undermine Real | — | Emerald Flame Ring · Prince Tortheldrin, DM Batı |\n| Yüzük 2 | Fordring's Seal | Görev: In Dreams · Western Plaguelands | — | Rosewine Circle · Urok Doomhowl, LBRS |\n| Trinket 1 | Royal Seal of Eldre'Thalas | DM görevi (Frost Shock and You) | — | Briarwood Reed · Jed Runewatcher, UBRS |\n| Trinket 2 | Serenity Field | Pix Xizzix · 125 Undermine Real | — | Burst of Knowledge · Ambassador Flamelash, BRD |\n| Ana el | Gift of the Elven Magi | Grand Crusader Dathrohan · Stratholme | +22 Intellect · Mighty Intellect | Charstone Dirk · Princess Theradras, Maraudon |\n| Yan el | Lei of the Lifegiver | AV satıcısı (Alterac Mountains) | +6 Intellect · +5 Spirit · Wisdom | Penelope's Rose · Görev: Kirtonos the Herald |\n| Relic | Totem of Sustaining | Doctor Theolen Krastinov · Scholomance | — | Tidal Totem · Pix Xizzix, 50 Real |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "shaman-22-restoration-raid-hazirligi",
+  "category": "class",
+  "title": "Shaman · Restoration Raid Hazirligi",
+  "file": "22-Restoration-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "restoration raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "shaman",
+  "kind": "raidprep",
+  "spec": "restoration",
+  "text": "# Shaman · Restoration Raid Hazırlığı\n\nÜst bilgi: SHAMAN — RESTORATION. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Healing Power\n2. Critical Strike — Crit, Water Shield ve Ancestral Healing ile iyi çalışır.\n3. Intellect\n4. Spirit\n5. MP5\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Distilled Wisdom | +2000 mana | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Cleric's Elixir | +40 iyileştirme | Alchemy 195 | 30 dk sürer. Şifacının en ucuz güç iksiri. |\n| Mageblood Elixir | 5 sn'de 12 mana | Alchemy 275 | 1 saat sürer. Büyü atarken de mana doldurur. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Mender's Potion | +88 iyileştirme | Alchemy 280 | Forever'a yeni gelen savaş potu, 30 sn sürer. Raid'in çok hasar aldığı anda iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Sage's Tea | +44 iyileştirme · 2934 mana | Cooking 250 | Otururken 30 sn'de mana doldurur, sonra 15 dk iyileştirme bufu verir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Silaha sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Brilliant Mana Oil | +30 iyileştirme | Enchanting 300 | Silaha sürülür, 5 sn'de 15 mana da verir. 30 dk ya da 5 kullanım sürer. |"
+ },
+ {
+  "id": "shaman-23-restoration-t0-5-seti",
+  "category": "class",
+  "title": "Shaman · Restoration T0.5 Seti",
+  "file": "23-Restoration-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Shaman",
+  "keywords": [
+   "shaman",
+   "restoration t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "shaman",
+  "kind": "t05",
+  "spec": "restoration",
+  "text": "# Shaman · Restoration T0.5 Seti\n\nÜst bilgi: SHAMAN — RESTORATION. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, The Five Thunders) 60. seviyede, eski dungeon setinin (D1, The Elements) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: The Elements — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Coif of Elements | Darkmaster Gandling | Scholo | %9,3 |\n| Göğüs | Vest of Elements | General Drakkisath | UBRS | %10,5 |\n| Bilek | Bindings of Elements | Crimson Monk (çöp) | Strat (canlı) | %6,1 (Çöp düşüşü. DB'deki diğerleri: Splintered Skeleton %5,3, Crypt Beast %4,7, Crypt Crawler %4,5.) |\n| Eller | Gauntlets of Elements | Pyroguard Emberseer | UBRS | %15,8 |\n| Bel | Cord of Elements | Quartermaster Zigris | LBRS | %7,1 (Rage Talon Flamescale (UBRS çöpü) %7,0; LBRS boss'u daha kolay.) |\n| Bacak | Kilt of Elements | Baron Rivendare | Strat (ölü) | %11 |\n| Ayak | Boots of Elements | Highlord Omokk | LBRS | %15,1 |\n| Omuz | Pauldrons of Elements | Gyth | UBRS | %16,4 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü (hasar ve iyileştirme) · 4 parça: Yakın vurulunca %5 şansla 4 sn silahsızlandırma · 5 parça: Vuruş ve büyüde şansla 10 sn +65 büyü gücü · 6 parça: 5 sn'de 8 mana.\nForever farkı: Forever bonusları 2/3/4/5/6 parçada (DB tooltip). Classic'te 2/4/6/8 idi (2'li +200 zırh, 8'li +8 direnç). Parça statları ve düşüren boss'lar Classic'le aynı.\n\n## T0.5: Relief (Şifacı; Restoration)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Crown of The Five Thunders | 33 Heal, 17 Int, 16 Sta, 16 Spi, %1 crit |\n| Göğüs | Tunic of The Five Thunders | 37 Heal, 16 Int, 16 Sta, 15 Spi, %1 crit |\n| Bilek | Bracers of The Five Thunders | 18 Heal, 9 Int, 8 Sta, 11 Spi |\n| Eller | Grasp of The Five Thunders | 24 Heal, 11 Int, 10 Sta, 18 Spi |\n| Bel | Sash of The Five Thunders | 18 Heal, 13 Int, 12 Sta/Spi, %0,5 crit |\n| Bacak | Leggings of The Five Thunders | 31 Heal, 16 Int, 15 Sta, 18 Spi |\n| Ayak | Greaves of The Five Thunders | 20 Heal, 13 Int, 11 Sta, 20 Spi, 2 mp5 |\n| Omuz | Mantle of The Five Thunders | 22 Heal, 13 Int, 12 Sta, 12 Spi |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Vuruş ve büyüde şansla 10 sn +65 büyü gücü · 5 parça: Yakın vurulunca %5 şansla 4 sn silahsızlandırma · 6 parça: +23 büyü gücü (hasar ve iyileştirme).\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
   "id": "warlock-01-irk-secimi",
   "category": "class",
   "title": "Warlock · Irk Secimi",
@@ -1413,6 +3195,249 @@ export const CARDS = [
   "text": "# Warlock · Destruction Leveling\n\nÜst bilgi: WARLOCK — DESTRUCTION. WOW FOREVER · TOTİK CHANNEL. Rozet: TAVSİYE EDİLEN BUILD.\n\nSeviye aralığı: 10 → 60\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\n### Affliction — 6 puan\n\n- Satır 1, sütun 1: Improved Life Tap — 2/2 (tamamlandı)\n- Satır 1, sütun 2: Suppression — 4/5 (kısmen alındı)\n- Satır 1, sütun 3: Improved Corruption — 0/5 (puan yok)\n- Satır 2, sütun 1: Grim Reach — 0/2 (puan yok)\n- Satır 2, sütun 2: Soul Harvest — 0/2 (puan yok)\n- Satır 2, sütun 3: Improved Drains — 0/3 (puan yok)\n- Satır 3, sütun 1: Improved Bane of Agony — 0/2 (puan yok)\n- Satır 3, sütun 2: Fel Concentration — 0/3 (puan yok)\n- Satır 3, sütun 3: Amplify Curse — 0/1 (puan yok)\n- Satır 3, sütun 4: Pandemic — 0/3 (puan yok)\n- Satır 4, sütun 1: Malevolence — 0/5 (puan yok)\n- Satır 4, sütun 2: Nightfall — 0/2 (puan yok)\n- Satır 4, sütun 3: Curse of Exhaustion — 0/1 (puan yok)\n- Satır 5, sütun 2: Siphon Life — 0/1 (puan yok)\n- Satır 5, sütun 3: Soul Siphon — 0/3 (puan yok)\n- Satır 6, sütun 3: Shadow Mastery — 0/5 (puan yok)\n- Satır 7, sütun 2: Wrack — 0/1 (puan yok)\n\nÖn koşul okları: Amplify Curse → Curse of Exhaustion; Siphon Life → Wrack.\n\n### Demonology — 11 puan\n\n- Satır 1, sütun 1: Improved Health Funnel — 0/2 (puan yok)\n- Satır 1, sütun 2: Improved Imp — 0/3 (puan yok)\n- Satır 1, sütun 3: Demonic Embrace — 5/5 (tamamlandı)\n- Satır 1, sütun 4: Unholy Power — 0/5 (puan yok)\n- Satır 2, sütun 1: Demonic Aegis — 2/2 (tamamlandı)\n- Satır 2, sütun 2: Improved Voidwalker — 0/3 (puan yok)\n- Satır 2, sütun 3: Fel Vitality — 3/3 (tamamlandı)\n- Satır 2, sütun 4: Demonic Energies — 0/2 (puan yok)\n- Satır 3, sütun 1: Improved Sayaad — 0/3 (puan yok)\n- Satır 3, sütun 2: Demonic Sacrifice — 1/1 (tamamlandı)\n- Satır 3, sütun 3: Master Summoner — 0/2 (puan yok)\n- Satır 4, sütun 1: Decimation — 0/2 (puan yok)\n- Satır 4, sütun 3: Fel Domination — 0/1 (puan yok)\n- Satır 4, sütun 4: Demonic Brand — 0/3 (puan yok)\n- Satır 5, sütun 1: Improved Felhunter — 0/3 (puan yok)\n- Satır 5, sütun 2: Soul Link — 0/1 (puan yok)\n- Satır 5, sütun 3: Demonic Knowledge — 0/3 (puan yok)\n- Satır 6, sütun 3: Master Demonologist — 0/5 (puan yok)\n- Satır 7, sütun 2: Demonic Pact — 0/1 (puan yok)\n\nÖn koşul okları: Master Summoner → Fel Domination; Demonic Sacrifice → Soul Link; Soul Link → Demonic Pact.\n\n### Destruction — 34 puan\n\n- Satır 1, sütun 1: Destructive Reach — 2/2 (tamamlandı)\n- Satır 1, sütun 2: Improved Shadow Bolt — 0/5 (puan yok)\n- Satır 1, sütun 3: Bane — 5/5 (tamamlandı)\n- Satır 2, sütun 1: Molten Skin — 0/5 (puan yok)\n- Satır 2, sütun 2: Cataclysm — 0/3 (puan yok)\n- Satır 2, sütun 3: Aftermath — 5/5 (tamamlandı)\n- Satır 3, sütun 2: Ruin — 4/5 (kısmen alındı)\n- Satır 3, sütun 3: Shadowburn — 1/1 (tamamlandı)\n- Satır 4, sütun 1: Intensity — 3/3 (tamamlandı)\n- Satır 4, sütun 2: Agonizing Flames — 3/3 (tamamlandı)\n- Satır 4, sütun 3: Conflagrate — 1/1 (tamamlandı)\n- Satır 5, sütun 1: Pyroclasm — 0/2 (puan yok)\n- Satır 5, sütun 2: Bane of Havoc — 1/1 (tamamlandı)\n- Satır 5, sütun 3: Fire and Brimstone — 3/3 (tamamlandı)\n- Satır 6, sütun 3: Shadow and Flame — 5/5 (tamamlandı)\n- Satır 7, sütun 2: Incinerate — 1/1 (tamamlandı)\n\nÖn koşul okları: Intensity → Pyroclasm; Conflagrate → Fire and Brimstone; Bane of Havoc → Incinerate.\n\n## 60. Seviye Puan Dağılımı\n\n6 / 11 / 34 — Affliction 6, Demonology 11, Destruction 34. TOPLAM 51 PUAN.\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan Sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Bane | Destruction | +5 | 5/5 | Shadow Bolt ve Immolate döküm −0,5 sn |\n| 15–19 | Aftermath | Destruction | +5 | 5/5 | Immolate ilk hasarı +%50 |\n| 20 | Shadowburn | Destruction | +1 | 1/1 | Anında vuruş, öldürürse Soul Shard |\n| 21–22 | Destructive Reach | Destruction | +2 | 2/2 | Destruction büyü menzili +%20 |\n| 23–24 | Ruin | Destruction | +2 | 2/5 | Destruction kritik hasarı +%40 |\n| 25 | Conflagrate | Destruction | +1 | 1/1 | Immolate'i patlatır, anında Fire hasarı |\n| 26–28 | Intensity | Destruction | +3 | 3/3 | Vurulunca büyüler %70 şansla gerilemez |\n| 29 | Agonizing Flames | Destruction | +1 | 1/3 | Destruction hasarı +%3 |\n| 30–32 | Fire and Brimstone | Destruction | +3 | 3/3 | Conflagrate kritik şansı +%25 |\n| 33 | Bane of Havoc | Destruction | +1 | 1/1 | Başka hedefe vurduğunun %15'i buna da |\n| 34 | Agonizing Flames | Destruction | +1 | 2/3 | Destruction hasarı +%7 |\n| 35–39 | Shadow and Flame | Destruction | +5 | 5/5 | Conflagrate ve Shadowburn sonrası +%20 |\n| 40 | Incinerate | Destruction | +1 | 1/1 | Fire vuruşu, Immolate'li hedefe +%25 |\n| 41 | Agonizing Flames | Destruction | +1 | 3/3 | Destruction hasarı +%10 |\n| 42–45 | Suppression | Affliction | +4 | 4/5 | İsabet +%4, tehdit −%16 |\n| 46–50 | Demonic Embrace | Demonology | +5 | 5/5 | Toplam Stamina +%15 |\n| 51–52 | Demonic Aegis | Demonology | +2 | 2/2 | Demon Skin ve Demon Armor +%30 |\n| 53–55 | Fel Vitality | Demonology | +3 | 3/3 | Petin can ve manası, senin manan +%15 |\n| 56 | Demonic Sacrifice | Demonology | +1 | 1/1 | Imp'ten Shadow, Succubus'tan Fire +%15 |\n| 57–58 | Improved Life Tap | Affliction | +2 | 2/2 | Life Tap manası +%20 |\n| 59–60 | Ruin | Destruction | +2 | 4/5 | Destruction kritik hasarı +%80 |"
  },
  {
+  "id": "warlock-11-affliction-raid-talentleri",
+  "category": "class",
+  "title": "Warlock · Affliction Raid Talentleri",
+  "file": "11-Affliction-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "affliction raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "warlock",
+  "kind": "raid",
+  "spec": "affliction",
+  "text": "# Warlock · Affliction Raid Talentleri\n\nÜst bilgi: WARLOCK — AFFLICTION. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Affliction Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n35 / 11 / 5 — Affliction 35, Demonology 11, Destruction 5. TOPLAM 51 PUAN.\n\n## Affliction — 35 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Life Tap | 2/2 | 1 | Life Tap manası +%20 |\n| Suppression | 5/5 | 1 | İsabet +%5, tehdit −%20 |\n| Improved Corruption | 5/5 | 1 | Corruption anında, hasarı +%10 |\n| Improved Bane of Agony | 2/2 | 3 | Bane of Agony hasarı +%10 |\n| Amplify Curse | 1/1 | 3 | Sonraki Curse ya da Bane etkisi +%50 |\n| Pandemic | 3/3 | 3 | DoT ve Drain kritik hasarı +%100 |\n| Malevolence | 5/5 | 4 | Shadow kritik şansı +%5 |\n| Nightfall | 2/2 | 4 | %4 şansla sonraki Shadow Bolt anında |\n| Siphon Life | 1/1 | 5 | 30 sn boyunca hedeften can çeker |\n| Soul Siphon | 3/3 | 5 | Diğer her etki için Drain ve Wrack +%12 |\n| Shadow Mastery | 5/5 | 6 | Shadow hasarı ve can çekme +%10 |\n| Wrack | 1/1 | 7 | Kanal büyüsü, DoT'lar %10 fazla vurur (ön koşul: Siphon Life) |\n\n## Demonology — 11 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Demonic Embrace | 5/5 | 1 | Toplam Stamina +%15 |\n| Demonic Aegis | 2/2 | 2 | Demon Skin ve Demon Armor +%30 |\n| Fel Vitality | 3/3 | 2 | Petin can ve manası, senin manan +%15 |\n| Demonic Sacrifice | 1/1 | 3 | Imp'ten Shadow, Succubus'tan Fire +%15 |\n\n## Destruction — 5 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Shadow Bolt | 5/5 | 1 | Shadow Bolt kritiği Shadow hasarı +%20 |\n\nNot: Imp feda edilir, petsiz oynanır; iki kaynak aynı 35/11/5 Wrack build\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "warlock-12-affliction-pre-bis",
+  "category": "class",
+  "title": "Warlock · Affliction Pre-BiS",
+  "file": "12-Affliction-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "affliction pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "warlock",
+  "kind": "prebis",
+  "spec": "affliction",
+  "text": "# Warlock · Affliction Pre-BiS\n\nÜst bilgi: WARLOCK — AFFLICTION. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Spellweaver's Turban | General Drakkisath · UBRS | +8 büyü gücü · Arcanum of Focus | Crimson Felt Hat · Barthilas, Stratholme |\n| Boyun | Nacreous Shell Necklace | Cannon Master Willey · Stratholme | +6 büyü gücü | Beads of Ogre Mojo · Dire Maul görevi |\n| Omuz | Mantle of the Timbermaw | Tailoring 290 · BoE | — | Thuzadin Mantle · Rivendare, Stratholme |\n| Pelerin | Arcanoweave Cloak | Pix Xizzix · 75 Undermine Real | — | Shroud of the Exile · Western Plaguelands görevi |\n| Göğüs | Robes of Dark Summons | Impaan the Imprisoner · Blackmaw Hold | — | Robe of Winter Night · Tailoring 245, BoE |\n| Bilek | Dryad's Wrist Bindings | WSG itibarı · satıcı | +16 büyü gücü · Greater Spellpower | Sublime Wristguards · Slip'kik, DM Kuzey |\n| Eller | Felcloth Gloves | Tailoring 280 · BoE | — | Hands of Power · Zigris, LBRS |\n| Bel | Belt of the Archmage | Tailoring 295 · BoE | — | Ban'thok Sash · Ok'thor, BRD |\n| Bacak | Skyshroud Leggings | Highlord Omokk · LBRS | +8 büyü gücü · Arcanum of Focus | Felcloth Pants · Tailoring 230, BoE |\n| Ayak | Omnicast Boots | Golem Lord Argelmach · BRD | +5 Spirit | Venomspew Footpads · Tailoring 295, BoE |\n| Yüzük 1 | Channeler's Ring | Pix Xizzix · 75 Undermine Real | — | Jereman's Bauble · Mount Hyjal görevi |\n| Yüzük 2 | Rune Band of Wizardry | Lord Valthalak · UBRS (T0.5 sonu) | — | Songstone / Eye of Orgrimmar · BRD görevi |\n| Trinket 1 | Weakness Analyzer | Pix Xizzix · 125 Undermine Real | — | Eye of the Beast · UBRS görevi |\n| Trinket 2 | Royal Seal of Eldre'Thalas | Görev: Harnessing Shadows · DM Batı | — | Smolderweb's Eye · Smolderweb, LBRS |\n| İki elli | Ironbark Staff | AB itibarı · Exalted | +65 büyü gücü · Spellblasting | Headmaster's Charge · Gandling, Scholomance |\n| Değnek | Bonecreeper Stylus | Darkmaster Gandling · Scholomance | — | Ritssyn's Wand of Bad Mojo · Rivendare, Stratholme |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "warlock-13-affliction-raid-hazirligi",
+  "category": "class",
+  "title": "Warlock · Affliction Raid Hazirligi",
+  "file": "13-Affliction-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "affliction raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "warlock",
+  "kind": "raidprep",
+  "spec": "affliction",
+  "text": "# Warlock · Affliction Raid Hazırlığı\n\nÜst bilgi: WARLOCK — AFFLICTION. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Hit (%17'ye kadar)\n2. Spell Power\n3. Critical Strike — Crit artık DoT ve drain'leri de kritikletir.\n4. Haste\n5. Intellect\n\n## Sınırlar (cap)\n\n- Hit (büyü): %17 — DoT'ların boss'a ıskalamaz, mana ve zaman boşa gitmez.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Supreme Power | +150 büyü hasarı | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Arcane Elixir | +35 büyü hasarı | Alchemy 285 | 1 saat sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Elixir of Shadow Power | +40 gölge hasarı | Alchemy 250 | 30 dk sürer. Yalnız gölge büyülerini güçlendirir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Spellblasting Potion | +47 büyü hasarı | Alchemy 285 | Forever'a yeni gelen savaş potu, 30 sn sürer. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Baked Salmon | +28 büyü hasarı | Cooking 275 | 15 dk sürer. Tarifi Feralas'ta Vivianna ya da Sheendra Tallgrass satar; Iron Oven gerekir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Kendi yaptığın taş)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Spellstone | +21 gölge hasarı · %2 hız | Create Spellstone | Kendin yaparsın, silaha işlenir. |"
+ },
+ {
+  "id": "warlock-14-affliction-t0-5-seti",
+  "category": "class",
+  "title": "Warlock · Affliction T0.5 Seti",
+  "file": "14-Affliction-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "affliction t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "warlock",
+  "kind": "t05",
+  "spec": "affliction",
+  "text": "# Warlock · Affliction T0.5 Seti\n\nÜst bilgi: WARLOCK — AFFLICTION. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Deathmist Raiment) 60. seviyede, eski dungeon setinin (D1, Dreadmist Raiment) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Dreadmist Raiment — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Dreadmist Mask | Darkmaster Gandling | Scholo | %11,3 |\n| Göğüs | Dreadmist Robe | General Drakkisath | UBRS | %7,7 |\n| Bilek | Dreadmist Bracers | Quartermaster Zigris | LBRS | %13,4 (BoE: AH'den de alınabilir) |\n| Eller | Dreadmist Wraps | Lorekeeper Polkelt | Scholo | %17,1 |\n| Bel | Dreadmist Belt | Necromancer (çöp) | Scholo | %2,3 (BoE: AH'den de alınabilir; boss düşürmüyor, şans çok düşük) |\n| Bacak | Dreadmist Leggings | Baron Rivendare | Strat | %9,1 |\n| Ayak | Dreadmist Sandals | Baroness Anastari | Strat | %19,9 |\n| Omuz | Dreadmist Mantle | Jandice Barov | Scholo | %21,1 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü · 4 parça: Vurulunca %2 şansla saldıran 2 sn korkup kaçar · 5 parça: Büyüde %5 şansla 300 can · 6 parça: 5 sn'de 8 mana.\n\n## T0.5: Deathmist Raiment (Menzilli DPS; Affliction, Demonology, Destruction)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Deathmist Mask | 24 Int, 24 Sta, 18 SP, %1 hit |\n| Göğüs | Deathmist Robe | 22 Int, 23 Sta, 14 Spi, 11 SP |\n| Bilek | Deathmist Bracers | 12 Int, 12 Sta, 7 SP |\n| Eller | Deathmist Wraps | 13 Int, 16 Sta, 13 SP, %1 hit |\n| Bel | Deathmist Belt | 13 Int, 13 Sta, 8 Spi, 12 SP |\n| Bacak | Deathmist Leggings | 18 Int, 21 Sta, 15 SP, %1 hit |\n| Ayak | Deathmist Sandals | 14 Int, 22 Sta, 10 Spi, 12 SP |\n| Omuz | Deathmist Mantle | 16 Int, 13 Sta, 12 SP |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Büyüde %5 şansla 300 can · 5 parça: Vurulunca %2 şansla saldıran 2 sn korkup kaçar · 6 parça: +23 büyü gücü.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "warlock-15-demonology-raid-talentleri",
+  "category": "class",
+  "title": "Warlock · Demonology Raid Talentleri",
+  "file": "15-Demonology-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "demonology raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "warlock",
+  "kind": "raid",
+  "spec": "demonology",
+  "text": "# Warlock · Demonology Raid Talentleri\n\nÜst bilgi: WARLOCK — DEMONOLOGY. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Demonology Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n2 / 31 / 18 — Affliction 2, Demonology 31, Destruction 18. TOPLAM 51 PUAN.\n\n## Affliction — 2 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Corruption | 2/5 | 1 | Corruption döküm −0,8 sn, hasarı +%4 |\n\n## Demonology — 31 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Unholy Power | 5/5 | 1 | Pet hasarı +%10 |\n| Fel Vitality | 3/3 | 2 | Petin can ve manası, senin manan +%15 |\n| Demonic Energies | 2/2 | 2 | Büyü hasarının %15'i peti iyileştirir |\n| Improved Sayaad | 3/3 | 3 | Lash of Pain ve Seduction +%30 |\n| Demonic Sacrifice | 1/1 | 3 | Imp'ten Shadow, Succubus'tan Fire +%15 |\n| Master Summoner | 2/2 | 3 | Pet çağırma −4 sn, %40 daha ucuz |\n| Decimation | 2/2 | 4 | %35 altı hedefte Soul Fire hızlı, bedava |\n| Demonic Brand | 3/3 | 4 | Searing Pain damgası petine ek hasar |\n| Soul Link | 1/1 | 5 | Hasarın %30'unu pet alır, hasar +%3 (ön koşul: Demonic Sacrifice) |\n| Demonic Knowledge | 3/3 | 5 | Pet varken seviyen kadar büyü gücü |\n| Master Demonologist | 5/5 | 6 | Açık pete göre ikinize de bonus |\n| Demonic Pact | 1/1 | 7 | Başka pet çağırınca feda bonusu kalır (ön koşul: Soul Link) |\n\n## Destruction — 18 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Shadow Bolt | 5/5 | 1 | Shadow Bolt kritiği Shadow hasarı +%20 |\n| Bane | 5/5 | 1 | Shadow Bolt ve Immolate döküm −0,5 sn |\n| Ruin | 5/5 | 3 | Destruction kritik hasarı +%100 |\n| Agonizing Flames | 3/3 | 4 | Destruction hasarı +%10 |\n\nNot: Imp feda, Succubus açık (Demonic Pact); Tavern da 2/31/18, Fire çeşidini de veriyor\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "warlock-16-demonology-pre-bis",
+  "category": "class",
+  "title": "Warlock · Demonology Pre-BiS",
+  "file": "16-Demonology-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "demonology pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "warlock",
+  "kind": "prebis",
+  "spec": "demonology",
+  "text": "# Warlock · Demonology Pre-BiS\n\nÜst bilgi: WARLOCK — DEMONOLOGY. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Spellweaver's Turban | General Drakkisath · UBRS | +8 büyü gücü · Arcanum of Focus | Crimson Felt Hat · Barthilas, Stratholme |\n| Boyun | Nacreous Shell Necklace | Cannon Master Willey · Stratholme | +6 büyü gücü | Beads of Ogre Mojo · Dire Maul görevi |\n| Omuz | Mantle of the Timbermaw | Tailoring 290 · BoE | — | Thuzadin Mantle · Rivendare, Stratholme |\n| Pelerin | Arcanoweave Cloak | Pix Xizzix · 75 Undermine Real | — | Shroud of the Exile · Western Plaguelands görevi |\n| Göğüs | Robes of Dark Summons | Impaan the Imprisoner · Blackmaw Hold | — | Alanna's Embrace · Ras Frostwhisper, Scholomance |\n| Bilek | Dryad's Wrist Bindings | WSG itibarı · satıcı | +16 büyü gücü · Greater Spellpower | Sublime Wristguards · Slip'kik, DM Kuzey |\n| Eller | Deathmist Wraps | T0.5 seti · nasıl alınır: T0.5 kartı | — | Hands of Power · Zigris, LBRS |\n| Bel | Belt of the Archmage | Tailoring 295 · BoE | — | Ban'thok Sash · Ok'thor, BRD |\n| Bacak | Skyshroud Leggings | Highlord Omokk · LBRS | +8 büyü gücü · Arcanum of Focus | Ghostweave Pants · Tailoring 245, BoE |\n| Ayak | Omnicast Boots | Golem Lord Argelmach · BRD | +5 Spirit | Venomspew Footpads · Tailoring 295, BoE |\n| Yüzük 1 | Channeler's Ring | Pix Xizzix · 75 Undermine Real | — | Jereman's Bauble · Mount Hyjal görevi |\n| Yüzük 2 | Rune Band of Wizardry | Lord Valthalak · UBRS (T0.5 sonu) | — | Songstone / Eye of Orgrimmar · BRD görevi |\n| Trinket 1 | Weakness Analyzer | Pix Xizzix · 125 Undermine Real | — | Smolderweb's Eye · Smolderweb, LBRS |\n| Trinket 2 | Royal Seal of Eldre'Thalas | Görev: Harnessing Shadows · DM Batı | — | Eye of the Beast · UBRS görevi |\n| İki elli | Ironbark Staff | AB itibarı · Exalted | +65 büyü gücü · Spellblasting | Headmaster's Charge · Gandling, Scholomance |\n| Değnek | Bonecreeper Stylus | Darkmaster Gandling · Scholomance | — | Ritssyn's Wand of Bad Mojo · Rivendare, Stratholme |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "warlock-17-demonology-raid-hazirligi",
+  "category": "class",
+  "title": "Warlock · Demonology Raid Hazirligi",
+  "file": "17-Demonology-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "demonology raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "warlock",
+  "kind": "raidprep",
+  "spec": "demonology",
+  "text": "# Warlock · Demonology Raid Hazırlığı\n\nÜst bilgi: WARLOCK — DEMONOLOGY. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Hit (%17'ye kadar) — Hit demonun saldırılarını da güvenilir yapar.\n2. Spell Power\n3. Critical Strike\n4. Haste\n5. Intellect\n\n## Sınırlar (cap)\n\n- Hit (büyü): %17 — Büyülerin ve demonunun saldırıları boss'a ıskalamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Supreme Power | +150 büyü hasarı | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Arcane Elixir | +35 büyü hasarı | Alchemy 285 | 1 saat sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Elixir of Shadow Power | +40 gölge hasarı | Alchemy 250 | 30 dk sürer. Yalnız gölge büyülerini güçlendirir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Spellblasting Potion | +47 büyü hasarı | Alchemy 285 | Forever'a yeni gelen savaş potu, 30 sn sürer. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Baked Salmon | +28 büyü hasarı | Cooking 275 | 15 dk sürer. Tarifi Feralas'ta Vivianna ya da Sheendra Tallgrass satar; Iron Oven gerekir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Kendi yaptığın taş)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Spellstone | +21 gölge hasarı · %2 hız | Create Spellstone | Kendin yaparsın, silaha işlenir. |"
+ },
+ {
+  "id": "warlock-18-demonology-t0-5-seti",
+  "category": "class",
+  "title": "Warlock · Demonology T0.5 Seti",
+  "file": "18-Demonology-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "demonology t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "warlock",
+  "kind": "t05",
+  "spec": "demonology",
+  "text": "# Warlock · Demonology T0.5 Seti\n\nÜst bilgi: WARLOCK — DEMONOLOGY. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Deathmist Raiment) 60. seviyede, eski dungeon setinin (D1, Dreadmist Raiment) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Dreadmist Raiment — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Dreadmist Mask | Darkmaster Gandling | Scholo | %11,3 |\n| Göğüs | Dreadmist Robe | General Drakkisath | UBRS | %7,7 |\n| Bilek | Dreadmist Bracers | Quartermaster Zigris | LBRS | %13,4 (BoE: AH'den de alınabilir) |\n| Eller | Dreadmist Wraps | Lorekeeper Polkelt | Scholo | %17,1 |\n| Bel | Dreadmist Belt | Necromancer (çöp) | Scholo | %2,3 (BoE: AH'den de alınabilir; boss düşürmüyor, şans çok düşük) |\n| Bacak | Dreadmist Leggings | Baron Rivendare | Strat | %9,1 |\n| Ayak | Dreadmist Sandals | Baroness Anastari | Strat | %19,9 |\n| Omuz | Dreadmist Mantle | Jandice Barov | Scholo | %21,1 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü · 4 parça: Vurulunca %2 şansla saldıran 2 sn korkup kaçar · 5 parça: Büyüde %5 şansla 300 can · 6 parça: 5 sn'de 8 mana.\n\n## T0.5: Deathmist Raiment (Menzilli DPS; Affliction, Demonology, Destruction)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Deathmist Mask | 24 Int, 24 Sta, 18 SP, %1 hit |\n| Göğüs | Deathmist Robe | 22 Int, 23 Sta, 14 Spi, 11 SP |\n| Bilek | Deathmist Bracers | 12 Int, 12 Sta, 7 SP |\n| Eller | Deathmist Wraps | 13 Int, 16 Sta, 13 SP, %1 hit |\n| Bel | Deathmist Belt | 13 Int, 13 Sta, 8 Spi, 12 SP |\n| Bacak | Deathmist Leggings | 18 Int, 21 Sta, 15 SP, %1 hit |\n| Ayak | Deathmist Sandals | 14 Int, 22 Sta, 10 Spi, 12 SP |\n| Omuz | Deathmist Mantle | 16 Int, 13 Sta, 12 SP |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Büyüde %5 şansla 300 can · 5 parça: Vurulunca %2 şansla saldıran 2 sn korkup kaçar · 6 parça: +23 büyü gücü.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "warlock-19-destruction-raid-talentleri",
+  "category": "class",
+  "title": "Warlock · Destruction Raid Talentleri",
+  "file": "19-Destruction-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "destruction raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "warlock",
+  "kind": "raid",
+  "spec": "destruction",
+  "text": "# Warlock · Destruction Raid Talentleri\n\nÜst bilgi: WARLOCK — DESTRUCTION. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Destruction Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n7 / 11 / 33 — Affliction 7, Demonology 11, Destruction 33. TOPLAM 51 PUAN.\n\n## Affliction — 7 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Suppression | 5/5 | 1 | İsabet +%5, tehdit −%20 |\n| Improved Corruption | 2/5 | 1 | Corruption döküm −0,8 sn, hasarı +%4 |\n\n## Demonology — 11 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Demonic Embrace | 5/5 | 1 | Toplam Stamina +%15 |\n| Demonic Aegis | 2/2 | 2 | Demon Skin ve Demon Armor +%30 |\n| Fel Vitality | 3/3 | 2 | Petin can ve manası, senin manan +%15 |\n| Demonic Sacrifice | 1/1 | 3 | Imp'ten Shadow, Succubus'tan Fire +%15 |\n\n## Destruction — 33 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Bane | 5/5 | 1 | Shadow Bolt ve Immolate döküm −0,5 sn |\n| Cataclysm | 3/3 | 2 | Destruction büyü manası −%10 |\n| Aftermath | 5/5 | 2 | Immolate ilk hasarı +%50 |\n| Ruin | 5/5 | 3 | Destruction kritik hasarı +%100 |\n| Shadowburn | 1/1 | 3 | Anında vuruş, öldürürse Soul Shard |\n| Agonizing Flames | 3/3 | 4 | Destruction hasarı +%10 |\n| Conflagrate | 1/1 | 4 | Immolate'i patlatır, anında Fire hasarı |\n| Bane of Havoc | 1/1 | 5 | Başka hedefe vurduğunun %15'i buna da |\n| Fire and Brimstone | 3/3 | 5 | Conflagrate kritik şansı +%25 (ön koşul: Conflagrate) |\n| Shadow and Flame | 5/5 | 6 | Conflagrate ve Shadowburn sonrası +%20 |\n| Incinerate | 1/1 | 7 | Fire vuruşu, Immolate'li hedefe +%25 (ön koşul: Bane of Havoc) |\n\nNot: Succubus feda edilir; Tavern en yüksek hasar için 14/4/33 Succubus açık build diyor\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "warlock-20-destruction-pre-bis",
+  "category": "class",
+  "title": "Warlock · Destruction Pre-BiS",
+  "file": "20-Destruction-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "destruction pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "warlock",
+  "kind": "prebis",
+  "spec": "destruction",
+  "text": "# Warlock · Destruction Pre-BiS\n\nÜst bilgi: WARLOCK — DESTRUCTION. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Spellweaver's Turban | General Drakkisath · UBRS | +8 büyü gücü · Arcanum of Focus | Crimson Felt Hat · Barthilas, Stratholme |\n| Boyun | Nacreous Shell Necklace | Cannon Master Willey · Stratholme | +6 büyü gücü | Beads of Ogre Mojo · Dire Maul görevi |\n| Omuz | Mantle of the Timbermaw | Tailoring 290 · BoE | — | Thuzadin Mantle · Rivendare, Stratholme |\n| Pelerin | Arcanoweave Cloak | Pix Xizzix · 75 Undermine Real | — | Shroud of the Exile · Western Plaguelands görevi |\n| Göğüs | Robes of Dark Summons | Impaan the Imprisoner · Blackmaw Hold | — | Alanna's Embrace · Ras Frostwhisper, Scholomance |\n| Bilek | Dryad's Wrist Bindings | WSG itibarı · satıcı | +16 büyü gücü · Greater Spellpower | Sublime Wristguards · Slip'kik, DM Kuzey |\n| Eller | Deathmist Wraps | T0.5 seti · nasıl alınır: T0.5 kartı | — | Hands of Power · Zigris, LBRS |\n| Bel | Belt of the Archmage | Tailoring 295 · BoE | — | Ban'thok Sash · Ok'thor, BRD |\n| Bacak | Skyshroud Leggings | Highlord Omokk · LBRS | +8 büyü gücü · Arcanum of Focus | Ghostweave Pants · Tailoring 245, BoE |\n| Ayak | Omnicast Boots | Golem Lord Argelmach · BRD | +5 Spirit | Venomspew Footpads · Tailoring 295, BoE |\n| Yüzük 1 | Channeler's Ring | Pix Xizzix · 75 Undermine Real | — | Jereman's Bauble · Mount Hyjal görevi |\n| Yüzük 2 | Rune Band of Wizardry | Lord Valthalak · UBRS (T0.5 sonu) | — | Songstone / Eye of Orgrimmar · BRD görevi |\n| Trinket 1 | Weakness Analyzer | Pix Xizzix · 125 Undermine Real | — | Smolderweb's Eye · Smolderweb, LBRS |\n| Trinket 2 | Royal Seal of Eldre'Thalas | Görev: Harnessing Shadows · DM Batı | — | Eye of the Beast · UBRS görevi |\n| İki elli | Ironbark Staff | AB itibarı · Exalted | +65 büyü gücü · Spellblasting | Headmaster's Charge · Gandling, Scholomance |\n| Değnek | Bonecreeper Stylus | Darkmaster Gandling · Scholomance | — | Ritssyn's Wand of Bad Mojo · Rivendare, Stratholme |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "warlock-21-destruction-raid-hazirligi",
+  "category": "class",
+  "title": "Warlock · Destruction Raid Hazirligi",
+  "file": "21-Destruction-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "destruction raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "warlock",
+  "kind": "raidprep",
+  "spec": "destruction",
+  "text": "# Warlock · Destruction Raid Hazırlığı\n\nÜst bilgi: WARLOCK — DESTRUCTION. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Hit (%17'ye kadar)\n2. Spell Power — Fire Damage, Spell Power'ın yaklaşık 2/3'ü değerinde.\n3. Haste\n4. Critical Strike\n5. Intellect\n\n## Sınırlar (cap)\n\n- Hit (büyü): %17 — Büyülerin boss'a ıskalamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of Supreme Power | +150 büyü hasarı | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Greater Arcane Elixir | +35 büyü hasarı | Alchemy 285 | 1 saat sürer. Farklı iksirler aynı anda açık kalabilir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Spellblasting Potion | +47 büyü hasarı | Alchemy 285 | Forever'a yeni gelen savaş potu, 30 sn sürer. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Major Mana Potion | ~1800 mana | Alchemy 295 | Mana yarıya inince iç ki 2 dk bekleme bitince yenisini içebilesin. |\n| Dark Rune | 1200 mana · -800 can | Scholomance · Stratholme | Bu iki dungeon'ın mob'larından düşer. Canından 800 götürür, şifacının dolduracağı anda kullan. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Baked Salmon | +28 büyü hasarı | Cooking 275 | 15 dk sürer. Tarifi Feralas'ta Vivianna ya da Sheendra Tallgrass satar; Iron Oven gerekir. |\n| Juju Guile | +30 Int | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Kendi yaptığın taş)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Firestone | +21 ateş hasarı · %2 kritik | Create Firestone | Kendin yaparsın, silaha işlenir. |"
+ },
+ {
+  "id": "warlock-22-destruction-t0-5-seti",
+  "category": "class",
+  "title": "Warlock · Destruction T0.5 Seti",
+  "file": "22-Destruction-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Warlock",
+  "keywords": [
+   "warlock",
+   "destruction t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "warlock",
+  "kind": "t05",
+  "spec": "destruction",
+  "text": "# Warlock · Destruction T0.5 Seti\n\nÜst bilgi: WARLOCK — DESTRUCTION. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Deathmist Raiment) 60. seviyede, eski dungeon setinin (D1, Dreadmist Raiment) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Dreadmist Raiment — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Dreadmist Mask | Darkmaster Gandling | Scholo | %11,3 |\n| Göğüs | Dreadmist Robe | General Drakkisath | UBRS | %7,7 |\n| Bilek | Dreadmist Bracers | Quartermaster Zigris | LBRS | %13,4 (BoE: AH'den de alınabilir) |\n| Eller | Dreadmist Wraps | Lorekeeper Polkelt | Scholo | %17,1 |\n| Bel | Dreadmist Belt | Necromancer (çöp) | Scholo | %2,3 (BoE: AH'den de alınabilir; boss düşürmüyor, şans çok düşük) |\n| Bacak | Dreadmist Leggings | Baron Rivendare | Strat | %9,1 |\n| Ayak | Dreadmist Sandals | Baroness Anastari | Strat | %19,9 |\n| Omuz | Dreadmist Mantle | Jandice Barov | Scholo | %21,1 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +18 büyü gücü · 4 parça: Vurulunca %2 şansla saldıran 2 sn korkup kaçar · 5 parça: Büyüde %5 şansla 300 can · 6 parça: 5 sn'de 8 mana.\n\n## T0.5: Deathmist Raiment (Menzilli DPS; Affliction, Demonology, Destruction)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Deathmist Mask | 24 Int, 24 Sta, 18 SP, %1 hit |\n| Göğüs | Deathmist Robe | 22 Int, 23 Sta, 14 Spi, 11 SP |\n| Bilek | Deathmist Bracers | 12 Int, 12 Sta, 7 SP |\n| Eller | Deathmist Wraps | 13 Int, 16 Sta, 13 SP, %1 hit |\n| Bel | Deathmist Belt | 13 Int, 13 Sta, 8 Spi, 12 SP |\n| Bacak | Deathmist Leggings | 18 Int, 21 Sta, 15 SP, %1 hit |\n| Ayak | Deathmist Sandals | 14 Int, 22 Sta, 10 Spi, 12 SP |\n| Omuz | Deathmist Mantle | 16 Int, 13 Sta, 12 SP |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 8 mana · 4 parça: Büyüde %5 şansla 300 can · 5 parça: Vurulunca %2 şansla saldıran 2 sn korkup kaçar · 6 parça: +23 büyü gücü.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
   "id": "warrior-01-irk-secimi",
   "category": "class",
   "title": "Warrior · Irk Secimi",
@@ -1581,6 +3606,249 @@ export const CARDS = [
   "kind": "leveling",
   "spec": "protection",
   "text": "# Warrior · Protection Leveling\n\nWOW FOREVER · TOTİK CHANNEL · Tavsiye edilen build\n\nSol üst başlık: WARRIOR — PROTECTION\n\n## Talent ağaçları\n\n(Talent adları veri dosyasındaki ağaç yerleşiminden eşlendi.)\n\nAğaç başlıkları: ARMS 4 puan · FURY 16 puan · PROTECTION 31 puan\n\n### Arms — 4 puan\n\n- Improved Heroic Strike — 0/3 (satır 1, sütun 1; puan yok)\n- Deflection — 1/5 (satır 1, sütun 2; kısmen alındı)\n- Improved Rend — 3/3 (satır 1, sütun 3; tamamlandı)\n- Improved Charge — 0/2 (satır 2, sütun 1; puan yok)\n- Improved Tactical Mastery — 0/3 (satır 2, sütun 2; puan yok)\n- Improved Overpower — 0/2 (satır 2, sütun 4; puan yok)\n- Anger Management — 0/1 (satır 3, sütun 2; puan yok)\n- Deep Wounds — 0/3 (satır 3, sütun 3; puan yok)\n- Spearing Strike — 0/1 (satır 4, sütun 1; puan yok)\n- Two-Handed Weapon Specialization — 0/3 (satır 4, sütun 2; puan yok)\n- Impale — 0/2 (satır 4, sütun 3; puan yok)\n- Bloodthrill — 0/2 (satır 5, sütun 1; puan yok)\n- Sweeping Strikes — 0/1 (satır 5, sütun 2; puan yok)\n- Weaponmaster — 0/5 (satır 5, sütun 3; puan yok)\n- Improved Slam — 0/2 (satır 6, sütun 1; puan yok)\n- Improved Hamstring — 0/3 (satır 6, sütun 3; puan yok)\n- Mortal Strike — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Improved Tactical Mastery → Anger Management; Improved Rend → Deep Wounds; Deep Wounds → Impale; Sweeping Strikes → Mortal Strike.\n\n### Fury — 16 puan\n\n- Booming Voice — 0/5 (satır 1, sütun 2; puan yok)\n- Cruelty — 5/5 (satır 1, sütun 3; tamamlandı)\n- Lingering Rage — 0/5 (satır 2, sütun 2; puan yok)\n- Unbridled Wrath — 5/5 (satır 2, sütun 3; tamamlandı)\n- Furious Precision — 0/3 (satır 3, sütun 1; puan yok)\n- Piercing Howl — 0/1 (satır 3, sütun 2; puan yok)\n- Blood Craze — 0/3 (satır 3, sütun 3; puan yok)\n- Enrage — 5/5 (satır 3, sütun 4; tamamlandı)\n- Dual Wield Specialization — 0/5 (satır 4, sütun 1; puan yok)\n- Reckless Swings — 1/1 (satır 4, sütun 2; tamamlandı)\n- Improved Execute — 0/2 (satır 4, sütun 4; puan yok)\n- Improved Berserker Rage — 0/2 (satır 5, sütun 1; puan yok)\n- Death Wish — 0/1 (satır 5, sütun 2; puan yok)\n- Gore Drinker — 0/2 (satır 5, sütun 3; puan yok)\n- Improved Intercept — 0/2 (satır 5, sütun 4; puan yok)\n- Improved Whirlwind — 0/2 (satır 6, sütun 1; puan yok)\n- Flurry — 0/3 (satır 6, sütun 3; puan yok)\n- Bloodthirst — 0/1 (satır 7, sütun 2; puan yok)\n\nÖn koşul okları: Blood Craze → Gore Drinker; Death Wish → Bloodthirst.\n\n### Protection — 31 puan\n\n- Improved Bloodrage — 0/2 (satır 1, sütun 1; puan yok)\n- Shield Specialization — 5/5 (satır 1, sütun 2; tamamlandı)\n- Iron Will — 0/5 (satır 1, sütun 3; puan yok)\n- Anticipation — 0/5 (satır 2, sütun 1; puan yok)\n- Improved Revenge — 3/3 (satır 2, sütun 3; tamamlandı)\n- Improved Thunder Clap — 3/3 (satır 2, sütun 4; tamamlandı)\n- Last Stand — 1/1 (satır 3, sütun 1; tamamlandı)\n- Master of Defense — 2/2 (satır 3, sütun 2; tamamlandı)\n- Improved Disarm — 0/3 (satır 3, sütun 3; puan yok)\n- Defiance — 3/3 (satır 3, sütun 4; tamamlandı)\n- Improved Sunder Armor — 3/3 (satır 4, sütun 1; tamamlandı)\n- Vanguard — 1/1 (satır 4, sütun 2; tamamlandı)\n- Improved Shield Bash — 0/2 (satır 4, sütun 3; puan yok)\n- Improved Shield Wall — 0/2 (satır 5, sütun 1; puan yok)\n- Concussion Blow — 1/1 (satır 5, sütun 2; tamamlandı)\n- Focused Rage — 3/3 (satır 5, sütun 3; tamamlandı)\n- Bastion — 5/5 (satır 6, sütun 3; tamamlandı)\n- Shield Slam — 1/1 (satır 7, sütun 2; tamamlandı)\n\nÖn koşul okları: Shield Specialization → Master of Defense; Concussion Blow → Shield Slam.\n\n## 60. seviye puan dağılımı\n\n4 Arms / 16 Fury / 31 Protection — TOPLAM 51 PUAN\n\nLejant: Tamamlandı (en yüksek rank) · Kısmen alındı · Puan yok · Ön koşul (ok işareti)\n\n## Puan sırası · Seviye 10 → 60\n\n| Seviye | Talent | Ağaç | +Puan | Rank | Etkisi |\n|---|---|---|---|---|---|\n| 10–14 | Shield Specialization | Protection | +5 | 5/5 | Blok şansı +%5, her blokta 5 Rage |\n| 15–17 | Improved Revenge | Protection | +3 | 3/3 | Revenge hasarı +%60 |\n| 18–19 | Improved Thunder Clap | Protection | +2 | 2/3 | Thunder Clap 4 Rage daha ucuz |\n| 20–21 | Master of Defense | Protection | +2 | 2/2 | Kalkanla dodge ya da parry'de 5 Rage |\n| 22 | Improved Thunder Clap | Protection | +1 | 3/3 | Thunder Clap 6 Rage daha ucuz |\n| 23 | Last Stand | Protection | +1 | 1/1 | 20 sn canın %30'u kadar geçici can |\n| 24 | Defiance | Protection | +1 | 1/3 | Defensive Stance tehdidi +%7 |\n| 25 | Vanguard | Protection | +1 | 1/1 | Charge Defensive Stance'te de çalışır |\n| 26–28 | Improved Sunder Armor | Protection | +3 | 3/3 | Sunder Armor 3 Rage daha ucuz |\n| 29 | Defiance | Protection | +1 | 2/3 | Defensive Stance tehdidi +%13 |\n| 30–32 | Focused Rage | Protection | +3 | 3/3 | Saldırı yetenekleri 3 Rage daha ucuz |\n| 33 | Concussion Blow | Protection | +1 | 1/1 | Hedefi 5 sn sersemletir |\n| 34 | Defiance | Protection | +1 | 3/3 | Defensive Stance tehdidi +%20 |\n| 35–39 | Bastion | Protection | +5 | 5/5 | Kalkan takılıyken tüm hasar +%10 |\n| 40 | Shield Slam | Protection | +1 | 1/1 | Kalkanla vurur, büyü siler |\n| 41–43 | Improved Rend | Arms | +3 | 3/3 | Rend kanama hasarı +%35 |\n| 44–48 | Cruelty | Fury | +5 | 5/5 | Kritik şansı +%5 |\n| 49–53 | Unbridled Wrath | Fury | +5 | 5/5 | Vuruşta %60 şansla 1 Rage |\n| 54–58 | Enrage | Fury | +5 | 5/5 | Darbe alınca %30 şansla hasar +%10 |\n| 59 | Reckless Swings | Fury | +1 | 1/1 | 4 vuruşa +5 Rage, bedeli %25 temel can |\n| 60 | Deflection | Arms | +1 | 1/5 | Parry şansı +%1 |"
+ },
+ {
+  "id": "warrior-11-arms-raid-talentleri",
+  "category": "class",
+  "title": "Warrior · Arms Raid Talentleri",
+  "file": "11-Arms-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "arms raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "warrior",
+  "kind": "raid",
+  "spec": "arms",
+  "text": "# Warrior · Arms Raid Talentleri\n\nÜst bilgi: WARRIOR — ARMS. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Arms Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n32 / 17 / 2 — Arms 32, Fury 17, Protection 2. TOPLAM 51 PUAN.\n\n## Arms — 32 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Heroic Strike | 3/3 | 1 | Heroic Strike 3 Rage ucuz |\n| Improved Rend | 3/3 | 1 | Rend kanama hasarı +%35 |\n| Improved Tactical Mastery | 3/3 | 2 | Duruş değişince 15 Rage daha kalır |\n| Improved Overpower | 2/2 | 2 | Overpower kritik şansı +%50 |\n| Anger Management | 1/1 | 3 | Savaşta 3 sn'de 1 Rage (ön koşul: Improved Tactical Mastery) |\n| Deep Wounds | 3/3 | 3 | Kritikte kanama, silahın %60'ı (ön koşul: Improved Rend) |\n| Spearing Strike | 1/1 | 4 | Giant, Dragonkin ve binekliye ek hasar |\n| Two-Handed Weapon Specialization | 3/3 | 4 | İki elli silah hasarı +%6 |\n| Impale | 2/2 | 4 | Kritik hasar bonusu +%20 (ön koşul: Deep Wounds) |\n| Bloodthrill | 2/2 | 5 | Rend'li hedefte %20 şansla Overpower |\n| Sweeping Strikes | 1/1 | 5 | 5 vuruş yandaki düşmana da vurur |\n| Weaponmaster | 5/5 | 5 | Kritik %5, zırh delme %15, ek vuruş %5 |\n| Improved Slam | 2/2 | 6 | Slam −5 sn, oto saldırı gecikmez |\n| Mortal Strike | 1/1 | 7 | Ana saldırı, iyileşmeyi %50 keser (ön koşul: Sweeping Strikes) |\n\n## Fury — 17 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Cruelty | 5/5 | 1 | Kritik şansı +%5 |\n| Unbridled Wrath | 5/5 | 2 | Vuruşta %60 şansla 1 Rage |\n| Enrage | 5/5 | 3 | Darbe alınca %30 şansla hasar +%10 |\n| Reckless Swings | 1/1 | 4 | 4 vuruşa +5 Rage |\n| Improved Execute | 1/2 | 4 | Execute 3 Rage ucuz |\n\n## Protection — 2 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Bloodrage | 2/2 | 1 | Bloodrage %50 fazla Rage üretir |\n\nNot: Icy 'Mortal Strike Two Handed'; Warcraft Tavern da 32/17/2\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "warrior-12-arms-pre-bis",
+  "category": "class",
+  "title": "Warrior · Arms Pre-BiS",
+  "file": "12-Arms-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "arms pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "warrior",
+  "kind": "prebis",
+  "spec": "arms",
+  "text": "# Warrior · Arms Pre-BiS\n\nÜst bilgi: WARRIOR — ARMS. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Mask of the Unforgiven | The Unforgiven · Stratholme | %1 haste · Arcanum of Rapidity | Eye of Rend · Rend, UBRS |\n| Boyun | Beads of Ogre Might | Görev: Falrin's Vendetta · Dire Maul | +5 Str | Mark of Fordring · Görev: In Dreams |\n| Omuz | Theramore / Darkspear Epaulets | Theramore / Darkspear itibarı · Exalted | — | Truestrike Shoulders · Emberseer, UBRS |\n| Pelerin | Howler's Furs | Pix Xizzix · 75 Undermine Real | +5 Agi | Cape of the Black Baron · Rivendare, Stratholme |\n| Göğüs | Timbermaw Tunic | Leatherworking 300 · BoE | +3 bütün statlar | Breastplate of Heroism · T0.5 seti |\n| Bilek | Battleborn Armbraces | Warchief Rend Blackhand · UBRS | +9 Str · Superior Strength | Vambraces of the Sadist · Timmy, Stratholme |\n| Eller | Theramore / Raider Gauntlets | Theramore / Darkspear itibarı · Exalted | +15 Str · Superior Strength | Devilsaur Gauntlets · Leatherworking 265, BoE |\n| Bel | Valiant's Waistguard | Pix Xizzix · 100 Undermine Real | — | Omokk's Girth Restrainer · LBRS görevi |\n| Bacak | Devilsaur Leggings | Leatherworking 290 · BoE | %1 haste · Arcanum of Rapidity | Blademaster Leggings · The Beast, UBRS |\n| Ayak | Battleboots of Heroism | T0.5 seti · nasıl alınır: T0.5 kartı | +7 Agi · Greater Agility | Windreaver Greaves · Kirtonos, Scholomance |\n| Yüzük 1 | Cutthroat's Signet | Pix Xizzix · 75 Undermine Real | — | Blackstone Ring · Theradras, Maraudon |\n| Yüzük 2 | Don Julio's Band | AV itibarı · satıcı | — | Painweaver Band · Drakkisath, UBRS |\n| Trinket 1 | Hand of Justice | Emperor Thaurissan · BRD | — | Blackhand's Breadth · UBRS görevi |\n| Trinket 2 | Adaptive Combat Assistant | Pix Xizzix · 125 Undermine Real | — | Counterattack Lodestone · Tribute, DM Kuzey |\n| İki elli | The Unstoppable Force | AV itibarı · satıcı | +25 Agility | Arcanite Reaper · Blacksmithing 300, BoE |\n| Menzilli | Satyr's Bow | Zevrim Thornhoof · DM Doğu | — | Riphook · Vosh'gajin, LBRS |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "warrior-13-arms-raid-hazirligi",
+  "category": "class",
+  "title": "Warrior · Arms Raid Hazirligi",
+  "file": "13-Arms-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "arms raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "warrior",
+  "kind": "raidprep",
+  "spec": "arms",
+  "text": "# Warrior · Arms Raid Hazırlığı\n\nÜst bilgi: WARRIOR — ARMS. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Weapon DPS — Yavaş iki elli silah her vuruşta daha sert vurur; Mortal Strike de bundan güç alır.\n2. Hit (%8'e kadar)\n3. Expertise (%6,5'e kadar)\n4. Critical Strike\n5. Strength — Rage normalize: Strength/AP rage artırmaz, kritik otomatik vuruş rage'i ikiye katlar.\n\n## Sınırlar (cap)\n\n- Hit: %8 — İki elli silahla boss'a vuruşların ıskalamaz.\n- Expertise: %6,5 — Arkadan vururken boss vuruşlarından kaçamaz (dodge).\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Grizzly | +25 Str · %2 kritik | Alchemy 300 | Forever'a yeni gelen iksir, 30 dk sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Winterfall Firewater | +35 yakın dövüş AP | Winterspring | 20 dk sürer. Winterfall furbolg'larından düşer; Alchemy 250 ile yapılan Distilled Firewater da aynı etkiyi verir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Frenzy Potion | +80 AP | Alchemy 290 | 30 sn sürer, yakın dövüş ve menzilli AP verir. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Mighty Rage Potion | 45–75 rage · +60 Str | Alchemy 255 | Yalnız Warrior ve Druid içebilir. Açılışta rage'i doldurur; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Smoked Desert Dumplings | +20 Str | Cooking 285 | 15 dk sürer, aynı anda tek yemek bufu olur. Pişirmek için Iron Oven gerekir. |\n| Juju Power | +30 Str | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Silaha sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Elemental Sharpening Stone | +%2 kritik | Blacksmithing 300 | Silaha sürülür, 30 dk sürer. Çift silahta iki silaha da sür. |"
+ },
+ {
+  "id": "warrior-14-arms-t0-5-seti",
+  "category": "class",
+  "title": "Warrior · Arms T0.5 Seti",
+  "file": "14-Arms-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "arms t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "warrior",
+  "kind": "t05",
+  "spec": "arms",
+  "text": "# Warrior · Arms T0.5 Seti\n\nÜst bilgi: WARRIOR — ARMS. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Battlegear of Heroism) 60. seviyede, eski dungeon setinin (D1, Battlegear of Valor) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Battlegear of Valor — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Helm of Valor | Darkmaster Gandling | Scholo | %8,56 |\n| Göğüs | Breastplate of Valor | General Drakkisath | UBRS | %10,8 |\n| Bilek | Bracers of Valor | Quartermaster Zigris | LBRS | %8,13 (BRS çöp moblarından da düşer (Blackhand Iron Guard %5,99 vb.)) |\n| Eller | Gauntlets of Valor | Ramstein the Gorger | Strat (Ölü) | %19,8 |\n| Bel | Belt of Valor | Smolderthorn Berserker | LBRS | %8,5 (Boss değil, çöp mob. Strat'ta Patchwork Horror %6,13. Zindan adı DB'de yok (NPC bilinen LBRS mobu).) |\n| Bacak | Legplates of Valor | Baron Rivendare | Strat (Ölü) | %9,06 |\n| Ayak | Boots of Valor | Kirtonos the Herald | Scholo | %28,4 |\n| Omuz | Spaulders of Valor | Warchief Rend Blackhand | UBRS | %18,4 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +15 Str · 4 parça: Vurulunca %10 şansla disarm kalkar (60 sn'de bir) · 5 parça: Yakın vuruşta şansla 110 can + 10 öfke · 6 parça: 5 sn'de 15 can.\nForever farkı: Bonuslar 2-3-4-5-6 parçada (Classic'te 2/4/6/8); Forever'da en fazla 6 parça bonusu var (DB tooltip #16731).\n\n## T0.5: Unstoppable (Yakın DPS; Fury, Arms)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Crown of Heroism | 19 Str, 30 Sta, %1 crit |\n| Göğüs | Breastplate of Heroism | 21 Str, 13 Agi, 26 Sta, %1 hit |\n| Bilek | Bracers of Heroism | 11 Str, 5 Agi, 14 Sta, 6 hp5 |\n| Eller | Gauntlets of Heroism | 18 Str, 14 Sta, %1 crit |\n| Bel | Belt of Heroism | 15 Str, 10 Agi, 14 Sta, 14 hp5 |\n| Bacak | Legplates of Heroism | 27 Str, 12 Agi, 15 Sta |\n| Ayak | Battleboots of Heroism | 20 Str, 20 Sta, %1 hit |\n| Omuz | Spaulders of Heroism | 12 Str, 12 Agi, 19 Sta |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 15 can · 4 parça: Yakın vuruşta şansla 110 can + 10 öfke · 5 parça: Vurulunca %10 şansla disarm kalkar (60 sn'de bir) · 6 parça: +20 Str.\n\nPre-BiS listesindeki T0.5 parçaları: Bacak, Ayak.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "warrior-15-fury-raid-talentleri",
+  "category": "class",
+  "title": "Warrior · Fury Raid Talentleri",
+  "file": "15-Fury-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "fury raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "warrior",
+  "kind": "raid",
+  "spec": "fury",
+  "text": "# Warrior · Fury Raid Talentleri\n\nÜst bilgi: WARRIOR — FURY. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Fury Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n18 / 33 / 0 — Arms 18, Fury 33, Protection 0. TOPLAM 51 PUAN.\n\n## Arms — 18 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Improved Heroic Strike | 3/3 | 1 | Heroic Strike 3 Rage ucuz |\n| Improved Rend | 3/3 | 1 | Rend kanama hasarı +%35 |\n| Improved Tactical Mastery | 3/3 | 2 | Duruş değişince 15 Rage daha kalır |\n| Improved Overpower | 2/2 | 2 | Overpower kritik şansı +%50 |\n| Anger Management | 1/1 | 3 | Savaşta 3 sn'de 1 Rage (ön koşul: Improved Tactical Mastery) |\n| Deep Wounds | 3/3 | 3 | Kritikte kanama, silahın %60'ı (ön koşul: Improved Rend) |\n| Spearing Strike | 1/1 | 4 | Giant, Dragonkin ve binekliye ek hasar |\n| Impale | 2/2 | 4 | Kritik hasar bonusu +%20 (ön koşul: Deep Wounds) |\n\n## Fury — 33 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Cruelty | 5/5 | 1 | Kritik şansı +%5 |\n| Unbridled Wrath | 5/5 | 2 | Vuruşta %60 şansla 1 Rage |\n| Furious Precision | 3/3 | 3 | Yan el isabeti +%10 |\n| Enrage | 5/5 | 3 | Darbe alınca %30 şansla hasar +%10 |\n| Dual Wield Specialization | 5/5 | 4 | Yan el hasarı +%25, Rage'i +%50 |\n| Reckless Swings | 1/1 | 4 | 4 vuruşa +5 Rage |\n| Improved Berserker Rage | 2/2 | 5 | 10 Rage verir, yavaşlatmaları temizler |\n| Death Wish | 1/1 | 5 | 30 sn fiziksel hasar +%20 |\n| Improved Whirlwind | 2/2 | 6 | Whirlwind −2 sn, yakın hedefe +%30 |\n| Flurry | 3/3 | 6 | Kritikten sonra 3 vuruş %30 hızlı |\n| Bloodthirst | 1/1 | 7 | Ana saldırı, Attack Power'ın %45'i (ön koşul: Death Wish) |\n\nNot: Icy 'Bloodthirst Dual Wield'; Warcraft Tavern da 18/33/0\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "warrior-16-fury-pre-bis",
+  "category": "class",
+  "title": "Warrior · Fury Pre-BiS",
+  "file": "16-Fury-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "fury pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "warrior",
+  "kind": "prebis",
+  "spec": "fury",
+  "text": "# Warrior · Fury Pre-BiS\n\nÜst bilgi: WARRIOR — FURY. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Mask of the Unforgiven | The Unforgiven · Stratholme | %1 haste · Arcanum of Rapidity | Eye of Rend · Rend, UBRS |\n| Boyun | Beads of Ogre Might | Görev: Falrin's Vendetta · Dire Maul | +5 Str | Mark of Fordring · Görev: In Dreams |\n| Omuz | Truestrike Shoulders | Pyroguard Emberseer · UBRS | — | Theramore / Darkspear Epaulets · Exalted itibar |\n| Pelerin | Howler's Furs | Pix Xizzix · 75 Undermine Real | +5 Agi | Cape of the Black Baron · Rivendare, Stratholme |\n| Göğüs | Timbermaw Tunic | Leatherworking 300 · BoE | +3 bütün statlar | Breastplate of Heroism · T0.5 seti |\n| Bilek | Battleborn Armbraces | Warchief Rend Blackhand · UBRS | +9 Str · Superior Strength | Vambraces of the Sadist · Timmy, Stratholme |\n| Eller | Theramore / Raider Gauntlets | Theramore / Darkspear itibarı · Exalted | +15 Str · Superior Strength | Devilsaur Gauntlets · Leatherworking 265, BoE |\n| Bel | Valiant's Waistguard | Pix Xizzix · 100 Undermine Real | — | Brigam Girdle · Drakkisath, UBRS |\n| Bacak | Devilsaur Leggings | Leatherworking 290 · BoE | %1 haste · Arcanum of Rapidity | Blademaster Leggings · The Beast, UBRS |\n| Ayak | Battleboots of Heroism | T0.5 seti · nasıl alınır: T0.5 kartı | +7 Agi · Greater Agility | Windreaver Greaves · Kirtonos, Scholomance |\n| Yüzük 1 | Cutthroat's Signet | Pix Xizzix · 75 Undermine Real | — | Blackstone Ring · Theradras, Maraudon |\n| Yüzük 2 | Don Julio's Band | AV itibarı · satıcı | — | Painweaver Band · Drakkisath, UBRS |\n| Trinket 1 | Hand of Justice | Emperor Thaurissan · BRD | — | Blackhand's Breadth · UBRS görevi |\n| Trinket 2 | Adaptive Combat Assistant | Pix Xizzix · 125 Undermine Real | — | Counterattack Lodestone · Tribute, DM Kuzey |\n| Ana el | Ironfoe | Emperor Thaurissan · BRD | +5 silah hasarı · Superior Striking | Dal'Rend's Sacred Charge · Rend, UBRS |\n| Yan el | Felstriker | Warchief Rend Blackhand · UBRS | +5 silah hasarı · Superior Striking | Mirah's Song · Scholomance görevi |\n| Menzilli | Satyr's Bow | Zevrim Thornhoof · DM Doğu | — | Riphook · Vosh'gajin, LBRS |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "warrior-17-fury-raid-hazirligi",
+  "category": "class",
+  "title": "Warrior · Fury Raid Hazirligi",
+  "file": "17-Fury-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "fury raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "warrior",
+  "kind": "raidprep",
+  "spec": "fury",
+  "text": "# Warrior · Fury Raid Hazırlığı\n\nÜst bilgi: WARRIOR — FURY. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Weapon DPS\n2. Hit (%8'e kadar) — Furious Precision yeteneği yalnız sol el vuruşlarına %10'a kadar hit verir, özel vuruş hedefini düşürmez.\n3. Expertise (%6,5'e kadar)\n4. Critical Strike — Kritik otomatik vuruş iki kat rage verir; rage sıkıntısında Crit ve Haste değer kazanır.\n5. Strength\n\n## Sınırlar (cap)\n\n- Hit: %8 — Bloodthirst, Whirlwind gibi özel vuruşlar boss'a ıskalamaz.\n- Hit (otomatik vuruş): %27 — Çift silahla otomatik vuruşlar da hiç ıskalamaz; %8'den sonrası buraya kadar hâlâ işe yarar.\n- Expertise: %6,5 — Arkadan vururken boss vuruşlarından kaçamaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Grizzly | +25 Str · %2 kritik | Alchemy 300 | Forever'a yeni gelen iksir, 30 dk sürer. Farklı iksirler aynı anda açık kalabilir. |\n| Winterfall Firewater | +35 yakın dövüş AP | Winterspring | 20 dk sürer. Winterfall furbolg'larından düşer; Alchemy 250 ile yapılan Distilled Firewater da aynı etkiyi verir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Major Frenzy Potion | +80 AP | Alchemy 290 | 30 sn sürer, yakın dövüş ve menzilli AP verir. Boss'ta güçlendirmelerinle birlikte iç; 2 dk bekleme. |\n| Mighty Rage Potion | 45–75 rage · +60 Str | Alchemy 255 | Yalnız Warrior ve Druid içebilir. Açılışta rage'i doldurur; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Smoked Desert Dumplings | +20 Str | Cooking 285 | 15 dk sürer, aynı anda tek yemek bufu olur. Pişirmek için Iron Oven gerekir. |\n| Juju Power | +30 Str | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Silaha sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Elemental Sharpening Stone | +%2 kritik | Blacksmithing 300 | Silaha sürülür, 30 dk sürer. Çift silahta iki silaha da sür. |"
+ },
+ {
+  "id": "warrior-18-fury-t0-5-seti",
+  "category": "class",
+  "title": "Warrior · Fury T0.5 Seti",
+  "file": "18-Fury-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "fury t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "warrior",
+  "kind": "t05",
+  "spec": "fury",
+  "text": "# Warrior · Fury T0.5 Seti\n\nÜst bilgi: WARRIOR — FURY. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Battlegear of Heroism) 60. seviyede, eski dungeon setinin (D1, Battlegear of Valor) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Battlegear of Valor — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Helm of Valor | Darkmaster Gandling | Scholo | %8,56 |\n| Göğüs | Breastplate of Valor | General Drakkisath | UBRS | %10,8 |\n| Bilek | Bracers of Valor | Quartermaster Zigris | LBRS | %8,13 (BRS çöp moblarından da düşer (Blackhand Iron Guard %5,99 vb.)) |\n| Eller | Gauntlets of Valor | Ramstein the Gorger | Strat (Ölü) | %19,8 |\n| Bel | Belt of Valor | Smolderthorn Berserker | LBRS | %8,5 (Boss değil, çöp mob. Strat'ta Patchwork Horror %6,13. Zindan adı DB'de yok (NPC bilinen LBRS mobu).) |\n| Bacak | Legplates of Valor | Baron Rivendare | Strat (Ölü) | %9,06 |\n| Ayak | Boots of Valor | Kirtonos the Herald | Scholo | %28,4 |\n| Omuz | Spaulders of Valor | Warchief Rend Blackhand | UBRS | %18,4 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +15 Str · 4 parça: Vurulunca %10 şansla disarm kalkar (60 sn'de bir) · 5 parça: Yakın vuruşta şansla 110 can + 10 öfke · 6 parça: 5 sn'de 15 can.\nForever farkı: Bonuslar 2-3-4-5-6 parçada (Classic'te 2/4/6/8); Forever'da en fazla 6 parça bonusu var (DB tooltip #16731).\n\n## T0.5: Unstoppable (Yakın DPS; Fury, Arms)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Crown of Heroism | 19 Str, 30 Sta, %1 crit |\n| Göğüs | Breastplate of Heroism | 21 Str, 13 Agi, 26 Sta, %1 hit |\n| Bilek | Bracers of Heroism | 11 Str, 5 Agi, 14 Sta, 6 hp5 |\n| Eller | Gauntlets of Heroism | 18 Str, 14 Sta, %1 crit |\n| Bel | Belt of Heroism | 15 Str, 10 Agi, 14 Sta, 14 hp5 |\n| Bacak | Legplates of Heroism | 27 Str, 12 Agi, 15 Sta |\n| Ayak | Battleboots of Heroism | 20 Str, 20 Sta, %1 hit |\n| Omuz | Spaulders of Heroism | 12 Str, 12 Agi, 19 Sta |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 15 can · 4 parça: Yakın vuruşta şansla 110 can + 10 öfke · 5 parça: Vurulunca %10 şansla disarm kalkar (60 sn'de bir) · 6 parça: +20 Str.\n\nPre-BiS listesindeki T0.5 parçaları: Bacak, Ayak.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
+ },
+ {
+  "id": "warrior-19-protection-raid-talentleri",
+  "category": "class",
+  "title": "Warrior · Protection Raid Talentleri",
+  "file": "19-Protection-Raid-Talentleri.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "protection raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "classKey": "warrior",
+  "kind": "raid",
+  "spec": "protection",
+  "text": "# Warrior · Protection Raid Talentleri\n\nÜst bilgi: WARRIOR — PROTECTION. 60. SEVİYE RAID BUILD'İ. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nBu kart 60. seviyedeki raid (endgame) build'idir. 10–60 arası leveling puan sırası ayrı kartta: Protection Leveling.\n\n## 60. Seviye Puan Dağılımı\n\n5 / 15 / 31 — Arms 5, Fury 15, Protection 31. TOPLAM 51 PUAN.\n\n## Arms — 5 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Deflection | 5/5 | 1 | Parry şansı +%5 |\n\n## Fury — 15 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Cruelty | 5/5 | 1 | Kritik şansı +%5 |\n| Lingering Rage | 5/5 | 2 | Savaştan sonra Rage 10 sn geç düşer |\n| Enrage | 5/5 | 3 | Darbe alınca %30 şansla hasar +%10 |\n\n## Protection — 31 puan\n\n| Talent | Rank | Satır | Etkisi |\n|---|---|---|---|\n| Shield Specialization | 5/5 | 1 | Blok şansı +%5, her blokta 5 Rage |\n| Anticipation | 5/5 | 2 | Defense +20 |\n| Improved Revenge | 3/3 | 2 | Revenge hasarı +%60 |\n| Last Stand | 1/1 | 3 | 20 sn canın %30'u kadar geçici can |\n| Master of Defense | 2/2 | 3 | Kalkanla dodge ya da parry'de 5 Rage (ön koşul: Shield Specialization) |\n| Defiance | 3/3 | 3 | Defensive Stance tehdidi +%15 |\n| Vanguard | 1/1 | 4 | Charge Defensive Stance'te de çalışır |\n| Improved Shield Wall | 2/2 | 5 | Shield Wall beklemesi −11 dk |\n| Concussion Blow | 1/1 | 5 | Hedefi 5 sn sersemletir |\n| Focused Rage | 2/3 | 5 | Saldırı yetenekleri 2 Rage ucuz |\n| Bastion | 5/5 | 6 | Kalkan takılıyken tüm hasar +%10 |\n| Shield Slam | 1/1 | 7 | Kalkanla vurur, büyü siler (ön koşul: Concussion Blow) |\n\nNot: Icy 'Raid Build'; Warcraft Tavern savunma build'i de 5/15/31\n\nKaynak: Icy Veins WoW Forever uzmanlık rehberi, ikinci bir rehberle karşılaştırıldı (23.11.2026)."
+ },
+ {
+  "id": "warrior-20-protection-pre-bis",
+  "category": "class",
+  "title": "Warrior · Protection Pre-BiS",
+  "file": "20-Protection-Pre-BiS.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "protection pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "classKey": "warrior",
+  "kind": "prebis",
+  "spec": "protection",
+  "text": "# Warrior · Protection Pre-BiS\n\nÜst bilgi: WARRIOR — PROTECTION. PRE-BIS: RAID ÖNCESİ EŞYALAR VE ENCHANTLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n60. seviyede raide girmeden önce toplanacak en iyi eşyalar (pre-raid best in slot). Her slotta ana eşya, nereden alındığı, enchantı ve yedeği.\n\n| Slot | Eşya | Nereden | Enchant | Yedek |\n|---|---|---|---|---|\n| Kafa | Faceguard of Heroism | T0.5 seti · nasıl alınır: T0.5 kartı | %1 dodge · Arcanum of Protection | Enchanted Thorium Helm · Blacksmithing 300, BoE |\n| Boyun | Beads of Ogre Might | Görev: Falrin's Vendetta · Dire Maul | +5 Agi | Verek's Collar · Verek, BRD |\n| Omuz | Theramore / Darkspear Spaulders | Theramore / Darkspear itibarı · Exalted | — | Spaulders of Valor · Rend, UBRS |\n| Pelerin | Stalwart Cloak | Pix Xizzix · 75 Undermine Real | +5 Agi | Cape of the Black Baron · Rivendare, Stratholme |\n| Göğüs | Chestguard of Heroism | T0.5 seti · nasıl alınır: T0.5 kartı | +8 Stamina · Superior Stamina | Enchanted Thorium Breastplate · Blacksmithing, BoE |\n| Bilek | Wristguards of Heroism | T0.5 seti · nasıl alınır: T0.5 kartı | +9 Str · Superior Strength | Battleborn Armbraces · Rend, UBRS |\n| Eller | Theramore / Raider Gauntlets | Theramore / Darkspear itibarı · Exalted | +15 Str · Superior Strength | Gauntlets of Valor · Ramstein, Stratholme |\n| Bel | Valiant's Waistguard | Pix Xizzix · 100 Undermine Real | — | Belt of Valor · UBRS/Strat mobları, BoE |\n| Bacak | Enchanted Thorium Leggings | Blacksmithing 300 · BoE | %1 dodge · Arcanum of Protection | Legplates of Valor · Rivendare, Stratholme |\n| Ayak | Sabatons of Heroism | T0.5 seti · nasıl alınır: T0.5 kartı | +7 Sta · Greater Stamina | Shalehusk Boots · Panzor, BRD |\n| Yüzük 1 | Cutthroat's Signet | Pix Xizzix · 75 Undermine Real | — | Band of the Ogre King · King Gordok, DM Kuzey |\n| Yüzük 2 | Ring of Awareness | Pix Xizzix · 75 Undermine Real | — | Don Julio's Band · AV itibarı |\n| Trinket 1 | Adaptive Combat Assistant | Pix Xizzix · 125 Undermine Real | — | Defender's Grip Stabilizer · Pix Xizzix, 125 Real |\n| Trinket 2 | Vigilance Charm | Immol'thar · DM Batı | — | Counterattack Lodestone · Tribute, DM Kuzey |\n| Ana el | Mirah's Song | Görev: Kirtonos the Herald · Scholomance | +15 Str | Timeworn Mace · Tortheldrin, DM Batı |\n| Yan el | Draconian Deflector | General Drakkisath · UBRS | +9 Sta · Greater Stamina | Crest of Supremacy · Eranikus, Sunken Temple |\n| Menzilli | Satyr's Bow | Zevrim Thornhoof · DM Doğu | — | Riphook · Vosh'gajin, LBRS |\n\n\"T0.5 seti\" yazan parçaların nasıl alındığı aynı uzmanlığın T0.5 Seti kartında."
+ },
+ {
+  "id": "warrior-21-protection-raid-hazirligi",
+  "category": "class",
+  "title": "Warrior · Protection Raid Hazirligi",
+  "file": "21-Protection-Raid-Hazirligi.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "protection raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "classKey": "warrior",
+  "kind": "raidprep",
+  "spec": "protection",
+  "text": "# Warrior · Protection Raid Hazırlığı\n\nÜst bilgi: WARRIOR — PROTECTION. RAID HAZIRLIĞI: STAT SIRASI VE STOKLANACAKLAR. WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\n## Stat önceliği\n\n1. Expertise — İlk %6,5 Expertise en değerlisi: hem dodge hem parry'yi azaltır.\n2. Hit (%8'e kadar)\n3. Agility — Agility hem zırh hem dodge hem kritik verir; tank için en iyi genel stat.\n4. Strength\n5. Stamina\n\n## Sınırlar (cap)\n\n- Hit: %8 — Kalkan + tek elle vuruşların boss'a ıskalamaz, tehdit kaçmaz.\n- Expertise: %6,5 / %14 — %6,5'te boss kaçamaz; %14'te önden vururken savuşturamaz da (parry).\n- Defense: 440 — Boss sana kritik vuramaz.\n\n## FLASK VE İKSİR (Raid boyunca açık tut)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Flask of the Titans | +1200 can | Alchemy 300 | 2 saat sürer, ölünce gitmez. Aynı anda yalnız bir flask açık olur. |\n| Elixir of the Phalanx | +400 can · +500 zırh | Alchemy 250 | 30 dk sürer. Tankın ana iksiri. |\n| Elixir of the Grizzly | +25 Str · %2 kritik | Alchemy 300 | Forever'a yeni gelen iksir, 30 dk sürer. Farklı iksirler aynı anda açık kalabilir. |\n\n## POTLAR (Savaşta iç · 2 dk bekleme)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Greater Stoneshield Potion | +2000 zırh · 2 dk | Alchemy 280 | Boss'un en sert vurduğu bölümde iç; 2 dk bekleme. |\n| Mighty Rage Potion | 45–75 rage · +60 Str | Alchemy 255 | Yalnız Warrior ve Druid içebilir. Açılışta rage'i doldurur; 2 dk bekleme. |\n| Major Healing Potion | ~1400 can | First Aid 275 | First Aid yapar; Alchemy'nin Discolored potu seni sonradan yakar. |\n| Greater Protection Potion | ~2600 hasar emer | Alchemy 290 | Boss'un hasar türüne göre iç; 2 dk bekleme. |\n\n## YEMEK VE BUFF (Savaştan önce)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Savory Turtle Stew | +20 Sta | Cooking 275 | 15 dk sürer, aynı anda tek yemek bufu olur. |\n| Juju Power | +30 Str | Winterspring | 30 dk sürer. Winterspring'de E'ko görevleriyle alınır, takas edilemez. |\n\n## SİLAH (Silaha sürülür)\n\n| Eşya | Etkisi | Nereden | Not |\n|---|---|---|---|\n| Elemental Sharpening Stone | +%2 kritik | Blacksmithing 300 | Silaha sürülür, 30 dk sürer. Çift silahta iki silaha da sür. |"
+ },
+ {
+  "id": "warrior-22-protection-t0-5-seti",
+  "category": "class",
+  "title": "Warrior · Protection T0.5 Seti",
+  "file": "22-Protection-T0.5-Seti.png",
+  "forum": "Class rehberleri",
+  "thread": "Warrior",
+  "keywords": [
+   "warrior",
+   "protection t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "classKey": "warrior",
+  "kind": "t05",
+  "spec": "protection",
+  "text": "# Warrior · Protection T0.5 Seti\n\nÜst bilgi: WARRIOR — PROTECTION. T0.5 SETİ (DUNGEON SET 2). WOW FOREVER · TOTİK CHANNEL · SINIF REHBERİ.\n\nT0.5 seti (Dungeon Set 2, Battlegear of Heroism) 60. seviyede, eski dungeon setinin (D1, Battlegear of Valor) parçaları takas edilerek alınır. Her takasta uzmanlığına göre bir kutu seçersin.\n\n## D1 seti: Battlegear of Valor — parçalar nereden düşer\n\n| Slot | Parça | Boss | Zindan | Düşme şansı |\n|---|---|---|---|---|\n| Kafa | Helm of Valor | Darkmaster Gandling | Scholo | %8,56 |\n| Göğüs | Breastplate of Valor | General Drakkisath | UBRS | %10,8 |\n| Bilek | Bracers of Valor | Quartermaster Zigris | LBRS | %8,13 (BRS çöp moblarından da düşer (Blackhand Iron Guard %5,99 vb.)) |\n| Eller | Gauntlets of Valor | Ramstein the Gorger | Strat (Ölü) | %19,8 |\n| Bel | Belt of Valor | Smolderthorn Berserker | LBRS | %8,5 (Boss değil, çöp mob. Strat'ta Patchwork Horror %6,13. Zindan adı DB'de yok (NPC bilinen LBRS mobu).) |\n| Bacak | Legplates of Valor | Baron Rivendare | Strat (Ölü) | %9,06 |\n| Ayak | Boots of Valor | Kirtonos the Herald | Scholo | %28,4 |\n| Omuz | Spaulders of Valor | Warchief Rend Blackhand | UBRS | %18,4 |\n\nD1 set bonusları: 2 parça: +8 tüm direnç · 3 parça: +15 Str · 4 parça: Vurulunca %10 şansla disarm kalkar (60 sn'de bir) · 5 parça: Yakın vuruşta şansla 110 can + 10 öfke · 6 parça: 5 sn'de 15 can.\nForever farkı: Bonuslar 2-3-4-5-6 parçada (Classic'te 2/4/6/8); Forever'da en fazla 6 parça bonusu var (DB tooltip #16731).\n\n## T0.5: Immoveable (Tank; Protection)\n\n| Slot | Parça | Stat |\n|---|---|---|\n| Kafa | Faceguard of Heroism | 18 Str, 33 Sta, +9 Def |\n| Göğüs | Chestguard of Heroism | 18 Str, 12 Agi, 29 Sta, +9 Def |\n| Bilek | Wristguards of Heroism | 8 Str, 3 Agi, 16 Sta, +3 Def |\n| Eller | Handguards of Heroism | 11 Str, 20 Sta, +5 Def, %1 dodge |\n| Bel | Waistguard of Heroism | 13 Str, 5 Agi, 18 Sta, +7 Def |\n| Bacak | Legguards of Heroism | 16 Str, 24 Sta, 10 Spi, +7 Def, 21 blok |\n| Ayak | Sabatons of Heroism | 12 Str, 26 Sta, +3 Def, %0,7 hit |\n| Omuz | Pauldrons of Heroism | 12 Str, 10 Agi, 18 Sta, +5 Def |\n\nSet bonusları: 2 parça: +8 tüm direnç · 3 parça: 5 sn'de 15 can · 4 parça: Yakın vuruşta şansla 110 can + 10 öfke · 5 parça: Vurulunca %10 şansla disarm kalkar (60 sn'de bir) · 6 parça: +20 Str.\n\nPre-BiS listesindeki T0.5 parçaları: Kafa, Göğüs, Bilek, Ayak.\n\n## T0.5 nasıl alınır (takas zinciri)\n\nÖzet: 8 d1 parçasi · ~230 altin · HONORED argent dawn · 5 ki̇şi̇li̇k grup.\n\n### 1. takas: bi̇lekli̇k i̇çi̇n (Kolay)\n\n1. Ironforge'da Deliana'ya (Horde: Orgrimmar'da Mokvar'a) git, \"An Earnest Proposition\" görevini al.\n2. Ona D1 bilekliğini, 15 Winterspring Blood Sample (Horde: 15 Silithus Venom Sample) ve 20 altını ver. Ödül: T0.5 bileklik (kutudan kendi uzmanlığını seç).\n\n### 2. takas: eldi̇ven ve kemer i̇çi̇n (Orta)\n\n1. Deliana sana mühürlü bir kap verir. Kabı Gadgetzan'da (Tanaris) Mux Manascrambler'a götür.\n2. Mux'a cihaz için şunları getir: 1 Delicate Arcanite Converter, 4 Greater Eternal Essence, 10 Stonescale Oil, 25 Volcanic Ash ve 40 altın.\n3. Cihazla hayaletlerden ektoplazma topla: Silithus, Winterspring ve Eastern Plaguelands'ten 12'şer tane.\n4. Burning Steppes'te Magma Lord Bokk'u öldür, Magma Core'u al.\n5. Winterspring'de Darkwhisper Gorge girişindeki Vi'el'den Fel Elemental Rod'u 40 altına al.\n6. Mux sana Ghost Revealer verir. Deliana'ya dön, D1 eldiven ve kemeri ver. Ödül: T0.5 eldiven ve kemer.\n\n### 3. takas: ayak, bacak ve omuz i̇çi̇n (Zor)\n\n1. Stratholme'un ön kapısında Ghost Revealer'ı kullan, çıkan hayalet Anthion Harmon'la konuş.\n2. Stratholme'un ölü tarafında 45 dakika dolmadan Baron Rivendare'e ulaş, Ysida'yı kurtar, kolyesini Anthion'a götür. (grup gerekir)\n3. Anthion'a 3 Dark Iron Bar, 20 Enchanted Leather, 3 Mooncloth ve 4 Cured Rugged Hide getir.\n4. Dire Maul kütüphanesindeki Falrin Treeshaper'a 25 Ogre Warbeads getir (DM ve Blackrock Spire ogrelerinden). (grup gerekir)\n5. Dire Maul Batı'da Jeering Spectre'ı öldür. Falrin'e özünü, 4 Dark Rune ve 8 Large Brilliant Shard ver, sancağı al. (grup gerekir)\n6. Blackrock Depths, Ring of Law arenasına sancağı dik, Theldren ve gladyatörlerini yen. (grup gerekir)\n7. Anthion'a, sonra Deliana'ya dön, D1 ayak, bacak ve omzu ver. Ödül: T0.5 ayak, bacak ve omuz.\n\n### 4. takas: kafa ve göğüs i̇çi̇n (En zor)\n\n1. Blackrock Dağı'nda (Blackrock Spire girişinin yanı) Ghost Revealer'la Bodley'nin hayaletini bul.\n2. Üç ateş lordunu öldür: Lord Incendius (BRD), Pyroguard Emberseer (UBRS), Executor Asharell (Burning Steppes, elit). (grup gerekir)\n3. Argent Dawn itibarını Honored yap, Hallowed Brazier'ı satın al (~110–133 altın).\n4. İki kez: Bodley'nin istediği kalıntıyı getir, Brazier'la bir boss çağır ve öldür (Mor Grayhoof – LBRS, Isalien – DM Doğu, Jarien ve Sothos – Strat ya da Kormok – Scholo). (grup gerekir)\n5. Dustwallow Marsh, Alcaz Island'da nagalardan 20 Bloodkelp topla. (grup gerekir)\n6. Bodley'e 40 Blackrock Bracer (Blackrock Spire orklarından) ve 1 Flask of Supreme Power getir.\n7. UBRS'te The Beast'in odasında Lord Valthalak'ı çağır, öldür, cesedinde Amulet'i kullan. (grup gerekir)\n8. Bodley'e, sonra Deliana'ya dön, D1 kafa ve göğsü ver. Ödül: T0.5 kafa ve göğüs · zincir bitti."
  },
  {
   "id": "zindan-01-ragefire-chasm",
@@ -5608,6 +7876,83 @@ export const FOREVER_NOTES = [
    "Tank olarak listelerde en çok Protection Warrior ve Feral (ayı) Druid öne çıkar; healer olarak Holy Priest, Restoration Druid ve Restoration Shaman.",
    "PvP listelerinde Feral Druid, Arcane Mage ve Rogue (Subtlety ve Combat) üst sıralardadır. PvP'de kontrol (CC), hareket kabiliyeti ve ani hasar, toplam hasardan daha önemlidir.",
    "Listeler arasındaki fark küçüktür: hangi sınıfı rahat oynuyorsan onunla her içeriğe girilebilir."
+  ]
+ },
+ {
+  "id": "haftalik-gorev",
+  "baslik": "60. seviyede haftalık görev (weekly) ve günlük görevler",
+  "anahtar": [
+   "weekly",
+   "weakly",
+   "haftalik",
+   "daily",
+   "gunluk gorev",
+   "gunluk quest",
+   "pix xizzix",
+   "ancient elven",
+   "in demand",
+   "undermine satchel",
+   "daily+quest",
+   "daily+gorev",
+   "weekly+quest",
+   "weekly+gorev",
+   "weakly+quest",
+   "weakly+gorev",
+   "haftalik+quest",
+   "haftalik+gorev",
+   "gunluk+quest",
+   "gunluk+gorev",
+   "60+daily",
+   "60+weekly",
+   "60+haftalik",
+   "60+gunluk",
+   "tekrar+eden+gorev",
+   "dire maul+weekly",
+   "dire maul+haftalik"
+  ],
+  "satirlar": [
+   "60. seviyedeki bilinen tekrar eden görev haftalık görevdir: \"In Demand – Ancient Elven Curiosities\". Booty Bay'deki Pix Xizzix verir; her 60. seviye karakter haftada bir kez yapabilir, haftalık sıfırlamayla yenilenir.",
+   "Görevde Dire Maul'un üç kanadının (Doğu, Batı, Kuzey) her birinden birer eşya toplanır. Ödül Undermine Satchel'dir: içinde malzemeler ve satıcıya satılınca rastgele 10, 20, 40 ya da 100 altın eden bir eşya çıkar; 100 altın garanti değildir.",
+   "Görevin istediği zindanlar haftadan haftaya değişebilir (ör. Dire Maul yerine Blackrock Mountain).",
+   "Forever'ın 60. seviye için duyurduğu ayrı bir günlük (daily) görev sistemi yok. 60'ta ilerleme zindanlar (pre-BiS eşya, T0.5 seti), itibarlar (ör. Mount Hyjal'daki Guardians of Hyjal), PvP ve 9 Aralık 2026'da açılan raidlerle gelir."
+  ]
+ },
+ {
+  "id": "ganimet",
+  "baslik": "Ganimet zarları: Need, Greed ve Pass",
+  "anahtar": [
+   "need",
+   "greed",
+   "ganimet",
+   "loot kural",
+   "master loot",
+   "need+greed",
+   "greed+dungeon",
+   "greed+zindan",
+   "need+dungeon",
+   "need+zindan",
+   "greed+nedir",
+   "need+nedir",
+   "greed+muhabbet",
+   "need+muhabbet",
+   "need+boe",
+   "greed+boe",
+   "roll+need",
+   "roll+greed",
+   "zar+need",
+   "zar+greed",
+   "loot+kural",
+   "loot+zar",
+   "loot+roll",
+   "esya+zar",
+   "item+zar",
+   "item+roll"
+  ],
+  "satirlar": [
+   "Grupta değerli bir eşya düşünce herkesin önüne zar penceresi açılır: Need (ihtiyacım var), Greed (satmak ya da bozmak için istiyorum) ya da Pass (istemiyorum).",
+   "Need seçen biri varsa eşya Need diyenler arasında zarla dağılır; Greed diyenler ancak kimse Need demediyse zar atar. Aynı seçimi yapanlar arasında en yüksek zar kazanır.",
+   "Yaygın kural: Need yalnız eşyayı hemen giyip kullanacaksan ve senin sınıfına, uzmanlığına göre bir yükseltmeyse basılır. Satmak, bozmak (disenchant) ya da yedek için istiyorsan Greed basılır.",
+   "Değerli BoE (Bind on Equip, açık artırmada satılabilen) eşyalarda kimin Need basacağı WoW Forever oyuncuları arasında da tartışma konusu. Bu yüzden gruplar kuralı ilk çekişten önce konuşup belirler; herkesin Greed bastığı ya da yalnız giyecek kişinin Need bastığı kurallar yaygındır."
   ]
  }
 ];

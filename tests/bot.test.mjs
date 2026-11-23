@@ -423,13 +423,14 @@ test("talent advice: the bot asks for class and spec, then sends that spec's lev
     await bot.handleCommand(message(`!soru ${q}`));
     assert.equal(net.posts.length, 1, q);
     assert.equal(net.posts[0].content, w.TALENT_ADVICE_MESSAGE, q);
-    assert.match(net.posts[0].content, /<#1569040165048160378>/);
+    assert.match(net.posts[0].content, /<#1555874733151617094> forumunda/);
+    assert.ok(!net.posts[0].content.includes("1569040165048160378"), "the deleted leveling-talent channel is not named");
     assert.ok(!net.calls.some(c => c.includes("googleapis") || c.includes("workers.dev")), `no AI call for: ${q}`);
   }
   const net = fakeNetwork({ gemini: () => geminiText("Arms'ta ilk puanlar karttaki sırayla Deflection ve Improved Rend'e gider.") });
   const { bot, storage } = newBot(); const userId = "666666666666666661";
   await bot.handleCommand(message("!soru warrior talent nasıl dağıtılır", userId));
-  assert.match(net.posts[0].content, /^Warrior için hangi uzmanlığın talent sırasını istiyorsun\? \*\*Arms\*\* \(Yakın DPS\), \*\*Fury\*\* \(Yakın DPS\), \*\*Protection\*\* \(Tank\)\. Örneğin `!soru warrior arms talent sırası`/);
+  assert.match(net.posts[0].content, /^Warrior için hangi uzmanlığın talent sırası kartını istiyorsun\? \*\*Arms\*\* \(Yakın DPS\), \*\*Fury\*\* \(Yakın DPS\), \*\*Protection\*\* \(Tank\)\. Örneğin `!soru warrior arms talent sırası`/);
   assert.equal(await storage.get(`cooldown:${userId}`), undefined, "asking back does not use the cooldown");
   await new Promise(r => setTimeout(r, 2600));
   await bot.handleCommand(message("!soru arms", userId));
@@ -444,21 +445,22 @@ test("a named spec gets its leveling card straight away", async () => {
   assert.deepEqual(net.posts[0].files, [w.CARDS.find(c => c.id === "warrior-09-fury-leveling").file]);
 });
 
-test("talent questions without a card keep their answer and point to the leveling-talent channel once", async () => {
+test("talent questions without a card keep their answer and point to the class guide forum once", async () => {
   for (const q of ["Improved Heroic Strike talenti ne işe yarar", "deep wounds nedir", "talent ne zaman açılıyor"]) assert.equal(w.isTalentAdviceQuestion(q), false, q);
   const net = fakeNetwork({ backend: () => jsonResponse({ answer: "Talent puanları 10. seviyede açılır ve her seviyede bir puan gelir." }) });
   const { bot } = newBot();
   await bot.handleCommand(message("!soru talent ne zaman açılıyor"));
   const text = net.posts.map(p => p.content).join("\n");
-  assert.match(text, /Talentlerini nasıl dağıtacağını bilmiyorsan <#1569040165048160378> kanalına bak/);
-  assert.equal(text.match(/1569040165048160378/g).length, 1);
+  assert.match(text, /Talent sıraları \(10–60 leveling ve 60\. seviye raid build'i\) <#1555874733151617094> forumunda, sınıfının konusunda/);
+  assert.equal(text.match(/1555874733151617094/g).length, 1);
+  assert.ok(!text.includes("1569040165048160378"));
 });
 
 test("non-talent questions get no talent channel note", async () => {
   const net = fakeNetwork(); const { bot } = newBot();
   await bot.handleCommand(message("!soru hunter solo oyunda iyi mi"));
   assert.ok(net.posts.length >= 1);
-  assert.ok(!net.posts.some(p => p.content.includes("1569040165048160378")));
+  assert.ok(!net.posts.some(p => p.content.includes("1569040165048160378") || p.content.includes("1555874733151617094> forumunda, sınıfının")));
 });
 
 test("general dungeon questions get the dungeon list and the dungeon forum, without an AI call", async () => {
@@ -487,7 +489,7 @@ test("class questions that mention a dungeon keep their answer and get the dunge
 test("card check reports which topics and cards the bot can see in the forums", async () => {
   fakeNetwork(); let { bot } = newBot();
   let report = await bot.buildCardCheck();
-  assert.equal(report.ok, true); assert.equal(report.found, 189);
+  assert.equal(report.ok, true); assert.equal(report.found, 301);
   assert.deepEqual(JSON.parse(JSON.stringify(report.forums)), FORUMS);
 
   const file = w.CARDS.find(c => c.id === "fish-genel").file;
@@ -1618,4 +1620,41 @@ test("2026-11-19: 'priest rehberi nerede' gets the guide topic by name and link,
   assert.ok(!/eğitmen|trainer/i.test(net.posts[0].content), "not the trainer location");
   await bot.handleCommand(message("!soru deadmines rehberi var mı", "666666666666666666"));
   assert.match(net.posts.at(-1).content, new RegExp(`\\*\\*Deadmines \\(DM\\)\\*\\* rehberi burada: <#${topicId("Lv 19 · Deadmines (DM)")}>`));
+});
+
+test("level 60: a raid talent question without a spec asks for it, the short answer gets the raid card (not the leveling card)", async () => {
+  const net = fakeNetwork({ gemini: () => geminiText("Combat raid build'i 16 / 35 / 0: Adrenaline Rush ve Blade Flurry alınır.") });
+  const { bot } = newBot(); const userId = "666666666666666662";
+  await bot.handleCommand(message("!soru rogue 60 talent ne olmalı", userId));
+  assert.match(net.posts[0].content, /^Rogue için hangi uzmanlığın 60\. seviye raid talentleri kartını istiyorsun\?/);
+  assert.match(net.posts[0].content, /`!soru rogue assassination raid talent`/);
+  await new Promise(r => setTimeout(r, 2600));
+  await bot.handleCommand(message("!soru combat", userId));
+  assert.deepEqual(net.posts[1].files, [w.CARDS.find(c => c.id === "rogue-15-combat-raid-talentleri").file]);
+  assert.match(net.posts[1].content, new RegExp(`<#${topicId("Rogue")}> konusuna bakabilirsin`));
+});
+
+test("level 60: pre-BiS, raid preparation and T0.5 questions get their own card", async () => {
+  for (const [q, id] of [["!soru combat rogue pre bis", "rogue-16-combat-pre-bis"], ["!soru arms warrior stat önceliği", "warrior-13-arms-raid-hazirligi"], ["!soru balance druid t0.5 seti nasıl alınır", "druid-16-balance-t0-5-seti"]]) {
+    const net = fakeNetwork({ gemini: () => geminiText("Karttaki ilk satırla başla.") }); const { bot } = newBot();
+    await bot.handleCommand(message(q));
+    assert.deepEqual(net.posts[0].files, [w.CARDS.find(c => c.id === id).file], q);
+  }
+});
+
+test("a card that is being re-posted is never sent for a newer card with the same number", () => {
+  const card = w.CARDS.find(c => c.id === "druid-14-balance-pre-bis");
+  assert.equal(w.findCardAttachment(card, [{ filename: "14-Balance-Raid-Hazirligi.png", content_type: "image/png" }]), null);
+  assert.ok(w.findCardAttachment(card, [{ filename: "14-Balance-Pre-BiS.png", content_type: "image/png" }]));
+  const renamed = w.CARDS.find(c => c.id === "druid-11-feral-ayi-tank-leveling");
+  assert.ok(w.findCardAttachment(renamed, [{ filename: "11-Feral-Ayi-Leveling.png", content_type: "image/png" }]), "the renamed leveling card is still found");
+});
+
+test("the model's no-answer word is never sent to a player, whatever its spelling", async () => {
+  for (const word of ["KARTTA_O_YOK", "KARTTA YOK", "kartta_yok"]) {
+    const net = fakeNetwork({ gemini: () => geminiText(word) }); const { bot } = newBot();
+    await bot.handleCommand(message("!soru stromwindde Master Weapon Smith Halloran'ın kordinatları nedir"));
+    assert.ok(net.posts.length >= 1, word);
+    assert.ok(!net.posts.some(p => /KARTTA/i.test(p.content)), `${word}: ${net.posts.map(p => p.content).join(" | ")}`);
+  }
 });

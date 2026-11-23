@@ -7,7 +7,7 @@ const EXPORTED_FOR_TESTS = [
   "communityIntent", "isBotInternalQuestion", "isIdentityQuestion", "isExternalSourceRecommendationQuestion",
   "isPersonalOrCreatorAdviceQuestion", "isClearlyOutOfScope", "protectBotOutput", "splitDiscordMessage",
   "usableGameAnswer", "isNoInfoAnswer", "hasNoInfoSentence", "stripNoInfoSentences", "cleanForeverAnswer", "foreverNotes", "isForeverNoteSubject", "notesCoverQuestion", "isComparisonQuestion", "unsupportedNumbers", "searchResultVersion", "searchMemoryKey", "searchQueryWords", "searchUnits", "imageNames", "pointsAtImage", "gearRule", "foreverRules", "foreverContradictions", "isForeverChangeTopic", "safeError", "splitQuestionParts", "isOverlyBroadQuestion", "OVERLY_BROAD_MESSAGE",
-  "QUESTION_CHANNEL_ID", "OWNER_ID", "TALENT_CHANNEL_ID", "DUNGEON_CHANNEL_ID", "isTalentAdviceQuestion", "isTalentQuestion", "TALENT_ADVICE_MESSAGE", "isDungeonQuestion", "isDungeonInfoQuestion", "PRIVATE_BOT_MESSAGE", "IDENTITY_MESSAGE", "SOURCE_POLICY_MESSAGE", "ANSWER_RETRY_MESSAGE"
+  "QUESTION_CHANNEL_ID", "OWNER_ID", "CLASS_FORUM_ID", "DUNGEON_CHANNEL_ID", "isTalentAdviceQuestion", "isTalentQuestion", "TALENT_ADVICE_MESSAGE", "isDungeonQuestion", "isDungeonInfoQuestion", "PRIVATE_BOT_MESSAGE", "IDENTITY_MESSAGE", "SOURCE_POLICY_MESSAGE", "ANSWER_RETRY_MESSAGE"
 ];
 
 export async function loadWorker() {
