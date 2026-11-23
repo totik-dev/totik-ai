@@ -114,7 +114,7 @@ test("messages outside the question channel or without !soru are ignored", async
   assert.equal(net.posts.length, 0);
 });
 
-test("a game question is answered, then a normal member waits 15 minutes", async () => {
+test("a game question is answered, then a normal member waits 30 minutes", async () => {
   const net = fakeNetwork({ gemini: () => geminiText("**Hunter** solo oyunda rahattır: pet hasarı üstlenir, sen uzaktan vurursun.") }); const { bot, storage } = newBot();
   await bot.handleCommand(message("!soru hangi sınıf solo için iyi"));
   assert.match(net.posts[0].content, /pet hasarı üstlenir/);
@@ -122,7 +122,7 @@ test("a game question is answered, then a normal member waits 15 minutes", async
   await new Promise(r => setTimeout(r, 2600)); // past the 2.5 s flood guard
   await bot.handleCommand(message("!soru hunter mı iyi mage mı"));
   assert.match(net.posts[1].content, /beklemelisin/);
-  assert.match(net.posts[1].content, /1[45] dakika/);
+  assert.match(net.posts[1].content, /(29|30) dakika/);
 });
 
 test("YouTube/Twitch supporters get the 1 minute cooldown, the owner none", async () => {
@@ -159,7 +159,7 @@ test("cooldown message explains supporter and normal waiting times politely", as
   await bot.handleCommand(message("!soru hangi sınıf solo için iyi", userId));
   await new Promise(r => setTimeout(r, 2600));
   await bot.handleCommand(message("!soru hunter mı iyi mage mı", userId));
-  assert.match(net.posts.at(-1).content, /Twitch Sub, YouTube Katıl ve Kick aboneleri için bekleme süresi 1 dakika, normal üyeler için 15 dakikadır\./);
+  assert.match(net.posts.at(-1).content, /Twitch Sub, YouTube Katıl ve Kick aboneleri için bekleme süresi 1 dakika, normal üyeler için 30 dakikadır\./);
 });
 
 test("two questions in one message get two answers in a single reply, each with its own source", async () => {
@@ -682,7 +682,7 @@ test("Kick subscribers get the 1 minute cooldown: the server's Kick role, or KIC
   assert.ok(!net.calls.some(c => c.endsWith("/roles")), "the role list is not read");
   // Another role does not count.
   fakeNetwork({ roles: ["900000000000000003"] }); ({ bot } = newBot());
-  assert.equal((await bot.getMemberCooldownClass(message("!soru x"))).durationMs, 900000);
+  assert.equal((await bot.getMemberCooldownClass(message("!soru x"))).durationMs, 1800000);
   // An extra role id from the settings counts too.
   fakeNetwork({ roles: ["900000000000000009"] }); ({ bot } = newBot({ KICK_SUB_ROLE_IDS: "900000000000000009" }));
   assert.equal((await bot.getMemberCooldownClass(message("!soru x"))).durationMs, 60000);
