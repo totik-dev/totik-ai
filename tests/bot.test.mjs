@@ -79,7 +79,7 @@ function fakeNetwork({ roles = [], backend = () => jsonResponse({ answer: "Hunte
 let nextId = 1000;
 function newBot(env = {}) {
   const storage = memoryStorage();
-  const bot = new DiscordGateway({ storage }, { DISCORD_BOT_TOKEN: "test-token", GEMINI_API_KEY: "test-gemini", ...env });
+  const bot = new DiscordGateway({ storage }, { DISCORD_BOT_TOKEN: "test-token", GEMINI_API_KEY: "test-gemini", WOW_AI_URL: "https://totik-ai-test.totikch.workers.dev/", ...env });
   bot.feedbackPauseMs = 0;
   return { bot, storage };
 }
@@ -1657,4 +1657,13 @@ test("the model's no-answer word is never sent to a player, whatever its spellin
     assert.ok(net.posts.length >= 1, word);
     assert.ok(!net.posts.some(p => /KARTTA/i.test(p.content)), `${word}: ${net.posts.map(p => p.content).join(" | ")}`);
   }
+});
+
+test("without WOW_AI_URL the old research service is never asked, so it cannot spend search credits", async () => {
+  const net = fakeNetwork({ gemini: () => geminiText("Guild kurmak için şehirdeki Guild Master'a git.\nKAYNAK: GENEL") });
+  const { bot } = newBot({ WOW_AI_URL: "" });
+  await bot.handleCommand(message("!soru guild nasıl kurulur"));
+  await bot.handleCommand(message("!soru Look to the Stars görevi nerede", "666666666666666666"));
+  assert.ok(!net.calls.some(c => c.includes("workers.dev")), "the old research service is not asked");
+  assert.equal(net.posts.length, 2);
 });

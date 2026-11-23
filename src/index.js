@@ -59,7 +59,7 @@ function buildExternalResearchQuestion(question, kind, classKey) {
   return question;
 }
 
-const VERSION = "murloc-kartlar-2026-11-23a";
+const VERSION = "murloc-kartlar-2026-11-23b";
 // Kick subscriber role of the Totik Channel server (given by the owner, 2026-11-11).
 const KICK_SUB_ROLE_ID = "1566519827965812966";
 const OWNER_ID = "194062355460653056";
@@ -190,7 +190,8 @@ function protectBotOutput(value) {
   return text;
 }
 
-const WOW_AI_URL = "https://totik-ai-test.totikch.workers.dev/";
+// The old research service (totik-ai-test) ran two Tavily searches per question with no memory, on a public URL. It is asked only
+// when env WOW_AI_URL is set; internet search runs in this worker (TAVILY_API_KEY): one search, results remembered 30 days.
 const QUESTION_COMMAND = /^!soru(?:\s|$)/i;
 const DEBUG_COMMAND = /^!soru-debug(?:\s|$)/i;
 const NORMAL_COOLDOWN_MS = 1800000, PREMIUM_COOLDOWN_MS = 60000;
@@ -1364,6 +1365,7 @@ export class DiscordGateway extends DurableObject {
   }
   // The research service alone. No answer, a "no information" answer or an answer with a Classic rule Forever changed: null.
   async askResearchOnly(question, context = {}) {
+    if (!this.env.WOW_AI_URL) return null;
     try {
       const data = await this.askWowAi(`${question}\n\n${foreverHint(context.classKey, context.notes)}`), answer = usableGameAnswer(data?.answer);
       if (!answer || isNoInfoAnswer(answer)) { this.warn("Araştırma: bilgi yok"); return null; }
@@ -1433,7 +1435,7 @@ Soru verisi: ${JSON.stringify(question)}`, await this.downloadImage(image, 8 * 1
   async askWowAi(question) {
     if (Date.now() < this.backendCircuit.until) throw new Error("Backend temporarily unavailable");
     // Separate backend source is not available: preserve GET contract by default.
-    const usePost = this.env.WOW_AI_METHOD === "POST", url = new URL(this.env.WOW_AI_URL || WOW_AI_URL);
+    const usePost = this.env.WOW_AI_METHOD === "POST", url = new URL(this.env.WOW_AI_URL);
     if (url.protocol !== "https:") throw new Error("Backend HTTPS required"); if (!usePost) url.searchParams.set("q", question);
     const headers = { accept: "application/json" }; if (this.env.WOW_AI_API_KEY) headers.authorization = `Bearer ${this.env.WOW_AI_API_KEY}`; if (usePost) headers["content-type"] = "application/json";
     let lastError;
