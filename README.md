@@ -37,7 +37,7 @@ Totik Channel Discord sunucusunda WoW Forever sorularını cevaplayan bot. Soru 
 - Tier list ve meta soruları (`tier`, `meta`, "A-S arası") zindan ya da sınıf kartına gitmez; `tier-list` notundan cevaplanır. Para kazanma soruları ("para nasıl kazanırım", "gold farm") kart almaz; soruda geçen meslekler oyuncunun durumu sayılır ve model seviyeye ve mesleklere göre 2-4 yol söyler. "Para kazanmak için hangi meslek" yine meslek önerisidir.
 - Mesajın sonunda soru işareti olmadan gelen ve soru sormayan parça ("… kazanabilirim? 40 seviyeyim mesleklerim herbalism ve alchemy") ayrı soru sayılmaz, önceki sorunun bağlamı olur.
 - Hiçbir kural uymazsa bot soruyla en çok ortak kelimesi olan kartı dener; bu durumda kart yalnız AI adımı "kart bu soruyu cevaplıyor" derse kullanılır.
-- Bekleme süresi: YouTube Katıl / Twitch Sub / Kick abonesi / premium rolü 1 dakika, diğer üyeler 15 dakika. Cevap verilemezse hak geri verilir. Kick abonesi rolü `1566519827965812966` numaralı roldür (`src/index.js`, `KICK_SUB_ROLE_ID`); `KICK_SUB_ROLE_IDS` ile ek rol numarası verilebilir.
+- Bekleme süresi: YouTube Katıl / Twitch Sub / Kick abonesi / premium rolü 1 dakika, diğer üyeler 30 dakika. Cevap verilemezse hak geri verilir. Kick abonesi rolü `1566519827965812966` numaralı roldür (`src/index.js`, `KICK_SUB_ROLE_ID`); `KICK_SUB_ROLE_IDS` ile ek rol numarası verilebilir.
 - Cooldown, mesaj durumu ve forum konularının listesi Durable Object depolamasında tutulur; ayrı veritabanı yoktur.
 
 ## Dosyalar

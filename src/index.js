@@ -193,7 +193,7 @@ function protectBotOutput(value) {
 const WOW_AI_URL = "https://totik-ai-test.totikch.workers.dev/";
 const QUESTION_COMMAND = /^!soru(?:\s|$)/i;
 const DEBUG_COMMAND = /^!soru-debug(?:\s|$)/i;
-const NORMAL_COOLDOWN_MS = 900000, PREMIUM_COOLDOWN_MS = 60000;
+const NORMAL_COOLDOWN_MS = 1800000, PREMIUM_COOLDOWN_MS = 60000;
 // Discord accepts 10 MiB per file. Two large cards are not sent together: the Worker would hold several copies in memory.
 const MAX_FILE_BYTES = 10 * 1024 * 1024 - 8192, MAX_TOTAL_BYTES = 12 * 1024 * 1024;
 const SOURCE_POLICY_MESSAGE = "WoW rehber içeriği için yalnızca Totik Channel'ı önerebilirim. Oyun içi sorunu yazarsan doğrudan yardımcı olayım.";
@@ -744,7 +744,7 @@ export class DiscordGateway extends DurableObject {
     if (!cooldown.allowed) {
       const flood = this.floodCache.get(userId); if (flood?.rejectedAt && now - flood.rejectedAt < 30000) return;
       if (flood) flood.rejectedAt = now;
-      return this.reply(message, `⏱️ Yeni soru için **${formatRemaining(cooldown.remainingMs)}** beklemelisin.\nMurloc Bot'un Twitch Sub, YouTube Katıl ve Kick aboneleri için bekleme süresi 1 dakika, normal üyeler için 15 dakikadır.`);
+      return this.reply(message, `⏱️ Yeni soru için **${formatRemaining(cooldown.remainingMs)}** beklemelisin.\nMurloc Bot'un Twitch Sub, YouTube Katıl ve Kick aboneleri için bekleme süresi 1 dakika, normal üyeler için 30 dakikadır.`);
     }
     this.activeQuestion = { id: String(message.id), deadline: Date.now() + 50000, calls: 0, warnings: [], startedAt: Date.now() };
     this.activeQuestion.talentFooter = isTalentQuestion(explicit) || isTalentQuestion(reference?.content) || talentAdvice;
