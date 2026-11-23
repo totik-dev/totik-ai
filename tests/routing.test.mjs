@@ -11,18 +11,20 @@ const pick = question => {
   return s ? { category: s.category, cards: Array.from(s.cards, card => card.id), need: s.need || null, local: !!s.localAnswer } : null;
 };
 
-test("knowledge base is complete: 189 cards, every card has its full text and a forum topic", () => {
+test("knowledge base is complete: 301 cards (112 of them level 60 class cards), every card has its full text and a forum topic", () => {
   const index = JSON.parse(fs.readFileSync(new URL("../kartlar/kartlar.json", import.meta.url), "utf8"));
-  assert.equal(index.length, 189);
-  assert.equal(w.CARDS.length, 189);
+  assert.equal(index.length, 301);
+  assert.equal(w.CARDS.length, 301);
   assert.deepEqual(Array.from(w.CARDS, card => card.id).sort(), index.map(card => card.id).sort());
   const count = category => w.CARDS.filter(card => card.category === category).length;
-  assert.deepEqual([count("class"), count("dungeon"), count("profession")], [93, 40, 56]);
+  assert.deepEqual([count("class"), count("dungeon"), count("profession")], [205, 40, 56]);
+  // Every spec has a raid talent build, a pre-BiS list, a raid preparation card and a T0.5 set card.
+  for (const kind of ["raid", "prebis", "raidprep", "t05"]) assert.equal(w.CARDS.filter(card => card.kind === kind).length, 28, kind);
   for (const card of w.CARDS) {
     assert.ok(card.text.length >= 200, `${card.id} has no text`);
     assert.ok(card.forum && card.thread && /\.png$/.test(card.file), `${card.id} has no place`);
   }
-  assert.equal(new Set(w.CARDS.map(card => `${card.thread}\n${card.file}`)).size, 189, "two cards share a file in one topic");
+  assert.equal(new Set(w.CARDS.map(card => `${card.thread}\n${card.file}`)).size, 301, "two cards share a file in one topic");
   assert.equal(w.CARD_TOPICS.length, 9 + 40 + 12);
 });
 

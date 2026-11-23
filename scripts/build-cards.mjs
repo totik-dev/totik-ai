@@ -22,6 +22,9 @@ function classFields(card) {
   if (stem === "irk-secimi") return { kind: "race" };
   if (/^yetenekler-\d+$/.test(stem)) return { kind: "abilities", part: Number(stem.split("-")[1]) };
   if (stem === "oynanis") return { kind: "gameplay" };
+  // Level 60 cards (23.11.2026): raid talent build, pre-raid best in slot, raid preparation, T0.5 set.
+  const raid = stem.match(/^(.*)-(raid-talentleri|pre-bis|raid-hazirligi|t0-5-seti)$/);
+  if (raid) return { kind: { "raid-talentleri": "raid", "pre-bis": "prebis", "raid-hazirligi": "raidprep", "t0-5-seti": "t05" }[raid[2]], spec: SPEC_KEYS[raid[1]] || raid[1] };
   const spec = stem.match(/^(.*)-(talentleri|leveling)$/);
   if (!spec) throw new Error(`Sınıf kartı türü bilinmiyor: ${card.id}`);
   return { kind: spec[2] === "leveling" ? "leveling" : "talents", spec: SPEC_KEYS[spec[1]] || spec[1] };

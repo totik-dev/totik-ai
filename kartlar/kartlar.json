@@ -160,6 +160,266 @@
   "sinif": "Druid"
  },
  {
+  "id": "druid-13-balance-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Druid · Balance Raid Talentleri",
+  "ek_adi": "13-Balance-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "balance raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-14-balance-pre-bis",
+  "kategori": "sinif",
+  "konu": "Druid · Balance Pre-BiS",
+  "ek_adi": "14-Balance-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "balance pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-15-balance-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Druid · Balance Raid Hazirligi",
+  "ek_adi": "15-Balance-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "balance raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-16-balance-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Druid · Balance T0.5 Seti",
+  "ek_adi": "16-Balance-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "balance t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-17-feral-kedi-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Druid · Feral Kedi Raid Talentleri",
+  "ek_adi": "17-Feral-Kedi-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "feral kedi raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-18-feral-kedi-pre-bis",
+  "kategori": "sinif",
+  "konu": "Druid · Feral Kedi Pre-BiS",
+  "ek_adi": "18-Feral-Kedi-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "feral kedi pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-19-feral-kedi-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Druid · Feral Kedi Raid Hazirligi",
+  "ek_adi": "19-Feral-Kedi-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "feral kedi raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-20-feral-kedi-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Druid · Feral Kedi T0.5 Seti",
+  "ek_adi": "20-Feral-Kedi-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "feral kedi t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-21-feral-ayi-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Druid · Feral Ayi Raid Talentleri",
+  "ek_adi": "21-Feral-Ayi-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "feral ayi raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-22-feral-ayi-pre-bis",
+  "kategori": "sinif",
+  "konu": "Druid · Feral Ayi Pre-BiS",
+  "ek_adi": "22-Feral-Ayi-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "feral ayi pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-23-feral-ayi-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Druid · Feral Ayi Raid Hazirligi",
+  "ek_adi": "23-Feral-Ayi-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "feral ayi raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-24-feral-ayi-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Druid · Feral Ayi T0.5 Seti",
+  "ek_adi": "24-Feral-Ayi-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "feral ayi t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-25-restoration-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Druid · Restoration Raid Talentleri",
+  "ek_adi": "25-Restoration-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "restoration raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-26-restoration-pre-bis",
+  "kategori": "sinif",
+  "konu": "Druid · Restoration Pre-BiS",
+  "ek_adi": "26-Restoration-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "restoration pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-27-restoration-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Druid · Restoration Raid Hazirligi",
+  "ek_adi": "27-Restoration-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "restoration raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Druid"
+ },
+ {
+  "id": "druid-28-restoration-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Druid · Restoration T0.5 Seti",
+  "ek_adi": "28-Restoration-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Druid konusu",
+  "anahtar": [
+   "druid",
+   "restoration t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Druid"
+ },
+ {
   "id": "hunter-01-irk-secimi",
   "kategori": "sinif",
   "konu": "Hunter · Irk Secimi",
@@ -288,6 +548,201 @@
    "build",
    "leveling",
    "puan sırası 10-60"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-11-beast-mastery-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Hunter · Beast Mastery Raid Talentleri",
+  "ek_adi": "11-Beast-Mastery-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "beast mastery raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-12-beast-mastery-pre-bis",
+  "kategori": "sinif",
+  "konu": "Hunter · Beast Mastery Pre-BiS",
+  "ek_adi": "12-Beast-Mastery-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "beast mastery pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-13-beast-mastery-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Hunter · Beast Mastery Raid Hazirligi",
+  "ek_adi": "13-Beast-Mastery-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "beast mastery raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-14-beast-mastery-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Hunter · Beast Mastery T0.5 Seti",
+  "ek_adi": "14-Beast-Mastery-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "beast mastery t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-15-marksmanship-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Hunter · Marksmanship Raid Talentleri",
+  "ek_adi": "15-Marksmanship-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "marksmanship raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-16-marksmanship-pre-bis",
+  "kategori": "sinif",
+  "konu": "Hunter · Marksmanship Pre-BiS",
+  "ek_adi": "16-Marksmanship-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "marksmanship pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-17-marksmanship-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Hunter · Marksmanship Raid Hazirligi",
+  "ek_adi": "17-Marksmanship-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "marksmanship raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-18-marksmanship-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Hunter · Marksmanship T0.5 Seti",
+  "ek_adi": "18-Marksmanship-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "marksmanship t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-19-survival-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Hunter · Survival Raid Talentleri",
+  "ek_adi": "19-Survival-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "survival raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-20-survival-pre-bis",
+  "kategori": "sinif",
+  "konu": "Hunter · Survival Pre-BiS",
+  "ek_adi": "20-Survival-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "survival pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-21-survival-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Hunter · Survival Raid Hazirligi",
+  "ek_adi": "21-Survival-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "survival raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Hunter"
+ },
+ {
+  "id": "hunter-22-survival-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Hunter · Survival T0.5 Seti",
+  "ek_adi": "22-Survival-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Hunter konusu",
+  "anahtar": [
+   "hunter",
+   "survival t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
   ],
   "sinif": "Hunter"
  },
@@ -424,6 +879,201 @@
   "sinif": "Mage"
  },
  {
+  "id": "mage-11-arcane-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Mage · Arcane Raid Talentleri",
+  "ek_adi": "11-Arcane-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "arcane raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-12-arcane-pre-bis",
+  "kategori": "sinif",
+  "konu": "Mage · Arcane Pre-BiS",
+  "ek_adi": "12-Arcane-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "arcane pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-13-arcane-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Mage · Arcane Raid Hazirligi",
+  "ek_adi": "13-Arcane-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "arcane raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-14-arcane-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Mage · Arcane T0.5 Seti",
+  "ek_adi": "14-Arcane-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "arcane t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-15-fire-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Mage · Fire Raid Talentleri",
+  "ek_adi": "15-Fire-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "fire raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-16-fire-pre-bis",
+  "kategori": "sinif",
+  "konu": "Mage · Fire Pre-BiS",
+  "ek_adi": "16-Fire-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "fire pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-17-fire-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Mage · Fire Raid Hazirligi",
+  "ek_adi": "17-Fire-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "fire raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-18-fire-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Mage · Fire T0.5 Seti",
+  "ek_adi": "18-Fire-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "fire t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-19-frost-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Mage · Frost Raid Talentleri",
+  "ek_adi": "19-Frost-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "frost raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-20-frost-pre-bis",
+  "kategori": "sinif",
+  "konu": "Mage · Frost Pre-BiS",
+  "ek_adi": "20-Frost-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "frost pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-21-frost-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Mage · Frost Raid Hazirligi",
+  "ek_adi": "21-Frost-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "frost raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Mage"
+ },
+ {
+  "id": "mage-22-frost-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Mage · Frost T0.5 Seti",
+  "ek_adi": "22-Frost-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Mage konusu",
+  "anahtar": [
+   "mage",
+   "frost t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Mage"
+ },
+ {
   "id": "paladin-01-irk-secimi",
   "kategori": "sinif",
   "konu": "Paladin · Irk Secimi",
@@ -552,6 +1202,201 @@
    "build",
    "leveling",
    "puan sırası 10-60"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-11-holy-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Paladin · Holy Raid Talentleri",
+  "ek_adi": "11-Holy-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "holy raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-12-holy-pre-bis",
+  "kategori": "sinif",
+  "konu": "Paladin · Holy Pre-BiS",
+  "ek_adi": "12-Holy-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "holy pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-13-holy-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Paladin · Holy Raid Hazirligi",
+  "ek_adi": "13-Holy-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "holy raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-14-holy-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Paladin · Holy T0.5 Seti",
+  "ek_adi": "14-Holy-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "holy t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-15-protection-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Paladin · Protection Raid Talentleri",
+  "ek_adi": "15-Protection-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "protection raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-16-protection-pre-bis",
+  "kategori": "sinif",
+  "konu": "Paladin · Protection Pre-BiS",
+  "ek_adi": "16-Protection-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "protection pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-17-protection-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Paladin · Protection Raid Hazirligi",
+  "ek_adi": "17-Protection-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "protection raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-18-protection-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Paladin · Protection T0.5 Seti",
+  "ek_adi": "18-Protection-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "protection t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-19-retribution-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Paladin · Retribution Raid Talentleri",
+  "ek_adi": "19-Retribution-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "retribution raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-20-retribution-pre-bis",
+  "kategori": "sinif",
+  "konu": "Paladin · Retribution Pre-BiS",
+  "ek_adi": "20-Retribution-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "retribution pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-21-retribution-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Paladin · Retribution Raid Hazirligi",
+  "ek_adi": "21-Retribution-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "retribution raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Paladin"
+ },
+ {
+  "id": "paladin-22-retribution-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Paladin · Retribution T0.5 Seti",
+  "ek_adi": "22-Retribution-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Paladin konusu",
+  "anahtar": [
+   "paladin",
+   "retribution t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
   ],
   "sinif": "Paladin"
  },
@@ -688,6 +1533,201 @@
   "sinif": "Priest"
  },
  {
+  "id": "priest-11-discipline-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Priest · Discipline Raid Talentleri",
+  "ek_adi": "11-Discipline-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "discipline raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-12-discipline-pre-bis",
+  "kategori": "sinif",
+  "konu": "Priest · Discipline Pre-BiS",
+  "ek_adi": "12-Discipline-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "discipline pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-13-discipline-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Priest · Discipline Raid Hazirligi",
+  "ek_adi": "13-Discipline-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "discipline raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-14-discipline-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Priest · Discipline T0.5 Seti",
+  "ek_adi": "14-Discipline-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "discipline t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-15-holy-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Priest · Holy Raid Talentleri",
+  "ek_adi": "15-Holy-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "holy raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-16-holy-pre-bis",
+  "kategori": "sinif",
+  "konu": "Priest · Holy Pre-BiS",
+  "ek_adi": "16-Holy-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "holy pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-17-holy-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Priest · Holy Raid Hazirligi",
+  "ek_adi": "17-Holy-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "holy raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-18-holy-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Priest · Holy T0.5 Seti",
+  "ek_adi": "18-Holy-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "holy t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-19-shadow-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Priest · Shadow Raid Talentleri",
+  "ek_adi": "19-Shadow-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "shadow raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-20-shadow-pre-bis",
+  "kategori": "sinif",
+  "konu": "Priest · Shadow Pre-BiS",
+  "ek_adi": "20-Shadow-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "shadow pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-21-shadow-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Priest · Shadow Raid Hazirligi",
+  "ek_adi": "21-Shadow-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "shadow raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Priest"
+ },
+ {
+  "id": "priest-22-shadow-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Priest · Shadow T0.5 Seti",
+  "ek_adi": "22-Shadow-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Priest konusu",
+  "anahtar": [
+   "priest",
+   "shadow t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Priest"
+ },
+ {
   "id": "rogue-01-irk-secimi",
   "kategori": "sinif",
   "konu": "Rogue · Irk Secimi",
@@ -816,6 +1856,201 @@
    "build",
    "leveling",
    "puan sırası 10-60"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-11-assassination-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Rogue · Assassination Raid Talentleri",
+  "ek_adi": "11-Assassination-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "assassination raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-12-assassination-pre-bis",
+  "kategori": "sinif",
+  "konu": "Rogue · Assassination Pre-BiS",
+  "ek_adi": "12-Assassination-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "assassination pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-13-assassination-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Rogue · Assassination Raid Hazirligi",
+  "ek_adi": "13-Assassination-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "assassination raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-14-assassination-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Rogue · Assassination T0.5 Seti",
+  "ek_adi": "14-Assassination-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "assassination t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-15-combat-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Rogue · Combat Raid Talentleri",
+  "ek_adi": "15-Combat-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "combat raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-16-combat-pre-bis",
+  "kategori": "sinif",
+  "konu": "Rogue · Combat Pre-BiS",
+  "ek_adi": "16-Combat-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "combat pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-17-combat-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Rogue · Combat Raid Hazirligi",
+  "ek_adi": "17-Combat-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "combat raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-18-combat-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Rogue · Combat T0.5 Seti",
+  "ek_adi": "18-Combat-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "combat t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-19-subtlety-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Rogue · Subtlety Raid Talentleri",
+  "ek_adi": "19-Subtlety-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "subtlety raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-20-subtlety-pre-bis",
+  "kategori": "sinif",
+  "konu": "Rogue · Subtlety Pre-BiS",
+  "ek_adi": "20-Subtlety-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "subtlety pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-21-subtlety-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Rogue · Subtlety Raid Hazirligi",
+  "ek_adi": "21-Subtlety-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "subtlety raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Rogue"
+ },
+ {
+  "id": "rogue-22-subtlety-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Rogue · Subtlety T0.5 Seti",
+  "ek_adi": "22-Subtlety-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Rogue konusu",
+  "anahtar": [
+   "rogue",
+   "subtlety t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
   ],
   "sinif": "Rogue"
  },
@@ -964,6 +2199,201 @@
   "sinif": "Shaman"
  },
  {
+  "id": "shaman-12-elemental-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Shaman · Elemental Raid Talentleri",
+  "ek_adi": "12-Elemental-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "elemental raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-13-elemental-pre-bis",
+  "kategori": "sinif",
+  "konu": "Shaman · Elemental Pre-BiS",
+  "ek_adi": "13-Elemental-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "elemental pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-14-elemental-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Shaman · Elemental Raid Hazirligi",
+  "ek_adi": "14-Elemental-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "elemental raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-15-elemental-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Shaman · Elemental T0.5 Seti",
+  "ek_adi": "15-Elemental-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "elemental t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-16-enhancement-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Shaman · Enhancement Raid Talentleri",
+  "ek_adi": "16-Enhancement-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "enhancement raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-17-enhancement-pre-bis",
+  "kategori": "sinif",
+  "konu": "Shaman · Enhancement Pre-BiS",
+  "ek_adi": "17-Enhancement-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "enhancement pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-18-enhancement-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Shaman · Enhancement Raid Hazirligi",
+  "ek_adi": "18-Enhancement-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "enhancement raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-19-enhancement-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Shaman · Enhancement T0.5 Seti",
+  "ek_adi": "19-Enhancement-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "enhancement t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-20-restoration-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Shaman · Restoration Raid Talentleri",
+  "ek_adi": "20-Restoration-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "restoration raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-21-restoration-pre-bis",
+  "kategori": "sinif",
+  "konu": "Shaman · Restoration Pre-BiS",
+  "ek_adi": "21-Restoration-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "restoration pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-22-restoration-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Shaman · Restoration Raid Hazirligi",
+  "ek_adi": "22-Restoration-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "restoration raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Shaman"
+ },
+ {
+  "id": "shaman-23-restoration-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Shaman · Restoration T0.5 Seti",
+  "ek_adi": "23-Restoration-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Shaman konusu",
+  "anahtar": [
+   "shaman",
+   "restoration t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Shaman"
+ },
+ {
   "id": "warlock-01-irk-secimi",
   "kategori": "sinif",
   "konu": "Warlock · Irk Secimi",
@@ -1096,6 +2526,201 @@
   "sinif": "Warlock"
  },
  {
+  "id": "warlock-11-affliction-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Warlock · Affliction Raid Talentleri",
+  "ek_adi": "11-Affliction-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "affliction raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-12-affliction-pre-bis",
+  "kategori": "sinif",
+  "konu": "Warlock · Affliction Pre-BiS",
+  "ek_adi": "12-Affliction-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "affliction pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-13-affliction-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Warlock · Affliction Raid Hazirligi",
+  "ek_adi": "13-Affliction-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "affliction raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-14-affliction-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Warlock · Affliction T0.5 Seti",
+  "ek_adi": "14-Affliction-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "affliction t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-15-demonology-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Warlock · Demonology Raid Talentleri",
+  "ek_adi": "15-Demonology-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "demonology raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-16-demonology-pre-bis",
+  "kategori": "sinif",
+  "konu": "Warlock · Demonology Pre-BiS",
+  "ek_adi": "16-Demonology-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "demonology pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-17-demonology-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Warlock · Demonology Raid Hazirligi",
+  "ek_adi": "17-Demonology-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "demonology raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-18-demonology-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Warlock · Demonology T0.5 Seti",
+  "ek_adi": "18-Demonology-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "demonology t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-19-destruction-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Warlock · Destruction Raid Talentleri",
+  "ek_adi": "19-Destruction-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "destruction raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-20-destruction-pre-bis",
+  "kategori": "sinif",
+  "konu": "Warlock · Destruction Pre-BiS",
+  "ek_adi": "20-Destruction-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "destruction pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-21-destruction-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Warlock · Destruction Raid Hazirligi",
+  "ek_adi": "21-Destruction-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "destruction raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Warlock"
+ },
+ {
+  "id": "warlock-22-destruction-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Warlock · Destruction T0.5 Seti",
+  "ek_adi": "22-Destruction-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Warlock konusu",
+  "anahtar": [
+   "warlock",
+   "destruction t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Warlock"
+ },
+ {
   "id": "warrior-01-irk-secimi",
   "kategori": "sinif",
   "konu": "Warrior · Irk Secimi",
@@ -1224,6 +2849,201 @@
    "build",
    "leveling",
    "puan sırası 10-60"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-11-arms-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Warrior · Arms Raid Talentleri",
+  "ek_adi": "11-Arms-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "arms raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-12-arms-pre-bis",
+  "kategori": "sinif",
+  "konu": "Warrior · Arms Pre-BiS",
+  "ek_adi": "12-Arms-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "arms pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-13-arms-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Warrior · Arms Raid Hazirligi",
+  "ek_adi": "13-Arms-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "arms raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-14-arms-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Warrior · Arms T0.5 Seti",
+  "ek_adi": "14-Arms-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "arms t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-15-fury-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Warrior · Fury Raid Talentleri",
+  "ek_adi": "15-Fury-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "fury raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-16-fury-pre-bis",
+  "kategori": "sinif",
+  "konu": "Warrior · Fury Pre-BiS",
+  "ek_adi": "16-Fury-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "fury pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-17-fury-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Warrior · Fury Raid Hazirligi",
+  "ek_adi": "17-Fury-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "fury raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-18-fury-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Warrior · Fury T0.5 Seti",
+  "ek_adi": "18-Fury-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "fury t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-19-protection-raid-talentleri",
+  "kategori": "sinif",
+  "konu": "Warrior · Protection Raid Talentleri",
+  "ek_adi": "19-Protection-Raid-Talentleri.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "protection raid talentleri",
+   "raid talent",
+   "60 talent",
+   "endgame build",
+   "raid build"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-20-protection-pre-bis",
+  "kategori": "sinif",
+  "konu": "Warrior · Protection Pre-BiS",
+  "ek_adi": "20-Protection-Pre-BiS.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "protection pre bis",
+   "pre bis",
+   "bis",
+   "raid oncesi esya",
+   "60 gear"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-21-protection-raid-hazirligi",
+  "kategori": "sinif",
+  "konu": "Warrior · Protection Raid Hazirligi",
+  "ek_adi": "21-Protection-Raid-Hazirligi.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "protection raid hazirligi",
+   "raid hazirligi",
+   "stat onceligi",
+   "consumable",
+   "flask",
+   "iksir"
+  ],
+  "sinif": "Warrior"
+ },
+ {
+  "id": "warrior-22-protection-t0-5-seti",
+  "kategori": "sinif",
+  "konu": "Warrior · Protection T0.5 Seti",
+  "ek_adi": "22-Protection-T0.5-Seti.png",
+  "nerede": "Class rehberleri forumu → Warrior konusu",
+  "anahtar": [
+   "warrior",
+   "protection t0 5 seti",
+   "t0.5",
+   "dungeon set 2",
+   "d1 seti",
+   "set bonusu"
   ],
   "sinif": "Warrior"
  },

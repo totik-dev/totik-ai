@@ -125,16 +125,19 @@ function kb() {
     const norm = normalizeText(`${card.title}\n${card.text}`);
     return { card, norm: ` ${norm} `, tokens: new Set(norm.split(" ")) };
   });
-  const frequency = new Map();
-  for (const entry of index) for (const token of entry.tokens) frequency.set(token, (frequency.get(token) || 0) + 1);
+  // Word weights and ability names come from the leveling-era cards. The level 60 cards (raid talents, pre-BiS, raid
+  // preparation, T0.5) repeat the same talents and hundreds of item names; they are chosen by the question's kind
+  // (lateKind), so they must not change how the other cards are ranked.
+  const base = index.filter(entry => !LATE_KINDS.has(entry.card.kind)), frequency = new Map();
+  for (const entry of base) for (const token of entry.tokens) frequency.set(token, (frequency.get(token) || 0) + 1);
   // Words the cards only ever write with a capital letter: names of items, abilities and places ("Dynamite", "Mooncloth").
   const upper = new Set(), lower = new Set();
-  for (const card of CARDS) for (const word of card.text.match(/[A-Za-zÇĞİÖŞÜçğıöşü']{6,}/g) || []) (/^[A-ZÇĞİÖŞÜ]/.test(word) ? upper : lower).add(normalizeText(word));
+  for (const { card } of base) for (const word of card.text.match(/[A-Za-zÇĞİÖŞÜçğıöşü']{6,}/g) || []) (/^[A-ZÇĞİÖŞÜ]/.test(word) ? upper : lower).add(normalizeText(word));
   const proper = new Set([...upper].filter(word => !lower.has(word)));
-  knowledge = { index, byId: new Map(index.map(entry => [entry.card.id, entry])), frequency, proper, names: nameOwners(index) };
+  knowledge = { index, size: base.length, byId: new Map(index.map(entry => [entry.card.id, entry])), frequency, proper, names: nameOwners(base) };
   return knowledge;
 }
-const idf = token => Math.log(1 + CARDS.length / (kb().frequency.get(token) || CARDS.length));
+const idf = token => Math.log(1 + kb().size / (kb().frequency.get(token) || kb().size));
 
 // Shorter forms of a word, for Turkish endings written without an apostrophe ("rotasyonu" -> "rotasyon").
 function stems(word) { const out = []; for (let cut = word.length - 1; cut >= Math.max(5, word.length - 5); cut--) out.push(word.slice(0, cut)); return out; }
@@ -485,7 +488,8 @@ const PROFESSIONS = {
 };
 const RISKY_ALIASES = new Set(["eng", "skin", "fish", "ore", "cook", "ench"]);
 export const PROFESSION_NAMES = Object.fromEntries(Object.entries(PROFESSIONS).map(([key, value]) => [key, value.name]));
-const PROFESSION_WORD = /(?:^| )(?:meslek|meslekler|meslegi|meslekleri|profession|professions|prof)(?= |$)/;
+// "mesleklerden", "mesleğe", "professionlar": the word with its endings ("nightelf hunter hangi mesleklerden gitmeli", 22.11.2026).
+const PROFESSION_WORD = /(?:^| )(?:meslek\w*|mesleg\w*|profession\w*|prof)(?= |$)/;
 // Every profession the question names, in the order they appear. Weak words count only when no strong one is found.
 export function detectProfessions(question, { allowWeak = true } = {}) {
   const q = questionText(question);
@@ -575,7 +579,12 @@ const INTENT = {
   leveling: /(?:^| )(?:leveling|levelling|levling|lvling|levelin|level atla\w*|level kas\w*|kasarken|kasma\w*|build\w*|puan sira\w*|talent sira\w*|dagilim\w*|dagitim\w*|dizilim\w*)(?= |$)/,
   talents: /(?:^| )(?:talent|telent|talant|tallent|tlnt)\w*|yetenek (?:agac|puan)\w*/,
   gameplay: /(?:^| )(?:rotasyon\w*|rotation\w*|oynanis\w*|nasil oynan\w*|onceli[kg]\w*|priority|opener|burst|aoe|cok hedef\w*|tek hedef\w*|hangi sira\w*)(?= |$)|sirayla kullan|ne zaman (?:kullan|at|bas|vur)\w*/,
-  abilities: /(?:^| )(?:yetene[kg]\w*|skill\w*|spell\w*|buyu\w*|ability|abilities|form\w*|totem\w*|pet\w*|aura\w*|seal\w*|blessing\w*|curse\w*|stance\w*|durus\w*|buff\w*|debuff\w*|shout\w*|trap\w*|tuza[kg]\w*|poison\w*|zehir\w*|ogren\w*|aciliyor|acilir)(?= |$)/
+  abilities: /(?:^| )(?:yetene[kg]\w*|skill\w*|spell\w*|buyu\w*|ability|abilities|form\w*|totem\w*|pet\w*|aura\w*|seal\w*|blessing\w*|curse\w*|stance\w*|durus\w*|buff\w*|debuff\w*|shout\w*|trap\w*|tuza[kg]\w*|poison\w*|zehir\w*|ogren\w*|aciliyor|acilir)(?= |$)/,
+  // Level 60 cards (23.11.2026): raid talent build, pre-raid gear, raid preparation, T0.5 set.
+  raid: /(?:^| )(?:raid\w*|endgame|end game|max (?:level|lvl|seviye)|maks (?:level|lvl|seviye)|son (?:level|seviye)\w*|60 ?(?:level|lvl|lv|seviye)\w*|(?:level|lvl|lv|seviye)\w* 60|60 ?ta|60 ?da|60 olunca|60 oldu\w*|60 olan\w*|molten core|onyxia|blackwing lair|zul gurub)(?= |$)/,
+  prebis: /(?:^| )(?:pre ?bis|prebis|pre ?raid|preraid|bis|best in slot|raid oncesi)(?= |$)/,
+  raidprep: /(?:^| )(?:consumable\w*|consum|flask\w*|elixir\w*|iksir\w*|potion\w*|pot|potlar\w*|hit cap\w*|expertise|stokla\w*|hazirli[kg]\w*|world buff\w*)(?= |$)|stat (?:oncelig\w*|onceli\w*|sira\w*|priority)|(?:^| )(?:hangi|ne) stat\w*/,
+  t05: /(?:^| )(?:t0 5|t05|t 0 5|tier 0 5|tier 05|tier0 5|dungeon set\w*|dungeon seti\w*|d1 set\w*|d2 set\w*|d1|d2|t0 5 set\w*|deliana|mokvar|anthion|bodley|valthalak|set bonus\w*)(?= |$)/
 };
 const PROFESSION_INTENT = {
   where: /(?:^| )(?:nerede|nerde|nereden|nerden|nereye|kasil\w*|kasma\w*|kasar\w*|kasayim|kasmak|kasmali\w*|rota\w*|bolge\w*|gelistir\w*|yukselt\w*|ilerlet\w*|level\w*|lvl|skill\w*|basla\w*|topla\w*|tutul\w*|tutma\w*|farm\w*)(?= |$)/,
@@ -765,15 +774,30 @@ const WEAPON_TALENT = /(?:sword|mace|axe|dagger|fist|polearm|wand|two handed|wea
 const NOT_WEARING = /(?:^| )(?:sat\w*|tamir\w*|repair\w*|kiril\w*|durability|dayanikli\w*|banka\w*|bank|auction|muzayede|ah|canta\w*|bag\w*|soulbound|transmog\w*|enchant\w*|disenchant\w*|boz\w*|sildi\w*|silin\w*|kayboldu|kayip|bug\w*|hata\w*|addon\w*|link\w*|mail kutu\w*|mailbox|posta\w*|mail at\w*|mail gonder\w*|mail gel\w*)(?= |$)/;
 export function isGearQuestion(question) {
   const q = questionText(question);
-  return (GEAR.test(q) || WEAPON_WORD.test(q)) && !INTENT.talents.test(q) && !/(?:^| )(?:build\w*|puan sira\w*|dagilim\w*|dagitim\w*|dizilim\w*)(?= |$)/.test(q) && !INTENT.gameplay.test(q) && !INTENT.abilities.test(q) && !/(?:^| )(?:irk\w*|race|racial\w*)(?= |$)/.test(q) && !PROFESSION_WORD.test(q) && !NOT_WEARING.test(q) && !/(?:^| )(?:spec\w*|dual wield)(?= |$)/.test(q);
+  return (GEAR.test(q) || WEAPON_WORD.test(q)) && !lateKind(q) && !INTENT.talents.test(q) && !/(?:^| )(?:build\w*|puan sira\w*|dagilim\w*|dagitim\w*|dizilim\w*)(?= |$)/.test(q) && !INTENT.gameplay.test(q) && !INTENT.abilities.test(q) && !/(?:^| )(?:irk\w*|race|racial\w*)(?= |$)/.test(q) && !PROFESSION_WORD.test(q) && !NOT_WEARING.test(q) && !/(?:^| )(?:spec\w*|dual wield)(?= |$)/.test(q);
 }
 const CLASS_OVERVIEW = /nasil bir|iyi mi|guclu mu|zayif mi|(?:^| )(?:zor\w*|kolay\w*|rahat\w*|leveling|levelling|kasmak|kasilir|kasarken|rol\w*|tank\w*|heal\w*|sifaci\w*|dps|solo|pvp|pve|raid\w*|oynanir|oynamali\w*|oynasam|secmeli\w*|secsem|baslamali\w*|baslasam|deger\w*|oner\w*|tavsiye\w*|arti\w*|eksi\w*|avantaj\w*|dezavantaj\w*)(?= |$)/;
 
+// Which level 60 card a question wants, or null. A leveling word ("1-60 leveling") keeps the leveling card.
+const LEVELING_WORD = /(?:^| )(?:leveling|levelling|levling|lvling|levelin|level (?:atla|kas)\w*|seviye (?:atla|kas)\w*|kasarken|kasma\w*|1 60|10 60)(?= |$)/;
+export function lateKind(question, intents = null, options = {}) {
+  const q = questionText(question); intents = intents || Object.fromEntries(Object.entries(INTENT).map(([name, regex]) => [name, regex.test(q)]));
+  // A bare "60" next to the question ("rogue combat 60 talent") is the level; "1-60" and "10-60" are the leveling range.
+  const leveling = LEVELING_WORD.test(q), late = !leveling && (intents.raid || levelInQuestion(q) === 60 || /(?:^| )60(?= |$)/.test(q) && !/(?:^| )\d{1,2} 60(?= |$)/.test(q));
+  if (intents.t05) return "t05";
+  if (intents.prebis || late && (GEAR.test(q) || WEAPON_WORD.test(q)) && !intents.talents) return "prebis";
+  if (intents.raidprep && !leveling && !intents.talents) return "raidprep";
+  if (late && (intents.talents || INTENT.leveling.test(q) || options.talentAdvice)) return "raid";
+  // "arms" after the bot asked which spec: the earlier question's card kind.
+  return options.lateHint || null;
+}
+const LATE_KINDS = new Set(["raid", "prebis", "raidprep", "t05"]);
+const setName = card => (card.text.match(/^## T0\.5: ([^(]+)/m) || [])[1]?.trim() || "";
 function classTopic(classKey, entries) { return { classKey, forum: entries[0]?.card.forum || null, thread: entries[0]?.card.thread || null }; }
 // "arcane mi frost mu fire mi", "warrior hangi spec": answered from the role, strengths and weaknesses of each spec.
 // The cards are the talent order (Leveling) cards of the specs; with three or more the answer decides which to show.
-function compareSpecs(classKey, specs, entries) {
-  const candidates = specs.map(spec => entries.find(entry => entry.card.kind === "leveling" && entry.card.spec === spec)?.card).filter(Boolean);
+function compareSpecs(classKey, specs, entries, kind = "leveling") {
+  const candidates = specs.map(spec => entries.find(entry => entry.card.kind === kind && entry.card.spec === spec)?.card).filter(Boolean);
   const facts = [classOverviewLine(classKey), ...specs.map(spec => specFactText(classKey, spec))].filter(Boolean).join("\n");
   return result("class", candidates.length <= 2 ? candidates : [], { ...classTopic(classKey, entries), compare: specs, candidates, facts, siblings: [] });
 }
@@ -787,10 +811,22 @@ function selectClass(q, classKey, options) {
   if (!intents.race && !intents.talents && !intents.leveling && !intents.gameplay && !intents.abilities && /(?:^| )(?:alliance\w*|ally|alli|horde\w*|hord)(?= |$)/.test(q) && /(?:^| )(?:olabil\w*|olur|olunur|olunuyor|oluyor|olunabil\w*|var|yok|oynan\w*|oynayabil\w*|secebil\w*|secil\w*|acabil\w*|acilir)(?= |$)/.test(q) && !/(?:^| )(?:trainer\w*|egitmen\w*|egitici\w*|gorev\w*|quest\w*|zindan\w*|dungeon\w*)(?= |$)/.test(q)) intents.race = true;
   // "druid ırk" is a race question; "tauren druid rotasyon" is not.
   if (intents.race && (intents.leveling || intents.gameplay || intents.talents) && !/(?:^| )(?:irk\w*|race|racial\w*)(?= |$)/.test(q)) intents.race = false;
+  // Level 60: "60 rogue talent", "raid build", "pre bis", "stat önceliği", "T0.5 nasıl alınır". Each has its own card per spec.
+  const late = lateKind(q, intents, options), compareKind = late === "raid" ? "raid" : "leveling";
   // Which spec: two or more specs set against each other, or no spec named and the question asks which one to play.
-  if (hits.length >= 2 && (hits.some(hit => followedByParticle(q, hit, CLASS_ALIASES[classKey])) || COMPARE_WORD.test(q) || WHICH_SPEC.test(q))) return compareSpecs(classKey, hits.map(hit => hit.spec), entries);
-  if (!hits.length && !options.specHint && !intents.race && (WHICH_SPEC.test(q) || PURPOSE.test(q) && (options.talentAdvice || ASKS_ADVICE.test(q) && (intents.talents || /(?:^| )(?:build|spec|spek|uzmanli[kg])\w*/.test(q))))) return compareSpecs(classKey, classSpecs(classKey), entries);
+  if (hits.length >= 2 && (hits.some(hit => followedByParticle(q, hit, CLASS_ALIASES[classKey])) || COMPARE_WORD.test(q) || WHICH_SPEC.test(q))) return compareSpecs(classKey, hits.map(hit => hit.spec), entries, compareKind);
+  if (!hits.length && !options.specHint && !intents.race && (!late || late === "raid") && (WHICH_SPEC.test(q) || PURPOSE.test(q) && (options.talentAdvice || ASKS_ADVICE.test(q) && (intents.talents || /(?:^| )(?:build|spec|spek|uzmanli[kg])\w*/.test(q))))) return compareSpecs(classKey, classSpecs(classKey), entries, compareKind);
   const spec = detectSpec(q, classKey) || options.specHint || null;
+  if (late) {
+    const own = card => card.kind === late && (!spec || card.spec === spec);
+    let card = entries.find(entry => own(entry.card))?.card || null;
+    // One T0.5 set for every spec (Hunter, Mage, Rogue): any spec's card answers it.
+    if (!spec && late === "t05") { const sets = entries.filter(entry => entry.card.kind === "t05").map(entry => entry.card); if (!sets.every(item => setName(item) === setName(sets[0]))) card = null; }
+    if (!spec && late !== "t05") card = null;
+    if (!card) return result("class", [], { ...classTopic(classKey, entries), need: "spec", lateKind: late });
+    // "rogue combat 60 talent": the leveling card is shown next to the raid build only when the question asks for leveling too.
+    return result("class", [card], { ...classTopic(classKey, entries), spec: card.spec, intents, lateKind: late, facts: specFactText(classKey, card.spec), siblings: [] });
+  }
   // "frost mage 45 level talentlerim ne olmalı": a level next to a talent question means the talent order card.
   if (spec && intents.talents && levelInQuestion(q)) intents.leveling = true;
   // "shadow'a kaçta geçmeliyim", "ne zaman respec": the talent order card shows when the build changes.
@@ -823,7 +859,8 @@ function selectClass(q, classKey, options) {
   const area = AOE_QUESTION.test(q) && !intents.talents && !intents.leveling ? areaLines(entries) : [];
   const multi = area.length ? multiTargetNotes(entries, spec) : [];
   const areaPrior = card => Math.min(3, area.filter(item => item.card === card).length) * 3 + (multi.some(note => note.card === card) ? 8 : 0);
-  const ranked = rank(entries, words, card => prior(card) + areaPrior(card)), top = ranked[0];
+  // The level 60 cards were chosen above when the question asks for them; otherwise their item names must not pull them in.
+  const ranked = rank(entries.filter(entry => !LATE_KINDS.has(entry.card.kind)), words, card => prior(card) + areaPrior(card)), top = ranked[0];
   const anyIntent = Object.values(intents).some(Boolean) || learn || area.length > 0;
   const areaFacts = area.length ? `${multi.length ? `Oynanış kartındaki çok hedef notları:\n${multi.map(note => `- ${note.section}: ${note.text}`).join("\n")}\n` : ""}${CLASS_NAMES[classKey]} kartlarındaki alan etkili (birden çok hedefe etki eden) yetenekler (\"Seviye\" ya da yetenek satırındaki sayı öğrenildiği seviyedir; talent satırındaki sayı ağaçtaki sıra numarasıdır, seviye değildir):\n${area.slice(0, 10).map(item => `- [${item.card.title.split(" · ").pop()}] ${item.text.slice(0, 220)}`).join("\n")}` : "";
   const facts = [spec ? specFactText(classKey, spec) : classOverviewLine(classKey), intents.race ? raceAdviceText(classKey) : "", areaFacts].filter(Boolean).join("\n");
@@ -869,7 +906,8 @@ function classOverview(withRaces) {
 // The answer step still decides whether those cards really answer it.
 export function searchCards(question, { classKey = null } = {}) {
   const q = questionText(question), words = [...new Set(tokenize(q))]; if (!words.length) return null;
-  const pool = classKey ? kb().index.filter(entry => entry.card.classKey === classKey) : kb().index;
+  // The level 60 cards are found by the kind of question (lateKind), never by a loose word match.
+  const pool = kb().index.filter(entry => !LATE_KINDS.has(entry.card.kind) && (!classKey || entry.card.classKey === classKey));
   const ranked = rank(pool, words, () => 0), top = ranked[0]; if (!top) return null;
   const matched = words.filter(word => top.entry.tokens.has(word));
   // One shared word is not enough unless it is rare and long (a name).
@@ -894,12 +932,14 @@ export function isTierQuestion(question) { return TIER_WORD.test(questionText(qu
 // "para nasıl en hızlı kazanılır", "gold farm": how to make money. The cards and notes do not answer it; a profession
 // named in it ("mesleklerim herbalism ve alchemy") is the player's situation, not a request for the profession card.
 const MONEY_WORD = /(?:^| )(?:para|gold|altin|g)\w* (?:\w+ ){0,3}(?:kazan|kas|biriktir|yap|bas|kasil|farmla)\w*|(?:^| )(?:gold|altin|para) ?farm\w*|(?:^| )(?:zengin ol|para kazandir|gold kazandir|para getir)\w*/;
+// "dungeonlarda greed muhabbeti nedir": loot rolls, answered from the "ganimet" note, never with the dungeon list.
+const LOOT_WORD = /(?:^| )(?:need|greed|ganimet\w*|loot kural\w*|master loot)(?= |$)/;
 export function isMoneyQuestion(question) { return MONEY_WORD.test(questionText(question)); }
 export function selectCards(question, options = {}) {
   const q = questionText(question); if (!q) return null;
   const named = detectClass(q), classKey = named || options.classHint || null, faction = detectFaction(q);
   // "para kazanmak için hangi meslek" is still a profession choice.
-  if (isMoneyQuestion(q) && !/(?:^| )hangi (?:meslek|profession)\w*|(?:^| )meslek\w* (?:sec|oner|tavsiye)\w*/.test(q) || !named && isTierQuestion(q)) return null;
+  if (isMoneyQuestion(q) && !/(?:^| )hangi (?:meslek|profession)\w*|(?:^| )meslek\w* (?:sec|oner|tavsiye)\w*/.test(q) || !named && (isTierQuestion(q) || LOOT_WORD.test(q))) return null;
   // A class found only through an ability name ("elixir of the mongoose") does not outrank a profession word.
   const classes = detectClasses(q), professions = detectProfessions(q, { allowWeak: !classes.length });
   if (professions.length) return selectProfession(q, professions, faction);
@@ -930,7 +970,9 @@ export function selectCards(question, options = {}) {
     const selection = selectClass(q, classKey, options);
     if (selection) return selection;
   }
-  if (options.talentAdvice && !classKey) return result("class", [], { need: "class", forum: CARDS.find(card => card.category === "class")?.forum || null });
+  // "60 talent ne olmalı", "pre bis listesi", "T0.5 nasıl alınır" without a class: ask for the class first.
+  const late = classKey ? null : lateKind(q, null, options);
+  if ((options.talentAdvice || late && late !== "raidprep") && !classKey) return result("class", [], { need: "class", lateKind: late, forum: CARDS.find(card => card.category === "class")?.forum || null });
   return options.search === false ? null : searchCards(q, { classKey: named });
 }
 
@@ -1073,8 +1115,11 @@ export function findCardAttachment(card, attachments) {
   const images = (attachments || []).filter(a => /\.(?:png|jpe?g|webp|gif)$/i.test(a?.filename || "") || /^image\//i.test(a?.content_type || ""));
   const key = fileKey(card.file), exact = images.find(a => fileKey(a.filename) === key);
   if (exact) return exact;
-  // Same leading number and the same first word ("09-balance..." in the Druid topic).
-  const number = card.file.match(/^(\d+)/)?.[1], loose = number ? images.filter(a => String(a.filename || "").startsWith(number) && fileKey(a.filename).slice(0, number.length + 5) === key.slice(0, number.length + 5)) : [];
+  // Same leading number, the same first word and the same card kind at the end ("11-Feral-Ayi-Tank-Leveling" was renamed
+  // "11-Feral-Ayi-Leveling"). While a topic is being re-posted an old card can still carry the number of a new one
+  // ("14-Balance-Raid-Hazirligi" where "14-Balance-Pre-BiS" will be): the kind keeps it from being sent for it.
+  const number = card.file.match(/^(\d+)/)?.[1], kind = name => normalizeText(String(name || "").replace(/\.(?:png|jpe?g|webp|gif)$/i, "")).split(" ").slice(-1)[0];
+  const loose = number ? images.filter(a => String(a.filename || "").startsWith(number) && fileKey(a.filename).slice(0, number.length + 5) === key.slice(0, number.length + 5) && kind(a.filename) === kind(card.file)) : [];
   return loose.length === 1 ? loose[0] : null;
 }
 
