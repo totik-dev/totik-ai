@@ -947,9 +947,9 @@ test("an answer that states a number no source holds is never sent", async () =>
   await bot.handleCommand(message(WOLF_QUESTION));
   assert.ok(!/%70/.test(net.posts.map(post => post.content).join("\n")), "the invented percent does not reach the player");
   // A note-only question: the invented price is dropped and the note line itself is sent.
-  net = fakeNetwork({ gemini: () => geminiText("Riding eğitimi 40. seviyede 90 gold tutar.") }); ({ bot } = newBot());
+  net = fakeNetwork({ gemini: () => geminiText("Riding eğitimi 40. seviyede 95 gold tutar.") }); ({ bot } = newBot());
   await bot.handleCommand(message("!soru binek kaç gold"));
-  assert.ok(!/90 gold/.test(net.posts[0].content));
+  assert.ok(!/95 gold/.test(net.posts[0].content));
   assert.match(net.posts[0].content, /Riding eğitimi 40\. seviyede 100 gold, 60\. seviyede 1000 gold tutar/);
 });
 
@@ -1666,4 +1666,24 @@ test("without WOW_AI_URL the old research service is never asked, so it cannot s
   await bot.handleCommand(message("!soru Look to the Stars görevi nerede", "666666666666666666"));
   assert.ok(!net.calls.some(c => c.includes("workers.dev")), "the old research service is not asked");
   assert.equal(net.posts.length, 2);
+});
+
+test("27.11 👎: a way to a dungeon is answered from its card with the travel note; 'hunter rehberi' gets the guide link", async () => {
+  let net = fakeNetwork({ gemini: () => geminiText("Auberdine'den Southshore gemisine bin, Southshore'dan kuzeye Western Plaguelands'e çık, oradan batıya Tirisfal Glades'e geç.") }); let { bot } = newBot();
+  await bot.handleCommand(message("!soru scarlet monastery graveyard dungeonına nasıl gidebilirim suan darkshoredayım"));
+  assert.match(net.posts[0].content, /^Auberdine'den Southshore gemisine bin/);
+  const prompt = JSON.parse(JSON.parse(net.prompts[0]).input);
+  assert.match(prompt.foreverNotes, /Alliance için Tirisfal Glades'te uçuş noktası yoktur/);
+  assert.match(prompt.trustedCardText, /Tirisfal Glades/, "the card's zone goes with the travel note");
+  // A card picked by a word of the place name ("Thunder Axe" → Blacksmithing) is not sent with the notes.
+  net = fakeNetwork({ gemini: () => geminiText("Thunder Axe Fortress Desolace'tedir.") }); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru Darkshoredayım Thunder Axe Fortressa nasıl giderim"));
+  const second = JSON.parse(JSON.parse(net.prompts[0]).input);
+  assert.match(second.foreverNotes, /Thunder Axe Fortress Darkshore'da değil, Desolace'in kuzey ortasındadır/);
+  assert.equal(second.cardText, undefined);
+  assert.match(net.posts[0].content, /^Thunder Axe Fortress Desolace'tedir\./);
+  net = fakeNetwork({}); ({ bot } = newBot());
+  await bot.handleCommand(message("!soru hunter rehberi"));
+  assert.match(net.posts[0].content, /Hunter\*\* rehberi/);
+  assert.equal(net.prompts.length, 0, "no model call");
 });

@@ -59,7 +59,7 @@ function buildExternalResearchQuestion(question, kind, classKey) {
   return question;
 }
 
-const VERSION = "murloc-kartlar-2026-11-23b";
+const VERSION = "murloc-kartlar-2026-11-27a";
 // Kick subscriber role of the Totik Channel server (given by the owner, 2026-11-11).
 const KICK_SUB_ROLE_ID = "1566519827965812966";
 const OWNER_ID = "194062355460653056";
@@ -295,6 +295,9 @@ function communityIntent(question, previousTopic = "") {
   if (previousTopic === "guild" && /katil|basvur|sart|hangi taraf|hangi sunucu|peki|nasil|kimle|iletisim/.test(q)) return "guild";
   return null;
 }
+// "nasıl giderim", "yol tarifi": the player asks for a way to a place, which the travel note holds.
+const TRAVEL_WORD = /(?:^| )(?:nasil (?:gid|gec|ulas|var)\w*|nere?den gid\w*|yol tarif\w*|en (?:hizli|kisa) yol\w*|gidebil\w*|gidilir|giderim|gidecegim|gidicem|gitmek ist\w*)(?= |$)/;
+function isTravelQuestion(question, notes) { return notes.some(note => note.id === "ulasim") && TRAVEL_WORD.test(normalizeGuideText(question)); }
 function isGuildInfoQuestion(q) { return communityIntent(q) === "guild"; }
 function isExternalSourceRecommendationQuestion(question) {
   const q = normalizeGuideText(question);
@@ -306,6 +309,8 @@ function isExternalSourceRecommendationQuestion(question) {
 // "priest rehberi nerede", "deadmines rehberi var mı": where the guide is, not what it says. Answered with the forum topic link.
 function isGuideLocationQuestion(question) {
   const q = normalizeGuideText(question);
+  // "hunter rehberi", "deadmines guide": a short request for the guide itself.
+  if (/^(?:\S+ ){0,2}(?:rehber\w*|guide\w*)$/.test(q) && !/^(?:rehber\w*|guide\w*)$/.test(q)) return true;
   return /(?:^| )(?:rehber\w*|guide\w*)(?= |$)/.test(q) && /(?:^| )(?:nerede\w*|nerde\w*|nereden|nerden|nereye|var mi|varmi|yok mu|link\w*|bulabil\w*|bulamiyorum|bulamadim|hangi kanal\w*|hangi forum\w*|bakabil\w*|bakayim)(?= |$)/.test(q)
     && !/(?:^| )(?:youtube|video|site\w*|wiki|baska|disari)(?= |$)/.test(q);
 }
@@ -1006,7 +1011,9 @@ export class DiscordGateway extends DurableObject {
   async answerFromCards(message, question, explicit, selection, notes = []) {
     let answer = "", grounded = false, failed = false;
     // The Forever notes the question also touches ("binek ile Ghost Wolf arasında hız farkı"): sent with the card text.
-    const noteText = notes.length && !selection.compare && !selection.advice && (selection.category === "class" || isComparisonQuestion(explicit)) ? foreverNoteText(notes) : "";
+    // "darkshoredayım SM'ye nasıl giderim": the dungeon card holds the zone, the travel note holds the way there.
+    const travel = selection.category === "dungeon" && isTravelQuestion(explicit, notes);
+    const noteText = notes.length && !selection.compare && !selection.advice && (selection.category === "class" || travel || isComparisonQuestion(explicit)) ? foreverNoteText(notes) : "";
     if (selection.localAnswer) answer = selection.localAnswer;
     else {
       try {
@@ -1042,7 +1049,7 @@ export class DiscordGateway extends DurableObject {
     if (selection.compare) return this.callGeminiText(JSON.stringify({ ...base,
       task: `Oyuncu ${CLASS_NAMES[selection.classKey]} uzmanlıkları arasında seçim yapmak istiyor. Yalnızca verilen bilgiye dayan. Soruda bir amaç varsa (leveling, dungeon, PvP, raid, solo, tank, heal) uzmanlıkları o amaca göre kısaca karşılaştır: her uzmanlık için bilgide yazan, amaçla ilgili en önemli güçlü ve zayıf yanı söyle. Bilgi bir uzmanlığı o amaç için açıkça öne çıkarıyorsa (ör. 'önerilen leveling uzmanlığı', 'en rahat solo ve leveling', 'PvP'de çok güçlü', 'tek başına leveling zor') cevaba onunla başla. Bilginin değinmediği amaç için sıralama uydurma ve 'bilgi yok' yazma; o amacı atla. Oyuncu tek bir öneri istiyorsa ('hangi talent', 'hangisiyle gideyim', 'daha rahat', 'en kolay'), cevaba önerdiğin tek uzmanlıkla ve bilgideki gerekçesiyle başla; diğer uzmanlıkları en fazla bir satırda geç, bütün sınıfta ortak olan özellikleri (ör. sınıfın kendini iyileştirememesi) bir uzmanlığın eksiği gibi yazma. En fazla 4 kısa satır, Türkçe. Uzmanlık adlarını **kalın** yaz. ${rules} Cevabın en son satırına yalnızca şunu yaz: KART: <cevabında en çok öne çıkan bir ya da iki uzmanlığın adı, virgülle>` }), 600, 0.05);
     if (selection.advice) return this.callGeminiText(JSON.stringify({ ...base, playerClass: CLASS_NAMES[selection.classKey] || "belirtilmedi",
-      task: `Oyuncu hangi mesleği seçeceğini soruyor. Yalnızca verilen bilgideki meslek kartı satırlarına dayan. Oyuncunun sınıfı belliyse cevaba o sınıf için kartlarda yazan mesleklerle başla ve kartın gerekçesini söyle (kime yarar, hangi meslekle eş gider). Sınıf belli değilse ya da sınıf için satır yoksa kartlarda birlikte iyi gittiği yazan meslek çiftlerini söyle. En fazla iki ana meslek alınabildiğini; Cooking, Fishing ve First Aid'in bunlara ek olarak alınabildiğini bir cümleyle belirt. Bilgide olmayan sıralama ('en iyi', 'en çok para kazandıran') uydurma, talent ya da uzmanlık anlatma. En fazla 4 kısa satır, Türkçe. Meslek adlarını **kalın** yaz. ${rules} Soru verilen bilgiyle hiç cevaplanamıyorsa (ör. para kazanma, fiyat) yalnızca KARTTA_YOK yaz.` }), 500, 0.05);
+      task: `Oyuncu hangi mesleği seçeceğini soruyor. Yalnızca verilen bilgideki meslek kartı satırlarına dayan. Oyuncunun sınıfı belliyse cevaba o sınıf için 'önerilen meslek ikilileri' satırlarındaki ana öneriyle (ilk satır) ve gerekçesiyle başla; soruda bir uzmanlık ya da rol (tank, Protection, Holy, PvP, leveling) yazıyorsa o amaca uyan ikiliyi seç. Ardından en fazla bir alternatif ikiliyi söyle; kartlarda o sınıf için yazan ikincil meslek satırını (ör. First Aid) yalnız ek bilgi olarak ver, ana öneri yerine koyma. Sınıf belli değilse ya da sınıf için satır yoksa kartlarda birlikte iyi gittiği yazan meslek çiftlerini söyle. En fazla iki ana meslek alınabildiğini; Cooking, Fishing ve First Aid'in bunlara ek olarak alınabildiğini bir cümleyle belirt. Bilgide olmayan sıralama ('en iyi', 'en çok para kazandıran') uydurma, talent ya da uzmanlık anlatma. En fazla 4 kısa satır, Türkçe; her satır düz cümle olsun, satırların arasına tek başına virgül ya da işaret koyma. Meslek adlarını **kalın** yaz. ${rules} Soru verilen bilgiyle hiç cevaplanamıyorsa (ör. para kazanma, fiyat) yalnızca KARTTA_YOK yaz.` }), 500, 0.05);
     if (selection.factsOnly) return this.callGeminiText(JSON.stringify({ ...base,
       task: `Yalnızca verilen bilgiye dayanarak soruyu doğrudan cevapla. İlk cümle sorunun cevabı olsun. En fazla 4 kısa satır, Türkçe. Sınıf ve uzmanlık adlarını **kalın** yaz. Bilgide olmayan bir sıralama ('en iyi', 'en güçlü') uydurma; yalnız bilgide yazan rol ve özellikleri kullan. ${rules} Soru verilen bilgiyle hiç cevaplanamıyorsa yalnızca KARTTA_YOK yaz.` }), 500, 0.05);
     return this.callGeminiText(JSON.stringify({ ...base, cards: selection.cards.map(card => card.title),
@@ -1093,6 +1100,10 @@ export class DiscordGateway extends DurableObject {
     if (notes.length && (isForeverNoteSubject(explicit) || (!hasCards || loose) && covered)) result = await tryNotes();
     // The note lacks one side and the card is only a loose text match: both texts go to the model together, no card image.
     else if (notes.length && loose) result = await tryNotes(buildCardContext(selection, 6000, explicit));
+    // "darkshoredayım Thunder Axe Fortress'a nasıl giderim": the route is in the travel note. A class or profession card
+    // picked by a word of the place name ("Thunder Axe" → Blacksmithing) cannot answer it. A dungeon card keeps its turn
+    // below and gets the travel note with its text.
+    else if (hasCards && selection.category !== "dungeon" && isTravelQuestion(explicit, notes)) result = await tryNotes();
     if (result?.handled) return result;
     if (result?.failed) modelFailed = true;
     // A card that answers the question: the notes the question also touches go with the card text.

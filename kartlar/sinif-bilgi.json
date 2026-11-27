@@ -1,5 +1,5 @@
 {
- "aciklama": "Doğrulanmış sınıf verisi (wow-forever-sinif/veri). Kartlarda olmayan uzmanlık rolü, artı/eksi ve ırk önerileri. Kaynak adı ve 'henüz test edilmedi' türü satırlar çıkarıldı. 'zirh' ve 'silah' alanları kartlarda yazmayan Classic kuralıdır (hangi sınıf hangi zırhı giyer, hangi silah türünü kullanır); Shaman'ın iki elli silahı ve dual wield'in olmaması Forever rehberlerinden alındı.",
+ "aciklama": "Doğrulanmış sınıf verisi (wow-forever-sinif/veri). Kartlarda olmayan uzmanlık rolü, artı/eksi ve ırk önerileri. Kaynak adı ve 'henüz test edilmedi' türü satırlar çıkarıldı. 'zirh' ve 'silah' alanları kartlarda yazmayan Classic kuralıdır (hangi sınıf hangi zırhı giyer, hangi silah türünü kullanır); Shaman'ın iki elli silahı ve dual wield'in olmaması Forever rehberlerinden alındı. 'meslek': sınıf için önerilen ana meslek ikilileri (WoW Forever sınıf rehberlerinin ortak önerisi; ilk ikili ana öneri).",
  "taraflar": {
   "Alliance": [
    "Human",
@@ -259,6 +259,22 @@
       "Gücün çoğu Regrowth'ta; Healing Touch zayıf"
      ]
     }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "leatherworking",
+      "skinning"
+     ],
+     "neden": "Druid oyun boyu deri giyer: kendi zırhını yaparsın."
+    },
+    {
+     "ikili": [
+      "herbalism",
+      "alchemy"
+     ],
+     "neden": "Restoration ve Balance için iksir ve flask; Travel Form ile otları hızlı toplarsın."
+    }
    ]
   },
   "hunter": {
@@ -338,6 +354,22 @@
       "Etkili çok hedef dönüşü yok"
      ]
     }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "leatherworking",
+      "skinning"
+     ],
+     "neden": "Kendi deri ve mail zırhını, quiver ve ammo pouch'unu yaparsın; leveling'de deri satarsın."
+    },
+    {
+     "ikili": [
+      "engineering",
+      "mining"
+     ],
+     "neden": "Kendi scope'unu ve mermini yaparsın; raid ve PvP aletleri verir."
+    }
    ]
   },
   "mage": {
@@ -415,6 +447,22 @@
       "Cone of Cold için hedefe yakın durmak gerekir"
      ]
     }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "tailoring",
+      "enchanting"
+     ],
+     "neden": "Kendi kumaş zırhını ve çantanı yaparsın, bulduğun yeşilleri bozup Enchanting kasarsın."
+    },
+    {
+     "ikili": [
+      "herbalism",
+      "alchemy"
+     ],
+     "neden": "Leveling'de para ve mana iksirleri; Tailoring'e göre daha kolay para getirir."
+    }
    ]
   },
   "paladin": {
@@ -483,6 +531,22 @@
       "Beta'da çok nerf yedi",
       "Unsealed Wrath build'i swing timer takibi ister"
      ]
+    }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "mining",
+      "blacksmithing"
+     ],
+     "neden": "Protection ve Retribution için kendi plate zırhını ve silahını yaparsın."
+    },
+    {
+     "ikili": [
+      "herbalism",
+      "alchemy"
+     ],
+     "neden": "Holy Paladin için mana iksirleri ve flask; leveling'de de para getirir."
     }
    ]
   },
@@ -563,6 +627,22 @@
       "Güçlü AoE büyüsü yok",
       "Hareket edince hasar durur"
      ]
+    }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "tailoring",
+      "enchanting"
+     ],
+     "neden": "Kendi kumaş zırhını ve çantanı yaparsın, bulduğun yeşilleri bozup Enchanting kasarsın."
+    },
+    {
+     "ikili": [
+      "herbalism",
+      "alchemy"
+     ],
+     "neden": "Leveling'de para ve mana iksirleri; şifacı için flask."
     }
    ]
   },
@@ -646,6 +726,22 @@
       "AoE yok; çok düşmanda tek tek DoT atmak gerekir"
      ]
     }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "leatherworking",
+      "skinning"
+     ],
+     "neden": "Kendi deri zırhını yaparsın; leveling'de deri satarak para kazanırsın."
+    },
+    {
+     "ikili": [
+      "engineering",
+      "mining"
+     ],
+     "neden": "PvP ve raid için bomba ve aletler; PvP Rogue'ların sık seçimi."
+    }
    ]
   },
   "shaman": {
@@ -718,6 +814,22 @@
       "Riptide dışında bekleme süreli büyü yok; ustalaşacak az şey"
      ]
     }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "leatherworking",
+      "skinning"
+     ],
+     "neden": "Önce deri, 40'tan sonra mail giyersin: kendi zırhını yaparsın."
+    },
+    {
+     "ikili": [
+      "herbalism",
+      "alchemy"
+     ],
+     "neden": "Restoration ve Elemental için mana iksirleri ve flask."
+    }
    ]
   },
   "warlock": {
@@ -786,6 +898,22 @@
       "Succubus feda edilince petsiz oynanır; açık tutmak da güçlü ama pet ölmemeli",
       "En güçlü AoE (Hellfire) yakın mesafede ve sana da vurur"
      ]
+    }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "tailoring",
+      "enchanting"
+     ],
+     "neden": "Kendi kumaş zırhını ve çantanı (Soul Shard çantası dahil) yaparsın, yeşilleri bozup Enchanting kasarsın."
+    },
+    {
+     "ikili": [
+      "herbalism",
+      "alchemy"
+     ],
+     "neden": "Leveling'de para ve iksirler."
     }
    ]
   },
@@ -864,6 +992,29 @@
       "4'ten fazla düşmanda hedef değiştirerek tehdit tutmalısın",
       "Intercept için Berserker Stance'e geçmek Rage kaybettirir"
      ]
+    }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "mining",
+      "blacksmithing"
+     ],
+     "neden": "Tank ve DPS için kendi plate zırhını, silahını ve Sharpening Stone'larını yaparsın; Protection Warrior rehberlerinde en çok önerilen ikili."
+    },
+    {
+     "ikili": [
+      "engineering",
+      "mining"
+     ],
+     "neden": "Raid ve PvP'de bomba, Target Dummy gibi araçlar verir; Protection için güçlü alternatif."
+    },
+    {
+     "ikili": [
+      "mining",
+      "skinning"
+     ],
+     "neden": "Leveling'de iki toplama mesleğiyle hızlı para; 60'ta biri üretim mesleğiyle değiştirilir."
     }
    ]
   }
