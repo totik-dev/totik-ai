@@ -146,7 +146,7 @@ CASES.push(
   ["leatherworking 230", "=lw-225-300"], ["lw 100", "=lw-1-150"], ["leatherworking 160", "=lw-150-225"], ["leatherworking eğitmeni", "=lw-genel"], ["dericilik nasıl kasılır", "^lw-1-150"],
   ["tailoring 150 den sonra ne dikeyim", "=tail-150-300"], ["terzilik 50", "=tail-1-150"], ["tailoring eğitmeni", "=tail-genel"], ["tailoring 280", "=tail-150-300"], ["tailoring nerede kasılır", "^tail-1-150"],
   ["engineering mi blacksmithing mi", "=eng-genel,bs-genel"], ["herbalism alchemy beraber iyi mi", "=herb-genel,alch-genel"], ["mining ve blacksmithing", "=mining-genel,bs-genel"], ["skinning leatherworking", "=skin-genel,lw-genel"],
-  ["para kazanmak için hangi meslek", "advice"], ["warrior için hangi meslek", "advice"], ["dwarf shaman için leveling aşamasında hangi meslekleri önerirsin", "advice=lw-genel"], ["hangi meslekleri seçmeliyim", "advice"],
+  ["para kazanmak için hangi meslek", "advice"], ["warrior için hangi meslek", "advice=mining-genel,bs-genel"], ["dwarf shaman için leveling aşamasında hangi meslekleri önerirsin", "advice=lw-genel"], ["hangi meslekleri seçmeliyim", "advice"],
   // ------------------------------------------------------------
   // Dungeons
   // ------------------------------------------------------------

@@ -6276,6 +6276,22 @@ export const CLASS_FACTS = {
       "Gücün çoğu Regrowth'ta; Healing Touch zayıf"
      ]
     }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "leatherworking",
+      "skinning"
+     ],
+     "neden": "Druid oyun boyu deri giyer: kendi zırhını yaparsın."
+    },
+    {
+     "ikili": [
+      "herbalism",
+      "alchemy"
+     ],
+     "neden": "Restoration ve Balance için iksir ve flask; Travel Form ile otları hızlı toplarsın."
+    }
    ]
   },
   "hunter": {
@@ -6355,6 +6371,22 @@ export const CLASS_FACTS = {
       "Etkili çok hedef dönüşü yok"
      ]
     }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "leatherworking",
+      "skinning"
+     ],
+     "neden": "Kendi deri ve mail zırhını, quiver ve ammo pouch'unu yaparsın; leveling'de deri satarsın."
+    },
+    {
+     "ikili": [
+      "engineering",
+      "mining"
+     ],
+     "neden": "Kendi scope'unu ve mermini yaparsın; raid ve PvP aletleri verir."
+    }
    ]
   },
   "mage": {
@@ -6432,6 +6464,22 @@ export const CLASS_FACTS = {
       "Cone of Cold için hedefe yakın durmak gerekir"
      ]
     }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "tailoring",
+      "enchanting"
+     ],
+     "neden": "Kendi kumaş zırhını ve çantanı yaparsın, bulduğun yeşilleri bozup Enchanting kasarsın."
+    },
+    {
+     "ikili": [
+      "herbalism",
+      "alchemy"
+     ],
+     "neden": "Leveling'de para ve mana iksirleri; Tailoring'e göre daha kolay para getirir."
+    }
    ]
   },
   "paladin": {
@@ -6500,6 +6548,22 @@ export const CLASS_FACTS = {
       "Beta'da çok nerf yedi",
       "Unsealed Wrath build'i swing timer takibi ister"
      ]
+    }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "mining",
+      "blacksmithing"
+     ],
+     "neden": "Protection ve Retribution için kendi plate zırhını ve silahını yaparsın."
+    },
+    {
+     "ikili": [
+      "herbalism",
+      "alchemy"
+     ],
+     "neden": "Holy Paladin için mana iksirleri ve flask; leveling'de de para getirir."
     }
    ]
   },
@@ -6580,6 +6644,22 @@ export const CLASS_FACTS = {
       "Güçlü AoE büyüsü yok",
       "Hareket edince hasar durur"
      ]
+    }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "tailoring",
+      "enchanting"
+     ],
+     "neden": "Kendi kumaş zırhını ve çantanı yaparsın, bulduğun yeşilleri bozup Enchanting kasarsın."
+    },
+    {
+     "ikili": [
+      "herbalism",
+      "alchemy"
+     ],
+     "neden": "Leveling'de para ve mana iksirleri; şifacı için flask."
     }
    ]
   },
@@ -6663,6 +6743,22 @@ export const CLASS_FACTS = {
       "AoE yok; çok düşmanda tek tek DoT atmak gerekir"
      ]
     }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "leatherworking",
+      "skinning"
+     ],
+     "neden": "Kendi deri zırhını yaparsın; leveling'de deri satarak para kazanırsın."
+    },
+    {
+     "ikili": [
+      "engineering",
+      "mining"
+     ],
+     "neden": "PvP ve raid için bomba ve aletler; PvP Rogue'ların sık seçimi."
+    }
    ]
   },
   "shaman": {
@@ -6735,6 +6831,22 @@ export const CLASS_FACTS = {
       "Riptide dışında bekleme süreli büyü yok; ustalaşacak az şey"
      ]
     }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "leatherworking",
+      "skinning"
+     ],
+     "neden": "Önce deri, 40'tan sonra mail giyersin: kendi zırhını yaparsın."
+    },
+    {
+     "ikili": [
+      "herbalism",
+      "alchemy"
+     ],
+     "neden": "Restoration ve Elemental için mana iksirleri ve flask."
+    }
    ]
   },
   "warlock": {
@@ -6803,6 +6915,22 @@ export const CLASS_FACTS = {
       "Succubus feda edilince petsiz oynanır; açık tutmak da güçlü ama pet ölmemeli",
       "En güçlü AoE (Hellfire) yakın mesafede ve sana da vurur"
      ]
+    }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "tailoring",
+      "enchanting"
+     ],
+     "neden": "Kendi kumaş zırhını ve çantanı (Soul Shard çantası dahil) yaparsın, yeşilleri bozup Enchanting kasarsın."
+    },
+    {
+     "ikili": [
+      "herbalism",
+      "alchemy"
+     ],
+     "neden": "Leveling'de para ve iksirler."
     }
    ]
   },
@@ -6882,6 +7010,29 @@ export const CLASS_FACTS = {
       "Intercept için Berserker Stance'e geçmek Rage kaybettirir"
      ]
     }
+   ],
+   "meslek": [
+    {
+     "ikili": [
+      "mining",
+      "blacksmithing"
+     ],
+     "neden": "Tank ve DPS için kendi plate zırhını, silahını ve Sharpening Stone'larını yaparsın; Protection Warrior rehberlerinde en çok önerilen ikili."
+    },
+    {
+     "ikili": [
+      "engineering",
+      "mining"
+     ],
+     "neden": "Raid ve PvP'de bomba, Target Dummy gibi araçlar verir; Protection için güçlü alternatif."
+    },
+    {
+     "ikili": [
+      "mining",
+      "skinning"
+     ],
+     "neden": "Leveling'de iki toplama mesleğiyle hızlı para; 60'ta biri üretim mesleğiyle değiştirilir."
+    }
    ]
   }
  }
@@ -6922,7 +7073,14 @@ export const FOREVER_NOTES = [
    "gidecegim",
    "gidicem",
    "en kisa yol",
-   "ulasim"
+   "ulasim",
+   "giderim",
+   "thunder axe",
+   "desolace",
+   "tirisfal",
+   "western plaguelands",
+   "chillwind",
+   "nijel"
   ],
   "satirlar": [
    "Forever'da uçan binek yoktur. Hızlı ulaşım uçuş noktaları (flight path), gemiler, zeplinler, Deeprun Tram ve Mage portallarıyla olur.",
@@ -6934,7 +7092,14 @@ export const FOREVER_NOTES = [
    "Classic gemileri yerinde: Menethil Harbor ile Theramore, Auberdine ile Rut'theran Village, Feathermoon Stronghold ile Forgotten Coast, Ratchet ile Booty Bay (iki taraf da kullanır).",
    "Horde zeplinleri Classic'teki gibidir: Orgrimmar, Undercity ve Grom'gol arasında çalışır. Thunder Bluff'a zeplin yoktur; Orgrimmar'dan uçuş noktasıyla gidilir.",
    "Skyborne başlangıç adası Zephras Isle'dan iki skyboat (gök gemisi) kalkar: biri Mulgore'un kuzeybatısında, Thunder Bluff yakınındaki Skywatcher Plateau'ya, diğeri Alterac Mountains'taki Dalaran'a gider.",
-   "Stormwind ile Ironforge arasındaki Deeprun Tram yerinde duruyor."
+   "Stormwind ile Ironforge arasındaki Deeprun Tram yerinde duruyor.",
+   "Alliance Kalimdor'dan Eastern Kingdoms'a gemiyle geçer: Darkshore'daki Auberdine'den Stormwind Limanı'na ya da Menethil Harbor ve Southshore'a giden gemiye; Dustwallow Marsh'taki Theramore'dan Menethil Harbor'a.",
+   "Horde kıtalar arasını zeplinle geçer: Orgrimmar'dan Undercity'ye ya da Stranglethorn'daki Grom'gol'e. Ratchet ile Booty Bay arasındaki gemiyi iki taraf da kullanır.",
+   "Scarlet Monastery, Tirisfal Glades'in kuzeydoğu ucunda, Western Plaguelands sınırındadır. Horde Undercity ya da Brill'den doğuya yürür.",
+   "Alliance için Tirisfal Glades'te uçuş noktası yoktur. Darkshore'dan Scarlet Monastery'ye: Auberdine'den Southshore gemisine bin, Southshore'dan kuzeye Alterac Mountains üzerinden Western Plaguelands'e çık (Chillwind Camp'ta Alliance uçuş noktası var), oradan batıya Tirisfal Glades'e geçip kuzeydoğudaki manastıra git.",
+   "Thunder Axe Fortress Darkshore'da değil, Desolace'in kuzey ortasındadır; Alliance uçuş noktası Nijel's Point'in güneybatısında kalır.",
+   "Darkshore'dan Desolace'e (Alliance): güneye Ashenvale'e in (Astranaar), batıdan Stonetalon Mountains'a geç (Stonetalon Peak uçuş noktası), oradan güneye Desolace'e in. Nijel's Point uçuş noktasını bir kez açtıktan sonra oraya uçarak gidebilirsin.",
+   "Uçuş noktası ancak bir kez yürüyerek gidip uçuş görevlisiyle konuşunca açılır; açmadığın yere uçamazsın."
   ]
  },
  {
@@ -7169,7 +7334,16 @@ export const FOREVER_NOTES = [
    "warhorse",
    "felsteed",
    "charger",
-   "dreadsteed"
+   "dreadsteed",
+   "skyborne+mount",
+   "skyborne+binek",
+   "skyborne+riding",
+   "riding+indirim",
+   "binek+indirim",
+   "mount+indirim",
+   "riding+honored",
+   "genn fairweather",
+   "galestrider"
   ],
   "satirlar": [
    "İlk Riding becerisi 40. seviyede açılır ve %60 hız verir; hızlı binek 60. seviyede açılır ve %100 hız verir.",
@@ -7177,7 +7351,9 @@ export const FOREVER_NOTES = [
    "Riding eğitimi 40. seviyede 100 gold, 60. seviyede 1000 gold tutar. 40. seviyedeki eğitimle ırkının ilk bineği birlikte verilir; ayrıca binek satın almak gerekmez.",
    "60. seviyedeki hızlı (epic) bineklerin her biri 200 gold'dur.",
    "Paladin (Summon Warhorse) ve Warlock (Summon Felsteed) 40. seviyede sınıf göreviyle kendi bineğini alır. 60. seviyede Paladin'in Charger'ı ve Warlock'un Dreadsteed'i yine sınıf görevleriyle gelir; bu görevler zindan ve malzeme ister.",
-   "Hız karşılaştırması: 40. seviye bineği %60, 60. seviye bineği %100 hız verir. Shaman'ın Ghost Wolf'u (20. seviye) ve Druid'in Travel Form'u (30. seviye) %40, Hunter'ın Aspect of the Cheetah'ı (20. seviye) %30 hız verir. Yani 40. seviye bineği bu yeteneklerin hepsinden hızlıdır."
+   "Hız karşılaştırması: 40. seviye bineği %60, 60. seviye bineği %100 hız verir. Shaman'ın Ghost Wolf'u (20. seviye) ve Druid'in Travel Form'u (30. seviye) %40, Hunter'ın Aspect of the Cheetah'ı (20. seviye) %30 hız verir. Yani 40. seviye bineği bu yeteneklerin hepsinden hızlıdır.",
+   "Kendi ırkının şehriyle (Skyborne için kendi Skyborne itibarıyla) Honored itibardaysan Riding eğitimi %10 ucuzdur: 40. seviyede 100 gold yerine 90 gold, 60. seviyede 1000 gold yerine 900 gold. Honored değilsen tam fiyatı ödersin.",
+   "Skyborne Riding eğitimini ve ilk bineğini Zephras Isle'daki Fairweather Stables'ta Genn Fairweather'dan alır; Galestrider binekleri de ondan satılır. Skyborne'un Honored indirimi açılışta çalışmıyordu, 19 Kasım 2026 düzeltmesiyle çalışır oldu."
   ]
  },
  {
@@ -7391,7 +7567,7 @@ export const FOREVER_NOTES = [
    "darkspear islands",
    "battleground",
    "bg",
-   "honor",
+   "honor=",
    "rank 14",
    "pvp rank",
    "pvp sistem",
@@ -7406,7 +7582,12 @@ export const FOREVER_NOTES = [
    "pvp gear",
    "arathi",
    "alterac",
-   "gulch"
+   "gulch",
+   "honor puan",
+   "honor point",
+   "honor+kas",
+   "honor+farm",
+   "honor+pvp"
   ],
   "satirlar": [
    "Darkspear Islands Forever'la gelen yeni battleground'dur: 15'e 15, nokta ele geçirmeli, 30–60. seviye, Dustwallow Marsh açıklarında. 2000 puana ilk ulaşan takım kazanır.",
@@ -7953,6 +8134,84 @@ export const FOREVER_NOTES = [
    "Need seçen biri varsa eşya Need diyenler arasında zarla dağılır; Greed diyenler ancak kimse Need demediyse zar atar. Aynı seçimi yapanlar arasında en yüksek zar kazanır.",
    "Yaygın kural: Need yalnız eşyayı hemen giyip kullanacaksan ve senin sınıfına, uzmanlığına göre bir yükseltmeyse basılır. Satmak, bozmak (disenchant) ya da yedek için istiyorsan Greed basılır.",
    "Değerli BoE (Bind on Equip, açık artırmada satılabilen) eşyalarda kimin Need basacağı WoW Forever oyuncuları arasında da tartışma konusu. Bu yüzden gruplar kuralı ilk çekişten önce konuşup belirler; herkesin Greed bastığı ya da yalnız giyecek kişinin Need bastığı kurallar yaygındır."
+  ]
+ },
+ {
+  "id": "dual-wield",
+  "baslik": "Dual Wield (çift silah, iki elde silah)",
+  "anahtar": [
+   "dual wield",
+   "duel wield",
+   "dual wiled",
+   "dualwield",
+   "cift silah",
+   "iki silah",
+   "iki elde silah",
+   "dual+silah",
+   "duel+silah",
+   "dual+ogren",
+   "duel+ogren",
+   "dual+kac",
+   "duel+kac",
+   "cift silah+ogren",
+   "iki silah+ogren"
+  ],
+  "satirlar": [
+   "Warrior Dual Wield'ı 20. seviyede sınıf eğitmeninden öğrenir; ondan sonra iki eline birer tek elli silah takabilir.",
+   "Hunter Dual Wield'ı 20. seviyede sınıf eğitmeninden öğrenir.",
+   "Rogue Dual Wield'ı 10. seviyede sınıf eğitmeninden öğrenir.",
+   "Çift silah bir sınıf yeteneğidir, silah türü değildir: Weapon Master'lar öğretmez. Paladin, Druid, Mage, Priest ve Warlock iki elde birer silah taşıyamaz."
+  ]
+ },
+ {
+  "id": "muzayede",
+  "baslik": "Auction House (müzayede, açık artırma evi)",
+  "anahtar": [
+   "auction",
+   "auction house",
+   "auctionhouse",
+   "muzayede",
+   "mezat",
+   "acik artirma",
+   "ah=",
+   "ah+bagli",
+   "ah+ayni",
+   "ah+ortak",
+   "black market",
+   "kara borsa",
+   "auction+bagli",
+   "auction+ayni",
+   "auction+ortak",
+   "auction+ayri",
+   "muzayede+bagli",
+   "muzayede+ayni",
+   "muzayede+ortak"
+  ],
+  "satirlar": [
+   "Aynı tarafın başkentlerindeki Auction House'lar birbirine bağlıdır ve tek pazardır: Alliance'ta Stormwind, Ironforge ve Darnassus; Horde'da Orgrimmar, Undercity ve Thunder Bluff. Stormwind'e koyduğun eşya Ironforge'da da görünür; kıta fark etmez.",
+   "Booty Bay (Stranglethorn Vale), Gadgetzan (Tanaris) ve Everlook'taki (Winterspring) goblin Auction House'lar tarafsızdır: iki taraf da kullanır, kendi aralarında ortaktır ama başkentlerin pazarından ayrıdır. Alliance ile Horde arasında eşya ticareti bu tarafsız pazarlardan yapılır.",
+   "Black Market Auction House (kara borsa) Riverglades'teki tarafsız kasaba Powderfuse Port'tadır."
+  ]
+ },
+ {
+  "id": "cenarion-circle",
+  "baslik": "Cenarion Circle itibarı",
+  "anahtar": [
+   "cenarion circle",
+   "cenarion hold",
+   "cenarion+rep",
+   "cenarion+itibar",
+   "cc+rep",
+   "cc+itibar",
+   "cc+reputation",
+   "cc+honored",
+   "cc+revered"
+  ],
+  "satirlar": [
+   "Cenarion Circle itibarının merkezi Silithus'taki Cenarion Hold'dur; Silithus görevlerinin çoğu bu itibarı verir.",
+   "Honored'a en hızlı yol: Cenarion Hold'daki bütün görevleri yapmak, Silithus'ta Twilight's Hammer kültistlerini (Twilight kamplarındaki mob'lar) öldürmek ve onlardan düşen Encrypted Twilight Text'leri Cenarion Hold'daki Bor Wildmane'e tekrarlanan görevle teslim etmek.",
+   "Silithus'taki dünya PvP'sinde toplanan Silithyst'i kendi tarafının kampına getirmek de Cenarion Circle itibarı verir.",
+   "Druid'ler sınıf görevleri sayesinde Cenarion Circle itibarını diğer sınıflardan daha kolay artırır."
   ]
  }
 ];

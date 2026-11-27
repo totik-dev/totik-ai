@@ -160,7 +160,7 @@ export const REVIEWED = [
   ["fish bowl ne veriyor", "none"],
   ["cooking kamp fish bowl", "=cook-kamp"],
   ["yemek bufları neler", "=cook-yemek"],
-  ["meslek seçimi warrior", "advice"],
+  ["meslek seçimi warrior", "advice=mining-genel,bs-genel"],
   ["hangi meslek para kazandırır", "advice"],
   ["iki meslek birden olur mu", "advice"],
   ["warrior tank için hangi ırk", "=warrior-01-irk-secimi"],
@@ -649,7 +649,7 @@ export const REVIEWED = [
   ["rogue için en iyi meslek hangisi", "advice=lw-genel"],
   ["druid meslek tavsiyesi", "advice=lw-genel"],
   ["shaman meslek olarak ne alayım", "advice=lw-genel"],
-  ["paladin hangi meslekleri seçmeli", "advice"],
+  ["paladin hangi meslekleri seçmeli", "advice=mining-genel,bs-genel"],
   ["kaç meslek alabilirim", "advice"],
   ["aynı anda kaç meslek öğrenebilirim", "advice"],
   ["mining ile hangi meslek gider", "=mining-genel"],
@@ -884,5 +884,15 @@ export const REVIEWED = [
   ["60 level olduktan sonra daily veya weakly questleri nasıl alacağız wow foreverda bu sistem nasıl işliyor", "note=haftalik-gorev"], ["haftalık görev nereden alınır", "note=haftalik-gorev"],
   ["pix xizzix weekly quest", "note=haftalik-gorev"], ["60ta daily quest var mı", "note=haftalik-gorev"],
   ["nightelf hunter hangi mesleklerden gitmeli?", "advice=lw-genel"], ["mage hangi mesleğe gitmeli", "advice=ench-genel,tail-genel"],
-  ["para nasıl en hızlı kazanabilirim? 40 seviyeyim mesleklerim herbalism ve alchemy", "none"], ["herbalism ile para kazanılır mı", "none"], ["40 level gold nasıl kasarım", "none"]
+  ["para nasıl en hızlı kazanabilirim? 40 seviyeyim mesleklerim herbalism ve alchemy", "none"], ["herbalism ile para kazanılır mı", "none"], ["40 level gold nasıl kasarım", "none"],
+  // 2026-11-27: the 👎 answers since 23.11
+  ["protection warrior oynarken hangi meslekleri kasmalıyım", "advice=mining-genel,bs-genel"], ["warrior için meslek önerisi", "advice=mining-genel,bs-genel"],
+  ["paladin hangi meslekleri almalı", "advice=mining-genel,bs-genel"],
+  ["lone wolf marksman hunter buildi nasıl olmalı", "=hunter-15-marksmanship-raid-talentleri"], ["marksman hunter lone wolf alınır mı", "=hunter-15-marksmanship-raid-talentleri"],
+  ["mm hunter talent sırası", "=hunter-09-marksmanship-leveling"],
+  ["cc rep en hızlı nasıl kasılır honoreda kadar", "note=cenarion-circle"], ["cenarion circle itibarı nasıl kasılır", "note=cenarion-circle"],
+  ["skyborne ırkı mount için 100 gold mu ödüyor 90 mı", "note=binek"], ["riding honored indirimi var mı", "note=binek"],
+  ["warrior duel silahı kaç levelde öğnreiyorum", "note=dual-wield"], ["rogue dual wield kaç levelde", "note=dual-wield"], ["hunter çift silah ne zaman öğrenir", "note=dual-wield"],
+  ["auction houselar birbirine bağlı mı? mesela stormwind ile ıronforge aynı mı? yada iki ayrı kıta da tamamen aynı mı yani", "note=muzayede"],
+  ["booty bay auction house ortak mı", "note=muzayede"]
 ];

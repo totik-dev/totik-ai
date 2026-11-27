@@ -398,7 +398,8 @@ export function stripForeverContradictions(text) {
 let noteIndex = null;
 function noteHits(question) {
   const q = normalizeText(question); if (!q) return [];
-  noteIndex ||= FOREVER_NOTES.map(note => ({ note, keys: note.anahtar.map(key => key.split("+").map(part => { const text = normalizeText(part); return new RegExp(`(?:^| )${text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}${text.length <= 3 ? "" : "\\w*"}(?= |$)`); })) }));
+  // A key part ending in "=" is the whole word only: "honor=" is PvP honor, never the reputation level "honored".
+  noteIndex ||= FOREVER_NOTES.map(note => ({ note, keys: note.anahtar.map(key => key.split("+").map(part => { const exact = part.endsWith("="), text = normalizeText(part.replace(/=$/, "")); return new RegExp(`(?:^| )${text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}${exact || text.length <= 3 ? "" : "\\w*"}(?= |$)`); })) }));
   return noteIndex.map(({ note, keys }) => { const hit = keys.filter(parts => parts.every(part => part.test(q))); return { note, score: hit.length, specific: hit.some(parts => parts.length > 1) }; }).filter(hit => hit.score > 0).sort((a, b) => b.specific - a.specific || b.score - a.score);
 }
 export function foreverNotes(question, limit = 2) { return noteHits(question).slice(0, limit).map(hit => hit.note); }
@@ -661,14 +662,19 @@ function professionAdvice(classKey) {
   const lines = professionAdviceLines(), secondary = [...new Set(lines.filter(line => line.tag === "İKİNCİL").map(line => line.profession))];
   const primary = Object.keys(PROFESSIONS).filter(key => !secondary.includes(key));
   const mine = classKey ? lines.filter(line => line.classes.includes(classKey)) : [];
-  const cards = [...new Set(mine.filter(line => line.tag !== "İKİLİ" && primary.includes(line.profession)).map(line => line.profession))].slice(0, 2).map(key => CARDS.find(card => card.profession === key && card.part === "genel")).filter(Boolean);
   const name = key => PROFESSIONS[key].name, show = line => `${name(line.profession)}: ${line.text}`;
+  // The pairs the class guides recommend (kartlar/sinif-bilgi.json "meslek"), the first one is the main advice.
+  const pairs = classKey ? CLASS_FACTS.siniflar[classKey]?.meslek || [] : [], pairLines = pairs.map(pair => `${pair.ikili.map(name).join(" + ")}: ${pair.neden}`);
+  let cards = [...new Set(mine.filter(line => line.tag !== "İKİLİ" && primary.includes(line.profession)).map(line => line.profession))].slice(0, 2).map(key => CARDS.find(card => card.profession === key && card.part === "genel")).filter(Boolean);
+  // No primary profession on the cards names the class (Warrior, Paladin): the general cards of the main pair.
+  if (!cards.length && pairs.length) cards = pairs[0].ikili.map(key => CARDS.find(card => card.profession === key && card.part === "genel")).filter(Boolean);
   const facts = [`MESLEK SEÇİMİ (meslek kartlarından)`,
     `Ana meslekler (aynı anda en fazla iki tanesi öğrenilir): ${primary.map(name).join(", ")}. İkincil meslekler (ana meslek yerini kullanmaz, üçü birlikte öğrenilebilir): ${secondary.map(name).join(", ")}.`,
+    pairLines.length ? `${CLASS_NAMES[classKey]} için önerilen meslek ikilileri (ilk satır ana öneri):\n${pairLines.join("\n")}` : "",
     classKey ? (mine.length ? `${CLASS_NAMES[classKey]} için kartlarda yazanlar:\n${mine.map(show).join("\n")}` : `Kartlarda ${CLASS_NAMES[classKey]} adına özel bir meslek önerisi yazmıyor.`) : "",
     `Diğer satırlar:\n${lines.filter(line => !mine.includes(line)).map(show).join("\n")}`].filter(Boolean).join("\n");
   const forum = CARDS.find(card => card.category === "profession")?.forum || null;
-  return result("profession", cards, { classKey, advice: true, adviceLines: mine.map(show), general: !cards.length, forum: cards[0]?.forum || forum, facts, siblings: [] });
+  return result("profession", cards, { classKey, advice: true, adviceLines: [...pairLines.slice(0, 2), ...mine.map(show)], general: !cards.length, forum: cards[0]?.forum || forum, facts, siblings: [] });
 }
 // "alınır", "kurulur", "bulunuyor": verbs of the question, never the name of an item.
 const COMMON_VERB = /^(?:al|bul|kur|kullan|gerek|ver|git|sat|dus|cik|bak|kazan|pisir|dik|bas|ol|gel|koy|tak|at)(?:in|il|un|ul|n|l)?(?:ir|ur|ar|er|iyor|uyor|mak|mek|mali|meli|acak|ecek|an|en|dim|dum|sam|sem|ayim|eyim|abil|ebil|iyorum|uyorum|inir|unur|ilir|ulur|malik|mis|mus)\w*$/;
@@ -792,6 +798,12 @@ export function lateKind(question, intents = null, options = {}) {
   return options.lateHint || null;
 }
 const LATE_KINDS = new Set(["raid", "prebis", "raidprep", "t05"]);
+// The talent has no points in the spec's leveling card ("Lone Wolf — 0/1") and has points in its raid card ("| Lone Wolf | 1/1 |").
+function raidOnlyTalent(entries, spec, name) {
+  const lines = kind => (entries.find(entry => entry.card.kind === kind && entry.card.spec === spec)?.card.text || "").split("\n").filter(line => normalizeText(line).includes(name));
+  const leveling = lines("leveling"), raid = lines("raid");
+  return leveling.length > 0 && leveling.every(line => /\b0\/\d/.test(line)) && raid.some(line => /\b[1-9]\d*\/\d/.test(line));
+}
 const setName = card => (card.text.match(/^## T0\.5: ([^(]+)/m) || [])[1]?.trim() || "";
 function classTopic(classKey, entries) { return { classKey, forum: entries[0]?.card.forum || null, thread: entries[0]?.card.thread || null }; }
 // "arcane mi frost mu fire mi", "warrior hangi spec": answered from the role, strengths and weaknesses of each spec.
@@ -812,11 +824,14 @@ function selectClass(q, classKey, options) {
   // "druid ırk" is a race question; "tauren druid rotasyon" is not.
   if (intents.race && (intents.leveling || intents.gameplay || intents.talents) && !/(?:^| )(?:irk\w*|race|racial\w*)(?= |$)/.test(q)) intents.race = false;
   // Level 60: "60 rogue talent", "raid build", "pre bis", "stat önceliği", "T0.5 nasıl alınır". Each has its own card per spec.
-  const late = lateKind(q, intents, options), compareKind = late === "raid" ? "raid" : "leveling";
+  let late = lateKind(q, intents, options); const compareKind = late === "raid" ? "raid" : "leveling";
   // Which spec: two or more specs set against each other, or no spec named and the question asks which one to play.
   if (hits.length >= 2 && (hits.some(hit => followedByParticle(q, hit, CLASS_ALIASES[classKey])) || COMPARE_WORD.test(q) || WHICH_SPEC.test(q))) return compareSpecs(classKey, hits.map(hit => hit.spec), entries, compareKind);
   if (!hits.length && !options.specHint && !intents.race && (!late || late === "raid") && (WHICH_SPEC.test(q) || PURPOSE.test(q) && (options.talentAdvice || ASKS_ADVICE.test(q) && (intents.talents || /(?:^| )(?:build|spec|spek|uzmanli[kg])\w*/.test(q))))) return compareSpecs(classKey, classSpecs(classKey), entries, compareKind);
   const spec = detectSpec(q, classKey) || options.specHint || null;
+  // "lone wolf marksman build": a talent that the spec's leveling build leaves at 0 but its raid build takes
+  // is a question about the raid build.
+  if (!late && spec && namedInQuestion(q).some(hit => hit.classKey === classKey && raidOnlyTalent(entries, spec, hit.name))) late = "raid";
   if (late) {
     const own = card => card.kind === late && (!spec || card.spec === spec);
     let card = entries.find(entry => own(entry.card))?.card || null;
